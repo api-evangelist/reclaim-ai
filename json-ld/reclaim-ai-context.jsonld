@@ -1,0 +1,126 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "reclaim": "https://api.app.reclaim.ai/vocab#",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Task": "reclaim:Task",
+    "taskId": { "@id": "reclaim:taskId", "@type": "xsd:string" },
+    "taskTitle": { "@id": "reclaim:taskTitle", "@type": "xsd:string" },
+    "taskStatus": { "@id": "reclaim:taskStatus", "@type": "xsd:string" },
+    "taskDue": { "@id": "reclaim:taskDue", "@type": "xsd:dateTime" },
+    "taskPriority": { "@id": "reclaim:taskPriority", "@type": "xsd:string" },
+    "taskEstimate": { "@id": "reclaim:taskEstimate", "@type": "xsd:duration" },
+    "taskTimeChunksRequired": { "@id": "reclaim:taskTimeChunksRequired", "@type": "xsd:integer" },
+
+    "Habit": "reclaim:Habit",
+    "habitId": { "@id": "reclaim:habitId", "@type": "xsd:string" },
+    "habitTitle": { "@id": "reclaim:habitTitle", "@type": "xsd:string" },
+    "habitFrequency": { "@id": "reclaim:habitFrequency", "@type": "xsd:string" },
+    "habitDuration": { "@id": "reclaim:habitDuration", "@type": "xsd:duration" },
+    "habitEnabled": { "@id": "reclaim:habitEnabled", "@type": "xsd:boolean" },
+
+    "SmartMeeting": "reclaim:SmartMeeting",
+    "meetingId": { "@id": "reclaim:meetingId", "@type": "xsd:string" },
+    "meetingTitle": { "@id": "reclaim:meetingTitle", "@type": "xsd:string" },
+    "meetingDuration": { "@id": "reclaim:meetingDuration", "@type": "xsd:integer" },
+    "meetingOrganizer": { "@id": "reclaim:meetingOrganizer", "@type": "xsd:string" },
+    "meetingAttendees": { "@id": "reclaim:meetingAttendees", "@type": "xsd:string" },
+
+    "Event": "reclaim:Event",
+    "eventId": { "@id": "reclaim:eventId", "@type": "xsd:string" },
+    "eventTitle": { "@id": "reclaim:eventTitle", "@type": "xsd:string" },
+    "eventStart": { "@id": "reclaim:eventStart", "@type": "xsd:dateTime" },
+    "eventEnd": { "@id": "reclaim:eventEnd", "@type": "xsd:dateTime" },
+    "eventAllDay": { "@id": "reclaim:eventAllDay", "@type": "xsd:boolean" },
+    "eventStatus": { "@id": "reclaim:eventStatus", "@type": "xsd:string" },
+    "eventType": { "@id": "reclaim:eventType", "@type": "xsd:string" },
+
+    "Calendar": "reclaim:Calendar",
+    "calendarId": { "@id": "reclaim:calendarId", "@type": "xsd:string" },
+    "calendarName": { "@id": "reclaim:calendarName", "@type": "xsd:string" },
+    "calendarProvider": { "@id": "reclaim:calendarProvider", "@type": "xsd:string" },
+    "calendarTimezone": { "@id": "reclaim:calendarTimezone", "@type": "xsd:string" },
+    "calendarColor": { "@id": "reclaim:calendarColor", "@type": "xsd:string" },
+
+    "User": "reclaim:User",
+    "userId": { "@id": "reclaim:userId", "@type": "xsd:string" },
+    "userEmail": { "@id": "reclaim:userEmail", "@type": "xsd:string" },
+    "userName": { "@id": "reclaim:userName", "@type": "xsd:string" },
+    "userTimezone": { "@id": "reclaim:userTimezone", "@type": "xsd:string" },
+    "userOrgId": { "@id": "reclaim:userOrgId", "@type": "xsd:string" },
+
+    "SchedulePolicy": "reclaim:SchedulePolicy",
+    "schedulePolicyId": { "@id": "reclaim:schedulePolicyId", "@type": "xsd:string" },
+    "schedulePolicyTitle": { "@id": "reclaim:schedulePolicyTitle", "@type": "xsd:string" },
+    "workHoursStart": { "@id": "reclaim:workHoursStart", "@type": "xsd:string" },
+    "workHoursEnd": { "@id": "reclaim:workHoursEnd", "@type": "xsd:string" },
+    "workDays": { "@id": "reclaim:workDays", "@type": "xsd:string" },
+
+    "TimePolicy": "reclaim:TimePolicy",
+    "timePolicyId": { "@id": "reclaim:timePolicyId", "@type": "xsd:string" },
+    "timePolicyTitle": { "@id": "reclaim:timePolicyTitle", "@type": "xsd:string" },
+    "timePolicyMaxHours": { "@id": "reclaim:timePolicyMaxHours", "@type": "xsd:decimal" },
+    "timePolicyMinHours": { "@id": "reclaim:timePolicyMinHours", "@type": "xsd:decimal" },
+
+    "TimeScheme": "reclaim:TimeScheme",
+    "timeSchemeId": { "@id": "reclaim:timeSchemeId", "@type": "xsd:string" },
+    "timeSchemeName": { "@id": "reclaim:timeSchemeName", "@type": "xsd:string" },
+
+    "FocusSettings": "reclaim:FocusSettings",
+    "focusEnabled": { "@id": "reclaim:focusEnabled", "@type": "xsd:boolean" },
+    "focusMinDuration": { "@id": "reclaim:focusMinDuration", "@type": "xsd:integer" },
+    "focusMaxDuration": { "@id": "reclaim:focusMaxDuration", "@type": "xsd:integer" },
+
+    "Webhook": "reclaim:Webhook",
+    "webhookId": { "@id": "reclaim:webhookId", "@type": "xsd:string" },
+    "webhookUrl": { "@id": "reclaim:webhookUrl", "@type": "xsd:anyURI" },
+    "webhookSecret": { "@id": "reclaim:webhookSecret", "@type": "xsd:string" },
+    "webhookEvents": { "@id": "reclaim:webhookEvents", "@type": "xsd:string" },
+    "webhookEnabled": { "@id": "reclaim:webhookEnabled", "@type": "xsd:boolean" },
+
+    "Analytics": "reclaim:Analytics",
+    "analyticsStart": { "@id": "reclaim:analyticsStart", "@type": "xsd:date" },
+    "analyticsEnd": { "@id": "reclaim:analyticsEnd", "@type": "xsd:date" },
+    "analyticsFocusHours": { "@id": "reclaim:analyticsFocusHours", "@type": "xsd:decimal" },
+    "analyticsMeetingHours": { "@id": "reclaim:analyticsMeetingHours", "@type": "xsd:decimal" },
+
+    "OneOnOne": "reclaim:OneOnOne",
+    "oneOnOneId": { "@id": "reclaim:oneOnOneId", "@type": "xsd:string" },
+    "oneOnOneOrganizer": { "@id": "reclaim:oneOnOneOrganizer", "@type": "xsd:string" },
+    "oneOnOneAttendee": { "@id": "reclaim:oneOnOneAttendee", "@type": "xsd:string" },
+    "oneOnOneFrequency": { "@id": "reclaim:oneOnOneFrequency", "@type": "xsd:string" },
+    "oneOnOneDuration": { "@id": "reclaim:oneOnOneDuration", "@type": "xsd:integer" },
+
+    "Credential": "reclaim:Credential",
+    "credentialId": { "@id": "reclaim:credentialId", "@type": "xsd:string" },
+    "credentialProvider": { "@id": "reclaim:credentialProvider", "@type": "xsd:string" },
+    "credentialStatus": { "@id": "reclaim:credentialStatus", "@type": "xsd:string" },
+
+    "Interaction": "reclaim:Interaction",
+    "interactionId": { "@id": "reclaim:interactionId", "@type": "xsd:string" },
+    "interactionType": { "@id": "reclaim:interactionType", "@type": "xsd:string" },
+    "interactionTimestamp": { "@id": "reclaim:interactionTimestamp", "@type": "xsd:dateTime" },
+
+    "APIKey": "reclaim:APIKey",
+    "apiKeyId": { "@id": "reclaim:apiKeyId", "@type": "xsd:string" },
+    "apiKeyName": { "@id": "reclaim:apiKeyName", "@type": "xsd:string" },
+    "apiKeyCreated": { "@id": "reclaim:apiKeyCreated", "@type": "xsd:dateTime" },
+
+    "DelegatedAccess": "reclaim:DelegatedAccess",
+    "delegateId": { "@id": "reclaim:delegateId", "@type": "xsd:string" },
+    "delegatorId": { "@id": "reclaim:delegatorId", "@type": "xsd:string" },
+
+    "OOOCalendar": "reclaim:OOOCalendar",
+    "oooStart": { "@id": "reclaim:oooStart", "@type": "xsd:date" },
+    "oooEnd": { "@id": "reclaim:oooEnd", "@type": "xsd:date" },
+    "oooTitle": { "@id": "reclaim:oooTitle", "@type": "xsd:string" },
+
+    "BuildingLocation": "reclaim:BuildingLocation",
+    "buildingId": { "@id": "reclaim:buildingId", "@type": "xsd:string" },
+    "buildingName": { "@id": "reclaim:buildingName", "@type": "xsd:string" },
+    "buildingAddress": { "@id": "reclaim:buildingAddress", "@type": "schema:PostalAddress" },
+    "buildingTimezone": { "@id": "reclaim:buildingTimezone", "@type": "xsd:string" }
+  }
+}

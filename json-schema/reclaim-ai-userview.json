@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.app.reclaim.ai/schemas/UserView",
+  "title": "UserView",
+  "required": [
+    "email",
+    "mainAccountId",
+    "name"
+  ],
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "mainAccountId": {
+      "type": "integer",
+      "format": "int64"
+    }
+  }
+}

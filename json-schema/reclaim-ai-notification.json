@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.app.reclaim.ai/schemas/Notification",
+  "title": "Notification",
+  "required": [
+    "context",
+    "contextDateTime",
+    "id",
+    "status",
+    "type",
+    "userId"
+  ],
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "#/components/schemas/NotificationId"
+    },
+    "userId": {
+      "$ref": "#/components/schemas/UserIdentifier"
+    },
+    "contextDateTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "type": {
+      "$ref": "#/components/schemas/NotificationType"
+    },
+    "context": {
+      "$ref": "#/components/schemas/NotificationContext"
+    },
+    "status": {
+      "$ref": "#/components/schemas/NotificationStatus"
+    }
+  }
+}

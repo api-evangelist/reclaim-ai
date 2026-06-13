@@ -1,0 +1,157 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.app.reclaim.ai/schemas/Task",
+  "title": "Task",
+  "required": [
+    "adjusted",
+    "alwaysPrivate",
+    "atRisk",
+    "created",
+    "deferred",
+    "deleted",
+    "eventCategory",
+    "eventSubType",
+    "id",
+    "index",
+    "maxChunkSize",
+    "minChunkSize",
+    "notes",
+    "notesOmitted",
+    "onDeck",
+    "priority",
+    "readOnlyFields",
+    "sortKey",
+    "status",
+    "taskSource",
+    "timeChunksRemaining",
+    "timeChunksRequired",
+    "timeChunksSpent",
+    "timeSchemeId",
+    "title",
+    "updated"
+  ],
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "title": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "notesOmitted": {
+      "type": "boolean"
+    },
+    "eventCategory": {
+      "$ref": "#/components/schemas/EventCategory"
+    },
+    "eventSubType": {
+      "$ref": "#/components/schemas/EventSubType"
+    },
+    "eventColor": {
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/EventColor"
+        }
+      ]
+    },
+    "status": {
+      "$ref": "#/components/schemas/TaskStatus"
+    },
+    "timeChunksRequired": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "timeChunksSpent": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "timeChunksRemaining": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "minChunkSize": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "maxChunkSize": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "alwaysPrivate": {
+      "type": "boolean"
+    },
+    "deleted": {
+      "type": "boolean"
+    },
+    "index": {
+      "type": "number",
+      "format": "double"
+    },
+    "due": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "finished": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "snoozeUntil": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "adjusted": {
+      "type": "boolean"
+    },
+    "atRisk": {
+      "type": "boolean"
+    },
+    "timeSchemeId": {
+      "type": "string"
+    },
+    "priority": {
+      "$ref": "#/components/schemas/PriorityLevel"
+    },
+    "onDeck": {
+      "type": "boolean"
+    },
+    "deferred": {
+      "type": "boolean"
+    },
+    "sortKey": {
+      "type": "number",
+      "format": "double"
+    },
+    "taskSource": {
+      "$ref": "#/components/schemas/TaskSource"
+    },
+    "readOnlyFields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "prioritizableType": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

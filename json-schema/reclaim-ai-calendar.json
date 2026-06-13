@@ -1,0 +1,146 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.app.reclaim.ai/schemas/Calendar",
+  "title": "Calendar",
+  "required": [
+    "syncSettings"
+  ],
+  "type": "object",
+  "properties": {
+    "valid": {
+      "type": "boolean"
+    },
+    "primaryCalendarForAccount": {
+      "type": "boolean"
+    },
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "name": {
+      "type": "string"
+    },
+    "colorHex": {
+      "type": "string"
+    },
+    "user": {
+      "$ref": "#/components/schemas/User"
+    },
+    "userId": {
+      "type": "string"
+    },
+    "calendarId": {
+      "type": "string"
+    },
+    "externalCalendarId": {
+      "$ref": "#/components/schemas/ExternalCalendarId"
+    },
+    "credentialEmail": {
+      "$ref": "#/components/schemas/CredentialName"
+    },
+    "credentialProvider": {
+      "$ref": "#/components/schemas/AuthProvider"
+    },
+    "credentialId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "syncToken": {
+      "type": "string"
+    },
+    "watchGuid": {
+      "type": "string"
+    },
+    "watchResourceId": {
+      "type": "string"
+    },
+    "data": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "eventTypeSupport": {
+      "$ref": "#/components/schemas/EventTypeSupport"
+    },
+    "accessDomainRead": {
+      "type": "boolean"
+    },
+    "authorized": {
+      "type": "boolean"
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "deleted": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "type": {
+      "$ref": "#/components/schemas/Calendar.Type"
+    },
+    "accessRole": {
+      "$ref": "#/components/schemas/GCalConstants.AccessRole"
+    },
+    "systemCalendar": {
+      "type": "boolean"
+    },
+    "nextRefresh": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "timezone": {
+      "type": "string"
+    },
+    "primaryCalendarId": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "projectId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "connected": {
+      "type": "boolean"
+    },
+    "syncSettings": {
+      "$ref": "#/components/schemas/SyncSettings"
+    },
+    "lastSynced": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "syncIdEncodingVersion": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "useType": {
+      "$ref": "#/components/schemas/CalendarUseType"
+    },
+    "blockAvailability": {
+      "type": "boolean"
+    },
+    "directlyConnected": {
+      "type": "boolean"
+    },
+    "primary": {
+      "type": "boolean"
+    },
+    "defaultReminders": {
+      "type": "array",
+      "deprecated": true,
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "reminderDefaults": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Reminder"
+      }
+    }
+  }
+}

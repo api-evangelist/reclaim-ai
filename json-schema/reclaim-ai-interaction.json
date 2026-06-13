@@ -1,0 +1,154 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.app.reclaim.ai/schemas/Interaction",
+  "title": "Interaction",
+  "type": "object",
+  "discriminator": {
+    "propertyName": "type",
+    "mapping": {
+      "LlmModeSwitch": "#/components/schemas/LlmModeSwitch",
+      "AgentTodoListUpdated": "#/components/schemas/AgentTodoListUpdated",
+      "SearchTasks": "#/components/schemas/SearchTasks",
+      "QuotaExceeded": "#/components/schemas/QuotaExceeded",
+      "ToolApprovalResult": "#/components/schemas/ToolApprovalResultView",
+      "RemoveScheduleAction": "#/components/schemas/RemoveScheduleAction",
+      "SuggestedUserMessagesView": "#/components/schemas/SuggestedUserMessages",
+      "FeatureReady": "#/components/schemas/FeatureReady",
+      "ShowSomeScheduleActions": "#/components/schemas/ShowScheduleAction",
+      "StopTask": "#/components/schemas/StopTask",
+      "ChangeScheduleWindow": "#/components/schemas/ChangeScheduleWindow",
+      "EventFocused": "#/components/schemas/EventFocused",
+      "StartTask": "#/components/schemas/StartTask",
+      "McpApprovalResult": "#/components/schemas/McpApprovalResultView",
+      "DisplayTasks": "#/components/schemas/DisplayTasks",
+      "SessionClosed": "#/components/schemas/SessionClosedView",
+      "LlmChatMessageStart": "#/components/schemas/LlmChatMessageStart",
+      "ToolApprovalRequestedView": "#/components/schemas/ToolApprovalRequestedView",
+      "GeneratedChatMessage": "#/components/schemas/GeneratedChatMessage",
+      "PendingChangesReviewed": "#/components/schemas/PendingChangesReviewed",
+      "ToolApprovalResultView": "#/components/schemas/ToolApprovalResultView",
+      "LlmChatMessageThinkingDoneView": "#/components/schemas/LlmChatMessageThinkingDone",
+      "LlmChatMessageThinkingStart": "#/components/schemas/LlmChatMessageThinkingStart",
+      "LlmFunctionCall": "#/components/schemas/LlmFunctionCall",
+      "ScheduleChangedView": "#/components/schemas/ScheduleChangedView",
+      "TakeScheduleAction": "#/components/schemas/TakeScheduleAction",
+      "PreviewModeChanged": "#/components/schemas/PreviewModeChanged",
+      "AppliedScheduleAction": "#/components/schemas/AppliedScheduleAction",
+      "McpApprovalRequested": "#/components/schemas/McpApprovalRequestedView",
+      "MemorySaved": "#/components/schemas/MemorySaved",
+      "ToolApprovalRequested": "#/components/schemas/ToolApprovalRequestedView",
+      "LlmChatMessageDone": "#/components/schemas/LlmChatMessageDone",
+      "PolicyConfigChangedView": "#/components/schemas/PolicyConfigChangedView",
+      "UserChatMessage": "#/components/schemas/UserChatMessage",
+      "LlmResponse": "#/components/schemas/LlmResponse",
+      "ProposeSolution": "#/components/schemas/ProposeSolution"
+    }
+  },
+  "oneOf": [
+    {
+      "$ref": "#/components/schemas/ChangeScheduleWindow"
+    },
+    {
+      "$ref": "#/components/schemas/UpdateTaskStatus"
+    },
+    {
+      "$ref": "#/components/schemas/DisplayTasks"
+    },
+    {
+      "$ref": "#/components/schemas/EventFocused"
+    },
+    {
+      "$ref": "#/components/schemas/FeatureReady"
+    },
+    {
+      "$ref": "#/components/schemas/GeneratedChatMessage"
+    },
+    {
+      "$ref": "#/components/schemas/LlmChatMessageDone"
+    },
+    {
+      "$ref": "#/components/schemas/LlmChatMessageStart"
+    },
+    {
+      "$ref": "#/components/schemas/LlmChatMessageThinkingDone"
+    },
+    {
+      "$ref": "#/components/schemas/LlmChatMessageThinkingStart"
+    },
+    {
+      "$ref": "#/components/schemas/LlmFunctionCall"
+    },
+    {
+      "$ref": "#/components/schemas/LlmModeSwitch"
+    },
+    {
+      "$ref": "#/components/schemas/LlmResponse"
+    },
+    {
+      "$ref": "#/components/schemas/PolicyConfigChangedView"
+    },
+    {
+      "$ref": "#/components/schemas/PendingChangesReviewed"
+    },
+    {
+      "$ref": "#/components/schemas/RemoveScheduleAction"
+    },
+    {
+      "$ref": "#/components/schemas/AppliedScheduleAction"
+    },
+    {
+      "$ref": "#/components/schemas/SearchTasks"
+    },
+    {
+      "$ref": "#/components/schemas/ScheduleChangedView"
+    },
+    {
+      "$ref": "#/components/schemas/ShowScheduleAction"
+    },
+    {
+      "$ref": "#/components/schemas/StartTask"
+    },
+    {
+      "$ref": "#/components/schemas/StopTask"
+    },
+    {
+      "$ref": "#/components/schemas/SuggestedUserMessages"
+    },
+    {
+      "$ref": "#/components/schemas/TakeScheduleAction"
+    },
+    {
+      "$ref": "#/components/schemas/UserChatMessage"
+    },
+    {
+      "$ref": "#/components/schemas/MemorySaved"
+    },
+    {
+      "$ref": "#/components/schemas/PreviewModeChanged"
+    },
+    {
+      "$ref": "#/components/schemas/ProposeSolution"
+    },
+    {
+      "$ref": "#/components/schemas/QuotaExceeded"
+    },
+    {
+      "$ref": "#/components/schemas/SessionClosedView"
+    },
+    {
+      "$ref": "#/components/schemas/McpApprovalRequestedView"
+    },
+    {
+      "$ref": "#/components/schemas/McpApprovalResultView"
+    },
+    {
+      "$ref": "#/components/schemas/ToolApprovalRequestedView"
+    },
+    {
+      "$ref": "#/components/schemas/ToolApprovalResultView"
+    },
+    {
+      "$ref": "#/components/schemas/AgentTodoListUpdated"
+    }
+  ]
+}

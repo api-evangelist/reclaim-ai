@@ -1,0 +1,246 @@
+name: Reclaim.ai API Vocabulary
+description: >
+  Domain vocabulary for the Reclaim.ai REST API — an AI-powered scheduling
+  platform that automates calendar management for tasks, habits, smart meetings,
+  focus time, and workforce analytics. Integrates with Google Calendar, Outlook,
+  Slack, Asana, Jira, Linear, Todoist, ClickUp, and Notion.
+url: https://api.app.reclaim.ai
+version: "0.1"
+modified: '2026-06-13'
+
+tags:
+  - name: accounts
+    description: Manage user accounts and connected calendar accounts.
+    operations: 12
+  - name: actions
+    description: Retrieve and apply scheduling actions for calendar events.
+    operations: 41
+  - name: analytics
+    description: Focus and team productivity analytics and reporting.
+    operations: 10
+  - name: api-management
+    description: Manage API keys for programmatic access.
+    operations: 6
+  - name: asana
+    description: Asana integration — sync tasks and projects to Reclaim.
+    operations: 13
+  - name: assist
+    description: AI-driven scheduling assistant for habits and tasks.
+    operations: 11
+  - name: buildings
+    description: Office building locations for in-person meeting scheduling.
+    operations: 10
+  - name: calendarSyncPolicy
+    description: Policies controlling how calendars are synchronized across accounts.
+    operations: 7
+  - name: calendars
+    description: Read and manage calendars connected to Reclaim accounts.
+    operations: 23
+  - name: changelog
+    description: Audit log of changes to scheduling state.
+    operations: 6
+  - name: clickup
+    description: ClickUp integration — import tasks and projects.
+    operations: 6
+  - name: contacts
+    description: Contact book and attendee lookup for meeting scheduling.
+    operations: 7
+  - name: credentials
+    description: OAuth credentials for third-party integrations.
+    operations: 5
+  - name: delegated-access
+    description: Allow delegates to manage another user's calendar via Reclaim.
+    operations: 5
+  - name: events
+    description: Create, update, and query calendar events.
+    operations: 19
+  - name: focus-settings
+    description: Configure focus time preferences and team focus policies.
+    operations: 10
+  - name: interactions
+    description: Track user interactions with scheduling recommendations.
+    operations: 26
+  - name: jira
+    description: Jira integration — sync issues to Reclaim tasks.
+    operations: 6
+  - name: linear
+    description: Linear integration — sync issues and cycles.
+    operations: 5
+  - name: memories
+    description: AI memory context stored per user for personalized scheduling.
+    operations: 3
+  - name: notion
+    description: Notion integration — import pages as Reclaim tasks.
+    operations: 2
+  - name: oneOnOnes
+    description: Manage recurring 1-on-1 meeting series between pairs of users.
+    operations: 16
+  - name: ooo-calendars
+    description: Out-of-office calendars and time-away scheduling.
+    operations: 8
+  - name: schedule-availability
+    description: Query and expose scheduling availability windows.
+    operations: 4
+  - name: schedule-policy
+    description: Define when and how Reclaim can schedule events.
+    operations: 12
+  - name: slack
+    description: Slack integration — status sync, notifications, and meeting links.
+    operations: 11
+  - name: smart-habits
+    description: Automatically scheduled recurring habits (e.g. daily exercise, lunch).
+    operations: 32
+  - name: smart-meetings
+    description: AI-optimized meeting scheduling with smart attendee coordination.
+    operations: 25
+  - name: tasks
+    description: Flexible tasks that Reclaim auto-schedules around calendar commitments.
+    operations: 15
+  - name: time-scheme
+    description: Named time allocation schemes for work/life balance policies.
+    operations: 7
+  - name: timePolicies
+    description: High-level time policies bounding how Reclaim allocates calendar time.
+    operations: 2
+  - name: todoist
+    description: Todoist integration — import tasks and projects.
+    operations: 7
+  - name: users
+    description: User profile management, settings, and org membership.
+    operations: 49
+  - name: webhooks
+    description: Subscribe to real-time webhook notifications for Reclaim events.
+    operations: 10
+  - name: websocket
+    description: WebSocket channels for live scheduling state updates.
+    operations: 7
+  - name: weekly-report
+    description: Weekly productivity summaries and focus-time reports.
+    operations: 4
+  - name: LLM Tool Approvals
+    description: Approve or reject AI-generated scheduling suggestions.
+    operations: 3
+  - name: OAuth 2.0
+    description: OAuth 2.0 authorization server and token endpoints.
+    operations: 5
+  - name: OAuth 2.0 Client Management
+    description: Register and manage OAuth 2.0 client applications.
+    operations: 6
+
+terms:
+  - term: Task
+    definition: >
+      A work item with a time estimate that Reclaim auto-schedules into available
+      calendar slots before a due date. Supports priority, snooze, and integration
+      sync from Asana, Jira, Linear, ClickUp, Todoist, and Notion.
+    schema: Task
+    tag: tasks
+
+  - term: Habit
+    definition: >
+      A recurring event template (e.g. daily exercise, lunch, deep work block)
+      that Reclaim automatically protects on the calendar. Habits flex around
+      meetings while maintaining target durations and frequency.
+    tag: smart-habits
+
+  - term: SmartMeeting
+    definition: >
+      A meeting scheduling object that allows Reclaim to find optimal times across
+      all attendees' calendars, respecting focus blocks and travel buffers.
+    tag: smart-meetings
+
+  - term: Event
+    definition: >
+      A calendar event, either external (synced from Google/Outlook) or
+      Reclaim-managed (task block, habit, focus time, meeting).
+    schema: Event
+    tag: events
+
+  - term: Calendar
+    definition: >
+      A Google Calendar or Outlook calendar account connected to Reclaim for
+      reading availability and writing managed events.
+    schema: Calendar
+    tag: calendars
+
+  - term: FocusTime
+    definition: >
+      Automatically scheduled blocks of uninterrupted deep-work time that Reclaim
+      protects based on user focus preferences.
+    tag: focus-settings
+
+  - term: SchedulePolicy
+    definition: >
+      Rules controlling what hours of the day and days of the week Reclaim may
+      schedule tasks, habits, and meetings.
+    schema: SchedulePolicy
+    tag: schedule-policy
+
+  - term: TimePolicy
+    definition: >
+      Allocation limits defining the maximum and minimum time Reclaim should
+      spend on categories of work within a time horizon.
+    schema: TimePolicy
+    tag: timePolicies
+
+  - term: TimeScheme
+    definition: >
+      A named configuration of work hours, focus hours, and meeting hours
+      representing a desired work pattern.
+    tag: time-scheme
+
+  - term: Webhook
+    definition: >
+      A registered HTTP endpoint that Reclaim calls when scheduling state changes,
+      such as task updates, habit completions, or calendar syncs.
+    tag: webhooks
+
+  - term: Analytics
+    definition: >
+      Aggregated focus-time, meeting-load, and productivity metrics at the user
+      and team level with configurable time windows.
+    tag: analytics
+
+  - term: OneOnOne
+    definition: >
+      A recurring 1-on-1 meeting series between two users managed by Reclaim,
+      automatically rescheduled when conflicts arise.
+    tag: oneOnOnes
+
+  - term: Interaction
+    definition: >
+      A recorded user action (accept, decline, snooze) on a Reclaim scheduling
+      recommendation, used to improve future suggestions.
+    schema: Interaction
+    tag: interactions
+
+  - term: Credential
+    definition: >
+      Stored OAuth credentials for a third-party service (Asana, Jira, Slack, etc.)
+      connected to a Reclaim user account.
+    schema: Credential
+    tag: credentials
+
+  - term: BuildingLocation
+    definition: >
+      A physical office location used to schedule in-person meetings and
+      compute travel time between events.
+    tag: buildings
+
+  - term: DelegatedAccess
+    definition: >
+      A grant allowing one user (the delegate) to manage scheduling on behalf
+      of another user within an organization.
+    tag: delegated-access
+
+  - term: OOOCalendar
+    definition: >
+      Out-of-office calendar entry indicating unavailability, used by Reclaim
+      to block scheduling during planned absences.
+    tag: ooo-calendars
+
+  - term: APIKey
+    definition: >
+      A long-lived API key issued through the api-management endpoints, used
+      as an alternative to OAuth 2.0 bearer tokens.
+    tag: api-management

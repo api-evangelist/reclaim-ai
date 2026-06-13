@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.app.reclaim.ai/schemas/CalendarView",
+  "title": "CalendarView",
+  "required": [
+    "colorHex",
+    "connected",
+    "credentialId",
+    "externalId",
+    "googleMeetAllowed",
+    "id",
+    "microsoftTeamsAllowed",
+    "name",
+    "otherConnectedCalendarsExist",
+    "provider",
+    "useType",
+    "writableFor"
+  ],
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "externalId": {
+      "type": "string"
+    },
+    "connected": {
+      "type": "boolean"
+    },
+    "colorHex": {
+      "type": "string"
+    },
+    "credentialId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "reason": {
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/IneligibilityReason"
+        }
+      ]
+    },
+    "writableFor": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ReclaimEventType"
+      }
+    },
+    "provider": {
+      "type": "string"
+    },
+    "googleMeetAllowed": {
+      "type": "boolean"
+    },
+    "microsoftTeamsAllowed": {
+      "type": "boolean"
+    },
+    "defaultReminders": {
+      "type": "array",
+      "nullable": true,
+      "deprecated": true,
+      "items": {
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "reminderDefaults": {
+      "type": "array",
+      "nullable": true,
+      "items": {
+        "$ref": "#/components/schemas/Reminder"
+      }
+    },
+    "useType": {
+      "$ref": "#/components/schemas/CalendarUseType"
+    },
+    "otherConnectedCalendarsExist": {
+      "type": "boolean"
+    },
+    "accessDomainRead": {
+      "type": "boolean",
+      "nullable": true
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.app.reclaim.ai/schemas/TimePolicy",
+  "title": "TimePolicy",
+  "required": [
+    "dayHours"
+  ],
+  "type": "object",
+  "properties": {
+    "startOfWeek": {
+      "$ref": "#/components/schemas/DayOfWeek"
+    },
+    "endOfWeek": {
+      "$ref": "#/components/schemas/DayOfWeek"
+    },
+    "dayHours": {
+      "properties": {
+        "MONDAY": {
+          "$ref": "#/components/schemas/DayHours"
+        },
+        "TUESDAY": {
+          "$ref": "#/components/schemas/DayHours"
+        },
+        "WEDNESDAY": {
+          "$ref": "#/components/schemas/DayHours"
+        },
+        "THURSDAY": {
+          "$ref": "#/components/schemas/DayHours"
+        },
+        "FRIDAY": {
+          "$ref": "#/components/schemas/DayHours"
+        },
+        "SATURDAY": {
+          "$ref": "#/components/schemas/DayHours"
+        },
+        "SUNDAY": {
+          "$ref": "#/components/schemas/DayHours"
+        }
+      }
+    }
+  }
+}

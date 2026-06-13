@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.app.reclaim.ai/schemas/SchedulePolicy",
+  "title": "SchedulePolicy",
+  "type": "object",
+  "discriminator": {
+    "propertyName": "type",
+    "mapping": {
+      "EventConflictPolicy": "#/components/schemas/EventConflictPolicy",
+      "FocusTimePolicy": "#/components/schemas/FocusTimePolicy",
+      "LacksRsvpPolicy": "#/components/schemas/LacksRsvpPolicy",
+      "AttendeeAvailabilityWarningPolicy": "#/components/schemas/AttendeeAvailabilityWarningPolicy",
+      "BasicEventWarningPolicy": "#/components/schemas/BasicEventWarningPolicy",
+      "SmartMeetingPolicy": "#/components/schemas/SmartMeetingPolicy",
+      "ShieldsUpPolicy": "#/components/schemas/ShieldsUpPolicy",
+      "BufferEventPolicy": "#/components/schemas/BufferEventPolicy",
+      "LacksVideoConferencePolicy": "#/components/schemas/LacksVideoConferencePolicy",
+      "HabitPolicy": "#/components/schemas/HabitPolicy",
+      "UnknownPolicy": "#/components/schemas/UnknownPolicy"
+    }
+  },
+  "oneOf": [
+    {
+      "$ref": "#/components/schemas/AttendeeAvailabilityWarningPolicy"
+    },
+    {
+      "$ref": "#/components/schemas/BasicEventWarningPolicy"
+    },
+    {
+      "$ref": "#/components/schemas/BufferEventPolicy"
+    },
+    {
+      "$ref": "#/components/schemas/EventConflictPolicy"
+    },
+    {
+      "$ref": "#/components/schemas/FocusTimePolicy"
+    },
+    {
+      "$ref": "#/components/schemas/HabitPolicy"
+    },
+    {
+      "$ref": "#/components/schemas/LacksRsvpPolicy"
+    },
+    {
+      "$ref": "#/components/schemas/LacksVideoConferencePolicy"
+    },
+    {
+      "$ref": "#/components/schemas/ShieldsUpPolicy"
+    },
+    {
+      "$ref": "#/components/schemas/SmartMeetingPolicy"
+    },
+    {
+      "$ref": "#/components/schemas/UnknownPolicy"
+    }
+  ]
+}

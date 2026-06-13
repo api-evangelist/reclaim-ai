@@ -1,0 +1,242 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.app.reclaim.ai/schemas/Event",
+  "title": "Event",
+  "required": [
+    "allocatedTimeChunks",
+    "assist",
+    "calendarId",
+    "categoryOverride",
+    "description",
+    "etag",
+    "eventEnd",
+    "eventId",
+    "eventStart",
+    "key",
+    "location",
+    "meetingType",
+    "organizer",
+    "priority",
+    "recurrence",
+    "recurrenceMax",
+    "recurringEventId",
+    "requiresTravel",
+    "rsvpStatus",
+    "sourceDetails",
+    "status",
+    "subType",
+    "timeChunks",
+    "title",
+    "titleSeenByOthers",
+    "type",
+    "updated"
+  ],
+  "type": "object",
+  "properties": {
+    "googleMetadata": {
+      "description": "Returns Google Calendar-specific metadata that doesn't fit into a common event model, but that services and UI might be interested in introspecting. If the event isn't a Google Calendar event, this method will return an empty value.",
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/GoogleCalendarEventMetadata"
+        }
+      ]
+    },
+    "schedulingLinkId": {
+      "type": "string",
+      "nullable": true
+    },
+    "schedulingLinkMeetingId": {
+      "type": "string",
+      "nullable": true
+    },
+    "underAssistControl": {
+      "type": "boolean"
+    },
+    "assist": {
+      "$ref": "#/components/schemas/AssistDetails"
+    },
+    "reclaimEventType": {
+      "$ref": "#/components/schemas/ReclaimEventType"
+    },
+    "personalSync": {
+      "type": "boolean"
+    },
+    "reclaimManaged": {
+      "type": "boolean",
+      "description": "Reclaim likely created and manages this event but important to note that this event might not be organized by this user so very important to check also [isReclaimManagedAndSelfOrganized](#isReclaimManagedAndSelfOrganized) if the calling class would do something different for a Reclaim managed event if the person attached to this event is an attendee, rather than the organizer."
+    },
+    "reclaimManagedAndSelfOrganized": {
+      "type": "boolean",
+      "description": "Important to note that there are Reclaim \"managed\" events like smart meetings and scheduling link events where the user associated with the event is *not* the organizer, and as a result, we may need to do things like color coding or scoring."
+    },
+    "eventId": {
+      "type": "string"
+    },
+    "calendarId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "key": {
+      "$ref": "#/components/schemas/EventKey"
+    },
+    "priority": {
+      "$ref": "#/components/schemas/PriorityLevel"
+    },
+    "prioritySource": {
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PrioritySource"
+        }
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "titleSeenByOthers": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "onlineMeetingUrlRaw": {
+      "type": "string"
+    },
+    "onlineMeetingUrl": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "descriptionOmitted": {
+      "type": "boolean"
+    },
+    "titleTruncated": {
+      "type": "boolean"
+    },
+    "sourceDetails": {
+      "$ref": "#/components/schemas/EventSourceDetails"
+    },
+    "mergeDetails": {
+      "$ref": "#/components/schemas/MergeDetails"
+    },
+    "status": {
+      "$ref": "#/components/schemas/EventStatus"
+    },
+    "published": {
+      "type": "boolean"
+    },
+    "type": {
+      "$ref": "#/components/schemas/EventType"
+    },
+    "subType": {
+      "$ref": "#/components/schemas/EventSubType"
+    },
+    "meetingType": {
+      "$ref": "#/components/schemas/MeetingType"
+    },
+    "categoryOverride": {
+      "$ref": "#/components/schemas/EventCategory"
+    },
+    "eventStart": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "eventEnd": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "timeChunks": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "allocatedTimeChunks": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "recurringEventId": {
+      "type": "string"
+    },
+    "updated": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "recurringException": {
+      "type": "boolean"
+    },
+    "recurrence": {
+      "type": "string"
+    },
+    "recurrenceMax": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "recurring": {
+      "type": "boolean"
+    },
+    "recurringInstance": {
+      "type": "boolean"
+    },
+    "private": {
+      "type": "boolean"
+    },
+    "public": {
+      "type": "boolean"
+    },
+    "color": {
+      "$ref": "#/components/schemas/EventColor"
+    },
+    "organizer": {
+      "type": "string"
+    },
+    "numAttendees": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "attendees": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/EventAttendee"
+      }
+    },
+    "free": {
+      "type": "boolean"
+    },
+    "category": {
+      "$ref": "#/components/schemas/EventCategory"
+    },
+    "rsvpStatus": {
+      "$ref": "#/components/schemas/EventResponseStatus"
+    },
+    "requiresTravel": {
+      "type": "boolean"
+    },
+    "conferenceCall": {
+      "type": "boolean"
+    },
+    "etag": {
+      "type": "string",
+      "nullable": true
+    },
+    "smartSeriesId": {
+      "type": "integer",
+      "format": "int64",
+      "nullable": true
+    },
+    "sourceEventType": {
+      "$ref": "#/components/schemas/PlatformEventType"
+    },
+    "version": {
+      "type": "string"
+    },
+    "manuallyStarted": {
+      "type": "boolean"
+    },
+    "inheritedExternalId": {
+      "type": "string",
+      "description": "Retrieves the inherited external ID for the event. The inherited external ID is used in scenarios where a non-pipeline user is invited to an event created by Reclaim on a pipeline user's Microsoft calendar.\n\nIn such cases, the inherited external ID represents the \"external-id\" of the organizer's event,\nwhich is crucial for supporting event ID parsing. This mechanism ensures compatibility with Reclaim's\nexisting logic for detecting and parsing event information, even when the event ID cannot be directly\nrelied upon (e.g., in Microsoft calendars).",
+      "nullable": true
+    }
+  }
+}

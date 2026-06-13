@@ -1,0 +1,345 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://api.app.reclaim.ai/schemas/User",
+  "title": "User",
+  "required": [
+    "edition",
+    "editionUsage",
+    "schedulerWindowWeeks",
+    "sku"
+  ],
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "principal": {
+      "type": "string"
+    },
+    "provider": {
+      "type": "string"
+    },
+    "baseProvider": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "entitlements": {
+      "$ref": "#/components/schemas/Entitlements"
+    },
+    "detailedEntitlements": {
+      "$ref": "#/components/schemas/DetailedEntitlements"
+    },
+    "editionEntitlements": {
+      "properties": {
+        "MAX_TEAM_SIZE": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "SCHEDULER_WEEKS": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "MAX_TASKS": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "MAX_CALENDARS": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "MAX_SYNCS": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "MAX_HABITS": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "MAX_TASKS_WEEK": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "TRAVEL_TIME": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "DECOMPRESSION_TIME": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "CUSTOM_BLOCKING": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "CUSTOM_BLOCKING_DECOMPRESSION": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "CUSTOM_BLOCKING_HABITS": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "CUSTOM_BLOCKING_CALENDAR_SYNC": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "CUSTOM_SLACK_STATUS": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "MAX_SCHEDULING_LINKS": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "DERIVATIVE_SCHEDULING_LINKS": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "SCHEDULING_LINK_SURVEY": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "SCHEDULING_LINK_REDIRECT": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "MAX_SCHEDULING_LINK_MEETINGS_QUARTER": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "MAX_1_ON_1_ORGANIZE": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "MAX_1_ON_1_ATTEND": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "MAX_CUSTOM_TIME_SCHEMES": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "INTEGRATIONS": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "INTEGRATION_GOOGLE_TASKS": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "INTEGRATION_GOOGLE_ADD_ON": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "INTEGRATION_SLACK": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "INTEGRATION_RAYCAST": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "INTEGRATION_ZOOM": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "INTEGRATION_TODOIST": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "INTEGRATION_LINEAR": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "INTEGRATION_JIRA": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "INTEGRATION_CLICKUP": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "INTEGRATION_ASANA": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "INTEGRATION_OFFICE_365": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "INTEGRATION_MONDAY": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "INTEGRATION_TRELLO": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "INTEGRATION_DROPBOX": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "SUPPORT": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "SSO": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "TEAM_ANALYTICS": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "EVENT_PREFERENCES": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "DELEGATED_ACCESS": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "SCHEDULING_LINK_ROUND_ROBIN": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "SCHEDULING_LINK_BRANDING": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "SMART_MEETING_ATTENDEE_USERS": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "WEBHOOKS": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "MAX_STATS_WINDOW": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "FOCUS_TIME": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "OOO_CALENDAR": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "MAX_AGENTS": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "MAX_DAILY_LLM_COST_MICROS": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "PROACTIVE_LLM": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        },
+        "MCP": {
+          "$ref": "#/components/schemas/EntitlementValue_Object_"
+        }
+      }
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "avatarUrl": {
+      "type": "string"
+    },
+    "admin": {
+      "type": "boolean"
+    },
+    "slackEnabled": {
+      "type": "boolean"
+    },
+    "impersonated": {
+      "type": "boolean"
+    },
+    "timestampOffsetMs": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "features": {
+      "$ref": "#/components/schemas/UserSettings"
+    },
+    "settings": {
+      "$ref": "#/components/schemas/Settings"
+    },
+    "metadata": {
+      "$ref": "#/components/schemas/UserMetadata"
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "deleted": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "onboarded": {
+      "type": "boolean"
+    },
+    "trackingCode": {
+      "type": "string"
+    },
+    "locale": {
+      "type": "string"
+    },
+    "likelyPersonal": {
+      "type": "boolean"
+    },
+    "apiKey": {
+      "type": "string"
+    },
+    "sku": {
+      "deprecated": true,
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ReclaimEdition"
+        }
+      ]
+    },
+    "edition": {
+      "$ref": "#/components/schemas/ReclaimEdition"
+    },
+    "editionAfterTrial": {
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ReclaimEdition"
+        }
+      ]
+    },
+    "editionUsage": {
+      "$ref": "#/components/schemas/ReclaimEdition"
+    },
+    "preDowngradeEditionUsage": {
+      "$ref": "#/components/schemas/ReclaimEdition"
+    },
+    "overage": {
+      "type": "boolean"
+    },
+    "logContextUser": {
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ObservedUser"
+        }
+      ]
+    },
+    "refCode": {
+      "type": "string"
+    },
+    "hostedDomain": {
+      "type": "string",
+      "nullable": true
+    },
+    "primaryCalendar": {
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ThinCalendar"
+        }
+      ]
+    },
+    "primaryCalendarId": {
+      "type": "string"
+    },
+    "timezone": {
+      "type": "string"
+    },
+    "startOfWeek": {
+      "$ref": "#/components/schemas/DayOfWeek"
+    },
+    "usingDelegatedAccess": {
+      "type": "boolean"
+    },
+    "firstLogin": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "signupMethod": {
+      "nullable": true,
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SignupMethod"
+        }
+      ]
+    },
+    "providerCreated": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "schedulerWindowWeeks": {
+      "$ref": "#/components/schemas/SchedulingWindowWeeks"
+    },
+    "userDateTimeFormatter": {
+      "$ref": "#/components/schemas/UserDateTimeFormatter"
+    },
+    "userProvisioningDetails": {
+      "$ref": "#/components/schemas/UserProvisioningDetails"
+    }
+  }
+}
