@@ -1,0 +1,67 @@
+name: Reclaim.ai FinOps Framework
+description: FinOps cost management reference for Reclaim.ai API usage, aligned
+  to the FOCUS (FinOps Open Cost and Usage Specification) framework. Covers
+  cost allocation, optimization, and governance for teams using Reclaim.ai
+  at scale.
+specificationVersion: '1.0'
+focusVersion: '1.0'
+provider: Reclaim.ai
+url: https://reclaim.ai/pricing
+costModel:
+  type: per-seat-saas
+  billingCycles:
+    - monthly
+    - annual
+  currency: USD
+  discounts:
+    - type: annual-commitment
+      description: Annual billing provides approximately 20-30% discount versus
+        monthly billing across Starter and Business plans.
+charges:
+  - name: Lite Seat
+    description: Free tier seat — no charge.
+    unitPrice: 0
+    unit: user/month
+    skuId: reclaim-lite
+  - name: Starter Seat (Monthly)
+    description: Per-seat monthly charge for Starter plan.
+    unitPrice: 10
+    unit: user/month
+    skuId: reclaim-starter-monthly
+  - name: Starter Seat (Annual)
+    description: Per-seat annual charge for Starter plan, billed annually.
+    unitPrice: 8
+    unit: user/month
+    skuId: reclaim-starter-annual
+  - name: Business Seat (Monthly)
+    description: Per-seat monthly charge for Business plan.
+    unitPrice: 15
+    unit: user/month
+    skuId: reclaim-business-monthly
+  - name: Business Seat (Annual)
+    description: Per-seat annual charge for Business plan, billed annually.
+    unitPrice: 12
+    unit: user/month
+    skuId: reclaim-business-annual
+  - name: Enterprise Seat (Annual)
+    description: Per-seat annual charge for Enterprise plan. Custom pricing
+      available; list price is $22/user/month billed annually.
+    unitPrice: 22
+    unit: user/month
+    skuId: reclaim-enterprise-annual
+optimization:
+  - recommendation: Right-size plan to team size — Starter caps at 10 users,
+      Business at 100 users, Enterprise for 100+.
+  - recommendation: Use annual billing on Starter or Business to save 20-30%
+      versus monthly rates.
+  - recommendation: Audit active seats regularly; unused Reclaim seats on paid
+      plans represent avoidable spend.
+  - recommendation: Leverage the free Lite tier for individual contributors or
+      light users before provisioning paid seats.
+  - recommendation: Attendee Users in Smart Meetings with 3+ participants are
+      currently free; monitor for policy changes.
+governance:
+  - Enterprise plan includes SSO and SCIM provisioning enabling automated
+    provisioning and deprovisioning, reducing license waste from departed employees.
+  - Org-wide analytics on Enterprise tier enable visibility into per-team
+    usage and scheduling efficiency ROI.

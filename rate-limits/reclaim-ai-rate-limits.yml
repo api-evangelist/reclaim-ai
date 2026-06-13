@@ -1,0 +1,27 @@
+name: Reclaim.ai Rate Limits
+description: Rate limiting information for the Reclaim.ai REST API. The API uses
+  API key authentication obtained from the developer settings panel. Specific
+  published rate limits are not documented publicly; limits are enforced per API
+  key and may vary by plan tier.
+specificationVersion: '0.1'
+url: https://help.reclaim.ai/en/collections/3455874-developer-api
+authentication:
+  - type: ApiKey
+    description: API key obtained from https://app.reclaim.ai/settings/developer.
+      Pass the token as a Bearer token in the Authorization header or via the
+      RECLAIM_TOKEN environment variable when using SDKs.
+    location: header
+    parameterName: Authorization
+    scheme: Bearer
+limits:
+  - scope: account
+    description: Rate limits are enforced per API key at the account level. Exact
+      numeric limits are not publicly documented. Exceeding limits returns HTTP
+      429 Too Many Requests.
+    httpStatusOnExceed: 429
+notes:
+  - Reclaim API is versioned at 0.1 and is not formally versioned for third-party
+    use; breaking changes may occur without notice.
+  - The OpenAPI specification is available at
+    https://api.app.reclaim.ai/swagger/reclaim-api-0.1.yml
+  - Webhook payloads are signed using HMAC-SHA256 for verification.

@@ -1,0 +1,73 @@
+name: Reclaim.ai Plans and Pricing
+description: Pricing plans for Reclaim.ai, the AI-powered scheduling and calendar
+  optimization platform. Plans range from a free Lite tier to Enterprise with SSO
+  and SCIM provisioning.
+specificationVersion: '0.1'
+url: https://reclaim.ai/pricing
+plans:
+  - name: Lite
+    description: Free plan for individual users with core AI scheduling features
+      including Focus Time, Habits, Buffer Time, and Smart Meetings.
+    price: 0
+    currency: USD
+    billingCycle: monthly
+    maxUsers: 1
+    features:
+      - 5 AI Agents
+      - Focus Time protection
+      - Habits scheduling
+      - Buffer Time management
+      - Smart Meetings (limited)
+      - Meeting Quality tracking
+      - 1 Calendar Sync
+      - 1 Scheduling Link
+      - Limited integrations
+  - name: Starter
+    description: For small teams needing unlimited integrations, expanded scheduling
+      range, and task recommendations.
+    price: 10
+    currency: USD
+    billingCycle: monthly
+    annualPrice: 8
+    maxUsers: 10
+    features:
+      - 10 AI Agents per seat
+      - 8-week scheduling range
+      - 3 Calendar Syncs
+      - 3 Scheduling Links
+      - Unlimited integrations
+      - Task recommendations
+      - All Lite features
+  - name: Business
+    description: Most popular plan for growing teams with unlimited scheduling links,
+      delegated access, team OOO calendar, and webhook support.
+    price: 15
+    currency: USD
+    billingCycle: monthly
+    annualPrice: 12
+    maxUsers: 100
+    features:
+      - 100 AI Agents per seat
+      - 12-week scheduling range
+      - Unlimited Calendar Syncs
+      - Unlimited Scheduling Links
+      - Team OOO Calendar
+      - Delegated Access
+      - Webhook support
+      - Unlimited integrations
+      - All Starter features
+  - name: Enterprise
+    description: Enterprise plan for large organizations requiring SSO, SCIM provisioning,
+      org-chart aware scheduling, and advanced administrative controls.
+    price: 22
+    currency: USD
+    billingCycle: annual
+    maxUsers: unlimited
+    features:
+      - Unlimited AI Agents per seat
+      - SSO (Single Sign-On)
+      - SCIM provisioning
+      - Org-chart aware scheduling
+      - Domain capture
+      - Org-wide analytics
+      - All Business features
