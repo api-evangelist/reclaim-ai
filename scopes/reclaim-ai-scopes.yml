@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/reclaim-ai-openapi.yml
+schemes:
+- name: Authorization
+  source: openapi/reclaim-ai-openapi.yml
+  flows: []
+scopes:
+- scope: ROLE_API
+  sources:
+  - openapi/reclaim-ai-openapi.yml
+- scope: isAnonymous()
+  sources:
+  - openapi/reclaim-ai-openapi.yml
+- scope: isAuthenticated()
+  sources:
+  - openapi/reclaim-ai-openapi.yml

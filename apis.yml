@@ -41,6 +41,10 @@ apis:
       - type: OpenAPI
         url: https://api.app.reclaim.ai/swagger/reclaim-api-0.1.yml
 common:
+  - type: Authentication
+    url: authentication/reclaim-ai-authentication.yml
+  - type: OAuthScopes
+    url: scopes/reclaim-ai-scopes.yml
   - type: Website
     url: https://reclaim.ai/
   - type: Documentation
