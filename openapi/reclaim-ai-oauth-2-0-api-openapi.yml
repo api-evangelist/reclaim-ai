@@ -1,0 +1,160 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes OAuth 2.0 API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: OAuth 2.0
+paths:
+  /oauth2/authorize:
+    get:
+      tags:
+      - OAuth 2.0
+      summary: 'Step 1: Authorization request - shows consent screen or redirects to login'
+      description: 'Step 1: Authorization request - shows consent screen or redirects to login'
+      operationId: authorize
+      parameters:
+      - name: client_id
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: redirect_uri
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: response_type
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: scope
+        in: query
+        schema:
+          type: string
+          nullable: true
+      - name: state
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: code_challenge
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: code_challenge_method
+        in: query
+        required: true
+        schema:
+          type: string
+          default: S256
+      responses:
+        '200':
+          description: authorize 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+  /oauth2/authorize/approve:
+    post:
+      tags:
+      - OAuth 2.0
+      summary: 'Step 2: User approves authorization - creates code and redirects back'
+      description: 'Step 2: User approves authorization - creates code and redirects back'
+      operationId: approveAuthorization
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties:
+                type: string
+        required: true
+      responses:
+        '200':
+          description: approveAuthorization 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+  /oauth2/authorize/deny:
+    post:
+      tags:
+      - OAuth 2.0
+      summary: 'Step 2 (alternative): User denies authorization'
+      description: 'Step 2 (alternative): User denies authorization'
+      operationId: denyAuthorization
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties:
+                type: string
+        required: true
+      responses:
+        '200':
+          description: denyAuthorization 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+  /oauth2/revoke:
+    post:
+      tags:
+      - OAuth 2.0
+      operationId: revoke
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties:
+                type: string
+        required: true
+      responses:
+        '200':
+          description: revoke 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+  /oauth2/token:
+    post:
+      tags:
+      - OAuth 2.0
+      operationId: token
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties:
+                type: string
+        required: true
+      responses:
+        '200':
+          description: token 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    Authorization:
+      type: oauth2

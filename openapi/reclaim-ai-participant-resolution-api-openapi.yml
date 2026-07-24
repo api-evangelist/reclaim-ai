@@ -1,0 +1,252 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes participant-resolution API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: participant-resolution
+paths:
+  /api/participant-resolution:
+    get:
+      tags:
+      - participant-resolution
+      operationId: resolveParticipantsForSmartSeries
+      parameters:
+      - name: emails
+        in: query
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: userCalendarId
+        in: query
+        schema:
+          type: string
+          nullable: true
+      responses:
+        '200':
+          description: resolveParticipantsForSmartSeries 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AttendeeResolutionView'
+      security:
+      - Authorization: []
+  /api/participant-resolution/scheduling-link:
+    get:
+      tags:
+      - participant-resolution
+      operationId: resolveParticipantsForSchedulingLink
+      parameters:
+      - name: emails
+        in: query
+        required: true
+        schema:
+          type: array
+          items:
+            type: string
+      - name: userCalendarId
+        in: query
+        schema:
+          type: string
+          nullable: true
+      - name: schedulingLinkId
+        in: query
+        schema:
+          type: string
+          nullable: true
+      responses:
+        '200':
+          description: resolveParticipantsForSchedulingLink 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AttendeeResolutionView'
+      security:
+      - Authorization: []
+components:
+  schemas:
+    AttendeeCalendarVisibility:
+      type: string
+      enum:
+      - NONE
+      - FREE_BUSY
+      - DETAILS
+      - FULL
+      - RECLAIM
+    AttendeeResolutionView:
+      required:
+      - matchedEmails
+      - participant
+      - timeSchemes
+      - timezone
+      - visibility
+      type: object
+      properties:
+        participant:
+          $ref: '#/components/schemas/ThinPerson'
+        timezone:
+          type: string
+          nullable: true
+        visibility:
+          $ref: '#/components/schemas/AttendeeCalendarVisibility'
+        matchedEmails:
+          type: array
+          items:
+            type: string
+        timeSchemes:
+          type: array
+          items:
+            $ref: '#/components/schemas/BasicTimeSchemeView'
+    TimePolicy:
+      required:
+      - dayHours
+      type: object
+      properties:
+        startOfWeek:
+          $ref: '#/components/schemas/DayOfWeek'
+        endOfWeek:
+          $ref: '#/components/schemas/DayOfWeek'
+        dayHours:
+          properties:
+            MONDAY:
+              $ref: '#/components/schemas/DayHours'
+            TUESDAY:
+              $ref: '#/components/schemas/DayHours'
+            WEDNESDAY:
+              $ref: '#/components/schemas/DayHours'
+            THURSDAY:
+              $ref: '#/components/schemas/DayHours'
+            FRIDAY:
+              $ref: '#/components/schemas/DayHours'
+            SATURDAY:
+              $ref: '#/components/schemas/DayHours'
+            SUNDAY:
+              $ref: '#/components/schemas/DayHours'
+    DayOfWeek:
+      type: string
+      enum:
+      - MONDAY
+      - TUESDAY
+      - WEDNESDAY
+      - THURSDAY
+      - FRIDAY
+      - SATURDAY
+      - SUNDAY
+    ThinPerson:
+      required:
+      - email
+      type: object
+      properties:
+        reclaimUser:
+          type: boolean
+        userId:
+          type: string
+          nullable: true
+        email:
+          minLength: 1
+          type: string
+        name:
+          type: string
+        avatarUrl:
+          type: string
+        firstName:
+          type: string
+          nullable: true
+        lastName:
+          type: string
+          nullable: true
+    ReclaimEventType:
+      type: string
+      enum:
+      - USER
+      - SYNC
+      - HABIT_ASSIGNMENT
+      - SMART_HABIT
+      - ONE_ON_ONE_ASSIGNMENT
+      - SMART_MEETING
+      - TASK_ASSIGNMENT
+      - CONF_BUFFER
+      - TRAVEL_BUFFER
+      - SCHEDULING_LINK_MEETING
+      - UNKNOWN
+      - FOCUS
+    DayHours:
+      required:
+      - intervals
+      type: object
+      properties:
+        intervals:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocalTimeInterval'
+        startOfDay:
+          type: string
+          format: partial-time
+          nullable: true
+        endOfDay:
+          type: string
+          format: partial-time
+          nullable: true
+    TimePolicyType:
+      type: string
+      enum:
+      - WORK
+      - PERSONAL
+      - MEETING
+      - ONE_OFF
+      - INHERITED
+      - CUSTOM
+    LocalTimeInterval:
+      required:
+      - end
+      - start
+      type: object
+      properties:
+        start:
+          type: string
+          format: partial-time
+        end:
+          type: string
+          format: partial-time
+        duration:
+          type: string
+    BasicTimeSchemeView:
+      required:
+      - features
+      - id
+      - policy
+      - policyType
+      - title
+      - userId
+      type: object
+      properties:
+        id:
+          type: string
+        userId:
+          type: string
+        policyType:
+          $ref: '#/components/schemas/TimePolicyType'
+        policy:
+          $ref: '#/components/schemas/TimePolicy'
+        title:
+          type: string
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReclaimEventType'
+  securitySchemes:
+    Authorization:
+      type: oauth2

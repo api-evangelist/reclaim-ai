@@ -1,0 +1,302 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes Mcp API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: Mcp
+paths:
+  /api/mcp:
+    get:
+      operationId: handleGet
+      parameters:
+      - name: Mcp-Session-Id
+        in: header
+        schema:
+          type: string
+          nullable: true
+      responses:
+        '200':
+          description: handleGet 200 response
+          content:
+            text/event-stream:
+              schema:
+                type: object
+      security:
+      - Authorization:
+        - isAuthenticated()
+        - isAnonymous()
+      tags:
+      - Mcp
+    post:
+      operationId: handlePost
+      parameters:
+      - name: Mcp-Session-Id
+        in: header
+        schema:
+          type: string
+          nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        '200':
+          description: handlePost 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization:
+        - isAuthenticated()
+        - isAnonymous()
+      tags:
+      - Mcp
+    delete:
+      operationId: handleDelete
+      parameters:
+      - name: Mcp-Session-Id
+        in: header
+        schema:
+          type: string
+          nullable: true
+      responses:
+        '200':
+          description: handleDelete 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization:
+        - isAuthenticated()
+        - isAnonymous()
+      tags:
+      - Mcp
+  /api/mcp/.well-known/oauth-authorization-server:
+    get:
+      operationId: mcpOauth2Metadata
+      responses:
+        '200':
+          description: mcpOauth2Metadata 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+      tags:
+      - Mcp
+  /api/mcp/.well-known/openid-configuration:
+    get:
+      operationId: mcpOpenidConfiguration
+      responses:
+        '200':
+          description: mcpOpenidConfiguration 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+      tags:
+      - Mcp
+  /api/mcp/{mcpType}:
+    get:
+      operationId: handleGetTyped
+      parameters:
+      - name: Mcp-Session-Id
+        in: header
+        schema:
+          type: string
+          nullable: true
+      - name: mcpType
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: handleGetTyped 200 response
+          content:
+            text/event-stream:
+              schema:
+                type: object
+      security:
+      - Authorization:
+        - isAuthenticated()
+        - isAnonymous()
+      tags:
+      - Mcp
+    post:
+      operationId: handlePostTyped
+      parameters:
+      - name: Mcp-Session-Id
+        in: header
+        schema:
+          type: string
+          nullable: true
+      - name: mcpType
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        '200':
+          description: handlePostTyped 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization:
+        - isAuthenticated()
+        - isAnonymous()
+      tags:
+      - Mcp
+    delete:
+      operationId: handleDeleteTyped
+      parameters:
+      - name: Mcp-Session-Id
+        in: header
+        schema:
+          type: string
+          nullable: true
+      - name: mcpType
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: handleDeleteTyped 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization:
+        - isAuthenticated()
+        - isAnonymous()
+      tags:
+      - Mcp
+  /api/mcp/{subpath1}/{subpath2}/.well-known/oauth-authorization-server:
+    get:
+      operationId: mcpSub2Oauth2Metadata
+      parameters:
+      - name: subpath1
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: subpath2
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: mcpSub2Oauth2Metadata 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+      tags:
+      - Mcp
+  /api/mcp/{subpath1}/{subpath2}/.well-known/openid-configuration:
+    get:
+      operationId: mcpSub2OpenidConfiguration
+      parameters:
+      - name: subpath1
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: subpath2
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: mcpSub2OpenidConfiguration 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+      tags:
+      - Mcp
+  /api/mcp/{subpath}/.well-known/oauth-authorization-server:
+    get:
+      operationId: mcpSubOauth2Metadata
+      parameters:
+      - name: subpath
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: mcpSubOauth2Metadata 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      tags:
+      - Mcp
+  /api/mcp/{subpath}/.well-known/oauth-protected-resource:
+    get:
+      operationId: mcpSubProtectedResource
+      parameters:
+      - name: subpath
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: mcpSubProtectedResource 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      tags:
+      - Mcp
+  /api/mcp/{subpath}/.well-known/openid-configuration:
+    get:
+      operationId: mcpSubOpenidConfiguration
+      parameters:
+      - name: subpath
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: mcpSubOpenidConfiguration 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      tags:
+      - Mcp
+components:
+  securitySchemes:
+    Authorization:
+      type: oauth2

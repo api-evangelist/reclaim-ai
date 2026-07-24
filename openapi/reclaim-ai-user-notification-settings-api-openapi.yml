@@ -1,0 +1,118 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes user-notification-settings API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: user-notification-settings
+paths:
+  /api/notification-settings:
+    get:
+      tags:
+      - user-notification-settings
+      operationId: getUserSettings
+      responses:
+        '200':
+          description: getUserSettings 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationSettingsView'
+      security:
+      - Authorization: []
+    patch:
+      tags:
+      - user-notification-settings
+      operationId: update_2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationSettingsRequest'
+        required: true
+      responses:
+        '200':
+          description: update_2 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationSettingsView'
+      security:
+      - Authorization: []
+components:
+  schemas:
+    NotificationSettingsRequest:
+      required:
+      - settings
+      type: object
+      properties:
+        settings:
+          properties:
+            DAILY_DIGEST:
+              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
+            WEEKLY_DIGEST:
+              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
+            EVENT_CONFLICT:
+              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
+            EVENT_ABOUT_TO_START:
+              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
+            INVITED_TO_MEETING:
+              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
+            MEETING_UPDATED:
+              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
+            MEETING_CANCELLED:
+              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
+            APP_UPDATES:
+              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
+            EVENT_REMINDERS:
+              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
+        allowSlackNotificationsWithinDays:
+          type: integer
+          format: int32
+          nullable: true
+    NotificationSettingsView:
+      required:
+      - allowSlackNotificationsWithinDays
+      - settings
+      type: object
+      properties:
+        settings:
+          properties:
+            DAILY_DIGEST:
+              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
+            WEEKLY_DIGEST:
+              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
+            EVENT_CONFLICT:
+              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
+            EVENT_ABOUT_TO_START:
+              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
+            INVITED_TO_MEETING:
+              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
+            MEETING_UPDATED:
+              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
+            MEETING_CANCELLED:
+              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
+            APP_UPDATES:
+              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
+            EVENT_REMINDERS:
+              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
+        allowSlackNotificationsWithinDays:
+          type: integer
+          format: int32
+    AbstractMap_NotificationChannel.Boolean_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    EnumMap_NotificationChannel.Boolean_:
+      $ref: '#/components/schemas/AbstractMap_NotificationChannel.Boolean_'
+  securitySchemes:
+    Authorization:
+      type: oauth2

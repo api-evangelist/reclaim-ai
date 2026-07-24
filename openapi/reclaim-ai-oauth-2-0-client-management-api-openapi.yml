@@ -1,0 +1,241 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes OAuth 2.0 Client Management API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: OAuth 2.0 Client Management
+paths:
+  /api/oauth2/clients:
+    get:
+      tags:
+      - OAuth 2.0 Client Management
+      operationId: listClients
+      responses:
+        '200':
+          description: listClients 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OAuthClient'
+      security:
+      - Authorization: []
+    post:
+      tags:
+      - OAuth 2.0 Client Management
+      operationId: createClient
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OAuth2ClientController.CreateClientRequest'
+        required: true
+      responses:
+        '200':
+          description: createClient 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+  /api/oauth2/clients/{id}:
+    get:
+      tags:
+      - OAuth 2.0 Client Management
+      operationId: getClient
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: getClient 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuthClient'
+      security:
+      - Authorization: []
+    put:
+      tags:
+      - OAuth 2.0 Client Management
+      operationId: updateClient
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OAuth2ClientController.UpdateClientRequest'
+        required: true
+      responses:
+        '200':
+          description: updateClient 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+    delete:
+      tags:
+      - OAuth 2.0 Client Management
+      operationId: deleteClient
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: deleteClient 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+  /api/oauth2/clients/{id}/reset-secret:
+    post:
+      tags:
+      - OAuth 2.0 Client Management
+      operationId: resetSecret
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: resetSecret 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+components:
+  schemas:
+    OAuth2ClientController.UpdateClientRequest:
+      required:
+      - client_name
+      - grant_types
+      - redirect_uris
+      - scopes
+      type: object
+      properties:
+        client_name:
+          type: string
+        redirect_uris:
+          type: array
+          items:
+            type: string
+        grant_types:
+          type: array
+          items:
+            $ref: '#/components/schemas/OAuthClient.GrantType'
+        scopes:
+          type: array
+          items:
+            $ref: '#/components/schemas/OAuthClient.Scope'
+    OAuthClient:
+      required:
+      - clientId
+      - clientName
+      - createdAt
+      - grantTypes
+      - id
+      - isConfidential
+      - redirectUris
+      - scopes
+      - updatedAt
+      type: object
+      properties:
+        id:
+          type: string
+        userId:
+          type: string
+          nullable: true
+        clientName:
+          type: string
+        clientId:
+          type: string
+        redirectUris:
+          type: array
+          items:
+            type: string
+        grantTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/OAuthClient.GrantType'
+        scopes:
+          type: array
+          items:
+            $ref: '#/components/schemas/OAuthClient.Scope'
+        isConfidential:
+          type: boolean
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    OAuth2ClientController.CreateClientRequest:
+      required:
+      - client_name
+      - grant_types
+      - is_confidential
+      - redirect_uris
+      - scopes
+      type: object
+      properties:
+        client_name:
+          type: string
+        redirect_uris:
+          type: array
+          items:
+            type: string
+        grant_types:
+          type: array
+          items:
+            $ref: '#/components/schemas/OAuthClient.GrantType'
+        scopes:
+          type: array
+          items:
+            $ref: '#/components/schemas/OAuthClient.Scope'
+        is_confidential:
+          type: boolean
+    OAuthClient.GrantType:
+      type: string
+      enum:
+      - AUTHORIZATION_CODE
+      - REFRESH_TOKEN
+      - CLIENT_CREDENTIALS
+    OAuthClient.Scope:
+      type: string
+      enum:
+      - READ
+      - WRITE
+      - ADMIN
+      - MCP
+  securitySchemes:
+    Authorization:
+      type: oauth2

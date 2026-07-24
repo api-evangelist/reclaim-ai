@@ -1,0 +1,43 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes aws-ses API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: aws-ses
+paths:
+  /aws/ses/events:
+    post:
+      tags:
+      - aws-ses
+      operationId: sesEvent
+      parameters:
+      - name: x-amz-sns-message-type
+        in: header
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          text/plain:
+            schema:
+              type: string
+        required: true
+      responses:
+        '200':
+          description: sesEvent 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    Authorization:
+      type: oauth2

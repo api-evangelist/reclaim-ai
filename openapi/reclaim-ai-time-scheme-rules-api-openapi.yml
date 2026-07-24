@@ -1,0 +1,262 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes time-scheme-rules API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: time-scheme-rules
+paths:
+  /api/timescheme/rules:
+    get:
+      tags:
+      - time-scheme-rules
+      operationId: listRules
+      parameters:
+      - name: type
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/TimeSchemeIntegrationRuleServiceType'
+      responses:
+        '200':
+          description: listRules 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TimeSchemeIntegrationRule'
+      security:
+      - Authorization: []
+    post:
+      tags:
+      - time-scheme-rules
+      operationId: createRule
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TimeSchemeIntegrationRuleCreateRequest'
+        required: true
+      responses:
+        '200':
+          description: createRule 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimeSchemeIntegrationRule'
+      security:
+      - Authorization: []
+  /api/timescheme/rules/{ruleId}:
+    delete:
+      tags:
+      - time-scheme-rules
+      operationId: deleteRule
+      parameters:
+      - name: ruleId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: deleteRule 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+    patch:
+      tags:
+      - time-scheme-rules
+      operationId: updateRule
+      parameters:
+      - name: ruleId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TimeSchemeIntegrationRuleUpdateRequest'
+        required: true
+      responses:
+        '200':
+          description: updateRule 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimeSchemeIntegrationRule'
+      security:
+      - Authorization: []
+  /api/timescheme/rules/{ruleId}/reindex:
+    patch:
+      tags:
+      - time-scheme-rules
+      operationId: reindex_1
+      parameters:
+      - name: ruleId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TimeSchemeIntegrationRuleReindexRequest'
+        required: true
+      responses:
+        '200':
+          description: reindex_1 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+components:
+  schemas:
+    TimeSchemeIntegrationRule:
+      required:
+      - action
+      - id
+      - index
+      - ruleType
+      - serviceType
+      - userId
+      type: object
+      properties:
+        dueDateRequired:
+          type: boolean
+          nullable: true
+        id:
+          type: string
+        userId:
+          type: string
+        labels:
+          type: array
+          nullable: true
+          items:
+            type: string
+        projectIds:
+          type: array
+          nullable: true
+          items:
+            type: string
+        action:
+          $ref: '#/components/schemas/TimeSchemeIntegrationRuleAction'
+        timeSchemeId:
+          type: string
+          nullable: true
+        serviceType:
+          $ref: '#/components/schemas/TimeSchemeIntegrationRuleServiceType'
+        index:
+          type: integer
+          format: int32
+        ruleType:
+          $ref: '#/components/schemas/TimeSchemeIntegrationRuleType'
+        workspaceId:
+          type: string
+          nullable: true
+    TimeSchemeIntegrationRuleUpdateRequest:
+      type: object
+      properties:
+        labels:
+          type: array
+          nullable: true
+          items:
+            type: string
+        projectIds:
+          type: array
+          nullable: true
+          items:
+            type: string
+        action:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/TimeSchemeIntegrationRuleAction'
+        timeSchemeId:
+          type: string
+          nullable: true
+        dueDateRequired:
+          type: boolean
+          nullable: true
+    TimeSchemeIntegrationRuleServiceType:
+      type: string
+      enum:
+      - TODOIST
+      - CLICK_UP
+    TimeSchemeIntegrationRuleCreateRequest:
+      required:
+      - action
+      - ruleType
+      - serviceType
+      type: object
+      properties:
+        labels:
+          type: array
+          nullable: true
+          items:
+            type: string
+        projectIds:
+          type: array
+          nullable: true
+          items:
+            type: string
+        action:
+          $ref: '#/components/schemas/TimeSchemeIntegrationRuleAction'
+        serviceType:
+          $ref: '#/components/schemas/TimeSchemeIntegrationRuleServiceType'
+        timeSchemeId:
+          type: string
+          nullable: true
+        ruleType:
+          $ref: '#/components/schemas/TimeSchemeIntegrationRuleType'
+        workspaceId:
+          type: string
+          nullable: true
+        dueDateRequired:
+          type: boolean
+          nullable: true
+    TimeSchemeIntegrationRuleType:
+      type: string
+      enum:
+      - CASE
+      - OTHERWISE
+    TimeSchemeIntegrationRuleAction:
+      type: string
+      enum:
+      - SYNC_TO
+      - DONT_SYNC
+    TimeSchemeIntegrationRuleReindexRequest:
+      required:
+      - newIndex
+      - serviceType
+      - shiftDirection
+      type: object
+      properties:
+        serviceType:
+          $ref: '#/components/schemas/TimeSchemeIntegrationRuleServiceType'
+        workspaceId:
+          type: string
+          nullable: true
+        newIndex:
+          type: integer
+          format: int32
+        shiftDirection:
+          type: integer
+          format: int32
+  securitySchemes:
+    Authorization:
+      type: oauth2

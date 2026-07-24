@@ -1,0 +1,33 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes scoring API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: scoring
+paths:
+  /api/scoring/rescore:
+    post:
+      tags:
+      - scoring
+      operationId: rescore
+      responses:
+        '200':
+          description: rescore 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+components:
+  securitySchemes:
+    Authorization:
+      type: oauth2

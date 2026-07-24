@@ -1,0 +1,495 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes todoist API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: todoist
+paths:
+  /api/todoist/integrations:
+    get:
+      tags:
+      - todoist
+      operationId: integrations_6
+      responses:
+        '200':
+          description: integrations_6 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TodoistIntegration'
+      deprecated: true
+      security:
+      - Authorization: []
+  /api/todoist/integrations/details:
+    get:
+      tags:
+      - todoist
+      operationId: integrationsDetails
+      responses:
+        '200':
+          description: integrationsDetails 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TodoistIntegrationDetails'
+      security:
+      - Authorization: []
+  /api/todoist/integrations/settings/{id}:
+    patch:
+      tags:
+      - todoist
+      operationId: patchIntegrationSettings
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TodoistIntegrationPatch'
+        required: true
+      responses:
+        '200':
+          description: patchIntegrationSettings 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+  /api/todoist/integrations/{id}:
+    delete:
+      tags:
+      - todoist
+      operationId: deleteIntegration_4
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: deleteIntegration_4 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+    patch:
+      tags:
+      - todoist
+      operationId: patchIntegration_4
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TodoistIntegrationPatch'
+        required: true
+      responses:
+        '200':
+          description: patchIntegration_4 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      deprecated: true
+      security:
+      - Authorization: []
+  /api/todoist/sync:
+    post:
+      tags:
+      - todoist
+      summary: Initiate a Todoist sync job.
+      description: Initiate a Todoist sync job. Used by support (hence the private tag) for customers when debugging issues.
+      operationId: syncTasks
+      responses:
+        '200':
+          description: syncTasks 200 response
+      security:
+      - Authorization: []
+  /web/todoist/task/{itemId}:
+    get:
+      tags:
+      - todoist
+      operationId: taskDetails_4
+      parameters:
+      - name: itemId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: taskDetails_4 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  schemas:
+    AbstractCollection_String_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    TodoistProject:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        parent_id:
+          type: string
+          nullable: true
+        v2_id:
+          type: string
+          nullable: true
+        is_archived:
+          type: boolean
+        shared:
+          type: boolean
+        is_deleted:
+          type: boolean
+        withId:
+          type: string
+        withName:
+          type: string
+        withParent_id:
+          type: string
+          nullable: true
+        withV2_id:
+          type: string
+        withIs_archived:
+          type: boolean
+        withShared:
+          type: boolean
+        withIs_deleted:
+          type: boolean
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+        additionalContexts:
+          type: array
+          items:
+            $ref: '#/components/schemas/LogContext'
+        logKey:
+          type: string
+        logValue: {}
+    ImmutableList_TodoistProject_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_TodoistProject_'
+      - $ref: '#/components/schemas/AbstractCollection_TodoistProject_'
+      - properties:
+          empty:
+            type: boolean
+          first:
+            $ref: '#/components/schemas/TodoistProject'
+          last:
+            $ref: '#/components/schemas/TodoistProject'
+    ImmutableCollection_TodoistProject_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_TodoistProject_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    ImmutableCollection_TodoistLabel_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_TodoistLabel_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    TodoistSettings_6:
+      type: object
+      properties:
+        titleFormat:
+          $ref: '#/components/schemas/TodoistTitleFormat'
+        withTitleFormat:
+          $ref: '#/components/schemas/TodoistTitleFormat'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    TodoistSettings_2:
+      type: object
+      properties:
+        titleFormat:
+          $ref: '#/components/schemas/TodoistTitleFormat'
+        withTitleFormat:
+          $ref: '#/components/schemas/TodoistTitleFormat'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    AbstractCollection_TodoistLabel_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    AbstractCollection_TodoistProject_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    TodoistSettings_3:
+      type: object
+      properties:
+        titleFormat:
+          $ref: '#/components/schemas/TodoistTitleFormat'
+        withTitleFormat:
+          $ref: '#/components/schemas/TodoistTitleFormat'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    TodoistIntegration:
+      type: object
+      properties:
+        id:
+          type: string
+        requiresLabel:
+          type: boolean
+        availableProjects:
+          $ref: '#/components/schemas/ImmutableList_TodoistProject_'
+        selectedProjectIds:
+          $ref: '#/components/schemas/ImmutableSet_String_'
+        labels:
+          $ref: '#/components/schemas/ImmutableSet_TodoistLabel_'
+        settings:
+          $ref: '#/components/schemas/TodoistSettings_1'
+        withId:
+          type: string
+        withRequiresLabel:
+          type: boolean
+        withAvailableProjects:
+          type: array
+          items:
+            $ref: '#/components/schemas/TodoistProject'
+        withSelectedProjectIds:
+          type: array
+          items:
+            type: string
+        withLabels:
+          type: array
+          items:
+            $ref: '#/components/schemas/TodoistLabel'
+        withSettings:
+          $ref: '#/components/schemas/TodoistSettings_2'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    TodoistSettings_4:
+      type: object
+      properties:
+        titleFormat:
+          $ref: '#/components/schemas/TodoistTitleFormat'
+        withTitleFormat:
+          $ref: '#/components/schemas/TodoistTitleFormat'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    ImmutableCollection_String_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_String_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    TodoistLabel:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        withId:
+          type: string
+        withName:
+          type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    TodoistIntegrationPatch:
+      type: object
+      properties:
+        requiresLabel:
+          type: boolean
+          nullable: true
+        selectedProjectIds:
+          type: array
+          nullable: true
+          items:
+            type: string
+        settings:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/TodoistSettings_3'
+        withRequiresLabel:
+          type: boolean
+        withSelectedProjectIds:
+          type: array
+          nullable: true
+          items:
+            type: string
+        withSettings:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/TodoistSettings_4'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    TodoistIntegrationDetails:
+      type: object
+      properties:
+        id:
+          type: string
+        availableProjects:
+          $ref: '#/components/schemas/ImmutableList_TodoistProject_'
+        labels:
+          deprecated: true
+          allOf:
+          - $ref: '#/components/schemas/ImmutableSet_TodoistLabel_'
+        labelNames:
+          $ref: '#/components/schemas/ImmutableSet_String_'
+        lastSyncedAt:
+          type: string
+          format: date-time
+          nullable: true
+        settings:
+          $ref: '#/components/schemas/TodoistSettings_5'
+        withId:
+          type: string
+        withAvailableProjects:
+          type: array
+          items:
+            $ref: '#/components/schemas/TodoistProject'
+        withLabels:
+          type: array
+          deprecated: true
+          items:
+            $ref: '#/components/schemas/TodoistLabel'
+        withLabelNames:
+          type: array
+          items:
+            type: string
+        withLastSyncedAt:
+          type: string
+          format: date-time
+        withSettings:
+          $ref: '#/components/schemas/TodoistSettings_6'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    TodoistSettings_1:
+      type: object
+      properties:
+        titleFormat:
+          $ref: '#/components/schemas/TodoistTitleFormat'
+        withTitleFormat:
+          $ref: '#/components/schemas/TodoistTitleFormat'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    TodoistTitleFormat:
+      type: string
+      enum:
+      - TASK_TITLE_ONLY
+      - TASK_TITLE_THEN_PROJECT
+      - PROJECT_NAME_THEN_TASK_TITLE
+    TodoistSettings_5:
+      type: object
+      properties:
+        titleFormat:
+          $ref: '#/components/schemas/TodoistTitleFormat'
+        withTitleFormat:
+          $ref: '#/components/schemas/TodoistTitleFormat'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    LogContext:
+      type: object
+    ImmutableSet_TodoistLabel_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_TodoistLabel_'
+      - $ref: '#/components/schemas/AbstractCollection_TodoistLabel_'
+      - properties:
+          empty:
+            type: boolean
+          hashCodeFast:
+            type: boolean
+    ImmutableSet_String_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_String_'
+      - $ref: '#/components/schemas/AbstractCollection_String_'
+      - properties:
+          empty:
+            type: boolean
+          hashCodeFast:
+            type: boolean
+  securitySchemes:
+    Authorization:
+      type: oauth2

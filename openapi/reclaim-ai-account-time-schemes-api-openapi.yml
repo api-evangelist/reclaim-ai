@@ -1,0 +1,251 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: account-time-schemes
+paths:
+  /api/account-time-schemes:
+    get:
+      tags:
+      - account-time-schemes
+      operationId: fetchAccountTimeSchemes
+      responses:
+        '200':
+          description: fetchAccountTimeSchemes 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AccountTimeSchemeView'
+      security:
+      - Authorization: []
+    post:
+      tags:
+      - account-time-schemes
+      operationId: createAccountTimeScheme
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountTimeSchemeCreateRequest'
+        required: true
+      responses:
+        '200':
+          description: createAccountTimeScheme 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountTimeSchemeView'
+      security:
+      - Authorization: []
+  /api/account-time-schemes/{accountTimeSchemeId}:
+    patch:
+      tags:
+      - account-time-schemes
+      operationId: patchAccountTimeScheme
+      parameters:
+      - name: accountTimeSchemeId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountTimeSchemePatchRequest'
+        required: true
+      responses:
+        '200':
+          description: patchAccountTimeScheme 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccountTimeSchemeView'
+      security:
+      - Authorization: []
+components:
+  schemas:
+    EntityType:
+      type: string
+      enum:
+      - ACCOUNT_INVITATION
+      - ACCOUNT_TIME_SCHEMES
+      - WEBHOOKS_CONFIG
+      - WEBHOOKS_ASSOCIATION
+      - SMART_HABIT_TEMPLATES
+      - TEAM
+    TimePolicy:
+      required:
+      - dayHours
+      type: object
+      properties:
+        startOfWeek:
+          $ref: '#/components/schemas/DayOfWeek'
+        endOfWeek:
+          $ref: '#/components/schemas/DayOfWeek'
+        dayHours:
+          properties:
+            MONDAY:
+              $ref: '#/components/schemas/DayHours'
+            TUESDAY:
+              $ref: '#/components/schemas/DayHours'
+            WEDNESDAY:
+              $ref: '#/components/schemas/DayHours'
+            THURSDAY:
+              $ref: '#/components/schemas/DayHours'
+            FRIDAY:
+              $ref: '#/components/schemas/DayHours'
+            SATURDAY:
+              $ref: '#/components/schemas/DayHours'
+            SUNDAY:
+              $ref: '#/components/schemas/DayHours'
+    DayOfWeek:
+      type: string
+      enum:
+      - MONDAY
+      - TUESDAY
+      - WEDNESDAY
+      - THURSDAY
+      - FRIDAY
+      - SATURDAY
+      - SUNDAY
+    EntityTypeView:
+      required:
+      - access
+      type: object
+      properties:
+        access:
+          $ref: '#/components/schemas/EntityTypeAccessView'
+    AccountTimeSchemePatchRequest:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        policy:
+          $ref: '#/components/schemas/TimePolicy'
+    EntityTypePermissions:
+      required:
+      - canCreate
+      - canView
+      type: object
+      properties:
+        canView:
+          type: boolean
+        canCreate:
+          type: boolean
+    DayHours:
+      required:
+      - intervals
+      type: object
+      properties:
+        intervals:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocalTimeInterval'
+        startOfDay:
+          type: string
+          format: partial-time
+          nullable: true
+        endOfDay:
+          type: string
+          format: partial-time
+          nullable: true
+    TimePolicyType:
+      type: string
+      enum:
+      - WORK
+      - PERSONAL
+      - MEETING
+      - ONE_OFF
+      - INHERITED
+      - CUSTOM
+    LocalTimeInterval:
+      required:
+      - end
+      - start
+      type: object
+      properties:
+        start:
+          type: string
+          format: partial-time
+        end:
+          type: string
+          format: partial-time
+        duration:
+          type: string
+    EntityTypeAccessView:
+      required:
+      - permissions
+      type: object
+      properties:
+        permissions:
+          $ref: '#/components/schemas/EntityTypePermissionsView'
+    AccountTimeSchemeView:
+      required:
+      - accountId
+      - entityType
+      - id
+      - policy
+      - policyType
+      - title
+      type: object
+      properties:
+        id:
+          type: string
+        accountId:
+          type: integer
+          format: int64
+        policyType:
+          $ref: '#/components/schemas/TimePolicyType'
+        policy:
+          $ref: '#/components/schemas/TimePolicy'
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        entityType:
+          $ref: '#/components/schemas/EntityTypeView'
+    AccountTimeSchemeCreateRequest:
+      required:
+      - policy
+      - policyType
+      - title
+      type: object
+      properties:
+        policyType:
+          $ref: '#/components/schemas/TimePolicyType'
+        policy:
+          $ref: '#/components/schemas/TimePolicy'
+        title:
+          minLength: 1
+          type: string
+        description:
+          type: string
+    EntityTypePermissionsView:
+      required:
+      - permissions
+      - type
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/EntityType'
+        permissions:
+          $ref: '#/components/schemas/EntityTypePermissions'
+  securitySchemes:
+    Authorization:
+      type: oauth2

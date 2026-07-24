@@ -1,0 +1,368 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes weekly-report API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: weekly-report
+paths:
+  /api/weekly-report/social:
+    get:
+      tags:
+      - weekly-report
+      operationId: social
+      parameters:
+      - name: id
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: verificationKey
+        in: query
+        schema:
+          type: string
+          nullable: true
+      responses:
+        '200':
+          description: social 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WeeklyReportTemplateData'
+  /api/weekly-report/social/{id}.png:
+    get:
+      tags:
+      - weekly-report
+      operationId: socialImage
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: socialImage 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+  /api/weekly-report/social/{trackingCode}/{suffix}.png:
+    get:
+      tags:
+      - weekly-report
+      operationId: socialImageAlt
+      parameters:
+      - name: trackingCode
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: suffix
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: socialImageAlt 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+  /api/weekly-report/unsubscribe:
+    post:
+      tags:
+      - weekly-report
+      operationId: unsubscribe_1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WeeklyReportUnsubscribeRequest'
+        required: true
+      responses:
+        '200':
+          description: unsubscribe_1 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  schemas:
+    WeeklyReportCallout:
+      required:
+      - backgroundColor
+      - icon
+      - svgIcon
+      - text
+      - textColor
+      type: object
+      properties:
+        text:
+          type: string
+        textColor:
+          type: string
+        backgroundColor:
+          type: string
+        icon:
+          type: string
+        svgIcon:
+          type: string
+    EventType:
+      type: string
+      enum:
+      - MEETING
+      - WORK
+      - LOGISTICS
+      - PERSONAL
+    WeeklyReportAgenda:
+      required:
+      - firstRow
+      - secondRow
+      type: object
+      properties:
+        firstRow:
+          type: array
+          items:
+            $ref: '#/components/schemas/WeeklyReportAgendaDay'
+        secondRow:
+          type: array
+          items:
+            $ref: '#/components/schemas/WeeklyReportAgendaDay'
+    UserData:
+      required:
+      - disablePromotions
+      - domain
+      - email
+      - firstName
+      - slackEnabled
+      - slackStatusEnabled
+      - teamId
+      - trackingCode
+      type: object
+      properties:
+        email:
+          type: string
+        domain:
+          type: string
+        teamId:
+          type: integer
+          format: int64
+        disablePromotions:
+          type: boolean
+        firstName:
+          type: string
+        trackingCode:
+          type: string
+        slackEnabled:
+          type: boolean
+        slackStatusEnabled:
+          type: boolean
+    TimeSpentDuringWeek:
+      required:
+      - eventType
+      - eventTypeFriendly
+      - hours
+      - increased
+      - infinity
+      - noChange
+      - percentChange
+      type: object
+      properties:
+        eventType:
+          $ref: '#/components/schemas/EventType'
+        eventTypeFriendly:
+          type: string
+        hours:
+          type: number
+          format: double
+        percentChange:
+          type: number
+          format: double
+        noChange:
+          type: boolean
+        increased:
+          type: boolean
+        infinity:
+          type: boolean
+    WeeklyReportTemplateData:
+      required:
+      - agenda
+      - baseUrl
+      - callouts
+      - celebration
+      - reportRange
+      - stats
+      - tasks
+      - user
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/UserData'
+        reportRange:
+          type: string
+        reportRangeEncoded:
+          type: string
+        stats:
+          $ref: '#/components/schemas/WeeklyReportHeadlineStats'
+        celebration:
+          type: string
+        callouts:
+          type: array
+          items:
+            $ref: '#/components/schemas/WeeklyReportCallout'
+        agenda:
+          $ref: '#/components/schemas/WeeklyReportAgenda'
+        tasks:
+          type: array
+          items:
+            $ref: '#/components/schemas/WeeklyReportTask'
+        baseUrl:
+          type: string
+        baseUrlEncoded:
+          type: string
+        social:
+          $ref: '#/components/schemas/WeeklyReportSocialShare'
+        unsubPayload:
+          type: string
+        currentWeekStartDate:
+          type: string
+          format: date
+        currentWeekEndDate:
+          type: string
+          format: date
+        currentWeekFocusStats:
+          $ref: '#/components/schemas/WeeklyFocusStats'
+        nextWeekFocusStats:
+          $ref: '#/components/schemas/WeeklyFocusStats'
+        nextWeekNumberOfConflicts:
+          type: integer
+          format: int32
+        streaks:
+          type: array
+          items:
+            $ref: '#/components/schemas/StreakMessage'
+    WeeklyFocusStats:
+      required:
+      - actualFocusHours
+      - actualMeetingHours
+      - freeTimeHours
+      - meetingCompareToLastWeekPercentage
+      - meetingHoursDownComparedToLastWeek
+      - otherWorkHours
+      - targetFocusHours
+      type: object
+      properties:
+        actualFocusHours:
+          type: number
+          format: double
+        targetFocusHours:
+          type: number
+          format: double
+        actualMeetingHours:
+          type: number
+          format: double
+        meetingCompareToLastWeekPercentage:
+          type: integer
+          format: int32
+        meetingHoursDownComparedToLastWeek:
+          type: boolean
+        freeTimeHours:
+          type: number
+          format: double
+        otherWorkHours:
+          type: number
+          format: double
+        outOfOfficeHours:
+          type: number
+          format: double
+          nullable: true
+        totalWorkingHours:
+          type: number
+          format: double
+          nullable: true
+    WeeklyReportHeadlineStats:
+      required:
+      - meetings
+      - personal
+      - work
+      type: object
+      properties:
+        personal:
+          $ref: '#/components/schemas/TimeSpentDuringWeek'
+        work:
+          $ref: '#/components/schemas/TimeSpentDuringWeek'
+        meetings:
+          $ref: '#/components/schemas/TimeSpentDuringWeek'
+    WeeklyReportAgendaDay:
+      required:
+      - day
+      - extraClass
+      - items
+      type: object
+      properties:
+        day:
+          type: string
+        items:
+          type: array
+          items:
+            type: string
+        extraClass:
+          type: string
+    WeeklyReportSocialShare:
+      required:
+      - id
+      - verificationKey
+      type: object
+      properties:
+        id:
+          type: string
+        verificationKey:
+          type: string
+    StreakMessage:
+      required:
+      - emoji
+      - text
+      type: object
+      properties:
+        text:
+          type: string
+        emoji:
+          type: string
+    WeeklyReportTask:
+      required:
+      - chip
+      - name
+      - timeLeft
+      type: object
+      properties:
+        name:
+          type: string
+        chip:
+          type: string
+        due:
+          type: string
+          nullable: true
+        timeLeft:
+          type: string
+    WeeklyReportUnsubscribeRequest:
+      required:
+      - id
+      - verificationKey
+      type: object
+      properties:
+        id:
+          type: string
+        verificationKey:
+          type: string
+  securitySchemes:
+    Authorization:
+      type: oauth2

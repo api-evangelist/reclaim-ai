@@ -1,0 +1,700 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes clockwise API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: clockwise
+paths:
+  /api/clockwise/cleanup-events:
+    delete:
+      tags:
+      - clockwise
+      operationId: cleanupClockwiseEvents
+      responses:
+        '200':
+          description: cleanupClockwiseEvents 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClockwiseEventCleanupService.CleanupResult'
+      security:
+      - Authorization: []
+  /api/clockwise/clear-suppression:
+    post:
+      tags:
+      - clockwise
+      operationId: clearSchedulerSuppression
+      responses:
+        '200':
+          description: clearSchedulerSuppression 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+  /api/clockwise/detect-events:
+    get:
+      tags:
+      - clockwise
+      operationId: detectClockwiseEvents
+      responses:
+        '200':
+          description: detectClockwiseEvents 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClockwiseEventCleanupService.DetectionResult'
+      security:
+      - Authorization: []
+  /api/clockwise/import:
+    post:
+      tags:
+      - clockwise
+      operationId: importClockwiseData
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
+      responses:
+        '200':
+          description: importClockwiseData 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClockwiseImportDto'
+      security:
+      - Authorization: []
+  /api/clockwise/import/{jobId}:
+    get:
+      tags:
+      - clockwise
+      operationId: getImportJobStatus
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: getImportJobStatus 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClockwiseImportDto'
+      security:
+      - Authorization: []
+  /api/clockwise/import/{jobId}/retry:
+    post:
+      tags:
+      - clockwise
+      operationId: retryImport
+      parameters:
+      - name: jobId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: retryImport 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClockwiseImportDto'
+      security:
+      - Authorization: []
+components:
+  schemas:
+    ClockwiseImportRequest.SchedulingLinks:
+      type: object
+      properties:
+        totalCount:
+          type: integer
+          format: int32
+          nullable: true
+        links:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/ClockwiseImportRequest.SchedulingLink'
+    ClockwiseImportRequest.NoMeetingDay:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          nullable: true
+        dayOfWeek:
+          type: string
+          nullable: true
+        enableReminders:
+          type: boolean
+          nullable: true
+    ClockwiseImportRequest.PreferredWork:
+      type: object
+      properties:
+        keepStartOfDayOpen:
+          type: boolean
+          nullable: true
+        keepEndOfDayOpen:
+          type: boolean
+          nullable: true
+    ClockwiseImportDto:
+      required:
+      - currentStep
+      - jobId
+      - status
+      - totalSteps
+      type: object
+      properties:
+        jobId:
+          type: string
+          format: uuid
+        status:
+          $ref: '#/components/schemas/ClockwiseImportStatus'
+        currentStep:
+          type: integer
+          format: int32
+        totalSteps:
+          type: integer
+          format: int32
+        stepLabel:
+          type: string
+          nullable: true
+        result:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportResponse'
+        errorMessage:
+          type: string
+          nullable: true
+    ClockwiseImportRequest.SlotSetting:
+      type: object
+      properties:
+        minSlot:
+          type: string
+          nullable: true
+        maxSlot:
+          type: string
+          nullable: true
+        excludedSlots:
+          type: array
+          nullable: true
+          items:
+            type: string
+    ClockwiseImportRequest.CustomTimeRange:
+      type: object
+      properties:
+        startTime:
+          type: string
+          nullable: true
+        endTime:
+          type: string
+          nullable: true
+    ClockwiseImportRequest.TravelTime:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          nullable: true
+        workAddress:
+          type: string
+          nullable: true
+        externalTransparency:
+          type: string
+          nullable: true
+        enableReminders:
+          type: boolean
+          nullable: true
+    ClockwiseImportRequest.MeetingRelief:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          nullable: true
+        meetingFatigueThresholdMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        meetingReliefBreakMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        externalTransparency:
+          type: string
+          nullable: true
+        enableReminders:
+          type: boolean
+          nullable: true
+    ClockwiseImportRequest.ColorCoding:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          nullable: true
+        external:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportRequest.ColorEntry'
+        oneOnOne:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportRequest.ColorEntry'
+        focusTime:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportRequest.ColorEntry'
+        hold:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportRequest.ColorEntry'
+        holiday:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportRequest.ColorEntry'
+        teamSync:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportRequest.ColorEntry'
+        adHoc:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportRequest.ColorEntry'
+        outOfOffice:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportRequest.ColorEntry'
+        fyi:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportRequest.ColorEntry'
+        task:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportRequest.ColorEntry'
+        other:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportRequest.ColorEntry'
+    ClockwiseImportRequest.FlexibleMeeting:
+      type: object
+      properties:
+        calendarId:
+          type: string
+          nullable: true
+        eventId:
+          type: string
+          nullable: true
+        start:
+          type: string
+          nullable: true
+        end:
+          type: string
+          nullable: true
+    ClockwiseImportRequest.TimeSlotRange:
+      type: object
+      properties:
+        min:
+          type: string
+          nullable: true
+        max:
+          type: string
+          nullable: true
+    ClockwiseImportRequest.MeetingHours:
+      type: object
+      properties:
+        differentFromWorkingHours:
+          type: boolean
+          nullable: true
+        timeZone:
+          type: string
+          nullable: true
+        daySettings:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/ClockwiseImportRequest.DaySetting'
+    ClockwiseImportRequest.Preferences:
+      type: object
+      properties:
+        focusTime:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportRequest.FocusTime'
+        lunch:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportRequest.Lunch'
+        meetingRelief:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportRequest.MeetingRelief'
+        preferredWork:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportRequest.PreferredWork'
+        noMeetingDay:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportRequest.NoMeetingDay'
+        travelTime:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportRequest.TravelTime'
+        colorCoding:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportRequest.ColorCoding'
+    ClockwiseImportRequest:
+      type: object
+      properties:
+        user:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportRequest.User'
+        workingHours:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportRequest.WorkingHours'
+        meetingHours:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportRequest.MeetingHours'
+        preferences:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportRequest.Preferences'
+        flexibleMeetings:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/ClockwiseImportRequest.FlexibleMeeting'
+        schedulingLinks:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportRequest.SchedulingLinks'
+    ClockwiseEventCleanupService.DetectionResult:
+      required:
+      - count
+      - uniqueTitles
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+        uniqueTitles:
+          type: array
+          items:
+            type: string
+    ClockwiseEventCleanupService.CleanupResult:
+      required:
+      - deleted
+      - failed
+      - warnings
+      type: object
+      properties:
+        deleted:
+          type: integer
+          format: int32
+        failed:
+          type: integer
+          format: int32
+        warnings:
+          type: array
+          items:
+            type: string
+    ClockwiseImportRequest.CustomBookableHours:
+      type: object
+      properties:
+        schedule:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/ClockwiseImportRequest.CustomDaySchedule'
+        dateOverrides:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/ClockwiseImportRequest.DateOverride'
+    ClockwiseImportStatus:
+      type: string
+      enum:
+      - PENDING
+      - RUNNING
+      - SUCCESS
+      - PARTIAL
+      - ERROR
+    ClockwiseImportRequest.DaySetting:
+      type: object
+      properties:
+        day:
+          type: string
+          nullable: true
+        setting:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportRequest.SlotSetting'
+    ClockwiseImportRequest.DateOverride:
+      type: object
+      properties:
+        date:
+          type: string
+          nullable: true
+        timeRanges:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/ClockwiseImportRequest.CustomTimeRange'
+    ClockwiseImportRequest.CustomDaySchedule:
+      type: object
+      properties:
+        day:
+          type: string
+          nullable: true
+        timeRanges:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/ClockwiseImportRequest.CustomTimeRange'
+    ClockwiseImportRequest.Lunch:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          nullable: true
+        timeSlotRange:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportRequest.TimeSlotRange'
+        minimumDurationMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        idealDurationMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        externalTransparency:
+          type: string
+          nullable: true
+        enableReminders:
+          type: boolean
+          nullable: true
+    ClockwiseImportRequest.User:
+      type: object
+      properties:
+        userId:
+          type: string
+          nullable: true
+        calendarId:
+          type: string
+          nullable: true
+        fullName:
+          type: string
+          nullable: true
+        email:
+          type: string
+          nullable: true
+    ClockwiseImportResponse:
+      required:
+      - flexibleHabitsConverted
+      - flexibleMeetingsConverted
+      - flexibleMeetingsSkipped
+      - focusTimeImported
+      - habitsCreated
+      - meetingHoursImported
+      - messages
+      - schedulingLinksCreated
+      - schedulingLinksSkipped
+      - settingsApplied
+      - warnings
+      - workingHoursImported
+      type: object
+      properties:
+        workingHoursImported:
+          type: boolean
+        meetingHoursImported:
+          type: boolean
+        focusTimeImported:
+          type: boolean
+        habitsCreated:
+          type: array
+          items:
+            type: string
+        settingsApplied:
+          type: array
+          items:
+            type: string
+        schedulingLinksCreated:
+          type: integer
+          format: int32
+        schedulingLinksSkipped:
+          type: integer
+          format: int32
+        flexibleMeetingsConverted:
+          type: integer
+          format: int32
+        flexibleHabitsConverted:
+          type: integer
+          format: int32
+        flexibleMeetingsSkipped:
+          type: integer
+          format: int32
+        warnings:
+          type: array
+          items:
+            type: string
+        messages:
+          type: array
+          items:
+            type: string
+        skippedImport:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportRequest'
+    ClockwiseImportRequest.FocusTime:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          nullable: true
+        idealMinutesPerWeek:
+          type: integer
+          format: int32
+          nullable: true
+        idealMinutesPerDay:
+          type: integer
+          format: int32
+          nullable: true
+        maximumMinutesPerDay:
+          type: integer
+          format: int32
+          nullable: true
+        minimumSingleBlockMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        idealSingleBlockMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        maximumSingleBlockMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        minimumTotalPerWeek:
+          type: integer
+          format: int32
+          nullable: true
+        limitPerDay:
+          type: boolean
+          nullable: true
+        focusTimeSyncAll:
+          type: boolean
+          nullable: true
+        autodeclineIfIdealNotMet:
+          type: boolean
+          nullable: true
+        onlyHoldIfMinimum:
+          type: boolean
+          nullable: true
+        preferredWorkType:
+          type: string
+          nullable: true
+        externalTransparency:
+          type: string
+          nullable: true
+        enableReminders:
+          type: boolean
+          nullable: true
+    ClockwiseImportRequest.WorkingHours:
+      type: object
+      properties:
+        timeZone:
+          type: string
+          nullable: true
+        daySettings:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/ClockwiseImportRequest.DaySetting'
+    ClockwiseImportRequest.ColorEntry:
+      type: object
+      properties:
+        colorId:
+          type: string
+          nullable: true
+        displayName:
+          type: string
+          nullable: true
+    ClockwiseImportRequest.SchedulingLink:
+      type: object
+      properties:
+        linkUrl:
+          type: string
+          nullable: true
+        linkName:
+          type: string
+          nullable: true
+        meetingName:
+          type: string
+          nullable: true
+        slug:
+          type: string
+          nullable: true
+        isActive:
+          type: boolean
+          nullable: true
+        durations:
+          type: array
+          nullable: true
+          items:
+            type: integer
+            format: int32
+        defaultDuration:
+          type: integer
+          format: int32
+          nullable: true
+        periodType:
+          type: string
+          nullable: true
+        locationType:
+          type: string
+          nullable: true
+        bookableHours:
+          type: string
+          nullable: true
+        customBookableHours:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClockwiseImportRequest.CustomBookableHours'
+        availabilityType:
+          type: string
+          nullable: true
+        members:
+          type: array
+          nullable: true
+          items:
+            type: string
+        titleTemplate:
+          type: string
+          nullable: true
+        linkType:
+          type: string
+          nullable: true
+  securitySchemes:
+    Authorization:
+      type: oauth2

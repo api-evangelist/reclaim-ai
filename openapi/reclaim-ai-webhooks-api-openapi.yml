@@ -1,0 +1,487 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes webhooks API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: webhooks
+paths:
+  /api/team/current/webhooks:
+    get:
+      tags:
+      - webhooks
+      operationId: queryWebhookConfigs
+      parameters:
+      - name: statuses
+        in: query
+        schema:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/WebhookStatus'
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WebhookConfig'
+      security:
+      - Authorization: []
+    post:
+      tags:
+      - webhooks
+      operationId: createWebhookConfig
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookConfigRequest'
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookConfig'
+      security:
+      - Authorization: []
+  /api/team/current/webhooks/messages:
+    get:
+      tags:
+      - webhooks
+      operationId: getMessages
+      parameters:
+      - name: status
+        in: query
+        schema:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/WebhookMessageStatus'
+      - name: type
+        in: query
+        schema:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/WebhookEventType'
+      - name: webhookConfigId
+        in: query
+        schema:
+          type: string
+          nullable: true
+      - name: count
+        in: query
+        schema:
+          type: integer
+          format: int32
+          nullable: true
+      - name: after
+        in: query
+        schema:
+          type: string
+          nullable: true
+      - name: order
+        in: query
+        schema:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/SortOrder'
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json: {}
+      security:
+      - Authorization: []
+  /api/team/current/webhooks/messages/retry:
+    post:
+      tags:
+      - webhooks
+      operationId: retry
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookRetryRequest'
+        required: true
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WebhookMessageView'
+      security:
+      - Authorization: []
+  /api/team/current/webhooks/versions:
+    get:
+      tags:
+      - webhooks
+      operationId: getWebhookVersions
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json: {}
+      security:
+      - Authorization: []
+  /api/team/current/webhooks/{id}:
+    get:
+      tags:
+      - webhooks
+      operationId: getWebhookConfig
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookConfig'
+      security:
+      - Authorization: []
+    put:
+      tags:
+      - webhooks
+      operationId: updateWebhookConfig
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebhookConfigRequest'
+        required: true
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookConfig'
+      security:
+      - Authorization: []
+    delete:
+      tags:
+      - webhooks
+      operationId: deleteWebhookConfig
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                nullable: true
+      security:
+      - Authorization: []
+  /api/team/current/webhooks/{id}/associations:
+    get:
+      tags:
+      - webhooks
+      operationId: getWebhookAssociations
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json: {}
+      security:
+      - Authorization: []
+  /api/team/webhook/generate-secret:
+    get:
+      tags:
+      - webhooks
+      summary: Generate a secret
+      description: Generate a proposal of secret with high entropy
+      operationId: generateRandomSecrete
+      responses:
+        '200':
+          description: Ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookSecret'
+      security:
+      - Authorization: []
+components:
+  schemas:
+    WebhookConfigRequest:
+      required:
+      - name
+      - status
+      - url
+      type: object
+      properties:
+        name:
+          maxLength: 40
+          minLength: 3
+          type: string
+        url:
+          type: string
+        status:
+          $ref: '#/components/schemas/WebhookStatus'
+        apiVersion:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/WebhookApiVersion'
+        secret:
+          maxLength: 60
+          minLength: 12
+          type: string
+          nullable: true
+    WebhookSecret:
+      required:
+      - generatedSecret
+      type: object
+      properties:
+        generatedSecret:
+          type: string
+    WebhookRetryRequest:
+      required:
+      - messageIds
+      type: object
+      properties:
+        messageIds:
+          type: array
+          items:
+            type: string
+    WebhookConfig:
+      required:
+      - apiVersion
+      - createdAt
+      - id
+      - name
+      - status
+      - url
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        url:
+          type: string
+        status:
+          $ref: '#/components/schemas/WebhookStatus'
+        apiVersion:
+          $ref: '#/components/schemas/WebhookApiVersion'
+        createdAt:
+          type: string
+          format: date-time
+    WebhookExternalPayload:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          SchedulingLink.Meeting.Created: '#/components/schemas/WebhookExternalSchedulingLinkMeetingCreated'
+          SchedulingLink.Meeting.Updated: '#/components/schemas/WebhookExternalSchedulingLinkMeetingUpdated'
+          SchedulingLink.Meeting.Cancelled: '#/components/schemas/WebhookExternalSchedulingLinkMeetingCancelled'
+    WebhookApiVersion:
+      type: string
+      enum:
+      - v2024-10-02
+      - v2025-01-15
+      - v2025-09-26
+      - v2026-04-13
+      x-enum-varnames:
+      - V2024_10_02
+      - V2025_01_15
+      - V2025_09_26
+      - V2026_04_13
+    WebhookMessageRequestHistoryView:
+      required:
+      - at
+      - status
+      - statusCode
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/HttpStatus'
+        statusCode:
+          type: integer
+          format: int32
+        at:
+          type: string
+          format: date-time
+    WebhookEventType:
+      type: string
+      enum:
+      - SCHEDULING_LINK_MEETING_CREATED
+      - SCHEDULING_LINK_MEETING_UPDATED
+      - SCHEDULING_LINK_MEETING_CANCELLED
+    SortOrder:
+      type: string
+      enum:
+      - ASCENDING
+      - DESCENDING
+      - UNSORTED
+    WebhookMessageStatus:
+      type: string
+      enum:
+      - PENDING
+      - FAILURE_BUT_WILL_RETRY
+      - FAILED
+      - MANUAL_RETRY
+      - COMPLETED
+    HttpStatus:
+      type: string
+      enum:
+      - CONTINUE
+      - SWITCHING_PROTOCOLS
+      - PROCESSING
+      - EARLY_HINTS
+      - OK
+      - CREATED
+      - ACCEPTED
+      - NON_AUTHORITATIVE_INFORMATION
+      - NO_CONTENT
+      - RESET_CONTENT
+      - PARTIAL_CONTENT
+      - MULTI_STATUS
+      - ALREADY_IMPORTED
+      - IM_USED
+      - MULTIPLE_CHOICES
+      - MOVED_PERMANENTLY
+      - FOUND
+      - SEE_OTHER
+      - NOT_MODIFIED
+      - USE_PROXY
+      - SWITCH_PROXY
+      - TEMPORARY_REDIRECT
+      - PERMANENT_REDIRECT
+      - BAD_REQUEST
+      - UNAUTHORIZED
+      - PAYMENT_REQUIRED
+      - FORBIDDEN
+      - NOT_FOUND
+      - METHOD_NOT_ALLOWED
+      - NOT_ACCEPTABLE
+      - PROXY_AUTHENTICATION_REQUIRED
+      - REQUEST_TIMEOUT
+      - CONFLICT
+      - GONE
+      - LENGTH_REQUIRED
+      - PRECONDITION_FAILED
+      - REQUEST_ENTITY_TOO_LARGE
+      - REQUEST_URI_TOO_LONG
+      - UNSUPPORTED_MEDIA_TYPE
+      - REQUESTED_RANGE_NOT_SATISFIABLE
+      - EXPECTATION_FAILED
+      - I_AM_A_TEAPOT
+      - ENHANCE_YOUR_CALM
+      - MISDIRECTED_REQUEST
+      - UNPROCESSABLE_ENTITY
+      - LOCKED
+      - FAILED_DEPENDENCY
+      - TOO_EARLY
+      - UPGRADE_REQUIRED
+      - PRECONDITION_REQUIRED
+      - TOO_MANY_REQUESTS
+      - REQUEST_HEADER_FIELDS_TOO_LARGE
+      - NO_RESPONSE
+      - BLOCKED_BY_WINDOWS_PARENTAL_CONTROLS
+      - UNAVAILABLE_FOR_LEGAL_REASONS
+      - REQUEST_HEADER_TOO_LARGE
+      - INTERNAL_SERVER_ERROR
+      - NOT_IMPLEMENTED
+      - BAD_GATEWAY
+      - SERVICE_UNAVAILABLE
+      - GATEWAY_TIMEOUT
+      - HTTP_VERSION_NOT_SUPPORTED
+      - VARIANT_ALSO_NEGOTIATES
+      - INSUFFICIENT_STORAGE
+      - LOOP_DETECTED
+      - BANDWIDTH_LIMIT_EXCEEDED
+      - NOT_EXTENDED
+      - NETWORK_AUTHENTICATION_REQUIRED
+      - CONNECTION_TIMED_OUT
+    WebhookStatus:
+      type: string
+      enum:
+      - ACTIVE
+      - SUSPENDED
+      - DISABLED
+      - DOWNGRADED
+    WebhookMessageView:
+      required:
+      - assigmentId
+      - assigmentSubId
+      - eventTs
+      - eventType
+      - id
+      - nextRetryAfter
+      - payload
+      - retries
+      - retriesCount
+      - status
+      type: object
+      properties:
+        id:
+          type: string
+        assigmentId:
+          type: string
+        assigmentSubId:
+          type: string
+        eventType:
+          $ref: '#/components/schemas/WebhookEventType'
+        payload:
+          $ref: '#/components/schemas/WebhookExternalPayload'
+        status:
+          $ref: '#/components/schemas/WebhookMessageStatus'
+        retriesCount:
+          type: integer
+          format: int32
+        eventTs:
+          type: string
+          format: date-time
+        lastAttemptAt:
+          type: string
+          format: date-time
+          nullable: true
+        nextRetryAfter:
+          type: string
+          format: date-time
+        succeedAt:
+          type: string
+          format: date-time
+          nullable: true
+        retries:
+          type: array
+          items:
+            $ref: '#/components/schemas/WebhookMessageRequestHistoryView'
+  securitySchemes:
+    Authorization:
+      type: oauth2

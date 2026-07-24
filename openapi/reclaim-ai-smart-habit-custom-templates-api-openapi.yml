@@ -1,0 +1,565 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes smart-habit-custom-templates API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: smart-habit-custom-templates
+paths:
+  /api/templates/smart-habit:
+    get:
+      tags:
+      - smart-habit-custom-templates
+      operationId: findAllHabitTemplates
+      responses:
+        '200':
+          description: findAllHabitTemplates 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SmartHabitCustomTemplateView'
+      security:
+      - Authorization: []
+    post:
+      tags:
+      - smart-habit-custom-templates
+      operationId: createHabitTemplate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSmartHabitCustomTemplateRequest'
+        required: true
+      responses:
+        '200':
+          description: createHabitTemplate 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SmartHabitCustomTemplateView'
+      security:
+      - Authorization: []
+  /api/templates/smart-habit/{templateId}:
+    get:
+      tags:
+      - smart-habit-custom-templates
+      operationId: findHabitTemplateById
+      parameters:
+      - name: templateId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: findHabitTemplateById 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SmartHabitCustomTemplateView'
+      security:
+      - Authorization: []
+    delete:
+      tags:
+      - smart-habit-custom-templates
+      operationId: deleteHabitTemplate
+      parameters:
+      - name: templateId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: deleteHabitTemplate 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+    patch:
+      tags:
+      - smart-habit-custom-templates
+      operationId: updateHabitTemplate
+      parameters:
+      - name: templateId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchSmartHabitCustomTemplateRequest'
+        required: true
+      responses:
+        '200':
+          description: updateHabitTemplate 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SmartHabitCustomTemplateView'
+      security:
+      - Authorization: []
+  /api/templates/smart-habit/{templateId}/disable:
+    put:
+      tags:
+      - smart-habit-custom-templates
+      operationId: disableHabitTemplate
+      parameters:
+      - name: templateId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: disableHabitTemplate 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SmartHabitCustomTemplateView'
+      security:
+      - Authorization: []
+  /api/templates/smart-habit/{templateId}/enable:
+    put:
+      tags:
+      - smart-habit-custom-templates
+      operationId: enableHabitTemplate
+      parameters:
+      - name: templateId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: enableHabitTemplate 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SmartHabitCustomTemplateView'
+      security:
+      - Authorization: []
+components:
+  schemas:
+    SmartHabitCustomTemplateView:
+      required:
+      - defendedDescription
+      - defenseAggression
+      - description
+      - durationMaxMins
+      - durationMinMins
+      - enabled
+      - entityType
+      - eventType
+      - id
+      - idealTime
+      - priority
+      - recurrence
+      - reservedWords
+      - timePolicyType
+      - title
+      - visibility
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        title:
+          type: string
+        recurrence:
+          $ref: '#/components/schemas/RecurrenceDefinition'
+        priority:
+          $ref: '#/components/schemas/PriorityLevel'
+        eventType:
+          $ref: '#/components/schemas/SmartSeriesEventType'
+        color:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventColor'
+        timePolicyType:
+          $ref: '#/components/schemas/TimePolicyType'
+        oneOffPolicy:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/TimePolicy'
+        starting:
+          type: string
+          format: date
+          nullable: true
+        ending:
+          type: string
+          format: date
+          nullable: true
+        idealTime:
+          type: string
+          format: partial-time
+        durationMinMins:
+          type: integer
+          format: int32
+        durationMaxMins:
+          type: integer
+          format: int32
+        failurePolicy:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/SmartSeriesBookingFailurePolicy'
+        visibility:
+          $ref: '#/components/schemas/SmartSeriesVisibility'
+        defenseAggression:
+          $ref: '#/components/schemas/DefenseAggression'
+        defendedDescription:
+          type: string
+        enabled:
+          type: boolean
+        reservedWords:
+          type: array
+          items:
+            type: string
+        description:
+          type: string
+        entityType:
+          $ref: '#/components/schemas/EntityTypeView'
+    TimePolicy:
+      required:
+      - dayHours
+      type: object
+      properties:
+        startOfWeek:
+          $ref: '#/components/schemas/DayOfWeek'
+        endOfWeek:
+          $ref: '#/components/schemas/DayOfWeek'
+        dayHours:
+          properties:
+            MONDAY:
+              $ref: '#/components/schemas/DayHours'
+            TUESDAY:
+              $ref: '#/components/schemas/DayHours'
+            WEDNESDAY:
+              $ref: '#/components/schemas/DayHours'
+            THURSDAY:
+              $ref: '#/components/schemas/DayHours'
+            FRIDAY:
+              $ref: '#/components/schemas/DayHours'
+            SATURDAY:
+              $ref: '#/components/schemas/DayHours'
+            SUNDAY:
+              $ref: '#/components/schemas/DayHours'
+    RecurrenceDefinition:
+      required:
+      - frequency
+      type: object
+      properties:
+        interval:
+          type: integer
+          format: int32
+        frequency:
+          $ref: '#/components/schemas/Frequency'
+        idealDays:
+          type: array
+          items:
+            $ref: '#/components/schemas/DayOfWeek'
+        idealMonthlyDay:
+          $ref: '#/components/schemas/IdealMonthlyDay'
+        daysBetweenPeriods:
+          type: integer
+          format: int32
+          readOnly: true
+    CreateSmartHabitCustomTemplateRequest:
+      required:
+      - defenseAggression
+      - durationMaxMins
+      - durationMinMins
+      - eventType
+      - idealTime
+      - priority
+      - recurrence
+      - timePolicyType
+      - title
+      type: object
+      properties:
+        title:
+          minLength: 1
+          type: string
+        priority:
+          $ref: '#/components/schemas/PriorityLevel'
+        eventType:
+          $ref: '#/components/schemas/SmartSeriesEventType'
+        color:
+          $ref: '#/components/schemas/EventColor'
+        timePolicyType:
+          $ref: '#/components/schemas/TimePolicyType'
+        oneOffPolicy:
+          $ref: '#/components/schemas/TimePolicy'
+        recurrence:
+          $ref: '#/components/schemas/RecurrenceDefinition'
+        starting:
+          type: string
+          format: date
+        ending:
+          type: string
+          format: date
+        idealTime:
+          type: string
+          format: partial-time
+        durationMinMins:
+          type: integer
+          format: int32
+        durationMaxMins:
+          type: integer
+          format: int32
+        defenseAggression:
+          $ref: '#/components/schemas/DefenseAggression'
+        defendedDescription:
+          type: string
+        visibility:
+          $ref: '#/components/schemas/SmartSeriesVisibility'
+        failurePolicy:
+          $ref: '#/components/schemas/SmartSeriesBookingFailurePolicy'
+        reservedWords:
+          type: array
+          items:
+            type: string
+        description:
+          type: string
+    EntityTypeView:
+      required:
+      - access
+      type: object
+      properties:
+        access:
+          $ref: '#/components/schemas/EntityTypeAccessView'
+    LocalTimeInterval:
+      required:
+      - end
+      - start
+      type: object
+      properties:
+        start:
+          type: string
+          format: partial-time
+        end:
+          type: string
+          format: partial-time
+        duration:
+          type: string
+    Frequency:
+      type: string
+      enum:
+      - DAILY
+      - WEEKLY
+      - MONTHLY
+    SmartSeriesEventType:
+      type: string
+      enum:
+      - FOCUS
+      - SOLO_WORK
+      - PERSONAL
+      - TEAM_MEETING
+      - EXTERNAL_MEETING
+      - ONE_ON_ONE
+      x-deprecated:
+      - FOCUS
+    PatchSmartHabitCustomTemplateRequest:
+      type: object
+      properties:
+        title:
+          type: string
+        priority:
+          $ref: '#/components/schemas/PriorityLevel'
+        eventType:
+          $ref: '#/components/schemas/SmartSeriesEventType'
+        color:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventColor'
+        timePolicyType:
+          $ref: '#/components/schemas/TimePolicyType'
+        oneOffPolicy:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/TimePolicy'
+        recurrence:
+          $ref: '#/components/schemas/RecurrenceDefinition'
+        starting:
+          type: string
+          format: date
+          nullable: true
+        ending:
+          type: string
+          format: date
+          nullable: true
+        idealTime:
+          type: string
+          format: partial-time
+        durationMinMins:
+          type: integer
+          format: int32
+        durationMaxMins:
+          type: integer
+          format: int32
+        defenseAggression:
+          $ref: '#/components/schemas/DefenseAggression'
+        defendedDescription:
+          type: string
+          nullable: true
+        visibility:
+          $ref: '#/components/schemas/SmartSeriesVisibility'
+        failurePolicy:
+          $ref: '#/components/schemas/SmartSeriesBookingFailurePolicy'
+        reservedWords:
+          type: array
+          items:
+            type: string
+        description:
+          type: string
+    EntityTypePermissions:
+      required:
+      - canCreate
+      - canView
+      type: object
+      properties:
+        canView:
+          type: boolean
+        canCreate:
+          type: boolean
+    EntityTypeAccessView:
+      required:
+      - permissions
+      type: object
+      properties:
+        permissions:
+          $ref: '#/components/schemas/EntityTypePermissionsView'
+    EventColor:
+      type: string
+      enum:
+      - NONE
+      - LAVENDER
+      - SAGE
+      - GRAPE
+      - FLAMINGO
+      - BANANA
+      - TANGERINE
+      - PEACOCK
+      - GRAPHITE
+      - BLUEBERRY
+      - BASIL
+      - TOMATO
+    IdealMonthlyDay:
+      type: object
+      properties:
+        idealDayOfMonth:
+          type: integer
+          format: int32
+        idealDayOfWeek:
+          $ref: '#/components/schemas/DayOfWeek'
+        idealWeek:
+          type: integer
+          format: int32
+    DayOfWeek:
+      type: string
+      enum:
+      - MONDAY
+      - TUESDAY
+      - WEDNESDAY
+      - THURSDAY
+      - FRIDAY
+      - SATURDAY
+      - SUNDAY
+    DayHours:
+      required:
+      - intervals
+      type: object
+      properties:
+        intervals:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocalTimeInterval'
+        startOfDay:
+          type: string
+          format: partial-time
+          nullable: true
+        endOfDay:
+          type: string
+          format: partial-time
+          nullable: true
+    DefenseAggression:
+      type: string
+      enum:
+      - NONE
+      - LOW
+      - DEFAULT
+      - HIGH
+      - MAX
+    EntityTypePermissionsView:
+      required:
+      - permissions
+      - type
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/EntityType'
+        permissions:
+          $ref: '#/components/schemas/EntityTypePermissions'
+    EntityType:
+      type: string
+      enum:
+      - ACCOUNT_INVITATION
+      - ACCOUNT_TIME_SCHEMES
+      - WEBHOOKS_CONFIG
+      - WEBHOOKS_ASSOCIATION
+      - SMART_HABIT_TEMPLATES
+      - TEAM
+    SmartSeriesVisibility:
+      type: string
+      enum:
+      - DEFAULT
+      - PRIVATE
+      - PUBLIC
+    SmartSeriesBookingFailurePolicy:
+      type: string
+      enum:
+      - REMOVE
+      - LEAVE_LAST
+      - LEAVE_LAST_OR_RETURN_TO_ORIGINAL
+    TimePolicyType:
+      type: string
+      enum:
+      - WORK
+      - PERSONAL
+      - MEETING
+      - ONE_OFF
+      - INHERITED
+      - CUSTOM
+    PriorityLevel:
+      type: string
+      enum:
+      - P1
+      - P2
+      - P3
+      - P4
+      - PRIORITIZE
+      - DEFAULT
+      x-deprecated:
+      - PRIORITIZE
+      - DEFAULT
+  securitySchemes:
+    Authorization:
+      type: oauth2

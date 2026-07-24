@@ -1,0 +1,138 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes memories API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: memories
+paths:
+  /api/memories:
+    get:
+      tags:
+      - memories
+      operationId: listMemories
+      parameters:
+      - name: count
+        in: query
+        schema:
+          type: integer
+          format: int32
+          nullable: true
+      - name: after
+        in: query
+        schema:
+          type: string
+          nullable: true
+      - name: order
+        in: query
+        schema:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/SortOrder'
+      responses:
+        '200':
+          description: listMemories 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Page_UserMemoryView_'
+      security:
+      - Authorization: []
+    delete:
+      tags:
+      - memories
+      operationId: deleteAllMemories
+      responses:
+        '200':
+          description: deleteAllMemories 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+  /api/memories/{id}:
+    delete:
+      tags:
+      - memories
+      operationId: deleteMemory
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: deleteMemory 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+components:
+  schemas:
+    UserMemoryView:
+      required:
+      - content
+      - createdAt
+      - expiresAt
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+        content:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        expiresAt:
+          type: string
+          format: date-time
+    SortOrder:
+      type: string
+      enum:
+      - ASCENDING
+      - DESCENDING
+      - UNSORTED
+    Page_UserMemoryView_:
+      required:
+      - count
+      - first
+      - hasNextPage
+      - items
+      - last
+      - order
+      type: object
+      properties:
+        first:
+          type: string
+        last:
+          type: string
+        order:
+          $ref: '#/components/schemas/SortOrder'
+        count:
+          type: integer
+          format: int32
+        hasNextPage:
+          type: boolean
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserMemoryView'
+        totalCount:
+          type: integer
+          format: int64
+          nullable: true
+  securitySchemes:
+    Authorization:
+      type: oauth2

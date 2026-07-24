@@ -1,0 +1,160 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes api-management API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: api-management
+paths:
+  /api/api-management/api-key:
+    post:
+      tags:
+      - api-management
+      operationId: createApiKey
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiKey'
+        required: true
+      responses:
+        '200':
+          description: createApiKey 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiKey'
+      security:
+      - Authorization: []
+    patch:
+      tags:
+      - api-management
+      operationId: updateApiKey
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApiKey'
+        required: true
+      responses:
+        '200':
+          description: updateApiKey 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiKey'
+      security:
+      - Authorization: []
+  /api/api-management/api-key/reissue/{id}:
+    patch:
+      tags:
+      - api-management
+      operationId: reissueApiKey
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: reissueApiKey 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiKey'
+      security:
+      - Authorization: []
+  /api/api-management/api-key/{id}:
+    get:
+      tags:
+      - api-management
+      operationId: listApiKey
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: listApiKey 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiKey'
+      security:
+      - Authorization: []
+    delete:
+      tags:
+      - api-management
+      operationId: deleteApiKey
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: deleteApiKey 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+  /api/api-management/api-keys:
+    get:
+      tags:
+      - api-management
+      operationId: listApiKey_1
+      responses:
+        '200':
+          description: listApiKey_1 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ApiKey'
+      security:
+      - Authorization: []
+components:
+  schemas:
+    ApiKey:
+      required:
+      - createdAt
+      - description
+      - id
+      - updatedAt
+      type: object
+      properties:
+        id:
+          type: string
+        description:
+          minLength: 1
+          type: string
+        lifetimeMs:
+          type: integer
+          format: int64
+          nullable: true
+        token:
+          type: string
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+  securitySchemes:
+    Authorization:
+      type: oauth2

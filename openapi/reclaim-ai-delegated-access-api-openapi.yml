@@ -1,0 +1,175 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes delegated-access API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: delegated-access
+paths:
+  /api/delegated-access:
+    get:
+      tags:
+      - delegated-access
+      operationId: getAllConfigsForGrantor
+      responses:
+        '200':
+          description: getAllConfigsForGrantor 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DelegatedAccessView'
+      security:
+      - Authorization: []
+    post:
+      tags:
+      - delegated-access
+      operationId: create_1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDelegateAccessRequest'
+        required: true
+      responses:
+        '200':
+          description: create_1 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DelegatedAccessView'
+      security:
+      - Authorization: []
+  /api/delegated-access/allowed:
+    get:
+      tags:
+      - delegated-access
+      operationId: getAllowed
+      responses:
+        '200':
+          description: getAllowed 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthorizedDelegatedAccessView'
+      security:
+      - Authorization: []
+  /api/delegated-access/toggle/{delegatedAccessId}:
+    put:
+      tags:
+      - delegated-access
+      operationId: toggle
+      parameters:
+      - name: delegatedAccessId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DelegatedAccessToggleRequest'
+        required: true
+      responses:
+        '200':
+          description: toggle 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DelegatedAccessView'
+      security:
+      - Authorization: []
+  /api/delegated-access/{id}:
+    delete:
+      tags:
+      - delegated-access
+      operationId: delete_3
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: OK response
+          content:
+            application/json:
+              schema:
+                nullable: true
+      security:
+      - Authorization: []
+components:
+  schemas:
+    ApiResourceView:
+      required:
+      - httpMethods
+      - uri
+      type: object
+      properties:
+        uri:
+          type: string
+        httpMethods:
+          type: array
+          items:
+            type: string
+    DelegatedAccessView:
+      required:
+      - authorizedUserId
+      - enable
+      - grantorUserId
+      - id
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        grantorUserId:
+          type: string
+        authorizedUserId:
+          type: string
+        enable:
+          type: boolean
+    DelegatedAccessToggleRequest:
+      required:
+      - enable
+      type: object
+      properties:
+        enable:
+          type: boolean
+    CreateDelegateAccessRequest:
+      required:
+      - userIdToAuthorize
+      type: object
+      properties:
+        userIdToAuthorize:
+          minLength: 1
+          type: string
+    AuthorizedDelegatedAccessView:
+      required:
+      - authorized
+      - availableApis
+      type: object
+      properties:
+        authorized:
+          type: array
+          items:
+            $ref: '#/components/schemas/DelegatedAccessView'
+        availableApis:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiResourceView'
+  securitySchemes:
+    Authorization:
+      type: oauth2

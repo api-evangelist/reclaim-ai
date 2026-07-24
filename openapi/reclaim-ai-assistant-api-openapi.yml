@@ -1,0 +1,303 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes Assistant API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: Assistant
+paths:
+  /api/assistant/fake/1:
+    get:
+      operationId: fakeEndpoint1
+      responses:
+        '200':
+          description: fakeEndpoint1 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CalendarEntryView'
+      security:
+      - Authorization: []
+      tags:
+      - Assistant
+components:
+  schemas:
+    ConferenceDetails:
+      required:
+      - solution
+      - source
+      - status
+      - url
+      type: object
+      properties:
+        solution:
+          $ref: '#/components/schemas/ConferenceSolution'
+        url:
+          type: string
+          nullable: true
+        status:
+          $ref: '#/components/schemas/ConferenceStatus'
+        source:
+          $ref: '#/components/schemas/ConferenceSource'
+    EventKey:
+      required:
+      - calendarId
+      - eventId
+      type: object
+      properties:
+        eventId:
+          type: string
+        calendarId:
+          type: integer
+          format: int64
+    CalendarEntryDateTime:
+      required:
+      - date
+      - dateTime
+      - timezone
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+        dateTime:
+          type: string
+          format: date-time
+        timezone:
+          type: string
+    EventDescription:
+      required:
+      - raw
+      type: object
+      properties:
+        raw:
+          type: string
+        processed:
+          type: string
+    ConferenceSource:
+      type: string
+      enum:
+      - NATIVE
+      - PARSED
+    CalendarEntryColor:
+      required:
+      - defaultCalendarColor
+      - google
+      - hex
+      type: object
+      properties:
+        hex:
+          type: string
+        defaultCalendarColor:
+          type: boolean
+        google:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventColor'
+    ConferenceStatus:
+      type: string
+      enum:
+      - PENDING
+      - SUCCESS
+      - FAILURE
+      - UNKNOWN
+    ConferenceSolution:
+      type: string
+      enum:
+      - GOOGLE_MEET
+      - MICROSOFT_TEAMS
+      - ZOOM
+      - WEBEX
+      - RING_CENTRAL
+      - POP
+      - COSCREEN
+      - BLUE_JEANS
+      - JITSI
+      - OTHER
+      - UNKNOWN
+    EventResponseStatus:
+      type: string
+      enum:
+      - None
+      - Organizer
+      - Accepted
+      - Declined
+      - TentativelyAccepted
+      - NotResponded
+      x-enum-varnames:
+      - None
+      - Organizer
+      - Accepted
+      - Declined
+      - TentativelyAccepted
+      - NotResponded
+    EventColor:
+      type: string
+      enum:
+      - NONE
+      - LAVENDER
+      - SAGE
+      - GRAPE
+      - FLAMINGO
+      - BANANA
+      - TANGERINE
+      - PEACOCK
+      - GRAPHITE
+      - BLUEBERRY
+      - BASIL
+      - TOMATO
+    Colorized:
+      type: object
+      properties:
+        color:
+          $ref: '#/components/schemas/EventColor'
+    CalendarEntryView:
+      required:
+      - attendees
+      - category
+      - color
+      - conferenceDetails
+      - end
+      - eventDescription
+      - free
+      - key
+      - locked
+      - priority
+      - reclaimEventType
+      - rsvpStatus
+      - start
+      - status
+      - title
+      - version
+      type: object
+      properties:
+        key:
+          $ref: '#/components/schemas/EventKey'
+        status:
+          $ref: '#/components/schemas/EventStatus'
+        start:
+          $ref: '#/components/schemas/CalendarEntryDateTime'
+        end:
+          $ref: '#/components/schemas/CalendarEntryDateTime'
+        title:
+          type: string
+        eventDescription:
+          $ref: '#/components/schemas/EventDescription'
+        priority:
+          $ref: '#/components/schemas/PriorityLevel'
+        color:
+          $ref: '#/components/schemas/CalendarEntryColor'
+        conferenceDetails:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ConferenceDetails'
+        rsvpStatus:
+          $ref: '#/components/schemas/EventResponseStatus'
+        attendees:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/EventResponseStatus'
+        free:
+          type: boolean
+        recurrence:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/CalendarEntryAssistantViewRecurrence'
+        recurringInstance:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/CalendarEntryRecurringInstance'
+        reclaimEventType:
+          $ref: '#/components/schemas/ReclaimEventType'
+        category:
+          $ref: '#/components/schemas/EventCategory'
+        locked:
+          type: boolean
+        version:
+          type: string
+    CalendarEntryAssistantViewRecurrence:
+      required:
+      - definition
+      - timezone
+      type: object
+      properties:
+        definition:
+          $ref: '#/components/schemas/Rfc2445Definition'
+        timezone:
+          type: string
+    EventCategory:
+      $ref: '#/components/schemas/Colorized'
+    RecurrenceExDates:
+      required:
+      - timezone
+      - value
+      type: object
+      properties:
+        value:
+          type: string
+        timezone:
+          type: string
+    EventStatus:
+      type: string
+      enum:
+      - PUBLISHED
+      - CANCELLED
+    ReclaimEventType:
+      type: string
+      enum:
+      - USER
+      - SYNC
+      - HABIT_ASSIGNMENT
+      - SMART_HABIT
+      - ONE_ON_ONE_ASSIGNMENT
+      - SMART_MEETING
+      - TASK_ASSIGNMENT
+      - CONF_BUFFER
+      - TRAVEL_BUFFER
+      - SCHEDULING_LINK_MEETING
+      - UNKNOWN
+      - FOCUS
+    CalendarEntryRecurringInstance:
+      required:
+      - originalStart
+      - source
+      type: object
+      properties:
+        source:
+          $ref: '#/components/schemas/EventKey'
+        originalStart:
+          $ref: '#/components/schemas/CalendarEntryDateTime'
+    PriorityLevel:
+      type: string
+      enum:
+      - P1
+      - P2
+      - P3
+      - P4
+      - PRIORITIZE
+      - DEFAULT
+      x-deprecated:
+      - PRIORITIZE
+      - DEFAULT
+    Rfc2445Definition:
+      required:
+      - exDates
+      - rrule
+      type: object
+      properties:
+        rrule:
+          type: string
+        exDates:
+          type: array
+          items:
+            $ref: '#/components/schemas/RecurrenceExDates'
+  securitySchemes:
+    Authorization:
+      type: oauth2

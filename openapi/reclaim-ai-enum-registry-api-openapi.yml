@@ -1,0 +1,71 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes Enum Registry API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: Enum Registry
+paths:
+  /api/enum-registry/list:
+    get:
+      operationId: list_2
+      responses:
+        '200':
+          description: list_2 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EnumsController.EnumsForFrontend'
+      security:
+      - Authorization: []
+      tags:
+      - Enum Registry
+components:
+  schemas:
+    OauthErrorCodes:
+      type: string
+      enum:
+      - auth_failed
+      - access_token
+      - invalid_state
+      - invalid_id_token
+      - invalid_scopes
+      - primary_mismatch
+      - credential_not_found
+      - wrong_account
+      - not_a_google_calendar_user
+      - hosted_on_premise
+      - wrong_domain
+      - unknown
+      - primary_calendar_not_found
+      x-enum-varnames:
+      - auth_failed
+      - access_token
+      - invalid_state
+      - invalid_id_token
+      - invalid_scopes
+      - primary_mismatch
+      - credential_not_found
+      - wrong_account
+      - not_a_google_calendar_user
+      - hosted_on_premise
+      - wrong_domain
+      - unknown
+      - primary_calendar_not_found
+    EnumsController.EnumsForFrontend:
+      required:
+      - oauthErrorCodes
+      type: object
+      properties:
+        oauthErrorCodes:
+          $ref: '#/components/schemas/OauthErrorCodes'
+  securitySchemes:
+    Authorization:
+      type: oauth2

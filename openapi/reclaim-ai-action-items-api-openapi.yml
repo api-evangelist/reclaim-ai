@@ -1,0 +1,75 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes action-items API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: action-items
+paths:
+  /api/interactions/action-items/create:
+    post:
+      tags:
+      - action-items
+      operationId: actionItems_create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActionItemCreationRequest'
+        required: true
+      responses:
+        '200':
+          description: actionItems_create 200 response
+      security:
+      - Authorization: []
+components:
+  schemas:
+    GtdTaskId.TaskSourceType:
+      type: string
+      enum:
+      - TODOIST
+      - CLICK_UP
+      - LINEAR
+      - GOOGLE_TASKS
+      - JIRA
+      - ASANA
+      - NOTION
+      - RECLAIM
+    ActionItemCreationRequest:
+      required:
+      - integration
+      - tasks
+      type: object
+      properties:
+        tasks:
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/ActionItemCreationRequest.TaskItem'
+        integration:
+          $ref: '#/components/schemas/GtdTaskId.TaskSourceType'
+    ActionItemCreationRequest.TaskItem:
+      required:
+      - recommendedTaskId
+      - title
+      type: object
+      properties:
+        recommendedTaskId:
+          type: integer
+          format: int64
+        title:
+          minLength: 1
+          type: string
+        dueDate:
+          type: string
+          nullable: true
+  securitySchemes:
+    Authorization:
+      type: oauth2

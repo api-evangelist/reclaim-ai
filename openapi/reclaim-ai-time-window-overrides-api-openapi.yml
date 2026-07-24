@@ -1,0 +1,122 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes Time Window Overrides API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: Time Window Overrides
+paths:
+  /api/time-window-overrides:
+    get:
+      operationId: fetch_1
+      responses:
+        '200':
+          description: fetch_1 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimeWindowOverridesView'
+      security:
+      - Authorization: []
+      tags:
+      - Time Window Overrides
+  /api/time-window-overrides/entry:
+    post:
+      operationId: create_3
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TimeWindowOverrideRequest'
+        required: true
+      responses:
+        '200':
+          description: create_3 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimeWindowOverridesView'
+      security:
+      - Authorization: []
+      tags:
+      - Time Window Overrides
+  /api/time-window-overrides/entry/{id}:
+    delete:
+      operationId: delete_5
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: delete_5 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimeWindowOverridesView'
+      security:
+      - Authorization: []
+      tags:
+      - Time Window Overrides
+components:
+  schemas:
+    TimeWindowOverridesView:
+      required:
+      - defaultTimezone
+      - entries
+      type: object
+      properties:
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeWindowOverrideView'
+        defaultTimezone:
+          type: string
+    TimeWindowOverrideRequest:
+      required:
+      - endDate
+      - startDate
+      - timezone
+      type: object
+      properties:
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        timezone:
+          type: string
+          nullable: true
+    TimeWindowOverrideView:
+      required:
+      - endDate
+      - id
+      - startDate
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        timezone:
+          type: string
+          nullable: true
+  securitySchemes:
+    Authorization:
+      type: oauth2

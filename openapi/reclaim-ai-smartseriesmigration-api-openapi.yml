@@ -1,0 +1,55 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes SmartSeriesMigration API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: SmartSeriesMigration
+paths:
+  /api/smart-series-migration/reclaim-recurrence/migrate-all:
+    post:
+      tags:
+      - SmartSeriesMigration
+      summary: This is only intended for dev use to simulate the UserTaskSchedulerService causing the nightly scheduled migration check to run
+      description: This is only intended for dev use to simulate the UserTaskSchedulerService causing the nightly scheduled migration check to run
+      operationId: migrateToGen3SmartSeries
+      responses:
+        '200':
+          description: migrateToGen3SmartSeries 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+  /api/smart-series-migration/run:
+    post:
+      tags:
+      - SmartSeriesMigration
+      operationId: migrateAllToSmartSeries
+      parameters:
+      - name: migrateExistingAssignments
+        in: query
+        required: true
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: migrateAllToSmartSeries 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+components:
+  securitySchemes:
+    Authorization:
+      type: oauth2

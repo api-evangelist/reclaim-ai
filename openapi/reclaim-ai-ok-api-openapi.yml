@@ -1,0 +1,55 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes Ok API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: Ok
+paths:
+  /api/ok:
+    get:
+      operationId: apiOk
+      parameters:
+      - name: env
+        in: query
+        schema:
+          type: string
+          nullable: true
+      responses:
+        '200':
+          description: apiOk 200 response
+          content:
+            application/json:
+              schema:
+                type: string
+      tags:
+      - Ok
+  /ok:
+    get:
+      operationId: ok_1
+      parameters:
+      - name: env
+        in: query
+        schema:
+          type: string
+          nullable: true
+      responses:
+        '200':
+          description: ok_1 200 response
+          content:
+            application/json:
+              schema:
+                type: string
+      tags:
+      - Ok
+components:
+  securitySchemes:
+    Authorization:
+      type: oauth2

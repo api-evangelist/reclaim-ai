@@ -1,0 +1,83 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes google-groups API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: google-groups
+paths:
+  /api/google/groups/expand:
+    get:
+      tags:
+      - google-groups
+      operationId: expand
+      parameters:
+      - name: email
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: credentialId
+        in: query
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: expand 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupExpansionView'
+      security:
+      - Authorization: []
+components:
+  schemas:
+    GroupExpansionView.GroupMemberView:
+      required:
+      - email
+      - isTeamMember
+      type: object
+      properties:
+        email:
+          type: string
+        userId:
+          type: string
+          nullable: true
+        firstName:
+          type: string
+          nullable: true
+        lastName:
+          type: string
+          nullable: true
+        avatarUrl:
+          type: string
+          nullable: true
+        isTeamMember:
+          type: boolean
+    GroupExpansionView:
+      required:
+      - groupId
+      - isGroup
+      - members
+      type: object
+      properties:
+        groupId:
+          type: string
+        isGroup:
+          type: boolean
+        members:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupExpansionView.GroupMemberView'
+  securitySchemes:
+    Authorization:
+      type: oauth2

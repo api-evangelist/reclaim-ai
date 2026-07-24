@@ -1,0 +1,135 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes Avatar API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: Avatar
+paths:
+  /avatar/credential/{credentialId}:
+    get:
+      operationId: credential
+      parameters:
+      - name: credentialId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: credential 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+      tags:
+      - Avatar
+  /avatar/lookup:
+    get:
+      operationId: avatar
+      parameters:
+      - name: email
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: avatar 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+      tags:
+      - Avatar
+  /avatar/me:
+    get:
+      operationId: me
+      responses:
+        '200':
+          description: me 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+      tags:
+      - Avatar
+  /avatar/streamed/credential/{userId}/{credentialId}:
+    get:
+      operationId: streamedCredential
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: credentialId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: streamedCredential 200 response
+          content:
+            image/jpeg:
+              schema:
+                type: string
+                format: binary
+      tags:
+      - Avatar
+  /avatar/streamed/id/{userId}:
+    get:
+      summary: Microsoft doesn't provide a public URL for fetching profile photos / avatars so we have to stream them.
+      description: Microsoft doesn't provide a public URL for fetching profile photos / avatars so we have to stream them. This is marked as allowing anonymous access because we need scheduling link attendees to be able to see avatars of the organizers on the booking pages and also for smart meeting invitations, etc...
+      operationId: streamedByUserId
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: streamedByUserId 200 response
+          content:
+            image/jpeg:
+              schema:
+                type: string
+                format: binary
+      tags:
+      - Avatar
+  /avatar/streamed/me:
+    get:
+      operationId: streamedMe
+      responses:
+        '200':
+          description: streamedMe 200 response
+          content:
+            image/jpeg:
+              schema:
+                type: string
+                format: binary
+      security:
+      - Authorization: []
+      tags:
+      - Avatar
+components:
+  securitySchemes:
+    Authorization:
+      type: oauth2

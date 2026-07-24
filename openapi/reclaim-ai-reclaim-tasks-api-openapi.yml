@@ -1,0 +1,365 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes reclaim-tasks API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: reclaim-tasks
+paths:
+  /api/reclaim-tasks:
+    get:
+      tags:
+      - reclaim-tasks
+      operationId: listReclaimTasks
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+          nullable: true
+      - name: completed
+        in: query
+        schema:
+          type: boolean
+          nullable: true
+      responses:
+        '200':
+          description: listReclaimTasks 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReclaimTask'
+      deprecated: true
+      security:
+      - Authorization: []
+    post:
+      tags:
+      - reclaim-tasks
+      operationId: createReclaimTask
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateReclaimTaskRequest'
+        required: true
+      responses:
+        '200':
+          description: createReclaimTask 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReclaimTask'
+      security:
+      - Authorization: []
+  /api/reclaim-tasks/page:
+    get:
+      tags:
+      - reclaim-tasks
+      operationId: listReclaimTaskPage
+      parameters:
+      - name: query
+        in: query
+        schema:
+          type: string
+          nullable: true
+      - name: sort
+        in: query
+        schema:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ReclaimTaskSortField'
+      - name: relativeDue
+        in: query
+        schema:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ReclaimTaskRelativeDue'
+      - name: completed
+        in: query
+        schema:
+          type: boolean
+          nullable: true
+      - name: dueBefore
+        in: query
+        schema:
+          type: string
+          format: date
+          nullable: true
+      - name: dueAfter
+        in: query
+        schema:
+          type: string
+          format: date
+          nullable: true
+      - name: overdue
+        in: query
+        schema:
+          type: boolean
+          nullable: true
+      - name: hasDuration
+        in: query
+        schema:
+          type: boolean
+          nullable: true
+      - name: after
+        in: query
+        schema:
+          type: string
+          nullable: true
+      - name: order
+        in: query
+        schema:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/SortOrder'
+      - name: count
+        in: query
+        schema:
+          type: integer
+          format: int32
+          nullable: true
+      responses:
+        '200':
+          description: listReclaimTaskPage 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Page_ReclaimTaskView_'
+      security:
+      - Authorization: []
+  /api/reclaim-tasks/{id}:
+    get:
+      tags:
+      - reclaim-tasks
+      operationId: getReclaimTask
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: getReclaimTask 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReclaimTask'
+      security:
+      - Authorization: []
+    delete:
+      tags:
+      - reclaim-tasks
+      operationId: deleteReclaimTask
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: deleteReclaimTask 200 response
+      security:
+      - Authorization: []
+    patch:
+      tags:
+      - reclaim-tasks
+      operationId: updateReclaimTask
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateReclaimTaskRequest'
+        required: true
+      responses:
+        '200':
+          description: updateReclaimTask 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReclaimTask'
+      security:
+      - Authorization: []
+components:
+  schemas:
+    UpdateReclaimTaskRequest:
+      type: object
+      properties:
+        title:
+          type: string
+          nullable: true
+        dueDate:
+          type: string
+          format: date
+          nullable: true
+        startDate:
+          type: string
+          format: date
+          nullable: true
+        completed:
+          type: boolean
+          nullable: true
+        estimateMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        priority:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+    ReclaimTaskRelativeDue:
+      type: string
+      enum:
+      - TODAY
+      - THIS_WEEK
+      - THIS_MONTH
+    GtdTaskLink:
+      required:
+      - url
+      type: object
+      properties:
+        url:
+          type: string
+    ReclaimTaskSortField:
+      type: string
+      enum:
+      - DUE_DATE
+      - NAME
+      - PRIORITY
+    Page_ReclaimTaskView_:
+      required:
+      - count
+      - first
+      - hasNextPage
+      - items
+      - last
+      - order
+      type: object
+      properties:
+        first:
+          type: string
+        last:
+          type: string
+        order:
+          $ref: '#/components/schemas/SortOrder'
+        count:
+          type: integer
+          format: int32
+        hasNextPage:
+          type: boolean
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReclaimTask'
+        totalCount:
+          type: integer
+          format: int64
+          nullable: true
+    CreateReclaimTaskRequest:
+      required:
+      - title
+      type: object
+      properties:
+        title:
+          type: string
+        dueDate:
+          type: string
+          format: date
+          nullable: true
+        startDate:
+          type: string
+          format: date
+          nullable: true
+        estimateMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        priority:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+    ReclaimTask:
+      required:
+      - completed
+      - extendedProperties
+      - id
+      - title
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        priority:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+        status:
+          type: string
+          nullable: true
+        link:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/GtdTaskLink'
+        due:
+          type: string
+          format: date-time
+          nullable: true
+        start:
+          type: string
+          format: date-time
+          nullable: true
+        completed:
+          type: boolean
+        estimateMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        extendedProperties:
+          type: object
+          additionalProperties: true
+        type:
+          type: string
+    PriorityLevel:
+      type: string
+      enum:
+      - P1
+      - P2
+      - P3
+      - P4
+      - PRIORITIZE
+      - DEFAULT
+      x-deprecated:
+      - PRIORITIZE
+      - DEFAULT
+    SortOrder:
+      type: string
+      enum:
+      - ASCENDING
+      - DESCENDING
+      - UNSORTED
+  securitySchemes:
+    Authorization:
+      type: oauth2

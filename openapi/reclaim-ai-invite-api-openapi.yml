@@ -1,0 +1,37 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes invite API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: invite
+paths:
+  /api/invite/{trackingCode}:
+    get:
+      tags:
+      - invite
+      operationId: resolve
+      parameters:
+      - name: trackingCode
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: resolve 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  securitySchemes:
+    Authorization:
+      type: oauth2

@@ -1,0 +1,125 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes quest API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: quest
+paths:
+  /api/users/current/quest:
+    get:
+      tags:
+      - quest
+      operationId: getCompletedQuests
+      responses:
+        '200':
+          description: getCompletedQuests 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserQuests'
+      security:
+      - Authorization: []
+    patch:
+      tags:
+      - quest
+      operationId: completeQuest
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompleteQuestRequest'
+        required: true
+      responses:
+        '200':
+          description: completeQuest 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserQuests'
+      security:
+      - Authorization: []
+components:
+  schemas:
+    UserQuests:
+      required:
+      - completedQuests
+      type: object
+      properties:
+        completedQuests:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuestType'
+    QuestType:
+      type: string
+      enum:
+      - HOURS_OVERVIEW_2
+      - PLANNER_OVERVIEW_2
+      - TASK_INTEGRATIONS_2
+      - EXTENSIONS_2
+      - AUTO_COLOR_CODING
+      - PRIORITIZATION
+      - BUILD_YOUR_TEAM
+      - SETTINGS_OVERVIEW_2
+      - FLEXIBLE_TIME_BLOCKING
+      - MEETING_BUFFERS
+      - SCHEDULING_LINK_OVERVIEW_2
+      - CALENDAR_SYNC_OVERVIEW_2
+      - SLACK_STATUS_SYNC_2
+      - NO_MEETING_DAYS
+      - SMART_1_1_2
+      - STATS_2
+      - HABITS_OVERVIEW_2
+      - TASKS_OVERVIEW_2
+      - TASKS_BATCH_ACTIONS
+      - SMART_MEETINGS_OVERVIEW
+      - SMART_HABITS_OVERVIEW
+      - SMART_MEETINGS_JUST_NEW
+      - SMART_HABITS_JUST_NEW
+      - WELCOME_TO_RECLAIM
+      - SET_AVAILABILITY
+      - SYNC_CALENDAR
+      - SET_SCHEDULING_HOURS
+      - INSTALL_GCAL_ADDON
+      - INSTALL_SLACK_INTEGRATION
+      - HABITS_OVERVIEW
+      - CREATE_AND_CUSTOMIZE_HABITS
+      - MANAGE_HABITS
+      - SCHEDULING_LINKS_OVERVIEW
+      - SETUP_SCHEDULING_LINKS
+      - SETUP_TEAM_LINKS
+      - SMART_ONE_ON_ONE_OVERVIEW
+      - SETUP_FIRST_SMART_ONE_ON_ONE
+      - MANAGE_SMART_ONE_ON_ONE
+      - TASK_OVERVIEW
+      - ADD_FIRST_TASK
+      - ADD_TASK_INTEGRATION
+      - MANAGE_TASKS
+      - SET_TASK_DEFAULTS
+      - AUTO_SCHEDULE_BREAK_AND_TRAVEL_TIME
+      - SETUP_NO_MEETING_DAYS
+      - CUSTOMIZE_EVENT_COLOR_CODING
+      - TRACK_AND_ANALYZE_PRODUCTIVITY
+      - ADD_MEMBERS_TO_TEAM
+      - SELECT_PLAN
+    CompleteQuestRequest:
+      required:
+      - isComplete
+      - questType
+      type: object
+      properties:
+        questType:
+          $ref: '#/components/schemas/QuestType'
+        isComplete:
+          type: boolean
+          nullable: true
+  securitySchemes:
+    Authorization:
+      type: oauth2

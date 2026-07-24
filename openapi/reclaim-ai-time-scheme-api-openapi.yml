@@ -1,0 +1,519 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes time-scheme API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: time-scheme
+paths:
+  /api/timeschemes:
+    get:
+      tags:
+      - time-scheme
+      operationId: listTimePolicySchemes
+      parameters:
+      - name: taskCategory
+        in: query
+        schema:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/TaskCategory'
+      - name: policyType
+        in: query
+        schema:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/TimePolicyType'
+      - name: features
+        in: query
+        schema:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/ReclaimEventType'
+      responses:
+        '200':
+          description: listTimePolicySchemes 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TimeScheme'
+      security:
+      - Authorization: []
+    post:
+      tags:
+      - time-scheme
+      operationId: createTimeScheme
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TimeSchemeCreateRequest'
+        required: true
+      responses:
+        '200':
+          description: createTimeScheme 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimeScheme'
+      security:
+      - Authorization: []
+  /api/timeschemes/filter-by-feature:
+    get:
+      tags:
+      - time-scheme
+      operationId: queryTimePolicySchemesByUserIdAndFeature
+      parameters:
+      - name: userId
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: feature
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/ReclaimEventType'
+      responses:
+        '200':
+          description: queryTimePolicySchemesByUserIdAndFeature 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BasicTimeSchemeView'
+  /api/timeschemes/filter-by-feature/{userId}:
+    get:
+      tags:
+      - time-scheme
+      operationId: listTimePolicySchemesByUserIdAndFeature
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: feature
+        in: query
+        required: true
+        schema:
+          $ref: '#/components/schemas/ReclaimEventType'
+      responses:
+        '200':
+          description: listTimePolicySchemesByUserIdAndFeature 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BasicTimeSchemeView'
+      deprecated: true
+  /api/timeschemes/{schemeId}:
+    get:
+      tags:
+      - time-scheme
+      operationId: updateTimeScheme
+      parameters:
+      - name: schemeId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: updateTimeScheme 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimeScheme'
+      security:
+      - Authorization: []
+    delete:
+      tags:
+      - time-scheme
+      operationId: deleteTimeScheme
+      parameters:
+      - name: schemeId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: moveToTimeSchemeId
+        in: query
+        schema:
+          type: string
+          nullable: true
+      responses:
+        '200':
+          description: deleteTimeScheme 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+    patch:
+      tags:
+      - time-scheme
+      operationId: updateTimeScheme_1
+      parameters:
+      - name: schemeId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TimeSchemeUpdateRequest'
+        required: true
+      responses:
+        '200':
+          description: updateTimeScheme_1 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TimeScheme'
+      security:
+      - Authorization: []
+components:
+  schemas:
+    CalendarView:
+      required:
+      - colorHex
+      - connected
+      - credentialId
+      - externalId
+      - googleMeetAllowed
+      - id
+      - microsoftTeamsAllowed
+      - name
+      - otherConnectedCalendarsExist
+      - provider
+      - useType
+      - writableFor
+      type: object
+      properties:
+        name:
+          type: string
+        id:
+          type: integer
+          format: int64
+        externalId:
+          type: string
+        connected:
+          type: boolean
+        colorHex:
+          type: string
+        credentialId:
+          type: integer
+          format: int64
+        reason:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/IneligibilityReason'
+        writableFor:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReclaimEventType'
+        provider:
+          type: string
+        googleMeetAllowed:
+          type: boolean
+        microsoftTeamsAllowed:
+          type: boolean
+        defaultReminders:
+          type: array
+          nullable: true
+          deprecated: true
+          items:
+            type: integer
+            format: int32
+        reminderDefaults:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/Reminder'
+        useType:
+          $ref: '#/components/schemas/CalendarUseType'
+        otherConnectedCalendarsExist:
+          type: boolean
+        accessDomainRead:
+          type: boolean
+          nullable: true
+    TimePolicy:
+      required:
+      - dayHours
+      type: object
+      properties:
+        startOfWeek:
+          $ref: '#/components/schemas/DayOfWeek'
+        endOfWeek:
+          $ref: '#/components/schemas/DayOfWeek'
+        dayHours:
+          properties:
+            MONDAY:
+              $ref: '#/components/schemas/DayHours'
+            TUESDAY:
+              $ref: '#/components/schemas/DayHours'
+            WEDNESDAY:
+              $ref: '#/components/schemas/DayHours'
+            THURSDAY:
+              $ref: '#/components/schemas/DayHours'
+            FRIDAY:
+              $ref: '#/components/schemas/DayHours'
+            SATURDAY:
+              $ref: '#/components/schemas/DayHours'
+            SUNDAY:
+              $ref: '#/components/schemas/DayHours'
+    TaskCategory:
+      type: string
+      enum:
+      - WORK
+      - PERSONAL
+      - BOTH
+    DayOfWeek:
+      type: string
+      enum:
+      - MONDAY
+      - TUESDAY
+      - WEDNESDAY
+      - THURSDAY
+      - FRIDAY
+      - SATURDAY
+      - SUNDAY
+    TimeSchemeStatus:
+      type: string
+      enum:
+      - ACTIVE
+      - TASK_CALENDAR_NOT_VALID
+      - TASK_CALENDAR_NOT_CONNECTED
+      - TASK_CALENDAR_NOT_WRITABLE
+      - TASK_CALENDAR_NOT_FOUND
+      - TASK_CALENDAR_MULTI_CONNECTIONS
+    Reminder:
+      required:
+      - minutes
+      - reminderType
+      type: object
+      properties:
+        reminderType:
+          $ref: '#/components/schemas/ReminderType'
+        minutes:
+          type: integer
+          format: int32
+    IneligibilityReason:
+      type: string
+      enum:
+      - MAIN_ACCOUNT_PRIMARY
+      - SYNCED_ALREADY
+      - FREE_BUSY_ONLY
+    ReminderType:
+      type: string
+      enum:
+      - UI_NOTIFICATION
+      - EMAIL
+    TimeSchemeUpdateRequest:
+      type: object
+      properties:
+        title:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        policyType:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/TimePolicyType'
+        policy:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/TimePolicy'
+        taskCategory:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/TaskCategory'
+        taskTargetCalendarId:
+          type: integer
+          format: int64
+          nullable: true
+        features:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/ReclaimEventType'
+    ReclaimEventType:
+      type: string
+      enum:
+      - USER
+      - SYNC
+      - HABIT_ASSIGNMENT
+      - SMART_HABIT
+      - ONE_ON_ONE_ASSIGNMENT
+      - SMART_MEETING
+      - TASK_ASSIGNMENT
+      - CONF_BUFFER
+      - TRAVEL_BUFFER
+      - SCHEDULING_LINK_MEETING
+      - UNKNOWN
+      - FOCUS
+    CalendarUseType:
+      type: string
+      enum:
+      - UNKNOWN
+      - MULTI_USE
+      - WORK
+      - PERSONAL
+      - FAMILY
+      - TEAM
+      - VACATION
+      - TRAVEL
+      - TEAM_OOO_CALENDAR
+    DayHours:
+      required:
+      - intervals
+      type: object
+      properties:
+        intervals:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocalTimeInterval'
+        startOfDay:
+          type: string
+          format: partial-time
+          nullable: true
+        endOfDay:
+          type: string
+          format: partial-time
+          nullable: true
+    TimePolicyType:
+      type: string
+      enum:
+      - WORK
+      - PERSONAL
+      - MEETING
+      - ONE_OFF
+      - INHERITED
+      - CUSTOM
+    LocalTimeInterval:
+      required:
+      - end
+      - start
+      type: object
+      properties:
+        start:
+          type: string
+          format: partial-time
+        end:
+          type: string
+          format: partial-time
+        duration:
+          type: string
+    BasicTimeSchemeView:
+      required:
+      - features
+      - id
+      - policy
+      - policyType
+      - title
+      - userId
+      type: object
+      properties:
+        id:
+          type: string
+        userId:
+          type: string
+        policyType:
+          $ref: '#/components/schemas/TimePolicyType'
+        policy:
+          $ref: '#/components/schemas/TimePolicy'
+        title:
+          type: string
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReclaimEventType'
+    TimeScheme:
+      required:
+      - description
+      - features
+      - id
+      - policy
+      - policyType
+      - status
+      - title
+      - userId
+      type: object
+      properties:
+        id:
+          type: string
+        userId:
+          type: string
+        status:
+          $ref: '#/components/schemas/TimeSchemeStatus'
+        policyType:
+          $ref: '#/components/schemas/TimePolicyType'
+        policy:
+          $ref: '#/components/schemas/TimePolicy'
+        taskCategory:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/TaskCategory'
+        taskTargetCalendar:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/CalendarView'
+        title:
+          type: string
+        description:
+          type: string
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReclaimEventType'
+    TimeSchemeCreateRequest:
+      required:
+      - description
+      - features
+      - policy
+      - policyType
+      - title
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        policyType:
+          $ref: '#/components/schemas/TimePolicyType'
+        policy:
+          $ref: '#/components/schemas/TimePolicy'
+        taskCategory:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/TaskCategory'
+        taskTargetCalendarId:
+          type: integer
+          format: int64
+          nullable: true
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReclaimEventType'
+  securitySchemes:
+    Authorization:
+      type: oauth2

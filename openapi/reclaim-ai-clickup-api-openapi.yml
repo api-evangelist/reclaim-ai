@@ -1,0 +1,422 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes clickup API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: clickup
+paths:
+  /api/clickup/integrations:
+    get:
+      tags:
+      - clickup
+      operationId: integrations_2
+      responses:
+        '200':
+          description: integrations_2 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClickUpIntegration'
+      deprecated: true
+      security:
+      - Authorization: []
+    delete:
+      tags:
+      - clickup
+      operationId: deleteIntegration_1
+      responses:
+        '200':
+          description: deleteIntegration_1 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+  /api/clickup/integrations/details:
+    get:
+      tags:
+      - clickup
+      operationId: clickUpIntegrationsDetails
+      responses:
+        '200':
+          description: clickUpIntegrationsDetails 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClickUpIntegrationDetails'
+      security:
+      - Authorization: []
+  /api/clickup/integrations/settings/{workspaceId}:
+    patch:
+      tags:
+      - clickup
+      operationId: patchIntegration
+      parameters:
+      - name: workspaceId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClickUpIntegrationPatch'
+        required: true
+      responses:
+        '200':
+          description: patchIntegration 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+  /api/clickup/integrations/{workspaceId}:
+    patch:
+      tags:
+      - clickup
+      operationId: patchIntegration_1
+      parameters:
+      - name: workspaceId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeprecatedClickUpIntegrationPatch'
+        required: true
+      responses:
+        '200':
+          description: patchIntegration_1 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      deprecated: true
+      security:
+      - Authorization: []
+  /web/clickup/task/{taskId}:
+    get:
+      tags:
+      - clickup
+      operationId: taskDetails_1
+      parameters:
+      - name: taskId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: taskDetails_1 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  schemas:
+    ImmutableList_ClickUpStatus_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_ClickUpStatus_'
+      - $ref: '#/components/schemas/AbstractCollection_ClickUpStatus_'
+      - properties:
+          empty:
+            type: boolean
+          first:
+            $ref: '#/components/schemas/ClickUpStatus'
+          last:
+            $ref: '#/components/schemas/ClickUpStatus'
+    AbstractCollection_ClickUpSpace_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    AbstractCollection_String_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    ClickUpIntegrationDetails:
+      required:
+      - availableSpaces
+      - tags
+      - titleFormat
+      - workspace
+      type: object
+      properties:
+        workspace:
+          $ref: '#/components/schemas/ClickUpResource'
+        availableSpaces:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClickUpSpaceWithEligibility'
+        tags:
+          type: array
+          items:
+            type: string
+        lastSynced:
+          type: string
+          format: date-time
+          nullable: true
+        titleFormat:
+          $ref: '#/components/schemas/ClickUpTitleFormat'
+        bypassTimeTracking:
+          type: boolean
+          nullable: true
+    DeprecatedClickUpIntegrationPatch:
+      type: object
+      properties:
+        selected_space_ids:
+          $ref: '#/components/schemas/ImmutableSet_String_'
+        requires_tag:
+          type: boolean
+        withSelected_space_ids:
+          type: array
+          items:
+            type: string
+        withRequires_tag:
+          type: boolean
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+      deprecated: true
+    ImmutableCollection_ClickUpStatus_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_ClickUpStatus_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    ClickUpSpaceWithEligibility:
+      required:
+      - features
+      - id
+      - isEligible
+      - name
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        isEligible:
+          type: boolean
+        features:
+          type: object
+          additionalProperties: true
+    ClickUpIntegration:
+      type: object
+      properties:
+        workspace:
+          $ref: '#/components/schemas/ClickUpResource'
+        available_spaces:
+          $ref: '#/components/schemas/ImmutableSet_ClickUpSpace_'
+        selected_space_ids:
+          $ref: '#/components/schemas/ImmutableSet_String_'
+        requires_tag:
+          type: boolean
+        withWorkspace:
+          $ref: '#/components/schemas/ClickUpResource'
+        withAvailable_spaces:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClickUpSpace'
+        withSelected_space_ids:
+          type: array
+          items:
+            type: string
+        withRequires_tag:
+          type: boolean
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    ClickUpStatusType:
+      type: string
+      enum:
+      - open
+      - done
+      - closed
+      - custom
+      - unstarted
+      - active
+      x-enum-varnames:
+      - open
+      - done
+      - closed
+      - custom
+      - unstarted
+      - active
+    ClickUpTitleFormat:
+      type: string
+      enum:
+      - TASK_TITLE_ONLY
+      - TASK_TITLE_THEN_LIST
+      - TASK_TITLE_THEN_LIST_THEN_SPACE
+      - TASK_TITLE_THEN_SPACE
+      - SPACE_NAME_THEN_TASK_TITLE
+    ClickUpIntegrationPatch:
+      type: object
+      properties:
+        titleFormat:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ClickUpTitleFormat'
+        bypassTimeTracking:
+          type: boolean
+          nullable: true
+        withTitleFormat:
+          $ref: '#/components/schemas/ClickUpTitleFormat'
+        withBypassTimeTracking:
+          type: boolean
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    ImmutableCollection_ClickUpSpace_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_ClickUpSpace_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    AbstractCollection_ClickUpStatus_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    ImmutableSet_ClickUpSpace_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_ClickUpSpace_'
+      - $ref: '#/components/schemas/AbstractCollection_ClickUpSpace_'
+      - properties:
+          empty:
+            type: boolean
+          hashCodeFast:
+            type: boolean
+    ImmutableCollection_String_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_String_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    ClickUpResource:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        withId:
+          type: string
+        withName:
+          type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    ClickUpStatus:
+      type: object
+      properties:
+        status:
+          type: string
+        orderindex:
+          type: integer
+          format: int32
+        type:
+          $ref: '#/components/schemas/ClickUpStatusType'
+        color:
+          type: string
+          nullable: true
+        withStatus:
+          type: string
+        withOrderindex:
+          type: integer
+          format: int32
+        withType:
+          $ref: '#/components/schemas/ClickUpStatusType'
+        withColor:
+          type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    ClickUpSpace:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        features:
+          type: object
+          additionalProperties: true
+        statuses:
+          $ref: '#/components/schemas/ImmutableList_ClickUpStatus_'
+        withId:
+          type: string
+        withName:
+          type: string
+        withFeatures:
+          type: object
+          additionalProperties: true
+        withStatuses:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClickUpStatus'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    ImmutableSet_String_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_String_'
+      - $ref: '#/components/schemas/AbstractCollection_String_'
+      - properties:
+          empty:
+            type: boolean
+          hashCodeFast:
+            type: boolean
+  securitySchemes:
+    Authorization:
+      type: oauth2

@@ -1,0 +1,598 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes focus-settings API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: focus-settings
+paths:
+  /api/focus-settings/clear-focus-time-events:
+    post:
+      tags:
+      - focus-settings
+      operationId: clearFocusTimeEvents
+      responses:
+        '200':
+          description: clearFocusTimeEvents 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+  /api/focus-settings/remove-duplicated-focus-time-events:
+    post:
+      tags:
+      - focus-settings
+      operationId: removeDuplicatedFocusTimeEvents
+      responses:
+        '200':
+          description: removeDuplicatedFocusTimeEvents 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+  /api/focus-settings/team:
+    get:
+      tags:
+      - focus-settings
+      operationId: findAllForTeam
+      responses:
+        '200':
+          description: findAllForTeam 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TeamFocusSettingsView'
+      security:
+      - Authorization: []
+    post:
+      tags:
+      - focus-settings
+      operationId: createTeamFocusSettings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeamFocusSettingsCreateRequest'
+        required: true
+      responses:
+        '200':
+          description: createTeamFocusSettings 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamFocusSettingsView'
+      security:
+      - Authorization: []
+  /api/focus-settings/team/{id}:
+    get:
+      tags:
+      - focus-settings
+      operationId: findTeamFocusSettings
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: findTeamFocusSettings 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamFocusSettingsView'
+      security:
+      - Authorization: []
+    patch:
+      tags:
+      - focus-settings
+      operationId: patchTeamFocusSettings
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TeamFocusSettingsPatchRequest'
+        required: true
+      responses:
+        '200':
+          description: patchTeamFocusSettings 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamFocusSettingsView'
+      security:
+      - Authorization: []
+  /api/focus-settings/user:
+    get:
+      tags:
+      - focus-settings
+      operationId: findAll
+      responses:
+        '200':
+          description: findAll 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserFocusSettingsView'
+      security:
+      - Authorization: []
+    post:
+      tags:
+      - focus-settings
+      operationId: createUserFocusSettings
+      parameters:
+      - name: notificationKey
+        in: query
+        schema:
+          type: string
+          nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserFocusSettingsCreateRequest'
+        required: true
+      responses:
+        '200':
+          description: createUserFocusSettings 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserFocusSettingsView'
+      security:
+      - Authorization: []
+  /api/focus-settings/user/focus-time/default:
+    get:
+      tags:
+      - focus-settings
+      operationId: fetchFocusTimeDefault
+      responses:
+        '200':
+          description: fetchFocusTimeDefault 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserFocusSettingsView'
+      security:
+      - Authorization: []
+  /api/focus-settings/user/{id}:
+    patch:
+      tags:
+      - focus-settings
+      operationId: patchUserFocusSettings
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: notificationKey
+        in: query
+        schema:
+          type: string
+          nullable: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserFocusSettingsPatchRequest'
+        required: true
+      responses:
+        '200':
+          description: patchUserFocusSettings 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserFocusSettingsView'
+      security:
+      - Authorization: []
+components:
+  schemas:
+    UserFocusSettingsStatus:
+      type: string
+      enum:
+      - ACTIVE
+      - DISABLED
+      - CALENDAR_NOT_FOUND
+      - CALENDAR_NOT_VALID
+      - CALENDAR_NOT_CONNECTED
+      - CALENDAR_NOT_WRITABLE
+      - INACTIVE_MULTI_CONNECTED_CALENDAR
+    UserFocusSettingsPatchRequest:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        focusType:
+          $ref: '#/components/schemas/FocusType'
+        focusTimeSettings:
+          $ref: '#/components/schemas/FocusTimeRequest'
+        enabled:
+          type: boolean
+        timeSchemeId:
+          type: string
+        autoDecline:
+          type: boolean
+        autoDeclineText:
+          type: string
+          nullable: true
+        calendarId:
+          type: integer
+          format: int64
+        visibility:
+          $ref: '#/components/schemas/FocusVisibility'
+    FocusTimeCircuitBreakerType:
+      type: string
+      enum:
+      - WEEK
+      - DAY
+      - WEEK_AND_DAY
+    UserFocusSettingsCreateRequest:
+      required:
+      - focusTimeSettings
+      - focusType
+      - timeSchemeId
+      - title
+      - visibility
+      type: object
+      properties:
+        autoDecline:
+          type: boolean
+          nullable: true
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        focusType:
+          $ref: '#/components/schemas/FocusType'
+        focusTimeSettings:
+          $ref: '#/components/schemas/FocusTimeRequest'
+        timeSchemeId:
+          type: string
+        autoDeclineText:
+          type: string
+          nullable: true
+        calendarId:
+          type: integer
+          format: int64
+          nullable: true
+        visibility:
+          $ref: '#/components/schemas/FocusVisibility'
+    FocusVisibility:
+      type: string
+      enum:
+      - DEFAULT
+      - PRIVATE
+      - PUBLIC
+    FocusTimeSettingsView:
+      required:
+      - schedulingType
+      - schedulingTypeV2
+      type: object
+      properties:
+        schedulingType:
+          $ref: '#/components/schemas/FocusTimeSchedulingType'
+        schedulingTypeV2:
+          $ref: '#/components/schemas/FocusTimeSchedulingTypeV2'
+        balloonFill:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/BalloonFillView'
+        circuitBreaker:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/CircuitBreakerView'
+    TeamFocusSettingsPatchRequest:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        focusType:
+          $ref: '#/components/schemas/FocusType'
+        focusTimeSettings:
+          $ref: '#/components/schemas/FocusTimeRequest'
+        enabled:
+          type: boolean
+        policyType:
+          $ref: '#/components/schemas/TimePolicyType'
+        autoDecline:
+          type: boolean
+        autoDeclineText:
+          type: string
+          nullable: true
+        visibility:
+          $ref: '#/components/schemas/FocusVisibility'
+    BalloonFillRequest:
+      required:
+      - targetChunksPerWeek
+      - type
+      type: object
+      properties:
+        targetChunksPerWeek:
+          type: integer
+          format: int32
+        idealChunksPerDay:
+          type: integer
+          format: int32
+          nullable: true
+        maxChunksPerDay:
+          type: integer
+          format: int32
+          nullable: true
+        minDurationChunks:
+          type: integer
+          format: int32
+          nullable: true
+        maxDurationChunks:
+          type: integer
+          format: int32
+          nullable: true
+        type:
+          $ref: '#/components/schemas/FocusTimeBalloonFillType'
+    UserFocusSettingsView:
+      required:
+      - autoDecline
+      - description
+      - enabled
+      - focusType
+      - id
+      - status
+      - timeSchemeId
+      - title
+      - visibility
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        title:
+          type: string
+        description:
+          type: string
+        focusType:
+          $ref: '#/components/schemas/FocusType'
+        focusTimeSettings:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/FocusTimeSettingsView'
+        enabled:
+          type: boolean
+        timeSchemeId:
+          type: string
+        status:
+          $ref: '#/components/schemas/UserFocusSettingsStatus'
+        autoDecline:
+          type: boolean
+        autoDeclineText:
+          type: string
+          nullable: true
+        calendarId:
+          type: integer
+          format: int64
+          nullable: true
+        visibility:
+          $ref: '#/components/schemas/FocusVisibility'
+    FocusTimeSchedulingType:
+      type: string
+      deprecated: true
+      enum:
+      - BALLOON_FILL
+      - BALLOON_FILL_MAXIMIZE_DURATIONS
+      - CIRCUIT_BREAKER_WEEK_LEVEL
+      - CIRCUIT_BREAKER_DAY_LEVEL
+      - CIRCUIT_BREAKER_WEEK_AND_DAY_LEVEL
+    FocusType:
+      type: string
+      enum:
+      - FOCUS_TIME
+    FocusTimeBalloonFillType:
+      type: string
+      enum:
+      - BALLOON_FILL_NORMAL
+      - BALLOON_FILL_MAXIMIZE_DURATIONS
+    FocusTimeRequest:
+      required:
+      - schedulingTypeV2
+      type: object
+      properties:
+        schedulingType:
+          nullable: true
+          deprecated: true
+          allOf:
+          - $ref: '#/components/schemas/FocusTimeSchedulingType'
+        schedulingTypeV2:
+          $ref: '#/components/schemas/FocusTimeSchedulingTypeV2'
+        countingStyle:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/FocusTimeCountingStyle'
+        balloonFill:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/BalloonFillRequest'
+        circuitBreaker:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/CircuitBreakerRequest'
+    TeamFocusSettingsView:
+      required:
+      - autoDecline
+      - description
+      - enabled
+      - focusType
+      - id
+      - policyType
+      - title
+      - visibility
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        title:
+          type: string
+        description:
+          type: string
+        focusType:
+          $ref: '#/components/schemas/FocusType'
+        focusTimeSettings:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/FocusTimeSettingsView'
+        enabled:
+          type: boolean
+        policyType:
+          $ref: '#/components/schemas/TimePolicyType'
+        autoDecline:
+          type: boolean
+        autoDeclineText:
+          type: string
+          nullable: true
+        visibility:
+          $ref: '#/components/schemas/FocusVisibility'
+    FocusTimeSchedulingTypeV2:
+      type: string
+      enum:
+      - BALLOON_FILL
+      - CIRCUIT_BREAKER
+    TeamFocusSettingsCreateRequest:
+      required:
+      - focusTimeSettings
+      - focusType
+      - policyType
+      - title
+      - visibility
+      type: object
+      properties:
+        autoDecline:
+          type: boolean
+          nullable: true
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        focusType:
+          $ref: '#/components/schemas/FocusType'
+        focusTimeSettings:
+          $ref: '#/components/schemas/FocusTimeRequest'
+        policyType:
+          $ref: '#/components/schemas/TimePolicyType'
+        autoDeclineText:
+          type: string
+          nullable: true
+        visibility:
+          $ref: '#/components/schemas/FocusVisibility'
+    CircuitBreakerRequest:
+      required:
+      - availableChunksInDayThreshold
+      - availableChunksInWeekThreshold
+      - type
+      type: object
+      properties:
+        availableChunksInWeekThreshold:
+          type: integer
+          format: int32
+        availableChunksInDayThreshold:
+          type: integer
+          format: int32
+        type:
+          $ref: '#/components/schemas/FocusTimeCircuitBreakerType'
+        minDurationChunks:
+          type: integer
+          format: int32
+          nullable: true
+    FocusTimeCountingStyle:
+      type: string
+      enum:
+      - IGNORE_TIME_SCHEME
+      - ONLY_WITHIN_TIME_SCHEME
+    CircuitBreakerView:
+      required:
+      - availableChunksInDayThreshold
+      - availableChunksInWeekThreshold
+      - type
+      type: object
+      properties:
+        availableChunksInWeekThreshold:
+          type: integer
+          format: int32
+        availableChunksInDayThreshold:
+          type: integer
+          format: int32
+        type:
+          $ref: '#/components/schemas/FocusTimeCircuitBreakerType'
+        minDurationChunks:
+          type: integer
+          format: int32
+          nullable: true
+    BalloonFillView:
+      required:
+      - targetChunksPerWeek
+      - type
+      type: object
+      properties:
+        targetChunksPerWeek:
+          type: integer
+          format: int32
+        idealChunksPerDay:
+          type: integer
+          format: int32
+          nullable: true
+        maxChunksPerDay:
+          type: integer
+          format: int32
+          nullable: true
+        minDurationChunks:
+          type: integer
+          format: int32
+          nullable: true
+        maxDurationChunks:
+          type: integer
+          format: int32
+          nullable: true
+        type:
+          $ref: '#/components/schemas/FocusTimeBalloonFillType'
+    TimePolicyType:
+      type: string
+      enum:
+      - WORK
+      - PERSONAL
+      - MEETING
+      - ONE_OFF
+      - INHERITED
+      - CUSTOM
+  securitySchemes:
+    Authorization:
+      type: oauth2

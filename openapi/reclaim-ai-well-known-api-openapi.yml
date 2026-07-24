@@ -1,0 +1,234 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes .well Known API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: .well Known
+paths:
+  /.well-known/oauth-authorization-server:
+    get:
+      operationId: oauth2Metadata
+      responses:
+        '200':
+          description: oauth2Metadata 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+      tags:
+      - .well Known
+  /.well-known/oauth-authorization-server/api/mcp:
+    get:
+      operationId: oauth2MetadataMcpSuffix
+      responses:
+        '200':
+          description: oauth2MetadataMcpSuffix 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+      tags:
+      - .well Known
+  /.well-known/oauth-authorization-server/api/mcp/{subpath1}/{subpath2}:
+    get:
+      operationId: oauth2MetadataMcpSuffix2
+      parameters:
+      - name: subpath1
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: subpath2
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: oauth2MetadataMcpSuffix2 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+      tags:
+      - .well Known
+  /.well-known/oauth-authorization-server/api/mcp/{subpath}:
+    get:
+      operationId: oauth2MetadataMcpSuffix1
+      parameters:
+      - name: subpath
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: oauth2MetadataMcpSuffix1 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      tags:
+      - .well Known
+  /.well-known/oauth-protected-resource:
+    get:
+      operationId: protectedResourceMetadata
+      responses:
+        '200':
+          description: protectedResourceMetadata 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+      tags:
+      - .well Known
+  /.well-known/oauth-protected-resource/api/mcp:
+    get:
+      operationId: protectedResourceMcpSuffix
+      responses:
+        '200':
+          description: protectedResourceMcpSuffix 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+      tags:
+      - .well Known
+  /.well-known/oauth-protected-resource/api/mcp/{subpath1}/{subpath2}:
+    get:
+      operationId: protectedResourceMcpSuffix2
+      parameters:
+      - name: subpath1
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: subpath2
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: protectedResourceMcpSuffix2 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      tags:
+      - .well Known
+  /.well-known/oauth-protected-resource/api/mcp/{subpath}:
+    get:
+      operationId: protectedResourceMcpSuffix1
+      parameters:
+      - name: subpath
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: protectedResourceMcpSuffix1 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      tags:
+      - .well Known
+  /.well-known/openai-apps-challenge:
+    get:
+      operationId: openaiAppsChallenge
+      responses:
+        '200':
+          description: openaiAppsChallenge 200 response
+          content:
+            text/plain:
+              schema:
+                type: string
+      tags:
+      - .well Known
+  /.well-known/openid-configuration:
+    get:
+      operationId: openidConfiguration
+      responses:
+        '200':
+          description: openidConfiguration 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+      tags:
+      - .well Known
+  /.well-known/openid-configuration/api/mcp:
+    get:
+      operationId: openidConfigMcpSuffix
+      responses:
+        '200':
+          description: openidConfigMcpSuffix 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+      tags:
+      - .well Known
+  /.well-known/openid-configuration/api/mcp/{subpath1}/{subpath2}:
+    get:
+      operationId: openidConfigMcpSuffix2
+      parameters:
+      - name: subpath1
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: subpath2
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: openidConfigMcpSuffix2 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+      tags:
+      - .well Known
+  /.well-known/openid-configuration/api/mcp/{subpath}:
+    get:
+      operationId: openidConfigMcpSuffix1
+      parameters:
+      - name: subpath
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: openidConfigMcpSuffix1 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      tags:
+      - .well Known
+components:
+  securitySchemes:
+    Authorization:
+      type: oauth2

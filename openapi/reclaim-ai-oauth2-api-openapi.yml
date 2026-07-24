@@ -1,0 +1,53 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes Oauth2 API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: Oauth2
+paths:
+  /oauth2/register:
+    post:
+      operationId: register
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OAuth2RegistrationController.RegistrationRequest'
+        required: true
+      responses:
+        '200':
+          description: register 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      tags:
+      - Oauth2
+components:
+  schemas:
+    OAuth2RegistrationController.RegistrationRequest:
+      required:
+      - client_name
+      - redirect_uris
+      type: object
+      properties:
+        client_name:
+          type: string
+        redirect_uris:
+          type: array
+          items:
+            type: string
+        token_endpoint_auth_method:
+          type: string
+          nullable: true
+  securitySchemes:
+    Authorization:
+      type: oauth2

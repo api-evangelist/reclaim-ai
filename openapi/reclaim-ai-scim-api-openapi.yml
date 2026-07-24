@@ -1,0 +1,418 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes Scim API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: Scim
+paths:
+  /scim/v2/Groups:
+    get:
+      operationId: getGroups
+      responses:
+        '200':
+          description: getGroups 200 response
+          content:
+            application/scim+json:
+              schema:
+                type: object
+      security:
+      - Authorization:
+        - ROLE_API
+      tags:
+      - Scim
+  /scim/v2/ResourceTypes:
+    get:
+      operationId: getResourceTypes
+      responses:
+        '200':
+          description: getResourceTypes 200 response
+          content:
+            application/scim+json:
+              schema:
+                type: object
+      security:
+      - Authorization:
+        - ROLE_API
+      tags:
+      - Scim
+  /scim/v2/Schemas:
+    get:
+      operationId: getSchemas
+      responses:
+        '200':
+          description: getSchemas 200 response
+          content:
+            application/scim+json:
+              schema:
+                type: object
+      security:
+      - Authorization:
+        - ROLE_API
+      tags:
+      - Scim
+  /scim/v2/ServiceProvider:
+    get:
+      operationId: getServiceProvider
+      responses:
+        '200':
+          description: getServiceProvider 200 response
+          content:
+            application/scim+json:
+              schema:
+                type: object
+      security:
+      - Authorization:
+        - ROLE_API
+      tags:
+      - Scim
+  /scim/v2/Users:
+    get:
+      operationId: getUsers
+      parameters:
+      - name: attributes
+        in: query
+        schema:
+          type: array
+          nullable: true
+          items:
+            type: string
+      - name: startIndex
+        in: query
+        schema:
+          type: integer
+          format: int32
+          nullable: true
+      - name: count
+        in: query
+        schema:
+          type: integer
+          format: int32
+          nullable: true
+      - name: filter
+        in: query
+        schema:
+          type: string
+          nullable: true
+      responses:
+        '200':
+          description: getUsers 200 response
+          content:
+            application/scim+json:
+              schema:
+                type: object
+      security:
+      - Authorization:
+        - ROLE_API
+      tags:
+      - Scim
+    put:
+      operationId: putUser
+      requestBody:
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/ScimUser'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScimUser'
+        required: true
+      responses:
+        '200':
+          description: putUser 200 response
+          content:
+            application/scim+json:
+              schema:
+                type: object
+      security:
+      - Authorization:
+        - ROLE_API
+      tags:
+      - Scim
+    post:
+      operationId: createUser
+      requestBody:
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/ScimUser'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScimUser'
+        required: true
+      responses:
+        '200':
+          description: createUser 200 response
+          content:
+            application/scim+json:
+              schema:
+                type: object
+      security:
+      - Authorization:
+        - ROLE_API
+      tags:
+      - Scim
+  /scim/v2/Users/{id}:
+    get:
+      operationId: getUser
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: getUser 200 response
+          content:
+            application/scim+json:
+              schema:
+                type: object
+      security:
+      - Authorization:
+        - ROLE_API
+      tags:
+      - Scim
+    put:
+      summary: Using Map here instead of @Body ScimUser because we suspect that there are arbitrary properties that are being sent from the SCIM providers that would be useful for us to capture so that we can provide richer analytics facets.
+      description: Using Map here instead of @Body ScimUser because we suspect that there are arbitrary properties that are being sent from the SCIM providers that would be useful for us to capture so that we can provide richer analytics facets.
+      operationId: putUserId
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+          application/scim+json:
+            schema:
+              type: object
+              additionalProperties: true
+        required: true
+      responses:
+        '200':
+          description: putUserId 200 response
+          content:
+            application/scim+json:
+              schema:
+                type: object
+      security:
+      - Authorization:
+        - ROLE_API
+      tags:
+      - Scim
+    delete:
+      operationId: deleteUser
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: deleteUser 200 response
+          content:
+            application/scim+json:
+              schema:
+                type: object
+      security:
+      - Authorization:
+        - ROLE_API
+      tags:
+      - Scim
+    patch:
+      operationId: patchUser
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/ScimPatch'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScimPatch'
+        required: true
+      responses:
+        '200':
+          description: patchUser 200 response
+          content:
+            application/scim+json:
+              schema:
+                type: object
+      security:
+      - Authorization:
+        - ROLE_API
+      tags:
+      - Scim
+components:
+  schemas:
+    ScimMeta:
+      type: object
+      properties:
+        resourceType:
+          type: string
+        created:
+          type: string
+          format: date-time
+    ScimUser:
+      type: object
+      properties:
+        userName:
+          type: string
+        name:
+          $ref: '#/components/schemas/ScimName'
+        id:
+          type: string
+        emails:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScimEmail'
+        active:
+          type: boolean
+        displayName:
+          type: string
+        title:
+          type: string
+        userType:
+          type: string
+        externalId:
+          type: string
+        meta:
+          $ref: '#/components/schemas/ScimMeta'
+        schemas:
+          type: array
+          items:
+            type: string
+        scimEnterprise:
+          $ref: '#/components/schemas/ScimEnterprise'
+        reclaimExtension:
+          $ref: '#/components/schemas/ScimReclaimExtension'
+        attributes:
+          type: object
+          additionalProperties: true
+    ScimPatch:
+      required:
+      - Operations
+      - schemas
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+        Operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScimOperations'
+    ScimOperations:
+      required:
+      - op
+      - path
+      - value
+      type: object
+      properties:
+        op:
+          type: string
+        path:
+          type: string
+        value:
+          description: This getter handles the type switching
+        valueAsMap:
+          type: object
+          additionalProperties: true
+          description: This getter handles the type switching
+    ScimEmail:
+      type: object
+      properties:
+        type:
+          type: string
+        value:
+          type: string
+        display:
+          type: string
+        primary:
+          type: boolean
+    ScimReclaimExtension:
+      type: object
+      properties:
+        location:
+          type: string
+          nullable: true
+        hireDate:
+          type: string
+          nullable: true
+        jobCategory:
+          type: string
+          nullable: true
+        orgRole:
+          type: string
+          nullable: true
+        team:
+          type: string
+          nullable: true
+      description: Encapsulates the reclaim-defined core attributes extending the SCIM user resource.
+    ScimName:
+      required:
+      - familyName
+      - givenName
+      type: object
+      properties:
+        givenName:
+          type: string
+        familyName:
+          type: string
+    ScimEnterprise:
+      type: object
+      properties:
+        employeeNumber:
+          type: string
+          nullable: true
+        costCenter:
+          type: string
+          nullable: true
+        organization:
+          type: string
+          nullable: true
+        division:
+          type: string
+          nullable: true
+        department:
+          type: string
+          nullable: true
+        manager:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ScimManager'
+    ScimManager:
+      type: object
+      properties:
+        displayName:
+          type: string
+          nullable: true
+        value:
+          type: string
+          nullable: true
+        ref:
+          type: string
+          nullable: true
+  securitySchemes:
+    Authorization:
+      type: oauth2

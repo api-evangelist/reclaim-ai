@@ -1,0 +1,209 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes recommended-tasks API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: recommended-tasks
+paths:
+  /api/recommended-tasks:
+    get:
+      tags:
+      - recommended-tasks
+      operationId: listRecommendedTasks
+      responses:
+        '200':
+          description: listRecommendedTasks 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RecommendedTask'
+      security:
+      - Authorization: []
+  /api/recommended-tasks/count:
+    get:
+      tags:
+      - recommended-tasks
+      operationId: countRecommendedTasks
+      responses:
+        '200':
+          description: countRecommendedTasks 200 response
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+      security:
+      - Authorization: []
+  /api/recommended-tasks/groups:
+    get:
+      tags:
+      - recommended-tasks
+      operationId: listGroups
+      responses:
+        '200':
+          description: listGroups 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RecommendedTaskGroup'
+      security:
+      - Authorization: []
+  /api/recommended-tasks/{id}/status:
+    patch:
+      tags:
+      - recommended-tasks
+      operationId: updateStatus
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateRecommendedTaskStatusRequest'
+        required: true
+      responses:
+        '200':
+          description: updateStatus 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecommendedTask'
+      security:
+      - Authorization: []
+components:
+  schemas:
+    RecommendedTaskSourceType:
+      type: string
+      enum:
+      - ZOOM
+    RecommendedTaskGroup:
+      required:
+      - sourceRef
+      - sourceType
+      - tasks
+      type: object
+      properties:
+        sourceRef:
+          type: string
+        sourceType:
+          $ref: '#/components/schemas/RecommendedTaskSourceType'
+        meeting:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/MeetingSummary'
+        tasks:
+          type: array
+          items:
+            $ref: '#/components/schemas/RecommendedTask'
+    MeetingSummary:
+      type: object
+      properties:
+        calendarId:
+          type: integer
+          format: int64
+          nullable: true
+        eventId:
+          type: string
+          nullable: true
+        title:
+          type: string
+          nullable: true
+        startTime:
+          type: string
+          format: date-time
+          nullable: true
+        endTime:
+          type: string
+          format: date-time
+          nullable: true
+        shortDescription:
+          type: string
+          nullable: true
+    RecommendedTaskStatus:
+      type: string
+      enum:
+      - PENDING
+      - PROCESSING
+      - ACCEPTED
+      - REJECTED
+      - ERROR
+    UpdateRecommendedTaskStatusRequest:
+      required:
+      - status
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/RecommendedTaskStatus'
+    TranscriptSnippetItem:
+      required:
+      - text
+      type: object
+      properties:
+        speaker:
+          type: string
+          nullable: true
+        timestamp:
+          type: string
+          nullable: true
+        text:
+          type: string
+    RecommendedTask:
+      required:
+      - createdAt
+      - id
+      - sourceRef
+      - sourceType
+      - status
+      - title
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        sourceType:
+          $ref: '#/components/schemas/RecommendedTaskSourceType'
+        sourceRef:
+          type: string
+        calendarId:
+          type: integer
+          format: int64
+          nullable: true
+        eventId:
+          type: string
+          nullable: true
+        title:
+          type: string
+        dueDate:
+          type: string
+          format: date
+          nullable: true
+        transcriptSnippet:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/TranscriptSnippetItem'
+        status:
+          $ref: '#/components/schemas/RecommendedTaskStatus'
+        createdAt:
+          type: string
+          format: date-time
+  securitySchemes:
+    Authorization:
+      type: oauth2

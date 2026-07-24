@@ -1,0 +1,230 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes jira API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: jira
+paths:
+  /api/jira/integrations:
+    get:
+      tags:
+      - jira
+      operationId: integrations_4
+      responses:
+        '200':
+          description: integrations_4 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JiraIntegration'
+      security:
+      - Authorization: []
+  /api/jira/integrations/{id}:
+    delete:
+      tags:
+      - jira
+      operationId: deleteIntegration_2
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: deleteIntegration_2 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JiraIntegration'
+      security:
+      - Authorization: []
+    patch:
+      tags:
+      - jira
+      operationId: patchIntegration_2
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JiraIntegrationPatch'
+        required: true
+      responses:
+        '200':
+          description: patchIntegration_2 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+  /web/jira/task/{issueKey}/{issueId}:
+    get:
+      tags:
+      - jira
+      operationId: taskDetails_2
+      parameters:
+      - name: issueKey
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: issueId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: taskDetails_2 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  schemas:
+    ImmutableSet_JiraProject_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_JiraProject_'
+      - $ref: '#/components/schemas/AbstractCollection_JiraProject_'
+      - properties:
+          empty:
+            type: boolean
+          hashCodeFast:
+            type: boolean
+    ImmutableCollection_JiraProject_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_JiraProject_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    AbstractCollection_String_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    ImmutableCollection_String_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_String_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    AbstractCollection_JiraProject_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    JiraIntegrationPatch:
+      type: object
+      properties:
+        installation:
+          type: string
+        selected_project_keys:
+          $ref: '#/components/schemas/ImmutableSet_String_'
+        due_date_required:
+          type: boolean
+          nullable: true
+        withInstallation:
+          type: string
+        withSelected_project_keys:
+          type: array
+          items:
+            type: string
+        withDue_date_required:
+          type: boolean
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    JiraIntegration:
+      type: object
+      properties:
+        id:
+          type: string
+        installation:
+          type: string
+        available_projects:
+          $ref: '#/components/schemas/ImmutableSet_JiraProject_'
+        selected_project_keys:
+          $ref: '#/components/schemas/ImmutableSet_String_'
+        due_date_required:
+          type: boolean
+        withId:
+          type: string
+        withInstallation:
+          type: string
+        withAvailable_projects:
+          type: array
+          items:
+            $ref: '#/components/schemas/JiraProject'
+        withSelected_project_keys:
+          type: array
+          items:
+            type: string
+        withDue_date_required:
+          type: boolean
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    JiraProject:
+      type: object
+      properties:
+        project_key:
+          type: string
+        project_name:
+          type: string
+        withProject_key:
+          type: string
+        withProject_name:
+          type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+        toAnalyticsValue:
+          nullable: true
+    ImmutableSet_String_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_String_'
+      - $ref: '#/components/schemas/AbstractCollection_String_'
+      - properties:
+          empty:
+            type: boolean
+          hashCodeFast:
+            type: boolean
+  securitySchemes:
+    Authorization:
+      type: oauth2

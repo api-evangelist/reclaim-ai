@@ -1,0 +1,7003 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes schedule-actions API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: schedule-actions
+paths:
+  /api/schedule-actions:
+    post:
+      tags:
+      - schedule-actions
+      operationId: actions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScheduleActionRequest'
+        required: true
+      responses:
+        '200':
+          description: actions 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScheduleActionResponse'
+      security:
+      - Authorization: []
+  /api/schedule-actions/apply-actions:
+    post:
+      tags:
+      - schedule-actions
+      operationId: applyActions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ApplyScheduleActionsRequest'
+        required: true
+      responses:
+        '200':
+          description: applyActions 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplyScheduleActionsResponse'
+      security:
+      - Authorization: []
+  /api/schedule-actions/disable-background-automation:
+    post:
+      tags:
+      - schedule-actions
+      operationId: disableBackgroundAutomation
+      parameters:
+      - name: value
+        in: query
+        required: true
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: disableBackgroundAutomation 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+  /api/schedule-actions/enable:
+    post:
+      tags:
+      - schedule-actions
+      operationId: enable
+      parameters:
+      - name: value
+        in: query
+        required: true
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: enable 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+  /api/schedule-actions/enable-calendar-ui:
+    post:
+      tags:
+      - schedule-actions
+      operationId: enableCalendarUI
+      parameters:
+      - name: value
+        in: query
+        required: true
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: enableCalendarUI 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+  /api/schedule-actions/enable-experimental-features:
+    post:
+      tags:
+      - schedule-actions
+      operationId: enableExperimentalFeatures
+      parameters:
+      - name: value
+        in: query
+        required: true
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: enableExperimentalFeatures 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+  /api/schedule-actions/enable-org-relationships:
+    post:
+      tags:
+      - schedule-actions
+      operationId: enableOrgRelationships
+      parameters:
+      - name: value
+        in: query
+        required: true
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: enableOrgRelationships 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+  /api/schedule-actions/event-actions:
+    post:
+      tags:
+      - schedule-actions
+      operationId: actionsForEvents
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActionsForEventsRequest'
+        required: true
+      responses:
+        '200':
+          description: actionsForEvents 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+  /api/schedule-actions/find-problems:
+    post:
+      tags:
+      - schedule-actions
+      operationId: findProblems
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScheduleProblemRequest'
+        required: true
+      responses:
+        '200':
+          description: findProblems 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScheduleProblemResponse'
+      security:
+      - Authorization: []
+  /api/schedule-actions/migrate-user-assist:
+    get:
+      tags:
+      - schedule-actions
+      operationId: getMigrationLogs
+      responses:
+        '200':
+          description: getMigrationLogs 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserAssistMigrationLogView'
+      security:
+      - Authorization: []
+    post:
+      tags:
+      - schedule-actions
+      operationId: migrateUserAssist
+      parameters:
+      - name: dryRun
+        in: query
+        required: true
+        schema:
+          type: string
+          default: 'true'
+      - name: notificationKey
+        in: query
+        schema:
+          type: string
+          nullable: true
+      responses:
+        '200':
+          description: migrateUserAssist 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MigrateUserAssistResponse'
+      security:
+      - Authorization: []
+  /api/schedule-actions/migrate-user-assist-available:
+    get:
+      tags:
+      - schedule-actions
+      operationId: isMigrationAvailable
+      responses:
+        '200':
+          description: isMigrationAvailable 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MigrateUserAssistAvailableResponse'
+      security:
+      - Authorization: []
+  /api/schedule-actions/set-self-service-migration:
+    post:
+      tags:
+      - schedule-actions
+      operationId: setSelfServiceMigration
+      parameters:
+      - name: value
+        in: query
+        required: true
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: setSelfServiceMigration 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+components:
+  schemas:
+    GroupSubjectView:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          EventKey: '#/components/schemas/EventKeySubjectView'
+      oneOf:
+      - $ref: '#/components/schemas/EventKeySubjectView'
+    GtdGoogleTasksTaskForCreate:
+      required:
+      - sourceType
+      - title
+      type: object
+      properties:
+        sourceType:
+          $ref: '#/components/schemas/GtdTaskId.TaskSourceType'
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        due:
+          type: string
+          format: date-time
+          nullable: true
+        start:
+          type: string
+          format: date-time
+          nullable: true
+        priority:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+        estimateMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        listId:
+          type: string
+          nullable: true
+        parentTaskId:
+          type: string
+          nullable: true
+        type:
+          type: string
+    EventLockAction:
+      required:
+      - eventKey
+      - lockMode
+      - policyId
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        policyId:
+          type: string
+          format: uuid
+        eventKey:
+          $ref: '#/components/schemas/EventKey'
+        lockMode:
+          $ref: '#/components/schemas/EventLockAction.LockMode'
+        type:
+          type: string
+    AnyAttendeeEventMatcher:
+      required:
+      - attendeeMatcher
+      type: object
+      properties:
+        attendeeMatcher:
+          $ref: '#/components/schemas/AttendeeMatcher'
+        type:
+          type: string
+      description: Matches if any attendee satisfies the given attendee predicate
+    AndEventMatcher:
+      required:
+      - left
+      - right
+      type: object
+      properties:
+        left:
+          $ref: '#/components/schemas/EventMatcher'
+        right:
+          $ref: '#/components/schemas/EventMatcher'
+        type:
+          type: string
+      description: Matches if both the left and right matchers match
+    AddEventAction:
+      required:
+      - attendees
+      - dateRange
+      - eventKey
+      - guestsCanModify
+      - policyId
+      - title
+      type: object
+      properties:
+        eventKey:
+          readOnly: true
+          allOf:
+          - $ref: '#/components/schemas/EventKey'
+        hash:
+          type: string
+          nullable: true
+        policyId:
+          type: string
+          format: uuid
+        calendarId:
+          type: integer
+          format: int64
+          nullable: true
+        eventId:
+          type: string
+          nullable: true
+        dateRange:
+          $ref: '#/components/schemas/EventDateRange'
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        color:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EntryColor'
+        location:
+          type: string
+          nullable: true
+        transparency:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Transparency'
+        visibility:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Visibility'
+        reminders:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Reminders'
+        eventCategory:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventCategory'
+        attendees:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventAttendee'
+        notificationRequest:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EntryNotificationRequest'
+        guestsCanModify:
+          type: boolean
+        guestsCanInviteOthers:
+          type: boolean
+          nullable: true
+        guestsCanSeeOtherGuests:
+          type: boolean
+          nullable: true
+        conferenceRequest:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ConferenceRequest'
+        recurrence:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ReclaimRecurrence'
+        priority:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+        type:
+          type: string
+    Transparency:
+      type: string
+      enum:
+      - OPAQUE
+      - TRANSPARENT
+    GtdTaskForCreate:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          GtdAsanaTaskForCreate: '#/components/schemas/GtdAsanaTaskForCreate'
+          GtdTodoistTaskForCreate: '#/components/schemas/GtdTodoistTaskForCreate'
+          GtdClickUpTaskForCreate: '#/components/schemas/GtdClickUpTaskForCreate'
+          GtdGoogleTasksTaskForCreate: '#/components/schemas/GtdGoogleTasksTaskForCreate'
+          GtdLinearTaskForCreate: '#/components/schemas/GtdLinearTaskForCreate'
+          ReclaimTaskForCreate: '#/components/schemas/ReclaimTaskForCreate'
+          GtdJiraTaskForCreate: '#/components/schemas/GtdJiraTaskForCreate'
+          GtdNotionTaskForCreate: '#/components/schemas/GtdNotionTaskForCreate'
+      oneOf:
+      - $ref: '#/components/schemas/ReclaimTaskForCreate'
+      - $ref: '#/components/schemas/GtdAsanaTaskForCreate'
+      - $ref: '#/components/schemas/GtdClickUpTaskForCreate'
+      - $ref: '#/components/schemas/GtdGoogleTasksTaskForCreate'
+      - $ref: '#/components/schemas/GtdJiraTaskForCreate'
+      - $ref: '#/components/schemas/GtdLinearTaskForCreate'
+      - $ref: '#/components/schemas/GtdNotionTaskForCreate'
+      - $ref: '#/components/schemas/GtdTodoistTaskForCreate'
+    GtdTaskId.TaskSourceType:
+      type: string
+      enum:
+      - TODOIST
+      - CLICK_UP
+      - LINEAR
+      - GOOGLE_TASKS
+      - JIRA
+      - ASANA
+      - NOTION
+      - RECLAIM
+    Colorized:
+      type: object
+      properties:
+        color:
+          $ref: '#/components/schemas/EventColor'
+    EventDateRange:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          FixedDateTimeRange: '#/components/schemas/FixedDateTimeRange'
+          AllDayDateRange: '#/components/schemas/AllDayDateRange'
+      oneOf:
+      - $ref: '#/components/schemas/FixedDateTimeRange'
+      - $ref: '#/components/schemas/AllDayDateRange'
+    SelfRSVPMatcher:
+      required:
+      - operator
+      type: object
+      properties:
+        operator:
+          $ref: '#/components/schemas/EventMatcherOperator'
+        predicateValue:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        predicateValues:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/ResponseStatus'
+        type:
+          type: string
+      description: Matches by the user's own RSVP status
+    SmartSeriesId:
+      required:
+      - lineageId
+      - seriesId
+      type: object
+      properties:
+        seriesId:
+          type: integer
+          format: int64
+        lineageId:
+          type: integer
+          format: int64
+        type:
+          type: string
+    UncompleteGtdTaskAction:
+      required:
+      - task
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        task:
+          $ref: '#/components/schemas/GtdTask'
+        type:
+          type: string
+    ApplyScheduleActionsResponse:
+      required:
+      - results
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScheduleActionResultWithMessage'
+        events:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/Event'
+        calendarEvents:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/CalendarEventV2'
+    HasVideoConferenceEventMatcher:
+      required:
+      - predicateValue
+      type: object
+      properties:
+        predicateValue:
+          type: boolean
+        type:
+          type: string
+      description: Matches events with or without a video conference link
+    TimeWindowEventMatcher.TimeWindowMatchMode:
+      type: string
+      enum:
+      - STARTS_WITHIN
+      - ENDS_WITHIN
+      - STARTS_OR_ENDS_WITHIN
+      - CONTAINED_WITHIN
+      - OVERLAPS
+    RecurrenceFrequency:
+      type: string
+      enum:
+      - DAILY
+      - WEEKLY
+      - MONTHLY
+      - YEARLY
+    CancelEventAction:
+      required:
+      - eventKey
+      - policyId
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        policyId:
+          type: string
+          format: uuid
+        eventKey:
+          $ref: '#/components/schemas/EventKey'
+        notificationMessage:
+          type: string
+          nullable: true
+        notificationRequest:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EntryNotificationRequest'
+        recurrenceEditType:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/RecurrenceEditType'
+        assistantData:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/AssistantData'
+        title:
+          type: string
+          nullable: true
+        start:
+          type: string
+          format: date-time
+          nullable: true
+        end:
+          type: string
+          format: date-time
+          nullable: true
+        type:
+          type: string
+    RescheduleEventAction:
+      required:
+      - end
+      - eventKey
+      - policyId
+      - start
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        policyId:
+          type: string
+          format: uuid
+        eventKey:
+          $ref: '#/components/schemas/EventKey'
+        start:
+          type: string
+          format: date-time
+        end:
+          type: string
+          format: date-time
+        notificationMessage:
+          type: string
+          nullable: true
+        notificationRequest:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EntryNotificationRequest'
+        recurrenceEditType:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/RecurrenceEditType'
+        rescheduledFromStart:
+          type: string
+          format: date-time
+          nullable: true
+        rescheduledFromEnd:
+          type: string
+          format: date-time
+          nullable: true
+        type:
+          type: string
+    LacksRsvpCreateRequestFields:
+      required:
+      - commonData
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonDataCreateRequestFields'
+        eventMatcher:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventMatcher'
+        eventMatcherTags:
+          description: Predefined event matching tags. Either this or eventMatcher is required.
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventMatcherTags'
+        type:
+          type: string
+    FeatureMigrationResultView.CleanupOnly.Reason:
+      type: string
+      enum:
+      - EQUIVALENT_POLICY_ALREADY_EXISTS
+    AttendeeCountEventMatcher:
+      required:
+      - attendeeType
+      - includeResources
+      - operator
+      - predicateValue
+      type: object
+      properties:
+        operator:
+          $ref: '#/components/schemas/EventMatcherOperator'
+        predicateValue:
+          type: integer
+          format: int32
+        attendeeType:
+          $ref: '#/components/schemas/AttendeeCountEventMatcher.AttendeeType'
+        includeResources:
+          type: boolean
+          default: false
+        type:
+          type: string
+      description: Matches by attendee count using a comparison operator
+    EventConflictPatchRequestFields:
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonDataPatchRequestFields'
+        timePolicy:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/SchedulePolicyTimePolicy'
+        type:
+          type: string
+    ZoomConferenceRequest:
+      required:
+      - enabled
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        type:
+          type: string
+    EventEditType:
+      type: string
+      enum:
+      - THIS
+      - ALL
+      - THIS_AND_FOLLOWING
+    Reminders:
+      required:
+      - overrides
+      - useDefault
+      type: object
+      properties:
+        useDefault:
+          type: boolean
+        overrides:
+          type: array
+          items:
+            $ref: '#/components/schemas/Reminder'
+    CreateGtdTaskAction:
+      required:
+      - fields
+      - sourceType
+      - title
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        sourceType:
+          $ref: '#/components/schemas/GtdTaskId.TaskSourceType'
+        title:
+          type: string
+        fields:
+          $ref: '#/components/schemas/GtdTaskForCreate'
+        tempId:
+          type: string
+          nullable: true
+        type:
+          type: string
+    ManualEventEdit:
+      required:
+      - eventDateRange
+      - eventKey
+      - eventStatus
+      - policyId
+      - policyType
+      - relatedFields
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        policyId:
+          type: string
+          format: uuid
+        policyType:
+          $ref: '#/components/schemas/SchedulePolicyType'
+        eventKey:
+          $ref: '#/components/schemas/EventKey'
+        eventDateRange:
+          $ref: '#/components/schemas/EventDateRange'
+        eventVersion:
+          type: integer
+          format: int32
+          nullable: true
+        eventStatus:
+          $ref: '#/components/schemas/EntryStatus'
+        relatedFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/CalendarEventField'
+        type:
+          type: string
+    RecurrenceEditType:
+      type: string
+      enum:
+      - ALL
+      - THIS_AND_FOLLOWING
+    PlatformEventData:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          GoogleEventData: '#/components/schemas/GoogleEventData'
+          OutlookEventData: '#/components/schemas/OutlookEventData'
+      oneOf:
+      - $ref: '#/components/schemas/GoogleEventData'
+      - $ref: '#/components/schemas/OutlookEventData'
+    ConferenceRequest:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          ZoomConferenceRequest: '#/components/schemas/ZoomConferenceRequest'
+          MeetConferenceRequest: '#/components/schemas/MeetConferenceRequest'
+          TeamsConferenceRequest: '#/components/schemas/TeamsConferenceRequest'
+      oneOf:
+      - $ref: '#/components/schemas/MeetConferenceRequest'
+      - $ref: '#/components/schemas/TeamsConferenceRequest'
+      - $ref: '#/components/schemas/ZoomConferenceRequest'
+    PolicyScope:
+      type: string
+      enum:
+      - USER
+      - TEAM
+    LacksVideoConferencePatchRequestFields:
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonDataPatchRequestFields'
+        eventMatcher:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventMatcher'
+        eventMatcherTags:
+          description: Predefined event matching tags. Either this or eventMatcher is required.
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventMatcherTags'
+        type:
+          type: string
+    DayOfWeek:
+      type: string
+      enum:
+      - MONDAY
+      - TUESDAY
+      - WEDNESDAY
+      - THURSDAY
+      - FRIDAY
+      - SATURDAY
+      - SUNDAY
+    EventStatus:
+      type: string
+      enum:
+      - PUBLISHED
+      - CANCELLED
+    ShieldsUpProblem:
+      required:
+      - hash
+      - policyId
+      - policyType
+      - problemType
+      type: object
+      properties:
+        hash:
+          type: string
+        policyId:
+          type: string
+          format: uuid
+        policyType:
+          $ref: '#/components/schemas/SchedulePolicyType'
+        problemType:
+          $ref: '#/components/schemas/ShieldsUpProblemType'
+        eventKey:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventKey'
+        type:
+          type: string
+    HabitPatchRequestFields:
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonDataPatchRequestFields'
+        eventMatcher:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventMatcher'
+        idealDurationMinutes:
+          type: integer
+          description: Preferred duration in minutes. Reclaim tries this first, falling back to minDurationMinutes.
+          format: int64
+          nullable: true
+        minDurationMinutes:
+          type: integer
+          description: Minimum acceptable duration in minutes.
+          format: int64
+        availableTimeForTransparencyChangeMinutes:
+          type: integer
+          description: Minutes before event start to switch the calendar entry from free to busy. Null keeps the event busy from creation.
+          format: int64
+          nullable: true
+        availableSlotsForTransparencyChange:
+          type: integer
+          description: Number of alternative time slots to hold as free before committing to one. Null means only the best slot is held.
+          format: int64
+          nullable: true
+        autoBusyBeforeStartMinutes:
+          type: integer
+          description: Minutes before start to force the event to show as busy, even if other slots are still held. Null disables.
+          format: int64
+          nullable: true
+        timePolicy:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/SchedulePolicyTimePolicy'
+        proactivelyUseIdealTime:
+          type: boolean
+          description: When true, Reclaim proactively schedules at the ideal duration even when no conflict forces rescheduling.
+        noAvailabilityAction:
+          description: 'What to do when no available slot exists: CANCEL (remove the event) or WARNING (keep it and surface a warning).'
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ManagedEventNoAvailabilityAction'
+        suppressWarnings:
+          type: boolean
+          description: When true, suppresses all warnings/problems detected by this policy.
+        type:
+          type: string
+    ScheduleActionResultWithMessage:
+      required:
+      - action
+      - result
+      type: object
+      properties:
+        result:
+          $ref: '#/components/schemas/ScheduleActionResult'
+        action:
+          $ref: '#/components/schemas/ScheduleActionWithEvents'
+        message:
+          type: string
+          nullable: true
+    RecentPaperDocMatcher:
+      required:
+      - defaultValue
+      - recentThresholdMinutes
+      type: object
+      properties:
+        defaultValue:
+          type: boolean
+        recentThresholdMinutes:
+          type: integer
+          format: int32
+        type:
+          type: string
+      description: Matches events with a recently modified paper document
+    TeamsConferenceData:
+      required:
+      - conferenceUrl
+      type: object
+      properties:
+        conferenceUrl:
+          type: string
+        entryPoints:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/ConferenceEntryPoint'
+        type:
+          type: string
+    Reminder:
+      required:
+      - minutes
+      - reminderType
+      type: object
+      properties:
+        reminderType:
+          $ref: '#/components/schemas/ReminderType'
+        minutes:
+          type: integer
+          format: int32
+    EventLockAction.LockMode:
+      type: string
+      enum:
+      - LOCK
+      - UNLOCK
+    SchedulePolicy:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          EventConflictPolicy: '#/components/schemas/EventConflictPolicy'
+          FocusTimePolicy: '#/components/schemas/FocusTimePolicy'
+          LacksRsvpPolicy: '#/components/schemas/LacksRsvpPolicy'
+          AttendeeAvailabilityWarningPolicy: '#/components/schemas/AttendeeAvailabilityWarningPolicy'
+          BasicEventWarningPolicy: '#/components/schemas/BasicEventWarningPolicy'
+          SmartMeetingPolicy: '#/components/schemas/SmartMeetingPolicy'
+          ShieldsUpPolicy: '#/components/schemas/ShieldsUpPolicy'
+          BufferEventPolicy: '#/components/schemas/BufferEventPolicy'
+          LacksVideoConferencePolicy: '#/components/schemas/LacksVideoConferencePolicy'
+          HabitPolicy: '#/components/schemas/HabitPolicy'
+          UnknownPolicy: '#/components/schemas/UnknownPolicy'
+      oneOf:
+      - $ref: '#/components/schemas/AttendeeAvailabilityWarningPolicy'
+      - $ref: '#/components/schemas/BasicEventWarningPolicy'
+      - $ref: '#/components/schemas/BufferEventPolicy'
+      - $ref: '#/components/schemas/EventConflictPolicy'
+      - $ref: '#/components/schemas/FocusTimePolicy'
+      - $ref: '#/components/schemas/HabitPolicy'
+      - $ref: '#/components/schemas/LacksRsvpPolicy'
+      - $ref: '#/components/schemas/LacksVideoConferencePolicy'
+      - $ref: '#/components/schemas/ShieldsUpPolicy'
+      - $ref: '#/components/schemas/SmartMeetingPolicy'
+      - $ref: '#/components/schemas/UnknownPolicy'
+    SlotAvailability:
+      required:
+      - attendees
+      - movabilityScore
+      type: object
+      properties:
+        movabilityScore:
+          type: integer
+          format: int32
+        attendees:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttendeeAvailabilityView'
+    AssistType:
+      type: string
+      enum:
+      - TASK
+      - CUSTOM_DAILY
+      - CATCHUP_AM
+      - CATCHUP_PM
+      - LUNCH
+      - FOCUS
+      - TRAVEL_PRE
+      - TRAVEL_POST
+      - CONBUF
+      - SMART_HABIT
+      - SMART_MEETING
+      - RECLAIM_FOCUS
+    ScheduleProblemGroup:
+      required:
+      - mergedActions
+      - problemHashes
+      - subject
+      type: object
+      properties:
+        subject:
+          $ref: '#/components/schemas/GroupSubjectView'
+        problemHashes:
+          type: array
+          items:
+            type: string
+        mergedActions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScheduleActionRefView'
+    GtdTask:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          GtdGoogleTasksTask: '#/components/schemas/GtdGoogleTasksTask'
+          GtdLinearTask: '#/components/schemas/GtdLinearTask'
+          GtdJiraTask: '#/components/schemas/GtdJiraTask'
+          GtdClickUpTask: '#/components/schemas/GtdClickUpTask'
+          GtdAsanaTask: '#/components/schemas/GtdAsanaTask'
+          GtdTodoistTask: '#/components/schemas/GtdTodoistTask'
+          GtdNotionTask: '#/components/schemas/GtdNotionTask'
+          ReclaimTask: '#/components/schemas/ReclaimTask'
+      oneOf:
+      - $ref: '#/components/schemas/GtdTodoistTask'
+      - $ref: '#/components/schemas/GtdGoogleTasksTask'
+      - $ref: '#/components/schemas/GtdClickUpTask'
+      - $ref: '#/components/schemas/GtdLinearTask'
+      - $ref: '#/components/schemas/GtdJiraTask'
+      - $ref: '#/components/schemas/GtdAsanaTask'
+      - $ref: '#/components/schemas/GtdNotionTask'
+      - $ref: '#/components/schemas/ReclaimTask'
+    NotEventMatcher:
+      required:
+      - toNegate
+      type: object
+      properties:
+        toNegate:
+          $ref: '#/components/schemas/EventMatcher'
+        type:
+          type: string
+      description: Negates another matcher
+    FindANewTimeAction:
+      required:
+      - eventKey
+      - policyId
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        policyId:
+          type: string
+          format: uuid
+        eventKey:
+          $ref: '#/components/schemas/EventKey'
+        type:
+          type: string
+    BufferEventData:
+      required:
+      - bufferEventType
+      - bufferTarget
+      - policyId
+      type: object
+      properties:
+        bufferTarget:
+          $ref: '#/components/schemas/EventKey'
+        policyId:
+          type: string
+          format: uuid
+        bufferEventType:
+          $ref: '#/components/schemas/BufferEventType'
+        bufferEventDateRange:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventDateRange'
+    TimeOfDayEventMatcher:
+      required:
+      - operator
+      - predicateValue
+      - timeField
+      type: object
+      properties:
+        timeField:
+          $ref: '#/components/schemas/TimeOfDayEventMatcher.TimeField'
+        operator:
+          $ref: '#/components/schemas/EventMatcherOperator'
+        predicateValue:
+          type: string
+          format: partial-time
+        type:
+          type: string
+      description: Matches events based on their start or end time of day
+    AttendeeDeclined:
+      required:
+      - declinedAttendeeEmails
+      - event
+      - policyId
+      - policyType
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        policyId:
+          type: string
+          format: uuid
+        policyType:
+          $ref: '#/components/schemas/SchedulePolicyType'
+        event:
+          $ref: '#/components/schemas/EventKey'
+        recurringEventId:
+          type: string
+          nullable: true
+        declinedAttendeeEmails:
+          type: array
+          items:
+            type: string
+        relatedFields:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/CalendarEventField'
+        type:
+          type: string
+    AddFocusEventAction:
+      required:
+      - end
+      - eventKey
+      - policyId
+      - start
+      - title
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        policyId:
+          type: string
+          format: uuid
+        eventKey:
+          $ref: '#/components/schemas/EventKey'
+        title:
+          type: string
+        start:
+          type: string
+          format: date-time
+        end:
+          type: string
+          format: date-time
+        description:
+          type: string
+          nullable: true
+        visibility:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Visibility'
+        transparency:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Transparency'
+        reminders:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Reminders'
+        autoDeclineMode:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/AutoDeclineModeView'
+        autoDeclineMessage:
+          type: string
+          nullable: true
+        eventCategory:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventCategory'
+        eventColor:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EntryColor'
+        type:
+          type: string
+    ScheduleProblemRequest:
+      required:
+      - scheduleWindow
+      type: object
+      properties:
+        scheduleWindow:
+          $ref: '#/components/schemas/ScheduleWindow'
+    EventConflictType:
+      type: string
+      enum:
+      - CONFLICT
+      - SHORT_OVERLAP
+      - POTENTIAL_CONFLICT
+      - ATTENDEE_CONFLICT
+      x-deprecated:
+      - SHORT_OVERLAP
+      - POTENTIAL_CONFLICT
+      - ATTENDEE_CONFLICT
+    BufferEventSettingsView:
+      required:
+      - idealDuration
+      - minDuration
+      type: object
+      properties:
+        idealDuration:
+          type: integer
+          format: int32
+        minDuration:
+          type: integer
+          format: int32
+    AddVideoConferenceAction:
+      required:
+      - conferenceRequest
+      - eventKey
+      - policyId
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        policyId:
+          type: string
+          format: uuid
+        eventKey:
+          $ref: '#/components/schemas/EventKey'
+        conferenceRequest:
+          $ref: '#/components/schemas/ConferenceRequest'
+        recurrenceEditType:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/RecurrenceEditType'
+        type:
+          type: string
+    ScheduleActionRefView:
+      required:
+      - hash
+      - type
+      type: object
+      properties:
+        hash:
+          type: string
+        type:
+          type: string
+    NotAttendeeMatcher:
+      required:
+      - toNegate
+      type: object
+      properties:
+        toNegate:
+          $ref: '#/components/schemas/AttendeeMatcher'
+        type:
+          type: string
+      description: Negates an attendee matcher
+    ReclaimResourceId:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          TaskId: '#/components/schemas/TaskId'
+          SchedulingLinkMeetingId: '#/components/schemas/SchedulingLinkMeetingId'
+          TravelBufferId: '#/components/schemas/TravelBufferId'
+          DailyHabitId: '#/components/schemas/DailyHabitId'
+          SmartSeriesId: '#/components/schemas/SmartSeriesId'
+          FocusId: '#/components/schemas/FocusId'
+          ConferenceBufferId: '#/components/schemas/ConferenceBufferId'
+          SchedulingLinkId: '#/components/schemas/SchedulingLinkId'
+      oneOf:
+      - $ref: '#/components/schemas/DailyHabitId'
+      - $ref: '#/components/schemas/FocusId'
+      - $ref: '#/components/schemas/SchedulingLinkId'
+      - $ref: '#/components/schemas/SchedulingLinkMeetingId'
+      - $ref: '#/components/schemas/SmartSeriesId'
+      - $ref: '#/components/schemas/TaskId'
+      - $ref: '#/components/schemas/ConferenceBufferId'
+      - $ref: '#/components/schemas/TravelBufferId'
+    FocusTimeCreateRequestFields:
+      required:
+      - calendarId
+      - commonData
+      - eventTitle
+      - timePolicy
+      - weeklyGoalMinutes
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonDataCreateRequestFields'
+        calendarId:
+          type: integer
+          format: int64
+        eventTitle:
+          type: string
+        weeklyGoalMinutes:
+          type: integer
+          format: int32
+        idealDurationPerDayMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        maxDurationPerDayMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        minEventDurationMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        maxEventDurationMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        eventDescription:
+          type: string
+          nullable: true
+        eventVisibility:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Visibility'
+        eventReminders:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Reminders'
+        eventTransparency:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Transparency'
+        autoDeclineMode:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/AutoDeclineModeView'
+        autoDeclineMessage:
+          type: string
+          nullable: true
+        eventCategory:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventCategory'
+        eventPriority:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+        eventColor:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EntryColor'
+        timePolicy:
+          $ref: '#/components/schemas/SchedulePolicyTimePolicy'
+        type:
+          type: string
+    EventCategory:
+      $ref: '#/components/schemas/Colorized'
+    ManagedEventData_1:
+      type: object
+      properties:
+        originalDuration:
+          type: string
+          nullable: true
+        linkedSuccessorExternalId:
+          type: string
+          nullable: true
+    GtdNotionTask:
+      required:
+      - completed
+      - id
+      - priority
+      - title
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        priority:
+          $ref: '#/components/schemas/PriorityLevel'
+        status:
+          type: string
+          nullable: true
+        link:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/GtdTaskLink'
+        due:
+          type: string
+          format: date-time
+          nullable: true
+        start:
+          type: string
+          format: date-time
+          nullable: true
+        completed:
+          type: boolean
+        estimateMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        workspaceName:
+          type: string
+          nullable: true
+        databaseName:
+          type: string
+          nullable: true
+        databaseId:
+          type: string
+          nullable: true
+        possibleStatuses:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/NotionTaskStatus'
+        type:
+          type: string
+    ReclaimEventType:
+      type: string
+      enum:
+      - USER
+      - SYNC
+      - HABIT_ASSIGNMENT
+      - SMART_HABIT
+      - ONE_ON_ONE_ASSIGNMENT
+      - SMART_MEETING
+      - TASK_ASSIGNMENT
+      - CONF_BUFFER
+      - TRAVEL_BUFFER
+      - SCHEDULING_LINK_MEETING
+      - UNKNOWN
+      - FOCUS
+    MeetingType:
+      type: string
+      enum:
+      - DIRECT_11
+      - PEER_11
+      - SKIP_11
+      - XFUNC_11
+      - OTHER_11
+      - TEAM
+      - XFUNC_TEAM
+      - EXEC
+      - SKIP_TEAM
+      - ALL_HANDS
+      - ONBOARDING_TRAINING
+      - COMPANY_EVENT
+      - BOARD_MEETING
+      - OTHER_STAFF
+      - DEAL_REVIEW
+      - EXECUTION_REVIEW
+      - DEMO
+      - PLANNING_MEETING
+      - RETRO
+      - EMERGENCY
+      - PEOPLE_REVIEW
+      - OTHER_OP
+      - ROADMAP
+      - CUST_MEETING
+      - CUST_RESEARCH
+      - CUST_URGENT
+      - RECRUIT_SCREEN
+      - OTHER_EXTERNAL
+      - DESIGN_BRAIN
+      - TECH_REVIEW
+      - KICKOFF
+      - REQ_BRAIN
+      - OTHER_IDEATION
+      - UNKNOWN
+    AssistStatus:
+      type: string
+      enum:
+      - CONTROLLED
+      - RELEASED
+      - ARCHIVED
+    BasicEventWarningCreateRequestFields:
+      required:
+      - commonData
+      - primaryCalendarOnly
+      - warningMessage
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonDataCreateRequestFields'
+        warningCondition:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventMatcher'
+        warningConditionTags:
+          description: Predefined event matching tags. Either this or warningCondition is required.
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventMatcherTags'
+        warningMessage:
+          type: string
+        adherenceMetric:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PolicyAdherenceMetricDescriptor'
+        primaryCalendarOnly:
+          type: boolean
+        type:
+          type: string
+    NotionTaskGroup:
+      type: string
+      enum:
+      - To-do
+      - In progress
+      - Complete
+    RequiresTravelEventMatcher:
+      required:
+      - predicateValue
+      type: object
+      properties:
+        predicateValue:
+          type: boolean
+        type:
+          type: string
+      description: Matches events that require travel
+    AnyEventMatcher:
+      required:
+      - matchers
+      type: object
+      properties:
+        matchers:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventMatcher'
+        type:
+          type: string
+      description: Matches if ANY matcher in the list matches
+    LacksRsvp:
+      required:
+      - lacksRsvpEvent
+      - policyId
+      - policyType
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        policyId:
+          type: string
+          format: uuid
+        policyType:
+          $ref: '#/components/schemas/SchedulePolicyType'
+        lacksRsvpEvent:
+          $ref: '#/components/schemas/EventKey'
+        lacksRsvpRecurringEventId:
+          type: string
+          nullable: true
+        relatedFields:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/CalendarEventField'
+        conflictingEventKeys:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/EventKey'
+        type:
+          type: string
+    UpdatePolicyIndexPatchRequestFields:
+      required:
+      - move
+      - relativeTo
+      type: object
+      properties:
+        relativeTo:
+          type: string
+          format: uuid
+        move:
+          $ref: '#/components/schemas/PolicyIndexMove'
+        type:
+          type: string
+    ReclaimTask:
+      required:
+      - completed
+      - extendedProperties
+      - id
+      - title
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        priority:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+        status:
+          type: string
+          nullable: true
+        link:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/GtdTaskLink'
+        due:
+          type: string
+          format: date-time
+          nullable: true
+        start:
+          type: string
+          format: date-time
+          nullable: true
+        completed:
+          type: boolean
+        estimateMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        extendedProperties:
+          type: object
+          additionalProperties: true
+        type:
+          type: string
+    LacksRsvpPatchRequestFields:
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonDataPatchRequestFields'
+        eventMatcher:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventMatcher'
+        eventMatcherTags:
+          description: Predefined event matching tags. Either this or eventMatcher is required.
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventMatcherTags'
+        type:
+          type: string
+    EventReadOnlyReason:
+      type: string
+      enum:
+      - SYNTHETIC_EDITABLE_AFTER_APPLY
+      - FOCUS_CANNOT_BE_MODIFIED
+    AwayFromIdealSlot:
+      required:
+      - durationDeltaMinutes
+      - eventKey
+      - idealDurationMinutes
+      - idealStart
+      - policyId
+      - policyType
+      - relatedFields
+      - startTimeDeltaMinutes
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        policyId:
+          type: string
+          format: uuid
+        policyType:
+          $ref: '#/components/schemas/SchedulePolicyType'
+        eventKey:
+          $ref: '#/components/schemas/EventKey'
+        idealStart:
+          type: string
+          format: date-time
+        idealDurationMinutes:
+          type: integer
+          format: int64
+        startTimeDeltaMinutes:
+          type: integer
+          format: int64
+        durationDeltaMinutes:
+          type: integer
+          format: int64
+        relatedFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/CalendarEventField'
+        type:
+          type: string
+    PrioritySource:
+      type: string
+      enum:
+      - MANUAL
+      - AI
+      - RULES
+    AutomationType:
+      type: string
+      enum:
+      - MANUAL
+      - AUTOMATED
+      - SUPERVISED
+    FocusTimeEventData:
+      required:
+      - policyId
+      type: object
+      properties:
+        policyId:
+          type: string
+          format: uuid
+    FocusTimeProblem:
+      required:
+      - hash
+      - policyId
+      - policyType
+      - problemType
+      type: object
+      properties:
+        hash:
+          type: string
+        policyId:
+          type: string
+          format: uuid
+        policyType:
+          $ref: '#/components/schemas/SchedulePolicyType'
+        problemType:
+          $ref: '#/components/schemas/FocusTimeProblemType'
+        eventKey:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventKey'
+        type:
+          type: string
+    ScheduleProblemWithActions:
+      required:
+      - proposedActions
+      type: object
+      properties:
+        problem:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ScheduleProblem'
+        proposedActions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScheduleActionWithEvents'
+    TitleEventMatcher:
+      required:
+      - operator
+      - predicateValue
+      type: object
+      properties:
+        operator:
+          $ref: '#/components/schemas/EventMatcherOperator'
+        predicateValue:
+          type: string
+        type:
+          type: string
+      description: Matches by event title text
+    ClickUpTaskState:
+      required:
+      - color
+      - id
+      - name
+      - position
+      - type
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        position:
+          type: number
+          format: float
+        color:
+          type: string
+    ScheduleActionResult:
+      type: string
+      enum:
+      - SUCCESS
+      - FAILED_DUE_TO_ETAG_MISMATCH
+      - GENERIC_ERROR
+      - MISSING_EVENT
+      - INVALID_CALENDAR_ACTION_OR_PROCESSOR
+    LogContext:
+      type: object
+    UpdatePolicyPriorityAndIndexPatchRequestFields:
+      type: object
+      properties:
+        priority:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+        relativeTo:
+          type: string
+          format: uuid
+          nullable: true
+        move:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PolicyIndexMove'
+        type:
+          type: string
+    HabitPolicy:
+      required:
+      - commonData
+      - eventMatcher
+      - minDurationMinutes
+      - suppressWarnings
+      - timePolicy
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonData'
+        eventMatcher:
+          $ref: '#/components/schemas/EventMatcher'
+        idealDurationMinutes:
+          type: integer
+          format: int64
+          nullable: true
+        minDurationMinutes:
+          type: integer
+          format: int64
+        availableTimeForTransparencyChangeMinutes:
+          type: integer
+          format: int64
+          nullable: true
+        availableSlotsForTransparencyChange:
+          type: integer
+          format: int64
+          nullable: true
+        autoBusyBeforeStartMinutes:
+          type: integer
+          format: int64
+          nullable: true
+        timePolicy:
+          $ref: '#/components/schemas/SchedulePolicyTimePolicy'
+        proactivelyUseIdealTime:
+          type: boolean
+          nullable: true
+        noAvailabilityAction:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ManagedEventNoAvailabilityAction'
+        suppressWarnings:
+          type: boolean
+        type:
+          type: string
+    MergeDetails.EventType:
+      type: string
+      enum:
+      - ORGANIZER_EVENT
+      - ATTENDEE_EVENT
+      - SYNC_EVENT
+    ScheduleActionResponse:
+      required:
+      - currentEvents
+      - currentPolicies
+      - expected
+      - preview
+      - scheduleWindow
+      type: object
+      properties:
+        scheduleWindow:
+          $ref: '#/components/schemas/ScheduleWindow'
+        currentEvents:
+          type: array
+          items:
+            $ref: '#/components/schemas/CalendarEventV2'
+        currentPolicies:
+          type: array
+          items:
+            $ref: '#/components/schemas/SchedulePolicy'
+        preview:
+          $ref: '#/components/schemas/ScheduleInfo'
+        expected:
+          $ref: '#/components/schemas/ScheduleInfo'
+    AttendeeMatcher:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          TrueAttendeeMatcher: '#/components/schemas/TrueAttendeeMatcher'
+          AttendeeResponseStatusMatcher: '#/components/schemas/AttendeeResponseStatusMatcher'
+          FalseAttendeeMatcher: '#/components/schemas/FalseAttendeeMatcher'
+          AttendeeStringMatcher: '#/components/schemas/AttendeeStringMatcher'
+          OrAttendeeMatcher: '#/components/schemas/OrAttendeeMatcher'
+          NotAttendeeMatcher: '#/components/schemas/NotAttendeeMatcher'
+          AttendeeBooleanMatcher: '#/components/schemas/AttendeeBooleanMatcher'
+          AttendeeIntMatcher: '#/components/schemas/AttendeeIntMatcher'
+          AndAttendeeMatcher: '#/components/schemas/AndAttendeeMatcher'
+      oneOf:
+      - $ref: '#/components/schemas/AttendeeStringMatcher'
+      - $ref: '#/components/schemas/AttendeeBooleanMatcher'
+      - $ref: '#/components/schemas/AttendeeIntMatcher'
+      - $ref: '#/components/schemas/AttendeeResponseStatusMatcher'
+      - $ref: '#/components/schemas/AndAttendeeMatcher'
+      - $ref: '#/components/schemas/OrAttendeeMatcher'
+      - $ref: '#/components/schemas/NotAttendeeMatcher'
+      - $ref: '#/components/schemas/TrueAttendeeMatcher'
+      - $ref: '#/components/schemas/FalseAttendeeMatcher'
+    RecurrenceContinuityData:
+      type: object
+      properties:
+        lastPendingSync:
+          type: string
+          format: date-time
+          nullable: true
+        successorExternalId:
+          type: string
+          nullable: true
+    JiraTaskState:
+      required:
+      - color
+      - id
+      - name
+      - type
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          $ref: '#/components/schemas/JiraStatusCategory'
+        color:
+          type: string
+    HasAgendaEventMatcher:
+      required:
+      - defaultValue
+      - matchType
+      type: object
+      properties:
+        matchType:
+          $ref: '#/components/schemas/HasAgenda.AgendaType'
+        defaultValue:
+          type: boolean
+        type:
+          type: string
+      description: Matches events that have an agenda
+    AnyTextEventMatcher:
+      required:
+      - predicateValue
+      type: object
+      properties:
+        predicateValue:
+          type: string
+        type:
+          type: string
+      description: Matches if text appears in title, description, or location
+    ScheduleProblemResponse:
+      required:
+      - problems
+      type: object
+      properties:
+        problems:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScheduleProblem'
+    ResourceRSVPEventMatcher:
+      required:
+      - responseStatuses
+      type: object
+      properties:
+        responseStatuses:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResponseStatus'
+        type:
+          type: string
+      description: Matches by resource attendee RSVP status
+    SchedulingLinkId:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+    ReclaimRecurrence:
+      required:
+      - frequency
+      type: object
+      properties:
+        interval:
+          type: integer
+          description: 'Repeat interval: 1 means every, 2 means every other, 3 means every 3rd. Defaults to 1.'
+          format: int32
+        frequency:
+          description: 'How often the event recurs: DAILY, WEEKLY, MONTHLY, or YEARLY'
+          allOf:
+          - $ref: '#/components/schemas/RecurrenceFrequency'
+        days:
+          type: array
+          description: Days of the week for WEEKLY frequency (e.g. MONDAY, WEDNESDAY, FRIDAY)
+          items:
+            $ref: '#/components/schemas/DayOfWeek'
+        monthlyDay:
+          description: Day of the month for MONTHLY frequency
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/MonthlyDay'
+        yearlyDay:
+          description: Day of the year for YEARLY frequency
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/YearlyDay'
+        until:
+          type: string
+          description: When the recurrence ends (yyyy-MM-ddTHH:mm:ssZ format, e.g. 2026-06-30T23:59:59Z). Mutually exclusive with count. Omit for no end date.
+          format: date-time
+        count:
+          type: integer
+          description: Total number of occurrences. Mutually exclusive with until. Omit for no end date.
+          format: int32
+        valid:
+          type: boolean
+      description: 'Recurrence pattern for a recurring event.
+
+        - frequency is always required
+
+        - For WEEKLY: days is required (which days of the week)
+
+        - For MONTHLY: monthlyDay is required (which day of the month)
+
+        - For YEARLY: yearlyDay is required (which day of the year)
+
+        - interval defaults to 1 (every occurrence)
+
+        - Optionally set count or until to limit occurrences'
+    TaggedEventMatcher:
+      required:
+      - matcher
+      - tagName
+      type: object
+      properties:
+        tagName:
+          type: string
+        matcher:
+          $ref: '#/components/schemas/EventMatcher'
+        type:
+          type: string
+      description: Wraps a matcher with a named tag
+    AllowedEditTypesView:
+      required:
+      - reason
+      - types
+      type: object
+      properties:
+        types:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventEditType'
+        reason:
+          $ref: '#/components/schemas/AllowedEditTypeReason'
+    FocusTimePatchRequestFields:
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonDataPatchRequestFields'
+        calendarId:
+          type: integer
+          format: int64
+        eventTitle:
+          type: string
+        weeklyGoalMinutes:
+          type: integer
+          format: int32
+        idealDurationPerDayMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        maxDurationPerDayMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        minEventDurationMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        maxEventDurationMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        eventDescription:
+          type: string
+          nullable: true
+        eventVisibility:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Visibility'
+        eventReminders:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Reminders'
+        eventTransparency:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Transparency'
+        autoDeclineMode:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/AutoDeclineModeView'
+        autoDeclineMessage:
+          type: string
+          nullable: true
+        eventCategory:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventCategory'
+        eventPriority:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+        eventColor:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EntryColor'
+        timePolicy:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/SchedulePolicyTimePolicy'
+        type:
+          type: string
+    EventKeyEventMatcher:
+      required:
+      - operator
+      - predicateValue
+      type: object
+      properties:
+        operator:
+          $ref: '#/components/schemas/EventMatcherOperator'
+        predicateValue:
+          $ref: '#/components/schemas/EventKey'
+        type:
+          type: string
+      description: Matches a specific event by its key
+    DescriptionEventMatcher:
+      required:
+      - operator
+      - predicateValue
+      type: object
+      properties:
+        operator:
+          $ref: '#/components/schemas/EventMatcherOperator'
+        predicateValue:
+          type: string
+        type:
+          type: string
+      description: Matches by event description text
+    RecurringAssignmentType:
+      type: string
+      enum:
+      - ONE_ON_ONE
+      - DAILY_HABIT
+      - TASK
+    LacksVideoConferenceCreateRequestFields:
+      required:
+      - commonData
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonDataCreateRequestFields'
+        eventMatcher:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventMatcher'
+        eventMatcherTags:
+          description: Predefined event matching tags. Either this or eventMatcher is required.
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventMatcherTags'
+        type:
+          type: string
+    Month:
+      type: string
+      enum:
+      - JANUARY
+      - FEBRUARY
+      - MARCH
+      - APRIL
+      - MAY
+      - JUNE
+      - JULY
+      - AUGUST
+      - SEPTEMBER
+      - OCTOBER
+      - NOVEMBER
+      - DECEMBER
+    AllAttendeesEventMatcher:
+      required:
+      - attendeeMatcher
+      type: object
+      properties:
+        attendeeMatcher:
+          $ref: '#/components/schemas/AttendeeMatcher'
+        type:
+          type: string
+      description: Matches if all attendees satisfy the given attendee predicate
+    LacksVideoConferencePolicy:
+      required:
+      - commonData
+      - eventMatcher
+      - eventMatcherTags
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonData'
+        eventMatcher:
+          $ref: '#/components/schemas/EventMatcher'
+        eventMatcherTags:
+          $ref: '#/components/schemas/EventMatcherTags'
+        type:
+          type: string
+    ReclaimSchedulerData:
+      required:
+      - assistType
+      - manuallyStarted
+      - pinned
+      type: object
+      properties:
+        assistType:
+          $ref: '#/components/schemas/AssistType'
+        pinned:
+          type: boolean
+        manuallyStarted:
+          type: boolean
+    FeatureMigrationResultView:
+      type: object
+      description: Migration result for an individual 1.0 feature.
+      discriminator:
+        propertyName: type
+        mapping:
+          FeatureMigrationResultViewCleanupOnly: '#/components/schemas/FeatureMigrationResultView.CleanupOnly'
+          FeatureMigrationResultViewMapped: '#/components/schemas/FeatureMigrationResultView.Mapped'
+          FeatureMigrationResultViewError: '#/components/schemas/FeatureMigrationResultView.Error'
+          FeatureMigrationResultViewNoMappingNeeded: '#/components/schemas/FeatureMigrationResultView.NoMappingNeeded'
+      oneOf:
+      - $ref: '#/components/schemas/FeatureMigrationResultView.Mapped'
+      - $ref: '#/components/schemas/FeatureMigrationResultView.NoMappingNeeded'
+      - $ref: '#/components/schemas/FeatureMigrationResultView.Error'
+      - $ref: '#/components/schemas/FeatureMigrationResultView.CleanupOnly'
+    GtdJiraTask:
+      required:
+      - completed
+      - id
+      - priority
+      - projectKey
+      - projectName
+      - title
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        priority:
+          $ref: '#/components/schemas/PriorityLevel'
+        status:
+          type: string
+          nullable: true
+        link:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/GtdTaskLink'
+        due:
+          type: string
+          format: date-time
+          nullable: true
+        start:
+          type: string
+          format: date-time
+          nullable: true
+        completed:
+          type: boolean
+        estimateMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        projectName:
+          type: string
+        projectKey:
+          type: string
+        sprints:
+          type: array
+          nullable: true
+          items:
+            type: string
+        possibleStatuses:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/JiraTaskState'
+        type:
+          type: string
+    EntryStatus:
+      type: string
+      enum:
+      - CONFIRMED
+      - TENTATIVE
+      - CANCELLED
+    BufferProblemType:
+      type: string
+      enum:
+      - MISSING_BUFFER
+      - BUFFER_EVENT_NEEDS_TO_CHANGE
+      - BUFFER_EVENT_NOT_NEEDED
+    EventAttendee:
+      required:
+      - email
+      type: object
+      properties:
+        email:
+          type: string
+        self:
+          type: boolean
+          nullable: true
+        displayName:
+          type: string
+          nullable: true
+        responseStatus:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        comment:
+          type: string
+          nullable: true
+        optional:
+          type: boolean
+          nullable: true
+        additionalGuests:
+          type: integer
+          format: int32
+          nullable: true
+        organizer:
+          type: boolean
+          nullable: true
+        resource:
+          type: boolean
+          nullable: true
+    BufferEventPatchRequestFields:
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonDataPatchRequestFields'
+        calendarId:
+          type: integer
+          format: int64
+          nullable: true
+        bufferEventTitle:
+          type: string
+        eventMatcher:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventMatcher'
+        eventMatcherTags:
+          description: Predefined event matching tags. Either this or eventMatcher is required.
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventMatcherTags'
+        bufferEventType:
+          $ref: '#/components/schemas/BufferEventType'
+        before:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/BufferEventSettingsView'
+        after:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/BufferEventSettingsView'
+        bufferEventPriority:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+        alwaysAddBufferEvent:
+          type: boolean
+        suppressWarnings:
+          type: boolean
+        eventDescription:
+          type: string
+          nullable: true
+        eventVisibility:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Visibility'
+        eventReminders:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Reminders'
+        eventTransparency:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Transparency'
+        eventColor:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EntryColor'
+        availableTimeForTransparencyChangeMinutes:
+          type: integer
+          format: int64
+          nullable: true
+        availableSlotsForTransparencyChange:
+          type: integer
+          format: int64
+          nullable: true
+        bufferEventCategory:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventCategory'
+        type:
+          type: string
+    GtdTodoistTask:
+      required:
+      - completed
+      - id
+      - priority
+      - title
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        priority:
+          $ref: '#/components/schemas/PriorityLevel'
+        status:
+          type: string
+          nullable: true
+        link:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/GtdTaskLink'
+        due:
+          type: string
+          format: date-time
+          nullable: true
+        start:
+          type: string
+          format: date-time
+          nullable: true
+        completed:
+          type: boolean
+        estimateMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        labels:
+          type: array
+          nullable: true
+          items:
+            type: string
+        projectId:
+          type: string
+          nullable: true
+        url:
+          type: string
+          nullable: true
+        type:
+          type: string
+    GtdTodoistTaskForCreate:
+      required:
+      - sourceType
+      - title
+      type: object
+      properties:
+        sourceType:
+          $ref: '#/components/schemas/GtdTaskId.TaskSourceType'
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        due:
+          type: string
+          format: date-time
+          nullable: true
+        start:
+          type: string
+          format: date-time
+          nullable: true
+        priority:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+        estimateMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        projectId:
+          type: string
+          nullable: true
+        labels:
+          type: array
+          nullable: true
+          items:
+            type: string
+        type:
+          type: string
+    BasicEventWarning:
+      required:
+      - eventWithWarning
+      - hash
+      - policyId
+      - policyType
+      - warningMessage
+      type: object
+      properties:
+        hash:
+          type: string
+        policyId:
+          type: string
+          format: uuid
+        policyType:
+          $ref: '#/components/schemas/SchedulePolicyType'
+        eventWithWarning:
+          $ref: '#/components/schemas/EventKey'
+        warningMessage:
+          type: string
+        relatedFields:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/CalendarEventField'
+        type:
+          type: string
+    EventSubType:
+      type: string
+      enum:
+      - ONE_ON_ONE
+      - STAFF_MEETING
+      - OP_REVIEW
+      - EXTERNAL
+      - IDEATION
+      - FOCUS
+      - PRODUCTIVITY
+      - TRAVEL
+      - FLIGHT
+      - TRAIN
+      - RECLAIM
+      - VACATION
+      - HEALTH
+      - ERRAND
+      - OTHER_PERSONAL
+      - UNKNOWN
+    FeatureMigrationResultView.NoMappingNeeded:
+      required:
+      - reason
+      type: object
+      properties:
+        reason:
+          type: string
+        type:
+          type: string
+      description: Indicates that the feature will not be migrated to 2.0, likely because the user has not enabled it in 1.0. This is for informational purposes only and should not be displayed to the user.
+    GtdLinearTaskForCreate:
+      required:
+      - sourceType
+      - title
+      type: object
+      properties:
+        sourceType:
+          $ref: '#/components/schemas/GtdTaskId.TaskSourceType'
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        due:
+          type: string
+          format: date-time
+          nullable: true
+        start:
+          type: string
+          format: date-time
+          nullable: true
+        priority:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+        estimateMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        teamId:
+          type: string
+          nullable: true
+        projectId:
+          type: string
+          nullable: true
+        assigneeId:
+          type: string
+          nullable: true
+        stateId:
+          type: string
+          nullable: true
+        labels:
+          type: array
+          nullable: true
+          items:
+            type: string
+        type:
+          type: string
+    IgnoreEventKeyAction:
+      required:
+      - eventKey
+      - policyId
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        policyId:
+          type: string
+          format: uuid
+        eventKey:
+          $ref: '#/components/schemas/EventKey'
+        recurrenceEditType:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/RecurrenceEditType'
+        type:
+          type: string
+    RescheduleHourSource:
+      type: string
+      enum:
+      - ALL_ATTENDEES
+      - ORGANIZER
+      - ONE_OFF
+    EventResponseStatus:
+      type: string
+      enum:
+      - None
+      - Organizer
+      - Accepted
+      - Declined
+      - TentativelyAccepted
+      - NotResponded
+      x-enum-varnames:
+      - None
+      - Organizer
+      - Accepted
+      - Declined
+      - TentativelyAccepted
+      - NotResponded
+    OneOff:
+      required:
+      - timePolicy
+      type: object
+      properties:
+        timePolicy:
+          $ref: '#/components/schemas/TimePolicy'
+        type:
+          type: string
+    PolicyStatus:
+      type: string
+      enum:
+      - ENABLED
+      - DISABLED
+      - EVENT_CLEANUP_THEN_ENABLED
+      - EVENT_CLEANUP_THEN_DISABLED
+    LocationEventMatcher:
+      required:
+      - operator
+      - predicateValue
+      type: object
+      properties:
+        operator:
+          $ref: '#/components/schemas/EventMatcherOperator'
+        predicateValue:
+          type: string
+        type:
+          type: string
+      description: Matches by event location text
+    BufferEventCreateRequestFields:
+      required:
+      - bufferEventTitle
+      - bufferEventType
+      - commonData
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonDataCreateRequestFields'
+        calendarId:
+          type: integer
+          format: int64
+        bufferEventTitle:
+          type: string
+        eventMatcher:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventMatcher'
+        eventMatcherTags:
+          description: Predefined event matching tags. Either this or eventMatcher is required.
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventMatcherTags'
+        bufferEventType:
+          $ref: '#/components/schemas/BufferEventType'
+        before:
+          $ref: '#/components/schemas/BufferEventSettingsView'
+        after:
+          $ref: '#/components/schemas/BufferEventSettingsView'
+        bufferEventPriority:
+          $ref: '#/components/schemas/PriorityLevel'
+        alwaysAddBufferEvent:
+          type: boolean
+        suppressWarnings:
+          type: boolean
+        bufferEventCategory:
+          $ref: '#/components/schemas/EventCategory'
+        eventColor:
+          $ref: '#/components/schemas/EntryColor'
+        eventVisibility:
+          $ref: '#/components/schemas/Visibility'
+        type:
+          type: string
+    LacksRsvpPolicy:
+      required:
+      - commonData
+      - eventMatcher
+      - eventMatcherTags
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonData'
+        eventMatcher:
+          $ref: '#/components/schemas/EventMatcher'
+        eventMatcherTags:
+          $ref: '#/components/schemas/EventMatcherTags'
+        type:
+          type: string
+    AllDayDateRange:
+      required:
+      - end
+      - start
+      type: object
+      properties:
+        start:
+          type: string
+          format: date
+        end:
+          type: string
+          format: date
+        type:
+          type: string
+    SchedulePolicyId:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+    PolicyAssociation:
+      required:
+      - association
+      - policyId
+      - policyType
+      type: object
+      properties:
+        policyId:
+          type: string
+          format: uuid
+        association:
+          $ref: '#/components/schemas/EventPolicyAssociation'
+        policyType:
+          $ref: '#/components/schemas/SchedulePolicyType'
+    CalendarEventV2:
+      required:
+      - attendeesAndResources
+      - calendarId
+      - canInviteOthers
+      - canModify
+      - canRsvp
+      - canSeeOtherGuests
+      - dateMode
+      - descriptionOmitted
+      - eventDate
+      - freeBusy
+      - isOptimistic
+      - key
+      - originalStart
+      - platformData
+      - reclaimData
+      - rsvpStatus
+      - selfOrganized
+      - status
+      - titleTruncated
+      - versionData
+      - visibility
+      type: object
+      properties:
+        key:
+          $ref: '#/components/schemas/EventKey'
+        calendarId:
+          type: integer
+          format: int64
+        recurringEventId:
+          type: string
+          nullable: true
+        attendeesAndResources:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventParticipant'
+        eventDate:
+          $ref: '#/components/schemas/EventDateRange'
+        dateMode:
+          $ref: '#/components/schemas/DateMode'
+        originalStart:
+          type: string
+          format: date-time
+        color:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventColor'
+        status:
+          $ref: '#/components/schemas/EntryStatus'
+        title:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        visibility:
+          $ref: '#/components/schemas/Visibility'
+        freeBusy:
+          $ref: '#/components/schemas/FreeBusy'
+        rsvpStatus:
+          $ref: '#/components/schemas/ResponseStatus'
+        onlineMeetingUrl:
+          type: string
+          nullable: true
+          deprecated: true
+        location:
+          type: string
+          nullable: true
+        reminders:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Reminders'
+        platformData:
+          $ref: '#/components/schemas/PlatformEventData'
+        reclaimData:
+          $ref: '#/components/schemas/ReclaimEventData'
+        versionData:
+          $ref: '#/components/schemas/VersionData'
+        recurrence:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ReclaimRecurrence'
+        parentRecurrence:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ReclaimRecurrence'
+        conferenceData:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ConferenceData'
+        selfOrganized:
+          type: boolean
+        canModify:
+          type: boolean
+        canInviteOthers:
+          type: boolean
+        canSeeOtherGuests:
+          type: boolean
+        canRsvp:
+          type: boolean
+        isOptimistic:
+          type: boolean
+        allowedRecurrenceEditTypes:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/RecurrenceEditType'
+        allowedEditTypes:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/AllowedEditTypesView'
+        descriptionOmitted:
+          type: boolean
+        titleTruncated:
+          type: boolean
+    AllowedEditTypeReason:
+      type: string
+      enum:
+      - SINGLE_INSTANCE
+      - RECURRENCE_INSTANCE
+      - FIRST_INSTANCE
+      - PENDING_RECURRENCE_CHANGE
+      - FOCUS_CANNOT_BE_MODIFIED
+      - SYNTHETIC_EDITABLE_AFTER_APPLY
+      - SERIES_ROOT
+      - RECURRING_ATTENDEE
+    PolicyAdherenceMetricDescriptor:
+      required:
+      - candidateCondition
+      - metricName
+      type: object
+      properties:
+        metricName:
+          type: string
+        candidateCondition:
+          $ref: '#/components/schemas/EventMatcher'
+    FocusTimeProblemType:
+      type: string
+      enum:
+      - FOCUS_EVENT_NEEDED
+      - FOCUS_EVENT_NEEDS_UPDATE
+      - FOCUS_EVENT_NOT_NEEDED
+      - FOCUS_EVENT_MISMATCH
+    GoogleCalendarEventMetadata:
+      required:
+      - guestsCanInviteOthers
+      - guestsCanModify
+      - guestsCanSeeOtherGuests
+      type: object
+      properties:
+        guestsCanModify:
+          type: boolean
+        guestsCanInviteOthers:
+          type: boolean
+        guestsCanSeeOtherGuests:
+          type: boolean
+    LocalTimeInterval:
+      required:
+      - end
+      - start
+      type: object
+      properties:
+        start:
+          type: string
+          format: partial-time
+        end:
+          type: string
+          format: partial-time
+        duration:
+          type: string
+    UserAssistMigrationLogView.MigrationState:
+      type: string
+      enum:
+      - QUEUED
+      - RUNNING
+      - DISABLING_ASSIST
+      - DECOLORING_EVENTS
+      - CANCELLING_EVENTS
+      - ENABLING_SCHEDULE_ASSISTANT
+      - ERROR
+      - COMPLETE
+    TaskEventData_1:
+      required:
+      - gtdTaskId
+      type: object
+      properties:
+        gtdTaskId:
+          type: string
+    AndAttendeeMatcher:
+      required:
+      - left
+      - right
+      type: object
+      properties:
+        left:
+          $ref: '#/components/schemas/AttendeeMatcher'
+        right:
+          $ref: '#/components/schemas/AttendeeMatcher'
+        type:
+          type: string
+      description: Matches if both attendee matchers match
+    ReclaimEventData:
+      required:
+      - associations
+      - reclaimEventType
+      type: object
+      properties:
+        reclaimEventType:
+          $ref: '#/components/schemas/ReclaimEventType'
+        reclaimResourceId:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ReclaimResourceId'
+        eventCategory:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventCategory'
+        priority:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+        reclaimSchedulerData:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ReclaimSchedulerData'
+        mergeableEvent:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/MergeableEvent'
+        calendarSyncSourceData:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/CalendarSyncSourceData'
+        assistantData:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/AssistantData'
+        associations:
+          $ref: '#/components/schemas/EventAssociationDetailsView'
+    OrEventMatcher:
+      required:
+      - left
+      - right
+      type: object
+      properties:
+        left:
+          $ref: '#/components/schemas/EventMatcher'
+        right:
+          $ref: '#/components/schemas/EventMatcher'
+        type:
+          type: string
+      description: Matches if either the left or right matcher matches
+    FalseEventMatcher:
+      type: object
+      description: Never matches any event
+    EventConflictPolicy:
+      required:
+      - commonData
+      - timePolicy
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonData'
+        timePolicy:
+          $ref: '#/components/schemas/SchedulePolicyTimePolicy'
+        type:
+          type: string
+    SchedulingLinkMeetingId:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+    ResponseStatus:
+      type: string
+      enum:
+      - DECLINED
+      - NEEDS_ACTION
+      - TENTATIVE
+      - ACCEPTED
+      - UNKNOWN
+    FocusId:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        type:
+          type: string
+    UserAssistMigrationLogView:
+      required:
+      - createdAt
+      - dryRun
+      - migrationId
+      - state
+      - updatedAt
+      - userId
+      type: object
+      properties:
+        migrationId:
+          type: string
+        userId:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        state:
+          $ref: '#/components/schemas/UserAssistMigrationLogView.MigrationState'
+        details:
+          description: The migration plan for this migration. Will not be populated for QUEUED, RUNNING migration states, as the migration plan is populated asynchronously.
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/MigrationResultView'
+        dryRun:
+          type: boolean
+      description: Records the output of a 1.0 -> 2.0 migration (both dry run and non-dry run).
+    AttendeeBooleanMatcher:
+      required:
+      - field
+      - value
+      type: object
+      properties:
+        field:
+          $ref: '#/components/schemas/AttendeeBooleanMatcher.BooleanField'
+        value:
+          type: boolean
+        type:
+          type: string
+      description: Matches an attendee's boolean field
+    Visibility:
+      type: string
+      enum:
+      - DEFAULT
+      - PUBLIC
+      - PRIVATE
+    EntryColor:
+      type: string
+      enum:
+      - NONE
+      - LAVENDER
+      - SAGE
+      - GRAPE
+      - FLAMINGO
+      - BANANA
+      - TANGERINE
+      - PEACOCK
+      - GRAPHITE
+      - BLUEBERRY
+      - BASIL
+      - TOMATO
+    EventCategoryEventMatcher:
+      required:
+      - operator
+      - predicateValue
+      type: object
+      properties:
+        operator:
+          $ref: '#/components/schemas/EventMatcherOperator'
+        predicateValue:
+          $ref: '#/components/schemas/EventCategory'
+        type:
+          type: string
+      description: Matches by event category
+    AttendeeAvailabilityWarningPatchRequestFields:
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonDataPatchRequestFields'
+        timePolicy:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/SchedulePolicyTimePolicy'
+        type:
+          type: string
+    AttendeeStringMatcher.StringField:
+      type: string
+      enum:
+      - EMAIL
+      - DISPLAY_NAME
+      - COMMENT
+    MigrationResultView:
+      required:
+      - conferenceBuffer
+      - focus
+      type: object
+      properties:
+        focus:
+          $ref: '#/components/schemas/FeatureMigrationResultView'
+        travel:
+          type: array
+          description: 'List of travel migration results (one per travel policy: flights + other travel)'
+          items:
+            $ref: '#/components/schemas/FeatureMigrationResultView'
+        conferenceBuffer:
+          $ref: '#/components/schemas/FeatureMigrationResultView'
+        smartSeries:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/FeatureMigrationResultView'
+          description: Mapping from smart series ID -> migration strategy for individual series
+        reclaimTasks:
+          type: array
+          description: List of migrated 1.0 tasks.
+          items:
+            $ref: '#/components/schemas/ReclaimTask'
+      description: Represents the migration plan for an individual 1.0 -> 2.0 migration.
+    ManagedEventNoAvailabilityAction:
+      type: string
+      enum:
+      - CANCEL
+      - WARNING
+    LinearWorkflowStateType:
+      type: string
+      enum:
+      - triage
+      - backlog
+      - started
+      - unstarted
+      - completed
+      - canceled
+      - duplicate
+      - unknown
+      x-enum-varnames:
+      - triage
+      - backlog
+      - started
+      - unstarted
+      - completed
+      - canceled
+      - duplicate
+      - unknown
+    OrAttendeeMatcher:
+      required:
+      - left
+      - right
+      type: object
+      properties:
+        left:
+          $ref: '#/components/schemas/AttendeeMatcher'
+        right:
+          $ref: '#/components/schemas/AttendeeMatcher'
+        type:
+          type: string
+      description: Matches if either attendee matcher matches
+    PolicyIndexMove:
+      type: string
+      enum:
+      - BEFORE
+      - AFTER
+    EventMatcher:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          EventTagEventMatcher: '#/components/schemas/EventTagEventMatcher'
+          AllEventMatcher: '#/components/schemas/AllEventMatcher'
+          AttendeeEmailEventMatcher: '#/components/schemas/AttendeeEmailEventMatcher'
+          IsOrganizerEventMatcher: '#/components/schemas/IsOrganizerEventMatcher'
+          ReclaimEventTypeEventMatcher: '#/components/schemas/ReclaimEventTypeEventMatcher'
+          DurationEventMatcher: '#/components/schemas/DurationEventMatcher'
+          TaggedEventMatcher: '#/components/schemas/TaggedEventMatcher'
+          AllAttendeesEventMatcher: '#/components/schemas/AllAttendeesEventMatcher'
+          AttendeeCountEventMatcher: '#/components/schemas/AttendeeCountEventMatcher'
+          OrEventMatcher: '#/components/schemas/OrEventMatcher'
+          EventKeyEventMatcher: '#/components/schemas/EventKeyEventMatcher'
+          RecurringSeriesEventMatcher: '#/components/schemas/RecurringSeriesEventMatcher'
+          HasAgendaEventMatcher: '#/components/schemas/HasAgendaEventMatcher'
+          HasVideoConferenceEventMatcher: '#/components/schemas/HasVideoConferenceEventMatcher'
+          TimeWindowEventMatcher: '#/components/schemas/TimeWindowEventMatcher'
+          AnyAttendeeEventMatcher: '#/components/schemas/AnyAttendeeEventMatcher'
+          ResourceRSVPEventMatcher: '#/components/schemas/ResourceRSVPEventMatcher'
+          AnyEventMatcher: '#/components/schemas/AnyEventMatcher'
+          TitleEventMatcher: '#/components/schemas/TitleEventMatcher'
+          EventCategoryEventMatcher: '#/components/schemas/EventCategoryEventMatcher'
+          RecentPaperDocMatcher: '#/components/schemas/RecentPaperDocMatcher'
+          LocationEventMatcher: '#/components/schemas/LocationEventMatcher'
+          IsRecurringInstanceEventMatcher: '#/components/schemas/IsRecurringInstanceEventMatcher'
+          DescriptionEventMatcher: '#/components/schemas/DescriptionEventMatcher'
+          TrueEventMatcher: '#/components/schemas/TrueEventMatcher'
+          NoneEventMatcher: '#/components/schemas/NoneEventMatcher'
+          TimeOfDayEventMatcher: '#/components/schemas/TimeOfDayEventMatcher'
+          AndEventMatcher: '#/components/schemas/AndEventMatcher'
+          MatchingAttendeeCountEventMatcher: '#/components/schemas/MatchingAttendeeCountEventMatcher'
+          FalseEventMatcher: '#/components/schemas/FalseEventMatcher'
+          SummarizedEventMatcher: '#/components/schemas/SummarizedEventMatcher'
+          AnyTextEventMatcher: '#/components/schemas/AnyTextEventMatcher'
+          CalendarEventMatcher: '#/components/schemas/CalendarEventMatcher'
+          NotEventMatcher: '#/components/schemas/NotEventMatcher'
+          SelfRSVPMatcher: '#/components/schemas/SelfRSVPMatcher'
+          RecurringInstanceEventMatcher: '#/components/schemas/RecurringInstanceEventMatcher'
+          RequiresTravelEventMatcher: '#/components/schemas/RequiresTravelEventMatcher'
+      oneOf:
+      - $ref: '#/components/schemas/AllAttendeesEventMatcher'
+      - $ref: '#/components/schemas/AnyAttendeeEventMatcher'
+      - $ref: '#/components/schemas/MatchingAttendeeCountEventMatcher'
+      - $ref: '#/components/schemas/AttendeeCountEventMatcher'
+      - $ref: '#/components/schemas/AttendeeEmailEventMatcher'
+      - $ref: '#/components/schemas/AllEventMatcher'
+      - $ref: '#/components/schemas/AndEventMatcher'
+      - $ref: '#/components/schemas/AnyEventMatcher'
+      - $ref: '#/components/schemas/AnyTextEventMatcher'
+      - $ref: '#/components/schemas/CalendarEventMatcher'
+      - $ref: '#/components/schemas/ResourceRSVPEventMatcher'
+      - $ref: '#/components/schemas/DescriptionEventMatcher'
+      - $ref: '#/components/schemas/EventCategoryEventMatcher'
+      - $ref: '#/components/schemas/EventKeyEventMatcher'
+      - $ref: '#/components/schemas/EventTagEventMatcher'
+      - $ref: '#/components/schemas/FalseEventMatcher'
+      - $ref: '#/components/schemas/HasAgendaEventMatcher'
+      - $ref: '#/components/schemas/HasVideoConferenceEventMatcher'
+      - $ref: '#/components/schemas/LocationEventMatcher'
+      - $ref: '#/components/schemas/NoneEventMatcher'
+      - $ref: '#/components/schemas/NotEventMatcher'
+      - $ref: '#/components/schemas/OrEventMatcher'
+      - $ref: '#/components/schemas/IsOrganizerEventMatcher'
+      - $ref: '#/components/schemas/IsRecurringInstanceEventMatcher'
+      - $ref: '#/components/schemas/RecentPaperDocMatcher'
+      - $ref: '#/components/schemas/ReclaimEventTypeEventMatcher'
+      - $ref: '#/components/schemas/RecurringInstanceEventMatcher'
+      - $ref: '#/components/schemas/RecurringSeriesEventMatcher'
+      - $ref: '#/components/schemas/RequiresTravelEventMatcher'
+      - $ref: '#/components/schemas/SelfRSVPMatcher'
+      - $ref: '#/components/schemas/SummarizedEventMatcher'
+      - $ref: '#/components/schemas/TaggedEventMatcher'
+      - $ref: '#/components/schemas/TimeOfDayEventMatcher'
+      - $ref: '#/components/schemas/TimeWindowEventMatcher'
+      - $ref: '#/components/schemas/TitleEventMatcher'
+      - $ref: '#/components/schemas/TrueEventMatcher'
+      - $ref: '#/components/schemas/DurationEventMatcher'
+    CalendarEventField:
+      type: string
+      enum:
+      - TITLE
+      - DESCRIPTION
+      - DATE_RANGE
+      - ORIGINAL_START
+      - STATUS
+      - VISIBILITY
+      - TRANSPARENCY
+      - COLOR
+      - ATTENDEES
+      - LOCATION
+      - REMINDERS
+      - RECURRING_EVENT_ID
+      - CONFERENCE_DATA
+      - GUESTS_CAN_MODIFY
+      - GUESTS_CAN_INVITE_OTHERS
+      - GUESTS_CAN_SEE_OTHER_GUESTS
+      - VERSION_DATA
+    AttendeeEmailEventMatcher:
+      required:
+      - operator
+      - predicateValue
+      type: object
+      properties:
+        operator:
+          $ref: '#/components/schemas/EventMatcherOperator'
+        predicateValue:
+          type: string
+        type:
+          type: string
+      description: Matches events where any attendee's email satisfies the operator/predicate
+    GtdClickUpTaskForCreate:
+      required:
+      - sourceType
+      - title
+      type: object
+      properties:
+        sourceType:
+          $ref: '#/components/schemas/GtdTaskId.TaskSourceType'
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        due:
+          type: string
+          format: date-time
+          nullable: true
+        start:
+          type: string
+          format: date-time
+          nullable: true
+        priority:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+        estimateMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        listId:
+          type: string
+          nullable: true
+        labels:
+          type: array
+          nullable: true
+          items:
+            type: string
+        type:
+          type: string
+    MoreEntryPoint:
+      required:
+      - uri
+      type: object
+      properties:
+        uri:
+          type: string
+        label:
+          type: string
+          nullable: true
+        pin:
+          type: string
+          nullable: true
+        type:
+          type: string
+    GtdAsanaTaskForCreate:
+      required:
+      - sourceType
+      - title
+      type: object
+      properties:
+        sourceType:
+          $ref: '#/components/schemas/GtdTaskId.TaskSourceType'
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        due:
+          type: string
+          format: date-time
+          nullable: true
+        start:
+          type: string
+          format: date-time
+          nullable: true
+        priority:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+        estimateMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        projectId:
+          type: string
+          nullable: true
+        assigneeId:
+          type: string
+          nullable: true
+        customFields:
+          type: object
+          additionalProperties: true
+          nullable: true
+        type:
+          type: string
+    FixedDateTimeRange_2:
+      required:
+      - end
+      - start
+      type: object
+      properties:
+        start:
+          type: string
+          format: date-time
+        end:
+          type: string
+          format: date-time
+    PlatformEventType:
+      type: string
+      enum:
+      - DEFAULT
+      - OUT_OF_OFFICE
+      - FROM_MAIL
+      - WORKING_LOCATION
+      - FOCUS_TIME
+      - BIRTHDAY
+    VideoEntryPoint:
+      required:
+      - uri
+      type: object
+      properties:
+        uri:
+          type: string
+        label:
+          type: string
+          nullable: true
+        meetingCode:
+          type: string
+          nullable: true
+        passcode:
+          type: string
+          nullable: true
+        type:
+          type: string
+    ManualEditEventAction:
+      required:
+      - eventKey
+      - policyId
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        policyId:
+          type: string
+          format: uuid
+        eventKey:
+          $ref: '#/components/schemas/EventKey'
+        type:
+          type: string
+    OutlookEventData:
+      type: object
+    IsRecurringInstanceEventMatcher:
+      type: object
+      description: Matches events that are an instance of a recurring series
+    EventKey:
+      required:
+      - calendarId
+      - eventId
+      type: object
+      properties:
+        eventId:
+          type: string
+        calendarId:
+          type: integer
+          format: int64
+    SchedulePolicyType:
+      type: string
+      enum:
+      - AttendeeAvailabilityWarningPolicy
+      - BasicEventWarningPolicy
+      - BufferEventPolicy
+      - EventConflictPolicy
+      - FocusTimePolicy
+      - HabitPolicy
+      - LacksRsvpPolicy
+      - LacksVideoConferencePolicy
+      - ManagedEventSchedulingPolicy
+      - ShieldsUpPolicy
+      - SmartMeetingPolicy
+      - UNKNOWN
+      x-enum-varnames:
+      - AttendeeAvailabilityWarningPolicy
+      - BasicEventWarningPolicy
+      - BufferEventPolicy
+      - EventConflictPolicy
+      - FocusTimePolicy
+      - HabitPolicy
+      - LacksRsvpPolicy
+      - LacksVideoConferencePolicy
+      - ManagedEventSchedulingPolicy
+      - ShieldsUpPolicy
+      - SmartMeetingPolicy
+      - UNKNOWN
+    TaskId:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        type:
+          type: string
+    MergeableEventView.MergeType:
+      type: string
+      enum:
+      - ORGANIZER_EVENT
+      - ATTENDEE_EVENT
+      - SYNC_EVENT
+    ScheduleInfo:
+      required:
+      - actionsTaken
+      - backgroundActions
+      - groupedProblems
+      - llmProblemCount
+      - mutatedEvents
+      - mutatedPolicies
+      - problems
+      type: object
+      properties:
+        mutatedEvents:
+          type: array
+          items:
+            $ref: '#/components/schemas/CalendarEventV2'
+        problems:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScheduleProblemWithActions'
+        groupedProblems:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScheduleProblemGroup'
+        actionsTaken:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScheduleAction'
+        backgroundActions:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScheduleAction'
+        mutatedPolicies:
+          type: array
+          items:
+            $ref: '#/components/schemas/SchedulePolicy'
+        llmProblemCount:
+          type: integer
+          format: int32
+    MigrateUserAssistResponse.Error:
+      required:
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+        type:
+          type: string
+    MergeDetails:
+      required:
+      - key
+      - sourceCalendarId
+      - sourceReclaimCalendarId
+      - type
+      type: object
+      properties:
+        key:
+          type: string
+        type:
+          $ref: '#/components/schemas/MergeDetails.EventType'
+        sourceCalendarId:
+          type: string
+          nullable: true
+        sourceReclaimCalendarId:
+          type: integer
+          format: int64
+          nullable: true
+    SipEntryPoint:
+      required:
+      - uri
+      type: object
+      properties:
+        uri:
+          type: string
+        label:
+          type: string
+          nullable: true
+        passcode:
+          type: string
+          nullable: true
+        type:
+          type: string
+    IsOrganizerEventMatcher:
+      required:
+      - predicateValue
+      type: object
+      properties:
+        predicateValue:
+          type: boolean
+        type:
+          type: string
+      description: Matches based on whether the user is the event organizer
+    RecurrenceEnding:
+      required:
+      - policyId
+      - policyType
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        policyId:
+          type: string
+          format: uuid
+        policyType:
+          $ref: '#/components/schemas/SchedulePolicyType'
+        relatedFields:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/CalendarEventField'
+        type:
+          type: string
+    ManagedEventData:
+      type: object
+      properties:
+        originalDurationMinutes:
+          type: integer
+          format: int64
+          nullable: true
+        linkedSuccessorExternalId:
+          type: string
+          nullable: true
+    AttendeeAvailabilityView:
+      required:
+      - externalCalendarId
+      - freeBusy
+      - movabilityScore
+      - reason
+      - timezone
+      - visibility
+      type: object
+      properties:
+        externalCalendarId:
+          type: string
+        visibility:
+          $ref: '#/components/schemas/AttendeeCalendarVisibility'
+        timezone:
+          type: string
+        freeBusy:
+          $ref: '#/components/schemas/FreeBusy'
+        movabilityScore:
+          type: integer
+          format: int32
+        reason:
+          $ref: '#/components/schemas/ScoringReason'
+        title:
+          type: string
+          nullable: true
+        eventType:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventSubType'
+        reclaimEventType:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ReclaimEventType'
+        isOrganizer:
+          type: boolean
+          nullable: true
+        isRecurring:
+          type: boolean
+          nullable: true
+        hasVip:
+          type: boolean
+          nullable: true
+        participantCount:
+          type: integer
+          format: int32
+          nullable: true
+        priority:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+    BufferEventType:
+      type: string
+      enum:
+      - BEFORE
+      - AFTER
+      - BEFORE_AND_AFTER
+    ConferenceRequestType:
+      type: string
+      enum:
+      - MeetConferenceRequest
+      - TeamsConferenceRequest
+      - ZoomConferenceRequest
+      x-enum-varnames:
+      - MeetConferenceRequest
+      - TeamsConferenceRequest
+      - ZoomConferenceRequest
+    EventType:
+      type: string
+      enum:
+      - MEETING
+      - WORK
+      - LOGISTICS
+      - PERSONAL
+    FocusTimeProperties:
+      type: object
+      properties:
+        autoDeclineMode:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/AutoDeclineMode'
+        declineMessage:
+          type: string
+          nullable: true
+        chatStatus:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/FocusTimeChatStatus'
+    FocusTimeEventData_1:
+      required:
+      - policyId
+      type: object
+      properties:
+        policyId:
+          $ref: '#/components/schemas/SchedulePolicyId'
+    EventResourceParticipant:
+      required:
+      - email
+      type: object
+      properties:
+        displayName:
+          type: string
+          nullable: true
+        email:
+          type: string
+        capacity:
+          type: integer
+          format: int32
+          nullable: true
+        buildingId:
+          type: string
+          nullable: true
+        buildingName:
+          type: string
+          nullable: true
+        buildingDescription:
+          type: string
+          nullable: true
+        floorName:
+          type: string
+          nullable: true
+        category:
+          type: string
+          nullable: true
+        type:
+          type: string
+    NotionTaskStatus:
+      required:
+      - group
+      - id
+      - name
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        group:
+          $ref: '#/components/schemas/NotionTaskGroup'
+        color:
+          type: string
+          nullable: true
+    AttendeeIntMatcher:
+      required:
+      - field
+      - operator
+      - value
+      type: object
+      properties:
+        field:
+          $ref: '#/components/schemas/AttendeeIntMatcher.IntField'
+        operator:
+          $ref: '#/components/schemas/EventMatcherOperator'
+        value:
+          type: integer
+          format: int32
+        type:
+          type: string
+      description: Matches an attendee's integer field using an operator
+    RecurrenceContinuityData_1:
+      type: object
+      properties:
+        lastPendingSync:
+          type: string
+          format: date-time
+          nullable: true
+        successorExternalId:
+          type: string
+          nullable: true
+    PhoneEntryPoint:
+      required:
+      - uri
+      type: object
+      properties:
+        uri:
+          type: string
+        label:
+          type: string
+          nullable: true
+        regionCode:
+          type: string
+          nullable: true
+        passcode:
+          type: string
+          nullable: true
+        pin:
+          type: string
+          nullable: true
+        type:
+          type: string
+    ShieldsUpPolicy:
+      required:
+      - calendarId
+      - commonData
+      - eventTitle
+      - maxMeetingMinutesPerDay
+      - maxMeetingMinutesPerWeek
+      - thresholdType
+      - timePolicy
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonData'
+        calendarId:
+          type: integer
+          format: int64
+        eventTitle:
+          type: string
+        maxMeetingMinutesPerWeek:
+          type: integer
+          format: int32
+        maxMeetingMinutesPerDay:
+          type: integer
+          format: int32
+        thresholdType:
+          $ref: '#/components/schemas/ShieldsUpThresholdType'
+        minDurationMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        eventDescription:
+          type: string
+          nullable: true
+        eventVisibility:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Visibility'
+        eventReminders:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Reminders'
+        eventTransparency:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Transparency'
+        autoDeclineMode:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/AutoDeclineModeView'
+        autoDeclineMessage:
+          type: string
+          nullable: true
+        eventCategory:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventCategory'
+        eventPriority:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+        eventColor:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EntryColor'
+        timePolicy:
+          $ref: '#/components/schemas/SchedulePolicyTimePolicy'
+        type:
+          type: string
+    TaskEventData:
+      required:
+      - gtdTaskId
+      type: object
+      properties:
+        gtdTaskId:
+          type: string
+    UnknownPolicy:
+      required:
+      - commonData
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonData'
+        type:
+          type: string
+    FocusTimeChatStatus:
+      type: string
+      enum:
+      - AVAILABLE
+      - DO_NOT_DISTURB
+      x-type: String
+    RsvpEventAction:
+      required:
+      - eventKey
+      - policyId
+      - responseStatus
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        policyId:
+          type: string
+          format: uuid
+        eventKey:
+          $ref: '#/components/schemas/EventKey'
+        responseStatus:
+          $ref: '#/components/schemas/ResponseStatus'
+        attendeeRsvpNote:
+          type: string
+          nullable: true
+        recurrenceEditType:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/RecurrenceEditType'
+        type:
+          type: string
+    CompleteGtdTaskAction:
+      required:
+      - task
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        task:
+          $ref: '#/components/schemas/GtdTask'
+        type:
+          type: string
+    LogTaskAction:
+      required:
+      - calendarId
+      - dateRange
+      - policyId
+      - task
+      - title
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        policyId:
+          type: string
+          format: uuid
+        calendarId:
+          type: integer
+          format: int64
+        eventId:
+          type: string
+          nullable: true
+        task:
+          $ref: '#/components/schemas/GtdTask'
+        title:
+          type: string
+        dateRange:
+          $ref: '#/components/schemas/EventDateRange'
+        type:
+          type: string
+    AttendeeStringMatcher.StringOperator:
+      type: string
+      enum:
+      - EQUALS
+      - NOT_EQUALS
+      - CONTAINS
+      - MATCHES
+    CalendarEventMatcher:
+      required:
+      - calendarId
+      type: object
+      properties:
+        calendarId:
+          type: integer
+          format: int64
+        type:
+          type: string
+      description: Matches events on a specific calendar
+    EventPolicyAssociation:
+      type: string
+      enum:
+      - GLOBAL
+      - MATCHES
+      - CREATOR
+      - TARGET
+      - NONE
+      - PROPOSED
+    JiraStatusCategory:
+      type: string
+      enum:
+      - NEW
+      - INDETERMINATE
+      - DONE
+      x-type: String
+    MigrateUserAssistResponse:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          MigrateUserAssistResponseOk: '#/components/schemas/MigrateUserAssistResponse.Ok'
+          MigrateUserAssistResponseError: '#/components/schemas/MigrateUserAssistResponse.Error'
+      oneOf:
+      - $ref: '#/components/schemas/MigrateUserAssistResponse.Ok'
+      - $ref: '#/components/schemas/MigrateUserAssistResponse.Error'
+    EntryNotificationRequest:
+      type: string
+      enum:
+      - NOTIFY_ALL
+      - NOTIFY_EXTERNAL_ONLY
+      - NOTIFY_NONE
+    EventTagEventMatcher:
+      required:
+      - predicateValue
+      type: object
+      properties:
+        predicateValue:
+          type: string
+        type:
+          type: string
+      description: Matches events with a specific tag
+    SmartMeetingPatchRequestFields:
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonDataPatchRequestFields'
+        eventMatcher:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventMatcher'
+        idealDurationMinutes:
+          type: integer
+          format: int64
+          nullable: true
+        minDurationMinutes:
+          type: integer
+          format: int64
+        timePolicy:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/SchedulePolicyTimePolicy'
+        suppressWarnings:
+          type: boolean
+        rescheduleHourSource:
+          $ref: '#/components/schemas/RescheduleHourSource'
+        type:
+          type: string
+    NoneEventMatcher:
+      required:
+      - matchers
+      type: object
+      properties:
+        matchers:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventMatcher'
+        type:
+          type: string
+      description: Matches if NONE of the matchers in the list match
+    YearlyDay:
+      type: object
+      properties:
+        month:
+          description: The month (e.g. JANUARY, MARCH, NOVEMBER)
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Month'
+        monthlyDay:
+          description: Which day within the month
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/MonthlyDay'
+      description: Day of the year for YEARLY recurrences.
+    EventAssociationDetailsView:
+      required:
+      - canLock
+      - canUnlock
+      - locked
+      - policyAssociations
+      type: object
+      properties:
+        locked:
+          type: boolean
+        canLock:
+          type: boolean
+        canUnlock:
+          type: boolean
+        policyAssociations:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolicyAssociation'
+        readOnlyReason:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventReadOnlyReason'
+    FalseAttendeeMatcher:
+      type: object
+      description: Never matches any attendee
+    TravelBufferId:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+    GtdTaskLink:
+      required:
+      - url
+      type: object
+      properties:
+        url:
+          type: string
+    MutatePolicyRequestFields:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          AttendeeAvailabilityWarningCreateRequestFields: '#/components/schemas/AttendeeAvailabilityWarningCreateRequestFields'
+          HabitCreateRequestFields: '#/components/schemas/HabitCreateRequestFields'
+          BufferEventCreateRequestFields: '#/components/schemas/BufferEventCreateRequestFields'
+          EventConflictPatchRequestFields: '#/components/schemas/EventConflictPatchRequestFields'
+          FocusTimePatchRequestFields: '#/components/schemas/FocusTimePatchRequestFields'
+          AttendeeAvailabilityWarningPatchRequestFields: '#/components/schemas/AttendeeAvailabilityWarningPatchRequestFields'
+          EventConflictCreateRequestFields: '#/components/schemas/EventConflictCreateRequestFields'
+          LacksRsvpCreateRequestFields: '#/components/schemas/LacksRsvpCreateRequestFields'
+          UpdatePolicyPriorityAndIndexPatchRequestFields: '#/components/schemas/UpdatePolicyPriorityAndIndexPatchRequestFields'
+          HabitPatchRequestFields: '#/components/schemas/HabitPatchRequestFields'
+          BasicEventWarningCreateRequestFields: '#/components/schemas/BasicEventWarningCreateRequestFields'
+          BufferEventPatchRequestFields: '#/components/schemas/BufferEventPatchRequestFields'
+          BasicEventWarningPatchRequestFields: '#/components/schemas/BasicEventWarningPatchRequestFields'
+          LacksVideoConferencePatchRequestFields: '#/components/schemas/LacksVideoConferencePatchRequestFields'
+          PolicyDeleteRequestFields: '#/components/schemas/PolicyDeleteRequestFields'
+          SmartMeetingPatchRequestFields: '#/components/schemas/SmartMeetingPatchRequestFields'
+          FocusTimeCreateRequestFields: '#/components/schemas/FocusTimeCreateRequestFields'
+          LacksVideoConferenceCreateRequestFields: '#/components/schemas/LacksVideoConferenceCreateRequestFields'
+          ShieldsUpCreateRequestFields: '#/components/schemas/ShieldsUpCreateRequestFields'
+          SmartMeetingCreateRequestFields: '#/components/schemas/SmartMeetingCreateRequestFields'
+          ShieldsUpPatchRequestFields: '#/components/schemas/ShieldsUpPatchRequestFields'
+          LacksRsvpPatchRequestFields: '#/components/schemas/LacksRsvpPatchRequestFields'
+          UpdatePolicyIndexPatchRequestFields: '#/components/schemas/UpdatePolicyIndexPatchRequestFields'
+      oneOf:
+      - $ref: '#/components/schemas/AttendeeAvailabilityWarningCreateRequestFields'
+      - $ref: '#/components/schemas/AttendeeAvailabilityWarningPatchRequestFields'
+      - $ref: '#/components/schemas/BasicEventWarningCreateRequestFields'
+      - $ref: '#/components/schemas/BasicEventWarningPatchRequestFields'
+      - $ref: '#/components/schemas/BufferEventCreateRequestFields'
+      - $ref: '#/components/schemas/BufferEventPatchRequestFields'
+      - $ref: '#/components/schemas/EventConflictCreateRequestFields'
+      - $ref: '#/components/schemas/EventConflictPatchRequestFields'
+      - $ref: '#/components/schemas/FocusTimeCreateRequestFields'
+      - $ref: '#/components/schemas/FocusTimePatchRequestFields'
+      - $ref: '#/components/schemas/HabitCreateRequestFields'
+      - $ref: '#/components/schemas/HabitPatchRequestFields'
+      - $ref: '#/components/schemas/LacksRsvpCreateRequestFields'
+      - $ref: '#/components/schemas/LacksRsvpPatchRequestFields'
+      - $ref: '#/components/schemas/LacksVideoConferenceCreateRequestFields'
+      - $ref: '#/components/schemas/LacksVideoConferencePatchRequestFields'
+      - $ref: '#/components/schemas/PolicyDeleteRequestFields'
+      - $ref: '#/components/schemas/ShieldsUpCreateRequestFields'
+      - $ref: '#/components/schemas/ShieldsUpPatchRequestFields'
+      - $ref: '#/components/schemas/SmartMeetingCreateRequestFields'
+      - $ref: '#/components/schemas/SmartMeetingPatchRequestFields'
+      - $ref: '#/components/schemas/UpdatePolicyIndexPatchRequestFields'
+      - $ref: '#/components/schemas/UpdatePolicyPriorityAndIndexPatchRequestFields'
+    EventMatcherTags:
+      required:
+      - tags
+      type: object
+      properties:
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventMatcherTag'
+    AttendeeResponseStatusMatcher.SetOperator:
+      type: string
+      enum:
+      - IN
+      - NOT_IN
+    EventConflict:
+      required:
+      - conflictType
+      - conflictingEvents
+      - policyId
+      - policyType
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        policyId:
+          type: string
+          format: uuid
+        policyType:
+          $ref: '#/components/schemas/SchedulePolicyType'
+        conflictingEvents:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventKey'
+        conflictType:
+          $ref: '#/components/schemas/EventConflictType'
+        interval:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventDateRange'
+        relatedFields:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/CalendarEventField'
+        busyAttendeeEmails:
+          type: array
+          nullable: true
+          items:
+            type: string
+        type:
+          type: string
+    ShieldsUpThresholdType:
+      type: string
+      enum:
+      - WEEK
+      - DAY
+      - WEEK_AND_DAY
+    AttendeeAvailabilityWarningPolicy:
+      required:
+      - commonData
+      - timePolicy
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonData'
+        timePolicy:
+          $ref: '#/components/schemas/SchedulePolicyTimePolicy'
+        type:
+          type: string
+    EventParticipant:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          EventResourceParticipant: '#/components/schemas/EventResourceParticipant'
+          EventAttendeeParticipant: '#/components/schemas/EventAttendeeParticipant'
+      oneOf:
+      - $ref: '#/components/schemas/EventAttendeeParticipant'
+      - $ref: '#/components/schemas/EventResourceParticipant'
+    ShieldsUpEventData:
+      required:
+      - policyId
+      type: object
+      properties:
+        policyId:
+          type: string
+          format: uuid
+    BufferEventData_1:
+      required:
+      - bufferEventType
+      - bufferTarget
+      - policyId
+      type: object
+      properties:
+        bufferTarget:
+          $ref: '#/components/schemas/EventKey'
+        policyId:
+          $ref: '#/components/schemas/SchedulePolicyId'
+        bufferEventType:
+          $ref: '#/components/schemas/BufferEventType'
+        eventDateRange:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventDateRange_1'
+    DateMode:
+      type: string
+      enum:
+      - FIXED_TIMESTAMP
+      - ALL_DAY
+    EventMatcherOperator:
+      type: string
+      enum:
+      - NOT_SPECIFIED
+      - EQUALS
+      - CONTAINS
+      - LESS_THAN
+      - LESS_THAN_OR_EQUALS
+      - GREATER_THAN
+      - GREATER_THAN_OR_EQUALS
+      - MATCHES
+    AutoDeclineMode:
+      type: string
+      enum:
+      - DECLINE_NONE
+      - DECLINE_ALL_CONFLICTING_INVITATIONS
+      - DECLINE_ONLY_NEW_CONFLICTING_INVITATIONS
+      x-type: String
+    TimeWindowEventMatcher:
+      required:
+      - matchMode
+      - windowEnd
+      - windowStart
+      type: object
+      properties:
+        windowStart:
+          type: string
+          format: date-time
+        windowEnd:
+          type: string
+          format: date-time
+        matchMode:
+          $ref: '#/components/schemas/TimeWindowEventMatcher.TimeWindowMatchMode'
+        type:
+          type: string
+      description: Matches events within a time window
+    AssistDetails:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/AssistType'
+        customHabit:
+          type: boolean
+        smartSeries:
+          type: boolean
+        focus:
+          type: boolean
+        habitOrTask:
+          type: boolean
+        task:
+          type: boolean
+        conferenceBuffer:
+          type: boolean
+        travelBuffer:
+          type: boolean
+        status:
+          $ref: '#/components/schemas/AssistStatus'
+        travelNewEventId:
+          type: string
+          description: The source event id for a travel assist event.
+          nullable: true
+        conferenceEventId:
+          type: string
+          description: The source event id for a conference (decompression time) event.
+          nullable: true
+        lastControlledUpdate:
+          type: string
+          format: date-time
+        lastControlledHash:
+          type: integer
+          format: int32
+        defended:
+          type: boolean
+        pinned:
+          type: boolean
+        lockState:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/LockState'
+        dailyHabitId:
+          type: integer
+          format: int64
+          nullable: true
+        seriesLineageId:
+          type: integer
+          format: int64
+          nullable: true
+        seriesId:
+          type: integer
+          format: int64
+          nullable: true
+        taskId:
+          type: integer
+          format: int64
+          nullable: true
+        taskIndex:
+          type: integer
+          format: int32
+          nullable: true
+        policyOverride:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/AssistPolicyOverride'
+        lastManualAdjustment:
+          type: string
+          format: date-time
+        recurringAssignmentType:
+          $ref: '#/components/schemas/RecurringAssignmentType'
+        eventType:
+          $ref: '#/components/schemas/ReclaimEventType'
+        manuallyStarted:
+          type: boolean
+        focusId:
+          type: integer
+          format: int64
+          nullable: true
+        assistReferenceValid:
+          type: boolean
+      description: This entity maps to the assist_events table.
+    FeatureMigrationResultView.CleanupOnly:
+      required:
+      - eventsBeingCancelled
+      - reason
+      type: object
+      properties:
+        eventsBeingCancelled:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventKey'
+        reason:
+          $ref: '#/components/schemas/FeatureMigrationResultView.CleanupOnly.Reason'
+        type:
+          type: string
+      description: Indicates that the feature will not be migrated to 2.0, but we will still clean up 1.0 events.
+    AssistantData_1:
+      type: object
+      properties:
+        bufferEventData:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/BufferEventData_1'
+        shieldsUpEventData:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ShieldsUpEventData_1'
+        focusTimeEventData:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/FocusTimeEventData_1'
+        managedEventData:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ManagedEventData_1'
+        recurrenceContinuityData:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/RecurrenceContinuityData_1'
+        taskEventData:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/TaskEventData_1'
+    PendingConferenceData:
+      required:
+      - conferenceRequestType
+      type: object
+      properties:
+        conferenceRequestType:
+          $ref: '#/components/schemas/ConferenceRequestType'
+        type:
+          type: string
+    TrueAttendeeMatcher:
+      type: object
+      description: Always matches any attendee
+    GtdNotionTaskForCreate:
+      required:
+      - sourceType
+      - title
+      type: object
+      properties:
+        sourceType:
+          $ref: '#/components/schemas/GtdTaskId.TaskSourceType'
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        due:
+          type: string
+          format: date-time
+          nullable: true
+        start:
+          type: string
+          format: date-time
+          nullable: true
+        priority:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+        estimateMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        databaseId:
+          type: string
+          nullable: true
+        type:
+          type: string
+    BasicEventWarningPatchRequestFields:
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonDataPatchRequestFields'
+        warningCondition:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventMatcher'
+        warningConditionTags:
+          description: Predefined event matching tags. Either this or warningCondition is required.
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventMatcherTags'
+        warningMessage:
+          type: string
+        adherenceMetric:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PolicyAdherenceMetricDescriptor'
+        primaryCalendarOnly:
+          type: boolean
+          nullable: true
+        type:
+          type: string
+    AttendeeStringMatcher:
+      required:
+      - field
+      - operator
+      - value
+      type: object
+      properties:
+        field:
+          $ref: '#/components/schemas/AttendeeStringMatcher.StringField'
+        operator:
+          $ref: '#/components/schemas/AttendeeStringMatcher.StringOperator'
+        value:
+          type: string
+        type:
+          type: string
+      description: Matches an attendee's string field using an operator
+    TrueEventMatcher:
+      type: object
+      description: Always matches any event
+    ScoringReason:
+      type: string
+      enum:
+      - CALENDAR_NOT_AVAILABLE
+      - CONFLICT_UNAVAILABLE
+      - CONFLICT_UNKNOWN
+      - CONFLICT_HARD
+      - CONFLICT_WARN
+      - AVAILABILITY_OUTSIDE_MEETING_HOURS
+      - AVAILABILITY_UNKNOWN
+      - AVAILABLE
+      - AVAILABLE_AUTOMATED
+    PolicyDeleteRequestFields:
+      required:
+      - deleted
+      type: object
+      properties:
+        deleted:
+          type: boolean
+        type:
+          type: string
+    GtdAsanaTask:
+      required:
+      - completed
+      - id
+      - priority
+      - title
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        priority:
+          $ref: '#/components/schemas/PriorityLevel'
+        status:
+          type: string
+          nullable: true
+        link:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/GtdTaskLink'
+        due:
+          type: string
+          format: date-time
+          nullable: true
+        start:
+          type: string
+          format: date-time
+          nullable: true
+        completed:
+          type: boolean
+        estimateMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        labels:
+          type: array
+          nullable: true
+          items:
+            type: string
+        projects:
+          type: array
+          nullable: true
+          items:
+            type: string
+        type:
+          type: string
+    AttendeeAvailabilityWarningCreateRequestFields:
+      required:
+      - commonData
+      - timePolicy
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonDataCreateRequestFields'
+        timePolicy:
+          $ref: '#/components/schemas/SchedulePolicyTimePolicy'
+        type:
+          type: string
+    EventAttendeeParticipant:
+      required:
+      - email
+      type: object
+      properties:
+        email:
+          type: string
+        self:
+          type: boolean
+          nullable: true
+        displayName:
+          type: string
+          nullable: true
+        responseStatus:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        comment:
+          type: string
+          nullable: true
+        optional:
+          type: boolean
+          nullable: true
+        additionalGuests:
+          type: integer
+          format: int32
+          nullable: true
+        organizer:
+          type: boolean
+          nullable: true
+        type:
+          type: string
+    AllEventMatcher:
+      required:
+      - matchers
+      type: object
+      properties:
+        matchers:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventMatcher'
+        type:
+          type: string
+      description: Matches if ALL matchers in the list match
+    RecurringSeriesEventMatcher:
+      required:
+      - operator
+      - seriesEventId
+      type: object
+      properties:
+        operator:
+          $ref: '#/components/schemas/EventMatcherOperator'
+        seriesEventId:
+          type: string
+        calendarId:
+          type: integer
+          format: int64
+          nullable: true
+        type:
+          type: string
+      description: Matches the root series event itself by its eventKey ID. Rarely needed — prefer RecurringInstanceEventMatcher to target all occurrences.
+    AllDayDateRange_2:
+      required:
+      - end
+      - start
+      type: object
+      properties:
+        start:
+          type: string
+          format: date
+        end:
+          type: string
+          format: date
+    RescheduleEventAndCancelOthersAction:
+      required:
+      - eventsToCancel
+      - policyId
+      - rescheduleAction
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        policyId:
+          type: string
+          format: uuid
+        rescheduleAction:
+          $ref: '#/components/schemas/RescheduleEventAction'
+        eventsToCancel:
+          type: array
+          items:
+            $ref: '#/components/schemas/CancelEventAction'
+        type:
+          type: string
+    FeatureMigrationResultView.Mapped:
+      required:
+      - eventsBeingCancelled
+      - newPolicy
+      type: object
+      properties:
+        newPolicy:
+          $ref: '#/components/schemas/MutatePolicyRequestFields'
+        eventsBeingCancelled:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventKey'
+        newEventToCreate:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/AddEventAction'
+        type:
+          type: string
+      description: Represents the migration strategy for an individual feature (e.g. focus, travel, an individual habit or smart meeting).
+    AttendeeBooleanMatcher.BooleanField:
+      type: string
+      enum:
+      - SELF
+      - OPTIONAL
+      - ORGANIZER
+      - RESOURCE
+    EventMatcherTag:
+      type: string
+      enum:
+      - EXTERNAL
+      - CONFERENCE
+      - LARGE_GROUP
+      - LONG_MEETING
+      - IS_TRAVEL
+      - NEEDS_TRAVEL
+      - IS_FLIGHT
+      - MEETING_ORGANIZER
+      - RECURRING_SERIES
+      - NEEDS_RSVP
+      - IS_MEETING
+      - NO_LOCATION
+      - LARGE_MEETINGS_YOU_ORGANIZED
+      - MEETING_NEEDS_RSVP
+      - MEETING_MISSING_VIDEO_CONFERENCE
+      - RESOURCE_DECLINED
+    SummarizedEventMatcher:
+      required:
+      - matcher
+      - summary
+      type: object
+      properties:
+        summary:
+          type: string
+        matcher:
+          $ref: '#/components/schemas/EventMatcher'
+        type:
+          type: string
+      description: Wraps a matcher with a human-readable summary
+    RecurringInstanceEventMatcher:
+      required:
+      - operator
+      - recurringEventId
+      type: object
+      properties:
+        operator:
+          $ref: '#/components/schemas/EventMatcherOperator'
+        recurringEventId:
+          type: string
+        calendarId:
+          type: integer
+          format: int64
+          nullable: true
+        ignoreBranches:
+          type: boolean
+          nullable: true
+        type:
+          type: string
+      description: Matches all occurrences of a recurring event by recurringEventId. This is the preferred matcher for targeting a recurring event in policies.
+    ConferenceEntryPoint:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          MoreEntryPoint: '#/components/schemas/MoreEntryPoint'
+          SipEntryPoint: '#/components/schemas/SipEntryPoint'
+          VideoEntryPoint: '#/components/schemas/VideoEntryPoint'
+          PhoneEntryPoint: '#/components/schemas/PhoneEntryPoint'
+      oneOf:
+      - $ref: '#/components/schemas/VideoEntryPoint'
+      - $ref: '#/components/schemas/PhoneEntryPoint'
+      - $ref: '#/components/schemas/SipEntryPoint'
+      - $ref: '#/components/schemas/MoreEntryPoint'
+    ApplyScheduleActionsRequest:
+      required:
+      - actionsTaken
+      type: object
+      properties:
+        actionsTaken:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScheduleAction'
+        scheduleWindow:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ScheduleWindow'
+        requestId:
+          type: string
+          nullable: true
+    MeetConferenceRequest:
+      required:
+      - enabled
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        type:
+          type: string
+    BasicEventWarningPolicy:
+      required:
+      - commonData
+      - primaryCalendarOnly
+      - warningCondition
+      - warningMessage
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonData'
+        warningCondition:
+          $ref: '#/components/schemas/EventMatcher'
+        warningConditionTags:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventMatcherTags'
+        warningMessage:
+          type: string
+        adherenceMetric:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PolicyAdherenceMetricDescriptor'
+        primaryCalendarOnly:
+          type: boolean
+        type:
+          type: string
+    LockState:
+      type: string
+      enum:
+      - MANUALLY_LOCKED
+      - ADJUSTED
+      - UPCOMING_WINDOW
+      - MANUALLY_UNLOCKED
+      - DELETED
+      - DECLINED
+      - IN_THE_PAST
+    FixedDateTimeRange:
+      required:
+      - end
+      - start
+      type: object
+      properties:
+        start:
+          type: string
+          format: date-time
+        end:
+          type: string
+          format: date-time
+        type:
+          type: string
+    AssistantData:
+      type: object
+      properties:
+        bufferEventData:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/BufferEventData'
+        shieldsUpEventData:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ShieldsUpEventData'
+        focusTimeEventData:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/FocusTimeEventData'
+        managedEventData:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ManagedEventData'
+        recurrenceContinuityData:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/RecurrenceContinuityData'
+        taskEventData:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/TaskEventData'
+    BufferEventPolicy:
+      required:
+      - alwaysAddBufferEvent
+      - bufferEventTitle
+      - bufferEventType
+      - commonData
+      - eventMatcher
+      - suppressWarnings
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonData'
+        calendarId:
+          type: integer
+          format: int64
+          nullable: true
+        bufferEventTitle:
+          type: string
+        eventMatcher:
+          $ref: '#/components/schemas/EventMatcher'
+        eventMatcherTags:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventMatcherTags'
+        bufferEventType:
+          $ref: '#/components/schemas/BufferEventType'
+        before:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/BufferEventSettingsView'
+        after:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/BufferEventSettingsView'
+        bufferEventPriority:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+        alwaysAddBufferEvent:
+          type: boolean
+        suppressWarnings:
+          type: boolean
+        eventDescription:
+          type: string
+          nullable: true
+        eventVisibility:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Visibility'
+        eventReminders:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Reminders'
+        eventTransparency:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Transparency'
+        eventColor:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EntryColor'
+        availableTimeForTransparencyChangeMinutes:
+          type: integer
+          format: int64
+          nullable: true
+        availableSlotsForTransparencyChange:
+          type: integer
+          format: int64
+          nullable: true
+        type:
+          type: string
+    EventDateRange_1:
+      type: object
+      properties:
+        dateMode:
+          $ref: '#/components/schemas/DateMode'
+      discriminator:
+        propertyName: type
+        mapping:
+          FixedDateTimeRange: '#/components/schemas/FixedDateTimeRange_1'
+          AllDayDateRange: '#/components/schemas/AllDayDateRange_1'
+      oneOf:
+      - $ref: '#/components/schemas/FixedDateTimeRange_2'
+      - $ref: '#/components/schemas/AllDayDateRange_2'
+    EventSourceDetails:
+      required:
+      - base64Id
+      - calendarId
+      - description
+      - etag
+      - eventId
+      - eventKey
+      - title
+      - url
+      - writable
+      type: object
+      properties:
+        writable:
+          type: boolean
+        calendarId:
+          type: integer
+          format: int64
+        eventId:
+          type: string
+        etag:
+          type: string
+        eventKey:
+          $ref: '#/components/schemas/EventKey'
+        base64Id:
+          type: string
+        url:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+    ReclaimTaskForCreate:
+      required:
+      - sourceType
+      - title
+      type: object
+      properties:
+        sourceType:
+          $ref: '#/components/schemas/GtdTaskId.TaskSourceType'
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        due:
+          type: string
+          format: date-time
+          nullable: true
+        start:
+          type: string
+          format: date-time
+          nullable: true
+        priority:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+        estimateMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        type:
+          type: string
+    VersionData:
+      type: object
+      properties:
+        syncStatus:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/SyncStatus'
+        ceVersion:
+          type: integer
+          format: int32
+          nullable: true
+    SchedulePolicyTimePolicy:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          OneOff: '#/components/schemas/OneOff'
+          ExistingTimeScheme: '#/components/schemas/ExistingTimeScheme'
+      oneOf:
+      - $ref: '#/components/schemas/ExistingTimeScheme'
+      - $ref: '#/components/schemas/OneOff'
+    LinearState:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+          nullable: true
+        color:
+          type: string
+        type:
+          $ref: '#/components/schemas/LinearWorkflowStateType'
+        position:
+          type: number
+          format: float
+        withId:
+          type: string
+        withName:
+          type: string
+        withDescription:
+          type: string
+          nullable: true
+        withColor:
+          type: string
+        withType:
+          $ref: '#/components/schemas/LinearWorkflowStateType'
+        withPosition:
+          type: number
+          format: float
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    ConferenceData:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          MeetConferenceData: '#/components/schemas/MeetConferenceData'
+          TeamsConferenceData: '#/components/schemas/TeamsConferenceData'
+          ZoomConferenceData: '#/components/schemas/ZoomConferenceData'
+          PendingConferenceData: '#/components/schemas/PendingConferenceData'
+      oneOf:
+      - $ref: '#/components/schemas/MeetConferenceData'
+      - $ref: '#/components/schemas/TeamsConferenceData'
+      - $ref: '#/components/schemas/ZoomConferenceData'
+      - $ref: '#/components/schemas/PendingConferenceData'
+    MeetConferenceData:
+      required:
+      - conferenceUrl
+      - entryPoints
+      type: object
+      properties:
+        conferenceUrl:
+          type: string
+        entryPoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConferenceEntryPoint'
+        type:
+          type: string
+    GoogleEventData:
+      required:
+      - guestPermissions
+      type: object
+      properties:
+        guestPermissions:
+          $ref: '#/components/schemas/GuestPermissions'
+        focusTimeProperties:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/FocusTimeProperties'
+        type:
+          type: string
+    GtdClickUpTask:
+      required:
+      - completed
+      - id
+      - listId
+      - priority
+      - spaceId
+      - title
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        priority:
+          $ref: '#/components/schemas/PriorityLevel'
+        status:
+          type: string
+          nullable: true
+        link:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/GtdTaskLink'
+        due:
+          type: string
+          format: date-time
+          nullable: true
+        start:
+          type: string
+          format: date-time
+          nullable: true
+        completed:
+          type: boolean
+        estimateMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        labels:
+          type: array
+          nullable: true
+          items:
+            type: string
+        listId:
+          type: string
+        spaceId:
+          type: string
+        possibleStatuses:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/ClickUpTaskState'
+        type:
+          type: string
+    ShieldsUpPatchRequestFields:
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonDataPatchRequestFields'
+        calendarId:
+          type: integer
+          format: int64
+        eventTitle:
+          type: string
+        maxMeetingMinutesPerWeek:
+          type: integer
+          format: int32
+        maxMeetingMinutesPerDay:
+          type: integer
+          format: int32
+        thresholdType:
+          $ref: '#/components/schemas/ShieldsUpThresholdType'
+        minDurationMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        eventDescription:
+          type: string
+          nullable: true
+        eventVisibility:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Visibility'
+        eventReminders:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Reminders'
+        eventTransparency:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Transparency'
+        autoDeclineMode:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/AutoDeclineModeView'
+        autoDeclineMessage:
+          type: string
+          nullable: true
+        eventCategory:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventCategory'
+        eventPriority:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+        eventColor:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EntryColor'
+        timePolicy:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/SchedulePolicyTimePolicy'
+        type:
+          type: string
+    EventKeySubjectView:
+      required:
+      - eventKey
+      type: object
+      properties:
+        eventKey:
+          $ref: '#/components/schemas/EventKey'
+        type:
+          type: string
+    BufferEventProblem:
+      required:
+      - hash
+      - policyId
+      - policyType
+      - problemType
+      type: object
+      properties:
+        hash:
+          type: string
+        policyId:
+          type: string
+          format: uuid
+        policyType:
+          $ref: '#/components/schemas/SchedulePolicyType'
+        problemType:
+          $ref: '#/components/schemas/BufferProblemType'
+        bufferEventType:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/BufferEventType'
+        eventKey:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventKey'
+        eventDateRange:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventDateRange'
+        eventZoneId:
+          type: string
+          nullable: true
+        bufferedEventKey:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventKey'
+        bufferedEventDateRange:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventDateRange'
+        bufferedEventZoneId:
+          type: string
+          nullable: true
+        type:
+          type: string
+    MutatePolicyAction:
+      required:
+      - mutation
+      - policyId
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        mutation:
+          $ref: '#/components/schemas/MutatePolicyRequestFields'
+        policyId:
+          type: string
+          format: uuid
+        type:
+          type: string
+    ScheduleProblem:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          ManualManagedEventEdit: '#/components/schemas/ManualEventEdit'
+          ShieldsUpProblem: '#/components/schemas/ShieldsUpProblem'
+          AwayFromIdealSlot: '#/components/schemas/AwayFromIdealSlot'
+          BasicEventWarning: '#/components/schemas/BasicEventWarning'
+          EventConflict: '#/components/schemas/EventConflict'
+          AttendeeDeclined: '#/components/schemas/AttendeeDeclined'
+          LacksRsvp: '#/components/schemas/LacksRsvp'
+          ManualEventEdit: '#/components/schemas/ManualEventEdit'
+          ManagedEventFieldProblem: '#/components/schemas/ManagedEventFieldProblem'
+          BufferEventProblem: '#/components/schemas/BufferEventProblem'
+          FocusTimeProblem: '#/components/schemas/FocusTimeProblem'
+          LacksVideoConference: '#/components/schemas/LacksVideoConference'
+          RecurrenceEnding: '#/components/schemas/RecurrenceEnding'
+          AttendeeConflict: '#/components/schemas/AttendeeConflict'
+      oneOf:
+      - $ref: '#/components/schemas/AttendeeConflict'
+      - $ref: '#/components/schemas/AttendeeDeclined'
+      - $ref: '#/components/schemas/AwayFromIdealSlot'
+      - $ref: '#/components/schemas/BasicEventWarning'
+      - $ref: '#/components/schemas/BufferEventProblem'
+      - $ref: '#/components/schemas/EventConflict'
+      - $ref: '#/components/schemas/FocusTimeProblem'
+      - $ref: '#/components/schemas/LacksRsvp'
+      - $ref: '#/components/schemas/LacksVideoConference'
+      - $ref: '#/components/schemas/ManagedEventFieldProblem'
+      - $ref: '#/components/schemas/ManualEventEdit'
+      - $ref: '#/components/schemas/RecurrenceEnding'
+      - $ref: '#/components/schemas/ShieldsUpProblem'
+    EventConflictCreateRequestFields:
+      required:
+      - commonData
+      - timePolicy
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonDataCreateRequestFields'
+        timePolicy:
+          $ref: '#/components/schemas/SchedulePolicyTimePolicy'
+        type:
+          type: string
+    PriorityLevel:
+      type: string
+      enum:
+      - P1
+      - P2
+      - P3
+      - P4
+      - PRIORITIZE
+      - DEFAULT
+      x-deprecated:
+      - PRIORITIZE
+      - DEFAULT
+    ReclaimEventTypeEventMatcher:
+      required:
+      - operator
+      - predicateValue
+      type: object
+      properties:
+        operator:
+          $ref: '#/components/schemas/EventMatcherOperator'
+        predicateValue:
+          $ref: '#/components/schemas/ReclaimEventType'
+        type:
+          type: string
+      description: Matches by Reclaim event type
+    TimeOfDayEventMatcher.TimeField:
+      type: string
+      enum:
+      - START
+      - END
+    ExistingTimeScheme:
+      required:
+      - timeSchemeId
+      type: object
+      properties:
+        timeSchemeId:
+          type: string
+          description: ID of an existing time scheme (e.g. the user's working hours).
+        type:
+          type: string
+    DurationEventMatcher:
+      required:
+      - operator
+      - predicateValue
+      type: object
+      properties:
+        operator:
+          $ref: '#/components/schemas/EventMatcherOperator'
+        predicateValue:
+          type: integer
+          format: int64
+        type:
+          type: string
+      description: Matches by event duration in minutes
+    GtdGoogleTasksTask:
+      required:
+      - account
+      - completed
+      - id
+      - list
+      - priority
+      - title
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        priority:
+          $ref: '#/components/schemas/PriorityLevel'
+        status:
+          type: string
+          nullable: true
+        link:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/GtdTaskLink'
+        due:
+          type: string
+          format: date-time
+          nullable: true
+        start:
+          type: string
+          format: date-time
+          nullable: true
+        completed:
+          type: boolean
+        estimateMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        list:
+          type: string
+        account:
+          type: string
+        parentTask:
+          type: string
+          nullable: true
+        type:
+          type: string
+    IgnoreScheduleProblemAction:
+      required:
+      - policyId
+      - problem
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        policyId:
+          type: string
+          format: uuid
+        problem:
+          $ref: '#/components/schemas/ScheduleProblem'
+        recurrenceEditType:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/RecurrenceEditType'
+        type:
+          type: string
+    DailyHabitId:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        type:
+          type: string
+    HasAgenda.AgendaType:
+      type: string
+      enum:
+      - TEXT
+      - URL
+    TeamsConferenceRequest:
+      required:
+      - enabled
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        type:
+          type: string
+    ConferenceBufferId:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+    DayHours:
+      required:
+      - intervals
+      type: object
+      properties:
+        intervals:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocalTimeInterval'
+        startOfDay:
+          type: string
+          format: partial-time
+          nullable: true
+        endOfDay:
+          type: string
+          format: partial-time
+          nullable: true
+    AttendeeResponseStatusMatcher:
+      required:
+      - operator
+      - values
+      type: object
+      properties:
+        operator:
+          $ref: '#/components/schemas/AttendeeResponseStatusMatcher.SetOperator'
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResponseStatus'
+        type:
+          type: string
+      description: Matches an attendee's RSVP response status
+    MigrateUserAssistResponse.Ok:
+      required:
+      - dryRun
+      - migrationId
+      type: object
+      properties:
+        migrationId:
+          type: string
+        dryRun:
+          type: boolean
+        type:
+          type: string
+    MonthlyDay:
+      type: object
+      properties:
+        dayOfMonth:
+          type: integer
+          description: A specific day of the month (1-31, or -1 for last day)
+          format: int32
+        dayOfWeek:
+          description: Day of the week for relative monthly days (e.g. TUESDAY). Use with week.
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/DayOfWeek'
+        week:
+          type: integer
+          description: Which week of the month (1-4, or -1 for last). Use with dayOfWeek.
+          format: int32
+      description: 'Day of the month. Use EITHER dayOfMonth for a fixed day, OR dayOfWeek + week for a relative day.
+
+        Examples: dayOfMonth=15 for "the 15th", or dayOfWeek=TUESDAY + week=3 for "3rd Tuesday".'
+    ScheduleActionWithEvents:
+      required:
+      - action
+      type: object
+      properties:
+        action:
+          $ref: '#/components/schemas/ScheduleAction'
+        problem:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ScheduleProblem'
+        availabilityInfo:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/SlotAvailability'
+    GtdJiraTaskForCreate:
+      required:
+      - sourceType
+      - title
+      type: object
+      properties:
+        sourceType:
+          $ref: '#/components/schemas/GtdTaskId.TaskSourceType'
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        due:
+          type: string
+          format: date-time
+          nullable: true
+        start:
+          type: string
+          format: date-time
+          nullable: true
+        priority:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+        estimateMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        projectKey:
+          type: string
+          nullable: true
+        issueTypeId:
+          type: string
+          nullable: true
+        labels:
+          type: array
+          nullable: true
+          items:
+            type: string
+        assigneeId:
+          type: string
+          nullable: true
+        parentKey:
+          type: string
+          nullable: true
+        type:
+          type: string
+    SchedulePolicyCommonDataCreateRequestFields:
+      required:
+      - automationType
+      - description
+      - status
+      - title
+      type: object
+      properties:
+        automationType:
+          $ref: '#/components/schemas/AutomationType'
+        status:
+          $ref: '#/components/schemas/PolicyStatus'
+        title:
+          type: string
+        description:
+          type: string
+        sourceTemplateId:
+          $ref: '#/components/schemas/PolicyTemplateId'
+    SmartMeetingCreateRequestFields:
+      required:
+      - commonData
+      - eventMatcher
+      - minDurationMinutes
+      - timePolicy
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonDataCreateRequestFields'
+        eventMatcher:
+          $ref: '#/components/schemas/EventMatcher'
+        idealDurationMinutes:
+          type: integer
+          format: int64
+        minDurationMinutes:
+          type: integer
+          format: int64
+        timePolicy:
+          $ref: '#/components/schemas/SchedulePolicyTimePolicy'
+        suppressWarnings:
+          type: boolean
+        rescheduleHourSource:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/RescheduleHourSource'
+        type:
+          type: string
+    GtdLinearTask:
+      required:
+      - completed
+      - id
+      - priority
+      - title
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+          nullable: true
+        priority:
+          $ref: '#/components/schemas/PriorityLevel'
+        status:
+          type: string
+          nullable: true
+        link:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/GtdTaskLink'
+        due:
+          type: string
+          format: date-time
+          nullable: true
+        start:
+          type: string
+          format: date-time
+          nullable: true
+        completed:
+          type: boolean
+        estimateMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        labels:
+          type: array
+          nullable: true
+          items:
+            type: string
+        team:
+          type: string
+          nullable: true
+        projectName:
+          type: string
+          nullable: true
+        cycleNumber:
+          type: integer
+          format: int32
+          nullable: true
+        cycleStart:
+          type: string
+          nullable: true
+        cycleEnd:
+          type: string
+          nullable: true
+        state:
+          type: string
+          nullable: true
+        creator:
+          type: string
+          nullable: true
+        assignee:
+          type: string
+          nullable: true
+        possibleStatuses:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/LinearState'
+        type:
+          type: string
+    AddBufferEventAction:
+      required:
+      - bufferEventType
+      - bufferedEventKey
+      - end
+      - eventKey
+      - policyId
+      - start
+      - title
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        policyId:
+          type: string
+          format: uuid
+        bufferedEventKey:
+          $ref: '#/components/schemas/EventKey'
+        eventKey:
+          $ref: '#/components/schemas/EventKey'
+        title:
+          type: string
+        start:
+          type: string
+          format: date-time
+        end:
+          type: string
+          format: date-time
+        bufferEventType:
+          $ref: '#/components/schemas/BufferEventType'
+        bufferEventPriority:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+        eventDescription:
+          type: string
+          nullable: true
+        eventVisibility:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Visibility'
+        eventTransparency:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Transparency'
+        eventReminders:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Reminders'
+        bufferEventCategory:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventCategory'
+        eventColor:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EntryColor'
+        type:
+          type: string
+    SchedulePolicyCommonDataPatchRequestFields:
+      type: object
+      properties:
+        automationType:
+          $ref: '#/components/schemas/AutomationType'
+        status:
+          $ref: '#/components/schemas/PolicyStatus'
+        title:
+          type: string
+        description:
+          type: string
+    AutoDeclineModeView:
+      type: string
+      enum:
+      - DECLINE_NONE
+      - DECLINE_ALL_CONFLICTING_INVITATIONS
+      - DECLINE_ONLY_NEW_CONFLICTING_INVITATIONS
+    MergeableEvent:
+      required:
+      - calendarId
+      - eventId
+      - referenceType
+      - shouldMerge
+      type: object
+      properties:
+        calendarId:
+          type: integer
+          format: int64
+        eventId:
+          type: string
+        referenceType:
+          $ref: '#/components/schemas/MergeableEventView.MergeType'
+        shouldMerge:
+          type: boolean
+    Event:
+      required:
+      - allocatedTimeChunks
+      - assist
+      - calendarId
+      - categoryOverride
+      - description
+      - etag
+      - eventEnd
+      - eventId
+      - eventStart
+      - key
+      - location
+      - meetingType
+      - organizer
+      - priority
+      - recurrence
+      - recurrenceMax
+      - recurringEventId
+      - requiresTravel
+      - rsvpStatus
+      - sourceDetails
+      - status
+      - subType
+      - timeChunks
+      - title
+      - titleSeenByOthers
+      - type
+      - updated
+      type: object
+      properties:
+        googleMetadata:
+          description: Returns Google Calendar-specific metadata that doesn't fit into a common event model, but that services and UI might be interested in introspecting. If the event isn't a Google Calendar event, this method will return an empty value.
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/GoogleCalendarEventMetadata'
+        schedulingLinkId:
+          type: string
+          nullable: true
+        schedulingLinkMeetingId:
+          type: string
+          nullable: true
+        underAssistControl:
+          type: boolean
+        assist:
+          $ref: '#/components/schemas/AssistDetails'
+        reclaimEventType:
+          $ref: '#/components/schemas/ReclaimEventType'
+        personalSync:
+          type: boolean
+        reclaimManaged:
+          type: boolean
+          description: Reclaim likely created and manages this event but important to note that this event might not be organized by this user so very important to check also [isReclaimManagedAndSelfOrganized](#isReclaimManagedAndSelfOrganized) if the calling class would do something different for a Reclaim managed event if the person attached to this event is an attendee, rather than the organizer.
+        reclaimManagedAndSelfOrganized:
+          type: boolean
+          description: Important to note that there are Reclaim "managed" events like smart meetings and scheduling link events where the user associated with the event is *not* the organizer, and as a result, we may need to do things like color coding or scoring.
+        eventId:
+          type: string
+        calendarId:
+          type: integer
+          format: int64
+        key:
+          $ref: '#/components/schemas/EventKey'
+        priority:
+          $ref: '#/components/schemas/PriorityLevel'
+        prioritySource:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PrioritySource'
+        title:
+          type: string
+        titleSeenByOthers:
+          type: string
+        location:
+          type: string
+        onlineMeetingUrlRaw:
+          type: string
+        onlineMeetingUrl:
+          type: string
+        description:
+          type: string
+        descriptionOmitted:
+          type: boolean
+        titleTruncated:
+          type: boolean
+        sourceDetails:
+          $ref: '#/components/schemas/EventSourceDetails'
+        mergeDetails:
+          $ref: '#/components/schemas/MergeDetails'
+        status:
+          $ref: '#/components/schemas/EventStatus'
+        published:
+          type: boolean
+        type:
+          $ref: '#/components/schemas/EventType'
+        subType:
+          $ref: '#/components/schemas/EventSubType'
+        meetingType:
+          $ref: '#/components/schemas/MeetingType'
+        categoryOverride:
+          $ref: '#/components/schemas/EventCategory'
+        eventStart:
+          type: string
+          format: date-time
+        eventEnd:
+          type: string
+          format: date-time
+        timeChunks:
+          type: integer
+          format: int32
+        allocatedTimeChunks:
+          type: integer
+          format: int32
+        recurringEventId:
+          type: string
+        updated:
+          type: string
+          format: date-time
+        recurringException:
+          type: boolean
+        recurrence:
+          type: string
+        recurrenceMax:
+          type: string
+          format: date-time
+        recurring:
+          type: boolean
+        recurringInstance:
+          type: boolean
+        private:
+          type: boolean
+        public:
+          type: boolean
+        color:
+          $ref: '#/components/schemas/EventColor'
+        organizer:
+          type: string
+        numAttendees:
+          type: integer
+          format: int32
+        attendees:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventAttendee'
+        free:
+          type: boolean
+        category:
+          $ref: '#/components/schemas/EventCategory'
+        rsvpStatus:
+          $ref: '#/components/schemas/EventResponseStatus'
+        requiresTravel:
+          type: boolean
+        conferenceCall:
+          type: boolean
+        etag:
+          type: string
+          nullable: true
+        smartSeriesId:
+          type: integer
+          format: int64
+          nullable: true
+        sourceEventType:
+          $ref: '#/components/schemas/PlatformEventType'
+        version:
+          type: string
+        manuallyStarted:
+          type: boolean
+        inheritedExternalId:
+          type: string
+          description: 'Retrieves the inherited external ID for the event. The inherited external ID is used in scenarios where a non-pipeline user is invited to an event created by Reclaim on a pipeline user''s Microsoft calendar.
+
+
+            In such cases, the inherited external ID represents the "external-id" of the organizer''s event,
+
+            which is crucial for supporting event ID parsing. This mechanism ensures compatibility with Reclaim''s
+
+            existing logic for detecting and parsing event information, even when the event ID cannot be directly
+
+            relied upon (e.g., in Microsoft calendars).'
+          nullable: true
+    LacksVideoConference:
+      required:
+      - lacksVideoConferenceEvent
+      - policyId
+      - policyType
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        policyId:
+          type: string
+          format: uuid
+        policyType:
+          $ref: '#/components/schemas/SchedulePolicyType'
+        lacksVideoConferenceEvent:
+          $ref: '#/components/schemas/EventKey'
+        lacksVideoConferenceRecurringEventId:
+          type: string
+          nullable: true
+        relatedFields:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/CalendarEventField'
+        type:
+          type: string
+    ShieldsUpCreateRequestFields:
+      required:
+      - calendarId
+      - commonData
+      - eventTitle
+      - maxMeetingMinutesPerDay
+      - maxMeetingMinutesPerWeek
+      - thresholdType
+      - timePolicy
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonDataCreateRequestFields'
+        calendarId:
+          type: integer
+          format: int64
+        eventTitle:
+          type: string
+        maxMeetingMinutesPerWeek:
+          type: integer
+          format: int32
+        maxMeetingMinutesPerDay:
+          type: integer
+          format: int32
+        thresholdType:
+          $ref: '#/components/schemas/ShieldsUpThresholdType'
+        minDurationMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        eventDescription:
+          type: string
+          nullable: true
+        eventVisibility:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Visibility'
+        eventReminders:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Reminders'
+        eventTransparency:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Transparency'
+        autoDeclineMode:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/AutoDeclineModeView'
+        autoDeclineMessage:
+          type: string
+          nullable: true
+        eventCategory:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventCategory'
+        eventPriority:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+        eventColor:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EntryColor'
+        timePolicy:
+          $ref: '#/components/schemas/SchedulePolicyTimePolicy'
+        type:
+          type: string
+    AttendeeCalendarVisibility:
+      type: string
+      enum:
+      - NONE
+      - FREE_BUSY
+      - DETAILS
+      - FULL
+      - RECLAIM
+    AttendeeCountEventMatcher.AttendeeType:
+      type: string
+      enum:
+      - ANY
+      - REQUIRED
+      - OPTIONAL
+    FreeBusy:
+      type: string
+      enum:
+      - FREE
+      - BUSY
+    UpdateGtdTaskStatusAction:
+      required:
+      - statusId
+      - task
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        task:
+          $ref: '#/components/schemas/GtdTask'
+        statusId:
+          type: string
+        type:
+          type: string
+    ManagedEventFieldProblem:
+      required:
+      - eventKey
+      - policyId
+      - policyType
+      - relatedFields
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        policyId:
+          type: string
+          format: uuid
+        policyType:
+          $ref: '#/components/schemas/SchedulePolicyType'
+        eventKey:
+          $ref: '#/components/schemas/EventKey'
+        relatedFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/CalendarEventField'
+        type:
+          type: string
+    ActionsForEventsRequest:
+      required:
+      - eventKeys
+      - scheduleWindow
+      type: object
+      properties:
+        scheduleWindow:
+          $ref: '#/components/schemas/ScheduleWindow'
+        eventKeys:
+          minItems: 1
+          type: array
+          items:
+            type: string
+    SmartMeetingPolicy:
+      required:
+      - commonData
+      - eventMatcher
+      - minDurationMinutes
+      - suppressWarnings
+      - timePolicy
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonData'
+        eventMatcher:
+          $ref: '#/components/schemas/EventMatcher'
+        idealDurationMinutes:
+          type: integer
+          format: int64
+          nullable: true
+        minDurationMinutes:
+          type: integer
+          format: int64
+        timePolicy:
+          $ref: '#/components/schemas/SchedulePolicyTimePolicy'
+        suppressWarnings:
+          type: boolean
+        rescheduleHourSource:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/RescheduleHourSource'
+        type:
+          type: string
+    MigrateUserAssistAvailableResponse:
+      required:
+      - eligible
+      type: object
+      properties:
+        eligible:
+          type: boolean
+    ReminderType:
+      type: string
+      enum:
+      - UI_NOTIFICATION
+      - EMAIL
+    UpdateEventAction:
+      required:
+      - calendarId
+      - eventId
+      - policyId
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        policyId:
+          type: string
+          format: uuid
+        calendarId:
+          type: integer
+          format: int64
+        eventId:
+          type: string
+        dateRange:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventDateRange'
+        title:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        color:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EntryColor'
+        location:
+          type: string
+          nullable: true
+        transparency:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Transparency'
+        visibility:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Visibility'
+        reminders:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Reminders'
+        eventCategory:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventCategory'
+        attendees:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/EventAttendee'
+        notificationMessage:
+          type: string
+          nullable: true
+        notificationRequest:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EntryNotificationRequest'
+        conferenceRequest:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ConferenceRequest'
+        recurrence:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ReclaimRecurrence'
+        recurrenceEditType:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/RecurrenceEditType'
+        guestsCanModify:
+          type: boolean
+          nullable: true
+        guestsCanInviteOthers:
+          type: boolean
+          nullable: true
+        guestsCanSeeOtherGuests:
+          type: boolean
+          nullable: true
+        priority:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+        entryStatus:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EntryStatus'
+        assistantData:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/AssistantData_1'
+        type:
+          type: string
+    SchedulePolicyCommonData:
+      required:
+      - automationType
+      - deleted
+      - description
+      - id
+      - index
+      - policyScope
+      - status
+      - title
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        index:
+          type: integer
+          format: int32
+        status:
+          $ref: '#/components/schemas/PolicyStatus'
+        automationType:
+          $ref: '#/components/schemas/AutomationType'
+        title:
+          type: string
+        description:
+          type: string
+        sourceTemplateId:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PolicyTemplateId'
+        deleted:
+          type: boolean
+        policyScope:
+          $ref: '#/components/schemas/PolicyScope'
+        priority:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+    TimePolicy:
+      required:
+      - dayHours
+      type: object
+      properties:
+        startOfWeek:
+          $ref: '#/components/schemas/DayOfWeek'
+        endOfWeek:
+          $ref: '#/components/schemas/DayOfWeek'
+        dayHours:
+          properties:
+            MONDAY:
+              $ref: '#/components/schemas/DayHours'
+            TUESDAY:
+              $ref: '#/components/schemas/DayHours'
+            WEDNESDAY:
+              $ref: '#/components/schemas/DayHours'
+            THURSDAY:
+              $ref: '#/components/schemas/DayHours'
+            FRIDAY:
+              $ref: '#/components/schemas/DayHours'
+            SATURDAY:
+              $ref: '#/components/schemas/DayHours'
+            SUNDAY:
+              $ref: '#/components/schemas/DayHours'
+    ShieldsUpProblemType:
+      type: string
+      enum:
+      - SHIELD_EVENT_NEEDED
+      - SHIELD_EVENT_NEEDS_UPDATE
+      - SHIELD_EVENT_NOT_NEEDED
+      - SHIELD_EVENT_MISMATCH
+    PolicyTemplateId:
+      type: string
+      enum:
+      - HABIT_LUNCH
+      - HABIT_MORNING_CATCHUP
+      - HABIT_AFTERNOON_CATCHUP
+      - HABIT_EXERCISE
+      - HABIT_LEARNING
+      - HABIT_MORNING_DEEP_WORK
+      - HABIT_MEDITATION
+      - HABIT_WALK
+      - HABIT_WEEKLY_PLANNING
+      - HABIT_WEEKLY_STATUS_REPORT
+      - HABIT_MONTHLY_METRICS_REVIEW
+      - HABIT_STRATEGIC_PLANNING
+      - HABIT_SPRINT_PLANNING
+      - HABIT_BACKLOG_REVIEW
+      - HABIT_PRODUCT_REQUIREMENTS
+      - HABIT_CUSTOMER_FEEDBACK
+      - HABIT_CUSTOMER_RESEARCH
+      - HABIT_CODING
+      - HABIT_CODE_REVIEW
+      - HABIT_DOCUMENTATION
+      - HABIT_PROJECT_COORDINATION
+      - HABIT_ESCALATIONS
+      - HABIT_PIPELINE_REVIEW
+      - HABIT_CUSTOM
+      - HABIT_CUSTOM_PERSONAL
+      - BUFFER_DECOMPRESS
+      - BUFFER_TRAVEL_FLIGHT
+      - BUFFER_TRAVEL_REMOTE
+      - BUFFER_MEETING_PREP
+      - EVENT_WARNING_RSVP
+      - EVENT_WARNING_VIDEO_CONFERENCE
+      - SHIELDS_UP_REACTIVE_BASIC
+      - FOCUS_TIME_PROACTIVE_BASIC
+      - LACKS_RSVP
+      - LACKS_VIDEO_CONFERENCE
+      - RESOURCE_DECLINED
+      - SMART_MEETING_CUSTOM
+      - ATTENDEE_AVAILABILITY
+      - EVENT_CONFLICT
+      - EVENT_CONFLICT_DEMO_ONLY
+      - AGENDA_REQUIRED_DEMO_ONLY
+      - MIGRATED_FROM_1_0
+      x-enum-descriptions:
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - ''
+      - Internal use only. Cannot be provided via API.
+      x-deprecated:
+      - EVENT_WARNING_RSVP
+      - EVENT_WARNING_VIDEO_CONFERENCE
+      - EVENT_CONFLICT_DEMO_ONLY
+      - AGENDA_REQUIRED_DEMO_ONLY
+    CalendarSyncSourceData:
+      required:
+      - description
+      - title
+      - url
+      type: object
+      properties:
+        url:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+    FocusTimePolicy:
+      required:
+      - calendarId
+      - commonData
+      - eventTitle
+      - timePolicy
+      - weeklyGoalMinutes
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonData'
+        calendarId:
+          type: integer
+          format: int64
+        eventTitle:
+          type: string
+        weeklyGoalMinutes:
+          type: integer
+          format: int32
+        idealDurationPerDayMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        maxDurationPerDayMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        minEventDurationMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        maxEventDurationMinutes:
+          type: integer
+          format: int32
+          nullable: true
+        eventDescription:
+          type: string
+          nullable: true
+        eventVisibility:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Visibility'
+        eventReminders:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Reminders'
+        eventTransparency:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/Transparency'
+        autoDeclineMode:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/AutoDeclineModeView'
+        autoDeclineMessage:
+          type: string
+          nullable: true
+        eventCategory:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EventCategory'
+        eventPriority:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+        eventColor:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/EntryColor'
+        timePolicy:
+          $ref: '#/components/schemas/SchedulePolicyTimePolicy'
+        type:
+          type: string
+    MatchingAttendeeCountEventMatcher:
+      required:
+      - attendeeMatcher
+      - count
+      - operator
+      type: object
+      properties:
+        attendeeMatcher:
+          $ref: '#/components/schemas/AttendeeMatcher'
+        operator:
+          $ref: '#/components/schemas/EventMatcherOperator'
+        count:
+          type: integer
+          format: int32
+        type:
+          type: string
+      description: Matches by count of attendees satisfying a predicate, compared with an operator
+    AttendeeIntMatcher.IntField:
+      type: string
+      enum:
+      - ADDITIONAL_GUESTS
+    SyncStatus:
+      type: string
+      enum:
+      - PENDING
+      - SYNCED
+      - RETRYING
+      - FATAL_UNKNOWN
+    ScheduleAction:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          AddFocusEventAction: '#/components/schemas/AddFocusEventAction'
+          FindATimeAction: '#/components/schemas/FindANewTimeAction'
+          AddEventAction: '#/components/schemas/AddEventAction'
+          CancelEventAction: '#/components/schemas/CancelEventAction'
+          ManualEditEventAction: '#/components/schemas/ManualEditEventAction'
+          ManagedEventLockAction: '#/components/schemas/EventLockAction'
+          RescheduleEventAndCancelOthersAction: '#/components/schemas/RescheduleEventAndCancelOthersAction'
+          CompleteGtdTaskAction: '#/components/schemas/CompleteGtdTaskAction'
+          IgnoreScheduleProblemAction: '#/components/schemas/IgnoreScheduleProblemAction'
+          IgnoreEventKeyAction: '#/components/schemas/IgnoreEventKeyAction'
+          MutatePolicyAction: '#/components/schemas/MutatePolicyAction'
+          AddVideoConferenceAction: '#/components/schemas/AddVideoConferenceAction'
+          UncompleteGtdTaskAction: '#/components/schemas/UncompleteGtdTaskAction'
+          LogTaskAction: '#/components/schemas/LogTaskAction'
+          UpdateEventAction: '#/components/schemas/UpdateEventAction'
+          AddGoogleEventAction: '#/components/schemas/AddEventAction'
+          RescheduleEventAction: '#/components/schemas/RescheduleEventAction'
+          EventLockAction: '#/components/schemas/EventLockAction'
+          RsvpEventAction: '#/components/schemas/RsvpEventAction'
+          AddBufferEventAction: '#/components/schemas/AddBufferEventAction'
+          UpdateGtdTaskStatusAction: '#/components/schemas/UpdateGtdTaskStatusAction'
+          CreateGtdTaskAction: '#/components/schemas/CreateGtdTaskAction'
+      allOf:
+      - $ref: '#/components/schemas/LogContext'
+      oneOf:
+      - $ref: '#/components/schemas/AddEventAction'
+      - $ref: '#/components/schemas/AddFocusEventAction'
+      - $ref: '#/components/schemas/UpdateEventAction'
+      - $ref: '#/components/schemas/AddBufferEventAction'
+      - $ref: '#/components/schemas/CancelEventAction'
+      - $ref: '#/components/schemas/IgnoreScheduleProblemAction'
+      - $ref: '#/components/schemas/IgnoreEventKeyAction'
+      - $ref: '#/components/schemas/EventLockAction'
+      - $ref: '#/components/schemas/MutatePolicyAction'
+      - $ref: '#/components/schemas/ManualEditEventAction'
+      - $ref: '#/components/schemas/FindANewTimeAction'
+      - $ref: '#/components/schemas/RescheduleEventAction'
+      - $ref: '#/components/schemas/RescheduleEventAndCancelOthersAction'
+      - $ref: '#/components/schemas/RsvpEventAction'
+      - $ref: '#/components/schemas/AddVideoConferenceAction'
+      - $ref: '#/components/schemas/LogTaskAction'
+      - $ref: '#/components/schemas/CompleteGtdTaskAction'
+      - $ref: '#/components/schemas/UncompleteGtdTaskAction'
+      - $ref: '#/components/schemas/UpdateGtdTaskStatusAction'
+      - $ref: '#/components/schemas/CreateGtdTaskAction'
+    HabitCreateRequestFields:
+      required:
+      - commonData
+      - eventMatcher
+      - minDurationMinutes
+      - noAvailabilityAction
+      - proactivelyUseIdealTime
+      - timePolicy
+      type: object
+      properties:
+        commonData:
+          $ref: '#/components/schemas/SchedulePolicyCommonDataCreateRequestFields'
+        eventMatcher:
+          $ref: '#/components/schemas/EventMatcher'
+        idealDurationMinutes:
+          type: integer
+          description: Preferred duration in minutes. Reclaim tries this first, falling back to minDurationMinutes.
+          format: int64
+        minDurationMinutes:
+          type: integer
+          description: Minimum acceptable duration in minutes.
+          format: int64
+        availableTimeForTransparencyChangeMinutes:
+          type: integer
+          description: Minutes before event start to switch the calendar entry from free to busy. Null keeps the event busy from creation.
+          format: int64
+        availableSlotsForTransparencyChange:
+          type: integer
+          description: Number of alternative time slots to hold as free before committing to one. Null means only the best slot is held.
+          format: int64
+        autoBusyBeforeStartMinutes:
+          type: integer
+          description: Minutes before start to force the event to show as busy, even if other slots are still held. Null disables.
+          format: int64
+        timePolicy:
+          $ref: '#/components/schemas/SchedulePolicyTimePolicy'
+        proactivelyUseIdealTime:
+          type: boolean
+          description: When true, Reclaim proactively schedules at the ideal duration even when no conflict forces rescheduling.
+        noAvailabilityAction:
+          description: 'What to do when no available slot exists: CANCEL (remove the event) or WARNING (keep it and surface a warning).'
+          allOf:
+          - $ref: '#/components/schemas/ManagedEventNoAvailabilityAction'
+        suppressWarnings:
+          type: boolean
+          description: When true, suppresses all warnings/problems detected by this policy.
+        type:
+          type: string
+    EventColor:
+      type: string
+      enum:
+      - NONE
+      - LAVENDER
+      - SAGE
+      - GRAPE
+      - FLAMINGO
+      - BANANA
+      - TANGERINE
+      - PEACOCK
+      - GRAPHITE
+      - BLUEBERRY
+      - BASIL
+      - TOMATO
+    ZoomConferenceData:
+      required:
+      - conferenceUrl
+      type: object
+      properties:
+        conferenceUrl:
+          type: string
+        entryPoints:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/ConferenceEntryPoint'
+        type:
+          type: string
+    GuestPermissions:
+      required:
+      - guestsCanInviteOthers
+      - guestsCanModify
+      - guestsCanSeeOtherGuests
+      type: object
+      properties:
+        guestsCanModify:
+          type: boolean
+        guestsCanInviteOthers:
+          type: boolean
+        guestsCanSeeOtherGuests:
+          type: boolean
+    AttendeeConflict:
+      required:
+      - busyAttendeeEmails
+      - event
+      - policyId
+      - policyType
+      type: object
+      properties:
+        hash:
+          type: string
+          nullable: true
+        policyId:
+          type: string
+          format: uuid
+        policyType:
+          $ref: '#/components/schemas/SchedulePolicyType'
+        event:
+          $ref: '#/components/schemas/EventKey'
+        recurringEventId:
+          type: string
+          nullable: true
+        busyAttendeeEmails:
+          type: array
+          items:
+            type: string
+        relatedFields:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/CalendarEventField'
+        type:
+          type: string
+    ShieldsUpEventData_1:
+      required:
+      - policyId
+      type: object
+      properties:
+        policyId:
+          $ref: '#/components/schemas/SchedulePolicyId'
+    ScheduleWindow:
+      required:
+      - end
+      - start
+      type: object
+      properties:
+        start:
+          type: string
+          format: date
+        end:
+          type: string
+          format: date
+    AssistPolicyOverride:
+      required:
+      - durationMax
+      - durationMin
+      - forceDefend
+      - idealTime
+      - windowEnd
+      - windowStart
+      type: object
+      properties:
+        windowStart:
+          type: string
+          format: partial-time
+        idealTime:
+          type: string
+          format: partial-time
+        windowEnd:
+          type: string
+          format: partial-time
+        durationMin:
+          type: integer
+          format: int32
+        durationMax:
+          type: integer
+          format: int32
+        forceDefend:
+          type: boolean
+    FeatureMigrationResultView.Error:
+      required:
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+        type:
+          type: string
+    ScheduleActionRequest:
+      required:
+      - actionsTaken
+      - scheduleWindow
+      type: object
+      properties:
+        scheduleWindow:
+          $ref: '#/components/schemas/ScheduleWindow'
+        actionsTaken:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScheduleAction'
+        disableAutomation:
+          type: boolean
+          nullable: true
+  securitySchemes:
+    Authorization:
+      type: oauth2

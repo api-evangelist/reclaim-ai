@@ -1,0 +1,39 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes Anonymous API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: Anonymous
+paths:
+  /api/anonymous/flags:
+    get:
+      operationId: ok
+      responses:
+        '200':
+          description: ok 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnonymousFlags'
+      tags:
+      - Anonymous
+components:
+  schemas:
+    AnonymousFlags:
+      required:
+      - outlookSignupEnabled
+      type: object
+      properties:
+        outlookSignupEnabled:
+          type: boolean
+  securitySchemes:
+    Authorization:
+      type: oauth2

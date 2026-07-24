@@ -1,0 +1,182 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes user-notifications API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: user-notifications
+paths:
+  /api/notifications/{id}:
+    get:
+      tags:
+      - user-notifications
+      operationId: getUserNotifications
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: getUserNotifications 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationWithMessages'
+      security:
+      - Authorization: []
+components:
+  schemas:
+    Notification:
+      required:
+      - context
+      - contextDateTime
+      - id
+      - status
+      - type
+      - userId
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/NotificationId'
+        userId:
+          $ref: '#/components/schemas/UserIdentifier'
+        contextDateTime:
+          type: string
+          format: date-time
+        type:
+          $ref: '#/components/schemas/NotificationType'
+        context:
+          $ref: '#/components/schemas/NotificationContext'
+        status:
+          $ref: '#/components/schemas/NotificationStatus'
+    NotificationChannelMessageStatus:
+      type: string
+      enum:
+      - PENDING
+      - EXPIRED
+      - NO_LONGER_NEEDED
+      - SENT
+      - INVALIDATED
+      - FAILURE_BUT_WILL_RETRY
+      - FAILED
+    ChannelMessageId:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+    NotificationStatus:
+      type: string
+      enum:
+      - PENDING
+      - PROCESSED
+      - EXPIRED
+      - NO_LONGER_NEEDED
+    NotificationId:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+    NotificationType:
+      type: string
+      enum:
+      - DAILY_DIGEST
+      - WEEKLY_DIGEST
+      - EVENT_CONFLICT
+      - EVENT_ABOUT_TO_START
+      - INVITED_TO_MEETING
+      - MEETING_UPDATED
+      - MEETING_CANCELLED
+      - APP_UPDATES
+      - EVENT_REMINDERS
+    LogContext:
+      type: object
+    UserIdentifier:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+    ChannelMessage:
+      required:
+      - channel
+      - id
+      - notificationId
+      - retries
+      - status
+      - userId
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/ChannelMessageId'
+        userId:
+          $ref: '#/components/schemas/UserIdentifier'
+        channel:
+          $ref: '#/components/schemas/NotificationChannel'
+        status:
+          $ref: '#/components/schemas/NotificationChannelMessageStatus'
+        notificationId:
+          $ref: '#/components/schemas/NotificationId'
+        retries:
+          type: integer
+          format: int32
+        lastAttemptAt:
+          type: string
+          format: date-time
+          nullable: true
+        succeedAt:
+          type: string
+          format: date-time
+          nullable: true
+    NotificationChannel:
+      type: string
+      enum:
+      - SLACK
+      - EMAIL
+    NotificationContext:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          DAILY_DIGEST: '#/components/schemas/DailyDigestContext'
+          EVENT_ABOUT_TO_START: '#/components/schemas/EventAboutToStartContext'
+          INVITED_TO_MEETING: '#/components/schemas/InvitedToMeetingContext'
+          EVENT_REMINDER: '#/components/schemas/EventReminderContext'
+          MEETING_UPDATED: '#/components/schemas/MeetingUpdatedContext'
+          MEETING_CANCELLED: '#/components/schemas/MeetingCancelledContext'
+          APP_UPDATES: '#/components/schemas/AppUpdatesContext'
+          WEEKLY_DIGEST: '#/components/schemas/WeeklyDigestContext'
+          EVENT_CONFLICT: '#/components/schemas/EventsConflictContext'
+      allOf:
+      - $ref: '#/components/schemas/LogContext'
+    NotificationWithMessages:
+      required:
+      - messages
+      - notification
+      type: object
+      properties:
+        notification:
+          $ref: '#/components/schemas/Notification'
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChannelMessage'
+  securitySchemes:
+    Authorization:
+      type: oauth2

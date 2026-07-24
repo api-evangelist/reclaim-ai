@@ -1,0 +1,54 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes partnerstack API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: partnerstack
+paths:
+  /api/partnerstack/partners/repair-customers:
+    post:
+      tags:
+      - partnerstack
+      operationId: repairCustomers
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RepairCustomersRequest'
+        required: true
+      responses:
+        '200':
+          description: repairCustomers 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AnonymousPartner'
+      security:
+      - Authorization: []
+components:
+  schemas:
+    AnonymousPartner:
+      required:
+      - link
+      type: object
+      properties:
+        link:
+          type: string
+    RepairCustomersRequest:
+      required:
+      - partnerStackKey
+      type: object
+      properties:
+        partnerStackKey:
+          type: string
+  securitySchemes:
+    Authorization:
+      type: oauth2

@@ -1,0 +1,930 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes asana API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: asana
+paths:
+  /api/asana/integrations:
+    get:
+      tags:
+      - asana
+      operationId: integrations
+      responses:
+        '200':
+          description: integrations 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AsanaIntegration'
+      security:
+      - Authorization: []
+    delete:
+      tags:
+      - asana
+      operationId: deleteIntegration
+      responses:
+        '200':
+          description: deleteIntegration 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AsanaIntegration'
+      security:
+      - Authorization: []
+    patch:
+      tags:
+      - asana
+      operationId: integrations_1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AsanaIntegrationPatch'
+        required: true
+      responses:
+        '200':
+          description: integrations_1 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AsanaIntegration'
+      security:
+      - Authorization: []
+  /web/asana/formfieldchange:
+    post:
+      tags:
+      - asana
+      operationId: fieldChangeCallback
+      responses:
+        '200':
+          description: fieldChangeCallback 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+    options:
+      tags:
+      - asana
+      operationId: fieldChangeCallbackPreflight
+      responses:
+        '200':
+          description: fieldChangeCallbackPreflight 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+  /web/asana/formsubmit:
+    post:
+      tags:
+      - asana
+      summary: Called on-submit of the "schedule via reclaim" widget.
+      description: Called on-submit of the "schedule via reclaim" widget.
+      operationId: formCallback
+      parameters:
+      - name: x-asana-request-signature
+        in: header
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AsanaSyncFormSubmission'
+        required: true
+      responses:
+        '200':
+          description: formCallback 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsanaAttachedResource'
+    options:
+      tags:
+      - asana
+      operationId: formCallbackPreflight
+      responses:
+        '200':
+          description: formCallbackPreflight 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+  /web/asana/syncform:
+    get:
+      tags:
+      - asana
+      summary: Called on-render of a task inside of Asana for tasks that have already been associated with / scheduled in Reclaim.
+      description: Called on-render of a task inside of Asana for tasks that have already been associated with / scheduled in Reclaim.
+      operationId: syncForm
+      parameters:
+      - name: x-asana-request-signature
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: workspace
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: task
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: user
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: expires_at
+        in: query
+        schema:
+          type: string
+          nullable: true
+      responses:
+        '200':
+          description: syncForm 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsanaFormMetadata'
+    options:
+      tags:
+      - asana
+      operationId: syncFormPreflight
+      responses:
+        '200':
+          description: syncFormPreflight 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+  /web/asana/task/{asanaTaskId}:
+    get:
+      tags:
+      - asana
+      operationId: taskDetails
+      parameters:
+      - name: asanaTaskId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: taskDetails 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+    options:
+      tags:
+      - asana
+      operationId: taskDetailsPreflight
+      parameters:
+      - name: asanaTaskId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: taskDetailsPreflight 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+  /web/asana/widget:
+    get:
+      tags:
+      - asana
+      summary: Called on-render of a task inside of Asana for tasks that have NOT already been associated with / scheduled in Reclaim.
+      description: Called on-render of a task inside of Asana for tasks that have NOT already been associated with / scheduled in Reclaim.
+      operationId: widget
+      parameters:
+      - name: x-asana-request-signature
+        in: header
+        required: true
+        schema:
+          type: string
+      - name: workspace
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: task
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: user
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: attachment
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: expires_at
+        in: query
+        schema:
+          type: string
+          nullable: true
+      responses:
+        '200':
+          description: widget 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsanaWidgetMetadata'
+    options:
+      tags:
+      - asana
+      operationId: widgetPreflight
+      responses:
+        '200':
+          description: widgetPreflight 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  schemas:
+    AsanaWidgetMetadata:
+      type: object
+      properties:
+        metadata:
+          $ref: '#/components/schemas/AsanaWidget'
+        template:
+          type: string
+        withMetadata:
+          $ref: '#/components/schemas/AsanaWidget'
+        withTemplate:
+          type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    AsanaTitleTemplate:
+      type: string
+      enum:
+      - TITLE
+      - TITLE_THEN_PROJECT_IF_ANY
+      - TITLE_THEN_PROJECT_IF_ANY_THEN_WORKSPACE
+      - PROJECT_IF_SINGLE_OR_WORKSPACE_WHEN_MULTIPLE_PROJECTS_THEN_TITLE
+      - WORKSPACE_THEN_PROJECT_IF_SINGLE_THEN_TITLE
+    AsanaWidgetField:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          $ref: '#/components/schemas/AsanaWidgetFieldType'
+        datetime:
+          type: string
+          format: date-time
+          nullable: true
+        icon_url:
+          type: string
+          format: uri
+          nullable: true
+        color:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/AsanaWidgetPillColor'
+        text:
+          type: string
+          nullable: true
+        withName:
+          type: string
+        withType:
+          $ref: '#/components/schemas/AsanaWidgetFieldType'
+        withDatetime:
+          type: string
+          format: date-time
+        withIcon_url:
+          type: string
+          format: uri
+        withColor:
+          $ref: '#/components/schemas/AsanaWidgetPillColor'
+        withText:
+          type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    AsanaIntegration:
+      type: object
+      properties:
+        workspace:
+          type: string
+        availableProjects:
+          $ref: '#/components/schemas/ImmutableList_AsanaProject_'
+        titleTemplateOptions:
+          $ref: '#/components/schemas/ImmutableList_AsanaIntegrationTitleOptions_'
+        titleOption:
+          $ref: '#/components/schemas/AsanaTitleTemplate'
+        withWorkspace:
+          type: string
+        withAvailableProjects:
+          type: array
+          items:
+            $ref: '#/components/schemas/AsanaProject'
+        withTitleTemplateOptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AsanaIntegrationTitleOptions'
+        withTitleOption:
+          $ref: '#/components/schemas/AsanaTitleTemplate'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    AsanaWidgetFooter:
+      type: object
+      properties:
+        footer_type:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+          nullable: true
+        last_updated_at:
+          type: string
+          format: date-time
+          nullable: true
+        text:
+          type: string
+          nullable: true
+        withFooter_type:
+          type: string
+        withCreated_at:
+          type: string
+          format: date-time
+        withLast_updated_at:
+          type: string
+          format: date-time
+        withText:
+          type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    AsanaSyncForm:
+      type: object
+      properties:
+        title:
+          type: string
+        on_submit_callback:
+          type: string
+          format: uri
+        on_change_callback:
+          type: string
+          format: uri
+        submit_button_text:
+          type: string
+        fields:
+          $ref: '#/components/schemas/ImmutableList_AsanaSyncFormField_'
+        withTitle:
+          type: string
+        withOn_submit_callback:
+          type: string
+          format: uri
+        withOn_change_callback:
+          type: string
+          format: uri
+        withSubmit_button_text:
+          type: string
+        withFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/AsanaSyncFormField'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    AbstractCollection_AsanaProject_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    AsanaWorkspace:
+      type: object
+      properties:
+        gid:
+          type: string
+        resource_type:
+          $ref: '#/components/schemas/ResourceType'
+        name:
+          type: string
+        withGid:
+          type: string
+        withResource_type:
+          $ref: '#/components/schemas/ResourceType'
+        withName:
+          type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    AsanaFormFieldOption:
+      type: object
+      properties:
+        id:
+          type: string
+        label:
+          type: string
+        sub_label:
+          type: string
+          nullable: true
+        withId:
+          type: string
+        withLabel:
+          type: string
+        withSub_label:
+          type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    AbstractCollection_AsanaSyncFormField_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    AsanaWidgetPillColor:
+      type: string
+      enum:
+      - none
+      - red
+      - orange
+      - yellow_orange
+      - yellow
+      - yellow_green
+      - green
+      - blue_green
+      - aqua
+      - blue
+      - indigo
+      - purple
+      - magenta
+      - hot_pink
+      - pink
+      - cool_gray
+      x-enum-varnames:
+      - none
+      - red
+      - orange
+      - yellow_orange
+      - yellow
+      - yellow_green
+      - green
+      - blue_green
+      - aqua
+      - blue
+      - indigo
+      - purple
+      - magenta
+      - hot_pink
+      - pink
+      - cool_gray
+    AsanaProject:
+      type: object
+      properties:
+        gid:
+          type: string
+        resource_type:
+          $ref: '#/components/schemas/ResourceType'
+        name:
+          type: string
+        workspace:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/AsanaWorkspace'
+        withGid:
+          type: string
+        withResource_type:
+          $ref: '#/components/schemas/ResourceType'
+        withName:
+          type: string
+        withWorkspace:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/AsanaWorkspace'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    AbstractCollection_AsanaFormFieldOption_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    ImmutableList_AsanaFormFieldOption_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_AsanaFormFieldOption_'
+      - $ref: '#/components/schemas/AbstractCollection_AsanaFormFieldOption_'
+      - properties:
+          empty:
+            type: boolean
+          first:
+            $ref: '#/components/schemas/AsanaFormFieldOption'
+          last:
+            $ref: '#/components/schemas/AsanaFormFieldOption'
+    AsanaFormMetadata:
+      type: object
+      properties:
+        metadata:
+          $ref: '#/components/schemas/AsanaSyncForm'
+        template:
+          type: string
+        withMetadata:
+          $ref: '#/components/schemas/AsanaSyncForm'
+        withTemplate:
+          type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    ImmutableCollection_AsanaIntegrationTitleOptions_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_AsanaIntegrationTitleOptions_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    AsanaFormFieldType:
+      type: string
+      enum:
+      - single_line_text
+      - rich_text
+      - typeahead
+      - checkboxes
+      - radio_button
+      - date
+      - datetime
+      - static_text
+      - dropdown
+      x-enum-varnames:
+      - single_line_text
+      - rich_text
+      - typeahead
+      - checkboxes
+      - radio_button
+      - date
+      - datetime
+      - static_text
+      - dropdown
+    AsanaIntegrationPatch:
+      type: object
+      properties:
+        titleOption:
+          $ref: '#/components/schemas/AsanaTitleTemplate'
+        withTitleOption:
+          $ref: '#/components/schemas/AsanaTitleTemplate'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    AsanaIntegrationTitleOptions:
+      type: object
+      properties:
+        value:
+          $ref: '#/components/schemas/AsanaTitleTemplate'
+        template:
+          type: string
+        example:
+          type: string
+        withValue:
+          $ref: '#/components/schemas/AsanaTitleTemplate'
+        withTemplate:
+          type: string
+        withExample:
+          type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    AsanaWidgetFieldType:
+      type: string
+      enum:
+      - datetime_with_icon
+      - pill
+      - text_with_icon
+      x-enum-varnames:
+      - datetime_with_icon
+      - pill
+      - text_with_icon
+    AsanaAttachedResource:
+      type: object
+      properties:
+        error:
+          type: string
+          nullable: true
+        resource_name:
+          type: string
+          nullable: true
+        resource_url:
+          type: string
+          format: uri
+          nullable: true
+        withError:
+          type: string
+          nullable: true
+        withResource_name:
+          type: string
+          nullable: true
+        withResource_url:
+          type: string
+          format: uri
+          nullable: true
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    ResourceType:
+      type: string
+      enum:
+      - user
+      - task
+      - tag
+      - project
+      - workspace
+      - story
+      - webhook
+      - user_task_list
+      - custom_field
+      - attachment
+      - team
+      x-enum-varnames:
+      - user
+      - task
+      - tag
+      - project
+      - workspace
+      - story
+      - webhook
+      - user_task_list
+      - custom_field
+      - attachment
+      - team
+    ImmutableCollection_AsanaSyncFormField_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_AsanaSyncFormField_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    AsanaSyncFormField:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/AsanaFormFieldType'
+        id:
+          type: string
+        name:
+          type: string
+        value:
+          type: string
+          nullable: true
+        placeholder:
+          type: string
+          nullable: true
+        width:
+          type: string
+          nullable: true
+        error:
+          type: string
+          nullable: true
+        options:
+          nullable: true
+          allOf:
+          - $ref: '#/components/schemas/ImmutableList_AsanaFormFieldOption_'
+        is_watched:
+          type: boolean
+        is_required:
+          type: boolean
+        withType:
+          $ref: '#/components/schemas/AsanaFormFieldType'
+        withId:
+          type: string
+        withName:
+          type: string
+        withValue:
+          type: string
+        withPlaceholder:
+          type: string
+        withWidth:
+          type: string
+        withError:
+          type: string
+        withOptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AsanaFormFieldOption'
+        withIs_watched:
+          type: boolean
+        withIs_required:
+          type: boolean
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    AsanaSyncFormSubmission:
+      type: object
+      properties:
+        data:
+          type: string
+        withData:
+          type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    ImmutableList_AsanaIntegrationTitleOptions_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_AsanaIntegrationTitleOptions_'
+      - $ref: '#/components/schemas/AbstractCollection_AsanaIntegrationTitleOptions_'
+      - properties:
+          empty:
+            type: boolean
+          first:
+            $ref: '#/components/schemas/AsanaIntegrationTitleOptions'
+          last:
+            $ref: '#/components/schemas/AsanaIntegrationTitleOptions'
+    AbstractCollection_AsanaWidgetField_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    ImmutableCollection_AsanaProject_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_AsanaProject_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    ImmutableCollection_AsanaWidgetField_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_AsanaWidgetField_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    ImmutableList_AsanaProject_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_AsanaProject_'
+      - $ref: '#/components/schemas/AbstractCollection_AsanaProject_'
+      - properties:
+          empty:
+            type: boolean
+          first:
+            $ref: '#/components/schemas/AsanaProject'
+          last:
+            $ref: '#/components/schemas/AsanaProject'
+    AbstractCollection_AsanaIntegrationTitleOptions_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    ImmutableCollection_AsanaFormFieldOption_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_AsanaFormFieldOption_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    ImmutableList_AsanaWidgetField_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_AsanaWidgetField_'
+      - $ref: '#/components/schemas/AbstractCollection_AsanaWidgetField_'
+      - properties:
+          empty:
+            type: boolean
+          first:
+            $ref: '#/components/schemas/AsanaWidgetField'
+          last:
+            $ref: '#/components/schemas/AsanaWidgetField'
+    ImmutableList_AsanaSyncFormField_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_AsanaSyncFormField_'
+      - $ref: '#/components/schemas/AbstractCollection_AsanaSyncFormField_'
+      - properties:
+          empty:
+            type: boolean
+          first:
+            $ref: '#/components/schemas/AsanaSyncFormField'
+          last:
+            $ref: '#/components/schemas/AsanaSyncFormField'
+    AsanaWidget:
+      type: object
+      properties:
+        title:
+          type: string
+        error:
+          type: string
+          nullable: true
+        fields:
+          $ref: '#/components/schemas/ImmutableList_AsanaWidgetField_'
+        subtitle:
+          type: string
+          nullable: true
+        subicon_url:
+          type: string
+          format: uri
+          nullable: true
+        num_comments:
+          type: integer
+          format: int32
+          nullable: true
+        footer:
+          $ref: '#/components/schemas/AsanaWidgetFooter'
+        withTitle:
+          type: string
+        withError:
+          type: string
+        withFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/AsanaWidgetField'
+        withSubtitle:
+          type: string
+        withSubicon_url:
+          type: string
+          format: uri
+        withNum_comments:
+          type: integer
+          format: int32
+        withFooter:
+          $ref: '#/components/schemas/AsanaWidgetFooter'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+  securitySchemes:
+    Authorization:
+      type: oauth2

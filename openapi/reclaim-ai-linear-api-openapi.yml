@@ -1,0 +1,334 @@
+openapi: 3.0.1
+info:
+  title: Reclaim account-time-schemes linear API
+  description: Reclaim's awesome API
+  contact:
+    name: Reclaim.ai Inc.
+    url: http://reclaim.ai
+    email: info@reclaim.ai
+  license:
+    name: Reclaim 9.9
+    url: http://reclaim.ai
+  version: '0.1'
+tags:
+- name: linear
+paths:
+  /api/linear/integrations:
+    get:
+      tags:
+      - linear
+      operationId: integrations_5
+      responses:
+        '200':
+          description: integrations_5 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LinearIntegration'
+      security:
+      - Authorization: []
+  /api/linear/integrations/{id}:
+    delete:
+      tags:
+      - linear
+      operationId: deleteIntegration_3
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: deleteIntegration_3 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+    patch:
+      tags:
+      - linear
+      operationId: patchIntegration_3
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LinearIntegrationPatch'
+        required: true
+      responses:
+        '200':
+          description: patchIntegration_3 200 response
+          content:
+            application/json:
+              schema:
+                type: object
+      security:
+      - Authorization: []
+  /api/linear/issue/{id}:
+    get:
+      tags:
+      - linear
+      operationId: issueDetails
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: issueDetails 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LinearTaskDetails'
+  /web/linear/task/{id}:
+    get:
+      tags:
+      - linear
+      operationId: taskDetails_3
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: taskDetails_3 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LinearTaskDetails'
+components:
+  schemas:
+    LinearWorkflowStateType:
+      type: string
+      enum:
+      - triage
+      - backlog
+      - started
+      - unstarted
+      - completed
+      - canceled
+      - duplicate
+      - unknown
+      x-enum-varnames:
+      - triage
+      - backlog
+      - started
+      - unstarted
+      - completed
+      - canceled
+      - duplicate
+      - unknown
+    AbstractCollection_AbstractLinearTeam_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    AbstractLinearTeam:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        key:
+          type: string
+        issueEstimationType:
+          type: string
+          nullable: true
+        issueStatuses:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinearState'
+    TaskStatus:
+      type: string
+      enum:
+      - NEW
+      - SCHEDULED
+      - IN_PROGRESS
+      - COMPLETE
+      - CANCELLED
+      - ARCHIVED
+    AbstractCollection_String_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    LinearTaskDetails:
+      type: object
+      properties:
+        taskId:
+          type: integer
+          format: int64
+        owner:
+          type: boolean
+        status:
+          $ref: '#/components/schemas/TaskStatus'
+        withTaskId:
+          type: integer
+          format: int64
+        withOwner:
+          type: boolean
+        withStatus:
+          $ref: '#/components/schemas/TaskStatus'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    ImmutableCollection_String_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_String_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    LinearIntegrationPatch:
+      type: object
+      properties:
+        requiresLabel:
+          type: boolean
+          nullable: true
+        dueDateRequired:
+          type: boolean
+          nullable: true
+        selectedTeamIds:
+          type: array
+          nullable: true
+          items:
+            type: string
+        withRequiresLabel:
+          type: boolean
+        withDueDateRequired:
+          type: boolean
+        withSelectedTeamIds:
+          type: array
+          nullable: true
+          items:
+            type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    LinearIntegration:
+      type: object
+      properties:
+        id:
+          type: string
+        requiresLabel:
+          type: boolean
+        requiresDueDate:
+          type: boolean
+        availableTeams:
+          $ref: '#/components/schemas/ImmutableList_AbstractLinearTeam_'
+        selectedTeamIds:
+          $ref: '#/components/schemas/ImmutableSet_String_'
+        withId:
+          type: string
+        withRequiresLabel:
+          type: boolean
+        withRequiresDueDate:
+          type: boolean
+        withAvailableTeams:
+          type: array
+          items:
+            $ref: '#/components/schemas/AbstractLinearTeam'
+        withSelectedTeamIds:
+          type: array
+          items:
+            type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    ImmutableList_AbstractLinearTeam_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_AbstractLinearTeam_'
+      - $ref: '#/components/schemas/AbstractCollection_AbstractLinearTeam_'
+      - properties:
+          empty:
+            type: boolean
+          first:
+            $ref: '#/components/schemas/AbstractLinearTeam'
+          last:
+            $ref: '#/components/schemas/AbstractLinearTeam'
+    ImmutableCollection_AbstractLinearTeam_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_AbstractLinearTeam_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    LinearState:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+          nullable: true
+        color:
+          type: string
+        type:
+          $ref: '#/components/schemas/LinearWorkflowStateType'
+        position:
+          type: number
+          format: float
+        withId:
+          type: string
+        withName:
+          type: string
+        withDescription:
+          type: string
+          nullable: true
+        withColor:
+          type: string
+        withType:
+          $ref: '#/components/schemas/LinearWorkflowStateType'
+        withPosition:
+          type: number
+          format: float
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    ImmutableSet_String_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_String_'
+      - $ref: '#/components/schemas/AbstractCollection_String_'
+      - properties:
+          empty:
+            type: boolean
+          hashCodeFast:
+            type: boolean
+  securitySchemes:
+    Authorization:
+      type: oauth2
