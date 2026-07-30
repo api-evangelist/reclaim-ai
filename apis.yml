@@ -3,7 +3,20 @@ description: AI-powered scheduling platform with a REST API for managing tasks, 
   meeting buffers, and automatically optimizing calendar time for deep work and meetings.
   Reclaim integrates with Google Calendar and Outlook to protect focus time, improve
   meeting quality, and provide workforce scheduling analytics.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/reclaim-ai.png
 url: https://raw.githubusercontent.com/api-evangelist/reclaim-ai/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -20,26 +33,1010 @@ tags:
   - Meetings
   - Focus Time
 apis:
-  - name: Reclaim API
-    description: REST API for managing Reclaim.ai scheduling features including tasks,
-      habits, smart meetings, calendar sync, analytics, webhooks, and AI-driven
-      time optimization across Google Calendar and Outlook.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
-    baseURL: https://api.app.reclaim.ai
-    tags:
-      - Calendar
-      - Scheduling
-      - Tasks
-      - Habits
-      - Meetings
-      - Analytics
-      - Webhooks
-    properties:
-      - type: Documentation
-        url: https://help.reclaim.ai/en/collections/3455874-developer-api
-      - type: OpenAPI
-        url: https://api.app.reclaim.ai/swagger/reclaim-api-0.1.yml
+- aid: reclaim-ai:reclaim-ai-account-time-schemes-api
+  name: Reclaim.ai account-time-schemes API
+  description: The account-time-schemes API from Reclaim.ai — 2 operation(s) for account-time-schemes.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - account-time-schemes
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-account-time-schemes-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-accounts-api
+  name: Reclaim.ai accounts API
+  description: The accounts API from Reclaim.ai — 9 operation(s) for accounts.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-accounts-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-action-items-api
+  name: Reclaim.ai action-items API
+  description: The action-items API from Reclaim.ai — 1 operation(s) for action-items.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - action-items
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-action-items-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-actions-api
+  name: Reclaim.ai actions API
+  description: The actions API from Reclaim.ai — 41 operation(s) for actions.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - actions
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-actions-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-admin-api
+  name: Reclaim.ai Admin API
+  description: The Admin API from Reclaim.ai — 7 operation(s) for admin.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - Admin
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-admin-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-analytics-api
+  name: Reclaim.ai analytics API
+  description: The analytics API from Reclaim.ai — 10 operation(s) for analytics.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - analytics
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-analytics-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-anonymous-api
+  name: Reclaim.ai Anonymous API
+  description: The Anonymous API from Reclaim.ai — 1 operation(s) for anonymous.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - Anonymous
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-anonymous-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-api-management-api
+  name: Reclaim.ai api-management API
+  description: The api-management API from Reclaim.ai — 4 operation(s) for api-management.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - api-management
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-api-management-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-asana-api
+  name: Reclaim.ai asana API
+  description: The asana API from Reclaim.ai — 6 operation(s) for asana.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - asana
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-asana-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-assist-api
+  name: Reclaim.ai assist API
+  description: The assist API from Reclaim.ai — 7 operation(s) for assist.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - assist
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-assist-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-assistant-api
+  name: Reclaim.ai Assistant API
+  description: The Assistant API from Reclaim.ai — 1 operation(s) for assistant.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - Assistant
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-assistant-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-avatar-api
+  name: Reclaim.ai Avatar API
+  description: The Avatar API from Reclaim.ai — 6 operation(s) for avatar.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - Avatar
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-avatar-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-aws-ses-api
+  name: Reclaim.ai aws-ses API
+  description: The aws-ses API from Reclaim.ai — 1 operation(s) for aws-ses.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - aws-ses
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-aws-ses-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-buildings-api
+  name: Reclaim.ai buildings API
+  description: The buildings API from Reclaim.ai — 10 operation(s) for buildings.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - buildings
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-buildings-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-calendars-api
+  name: Reclaim.ai calendars API
+  description: The calendars API from Reclaim.ai — 20 operation(s) for calendars.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - calendars
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-calendars-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-calendarsyncpolicy-api
+  name: Reclaim.ai calendarSyncPolicy API
+  description: The calendarSyncPolicy API from Reclaim.ai — 4 operation(s) for calendarsyncpolicy.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - calendarSyncPolicy
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-calendarsyncpolicy-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-changelog-api
+  name: Reclaim.ai changelog API
+  description: The changelog API from Reclaim.ai — 6 operation(s) for changelog.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - changelog
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-changelog-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-clickup-api
+  name: Reclaim.ai clickup API
+  description: The clickup API from Reclaim.ai — 5 operation(s) for clickup.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - clickup
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-clickup-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-clockwise-api
+  name: Reclaim.ai clockwise API
+  description: The clockwise API from Reclaim.ai — 6 operation(s) for clockwise.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - clockwise
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-clockwise-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-contacts-api
+  name: Reclaim.ai contacts API
+  description: The contacts API from Reclaim.ai — 7 operation(s) for contacts.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - contacts
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-contacts-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-credentials-api
+  name: Reclaim.ai credentials API
+  description: The credentials API from Reclaim.ai — 4 operation(s) for credentials.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - credentials
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-credentials-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-delegated-access-api
+  name: Reclaim.ai delegated-access API
+  description: The delegated-access API from Reclaim.ai — 4 operation(s) for delegated-access.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - delegated-access
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-delegated-access-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-effective-time-policy-api
+  name: Reclaim.ai effective-time-policy API
+  description: >-
+    The effective-time-policy API from Reclaim.ai — 1 operation(s) for effective-time-policy.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - effective-time-policy
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-effective-time-policy-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-embed-api
+  name: Reclaim.ai Embed API
+  description: The Embed API from Reclaim.ai — 2 operation(s) for embed.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - Embed
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-embed-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-enum-registry-api
+  name: Reclaim.ai Enum Registry API
+  description: The Enum Registry API from Reclaim.ai — 1 operation(s) for enum registry.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - Enum Registry
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-enum-registry-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-events-api
+  name: Reclaim.ai events API
+  description: The events API from Reclaim.ai — 18 operation(s) for events.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - events
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-events-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-extra-types-api
+  name: Reclaim.ai extra-types API
+  description: The extra-types API from Reclaim.ai — 7 operation(s) for extra-types.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - extra-types
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-extra-types-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-focus-planner-actions-api
+  name: Reclaim.ai focus-planner-actions API
+  description: >-
+    The focus-planner-actions API from Reclaim.ai — 4 operation(s) for focus-planner-actions.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - focus-planner-actions
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-focus-planner-actions-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-focus-settings-api
+  name: Reclaim.ai focus-settings API
+  description: The focus-settings API from Reclaim.ai — 7 operation(s) for focus-settings.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - focus-settings
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-focus-settings-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-google-add-on-api
+  name: Reclaim.ai google-add-on API
+  description: The google-add-on API from Reclaim.ai — 2 operation(s) for google-add-on.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - google-add-on
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-google-add-on-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-google-groups-api
+  name: Reclaim.ai google-groups API
+  description: The google-groups API from Reclaim.ai — 1 operation(s) for google-groups.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - google-groups
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-google-groups-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-integration-api
+  name: Reclaim.ai integration API
+  description: The integration API from Reclaim.ai — 42 operation(s) for integration.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - integration
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-integration-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-integrations-api
+  name: Reclaim.ai Integrations API
+  description: The Integrations API from Reclaim.ai — 6 operation(s) for integrations.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - Integrations
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-integrations-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-interactions-api
+  name: Reclaim.ai interactions API
+  description: The interactions API from Reclaim.ai — 25 operation(s) for interactions.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - interactions
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-interactions-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-interpreter-api
+  name: Reclaim.ai Interpreter API
+  description: The Interpreter API from Reclaim.ai — 2 operation(s) for interpreter.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - Interpreter
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-interpreter-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-invite-api
+  name: Reclaim.ai invite API
+  description: The invite API from Reclaim.ai — 1 operation(s) for invite.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - invite
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-invite-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-jira-api
+  name: Reclaim.ai jira API
+  description: The jira API from Reclaim.ai — 3 operation(s) for jira.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - jira
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-jira-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-jira-v2-api
+  name: Reclaim.ai jira-v2 API
+  description: The jira-v2 API from Reclaim.ai — 2 operation(s) for jira-v2.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - jira-v2
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-jira-v2-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-linear-api
+  name: Reclaim.ai linear API
+  description: The linear API from Reclaim.ai — 4 operation(s) for linear.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - linear
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-linear-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-llm-tool-approvals-api
+  name: Reclaim.ai LLM Tool Approvals API
+  description: The LLM Tool Approvals API from Reclaim.ai — 2 operation(s) for llm tool approvals.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - LLM Tool Approvals
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-llm-tool-approvals-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-matcher-api
+  name: Reclaim.ai matcher API
+  description: The matcher API from Reclaim.ai — 2 operation(s) for matcher.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - matcher
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-matcher-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-mcp-api
+  name: Reclaim.ai Mcp API
+  description: The Mcp API from Reclaim.ai — 9 operation(s) for mcp.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - Mcp
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-mcp-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-memories-api
+  name: Reclaim.ai memories API
+  description: The memories API from Reclaim.ai — 2 operation(s) for memories.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - memories
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-memories-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-moment-api
+  name: Reclaim.ai moment API
+  description: The moment API from Reclaim.ai — 2 operation(s) for moment.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - moment
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-moment-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-notion-api
+  name: Reclaim.ai notion API
+  description: The notion API from Reclaim.ai — 2 operation(s) for notion.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - notion
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-notion-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-oauth-2-0-api
+  name: Reclaim.ai OAuth 2.0 API
+  description: The OAuth 2.0 API from Reclaim.ai — 5 operation(s) for oauth 2.0.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - OAuth 2.0
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-oauth-2-0-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-oauth-2-0-client-management-api
+  name: Reclaim.ai OAuth 2.0 Client Management API
+  description: >-
+    The OAuth 2.0 Client Management API from Reclaim.ai — 3 operation(s) for oauth 2.0 client management.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - OAuth 2.0 Client Management
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-oauth-2-0-client-management-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-oauth-api
+  name: Reclaim.ai Oauth API
+  description: The Oauth API from Reclaim.ai — 4 operation(s) for oauth.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - Oauth
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-oauth-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-oauth2-api
+  name: Reclaim.ai Oauth2 API
+  description: The Oauth2 API from Reclaim.ai — 1 operation(s) for oauth2.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - Oauth2
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-oauth2-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-ok-api
+  name: Reclaim.ai Ok API
+  description: The Ok API from Reclaim.ai — 2 operation(s) for ok.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - Ok
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-ok-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-oneonones-api
+  name: Reclaim.ai oneOnOnes API
+  description: The oneOnOnes API from Reclaim.ai — 13 operation(s) for oneonones.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - oneOnOnes
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-oneonones-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-ooo-calendars-api
+  name: Reclaim.ai ooo-calendars API
+  description: The ooo-calendars API from Reclaim.ai — 5 operation(s) for ooo-calendars.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - ooo-calendars
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-ooo-calendars-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-participant-resolution-api
+  name: Reclaim.ai participant-resolution API
+  description: >-
+    The participant-resolution API from Reclaim.ai — 2 operation(s) for participant-resolution.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - participant-resolution
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-participant-resolution-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-partnerstack-api
+  name: Reclaim.ai partnerstack API
+  description: The partnerstack API from Reclaim.ai — 1 operation(s) for partnerstack.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - partnerstack
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-partnerstack-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-people-api
+  name: Reclaim.ai people API
+  description: The people API from Reclaim.ai — 3 operation(s) for people.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - people
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-people-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-private-api
+  name: Reclaim.ai private API
+  description: The private API from Reclaim.ai — 45 operation(s) for private.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - private
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-private-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-quest-api
+  name: Reclaim.ai quest API
+  description: The quest API from Reclaim.ai — 1 operation(s) for quest.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - quest
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-quest-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-reclaim-tasks-api
+  name: Reclaim.ai reclaim-tasks API
+  description: The reclaim-tasks API from Reclaim.ai — 3 operation(s) for reclaim-tasks.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - reclaim-tasks
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-reclaim-tasks-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-recommended-tasks-api
+  name: Reclaim.ai recommended-tasks API
+  description: The recommended-tasks API from Reclaim.ai — 4 operation(s) for recommended-tasks.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - recommended-tasks
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-recommended-tasks-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-resources-api
+  name: Reclaim.ai resources API
+  description: The resources API from Reclaim.ai — 1 operation(s) for resources.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - resources
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-resources-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-schedule-actions-api
+  name: Reclaim.ai schedule-actions API
+  description: The schedule-actions API from Reclaim.ai — 12 operation(s) for schedule-actions.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - schedule-actions
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-schedule-actions-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-schedule-availability-api
+  name: Reclaim.ai schedule-availability API
+  description: >-
+    The schedule-availability API from Reclaim.ai — 4 operation(s) for schedule-availability.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - schedule-availability
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-schedule-availability-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-schedule-policy-api
+  name: Reclaim.ai schedule-policy API
+  description: The schedule-policy API from Reclaim.ai — 12 operation(s) for schedule-policy.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - schedule-policy
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-schedule-policy-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-scim-api
+  name: Reclaim.ai Scim API
+  description: The Scim API from Reclaim.ai — 6 operation(s) for scim.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - Scim
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-scim-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-scoring-api
+  name: Reclaim.ai scoring API
+  description: The scoring API from Reclaim.ai — 1 operation(s) for scoring.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - scoring
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-scoring-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-slack-api
+  name: Reclaim.ai slack API
+  description: The slack API from Reclaim.ai — 10 operation(s) for slack.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - slack
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-slack-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-smart-habit-custom-templates-api
+  name: Reclaim.ai smart-habit-custom-templates API
+  description: >-
+    The smart-habit-custom-templates API from Reclaim.ai — 4 operation(s) for smart-habit-custom-templates.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - smart-habit-custom-templates
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-smart-habit-custom-templates-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-smart-habits-api
+  name: Reclaim.ai smart-habits API
+  description: The smart-habits API from Reclaim.ai — 29 operation(s) for smart-habits.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - smart-habits
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-smart-habits-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-smart-meetings-api
+  name: Reclaim.ai smart-meetings API
+  description: The smart-meetings API from Reclaim.ai — 22 operation(s) for smart-meetings.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - smart-meetings
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-smart-meetings-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-smartseriesmigration-api
+  name: Reclaim.ai SmartSeriesMigration API
+  description: The SmartSeriesMigration API from Reclaim.ai — 2 operation(s) for smartseriesmigration.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - SmartSeriesMigration
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-smartseriesmigration-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-tasks-api
+  name: Reclaim.ai tasks API
+  description: The tasks API from Reclaim.ai — 11 operation(s) for tasks.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - tasks
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-tasks-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-time-scheme-api
+  name: Reclaim.ai time-scheme API
+  description: The time-scheme API from Reclaim.ai — 4 operation(s) for time-scheme.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - time-scheme
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-time-scheme-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-time-scheme-rules-api
+  name: Reclaim.ai time-scheme-rules API
+  description: The time-scheme-rules API from Reclaim.ai — 3 operation(s) for time-scheme-rules.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - time-scheme-rules
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-time-scheme-rules-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-time-window-overrides-api
+  name: Reclaim.ai Time Window Overrides API
+  description: >-
+    The Time Window Overrides API from Reclaim.ai — 3 operation(s) for time window overrides.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - Time Window Overrides
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-time-window-overrides-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-timepolicies-api
+  name: Reclaim.ai timePolicies API
+  description: The timePolicies API from Reclaim.ai — 1 operation(s) for timepolicies.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - timePolicies
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-timepolicies-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-todoist-api
+  name: Reclaim.ai todoist API
+  description: The todoist API from Reclaim.ai — 6 operation(s) for todoist.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - todoist
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-todoist-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-user-notification-settings-api
+  name: Reclaim.ai user-notification-settings API
+  description: >-
+    The user-notification-settings API from Reclaim.ai — 1 operation(s) for user-notification-settings.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - user-notification-settings
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-user-notification-settings-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-user-notifications-api
+  name: Reclaim.ai user-notifications API
+  description: The user-notifications API from Reclaim.ai — 1 operation(s) for user-notifications.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - user-notifications
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-user-notifications-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-users-api
+  name: Reclaim.ai users API
+  description: The users API from Reclaim.ai — 45 operation(s) for users.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - users
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-users-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-webhooks-api
+  name: Reclaim.ai webhooks API
+  description: The webhooks API from Reclaim.ai — 7 operation(s) for webhooks.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-webhooks-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-websocket-api
+  name: Reclaim.ai websocket API
+  description: The websocket API from Reclaim.ai — 7 operation(s) for websocket.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - websocket
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-websocket-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-weekly-report-api
+  name: Reclaim.ai weekly-report API
+  description: The weekly-report API from Reclaim.ai — 4 operation(s) for weekly-report.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - weekly-report
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-weekly-report-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
+- aid: reclaim-ai:reclaim-ai-well-known-api
+  name: Reclaim.ai .well Known API
+  description: The .well Known API from Reclaim.ai — 13 operation(s) for .well known.
+  humanURL: https://help.reclaim.ai/en/collections/3455874-developer-api
+  baseURL: https://api.app.reclaim.ai
+  tags:
+  - .well Known
+  properties:
+  - type: OpenAPI
+    url: openapi/reclaim-ai-well-known-api-openapi.yml
+  - type: Documentation
+    url: https://help.reclaim.ai/en/collections/3455874-developer-api
 common:
   - type: AgenticAccess
     url: agentic-access/reclaim-ai-agentic-access.yml
