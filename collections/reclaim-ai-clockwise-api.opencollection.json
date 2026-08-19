@@ -1,0 +1,96 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes clockwise API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "clockwise",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "cleanupClockwiseEvents",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/clockwise/cleanup-events"
+          }
+        },
+        {
+          "info": {
+            "name": "clearSchedulerSuppression",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/clockwise/clear-suppression"
+          }
+        },
+        {
+          "info": {
+            "name": "detectClockwiseEvents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/clockwise/detect-events"
+          }
+        },
+        {
+          "info": {
+            "name": "importClockwiseData",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/clockwise/import",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getImportJobStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/clockwise/import/:jobId",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "retryImport",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/clockwise/import/:jobId/retry",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

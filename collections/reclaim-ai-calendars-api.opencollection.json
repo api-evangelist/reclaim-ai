@@ -1,0 +1,386 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes calendars API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "calendars",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "syncPermissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/calendars/permissions/sync"
+          }
+        },
+        {
+          "info": {
+            "name": "getAllPersonal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/calendars/personal"
+          }
+        },
+        {
+          "info": {
+            "name": "getPersonalCandidates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/calendars/personal/candidates",
+            "params": [
+              {
+                "name": "credentialId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getPersonal",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/calendars/personal/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "deletePersonal",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/calendars/personal/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getPrimary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/calendars/primary"
+          }
+        },
+        {
+          "info": {
+            "name": "share",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/calendars/share",
+            "params": [
+              {
+                "name": "credentialId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getAllSync",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/calendars/sync"
+          }
+        },
+        {
+          "info": {
+            "name": "createSync",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/calendars/sync",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getSyncCandidates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/calendars/sync/candidates",
+            "params": [
+              {
+                "name": "credentialId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "interest",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/calendars/sync/interest",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getSourceCandidates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/calendars/sync/:credentialId/candidates/sources",
+            "params": [
+              {
+                "name": "credentialId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getTargetCandidates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/calendars/sync/:credentialId/candidates/targets",
+            "params": [
+              {
+                "name": "credentialId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getSync",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/calendars/sync/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "deleteSync",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/calendars/sync/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "watch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/calendars/watch"
+          }
+        },
+        {
+          "info": {
+            "name": "Heads up! We have seen at least one case where Google can issue an excessive, unnatural amount of watch callbacks.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/calendars/watchList"
+          },
+          "docs": "Heads up! We have seen at least one case where Google can issue an excessive, unnatural amount of watch callbacks. for more information. Specifically, BE CAREFUL adding any blocking IO code, such as web service calls or database queries, upstream of that job."
+        },
+        {
+          "info": {
+            "name": "settingsWatch",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/calendars/watchSettings"
+          }
+        },
+        {
+          "info": {
+            "name": "repair",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/calendars/:calendarId/audit-and-repair",
+            "params": [
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "auditAndRepairV2",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/calendars/:calendarId/audit-and-repair-v2",
+            "params": [
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "resyncMode",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "cleanCalendar",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/calendars/:credentialId/:externalCalendarId/clean",
+            "params": [
+              {
+                "name": "credentialId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "externalCalendarId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "clearColors",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/calendars/:credentialId/:externalId/colors",
+            "params": [
+              {
+                "name": "credentialId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "externalId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "daysBack",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "cleanSync",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/calendars/:targetCalendarId/rescore",
+            "params": [
+              {
+                "name": "targetCalendarId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

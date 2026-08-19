@@ -1,0 +1,727 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes smart-habits API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "smart-habits",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "findAllSmartHabits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/smart-habits"
+          }
+        },
+        {
+          "info": {
+            "name": "createSmartHabit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-habits",
+            "params": [
+              {
+                "name": "sendUpdates",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "convertToSmartHabits",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-habits/convert/:calendarId/:eventId",
+            "params": [
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "detectSmartHabits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/smart-habits/detect",
+            "params": [
+              {
+                "name": "onboarding",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "markAsDone",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-habits/planner/:eventId/done",
+            "params": [
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "lockHabitInstance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-habits/planner/:eventId/lock",
+            "params": [
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "moveMeetingInstance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-habits/planner/:eventId/move",
+            "params": [
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "rescheduleMeetingInstance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-habits/planner/:eventId/reschedule",
+            "params": [
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "snoozeOption",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "skipHabitInstance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-habits/planner/:eventId/skip",
+            "params": [
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "unlockHabitInstance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-habits/planner/:eventId/unlock",
+            "params": [
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "resetSchedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-habits/planner/:lineageId/clear-exceptions",
+            "params": [
+              {
+                "name": "lineageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-habits/planner/:lineageId/record",
+            "params": [
+              {
+                "name": "lineageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "recordablePeriods",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/smart-habits/planner/:lineageId/recordable-periods",
+            "params": [
+              {
+                "name": "lineageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "startNow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-habits/planner/:lineageId/start",
+            "params": [
+              {
+                "name": "lineageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "stop",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-habits/planner/:lineageId/stop",
+            "params": [
+              {
+                "name": "lineageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "clearForceSkipped",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-habits/planner/:seriesId/clear-force-skipped",
+            "params": [
+              {
+                "name": "seriesId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "clearTimePolicyExceptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-habits/planner/:seriesId/clear-time-policy-exceptions",
+            "params": [
+              {
+                "name": "seriesId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "createSharedHabit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-habits/shared",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getSharedHabit",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/smart-habits/shared/v2/:sharedHabitShortCode",
+            "params": [
+              {
+                "name": "sharedHabitShortCode",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getSharedHabit_deprecated",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/smart-habits/shared/:sharedHabitShortCode",
+            "params": [
+              {
+                "name": "sharedHabitShortCode",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getSmartHabitTemplate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/smart-habits/template",
+            "params": [
+              {
+                "name": "key",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getSmartHabitTemplates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/smart-habits/templates",
+            "params": [
+              {
+                "name": "role",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "department",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "createHabitTemplates_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-habits/templates/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "convertToSingleInstances",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-habits/to-single-instances"
+          }
+        },
+        {
+          "info": {
+            "name": "findForSmartHabitLineage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/smart-habits/:lineageId",
+            "params": [
+              {
+                "name": "lineageId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "patchSmartHabit",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/smart-habits/:lineageId",
+            "params": [
+              {
+                "name": "lineageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sendUpdates",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteForSmartHabitLineage",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/smart-habits/:lineageId",
+            "params": [
+              {
+                "name": "lineageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sendUpdates",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "restoreIfAvailable",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "patchSmartHabitForAttendee",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/smart-habits/:lineageId/as-attendee",
+            "params": [
+              {
+                "name": "lineageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "disable",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/smart-habits/:lineageId/disable",
+            "params": [
+              {
+                "name": "lineageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "enable_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-habits/:lineageId/enable",
+            "params": [
+              {
+                "name": "lineageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "forceSuccessor",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/smart-habits/:lineageId/force-successor",
+            "params": [
+              {
+                "name": "lineageId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "convertToSingleInstances_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-habits/:lineageId/to-single-instances",
+            "params": [
+              {
+                "name": "lineageId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

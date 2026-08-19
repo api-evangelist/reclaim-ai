@@ -1,0 +1,1059 @@
+{
+  "item": [
+    {
+      "id": "e08928b5-b2e5-4663-a05c-40f787a48c00",
+      "name": "slack",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1d82a778-f2fc-4ac7-b920-4b0cadd3c463",
+          "name": "action Endpoint",
+          "request": {
+            "name": "action Endpoint",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "slack",
+                "action-endpoint"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d38cec61-5f24-452d-a61f-e98771292986",
+              "name": "OK response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "slack",
+                    "action-endpoint"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "27909164-bb0b-4149-be06-f95acdfa6934",
+          "name": "slack Redirect",
+          "request": {
+            "name": "slack Redirect",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "slack",
+                "add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "bot",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "userScopes",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "teamId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3538c1ac-dcb6-41aa-897d-a54eaa156a94",
+              "name": "OK response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "slack",
+                    "add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "bot",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "userScopes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "teamId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "73bb7564-246b-4cad-9fd6-35f8e2b61c37",
+          "name": "command",
+          "request": {
+            "name": "command",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "slack",
+                "command"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "53893a66-f210-416b-bc6d-9096ba9bf7dd",
+              "name": "OK response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "slack",
+                    "command"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4fe9a6a8-88c7-4886-a865-9c2129e019d3",
+          "name": "connect",
+          "request": {
+            "name": "connect",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "slack",
+                "connect"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "error",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0b0b4691-4fa1-4131-86dc-c46f5ae0c6cb",
+              "name": "OK response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "slack",
+                    "connect"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d2606f70-fc41-4137-ae9d-aef25dc51035",
+          "name": "get 4",
+          "request": {
+            "name": "get 4",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "slack",
+                "integrations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "03cf16f6-d0a4-43ef-af3c-c69a942c628f",
+              "name": "get_4 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "slack",
+                    "integrations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"calendarSettings\": [\n    {\n      \"calendarId\": 5482,\n      \"setting\": \"ALL_ENABLED\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f1b5d424-056d-49ca-acca-3b124d5c5321",
+          "name": "put",
+          "request": {
+            "name": "put",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "slack",
+                "integrations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"calendarSettings\": [\n    {\n      \"calendarId\": \"<long>\",\n      \"setting\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "01ff72aa-d822-4418-bb6b-001e9a50ef3a",
+              "name": "put 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "slack",
+                    "integrations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"calendarSettings\": [\n    {\n      \"calendarId\": \"<long>\",\n      \"setting\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"calendarSettings\": [\n    {\n      \"calendarId\": \"<long>\",\n      \"setting\": \"<string>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "90234805-ab27-4b96-833e-1565f6e49d10",
+          "name": "interactive Endpoint",
+          "request": {
+            "name": "interactive Endpoint",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "slack",
+                "interactive-endpoint"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "80b77a03-542b-4ff9-9d8e-70f3b80b3a5c",
+              "name": "OK response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "slack",
+                    "interactive-endpoint"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a7f2bf03-22f6-4015-bd28-cfef8a167fe4",
+          "name": "link",
+          "request": {
+            "name": "link",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "slack",
+                "link"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "teamId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "userId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"user\": {\n    \"edition\": \"<string>\",\n    \"editionUsage\": \"<string>\",\n    \"schedulerWindowWeeks\": \"<string>\",\n    \"sku\": \"<string>\",\n    \"id\": \"<string>\",\n    \"email\": \"<string>\",\n    \"principal\": \"<string>\",\n    \"provider\": \"<string>\",\n    \"baseProvider\": \"<string>\",\n    \"name\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"entitlements\": {\n      \"unlimitedHabitsEnabled\": \"<boolean>\",\n      \"unlimitedConnectedCalendarsEnabled\": \"<boolean>\",\n      \"unlimitedSyncEnabled\": \"<boolean>\",\n      \"customSyncTransparencyEnabled\": \"<boolean>\",\n      \"smart11CreationEnabled\": \"<boolean>\",\n      \"customSlackSyncStatusEnabled\": \"<boolean>\",\n      \"customConferenceBufferTitleEnabled\": \"<boolean>\",\n      \"schedulingLinkSurveyEnabled\": \"<boolean>\",\n      \"maxDaysAheadForSchedulingLinks\": \"<integer>\",\n      \"linearEnabled\": \"<boolean>\",\n      \"jiraEnabled\": \"<boolean>\",\n      \"todoistEnabled\": \"<boolean>\",\n      \"asanaEnabled\": \"<boolean>\",\n      \"clickupEnabled\": \"<boolean>\",\n      \"trelloEnabled\": \"<boolean>\",\n      \"mondayEnabled\": \"<boolean>\",\n      \"dropboxEnabled\": \"<boolean>\",\n      \"SSOEnabled\": \"<boolean>\"\n    },\n    \"detailedEntitlements\": {\n      \"unlimitedHabitsEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      },\n      \"unlimitedSyncEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      },\n      \"unlimitedConnectedCalendarsEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      },\n      \"customSyncTransparencyEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      },\n      \"smart11CreationEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      },\n      \"customSlackSyncStatusEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      },\n      \"customConferenceBufferTitleEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      },\n      \"linearEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      },\n      \"jiraEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      },\n      \"todoistEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      },\n      \"asanaEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      },\n      \"clickupEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      },\n      \"trelloEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      },\n      \"mondayEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      }\n    },\n    \"editionEntitlements\": {\n      \"MAX_TEAM_SIZE\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"SCHEDULER_WEEKS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MAX_TASKS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MAX_CALENDARS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MAX_SYNCS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MAX_HABITS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MAX_TASKS_WEEK\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"TRAVEL_TIME\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"DECOMPRESSION_TIME\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"CUSTOM_BLOCKING\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"CUSTOM_BLOCKING_DECOMPRESSION\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"CUSTOM_BLOCKING_HABITS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"CUSTOM_BLOCKING_CALENDAR_SYNC\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"CUSTOM_SLACK_STATUS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MAX_SCHEDULING_LINKS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"DERIVATIVE_SCHEDULING_LINKS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"SCHEDULING_LINK_SURVEY\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"SCHEDULING_LINK_REDIRECT\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MAX_SCHEDULING_LINK_MEETINGS_QUARTER\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MAX_1_ON_1_ORGANIZE\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MAX_1_ON_1_ATTEND\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MAX_CUSTOM_TIME_SCHEMES\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATIONS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_GOOGLE_TASKS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_GOOGLE_ADD_ON\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_SLACK\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_RAYCAST\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_ZOOM\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_TODOIST\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_LINEAR\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_JIRA\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_CLICKUP\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_ASANA\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_OFFICE_365\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_MONDAY\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_TRELLO\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_DROPBOX\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"SUPPORT\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"SSO\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"TEAM_ANALYTICS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"EVENT_PREFERENCES\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"DELEGATED_ACCESS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"SCHEDULING_LINK_ROUND_ROBIN\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"SCHEDULING_LINK_BRANDING\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"SMART_MEETING_ATTENDEE_USERS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"WEBHOOKS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MAX_STATS_WINDOW\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"FOCUS_TIME\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"OOO_CALENDAR\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MAX_AGENTS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MAX_DAILY_LLM_COST_MICROS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"PROACTIVE_LLM\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MCP\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      }\n    },\n    \"lastName\": \"<string>\",\n    \"avatarUrl\": \"<string>\",\n    \"admin\": \"<boolean>\",\n    \"slackEnabled\": \"<boolean>\",\n    \"impersonated\": \"<boolean>\",\n    \"timestampOffsetMs\": \"<long>\",\n    \"features\": {\n      \"accountLocks\": [\n        {\n          \"accountLockType\": \"<string>\",\n          \"lockMessage\": \"<string>\"\n        },\n        {\n          \"accountLockType\": \"<string>\",\n          \"lockMessage\": \"<string>\"\n        }\n      ],\n      \"analyticsSettings\": {\n        \"teamAnalyticsV4ViewEnabled\": \"<boolean>\",\n        \"teamAnalyticsV4FiltersEnabled\": \"<boolean>\"\n      },\n      \"appNotifications\": {\n        \"enabled\": \"<boolean>\",\n        \"unscheduledPriority\": \"<boolean>\",\n        \"audioAlertEnabled\": \"<boolean>\",\n        \"titleTagAlertEnabled\": \"<boolean>\"\n      },\n      \"asana\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"assistSettings\": {\n        \"travel\": \"<boolean>\",\n        \"otherTravelDuration\": \"<integer>\",\n        \"conferenceBuffer\": \"<boolean>\",\n        \"conferenceBufferDuration\": \"<integer>\",\n        \"assignmentPaddingDuration\": \"<integer>\",\n        \"conferenceBufferPrivate\": \"<boolean>\",\n        \"conferenceBufferType\": \"<string>\",\n        \"customConferenceBufferTitle\": \"<string>\",\n        \"focus\": \"<boolean>\",\n        \"allOneOnOnesBusy\": \"<boolean>\",\n        \"autoLockForMeetings\": \"<string>\",\n        \"autoLockForNonMeetings\": \"<string>\",\n        \"sendMeetingNotifications\": \"<boolean>\",\n        \"useFreeBusyEmojis\": \"<boolean>\",\n        \"useLockEmoji\": \"<boolean>\",\n        \"includeDescription\": \"<boolean>\",\n        \"includeAttribution\": \"<boolean>\",\n        \"smartSeries\": \"<boolean>\",\n        \"smartMeetingRecurrenceType\": \"<string>\",\n        \"smartHabitRecurrenceType\": \"<string>\",\n        \"showClassicHabits\": \"<boolean>\",\n        \"allowSmartSeriesOptIn\": \"<boolean>\",\n        \"smartSeriesMigrateComplete\": \"<boolean>\",\n        \"neverSeenClassicHabits\": \"<boolean>\",\n        \"notificationSettings\": {\n          \"detectedDigest\": \"<boolean>\",\n          \"instanceChanges\": \"<boolean>\",\n          \"instanceWindowInDays\": \"<integer>\",\n          \"needsAttentionDigest\": \"<boolean>\"\n        },\n        \"assistDays\": \"<integer>\",\n        \"bypassed\": \"<boolean>\",\n        \"dayZero\": \"<date>\",\n        \"schedulerDisabled\": \"<boolean>\",\n        \"schedulerSuppressedUntil\": \"<dateTime>\",\n        \"schedulerSuppressed\": \"<boolean>\",\n        \"rescheduleUnstarted\": \"<boolean>\",\n        \"rescheduleUnstartedOkToSchedule\": \"<boolean>\",\n        \"dampSmartMeetings\": \"<boolean>\",\n        \"scheduleSmartMeetingsAtMostDaily\": \"<boolean>\",\n        \"scheduleSmartMeetingsOnce\": \"<boolean>\",\n        \"manualAssistRunsEnabled\": \"<boolean>\",\n        \"schedulerWindowWeeks\": \"<string>\",\n        \"extendedSmartMeetingCooldown\": \"<boolean>\",\n        \"includeOrganizerInSmartSeries\": \"<boolean>\",\n        \"debugScheduler\": \"<boolean>\",\n        \"smartHabitGen2ToGen3MigrationDate\": \"<dateTime>\",\n        \"smartMeetingGen2ToGen3MigrationDate\": \"<dateTime>\",\n        \"gen1HabitsAndMeetingsToGen3AutoMigrate\": \"<boolean>\",\n        \"smartHabitsToGen3AutoMigrate\": \"<boolean>\",\n        \"smartMeetingsToGen3AutoMigrate\": \"<boolean>\"\n      },\n      \"assistant\": {\n        \"enabled\": \"<boolean>\",\n        \"calendarUIEnabled\": \"<boolean>\",\n        \"scoringSettings\": {\n          \"version\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"experimentalFeaturesEnabled\": \"<boolean>\",\n        \"mcpDebug\": \"<boolean>\",\n        \"disableBackgroundAutomation\": \"<boolean>\",\n        \"orgRelationshipsEnabled\": \"<boolean>\",\n        \"enableExternalLlm\": \"<boolean>\",\n        \"selfServiceMigrationEnabled\": \"<boolean>\",\n        \"persistedToolApprovalsEnabled\": \"<boolean>\"\n      },\n      \"availabilitySettings\": {\n        \"redisCacheEnabled\": \"<boolean>\"\n      },\n      \"billing\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"calendar\": {\n        \"enabled\": \"<boolean>\",\n        \"calendarCleanupRunning\": \"<dateTime>\"\n      },\n      \"calendarEntrySettings\": {\n        \"pipelineEnabled\": \"<boolean>\",\n        \"pipelineWatchEnabled\": \"<boolean>\",\n        \"autoMigrate\": \"<boolean>\",\n        \"shouldMigrate\": \"<boolean>\",\n        \"selfServiceMigrate\": \"<boolean>\",\n        \"dailyAudit\": \"<boolean>\",\n        \"microsoftPipelineBatching\": \"<boolean>\",\n        \"scoredTopContacts\": \"<boolean>\",\n        \"googleGhCutoff\": \"<boolean>\",\n        \"usePipelineCleanCalendar\": \"<boolean>\",\n        \"dedicatedUpsertEnabled\": \"<boolean>\"\n      },\n      \"calendarPermissionSettings\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"colors\": {\n        \"enabled\": \"<boolean>\",\n        \"categoriesEnabled\": \"<boolean>\",\n        \"lastModified\": \"<dateTime>\",\n        \"priorities\": {\n          \"key_0\": \"<string>\"\n        },\n        \"categories\": {\n          \"key_0\": \"<string>\"\n        }\n      },\n      \"dropboxSettings\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"eventDisplayPreferences\": {\n        \"attribution\": \"<boolean>\",\n        \"busyEmoji\": \"<boolean>\",\n        \"description\": \"<boolean>\",\n        \"doneEmoji\": \"<boolean>\",\n        \"freeEmoji\": \"<boolean>\",\n        \"lockEmoji\": \"<boolean>\",\n        \"prefix\": \"<boolean>\",\n        \"progressEmoji\": \"<boolean>\",\n        \"warningEmoji\": \"<boolean>\"\n      },\n      \"experimentalSettings\": {\n        \"treatOptionalSmartMeetingAttendeesAsFree\": \"<boolean>\",\n        \"lookAheadForSmartMeetingIdealDayOnWeeklyMeetings\": \"<boolean>\"\n      },\n      \"focus\": {\n        \"enabled\": \"<boolean>\",\n        \"debug\": \"<boolean>\"\n      },\n      \"googleAddOnSettings\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"interests\": {\n        \"tasks\": \"<boolean>\",\n        \"priorities\": \"<boolean>\",\n        \"office365\": \"<boolean>\",\n        \"calendar\": \"<boolean>\",\n        \"asana\": \"<boolean>\",\n        \"trello\": \"<boolean>\",\n        \"todoist\": \"<boolean>\",\n        \"jira\": \"<boolean>\",\n        \"linear\": \"<boolean>\",\n        \"clickup\": \"<boolean>\",\n        \"monday\": \"<boolean>\",\n        \"MSTeams\": \"<boolean>\"\n      },\n      \"microsoft\": {\n        \"smartSeriesDetectionEnabled\": \"<boolean>\",\n        \"useFullyExpandedSeriesMasterForInterop\": \"<boolean>\",\n        \"resolveReclaimForNonMemberUsingCalendarView\": \"<boolean>\"\n      },\n      \"onboard\": {\n        \"habits\": \"<boolean>\",\n        \"tasks\": \"<boolean>\",\n        \"googleTasks\": \"<boolean>\",\n        \"planItemPrioritized\": \"<boolean>\",\n        \"smartOneOnOnes\": \"<boolean>\",\n        \"bufferTime\": \"<boolean>\",\n        \"tasksReindex\": \"<boolean>\",\n        \"googleAddOn\": \"<boolean>\",\n        \"v16Scheduler\": \"<boolean>\",\n        \"helpMenus\": \"<boolean>\",\n        \"smartMeetingsJustNewQuest\": \"<boolean>\",\n        \"smartHabitsJustNewQuest\": \"<boolean>\",\n        \"smartMeetingsNavItem\": \"<boolean>\",\n        \"smartMeetingsPricingWarning\": \"<boolean>\",\n        \"showDowngradeAcknowledgement\": \"<boolean>\",\n        \"showUpgradeRestoreModal\": \"<boolean>\",\n        \"setupGuideV2\": \"<boolean>\",\n        \"accountAndPersonalSettings\": \"<boolean>\",\n        \"webhooks\": \"<boolean>\",\n        \"focus\": \"<boolean>\",\n        \"eventCreationInPlanner\": \"<boolean>\",\n        \"assistantIntegrations\": \"<boolean>\",\n        \"assistMigrationWelcomePending\": \"<boolean>\",\n        \"assistantPreviewChanges\": \"<boolean>\",\n        \"schedulingLinks\": \"<boolean>\"\n      },\n      \"postOnboard\": {\n        \"welcomed\": \"<string>\",\n        \"focus\": \"<string>\",\n        \"hours\": \"<string>\",\n        \"habits\": \"<string>\",\n        \"firstTask\": \"<string>\",\n        \"integration\": \"<string>\",\n        \"smartMeetings\": \"<string>\",\n        \"schedulingLinks\": \"<string>\",\n        \"slackStatusSync\": \"<string>\",\n        \"travelTime\": \"<string>\",\n        \"zoom\": \"<string>\",\n        \"connectCalendars\": \"<string>\",\n        \"colors\": \"<string>\",\n        \"reclaimFree\": \"<string>\",\n        \"guidedTours\": \"<string>\"\n      },\n      \"priorities\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"projects\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"quests\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"rsvpSetting\": {\n        \"calendarSync\": {\n          \"treatNeedsActionRsvpAs\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"schedulingLinks\": {\n        \"enabled\": \"<boolean>\",\n        \"note\": \"<string>\",\n        \"remindersMigrated\": \"<boolean>\",\n        \"messageTemplates\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\"\n        },\n        \"nameVisibility\": \"<string>\"\n      },\n      \"slackSettings\": {\n        \"enabled\": \"<boolean>\",\n        \"newSlackExperienceEnabled\": \"<boolean>\",\n        \"customSlackStatusWaterMark\": \"<string>\",\n        \"previousStatusWaterMarks\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"oooMessageTemplate\": \"<string>\",\n        \"personalSyncNotifyNew\": \"<boolean>\",\n        \"personalSyncNotifyUpdated\": \"<boolean>\",\n        \"personalSyncNotifyDeleted\": \"<boolean>\",\n        \"personalSyncNotificationsIncludingSelf\": \"<boolean>\",\n        \"habitNotifyUpcoming\": \"<boolean>\",\n        \"taskNotifyUpcoming\": \"<boolean>\",\n        \"travelNotify\": \"<boolean>\",\n        \"outsideHoursMigrated\": \"<boolean>\",\n        \"statusSync\": \"<string>\",\n        \"statusEnabled\": \"<boolean>\",\n        \"privateStatus\": {\n          \"emoji\": \"<string>\",\n          \"template\": \"<string>\",\n          \"dnd\": \"<boolean>\",\n          \"enabled\": \"<boolean>\"\n        },\n        \"statuses\": {\n          \"key_0\": {\n            \"emoji\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"template\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dnd\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"key_1\": {\n            \"emoji\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"template\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dnd\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"key_2\": {\n            \"emoji\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"template\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dnd\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"key_3\": {\n            \"emoji\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"template\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dnd\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"outSideHours\": {\n          \"dnd\": \"<boolean>\",\n          \"policy\": \"<string>\",\n          \"message\": \"<string>\"\n        },\n        \"stopNotifyingDisappearingAfterByType\": {\n          \"key_0\": \"<date>\",\n          \"key_1\": \"<date>\"\n        }\n      },\n      \"smartOneOnOnes\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"sync\": {\n        \"enabled\": \"<boolean>\",\n        \"hasVipPrivileges\": \"<boolean>\",\n        \"daysBackwardOverride\": \"<integer>\"\n      },\n      \"taskSettings\": {\n        \"defaults\": {\n          \"timeChunksRequired\": \"<integer>\",\n          \"commsTimeChunksRequired\": \"<integer>\",\n          \"delayedStartInMinutes\": \"<integer>\",\n          \"dueInDays\": \"<integer>\",\n          \"category\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"alwaysPrivate\": \"<boolean>\",\n          \"minChunkSize\": \"<integer>\",\n          \"maxChunkSize\": \"<integer>\",\n          \"timeSchemeId\": \"<string>\",\n          \"priority\": \"<string>\",\n          \"onDeck\": \"<boolean>\",\n          \"splitUp\": \"<boolean>\",\n          \"googleTaskIntegrationNoDueDateWhenMissing\": \"<boolean>\"\n        },\n        \"enabled\": \"<boolean>\",\n        \"googleTasks\": \"<boolean>\",\n        \"autoWorkflowSettings\": {\n          \"category\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"durationToWaitInDays\": \"<integer>\"\n        },\n        \"scheduleWorkQueueOnly\": \"<boolean>\",\n        \"cooldown\": \"<string>\"\n      },\n      \"temporal\": {\n        \"eventTransitionsEnabled\": \"<boolean>\"\n      },\n      \"timezoneSettings\": {\n        \"timeZonePreference\": \"<string>\",\n        \"zoneId\": \"<string>\",\n        \"timezonePreference\": \"<string>\"\n      },\n      \"todoistSettings\": {\n        \"apiV1Enabled\": \"<boolean>\"\n      },\n      \"webhookSettings\": {\n        \"enabled\": \"<boolean>\",\n        \"all\": {\n          \"value\": \"<Circular reference to #/components/schemas/WebhookSettings detected>\"\n        }\n      },\n      \"weeklyReport\": {\n        \"enabled\": \"<boolean>\",\n        \"sendReport\": \"<boolean>\"\n      },\n      \"scheduler\": \"<integer>\",\n      \"prioritizationEnabled\": \"<boolean>\",\n      \"extraScopes\": \"<boolean>\",\n      \"peopleScopes\": \"<boolean>\",\n      \"directoryScopes\": \"<boolean>\",\n      \"adventures\": {\n        \"adventures\": {\n          \"CORE_CONCEPTS\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"CONNECT_PRIMARY_CALENDAR\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"ADD_AGENT\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"ADD_FOCUS_TIME\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"ADD_BUFFERS\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"ADD_HABIT\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"HEAVY_MEETING_LOAD\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"CONNECT_CALENDARS\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"CALENDAR_SYNC\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"SHARED_CALENDARS\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"SCHEDULING_LINKS\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"SCHEDULING_LINK_SETTINGS\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"HOURS\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"PROFILE\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"PERMISSIONS\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"SLACK\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"INTEGRATIONS\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"TASK_INTEGRATIONS\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"CHAT\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"LOG_WORK\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"PREVIEW_MODE\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"appNotificationsSettings\": {\n        \"enabled\": \"<boolean>\",\n        \"unscheduledPriority\": \"<boolean>\",\n        \"audioAlertEnabled\": \"<boolean>\",\n        \"titleTagAlertEnabled\": \"<boolean>\"\n      },\n      \"maskSuppressUntil\": \"<dateTime>\",\n      \"availableMeetingTimes\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    \"settings\": {\n      \"autoAddHangouts\": \"<boolean>\",\n      \"defaultEventLength\": \"<integer>\",\n      \"weekStart\": \"<integer>\",\n      \"format24HourTime\": \"<boolean>\",\n      \"locale\": \"<string>\",\n      \"showDeclinedEvents\": \"<boolean>\",\n      \"timezone\": \"<string>\",\n      \"dateFieldOrder\": \"<string>\"\n    },\n    \"metadata\": {\n      \"jobTitle\": \"<string>\",\n      \"companyName\": \"<string>\",\n      \"companySize\": \"<string>\",\n      \"usecase\": \"<string>\",\n      \"role\": \"<string>\",\n      \"goals\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"isWorkspace\": \"<boolean>\",\n      \"department\": \"<string>\",\n      \"orgMetadata\": {\n        \"employeeNumber\": \"<string>\",\n        \"costCenter\": \"<string>\",\n        \"organization\": \"<string>\",\n        \"division\": \"<string>\",\n        \"department\": \"<string>\",\n        \"manager\": {\n          \"displayName\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"managerId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"ref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"customValues\": {\n          \"key_0\": false,\n          \"key_1\": true\n        }\n      }\n    },\n    \"created\": \"<dateTime>\",\n    \"deleted\": \"<dateTime>\",\n    \"onboarded\": \"<boolean>\",\n    \"trackingCode\": \"<string>\",\n    \"locale\": \"<string>\",\n    \"likelyPersonal\": \"<boolean>\",\n    \"apiKey\": \"<string>\",\n    \"editionAfterTrial\": \"<string>\",\n    \"preDowngradeEditionUsage\": \"<string>\",\n    \"overage\": \"<boolean>\",\n    \"logContextUser\": \"<object>\",\n    \"refCode\": \"<string>\",\n    \"hostedDomain\": \"<string>\",\n    \"primaryCalendar\": {\n      \"calendarId\": \"<string>\",\n      \"credentialEmail\": \"<string>\",\n      \"credentialId\": \"<long>\",\n      \"id\": \"<long>\",\n      \"lastSynced\": \"<dateTime>\",\n      \"timezone\": \"<string>\"\n    },\n    \"primaryCalendarId\": \"<string>\",\n    \"timezone\": \"<string>\",\n    \"startOfWeek\": \"<string>\",\n    \"usingDelegatedAccess\": \"<boolean>\",\n    \"firstLogin\": \"<dateTime>\",\n    \"signupMethod\": \"<string>\",\n    \"providerCreated\": \"<dateTime>\",\n    \"userDateTimeFormatter\": {\n      \"locale\": \"<string>\"\n    },\n    \"userProvisioningDetails\": {\n      \"hasTeamProvisionedMetadata\": \"<boolean>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dc381109-7a4b-48b6-a735-a1986b2a8042",
+              "name": "OK response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "slack",
+                    "link"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "teamId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "userId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"user\": {\n    \"edition\": \"<string>\",\n    \"editionUsage\": \"<string>\",\n    \"schedulerWindowWeeks\": \"<string>\",\n    \"sku\": \"<string>\",\n    \"id\": \"<string>\",\n    \"email\": \"<string>\",\n    \"principal\": \"<string>\",\n    \"provider\": \"<string>\",\n    \"baseProvider\": \"<string>\",\n    \"name\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"entitlements\": {\n      \"unlimitedHabitsEnabled\": \"<boolean>\",\n      \"unlimitedConnectedCalendarsEnabled\": \"<boolean>\",\n      \"unlimitedSyncEnabled\": \"<boolean>\",\n      \"customSyncTransparencyEnabled\": \"<boolean>\",\n      \"smart11CreationEnabled\": \"<boolean>\",\n      \"customSlackSyncStatusEnabled\": \"<boolean>\",\n      \"customConferenceBufferTitleEnabled\": \"<boolean>\",\n      \"schedulingLinkSurveyEnabled\": \"<boolean>\",\n      \"maxDaysAheadForSchedulingLinks\": \"<integer>\",\n      \"linearEnabled\": \"<boolean>\",\n      \"jiraEnabled\": \"<boolean>\",\n      \"todoistEnabled\": \"<boolean>\",\n      \"asanaEnabled\": \"<boolean>\",\n      \"clickupEnabled\": \"<boolean>\",\n      \"trelloEnabled\": \"<boolean>\",\n      \"mondayEnabled\": \"<boolean>\",\n      \"dropboxEnabled\": \"<boolean>\",\n      \"SSOEnabled\": \"<boolean>\"\n    },\n    \"detailedEntitlements\": {\n      \"unlimitedHabitsEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      },\n      \"unlimitedSyncEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      },\n      \"unlimitedConnectedCalendarsEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      },\n      \"customSyncTransparencyEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      },\n      \"smart11CreationEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      },\n      \"customSlackSyncStatusEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      },\n      \"customConferenceBufferTitleEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      },\n      \"linearEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      },\n      \"jiraEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      },\n      \"todoistEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      },\n      \"asanaEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      },\n      \"clickupEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      },\n      \"trelloEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      },\n      \"mondayEnabled\": {\n        \"minimumEdition\": \"<string>\",\n        \"name\": \"<string>\",\n        \"enabledForUser\": \"<boolean>\"\n      }\n    },\n    \"editionEntitlements\": {\n      \"MAX_TEAM_SIZE\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"SCHEDULER_WEEKS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MAX_TASKS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MAX_CALENDARS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MAX_SYNCS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MAX_HABITS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MAX_TASKS_WEEK\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"TRAVEL_TIME\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"DECOMPRESSION_TIME\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"CUSTOM_BLOCKING\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"CUSTOM_BLOCKING_DECOMPRESSION\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"CUSTOM_BLOCKING_HABITS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"CUSTOM_BLOCKING_CALENDAR_SYNC\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"CUSTOM_SLACK_STATUS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MAX_SCHEDULING_LINKS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"DERIVATIVE_SCHEDULING_LINKS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"SCHEDULING_LINK_SURVEY\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"SCHEDULING_LINK_REDIRECT\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MAX_SCHEDULING_LINK_MEETINGS_QUARTER\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MAX_1_ON_1_ORGANIZE\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MAX_1_ON_1_ATTEND\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MAX_CUSTOM_TIME_SCHEMES\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATIONS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_GOOGLE_TASKS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_GOOGLE_ADD_ON\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_SLACK\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_RAYCAST\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_ZOOM\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_TODOIST\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_LINEAR\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_JIRA\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_CLICKUP\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_ASANA\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_OFFICE_365\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_MONDAY\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_TRELLO\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"INTEGRATION_DROPBOX\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"SUPPORT\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"SSO\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"TEAM_ANALYTICS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"EVENT_PREFERENCES\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"DELEGATED_ACCESS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"SCHEDULING_LINK_ROUND_ROBIN\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"SCHEDULING_LINK_BRANDING\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"SMART_MEETING_ATTENDEE_USERS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"WEBHOOKS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MAX_STATS_WINDOW\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"FOCUS_TIME\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"OOO_CALENDAR\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MAX_AGENTS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MAX_DAILY_LLM_COST_MICROS\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"PROACTIVE_LLM\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      },\n      \"MCP\": {\n        \"nextEdition\": \"<string>\",\n        \"nextValue\": {},\n        \"value\": \"\"\n      }\n    },\n    \"lastName\": \"<string>\",\n    \"avatarUrl\": \"<string>\",\n    \"admin\": \"<boolean>\",\n    \"slackEnabled\": \"<boolean>\",\n    \"impersonated\": \"<boolean>\",\n    \"timestampOffsetMs\": \"<long>\",\n    \"features\": {\n      \"accountLocks\": [\n        {\n          \"accountLockType\": \"<string>\",\n          \"lockMessage\": \"<string>\"\n        },\n        {\n          \"accountLockType\": \"<string>\",\n          \"lockMessage\": \"<string>\"\n        }\n      ],\n      \"analyticsSettings\": {\n        \"teamAnalyticsV4ViewEnabled\": \"<boolean>\",\n        \"teamAnalyticsV4FiltersEnabled\": \"<boolean>\"\n      },\n      \"appNotifications\": {\n        \"enabled\": \"<boolean>\",\n        \"unscheduledPriority\": \"<boolean>\",\n        \"audioAlertEnabled\": \"<boolean>\",\n        \"titleTagAlertEnabled\": \"<boolean>\"\n      },\n      \"asana\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"assistSettings\": {\n        \"travel\": \"<boolean>\",\n        \"otherTravelDuration\": \"<integer>\",\n        \"conferenceBuffer\": \"<boolean>\",\n        \"conferenceBufferDuration\": \"<integer>\",\n        \"assignmentPaddingDuration\": \"<integer>\",\n        \"conferenceBufferPrivate\": \"<boolean>\",\n        \"conferenceBufferType\": \"<string>\",\n        \"customConferenceBufferTitle\": \"<string>\",\n        \"focus\": \"<boolean>\",\n        \"allOneOnOnesBusy\": \"<boolean>\",\n        \"autoLockForMeetings\": \"<string>\",\n        \"autoLockForNonMeetings\": \"<string>\",\n        \"sendMeetingNotifications\": \"<boolean>\",\n        \"useFreeBusyEmojis\": \"<boolean>\",\n        \"useLockEmoji\": \"<boolean>\",\n        \"includeDescription\": \"<boolean>\",\n        \"includeAttribution\": \"<boolean>\",\n        \"smartSeries\": \"<boolean>\",\n        \"smartMeetingRecurrenceType\": \"<string>\",\n        \"smartHabitRecurrenceType\": \"<string>\",\n        \"showClassicHabits\": \"<boolean>\",\n        \"allowSmartSeriesOptIn\": \"<boolean>\",\n        \"smartSeriesMigrateComplete\": \"<boolean>\",\n        \"neverSeenClassicHabits\": \"<boolean>\",\n        \"notificationSettings\": {\n          \"detectedDigest\": \"<boolean>\",\n          \"instanceChanges\": \"<boolean>\",\n          \"instanceWindowInDays\": \"<integer>\",\n          \"needsAttentionDigest\": \"<boolean>\"\n        },\n        \"assistDays\": \"<integer>\",\n        \"bypassed\": \"<boolean>\",\n        \"dayZero\": \"<date>\",\n        \"schedulerDisabled\": \"<boolean>\",\n        \"schedulerSuppressedUntil\": \"<dateTime>\",\n        \"schedulerSuppressed\": \"<boolean>\",\n        \"rescheduleUnstarted\": \"<boolean>\",\n        \"rescheduleUnstartedOkToSchedule\": \"<boolean>\",\n        \"dampSmartMeetings\": \"<boolean>\",\n        \"scheduleSmartMeetingsAtMostDaily\": \"<boolean>\",\n        \"scheduleSmartMeetingsOnce\": \"<boolean>\",\n        \"manualAssistRunsEnabled\": \"<boolean>\",\n        \"schedulerWindowWeeks\": \"<string>\",\n        \"extendedSmartMeetingCooldown\": \"<boolean>\",\n        \"includeOrganizerInSmartSeries\": \"<boolean>\",\n        \"debugScheduler\": \"<boolean>\",\n        \"smartHabitGen2ToGen3MigrationDate\": \"<dateTime>\",\n        \"smartMeetingGen2ToGen3MigrationDate\": \"<dateTime>\",\n        \"gen1HabitsAndMeetingsToGen3AutoMigrate\": \"<boolean>\",\n        \"smartHabitsToGen3AutoMigrate\": \"<boolean>\",\n        \"smartMeetingsToGen3AutoMigrate\": \"<boolean>\"\n      },\n      \"assistant\": {\n        \"enabled\": \"<boolean>\",\n        \"calendarUIEnabled\": \"<boolean>\",\n        \"scoringSettings\": {\n          \"version\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"experimentalFeaturesEnabled\": \"<boolean>\",\n        \"mcpDebug\": \"<boolean>\",\n        \"disableBackgroundAutomation\": \"<boolean>\",\n        \"orgRelationshipsEnabled\": \"<boolean>\",\n        \"enableExternalLlm\": \"<boolean>\",\n        \"selfServiceMigrationEnabled\": \"<boolean>\",\n        \"persistedToolApprovalsEnabled\": \"<boolean>\"\n      },\n      \"availabilitySettings\": {\n        \"redisCacheEnabled\": \"<boolean>\"\n      },\n      \"billing\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"calendar\": {\n        \"enabled\": \"<boolean>\",\n        \"calendarCleanupRunning\": \"<dateTime>\"\n      },\n      \"calendarEntrySettings\": {\n        \"pipelineEnabled\": \"<boolean>\",\n        \"pipelineWatchEnabled\": \"<boolean>\",\n        \"autoMigrate\": \"<boolean>\",\n        \"shouldMigrate\": \"<boolean>\",\n        \"selfServiceMigrate\": \"<boolean>\",\n        \"dailyAudit\": \"<boolean>\",\n        \"microsoftPipelineBatching\": \"<boolean>\",\n        \"scoredTopContacts\": \"<boolean>\",\n        \"googleGhCutoff\": \"<boolean>\",\n        \"usePipelineCleanCalendar\": \"<boolean>\",\n        \"dedicatedUpsertEnabled\": \"<boolean>\"\n      },\n      \"calendarPermissionSettings\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"colors\": {\n        \"enabled\": \"<boolean>\",\n        \"categoriesEnabled\": \"<boolean>\",\n        \"lastModified\": \"<dateTime>\",\n        \"priorities\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\"\n        },\n        \"categories\": {\n          \"key_0\": \"<string>\",\n          \"key_1\": \"<string>\",\n          \"key_2\": \"<string>\"\n        }\n      },\n      \"dropboxSettings\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"eventDisplayPreferences\": {\n        \"attribution\": \"<boolean>\",\n        \"busyEmoji\": \"<boolean>\",\n        \"description\": \"<boolean>\",\n        \"doneEmoji\": \"<boolean>\",\n        \"freeEmoji\": \"<boolean>\",\n        \"lockEmoji\": \"<boolean>\",\n        \"prefix\": \"<boolean>\",\n        \"progressEmoji\": \"<boolean>\",\n        \"warningEmoji\": \"<boolean>\"\n      },\n      \"experimentalSettings\": {\n        \"treatOptionalSmartMeetingAttendeesAsFree\": \"<boolean>\",\n        \"lookAheadForSmartMeetingIdealDayOnWeeklyMeetings\": \"<boolean>\"\n      },\n      \"focus\": {\n        \"enabled\": \"<boolean>\",\n        \"debug\": \"<boolean>\"\n      },\n      \"googleAddOnSettings\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"interests\": {\n        \"tasks\": \"<boolean>\",\n        \"priorities\": \"<boolean>\",\n        \"office365\": \"<boolean>\",\n        \"calendar\": \"<boolean>\",\n        \"asana\": \"<boolean>\",\n        \"trello\": \"<boolean>\",\n        \"todoist\": \"<boolean>\",\n        \"jira\": \"<boolean>\",\n        \"linear\": \"<boolean>\",\n        \"clickup\": \"<boolean>\",\n        \"monday\": \"<boolean>\",\n        \"MSTeams\": \"<boolean>\"\n      },\n      \"microsoft\": {\n        \"smartSeriesDetectionEnabled\": \"<boolean>\",\n        \"useFullyExpandedSeriesMasterForInterop\": \"<boolean>\",\n        \"resolveReclaimForNonMemberUsingCalendarView\": \"<boolean>\"\n      },\n      \"onboard\": {\n        \"habits\": \"<boolean>\",\n        \"tasks\": \"<boolean>\",\n        \"googleTasks\": \"<boolean>\",\n        \"planItemPrioritized\": \"<boolean>\",\n        \"smartOneOnOnes\": \"<boolean>\",\n        \"bufferTime\": \"<boolean>\",\n        \"tasksReindex\": \"<boolean>\",\n        \"googleAddOn\": \"<boolean>\",\n        \"v16Scheduler\": \"<boolean>\",\n        \"helpMenus\": \"<boolean>\",\n        \"smartMeetingsJustNewQuest\": \"<boolean>\",\n        \"smartHabitsJustNewQuest\": \"<boolean>\",\n        \"smartMeetingsNavItem\": \"<boolean>\",\n        \"smartMeetingsPricingWarning\": \"<boolean>\",\n        \"showDowngradeAcknowledgement\": \"<boolean>\",\n        \"showUpgradeRestoreModal\": \"<boolean>\",\n        \"setupGuideV2\": \"<boolean>\",\n        \"accountAndPersonalSettings\": \"<boolean>\",\n        \"webhooks\": \"<boolean>\",\n        \"focus\": \"<boolean>\",\n        \"eventCreationInPlanner\": \"<boolean>\",\n        \"assistantIntegrations\": \"<boolean>\",\n        \"assistMigrationWelcomePending\": \"<boolean>\",\n        \"assistantPreviewChanges\": \"<boolean>\",\n        \"schedulingLinks\": \"<boolean>\"\n      },\n      \"postOnboard\": {\n        \"welcomed\": \"<string>\",\n        \"focus\": \"<string>\",\n        \"hours\": \"<string>\",\n        \"habits\": \"<string>\",\n        \"firstTask\": \"<string>\",\n        \"integration\": \"<string>\",\n        \"smartMeetings\": \"<string>\",\n        \"schedulingLinks\": \"<string>\",\n        \"slackStatusSync\": \"<string>\",\n        \"travelTime\": \"<string>\",\n        \"zoom\": \"<string>\",\n        \"connectCalendars\": \"<string>\",\n        \"colors\": \"<string>\",\n        \"reclaimFree\": \"<string>\",\n        \"guidedTours\": \"<string>\"\n      },\n      \"priorities\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"projects\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"quests\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"rsvpSetting\": {\n        \"calendarSync\": {\n          \"treatNeedsActionRsvpAs\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      },\n      \"schedulingLinks\": {\n        \"enabled\": \"<boolean>\",\n        \"note\": \"<string>\",\n        \"remindersMigrated\": \"<boolean>\",\n        \"messageTemplates\": {\n          \"key_0\": \"<string>\"\n        },\n        \"nameVisibility\": \"<string>\"\n      },\n      \"slackSettings\": {\n        \"enabled\": \"<boolean>\",\n        \"newSlackExperienceEnabled\": \"<boolean>\",\n        \"customSlackStatusWaterMark\": \"<string>\",\n        \"previousStatusWaterMarks\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"oooMessageTemplate\": \"<string>\",\n        \"personalSyncNotifyNew\": \"<boolean>\",\n        \"personalSyncNotifyUpdated\": \"<boolean>\",\n        \"personalSyncNotifyDeleted\": \"<boolean>\",\n        \"personalSyncNotificationsIncludingSelf\": \"<boolean>\",\n        \"habitNotifyUpcoming\": \"<boolean>\",\n        \"taskNotifyUpcoming\": \"<boolean>\",\n        \"travelNotify\": \"<boolean>\",\n        \"outsideHoursMigrated\": \"<boolean>\",\n        \"statusSync\": \"<string>\",\n        \"statusEnabled\": \"<boolean>\",\n        \"privateStatus\": {\n          \"emoji\": \"<string>\",\n          \"template\": \"<string>\",\n          \"dnd\": \"<boolean>\",\n          \"enabled\": \"<boolean>\"\n        },\n        \"statuses\": {\n          \"key_0\": {\n            \"emoji\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"template\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dnd\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"key_1\": {\n            \"emoji\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"template\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dnd\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"key_2\": {\n            \"emoji\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"template\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dnd\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"key_3\": {\n            \"emoji\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"template\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dnd\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"key_4\": {\n            \"emoji\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"template\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"dnd\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"enabled\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"outSideHours\": {\n          \"dnd\": \"<boolean>\",\n          \"policy\": \"<string>\",\n          \"message\": \"<string>\"\n        },\n        \"stopNotifyingDisappearingAfterByType\": {\n          \"key_0\": \"<date>\"\n        }\n      },\n      \"smartOneOnOnes\": {\n        \"enabled\": \"<boolean>\"\n      },\n      \"sync\": {\n        \"enabled\": \"<boolean>\",\n        \"hasVipPrivileges\": \"<boolean>\",\n        \"daysBackwardOverride\": \"<integer>\"\n      },\n      \"taskSettings\": {\n        \"defaults\": {\n          \"timeChunksRequired\": \"<integer>\",\n          \"commsTimeChunksRequired\": \"<integer>\",\n          \"delayedStartInMinutes\": \"<integer>\",\n          \"dueInDays\": \"<integer>\",\n          \"category\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"alwaysPrivate\": \"<boolean>\",\n          \"minChunkSize\": \"<integer>\",\n          \"maxChunkSize\": \"<integer>\",\n          \"timeSchemeId\": \"<string>\",\n          \"priority\": \"<string>\",\n          \"onDeck\": \"<boolean>\",\n          \"splitUp\": \"<boolean>\",\n          \"googleTaskIntegrationNoDueDateWhenMissing\": \"<boolean>\"\n        },\n        \"enabled\": \"<boolean>\",\n        \"googleTasks\": \"<boolean>\",\n        \"autoWorkflowSettings\": {\n          \"category\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"durationToWaitInDays\": \"<integer>\"\n        },\n        \"scheduleWorkQueueOnly\": \"<boolean>\",\n        \"cooldown\": \"<string>\"\n      },\n      \"temporal\": {\n        \"eventTransitionsEnabled\": \"<boolean>\"\n      },\n      \"timezoneSettings\": {\n        \"timeZonePreference\": \"<string>\",\n        \"zoneId\": \"<string>\",\n        \"timezonePreference\": \"<string>\"\n      },\n      \"todoistSettings\": {\n        \"apiV1Enabled\": \"<boolean>\"\n      },\n      \"webhookSettings\": {\n        \"enabled\": \"<boolean>\",\n        \"all\": {\n          \"value\": \"<Circular reference to #/components/schemas/WebhookSettings detected>\"\n        }\n      },\n      \"weeklyReport\": {\n        \"enabled\": \"<boolean>\",\n        \"sendReport\": \"<boolean>\"\n      },\n      \"scheduler\": \"<integer>\",\n      \"prioritizationEnabled\": \"<boolean>\",\n      \"extraScopes\": \"<boolean>\",\n      \"peopleScopes\": \"<boolean>\",\n      \"directoryScopes\": \"<boolean>\",\n      \"adventures\": {\n        \"adventures\": {\n          \"CORE_CONCEPTS\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"CONNECT_PRIMARY_CALENDAR\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"ADD_AGENT\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"ADD_FOCUS_TIME\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"ADD_BUFFERS\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"ADD_HABIT\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"HEAVY_MEETING_LOAD\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"CONNECT_CALENDARS\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"CALENDAR_SYNC\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"SHARED_CALENDARS\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"SCHEDULING_LINKS\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"SCHEDULING_LINK_SETTINGS\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"HOURS\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"PROFILE\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"PERMISSIONS\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"SLACK\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"INTEGRATIONS\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"TASK_INTEGRATIONS\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"CHAT\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"LOG_WORK\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"PREVIEW_MODE\": {\n            \"complete\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        }\n      },\n      \"appNotificationsSettings\": {\n        \"enabled\": \"<boolean>\",\n        \"unscheduledPriority\": \"<boolean>\",\n        \"audioAlertEnabled\": \"<boolean>\",\n        \"titleTagAlertEnabled\": \"<boolean>\"\n      },\n      \"maskSuppressUntil\": \"<dateTime>\",\n      \"availableMeetingTimes\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    \"settings\": {\n      \"autoAddHangouts\": \"<boolean>\",\n      \"defaultEventLength\": \"<integer>\",\n      \"weekStart\": \"<integer>\",\n      \"format24HourTime\": \"<boolean>\",\n      \"locale\": \"<string>\",\n      \"showDeclinedEvents\": \"<boolean>\",\n      \"timezone\": \"<string>\",\n      \"dateFieldOrder\": \"<string>\"\n    },\n    \"metadata\": {\n      \"jobTitle\": \"<string>\",\n      \"companyName\": \"<string>\",\n      \"companySize\": \"<string>\",\n      \"usecase\": \"<string>\",\n      \"role\": \"<string>\",\n      \"goals\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"isWorkspace\": \"<boolean>\",\n      \"department\": \"<string>\",\n      \"orgMetadata\": {\n        \"employeeNumber\": \"<string>\",\n        \"costCenter\": \"<string>\",\n        \"organization\": \"<string>\",\n        \"division\": \"<string>\",\n        \"department\": \"<string>\",\n        \"manager\": {\n          \"displayName\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"managerId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"ref\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"customValues\": {\n          \"key_0\": 5235,\n          \"key_1\": \"string\"\n        }\n      }\n    },\n    \"created\": \"<dateTime>\",\n    \"deleted\": \"<dateTime>\",\n    \"onboarded\": \"<boolean>\",\n    \"trackingCode\": \"<string>\",\n    \"locale\": \"<string>\",\n    \"likelyPersonal\": \"<boolean>\",\n    \"apiKey\": \"<string>\",\n    \"editionAfterTrial\": \"<string>\",\n    \"preDowngradeEditionUsage\": \"<string>\",\n    \"overage\": \"<boolean>\",\n    \"logContextUser\": \"<object>\",\n    \"refCode\": \"<string>\",\n    \"hostedDomain\": \"<string>\",\n    \"primaryCalendar\": {\n      \"calendarId\": \"<string>\",\n      \"credentialEmail\": \"<string>\",\n      \"credentialId\": \"<long>\",\n      \"id\": \"<long>\",\n      \"lastSynced\": \"<dateTime>\",\n      \"timezone\": \"<string>\"\n    },\n    \"primaryCalendarId\": \"<string>\",\n    \"timezone\": \"<string>\",\n    \"startOfWeek\": \"<string>\",\n    \"usingDelegatedAccess\": \"<boolean>\",\n    \"firstLogin\": \"<dateTime>\",\n    \"signupMethod\": \"<string>\",\n    \"providerCreated\": \"<dateTime>\",\n    \"userDateTimeFormatter\": {\n      \"locale\": \"<string>\"\n    },\n    \"userProvisioningDetails\": {\n      \"hasTeamProvisionedMetadata\": \"<boolean>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "234c1e5b-b345-4ef0-b2a8-b2be630af3e6",
+          "name": "options Load Endpoint",
+          "request": {
+            "name": "options Load Endpoint",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "slack",
+                "options-load-endpoint"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "response_url",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "payload",
+                  "value": "<string>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a161fbd9-4956-47e1-877a-7aeca4f534e2",
+              "name": "OK response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "slack",
+                    "options-load-endpoint"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "response_url",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "payload",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "039253c7-fb9c-47d0-8bee-990e77a1354e",
+          "name": "streamlined Connect",
+          "request": {
+            "name": "streamlined Connect",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "slack",
+                "streamlined-connect"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "code",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "error",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d8898013-b30c-4ae6-9c3f-833a0dddb24c",
+              "name": "OK response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "slack",
+                    "streamlined-connect"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cbdce891-6ecd-4e52-8c6b-8e37c5503a69",
+          "name": "stream Lined Redirect",
+          "request": {
+            "name": "stream Lined Redirect",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "slack",
+                "streamlined-init"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "slackTeamId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "slackUserId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7372d7b7-33e8-48f9-9de4-de7f7fdc0c8a",
+              "name": "OK response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "slack",
+                    "streamlined-init"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "slackTeamId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slackUserId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7f550969-a6d4-4224-b4d6-0eea93dd3459",
+    "name": "Reclaim account-time-schemes slack API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

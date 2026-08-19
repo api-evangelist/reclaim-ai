@@ -1,0 +1,141 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes focus-planner-actions API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "focus-planner-actions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "lockFocusInstance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/focus/planner/:calendarId/:eventId/lock",
+            "params": [
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "moveFocusInstance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/focus/planner/:calendarId/:eventId/move",
+            "params": [
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "rescheduleFocusInstance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/focus/planner/:calendarId/:eventId/reschedule",
+            "params": [
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "snoozeOption",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "unlockFocusInstance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/focus/planner/:calendarId/:eventId/unlock",
+            "params": [
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

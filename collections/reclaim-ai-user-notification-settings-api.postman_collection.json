@@ -1,0 +1,213 @@
+{
+  "item": [
+    {
+      "id": "bd7fea29-9fbd-4ab3-b2d0-337a826323b8",
+      "name": "user-notification-settings",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6ed9066a-9080-4788-9960-fbad41463bb4",
+          "name": "get User Settings",
+          "request": {
+            "name": "get User Settings",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "notification-settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "3976f216-36dc-4eb6-b395-5a327136e032",
+              "name": "getUserSettings 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "notification-settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"allowSlackNotificationsWithinDays\": 5587,\n  \"settings\": {\n    \"DAILY_DIGEST\": {\n      \"empty\": true\n    },\n    \"WEEKLY_DIGEST\": {\n      \"empty\": true\n    },\n    \"EVENT_CONFLICT\": {\n      \"empty\": false\n    },\n    \"EVENT_ABOUT_TO_START\": {\n      \"empty\": true\n    },\n    \"INVITED_TO_MEETING\": {\n      \"empty\": true\n    },\n    \"MEETING_UPDATED\": {\n      \"empty\": true\n    },\n    \"MEETING_CANCELLED\": {\n      \"empty\": false\n    },\n    \"APP_UPDATES\": {\n      \"empty\": true\n    },\n    \"EVENT_REMINDERS\": {\n      \"empty\": true\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "76b3cbfe-0ee9-4b4c-9913-3e08feba5406",
+          "name": "update 2",
+          "request": {
+            "name": "update 2",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "notification-settings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"settings\": {\n    \"DAILY_DIGEST\": {\n      \"empty\": \"<boolean>\"\n    },\n    \"WEEKLY_DIGEST\": {\n      \"empty\": \"<boolean>\"\n    },\n    \"EVENT_CONFLICT\": {\n      \"empty\": \"<boolean>\"\n    },\n    \"EVENT_ABOUT_TO_START\": {\n      \"empty\": \"<boolean>\"\n    },\n    \"INVITED_TO_MEETING\": {\n      \"empty\": \"<boolean>\"\n    },\n    \"MEETING_UPDATED\": {\n      \"empty\": \"<boolean>\"\n    },\n    \"MEETING_CANCELLED\": {\n      \"empty\": \"<boolean>\"\n    },\n    \"APP_UPDATES\": {\n      \"empty\": \"<boolean>\"\n    },\n    \"EVENT_REMINDERS\": {\n      \"empty\": \"<boolean>\"\n    }\n  },\n  \"allowSlackNotificationsWithinDays\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f42565e3-4e0e-45f9-8217-5358a1ad1e0a",
+              "name": "update_2 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "notification-settings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"settings\": {\n    \"DAILY_DIGEST\": {\n      \"empty\": \"<boolean>\"\n    },\n    \"WEEKLY_DIGEST\": {\n      \"empty\": \"<boolean>\"\n    },\n    \"EVENT_CONFLICT\": {\n      \"empty\": \"<boolean>\"\n    },\n    \"EVENT_ABOUT_TO_START\": {\n      \"empty\": \"<boolean>\"\n    },\n    \"INVITED_TO_MEETING\": {\n      \"empty\": \"<boolean>\"\n    },\n    \"MEETING_UPDATED\": {\n      \"empty\": \"<boolean>\"\n    },\n    \"MEETING_CANCELLED\": {\n      \"empty\": \"<boolean>\"\n    },\n    \"APP_UPDATES\": {\n      \"empty\": \"<boolean>\"\n    },\n    \"EVENT_REMINDERS\": {\n      \"empty\": \"<boolean>\"\n    }\n  },\n  \"allowSlackNotificationsWithinDays\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"allowSlackNotificationsWithinDays\": 8695,\n  \"settings\": {\n    \"DAILY_DIGEST\": {\n      \"empty\": \"<boolean>\"\n    },\n    \"WEEKLY_DIGEST\": {\n      \"empty\": \"<boolean>\"\n    },\n    \"EVENT_CONFLICT\": {\n      \"empty\": \"<boolean>\"\n    },\n    \"EVENT_ABOUT_TO_START\": {\n      \"empty\": \"<boolean>\"\n    },\n    \"INVITED_TO_MEETING\": {\n      \"empty\": \"<boolean>\"\n    },\n    \"MEETING_UPDATED\": {\n      \"empty\": \"<boolean>\"\n    },\n    \"MEETING_CANCELLED\": {\n      \"empty\": \"<boolean>\"\n    },\n    \"APP_UPDATES\": {\n      \"empty\": \"<boolean>\"\n    },\n    \"EVENT_REMINDERS\": {\n      \"empty\": \"<boolean>\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "aee895e7-223e-4837-8b6c-6fa66779edcf",
+    "name": "Reclaim account-time-schemes user-notification-settings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

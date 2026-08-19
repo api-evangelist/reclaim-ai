@@ -1,0 +1,721 @@
+{
+  "item": [
+    {
+      "id": "163ac339-2049-4d65-98c0-c3c9b7d61e26",
+      "name": "reclaim-tasks",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9ae7ecb8-97ee-404a-8041-789b6588fecf",
+          "name": "list Reclaim Tasks",
+          "request": {
+            "name": "list Reclaim Tasks",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "reclaim-tasks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "completed",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "b2a22ca1-6a66-47af-895e-97019bc0aa36",
+              "name": "listReclaimTasks 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "reclaim-tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "completed",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"completed\": false,\n    \"extendedProperties\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"id\": \"string\",\n    \"title\": \"string\",\n    \"description\": \"string\",\n    \"priority\": \"DEFAULT\",\n    \"status\": \"string\",\n    \"link\": {\n      \"url\": \"string\"\n    },\n    \"due\": \"2013-06-30T04:18:48.028Z\",\n    \"start\": \"1988-11-02T06:10:44.294Z\",\n    \"estimateMinutes\": 3430,\n    \"type\": \"string\"\n  },\n  {\n    \"completed\": false,\n    \"extendedProperties\": {\n      \"key_0\": false,\n      \"key_1\": true\n    },\n    \"id\": \"string\",\n    \"title\": \"string\",\n    \"description\": \"string\",\n    \"priority\": \"PRIORITIZE\",\n    \"status\": \"string\",\n    \"link\": {\n      \"url\": \"string\"\n    },\n    \"due\": \"1952-10-26T07:30:45.631Z\",\n    \"start\": \"2000-11-16T06:59:25.677Z\",\n    \"estimateMinutes\": 8988,\n    \"type\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9a123843-b478-4e46-8d09-1369e5329443",
+          "name": "create Reclaim Task",
+          "request": {
+            "name": "create Reclaim Task",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "reclaim-tasks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"dueDate\": \"<date>\",\n  \"startDate\": \"<date>\",\n  \"estimateMinutes\": \"<integer>\",\n  \"priority\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a1b24efa-c099-4988-8602-a5d7beed74bd",
+              "name": "createReclaimTask 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "reclaim-tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"dueDate\": \"<date>\",\n  \"startDate\": \"<date>\",\n  \"estimateMinutes\": \"<integer>\",\n  \"priority\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"completed\": false,\n  \"extendedProperties\": {\n    \"key_0\": 8983.42264915291,\n    \"key_1\": 2970.529667489329\n  },\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"priority\": \"<string>\",\n  \"status\": \"string\",\n  \"link\": {\n    \"url\": \"string\"\n  },\n  \"due\": \"1955-12-27T06:45:56.325Z\",\n  \"start\": \"1974-02-05T18:51:39.874Z\",\n  \"estimateMinutes\": 4571,\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1b8e6a35-36c4-4c52-9dda-de59ca20745e",
+          "name": "list Reclaim Task Page",
+          "request": {
+            "name": "list Reclaim Task Page",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "reclaim-tasks",
+                "page"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "relativeDue",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "completed",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dueBefore",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dueAfter",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "overdue",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "hasDuration",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "77e28190-3ec1-4323-a4a4-2897a5c4d758",
+              "name": "listReclaimTaskPage 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "reclaim-tasks",
+                    "page"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "relativeDue",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "completed",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "dueBefore",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "dueAfter",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "overdue",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "hasDuration",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9304,\n  \"first\": \"string\",\n  \"hasNextPage\": true,\n  \"items\": [\n    {\n      \"completed\": false,\n      \"extendedProperties\": {\n        \"key_0\": 7194\n      },\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"priority\": \"<string>\",\n      \"status\": \"string\",\n      \"link\": {\n        \"url\": \"string\"\n      },\n      \"due\": \"1991-07-18T01:40:45.314Z\",\n      \"start\": \"1993-04-10T16:28:27.304Z\",\n      \"estimateMinutes\": 8013,\n      \"type\": \"string\"\n    },\n    {\n      \"completed\": true,\n      \"extendedProperties\": {\n        \"key_0\": false\n      },\n      \"id\": \"string\",\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"priority\": \"<string>\",\n      \"status\": \"string\",\n      \"link\": {\n        \"url\": \"string\"\n      },\n      \"due\": \"1966-10-13T17:45:20.979Z\",\n      \"start\": \"1955-01-26T23:06:09.885Z\",\n      \"estimateMinutes\": 4646,\n      \"type\": \"string\"\n    }\n  ],\n  \"last\": \"string\",\n  \"order\": \"<string>\",\n  \"totalCount\": 5729\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "926e7282-eca9-4a78-8bbf-4ab442359773",
+          "name": "get Reclaim Task",
+          "request": {
+            "name": "get Reclaim Task",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "reclaim-tasks",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "13ac027d-2b4e-404e-bcc3-fc64af0ecf3e",
+              "name": "getReclaimTask 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "reclaim-tasks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"completed\": false,\n  \"extendedProperties\": {\n    \"key_0\": 8983.42264915291,\n    \"key_1\": 2970.529667489329\n  },\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"priority\": \"<string>\",\n  \"status\": \"string\",\n  \"link\": {\n    \"url\": \"string\"\n  },\n  \"due\": \"1955-12-27T06:45:56.325Z\",\n  \"start\": \"1974-02-05T18:51:39.874Z\",\n  \"estimateMinutes\": 4571,\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "db4b45ba-2861-4d1f-9188-0639c3aac8a2",
+          "name": "delete Reclaim Task",
+          "request": {
+            "name": "delete Reclaim Task",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "reclaim-tasks",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "aa5f45a9-1377-418e-84d0-913e21c1f3f5",
+              "name": "deleteReclaimTask 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "reclaim-tasks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7b3b65f9-1591-4e2f-a59f-a24a296fe14c",
+          "name": "update Reclaim Task",
+          "request": {
+            "name": "update Reclaim Task",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "reclaim-tasks",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"dueDate\": \"<date>\",\n  \"startDate\": \"<date>\",\n  \"completed\": \"<boolean>\",\n  \"estimateMinutes\": \"<integer>\",\n  \"priority\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a4ae1544-79b0-4633-95e6-9eef37b13fe5",
+              "name": "updateReclaimTask 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "reclaim-tasks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"dueDate\": \"<date>\",\n  \"startDate\": \"<date>\",\n  \"completed\": \"<boolean>\",\n  \"estimateMinutes\": \"<integer>\",\n  \"priority\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"completed\": false,\n  \"extendedProperties\": {\n    \"key_0\": 8983.42264915291,\n    \"key_1\": 2970.529667489329\n  },\n  \"id\": \"string\",\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"priority\": \"<string>\",\n  \"status\": \"string\",\n  \"link\": {\n    \"url\": \"string\"\n  },\n  \"due\": \"1955-12-27T06:45:56.325Z\",\n  \"start\": \"1974-02-05T18:51:39.874Z\",\n  \"estimateMinutes\": 4571,\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ca5c05bf-4dc7-40d2-83ab-3d204367d031",
+    "name": "Reclaim account-time-schemes reclaim-tasks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,440 @@
+{
+  "item": [
+    {
+      "id": "2db4e008-53de-41f6-88a2-c6bd3f00f920",
+      "name": "jira",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f598cab6-04fe-4187-b599-ce43bc41e99b",
+          "name": "integrations 4",
+          "request": {
+            "name": "integrations 4",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "jira",
+                "integrations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "3fb2eaa5-34c2-4912-b7eb-68895c0681b3",
+              "name": "integrations_4 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "jira",
+                    "integrations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"installation\": \"string\",\n    \"available_projects\": {\n      \"empty\": false,\n      \"partialView\": false,\n      \"hashCodeFast\": true\n    },\n    \"selected_project_keys\": {\n      \"empty\": true,\n      \"partialView\": false,\n      \"hashCodeFast\": true\n    },\n    \"due_date_required\": true,\n    \"withId\": \"string\",\n    \"withInstallation\": \"string\",\n    \"withAvailable_projects\": [\n      {\n        \"project_key\": \"string\",\n        \"project_name\": \"string\",\n        \"withProject_key\": \"string\",\n        \"withProject_name\": \"string\",\n        \"equals\": \"\",\n        \"hashCode\": 4661,\n        \"toString\": \"string\",\n        \"toAnalyticsValue\": {}\n      },\n      {\n        \"project_key\": \"string\",\n        \"project_name\": \"string\",\n        \"withProject_key\": \"string\",\n        \"withProject_name\": \"string\",\n        \"equals\": \"\",\n        \"hashCode\": 3065,\n        \"toString\": \"string\",\n        \"toAnalyticsValue\": {}\n      }\n    ],\n    \"withSelected_project_keys\": [\n      \"string\",\n      \"string\"\n    ],\n    \"withDue_date_required\": false,\n    \"equals\": \"\",\n    \"hashCode\": 5612,\n    \"toString\": \"string\"\n  },\n  {\n    \"id\": \"string\",\n    \"installation\": \"string\",\n    \"available_projects\": {\n      \"empty\": false,\n      \"partialView\": false,\n      \"hashCodeFast\": false\n    },\n    \"selected_project_keys\": {\n      \"empty\": true,\n      \"partialView\": true,\n      \"hashCodeFast\": false\n    },\n    \"due_date_required\": true,\n    \"withId\": \"string\",\n    \"withInstallation\": \"string\",\n    \"withAvailable_projects\": [\n      {\n        \"project_key\": \"string\",\n        \"project_name\": \"string\",\n        \"withProject_key\": \"string\",\n        \"withProject_name\": \"string\",\n        \"equals\": \"\",\n        \"hashCode\": 484,\n        \"toString\": \"string\",\n        \"toAnalyticsValue\": {}\n      },\n      {\n        \"project_key\": \"string\",\n        \"project_name\": \"string\",\n        \"withProject_key\": \"string\",\n        \"withProject_name\": \"string\",\n        \"equals\": \"\",\n        \"hashCode\": 9840,\n        \"toString\": \"string\",\n        \"toAnalyticsValue\": {}\n      }\n    ],\n    \"withSelected_project_keys\": [\n      \"string\",\n      \"string\"\n    ],\n    \"withDue_date_required\": false,\n    \"equals\": \"\",\n    \"hashCode\": 4581,\n    \"toString\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5fbfb333-3ae2-4ef8-a3c7-a9c9a50bb62a",
+          "name": "delete Integration 2",
+          "request": {
+            "name": "delete Integration 2",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "jira",
+                "integrations",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "49ec9e79-8a7a-46c4-9341-1931cfeb1a4f",
+              "name": "deleteIntegration_2 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "jira",
+                    "integrations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"installation\": \"string\",\n    \"available_projects\": {\n      \"empty\": false,\n      \"partialView\": false,\n      \"hashCodeFast\": false\n    },\n    \"selected_project_keys\": {\n      \"empty\": true,\n      \"partialView\": true,\n      \"hashCodeFast\": true\n    },\n    \"due_date_required\": false,\n    \"withId\": \"string\",\n    \"withInstallation\": \"string\",\n    \"withAvailable_projects\": [\n      {\n        \"project_key\": \"string\",\n        \"project_name\": \"string\",\n        \"withProject_key\": \"string\",\n        \"withProject_name\": \"string\",\n        \"equals\": \"\",\n        \"hashCode\": 5639,\n        \"toString\": \"string\",\n        \"toAnalyticsValue\": {}\n      },\n      {\n        \"project_key\": \"string\",\n        \"project_name\": \"string\",\n        \"withProject_key\": \"string\",\n        \"withProject_name\": \"string\",\n        \"equals\": \"\",\n        \"hashCode\": 2012,\n        \"toString\": \"string\",\n        \"toAnalyticsValue\": {}\n      }\n    ],\n    \"withSelected_project_keys\": [\n      \"string\",\n      \"string\"\n    ],\n    \"withDue_date_required\": false,\n    \"equals\": \"\",\n    \"hashCode\": 8510,\n    \"toString\": \"string\"\n  },\n  {\n    \"id\": \"string\",\n    \"installation\": \"string\",\n    \"available_projects\": {\n      \"empty\": true,\n      \"partialView\": true,\n      \"hashCodeFast\": false\n    },\n    \"selected_project_keys\": {\n      \"empty\": false,\n      \"partialView\": false,\n      \"hashCodeFast\": false\n    },\n    \"due_date_required\": true,\n    \"withId\": \"string\",\n    \"withInstallation\": \"string\",\n    \"withAvailable_projects\": [\n      {\n        \"project_key\": \"string\",\n        \"project_name\": \"string\",\n        \"withProject_key\": \"string\",\n        \"withProject_name\": \"string\",\n        \"equals\": \"\",\n        \"hashCode\": 3635,\n        \"toString\": \"string\",\n        \"toAnalyticsValue\": {}\n      },\n      {\n        \"project_key\": \"string\",\n        \"project_name\": \"string\",\n        \"withProject_key\": \"string\",\n        \"withProject_name\": \"string\",\n        \"equals\": \"\",\n        \"hashCode\": 7155,\n        \"toString\": \"string\",\n        \"toAnalyticsValue\": {}\n      }\n    ],\n    \"withSelected_project_keys\": [\n      \"string\",\n      \"string\"\n    ],\n    \"withDue_date_required\": false,\n    \"equals\": \"\",\n    \"hashCode\": 9021,\n    \"toString\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5769ec9a-11cb-46d0-bc73-c8906da9616e",
+          "name": "patch Integration 2",
+          "request": {
+            "name": "patch Integration 2",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "jira",
+                "integrations",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"installation\": \"<string>\",\n  \"selected_project_keys\": \"<object>\",\n  \"due_date_required\": \"<boolean>\",\n  \"withInstallation\": \"<string>\",\n  \"withSelected_project_keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"withDue_date_required\": \"<boolean>\",\n  \"equals\": \"\",\n  \"hashCode\": \"<integer>\",\n  \"toString\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "79205a6c-9994-4a2b-a866-216acddd19cb",
+              "name": "patchIntegration_2 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "jira",
+                    "integrations",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"installation\": \"<string>\",\n  \"selected_project_keys\": {\n    \"empty\": \"<boolean>\",\n    \"partialView\": \"<boolean>\",\n    \"hashCodeFast\": \"<boolean>\"\n  },\n  \"due_date_required\": \"<boolean>\",\n  \"withInstallation\": \"<string>\",\n  \"withSelected_project_keys\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"withDue_date_required\": \"<boolean>\",\n  \"equals\": \"\",\n  \"hashCode\": \"<integer>\",\n  \"toString\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fd528e57-7dde-4039-a773-82dfbc9222cc",
+          "name": "task Details 2",
+          "request": {
+            "name": "task Details 2",
+            "description": {},
+            "url": {
+              "path": [
+                "web",
+                "jira",
+                "task",
+                ":issueKey",
+                ":issueId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "issueKey",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "issueId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aa29e1a0-382d-4c6d-b9e1-4e919cc63ff0",
+              "name": "taskDetails_2 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "web",
+                    "jira",
+                    "task",
+                    ":issueKey",
+                    ":issueId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "issueKey",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "issueId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "782fcd4d-7559-4624-875d-cdca43b94958",
+    "name": "Reclaim account-time-schemes jira API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

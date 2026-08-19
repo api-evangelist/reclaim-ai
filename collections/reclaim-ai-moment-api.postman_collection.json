@@ -1,0 +1,194 @@
+{
+  "item": [
+    {
+      "id": "5da2d579-dfd6-4a41-bc56-cfa1e1ccacd8",
+      "name": "moment",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "557de7a0-e535-409d-96a8-2108b86a220d",
+          "name": "get 3",
+          "request": {
+            "name": "get 3",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "moment"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "303fa1e2-5b80-4076-8684-90409958103b",
+              "name": "get_3 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "moment"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additionalEvents\": [\n    {\n      \"allocatedTimeChunks\": 3671,\n      \"assist\": {\n        \"type\": \"CATCHUP_AM\",\n        \"customHabit\": true,\n        \"smartSeries\": true,\n        \"focus\": false,\n        \"habitOrTask\": false,\n        \"task\": true,\n        \"conferenceBuffer\": false,\n        \"travelBuffer\": true,\n        \"status\": \"ARCHIVED\",\n        \"travelNewEventId\": \"string\",\n        \"conferenceEventId\": \"string\",\n        \"lastControlledUpdate\": \"2003-11-07T02:29:44.556Z\",\n        \"lastControlledHash\": 6672,\n        \"defended\": true,\n        \"pinned\": false,\n        \"lockState\": \"MANUALLY_UNLOCKED\",\n        \"dailyHabitId\": 9093,\n        \"seriesLineageId\": 7825,\n        \"seriesId\": 5866,\n        \"taskId\": 3540,\n        \"taskIndex\": 9847,\n        \"policyOverride\": {\n          \"durationMax\": 9793,\n          \"durationMin\": 1260,\n          \"forceDefend\": false,\n          \"idealTime\": \"string\",\n          \"windowEnd\": \"string\",\n          \"windowStart\": \"string\"\n        },\n        \"lastManualAdjustment\": \"1995-02-19T20:58:00.137Z\",\n        \"recurringAssignmentType\": \"DAILY_HABIT\",\n        \"eventType\": \"TASK_ASSIGNMENT\",\n        \"manuallyStarted\": true,\n        \"focusId\": 6237,\n        \"assistReferenceValid\": false\n      },\n      \"calendarId\": 8134,\n      \"categoryOverride\": {\n        \"color\": \"SAGE\"\n      },\n      \"description\": \"string\",\n      \"etag\": \"string\",\n      \"eventEnd\": \"1997-03-04T09:00:49.610Z\",\n      \"eventId\": \"string\",\n      \"eventStart\": \"1960-04-19T05:12:50.921Z\",\n      \"key\": {\n        \"calendarId\": 7123,\n        \"eventId\": \"string\"\n      },\n      \"location\": \"string\",\n      \"meetingType\": \"ROADMAP\",\n      \"organizer\": \"string\",\n      \"priority\": \"PRIORITIZE\",\n      \"recurrence\": \"string\",\n      \"recurrenceMax\": \"2012-05-26T04:14:21.611Z\",\n      \"recurringEventId\": \"string\",\n      \"requiresTravel\": false,\n      \"rsvpStatus\": \"Declined\",\n      \"sourceDetails\": {\n        \"base64Id\": \"string\",\n        \"calendarId\": 7005,\n        \"description\": \"string\",\n        \"etag\": \"string\",\n        \"eventId\": \"string\",\n        \"eventKey\": {\n          \"calendarId\": 4570,\n          \"eventId\": \"string\"\n        },\n        \"title\": \"string\",\n        \"url\": \"string\",\n        \"writable\": true\n      },\n      \"status\": \"CANCELLED\",\n      \"subType\": \"OTHER_PERSONAL\",\n      \"timeChunks\": 5605,\n      \"title\": \"string\",\n      \"titleSeenByOthers\": \"string\",\n      \"type\": \"LOGISTICS\",\n      \"updated\": \"1994-07-02T06:09:14.857Z\",\n      \"googleMetadata\": {\n        \"guestsCanInviteOthers\": false,\n        \"guestsCanModify\": false,\n        \"guestsCanSeeOtherGuests\": false\n      },\n      \"schedulingLinkId\": \"string\",\n      \"schedulingLinkMeetingId\": \"string\",\n      \"underAssistControl\": true,\n      \"reclaimEventType\": \"HABIT_ASSIGNMENT\",\n      \"personalSync\": false,\n      \"reclaimManaged\": true,\n      \"reclaimManagedAndSelfOrganized\": true,\n      \"prioritySource\": \"MANUAL\",\n      \"onlineMeetingUrlRaw\": \"string\",\n      \"onlineMeetingUrl\": \"string\",\n      \"descriptionOmitted\": true,\n      \"titleTruncated\": false,\n      \"mergeDetails\": {\n        \"key\": \"string\",\n        \"sourceCalendarId\": \"string\",\n        \"sourceReclaimCalendarId\": 6919,\n        \"type\": \"ATTENDEE_EVENT\"\n      },\n      \"published\": true,\n      \"recurringException\": true,\n      \"recurring\": false,\n      \"recurringInstance\": false,\n      \"private\": true,\n      \"public\": false,\n      \"color\": \"BANANA\",\n      \"numAttendees\": 9822,\n      \"attendees\": [\n        {\n          \"email\": \"string\",\n          \"self\": false,\n          \"displayName\": \"string\",\n          \"responseStatus\": \"DECLINED\",\n          \"comment\": \"string\",\n          \"optional\": false,\n          \"additionalGuests\": 8976,\n          \"organizer\": true,\n          \"resource\": true\n        },\n        {\n          \"email\": \"string\",\n          \"self\": true,\n          \"displayName\": \"string\",\n          \"responseStatus\": \"DECLINED\",\n          \"comment\": \"string\",\n          \"optional\": true,\n          \"additionalGuests\": 1658,\n          \"organizer\": false,\n          \"resource\": false\n        }\n      ],\n      \"free\": false,\n      \"category\": {\n        \"color\": \"GRAPE\"\n      },\n      \"conferenceCall\": true,\n      \"smartSeriesId\": 2534,\n      \"sourceEventType\": \"WORKING_LOCATION\",\n      \"version\": \"string\",\n      \"manuallyStarted\": false,\n      \"inheritedExternalId\": \"string\"\n    },\n    {\n      \"allocatedTimeChunks\": 5661,\n      \"assist\": {\n        \"type\": \"FOCUS\",\n        \"customHabit\": false,\n        \"smartSeries\": false,\n        \"focus\": false,\n        \"habitOrTask\": true,\n        \"task\": true,\n        \"conferenceBuffer\": true,\n        \"travelBuffer\": true,\n        \"status\": \"CONTROLLED\",\n        \"travelNewEventId\": \"string\",\n        \"conferenceEventId\": \"string\",\n        \"lastControlledUpdate\": \"1962-11-29T03:43:56.545Z\",\n        \"lastControlledHash\": 2579,\n        \"defended\": true,\n        \"pinned\": true,\n        \"lockState\": \"MANUALLY_LOCKED\",\n        \"dailyHabitId\": 2959,\n        \"seriesLineageId\": 3134,\n        \"seriesId\": 845,\n        \"taskId\": 5841,\n        \"taskIndex\": 361,\n        \"policyOverride\": {\n          \"durationMax\": 4881,\n          \"durationMin\": 3648,\n          \"forceDefend\": true,\n          \"idealTime\": \"string\",\n          \"windowEnd\": \"string\",\n          \"windowStart\": \"string\"\n        },\n        \"lastManualAdjustment\": \"1988-02-27T02:30:18.541Z\",\n        \"recurringAssignmentType\": \"DAILY_HABIT\",\n        \"eventType\": \"ONE_ON_ONE_ASSIGNMENT\",\n        \"manuallyStarted\": false,\n        \"focusId\": 7078,\n        \"assistReferenceValid\": false\n      },\n      \"calendarId\": 5252,\n      \"categoryOverride\": {\n        \"color\": \"TOMATO\"\n      },\n      \"description\": \"string\",\n      \"etag\": \"string\",\n      \"eventEnd\": \"2006-04-06T09:51:00.403Z\",\n      \"eventId\": \"string\",\n      \"eventStart\": \"1959-08-23T18:40:52.421Z\",\n      \"key\": {\n        \"calendarId\": 4604,\n        \"eventId\": \"string\"\n      },\n      \"location\": \"string\",\n      \"meetingType\": \"OTHER_OP\",\n      \"organizer\": \"string\",\n      \"priority\": \"PRIORITIZE\",\n      \"recurrence\": \"string\",\n      \"recurrenceMax\": \"1949-03-12T14:36:00.949Z\",\n      \"recurringEventId\": \"string\",\n      \"requiresTravel\": true,\n      \"rsvpStatus\": \"TentativelyAccepted\",\n      \"sourceDetails\": {\n        \"base64Id\": \"string\",\n        \"calendarId\": 6475,\n        \"description\": \"string\",\n        \"etag\": \"string\",\n        \"eventId\": \"string\",\n        \"eventKey\": {\n          \"calendarId\": 1909,\n          \"eventId\": \"string\"\n        },\n        \"title\": \"string\",\n        \"url\": \"string\",\n        \"writable\": false\n      },\n      \"status\": \"PUBLISHED\",\n      \"subType\": \"HEALTH\",\n      \"timeChunks\": 5285,\n      \"title\": \"string\",\n      \"titleSeenByOthers\": \"string\",\n      \"type\": \"WORK\",\n      \"updated\": \"2000-10-14T01:56:24.683Z\",\n      \"googleMetadata\": {\n        \"guestsCanInviteOthers\": false,\n        \"guestsCanModify\": true,\n        \"guestsCanSeeOtherGuests\": true\n      },\n      \"schedulingLinkId\": \"string\",\n      \"schedulingLinkMeetingId\": \"string\",\n      \"underAssistControl\": true,\n      \"reclaimEventType\": \"FOCUS\",\n      \"personalSync\": false,\n      \"reclaimManaged\": true,\n      \"reclaimManagedAndSelfOrganized\": true,\n      \"prioritySource\": \"RULES\",\n      \"onlineMeetingUrlRaw\": \"string\",\n      \"onlineMeetingUrl\": \"string\",\n      \"descriptionOmitted\": false,\n      \"titleTruncated\": false,\n      \"mergeDetails\": {\n        \"key\": \"string\",\n        \"sourceCalendarId\": \"string\",\n        \"sourceReclaimCalendarId\": 1728,\n        \"type\": \"SYNC_EVENT\"\n      },\n      \"published\": true,\n      \"recurringException\": true,\n      \"recurring\": true,\n      \"recurringInstance\": false,\n      \"private\": false,\n      \"public\": true,\n      \"color\": \"NONE\",\n      \"numAttendees\": 8622,\n      \"attendees\": [\n        {\n          \"email\": \"string\",\n          \"self\": true,\n          \"displayName\": \"string\",\n          \"responseStatus\": \"NEEDS_ACTION\",\n          \"comment\": \"string\",\n          \"optional\": false,\n          \"additionalGuests\": 8724,\n          \"organizer\": true,\n          \"resource\": true\n        },\n        {\n          \"email\": \"string\",\n          \"self\": true,\n          \"displayName\": \"string\",\n          \"responseStatus\": \"TENTATIVE\",\n          \"comment\": \"string\",\n          \"optional\": true,\n          \"additionalGuests\": 7153,\n          \"organizer\": false,\n          \"resource\": false\n        }\n      ],\n      \"free\": true,\n      \"category\": {\n        \"color\": \"LAVENDER\"\n      },\n      \"conferenceCall\": true,\n      \"smartSeriesId\": 4628,\n      \"sourceEventType\": \"DEFAULT\",\n      \"version\": \"string\",\n      \"manuallyStarted\": false,\n      \"inheritedExternalId\": \"string\"\n    }\n  ],\n  \"now\": \"2015-08-28T04:27:45.953Z\",\n  \"event\": {\n    \"allocatedTimeChunks\": 4658,\n    \"assist\": {\n      \"type\": \"RECLAIM_FOCUS\",\n      \"customHabit\": false,\n      \"smartSeries\": true,\n      \"focus\": true,\n      \"habitOrTask\": false,\n      \"task\": true,\n      \"conferenceBuffer\": false,\n      \"travelBuffer\": true,\n      \"status\": \"ARCHIVED\",\n      \"travelNewEventId\": \"string\",\n      \"conferenceEventId\": \"string\",\n      \"lastControlledUpdate\": \"1983-07-11T08:57:35.689Z\",\n      \"lastControlledHash\": 1449,\n      \"defended\": true,\n      \"pinned\": true,\n      \"lockState\": \"IN_THE_PAST\",\n      \"dailyHabitId\": 5756,\n      \"seriesLineageId\": 8734,\n      \"seriesId\": 8017,\n      \"taskId\": 604,\n      \"taskIndex\": 9119,\n      \"policyOverride\": {\n        \"durationMax\": 7244,\n        \"durationMin\": 8300,\n        \"forceDefend\": false,\n        \"idealTime\": \"string\",\n        \"windowEnd\": \"string\",\n        \"windowStart\": \"string\"\n      },\n      \"lastManualAdjustment\": \"1958-10-19T08:39:14.967Z\",\n      \"recurringAssignmentType\": \"DAILY_HABIT\",\n      \"eventType\": \"SCHEDULING_LINK_MEETING\",\n      \"manuallyStarted\": false,\n      \"focusId\": 7181,\n      \"assistReferenceValid\": false\n    },\n    \"calendarId\": 9994,\n    \"categoryOverride\": {\n      \"color\": \"NONE\"\n    },\n    \"description\": \"string\",\n    \"etag\": \"string\",\n    \"eventEnd\": \"2010-09-06T16:27:53.675Z\",\n    \"eventId\": \"string\",\n    \"eventStart\": \"2008-12-29T21:15:04.190Z\",\n    \"key\": {\n      \"calendarId\": 835,\n      \"eventId\": \"string\"\n    },\n    \"location\": \"string\",\n    \"meetingType\": \"OTHER_STAFF\",\n    \"organizer\": \"string\",\n    \"priority\": \"P1\",\n    \"recurrence\": \"string\",\n    \"recurrenceMax\": \"1992-04-30T03:57:21.719Z\",\n    \"recurringEventId\": \"string\",\n    \"requiresTravel\": false,\n    \"rsvpStatus\": \"NotResponded\",\n    \"sourceDetails\": {\n      \"base64Id\": \"string\",\n      \"calendarId\": 5461,\n      \"description\": \"string\",\n      \"etag\": \"string\",\n      \"eventId\": \"string\",\n      \"eventKey\": {\n        \"calendarId\": 8643,\n        \"eventId\": \"string\"\n      },\n      \"title\": \"string\",\n      \"url\": \"string\",\n      \"writable\": true\n    },\n    \"status\": \"PUBLISHED\",\n    \"subType\": \"IDEATION\",\n    \"timeChunks\": 729,\n    \"title\": \"string\",\n    \"titleSeenByOthers\": \"string\",\n    \"type\": \"MEETING\",\n    \"updated\": \"1976-05-26T21:21:54.361Z\",\n    \"googleMetadata\": {\n      \"guestsCanInviteOthers\": true,\n      \"guestsCanModify\": false,\n      \"guestsCanSeeOtherGuests\": true\n    },\n    \"schedulingLinkId\": \"string\",\n    \"schedulingLinkMeetingId\": \"string\",\n    \"underAssistControl\": true,\n    \"reclaimEventType\": \"USER\",\n    \"personalSync\": true,\n    \"reclaimManaged\": true,\n    \"reclaimManagedAndSelfOrganized\": false,\n    \"prioritySource\": \"RULES\",\n    \"onlineMeetingUrlRaw\": \"string\",\n    \"onlineMeetingUrl\": \"string\",\n    \"descriptionOmitted\": true,\n    \"titleTruncated\": true,\n    \"mergeDetails\": {\n      \"key\": \"string\",\n      \"sourceCalendarId\": \"string\",\n      \"sourceReclaimCalendarId\": 8381,\n      \"type\": \"ATTENDEE_EVENT\"\n    },\n    \"published\": false,\n    \"recurringException\": false,\n    \"recurring\": true,\n    \"recurringInstance\": true,\n    \"private\": false,\n    \"public\": false,\n    \"color\": \"BANANA\",\n    \"numAttendees\": 7120,\n    \"attendees\": [\n      {\n        \"email\": \"string\",\n        \"self\": true,\n        \"displayName\": \"string\",\n        \"responseStatus\": \"NEEDS_ACTION\",\n        \"comment\": \"string\",\n        \"optional\": false,\n        \"additionalGuests\": 1096,\n        \"organizer\": false,\n        \"resource\": true\n      },\n      {\n        \"email\": \"string\",\n        \"self\": false,\n        \"displayName\": \"string\",\n        \"responseStatus\": \"ACCEPTED\",\n        \"comment\": \"string\",\n        \"optional\": true,\n        \"additionalGuests\": 3621,\n        \"organizer\": false,\n        \"resource\": false\n      }\n    ],\n    \"free\": true,\n    \"category\": {\n      \"color\": \"GRAPE\"\n    },\n    \"conferenceCall\": false,\n    \"smartSeriesId\": 2363,\n    \"sourceEventType\": \"WORKING_LOCATION\",\n    \"version\": \"string\",\n    \"manuallyStarted\": false,\n    \"inheritedExternalId\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "19f07b4e-fe63-471f-8eb1-9553bcd63726",
+          "name": "next",
+          "request": {
+            "name": "next",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "moment",
+                "next"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "4d83f454-e074-4c38-b7ee-4cd377e06407",
+              "name": "next 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "moment",
+                    "next"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"additionalEvents\": [\n    {\n      \"allocatedTimeChunks\": 2988,\n      \"assist\": {\n        \"type\": \"LUNCH\",\n        \"customHabit\": true,\n        \"smartSeries\": false,\n        \"focus\": false,\n        \"habitOrTask\": true,\n        \"task\": true,\n        \"conferenceBuffer\": false,\n        \"travelBuffer\": true,\n        \"status\": \"ARCHIVED\",\n        \"travelNewEventId\": \"string\",\n        \"conferenceEventId\": \"string\",\n        \"lastControlledUpdate\": \"2024-02-05T15:52:28.420Z\",\n        \"lastControlledHash\": 6701,\n        \"defended\": true,\n        \"pinned\": true,\n        \"lockState\": \"DECLINED\",\n        \"dailyHabitId\": 8039,\n        \"seriesLineageId\": 4855,\n        \"seriesId\": 7918,\n        \"taskId\": 1388,\n        \"taskIndex\": 3233,\n        \"policyOverride\": {\n          \"durationMax\": 9773,\n          \"durationMin\": 5826,\n          \"forceDefend\": true,\n          \"idealTime\": \"string\",\n          \"windowEnd\": \"string\",\n          \"windowStart\": \"string\"\n        },\n        \"lastManualAdjustment\": \"1993-03-25T05:15:34.750Z\",\n        \"recurringAssignmentType\": \"TASK\",\n        \"eventType\": \"FOCUS\",\n        \"manuallyStarted\": false,\n        \"focusId\": 9557,\n        \"assistReferenceValid\": true\n      },\n      \"calendarId\": 2521,\n      \"categoryOverride\": {\n        \"color\": \"SAGE\"\n      },\n      \"description\": \"string\",\n      \"etag\": \"string\",\n      \"eventEnd\": \"1960-07-22T08:03:00.827Z\",\n      \"eventId\": \"string\",\n      \"eventStart\": \"2016-06-03T08:08:36.354Z\",\n      \"key\": {\n        \"calendarId\": 9180,\n        \"eventId\": \"string\"\n      },\n      \"location\": \"string\",\n      \"meetingType\": \"XFUNC_11\",\n      \"organizer\": \"string\",\n      \"priority\": \"P3\",\n      \"recurrence\": \"string\",\n      \"recurrenceMax\": \"2015-01-14T10:00:33.026Z\",\n      \"recurringEventId\": \"string\",\n      \"requiresTravel\": false,\n      \"rsvpStatus\": \"NotResponded\",\n      \"sourceDetails\": {\n        \"base64Id\": \"string\",\n        \"calendarId\": 9908,\n        \"description\": \"string\",\n        \"etag\": \"string\",\n        \"eventId\": \"string\",\n        \"eventKey\": {\n          \"calendarId\": 6388,\n          \"eventId\": \"string\"\n        },\n        \"title\": \"string\",\n        \"url\": \"string\",\n        \"writable\": true\n      },\n      \"status\": \"PUBLISHED\",\n      \"subType\": \"UNKNOWN\",\n      \"timeChunks\": 3137,\n      \"title\": \"string\",\n      \"titleSeenByOthers\": \"string\",\n      \"type\": \"WORK\",\n      \"updated\": \"1953-03-19T03:25:03.116Z\",\n      \"googleMetadata\": {\n        \"guestsCanInviteOthers\": false,\n        \"guestsCanModify\": true,\n        \"guestsCanSeeOtherGuests\": false\n      },\n      \"schedulingLinkId\": \"string\",\n      \"schedulingLinkMeetingId\": \"string\",\n      \"underAssistControl\": true,\n      \"reclaimEventType\": \"FOCUS\",\n      \"personalSync\": true,\n      \"reclaimManaged\": false,\n      \"reclaimManagedAndSelfOrganized\": false,\n      \"prioritySource\": \"MANUAL\",\n      \"onlineMeetingUrlRaw\": \"string\",\n      \"onlineMeetingUrl\": \"string\",\n      \"descriptionOmitted\": true,\n      \"titleTruncated\": true,\n      \"mergeDetails\": {\n        \"key\": \"string\",\n        \"sourceCalendarId\": \"string\",\n        \"sourceReclaimCalendarId\": 1411,\n        \"type\": \"ORGANIZER_EVENT\"\n      },\n      \"published\": false,\n      \"recurringException\": true,\n      \"recurring\": true,\n      \"recurringInstance\": true,\n      \"private\": false,\n      \"public\": false,\n      \"color\": \"NONE\",\n      \"numAttendees\": 8761,\n      \"attendees\": [\n        {\n          \"email\": \"string\",\n          \"self\": false,\n          \"displayName\": \"string\",\n          \"responseStatus\": \"ACCEPTED\",\n          \"comment\": \"string\",\n          \"optional\": true,\n          \"additionalGuests\": 5296,\n          \"organizer\": false,\n          \"resource\": false\n        },\n        {\n          \"email\": \"string\",\n          \"self\": true,\n          \"displayName\": \"string\",\n          \"responseStatus\": \"ACCEPTED\",\n          \"comment\": \"string\",\n          \"optional\": true,\n          \"additionalGuests\": 7853,\n          \"organizer\": false,\n          \"resource\": true\n        }\n      ],\n      \"free\": true,\n      \"category\": {\n        \"color\": \"BANANA\"\n      },\n      \"conferenceCall\": false,\n      \"smartSeriesId\": 3658,\n      \"sourceEventType\": \"FROM_MAIL\",\n      \"version\": \"string\",\n      \"manuallyStarted\": false,\n      \"inheritedExternalId\": \"string\"\n    },\n    {\n      \"allocatedTimeChunks\": 7622,\n      \"assist\": {\n        \"type\": \"RECLAIM_FOCUS\",\n        \"customHabit\": false,\n        \"smartSeries\": false,\n        \"focus\": false,\n        \"habitOrTask\": false,\n        \"task\": false,\n        \"conferenceBuffer\": false,\n        \"travelBuffer\": true,\n        \"status\": \"RELEASED\",\n        \"travelNewEventId\": \"string\",\n        \"conferenceEventId\": \"string\",\n        \"lastControlledUpdate\": \"1967-07-16T05:48:59.106Z\",\n        \"lastControlledHash\": 8561,\n        \"defended\": false,\n        \"pinned\": true,\n        \"lockState\": \"ADJUSTED\",\n        \"dailyHabitId\": 6057,\n        \"seriesLineageId\": 5800,\n        \"seriesId\": 230,\n        \"taskId\": 1387,\n        \"taskIndex\": 8340,\n        \"policyOverride\": {\n          \"durationMax\": 6015,\n          \"durationMin\": 4537,\n          \"forceDefend\": true,\n          \"idealTime\": \"string\",\n          \"windowEnd\": \"string\",\n          \"windowStart\": \"string\"\n        },\n        \"lastManualAdjustment\": \"2006-01-09T15:20:36.240Z\",\n        \"recurringAssignmentType\": \"DAILY_HABIT\",\n        \"eventType\": \"TASK_ASSIGNMENT\",\n        \"manuallyStarted\": true,\n        \"focusId\": 6698,\n        \"assistReferenceValid\": true\n      },\n      \"calendarId\": 9197,\n      \"categoryOverride\": {\n        \"color\": \"FLAMINGO\"\n      },\n      \"description\": \"string\",\n      \"etag\": \"string\",\n      \"eventEnd\": \"2025-12-29T04:19:27.603Z\",\n      \"eventId\": \"string\",\n      \"eventStart\": \"1964-03-22T23:23:29.547Z\",\n      \"key\": {\n        \"calendarId\": 5820,\n        \"eventId\": \"string\"\n      },\n      \"location\": \"string\",\n      \"meetingType\": \"OTHER_IDEATION\",\n      \"organizer\": \"string\",\n      \"priority\": \"P4\",\n      \"recurrence\": \"string\",\n      \"recurrenceMax\": \"2020-09-27T02:40:23.755Z\",\n      \"recurringEventId\": \"string\",\n      \"requiresTravel\": true,\n      \"rsvpStatus\": \"Declined\",\n      \"sourceDetails\": {\n        \"base64Id\": \"string\",\n        \"calendarId\": 4702,\n        \"description\": \"string\",\n        \"etag\": \"string\",\n        \"eventId\": \"string\",\n        \"eventKey\": {\n          \"calendarId\": 2329,\n          \"eventId\": \"string\"\n        },\n        \"title\": \"string\",\n        \"url\": \"string\",\n        \"writable\": true\n      },\n      \"status\": \"PUBLISHED\",\n      \"subType\": \"VACATION\",\n      \"timeChunks\": 5898,\n      \"title\": \"string\",\n      \"titleSeenByOthers\": \"string\",\n      \"type\": \"LOGISTICS\",\n      \"updated\": \"2020-07-10T17:24:35.941Z\",\n      \"googleMetadata\": {\n        \"guestsCanInviteOthers\": false,\n        \"guestsCanModify\": false,\n        \"guestsCanSeeOtherGuests\": false\n      },\n      \"schedulingLinkId\": \"string\",\n      \"schedulingLinkMeetingId\": \"string\",\n      \"underAssistControl\": false,\n      \"reclaimEventType\": \"CONF_BUFFER\",\n      \"personalSync\": false,\n      \"reclaimManaged\": true,\n      \"reclaimManagedAndSelfOrganized\": false,\n      \"prioritySource\": \"MANUAL\",\n      \"onlineMeetingUrlRaw\": \"string\",\n      \"onlineMeetingUrl\": \"string\",\n      \"descriptionOmitted\": false,\n      \"titleTruncated\": false,\n      \"mergeDetails\": {\n        \"key\": \"string\",\n        \"sourceCalendarId\": \"string\",\n        \"sourceReclaimCalendarId\": 3781,\n        \"type\": \"ORGANIZER_EVENT\"\n      },\n      \"published\": false,\n      \"recurringException\": true,\n      \"recurring\": false,\n      \"recurringInstance\": true,\n      \"private\": true,\n      \"public\": true,\n      \"color\": \"BLUEBERRY\",\n      \"numAttendees\": 8338,\n      \"attendees\": [\n        {\n          \"email\": \"string\",\n          \"self\": true,\n          \"displayName\": \"string\",\n          \"responseStatus\": \"UNKNOWN\",\n          \"comment\": \"string\",\n          \"optional\": false,\n          \"additionalGuests\": 9944,\n          \"organizer\": true,\n          \"resource\": true\n        },\n        {\n          \"email\": \"string\",\n          \"self\": true,\n          \"displayName\": \"string\",\n          \"responseStatus\": \"UNKNOWN\",\n          \"comment\": \"string\",\n          \"optional\": false,\n          \"additionalGuests\": 650,\n          \"organizer\": false,\n          \"resource\": true\n        }\n      ],\n      \"free\": true,\n      \"category\": {\n        \"color\": \"TOMATO\"\n      },\n      \"conferenceCall\": false,\n      \"smartSeriesId\": 193,\n      \"sourceEventType\": \"DEFAULT\",\n      \"version\": \"string\",\n      \"manuallyStarted\": false,\n      \"inheritedExternalId\": \"string\"\n    }\n  ],\n  \"now\": \"1999-12-13T07:33:00.321Z\",\n  \"event\": {\n    \"allocatedTimeChunks\": 2651,\n    \"assist\": {\n      \"type\": \"LUNCH\",\n      \"customHabit\": false,\n      \"smartSeries\": false,\n      \"focus\": true,\n      \"habitOrTask\": false,\n      \"task\": true,\n      \"conferenceBuffer\": true,\n      \"travelBuffer\": true,\n      \"status\": \"CONTROLLED\",\n      \"travelNewEventId\": \"string\",\n      \"conferenceEventId\": \"string\",\n      \"lastControlledUpdate\": \"1997-06-19T14:25:03.645Z\",\n      \"lastControlledHash\": 613,\n      \"defended\": false,\n      \"pinned\": true,\n      \"lockState\": \"DECLINED\",\n      \"dailyHabitId\": 9594,\n      \"seriesLineageId\": 4835,\n      \"seriesId\": 2905,\n      \"taskId\": 782,\n      \"taskIndex\": 2231,\n      \"policyOverride\": {\n        \"durationMax\": 9224,\n        \"durationMin\": 3987,\n        \"forceDefend\": false,\n        \"idealTime\": \"string\",\n        \"windowEnd\": \"string\",\n        \"windowStart\": \"string\"\n      },\n      \"lastManualAdjustment\": \"1960-08-02T17:21:20.142Z\",\n      \"recurringAssignmentType\": \"ONE_ON_ONE\",\n      \"eventType\": \"UNKNOWN\",\n      \"manuallyStarted\": true,\n      \"focusId\": 4611,\n      \"assistReferenceValid\": true\n    },\n    \"calendarId\": 6448,\n    \"categoryOverride\": {\n      \"color\": \"LAVENDER\"\n    },\n    \"description\": \"string\",\n    \"etag\": \"string\",\n    \"eventEnd\": \"2022-11-03T01:28:01.811Z\",\n    \"eventId\": \"string\",\n    \"eventStart\": \"1967-12-27T04:20:20.006Z\",\n    \"key\": {\n      \"calendarId\": 4482,\n      \"eventId\": \"string\"\n    },\n    \"location\": \"string\",\n    \"meetingType\": \"ALL_HANDS\",\n    \"organizer\": \"string\",\n    \"priority\": \"DEFAULT\",\n    \"recurrence\": \"string\",\n    \"recurrenceMax\": \"1980-03-21T13:54:19.502Z\",\n    \"recurringEventId\": \"string\",\n    \"requiresTravel\": true,\n    \"rsvpStatus\": \"Organizer\",\n    \"sourceDetails\": {\n      \"base64Id\": \"string\",\n      \"calendarId\": 161,\n      \"description\": \"string\",\n      \"etag\": \"string\",\n      \"eventId\": \"string\",\n      \"eventKey\": {\n        \"calendarId\": 9723,\n        \"eventId\": \"string\"\n      },\n      \"title\": \"string\",\n      \"url\": \"string\",\n      \"writable\": true\n    },\n    \"status\": \"PUBLISHED\",\n    \"subType\": \"UNKNOWN\",\n    \"timeChunks\": 4280,\n    \"title\": \"string\",\n    \"titleSeenByOthers\": \"string\",\n    \"type\": \"MEETING\",\n    \"updated\": \"1989-10-20T22:10:41.039Z\",\n    \"googleMetadata\": {\n      \"guestsCanInviteOthers\": true,\n      \"guestsCanModify\": true,\n      \"guestsCanSeeOtherGuests\": false\n    },\n    \"schedulingLinkId\": \"string\",\n    \"schedulingLinkMeetingId\": \"string\",\n    \"underAssistControl\": true,\n    \"reclaimEventType\": \"USER\",\n    \"personalSync\": false,\n    \"reclaimManaged\": false,\n    \"reclaimManagedAndSelfOrganized\": false,\n    \"prioritySource\": \"AI\",\n    \"onlineMeetingUrlRaw\": \"string\",\n    \"onlineMeetingUrl\": \"string\",\n    \"descriptionOmitted\": true,\n    \"titleTruncated\": true,\n    \"mergeDetails\": {\n      \"key\": \"string\",\n      \"sourceCalendarId\": \"string\",\n      \"sourceReclaimCalendarId\": 5207,\n      \"type\": \"ATTENDEE_EVENT\"\n    },\n    \"published\": false,\n    \"recurringException\": false,\n    \"recurring\": true,\n    \"recurringInstance\": false,\n    \"private\": true,\n    \"public\": true,\n    \"color\": \"BASIL\",\n    \"numAttendees\": 4212,\n    \"attendees\": [\n      {\n        \"email\": \"string\",\n        \"self\": false,\n        \"displayName\": \"string\",\n        \"responseStatus\": \"NEEDS_ACTION\",\n        \"comment\": \"string\",\n        \"optional\": true,\n        \"additionalGuests\": 4004,\n        \"organizer\": true,\n        \"resource\": true\n      },\n      {\n        \"email\": \"string\",\n        \"self\": false,\n        \"displayName\": \"string\",\n        \"responseStatus\": \"ACCEPTED\",\n        \"comment\": \"string\",\n        \"optional\": true,\n        \"additionalGuests\": 474,\n        \"organizer\": false,\n        \"resource\": true\n      }\n    ],\n    \"free\": false,\n    \"category\": {\n      \"color\": \"BANANA\"\n    },\n    \"conferenceCall\": false,\n    \"smartSeriesId\": 9769,\n    \"sourceEventType\": \"OUT_OF_OFFICE\",\n    \"version\": \"string\",\n    \"manuallyStarted\": false,\n    \"inheritedExternalId\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e43326ae-e5de-4ba1-a048-8d6446cb93fe",
+    "name": "Reclaim account-time-schemes moment API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

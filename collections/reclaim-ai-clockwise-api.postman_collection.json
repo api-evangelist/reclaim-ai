@@ -1,0 +1,583 @@
+{
+  "item": [
+    {
+      "id": "1d93f921-63f1-42d4-9122-f131f17f4988",
+      "name": "clockwise",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "65b8a63d-9044-46ec-9c78-76427dad6ee3",
+          "name": "cleanup Clockwise Events",
+          "request": {
+            "name": "cleanup Clockwise Events",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "clockwise",
+                "cleanup-events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "18e0ef47-3409-40f3-9f43-b1b22e81d05d",
+              "name": "cleanupClockwiseEvents 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "clockwise",
+                    "cleanup-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"deleted\": 2387,\n  \"failed\": 6544,\n  \"warnings\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ec7de1eb-6a86-454f-82d7-9be1aa3dcff5",
+          "name": "clear Scheduler Suppression",
+          "request": {
+            "name": "clear Scheduler Suppression",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "clockwise",
+                "clear-suppression"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "a76689e8-8bd3-4947-b922-671e6f3fcc8c",
+              "name": "clearSchedulerSuppression 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "clockwise",
+                    "clear-suppression"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "116b16ff-49d5-4cb6-b18e-c7870788ed2d",
+          "name": "detect Clockwise Events",
+          "request": {
+            "name": "detect Clockwise Events",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "clockwise",
+                "detect-events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "19254c4b-c4e8-4b57-90d0-aa78f4e15d8e",
+              "name": "detectClockwiseEvents 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "clockwise",
+                    "detect-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 4658,\n  \"uniqueTitles\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d1302c0-71b0-4c61-85f3-40c0bf1cf175",
+          "name": "import Clockwise Data",
+          "request": {
+            "name": "import Clockwise Data",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "clockwise",
+                "import"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "<string>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "50782590-5da9-4e36-a4dc-a05d5dda08d7",
+              "name": "importClockwiseData 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "clockwise",
+                    "import"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"currentStep\": 5393,\n  \"jobId\": \"68e3889f-aca7-9075-3294-0f8fb5c813a0\",\n  \"status\": \"SUCCESS\",\n  \"totalSteps\": 745,\n  \"stepLabel\": \"string\",\n  \"result\": {\n    \"flexibleHabitsConverted\": 4446,\n    \"flexibleMeetingsConverted\": 903,\n    \"flexibleMeetingsSkipped\": 7189,\n    \"focusTimeImported\": true,\n    \"habitsCreated\": [\n      \"string\",\n      \"string\"\n    ],\n    \"meetingHoursImported\": false,\n    \"messages\": [\n      \"string\",\n      \"string\"\n    ],\n    \"schedulingLinksCreated\": 3971,\n    \"schedulingLinksSkipped\": 8403,\n    \"settingsApplied\": [\n      \"string\",\n      \"string\"\n    ],\n    \"warnings\": [\n      \"string\",\n      \"string\"\n    ],\n    \"workingHoursImported\": true,\n    \"skippedImport\": {\n      \"user\": {\n        \"userId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"calendarId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"fullName\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"email\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"workingHours\": {\n        \"timeZone\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"daySettings\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"meetingHours\": {\n        \"differentFromWorkingHours\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"timeZone\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"daySettings\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"preferences\": {\n        \"focusTime\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"lunch\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"meetingRelief\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"preferredWork\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"noMeetingDay\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"travelTime\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"colorCoding\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"flexibleMeetings\": [\n        {\n          \"calendarId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"eventId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"start\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"end\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"calendarId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"eventId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"start\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"end\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"schedulingLinks\": {\n        \"totalCount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"links\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    }\n  },\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0d62c202-3e45-4059-8432-3dd0b169a0b0",
+          "name": "get Import Job Status",
+          "request": {
+            "name": "get Import Job Status",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "clockwise",
+                "import",
+                ":jobId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "jobId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "fec20896-b611-40aa-97f8-70d1bc6482f1",
+              "name": "getImportJobStatus 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "clockwise",
+                    "import",
+                    ":jobId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "jobId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"currentStep\": 7066,\n  \"jobId\": \"ff43a804-acaa-6a7e-76fa-a5af381b47e7\",\n  \"status\": \"PARTIAL\",\n  \"totalSteps\": 9149,\n  \"stepLabel\": \"string\",\n  \"result\": {\n    \"flexibleHabitsConverted\": 6543,\n    \"flexibleMeetingsConverted\": 8746,\n    \"flexibleMeetingsSkipped\": 2743,\n    \"focusTimeImported\": false,\n    \"habitsCreated\": [\n      \"string\",\n      \"string\"\n    ],\n    \"meetingHoursImported\": false,\n    \"messages\": [\n      \"string\",\n      \"string\"\n    ],\n    \"schedulingLinksCreated\": 2880,\n    \"schedulingLinksSkipped\": 7073,\n    \"settingsApplied\": [\n      \"string\",\n      \"string\"\n    ],\n    \"warnings\": [\n      \"string\",\n      \"string\"\n    ],\n    \"workingHoursImported\": false,\n    \"skippedImport\": {\n      \"user\": {\n        \"userId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"calendarId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"fullName\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"email\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"workingHours\": {\n        \"timeZone\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"daySettings\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"meetingHours\": {\n        \"differentFromWorkingHours\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"timeZone\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"daySettings\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"preferences\": {\n        \"focusTime\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"lunch\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"meetingRelief\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"preferredWork\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"noMeetingDay\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"travelTime\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"colorCoding\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"flexibleMeetings\": [\n        {\n          \"calendarId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"eventId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"start\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"end\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"calendarId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"eventId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"start\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"end\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"schedulingLinks\": {\n        \"totalCount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"links\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    }\n  },\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d244d993-4e36-4ce8-b842-7b8e75c08d53",
+          "name": "retry Import",
+          "request": {
+            "name": "retry Import",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "clockwise",
+                "import",
+                ":jobId",
+                "retry"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "jobId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "0fb65eb4-1fac-4490-8668-ae5bc34c8a44",
+              "name": "retryImport 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "clockwise",
+                    "import",
+                    ":jobId",
+                    "retry"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "jobId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"currentStep\": 7066,\n  \"jobId\": \"ff43a804-acaa-6a7e-76fa-a5af381b47e7\",\n  \"status\": \"PARTIAL\",\n  \"totalSteps\": 9149,\n  \"stepLabel\": \"string\",\n  \"result\": {\n    \"flexibleHabitsConverted\": 6543,\n    \"flexibleMeetingsConverted\": 8746,\n    \"flexibleMeetingsSkipped\": 2743,\n    \"focusTimeImported\": false,\n    \"habitsCreated\": [\n      \"string\",\n      \"string\"\n    ],\n    \"meetingHoursImported\": false,\n    \"messages\": [\n      \"string\",\n      \"string\"\n    ],\n    \"schedulingLinksCreated\": 2880,\n    \"schedulingLinksSkipped\": 7073,\n    \"settingsApplied\": [\n      \"string\",\n      \"string\"\n    ],\n    \"warnings\": [\n      \"string\",\n      \"string\"\n    ],\n    \"workingHoursImported\": false,\n    \"skippedImport\": {\n      \"user\": {\n        \"userId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"calendarId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"fullName\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"email\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"workingHours\": {\n        \"timeZone\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"daySettings\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"meetingHours\": {\n        \"differentFromWorkingHours\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"timeZone\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"daySettings\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"preferences\": {\n        \"focusTime\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"lunch\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"meetingRelief\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"preferredWork\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"noMeetingDay\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"travelTime\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"colorCoding\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"flexibleMeetings\": [\n        {\n          \"calendarId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"eventId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"start\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"end\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"calendarId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"eventId\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"start\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"end\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"schedulingLinks\": {\n        \"totalCount\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"links\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    }\n  },\n  \"errorMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3c12f178-3ce3-467c-8ffc-a7f77a7cd9ff",
+    "name": "Reclaim account-time-schemes clockwise API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

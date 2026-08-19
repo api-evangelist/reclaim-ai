@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes schedule-availability API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "schedule-availability",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "enableRedisCache",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/availability/enable-redis-cache",
+            "params": [
+              {
+                "name": "value",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "idealTimeAvailability",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/availability/ideal-time-availability",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "suggestedTimes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/availability/suggested-times",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "warmCache",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/availability/warm-cache"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

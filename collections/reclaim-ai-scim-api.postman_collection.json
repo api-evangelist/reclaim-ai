@@ -1,0 +1,1140 @@
+{
+  "item": [
+    {
+      "id": "9c4d52fe-d7dc-4cc0-9296-c863bb6a7f1a",
+      "name": "Scim",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d69174bd-35e7-46d3-8ed0-90d4d4c78696",
+          "name": "get Groups",
+          "request": {
+            "name": "get Groups",
+            "description": {},
+            "url": {
+              "path": [
+                "scim",
+                "v2",
+                "Groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/scim+json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "d58298b0-55b8-4116-9016-9a62e68c7581",
+              "name": "getGroups 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scim",
+                    "v2",
+                    "Groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/scim+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/scim+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d298f4af-c40a-4ccc-8c12-5ff2f8677f03",
+          "name": "get Resource Types",
+          "request": {
+            "name": "get Resource Types",
+            "description": {},
+            "url": {
+              "path": [
+                "scim",
+                "v2",
+                "ResourceTypes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/scim+json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "46a71172-49b8-42cf-9d10-fbc39f372c2f",
+              "name": "getResourceTypes 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scim",
+                    "v2",
+                    "ResourceTypes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/scim+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/scim+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4fe5050b-fbd6-4a65-927f-b5a660f68ba4",
+          "name": "get Schemas",
+          "request": {
+            "name": "get Schemas",
+            "description": {},
+            "url": {
+              "path": [
+                "scim",
+                "v2",
+                "Schemas"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/scim+json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "f528f9c0-5395-4660-b3a5-1adc691fd401",
+              "name": "getSchemas 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scim",
+                    "v2",
+                    "Schemas"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/scim+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/scim+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "05b95809-2c8c-4e32-b41d-0184e5768595",
+          "name": "get Service Provider",
+          "request": {
+            "name": "get Service Provider",
+            "description": {},
+            "url": {
+              "path": [
+                "scim",
+                "v2",
+                "ServiceProvider"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/scim+json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "92a8ed2d-4d33-4db8-b05f-29ce65d8b5ad",
+              "name": "getServiceProvider 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scim",
+                    "v2",
+                    "ServiceProvider"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/scim+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/scim+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "70099a74-b55a-4fc5-9240-17967ee23119",
+          "name": "get Users",
+          "request": {
+            "name": "get Users",
+            "description": {},
+            "url": {
+              "path": [
+                "scim",
+                "v2",
+                "Users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "attributes",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "attributes",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "startIndex",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/scim+json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "887a546c-79dc-4b62-a13c-c478e208d031",
+              "name": "getUsers 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scim",
+                    "v2",
+                    "Users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "attributes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "attributes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/scim+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/scim+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d539bd28-be1c-4f10-8a8c-cead24a736c0",
+          "name": "put User",
+          "request": {
+            "name": "put User",
+            "description": {},
+            "url": {
+              "path": [
+                "scim",
+                "v2",
+                "Users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/scim+json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userName\": \"<string>\",\n  \"name\": {\n    \"familyName\": \"<string>\",\n    \"givenName\": \"<string>\"\n  },\n  \"id\": \"<string>\",\n  \"emails\": [\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\",\n      \"display\": \"<string>\",\n      \"primary\": \"<boolean>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\",\n      \"display\": \"<string>\",\n      \"primary\": \"<boolean>\"\n    }\n  ],\n  \"active\": \"<boolean>\",\n  \"displayName\": \"<string>\",\n  \"title\": \"<string>\",\n  \"userType\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"meta\": {\n    \"resourceType\": \"<string>\",\n    \"created\": \"<dateTime>\"\n  },\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scimEnterprise\": {\n    \"employeeNumber\": \"<string>\",\n    \"costCenter\": \"<string>\",\n    \"organization\": \"<string>\",\n    \"division\": \"<string>\",\n    \"department\": \"<string>\",\n    \"manager\": {\n      \"displayName\": \"<string>\",\n      \"value\": \"<string>\",\n      \"ref\": \"<string>\"\n    }\n  },\n  \"reclaimExtension\": {\n    \"location\": \"<string>\",\n    \"hireDate\": \"<string>\",\n    \"jobCategory\": \"<string>\",\n    \"orgRole\": \"<string>\",\n    \"team\": \"<string>\"\n  },\n  \"attributes\": {\n    \"key_0\": 3252\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4266f1f9-ff70-4cfe-aefd-98f0b3466d53",
+              "name": "putUser 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scim",
+                    "v2",
+                    "Users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/scim+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userName\": \"<string>\",\n  \"name\": {\n    \"familyName\": \"<string>\",\n    \"givenName\": \"<string>\"\n  },\n  \"id\": \"<string>\",\n  \"emails\": [\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\",\n      \"display\": \"<string>\",\n      \"primary\": \"<boolean>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\",\n      \"display\": \"<string>\",\n      \"primary\": \"<boolean>\"\n    }\n  ],\n  \"active\": \"<boolean>\",\n  \"displayName\": \"<string>\",\n  \"title\": \"<string>\",\n  \"userType\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"meta\": {\n    \"resourceType\": \"<string>\",\n    \"created\": \"<dateTime>\"\n  },\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scimEnterprise\": {\n    \"employeeNumber\": \"<string>\",\n    \"costCenter\": \"<string>\",\n    \"organization\": \"<string>\",\n    \"division\": \"<string>\",\n    \"department\": \"<string>\",\n    \"manager\": {\n      \"displayName\": \"<string>\",\n      \"value\": \"<string>\",\n      \"ref\": \"<string>\"\n    }\n  },\n  \"reclaimExtension\": {\n    \"location\": \"<string>\",\n    \"hireDate\": \"<string>\",\n    \"jobCategory\": \"<string>\",\n    \"orgRole\": \"<string>\",\n    \"team\": \"<string>\"\n  },\n  \"attributes\": {\n    \"key_0\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/scim+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8ca86f7b-e77e-4fc6-9345-6ef6565ab184",
+          "name": "create User",
+          "request": {
+            "name": "create User",
+            "description": {},
+            "url": {
+              "path": [
+                "scim",
+                "v2",
+                "Users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/scim+json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userName\": \"<string>\",\n  \"name\": {\n    \"familyName\": \"<string>\",\n    \"givenName\": \"<string>\"\n  },\n  \"id\": \"<string>\",\n  \"emails\": [\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\",\n      \"display\": \"<string>\",\n      \"primary\": \"<boolean>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\",\n      \"display\": \"<string>\",\n      \"primary\": \"<boolean>\"\n    }\n  ],\n  \"active\": \"<boolean>\",\n  \"displayName\": \"<string>\",\n  \"title\": \"<string>\",\n  \"userType\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"meta\": {\n    \"resourceType\": \"<string>\",\n    \"created\": \"<dateTime>\"\n  },\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scimEnterprise\": {\n    \"employeeNumber\": \"<string>\",\n    \"costCenter\": \"<string>\",\n    \"organization\": \"<string>\",\n    \"division\": \"<string>\",\n    \"department\": \"<string>\",\n    \"manager\": {\n      \"displayName\": \"<string>\",\n      \"value\": \"<string>\",\n      \"ref\": \"<string>\"\n    }\n  },\n  \"reclaimExtension\": {\n    \"location\": \"<string>\",\n    \"hireDate\": \"<string>\",\n    \"jobCategory\": \"<string>\",\n    \"orgRole\": \"<string>\",\n    \"team\": \"<string>\"\n  },\n  \"attributes\": {\n    \"key_0\": 81\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "16873d27-c57a-4e96-af28-60ba5770c9ef",
+              "name": "createUser 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scim",
+                    "v2",
+                    "Users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/scim+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userName\": \"<string>\",\n  \"name\": {\n    \"familyName\": \"<string>\",\n    \"givenName\": \"<string>\"\n  },\n  \"id\": \"<string>\",\n  \"emails\": [\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\",\n      \"display\": \"<string>\",\n      \"primary\": \"<boolean>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"value\": \"<string>\",\n      \"display\": \"<string>\",\n      \"primary\": \"<boolean>\"\n    }\n  ],\n  \"active\": \"<boolean>\",\n  \"displayName\": \"<string>\",\n  \"title\": \"<string>\",\n  \"userType\": \"<string>\",\n  \"externalId\": \"<string>\",\n  \"meta\": {\n    \"resourceType\": \"<string>\",\n    \"created\": \"<dateTime>\"\n  },\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scimEnterprise\": {\n    \"employeeNumber\": \"<string>\",\n    \"costCenter\": \"<string>\",\n    \"organization\": \"<string>\",\n    \"division\": \"<string>\",\n    \"department\": \"<string>\",\n    \"manager\": {\n      \"displayName\": \"<string>\",\n      \"value\": \"<string>\",\n      \"ref\": \"<string>\"\n    }\n  },\n  \"reclaimExtension\": {\n    \"location\": \"<string>\",\n    \"hireDate\": \"<string>\",\n    \"jobCategory\": \"<string>\",\n    \"orgRole\": \"<string>\",\n    \"team\": \"<string>\"\n  },\n  \"attributes\": {\n    \"key_0\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/scim+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9b2bca44-74a6-495f-8fab-96a9777f43ca",
+          "name": "get User",
+          "request": {
+            "name": "get User",
+            "description": {},
+            "url": {
+              "path": [
+                "scim",
+                "v2",
+                "Users",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/scim+json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "4e115016-db8d-40df-b8dd-07c10f6dcddc",
+              "name": "getUser 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scim",
+                    "v2",
+                    "Users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/scim+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/scim+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "918e0f58-4f6e-4f3a-9597-1a1427009af0",
+          "name": "Using Map here instead of @Body ScimUser because we suspect that there are arbitrary properties that are being sent from the SCIM providers that would be useful for us to capture so that we can provide richer analytics facets.",
+          "request": {
+            "name": "Using Map here instead of @Body ScimUser because we suspect that there are arbitrary properties that are being sent from the SCIM providers that would be useful for us to capture so that we can provide richer analytics facets.",
+            "description": {
+              "content": "Using Map here instead of @Body ScimUser because we suspect that there are arbitrary properties that are being sent from the SCIM providers that would be useful for us to capture so that we can provide richer analytics facets.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scim",
+                "v2",
+                "Users",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/scim+json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5b008351-eff1-4431-8f92-5e5fe4db2124",
+              "name": "putUserId 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scim",
+                    "v2",
+                    "Users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/scim+json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": 7846.9600001717445,\n  \"key_1\": 3719\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/scim+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7a4d1786-0b97-4ba6-8ae2-d7ca87af91d1",
+          "name": "delete User",
+          "request": {
+            "name": "delete User",
+            "description": {},
+            "url": {
+              "path": [
+                "scim",
+                "v2",
+                "Users",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/scim+json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "d5d056b9-0dae-4431-9924-c40134f537c6",
+              "name": "deleteUser 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scim",
+                    "v2",
+                    "Users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/scim+json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/scim+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f6ab852-1d62-4ec9-bdd7-c273deb4f2b2",
+          "name": "patch User",
+          "request": {
+            "name": "patch User",
+            "description": {},
+            "url": {
+              "path": [
+                "scim",
+                "v2",
+                "Users",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/scim+json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Operations\": [\n    {\n      \"op\": \"<string>\",\n      \"path\": \"<string>\",\n      \"value\": {},\n      \"valueAsMap\": {\n        \"key_0\": \"string\"\n      }\n    },\n    {\n      \"op\": \"<string>\",\n      \"path\": \"<string>\",\n      \"value\": {},\n      \"valueAsMap\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": true\n      }\n    }\n  ],\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a7681e48-1c2f-4dea-a85c-f2f2efa406a1",
+              "name": "patchUser 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scim",
+                    "v2",
+                    "Users",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/scim+json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Operations\": [\n    {\n      \"op\": \"<string>\",\n      \"path\": \"<string>\",\n      \"value\": {},\n      \"valueAsMap\": {\n        \"key_0\": 2474\n      }\n    },\n    {\n      \"op\": \"<string>\",\n      \"path\": \"<string>\",\n      \"value\": {},\n      \"valueAsMap\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": 9560.151733912446\n      }\n    }\n  ],\n  \"schemas\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/scim+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "98e8316f-f848-40ac-b537-cd8c5e438ae7",
+    "name": "Reclaim account-time-schemes Scim API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

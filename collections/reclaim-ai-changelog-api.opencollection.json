@@ -1,0 +1,113 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes changelog API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "changelog",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getChangeLog",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/changelog"
+          }
+        },
+        {
+          "info": {
+            "name": "events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/changelog/events",
+            "params": [
+              {
+                "name": "eventIds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "schedulingLinks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/changelog/scheduling-links",
+            "params": [
+              {
+                "name": "schedulingLinkIds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "habits",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/changelog/smart-habits",
+            "params": [
+              {
+                "name": "lineageIds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "meetings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/changelog/smart-meetings",
+            "params": [
+              {
+                "name": "lineageIds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "tasks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/changelog/tasks",
+            "params": [
+              {
+                "name": "taskIds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

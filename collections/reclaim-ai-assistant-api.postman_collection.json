@@ -1,0 +1,116 @@
+{
+  "item": [
+    {
+      "id": "3973ed37-2f38-4ab5-9882-e937565be49a",
+      "name": "Assistant",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0b439f1e-ded4-4e1d-8369-88241c37cb05",
+          "name": "fake Endpoint1",
+          "request": {
+            "name": "fake Endpoint1",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "assistant",
+                "fake",
+                "1"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "a00f493a-eb81-41f3-a52a-a2c2300052a3",
+              "name": "fakeEndpoint1 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "assistant",
+                    "fake",
+                    "1"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"attendees\": {\n    \"key_0\": \"TentativelyAccepted\"\n  },\n  \"category\": {\n    \"color\": \"PEACOCK\"\n  },\n  \"color\": {\n    \"defaultCalendarColor\": false,\n    \"google\": \"NONE\",\n    \"hex\": \"string\"\n  },\n  \"conferenceDetails\": {\n    \"solution\": \"COSCREEN\",\n    \"source\": \"PARSED\",\n    \"status\": \"FAILURE\",\n    \"url\": \"string\"\n  },\n  \"end\": {\n    \"date\": \"1983-08-27\",\n    \"dateTime\": \"1947-04-27T01:17:56.348Z\",\n    \"timezone\": \"string\"\n  },\n  \"eventDescription\": {\n    \"raw\": \"string\",\n    \"processed\": \"string\"\n  },\n  \"free\": true,\n  \"key\": {\n    \"calendarId\": 9376,\n    \"eventId\": \"string\"\n  },\n  \"locked\": false,\n  \"priority\": \"DEFAULT\",\n  \"reclaimEventType\": \"HABIT_ASSIGNMENT\",\n  \"rsvpStatus\": \"Accepted\",\n  \"start\": {\n    \"date\": \"1995-10-18\",\n    \"dateTime\": \"1947-03-31T06:29:21.991Z\",\n    \"timezone\": \"string\"\n  },\n  \"status\": \"PUBLISHED\",\n  \"title\": \"string\",\n  \"version\": \"string\",\n  \"recurrence\": {\n    \"definition\": {\n      \"exDates\": [\n        {\n          \"timezone\": \"string\",\n          \"value\": \"string\"\n        },\n        {\n          \"timezone\": \"string\",\n          \"value\": \"string\"\n        }\n      ],\n      \"rrule\": \"string\"\n    },\n    \"timezone\": \"string\"\n  },\n  \"recurringInstance\": {\n    \"originalStart\": {\n      \"date\": \"1956-11-25\",\n      \"dateTime\": \"1976-01-19T20:05:34.950Z\",\n      \"timezone\": \"string\"\n    },\n    \"source\": {\n      \"calendarId\": 423,\n      \"eventId\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "938287b5-d7f0-4956-b8c3-d0c1896bf871",
+    "name": "Reclaim account-time-schemes Assistant API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

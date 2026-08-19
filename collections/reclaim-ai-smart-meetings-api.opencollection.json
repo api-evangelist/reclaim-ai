@@ -1,0 +1,582 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes smart-meetings API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "smart-meetings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "findAllSmartMeetings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/smart-meetings"
+          }
+        },
+        {
+          "info": {
+            "name": "createSmartMeeting",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-meetings",
+            "params": [
+              {
+                "name": "sendUpdates",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "findAllAttendeeDeclinedSmartMeetings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/smart-meetings/attendeeDeclined"
+          }
+        },
+        {
+          "info": {
+            "name": "availabilityReport",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/smart-meetings/availability/:seriesId",
+            "params": [
+              {
+                "name": "seriesId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "convertToSmartMeetings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-meetings/convert/:calendarId/:eventId",
+            "params": [
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "detectSmartMeetings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/smart-meetings/detect",
+            "params": [
+              {
+                "name": "onboarding",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "inviteOrganizer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-meetings/invite-organizer",
+            "params": [
+              {
+                "name": "lineageIds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "lockMeetingInstance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-meetings/planner/:eventId/lock",
+            "params": [
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "moveMeetingInstance_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-meetings/planner/:eventId/move",
+            "params": [
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "rescheduleMeetingInstance_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-meetings/planner/:eventId/reschedule",
+            "params": [
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "snoozeOption",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "rescheduleAnyOtherTimeMeetingInstance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-meetings/planner/:eventId/reschedule/any-other-time",
+            "params": [
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "skipMeetingInstance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-meetings/planner/:eventId/skip",
+            "params": [
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "unlockMeetingInstance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-meetings/planner/:eventId/unlock",
+            "params": [
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "resetSchedule_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-meetings/planner/:lineageId/clear-exceptions",
+            "params": [
+              {
+                "name": "lineageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "clearForceSkipped_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-meetings/planner/:seriesId/clear-force-skipped",
+            "params": [
+              {
+                "name": "seriesId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "clearTimePolicyExceptions_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-meetings/planner/:seriesId/clear-time-policy-exceptions",
+            "params": [
+              {
+                "name": "seriesId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "convertToSingleInstances_2",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-meetings/to-single-instances"
+          }
+        },
+        {
+          "info": {
+            "name": "findForSmartMeetingLineage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/smart-meetings/:lineageId",
+            "params": [
+              {
+                "name": "lineageId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "patchSmartMeeting",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/smart-meetings/:lineageId",
+            "params": [
+              {
+                "name": "lineageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sendUpdates",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteForSmartMeetingLineage",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/smart-meetings/:lineageId",
+            "params": [
+              {
+                "name": "lineageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sendUpdates",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "restoreIfAvailable",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "patchSmartMeetingForAttendee",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/smart-meetings/:lineageId/as-attendee",
+            "params": [
+              {
+                "name": "lineageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "disable_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/smart-meetings/:lineageId/disable",
+            "params": [
+              {
+                "name": "lineageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "enable_2",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-meetings/:lineageId/enable",
+            "params": [
+              {
+                "name": "lineageId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "forceSuccessor_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/smart-meetings/:lineageId/force-successor",
+            "params": [
+              {
+                "name": "lineageId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "convertToSingleInstances_3",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-meetings/:lineageId/to-single-instances",
+            "params": [
+              {
+                "name": "lineageId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

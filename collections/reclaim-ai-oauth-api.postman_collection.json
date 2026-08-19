@@ -1,0 +1,833 @@
+{
+  "item": [
+    {
+      "id": "0c05993b-dd0f-4154-91b4-9b604e20f1dc",
+      "name": "Oauth",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f853c669-2ba0-40d6-98f8-89059a1d2a3f",
+          "name": "account Init",
+          "request": {
+            "name": "account Init",
+            "description": {},
+            "url": {
+              "path": [
+                "oauth",
+                "zoom",
+                "account",
+                "init"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f880a86a-e071-4827-b99c-e07af79f6811",
+              "name": "OK response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "zoom",
+                    "account",
+                    "init"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fa020a53-43b4-4078-8247-bd3680338f1e",
+          "name": "development Init",
+          "request": {
+            "name": "development Init",
+            "description": {},
+            "url": {
+              "path": [
+                "oauth",
+                "zoom",
+                "development",
+                "init"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2d818a66-0398-4d94-886e-695f2970e797",
+              "name": "OK response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "zoom",
+                    "development",
+                    "init"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b7a47dfe-e56b-4c88-a3c7-e6b25e8383ae",
+          "name": "expand Capabilities Redirect",
+          "request": {
+            "name": "expand Capabilities Redirect",
+            "description": {},
+            "url": {
+              "path": [
+                "oauth",
+                "zoom",
+                "expand-capabilities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "edition",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "editionUsage",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "schedulerWindowWeeks",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "sku",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "principal",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "provider",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "baseProvider",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "firstName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "entitlements",
+                  "value": "{\"unlimitedHabitsEnabled\":\"<boolean>\",\"unlimitedConnectedCalendarsEnabled\":\"<boolean>\",\"unlimitedSyncEnabled\":\"<boolean>\",\"customSyncTransparencyEnabled\":\"<boolean>\",\"smart11CreationEnabled\":\"<boolean>\",\"customSlackSyncStatusEnabled\":\"<boolean>\",\"customConferenceBufferTitleEnabled\":\"<boolean>\",\"schedulingLinkSurveyEnabled\":\"<boolean>\",\"maxDaysAheadForSchedulingLinks\":\"<integer>\",\"linearEnabled\":\"<boolean>\",\"jiraEnabled\":\"<boolean>\",\"todoistEnabled\":\"<boolean>\",\"asanaEnabled\":\"<boolean>\",\"clickupEnabled\":\"<boolean>\",\"trelloEnabled\":\"<boolean>\",\"mondayEnabled\":\"<boolean>\",\"dropboxEnabled\":\"<boolean>\",\"SSOEnabled\":\"<boolean>\"}",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "detailedEntitlements",
+                  "value": "{\"unlimitedHabitsEnabled\":{\"minimumEdition\":\"<string>\",\"name\":\"<string>\",\"enabledForUser\":\"<boolean>\"},\"unlimitedSyncEnabled\":{\"minimumEdition\":\"<string>\",\"name\":\"<string>\",\"enabledForUser\":\"<boolean>\"},\"unlimitedConnectedCalendarsEnabled\":{\"minimumEdition\":\"<string>\",\"name\":\"<string>\",\"enabledForUser\":\"<boolean>\"},\"customSyncTransparencyEnabled\":{\"minimumEdition\":\"<string>\",\"name\":\"<string>\",\"enabledForUser\":\"<boolean>\"},\"smart11CreationEnabled\":{\"minimumEdition\":\"<string>\",\"name\":\"<string>\",\"enabledForUser\":\"<boolean>\"},\"customSlackSyncStatusEnabled\":{\"minimumEdition\":\"<string>\",\"name\":\"<string>\",\"enabledForUser\":\"<boolean>\"},\"customConferenceBufferTitleEnabled\":{\"minimumEdition\":\"<string>\",\"name\":\"<string>\",\"enabledForUser\":\"<boolean>\"},\"linearEnabled\":{\"minimumEdition\":\"<string>\",\"name\":\"<string>\",\"enabledForUser\":\"<boolean>\"},\"jiraEnabled\":{\"minimumEdition\":\"<string>\",\"name\":\"<string>\",\"enabledForUser\":\"<boolean>\"},\"todoistEnabled\":{\"minimumEdition\":\"<string>\",\"name\":\"<string>\",\"enabledForUser\":\"<boolean>\"},\"asanaEnabled\":{\"minimumEdition\":\"<string>\",\"name\":\"<string>\",\"enabledForUser\":\"<boolean>\"},\"clickupEnabled\":{\"minimumEdition\":\"<string>\",\"name\":\"<string>\",\"enabledForUser\":\"<boolean>\"},\"trelloEnabled\":{\"minimumEdition\":\"<string>\",\"name\":\"<string>\",\"enabledForUser\":\"<boolean>\"},\"mondayEnabled\":{\"minimumEdition\":\"<string>\",\"name\":\"<string>\",\"enabledForUser\":\"<boolean>\"}}",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "editionEntitlements",
+                  "value": "{\"MAX_TEAM_SIZE\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"SCHEDULER_WEEKS\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"MAX_TASKS\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"MAX_CALENDARS\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"MAX_SYNCS\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"MAX_HABITS\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"MAX_TASKS_WEEK\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"TRAVEL_TIME\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"DECOMPRESSION_TIME\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"CUSTOM_BLOCKING\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"CUSTOM_BLOCKING_DECOMPRESSION\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"CUSTOM_BLOCKING_HABITS\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"CUSTOM_BLOCKING_CALENDAR_SYNC\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"CUSTOM_SLACK_STATUS\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"MAX_SCHEDULING_LINKS\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"DERIVATIVE_SCHEDULING_LINKS\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"SCHEDULING_LINK_SURVEY\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"SCHEDULING_LINK_REDIRECT\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"MAX_SCHEDULING_LINK_MEETINGS_QUARTER\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"MAX_1_ON_1_ORGANIZE\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"MAX_1_ON_1_ATTEND\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"MAX_CUSTOM_TIME_SCHEMES\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"INTEGRATIONS\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"INTEGRATION_GOOGLE_TASKS\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"INTEGRATION_GOOGLE_ADD_ON\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"INTEGRATION_SLACK\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"INTEGRATION_RAYCAST\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"INTEGRATION_ZOOM\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"INTEGRATION_TODOIST\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"INTEGRATION_LINEAR\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"INTEGRATION_JIRA\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"INTEGRATION_CLICKUP\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"INTEGRATION_ASANA\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"INTEGRATION_OFFICE_365\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"INTEGRATION_MONDAY\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"INTEGRATION_TRELLO\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"INTEGRATION_DROPBOX\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"SUPPORT\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"SSO\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"TEAM_ANALYTICS\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"EVENT_PREFERENCES\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"DELEGATED_ACCESS\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"SCHEDULING_LINK_ROUND_ROBIN\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"SCHEDULING_LINK_BRANDING\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"SMART_MEETING_ATTENDEE_USERS\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"WEBHOOKS\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"MAX_STATS_WINDOW\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"FOCUS_TIME\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"OOO_CALENDAR\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"MAX_AGENTS\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"MAX_DAILY_LLM_COST_MICROS\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"PROACTIVE_LLM\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"},\"MCP\":{\"nextEdition\":\"<string>\",\"nextValue\":{},\"value\":\"\"}}",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "lastName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "avatarUrl",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "admin",
+                  "value": "<boolean>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "slackEnabled",
+                  "value": "<boolean>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "impersonated",
+                  "value": "<boolean>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "timestampOffsetMs",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "features",
+                  "value": "{\"accountLocks\":[{\"accountLockType\":\"<string>\",\"lockMessage\":\"<string>\"},{\"accountLockType\":\"<string>\",\"lockMessage\":\"<string>\"}],\"analyticsSettings\":{\"teamAnalyticsV4ViewEnabled\":\"<boolean>\",\"teamAnalyticsV4FiltersEnabled\":\"<boolean>\"},\"appNotifications\":{\"enabled\":\"<boolean>\",\"unscheduledPriority\":\"<boolean>\",\"audioAlertEnabled\":\"<boolean>\",\"titleTagAlertEnabled\":\"<boolean>\"},\"asana\":{\"enabled\":\"<boolean>\"},\"assistSettings\":{\"travel\":\"<boolean>\",\"otherTravelDuration\":\"<integer>\",\"conferenceBuffer\":\"<boolean>\",\"conferenceBufferDuration\":\"<integer>\",\"assignmentPaddingDuration\":\"<integer>\",\"conferenceBufferPrivate\":\"<boolean>\",\"conferenceBufferType\":\"<string>\",\"customConferenceBufferTitle\":\"<string>\",\"focus\":\"<boolean>\",\"allOneOnOnesBusy\":\"<boolean>\",\"autoLockForMeetings\":\"<string>\",\"autoLockForNonMeetings\":\"<string>\",\"sendMeetingNotifications\":\"<boolean>\",\"useFreeBusyEmojis\":\"<boolean>\",\"useLockEmoji\":\"<boolean>\",\"includeDescription\":\"<boolean>\",\"includeAttribution\":\"<boolean>\",\"smartSeries\":\"<boolean>\",\"smartMeetingRecurrenceType\":\"<string>\",\"smartHabitRecurrenceType\":\"<string>\",\"showClassicHabits\":\"<boolean>\",\"allowSmartSeriesOptIn\":\"<boolean>\",\"smartSeriesMigrateComplete\":\"<boolean>\",\"neverSeenClassicHabits\":\"<boolean>\",\"notificationSettings\":{\"detectedDigest\":\"<boolean>\",\"instanceChanges\":\"<boolean>\",\"instanceWindowInDays\":\"<integer>\",\"needsAttentionDigest\":\"<boolean>\"},\"assistDays\":\"<integer>\",\"bypassed\":\"<boolean>\",\"dayZero\":\"<date>\",\"schedulerDisabled\":\"<boolean>\",\"schedulerSuppressedUntil\":\"<dateTime>\",\"schedulerSuppressed\":\"<boolean>\",\"rescheduleUnstarted\":\"<boolean>\",\"rescheduleUnstartedOkToSchedule\":\"<boolean>\",\"dampSmartMeetings\":\"<boolean>\",\"scheduleSmartMeetingsAtMostDaily\":\"<boolean>\",\"scheduleSmartMeetingsOnce\":\"<boolean>\",\"manualAssistRunsEnabled\":\"<boolean>\",\"schedulerWindowWeeks\":\"<string>\",\"extendedSmartMeetingCooldown\":\"<boolean>\",\"includeOrganizerInSmartSeries\":\"<boolean>\",\"debugScheduler\":\"<boolean>\",\"smartHabitGen2ToGen3MigrationDate\":\"<dateTime>\",\"smartMeetingGen2ToGen3MigrationDate\":\"<dateTime>\",\"gen1HabitsAndMeetingsToGen3AutoMigrate\":\"<boolean>\",\"smartHabitsToGen3AutoMigrate\":\"<boolean>\",\"smartMeetingsToGen3AutoMigrate\":\"<boolean>\"},\"assistant\":{\"enabled\":\"<boolean>\",\"calendarUIEnabled\":\"<boolean>\",\"scoringSettings\":{\"version\":\"<string>\"},\"experimentalFeaturesEnabled\":\"<boolean>\",\"mcpDebug\":\"<boolean>\",\"disableBackgroundAutomation\":\"<boolean>\",\"orgRelationshipsEnabled\":\"<boolean>\",\"enableExternalLlm\":\"<boolean>\",\"selfServiceMigrationEnabled\":\"<boolean>\",\"persistedToolApprovalsEnabled\":\"<boolean>\"},\"availabilitySettings\":{\"redisCacheEnabled\":\"<boolean>\"},\"billing\":{\"enabled\":\"<boolean>\"},\"calendar\":{\"enabled\":\"<boolean>\",\"calendarCleanupRunning\":\"<dateTime>\"},\"calendarEntrySettings\":{\"pipelineEnabled\":\"<boolean>\",\"pipelineWatchEnabled\":\"<boolean>\",\"autoMigrate\":\"<boolean>\",\"shouldMigrate\":\"<boolean>\",\"selfServiceMigrate\":\"<boolean>\",\"dailyAudit\":\"<boolean>\",\"microsoftPipelineBatching\":\"<boolean>\",\"scoredTopContacts\":\"<boolean>\",\"googleGhCutoff\":\"<boolean>\",\"usePipelineCleanCalendar\":\"<boolean>\",\"dedicatedUpsertEnabled\":\"<boolean>\"},\"calendarPermissionSettings\":{\"enabled\":\"<boolean>\"},\"colors\":{\"enabled\":\"<boolean>\",\"categoriesEnabled\":\"<boolean>\",\"lastModified\":\"<dateTime>\",\"priorities\":{\"key_0\":\"<string>\",\"key_1\":\"<string>\"},\"categories\":{\"key_0\":\"<string>\"}},\"dropboxSettings\":{\"enabled\":\"<boolean>\"},\"eventDisplayPreferences\":{\"attribution\":\"<boolean>\",\"busyEmoji\":\"<boolean>\",\"description\":\"<boolean>\",\"doneEmoji\":\"<boolean>\",\"freeEmoji\":\"<boolean>\",\"lockEmoji\":\"<boolean>\",\"prefix\":\"<boolean>\",\"progressEmoji\":\"<boolean>\",\"warningEmoji\":\"<boolean>\"},\"experimentalSettings\":{\"treatOptionalSmartMeetingAttendeesAsFree\":\"<boolean>\",\"lookAheadForSmartMeetingIdealDayOnWeeklyMeetings\":\"<boolean>\"},\"focus\":{\"enabled\":\"<boolean>\",\"debug\":\"<boolean>\"},\"googleAddOnSettings\":{\"enabled\":\"<boolean>\"},\"interests\":{\"tasks\":\"<boolean>\",\"priorities\":\"<boolean>\",\"office365\":\"<boolean>\",\"calendar\":\"<boolean>\",\"asana\":\"<boolean>\",\"trello\":\"<boolean>\",\"todoist\":\"<boolean>\",\"jira\":\"<boolean>\",\"linear\":\"<boolean>\",\"clickup\":\"<boolean>\",\"monday\":\"<boolean>\",\"MSTeams\":\"<boolean>\"},\"microsoft\":{\"smartSeriesDetectionEnabled\":\"<boolean>\",\"useFullyExpandedSeriesMasterForInterop\":\"<boolean>\",\"resolveReclaimForNonMemberUsingCalendarView\":\"<boolean>\"},\"onboard\":{\"habits\":\"<boolean>\",\"tasks\":\"<boolean>\",\"googleTasks\":\"<boolean>\",\"planItemPrioritized\":\"<boolean>\",\"smartOneOnOnes\":\"<boolean>\",\"bufferTime\":\"<boolean>\",\"tasksReindex\":\"<boolean>\",\"googleAddOn\":\"<boolean>\",\"v16Scheduler\":\"<boolean>\",\"helpMenus\":\"<boolean>\",\"smartMeetingsJustNewQuest\":\"<boolean>\",\"smartHabitsJustNewQuest\":\"<boolean>\",\"smartMeetingsNavItem\":\"<boolean>\",\"smartMeetingsPricingWarning\":\"<boolean>\",\"showDowngradeAcknowledgement\":\"<boolean>\",\"showUpgradeRestoreModal\":\"<boolean>\",\"setupGuideV2\":\"<boolean>\",\"accountAndPersonalSettings\":\"<boolean>\",\"webhooks\":\"<boolean>\",\"focus\":\"<boolean>\",\"eventCreationInPlanner\":\"<boolean>\",\"assistantIntegrations\":\"<boolean>\",\"assistMigrationWelcomePending\":\"<boolean>\",\"assistantPreviewChanges\":\"<boolean>\",\"schedulingLinks\":\"<boolean>\"},\"postOnboard\":{\"welcomed\":\"<string>\",\"focus\":\"<string>\",\"hours\":\"<string>\",\"habits\":\"<string>\",\"firstTask\":\"<string>\",\"integration\":\"<string>\",\"smartMeetings\":\"<string>\",\"schedulingLinks\":\"<string>\",\"slackStatusSync\":\"<string>\",\"travelTime\":\"<string>\",\"zoom\":\"<string>\",\"connectCalendars\":\"<string>\",\"colors\":\"<string>\",\"reclaimFree\":\"<string>\",\"guidedTours\":\"<string>\"},\"priorities\":{\"enabled\":\"<boolean>\"},\"projects\":{\"enabled\":\"<boolean>\"},\"quests\":{\"enabled\":\"<boolean>\"},\"rsvpSetting\":{\"calendarSync\":{\"treatNeedsActionRsvpAs\":\"<string>\"}},\"schedulingLinks\":{\"enabled\":\"<boolean>\",\"note\":\"<string>\",\"remindersMigrated\":\"<boolean>\",\"messageTemplates\":{\"key_0\":\"<string>\"},\"nameVisibility\":\"<string>\"},\"slackSettings\":{\"enabled\":\"<boolean>\",\"newSlackExperienceEnabled\":\"<boolean>\",\"customSlackStatusWaterMark\":\"<string>\",\"previousStatusWaterMarks\":[\"<string>\",\"<string>\"],\"oooMessageTemplate\":\"<string>\",\"personalSyncNotifyNew\":\"<boolean>\",\"personalSyncNotifyUpdated\":\"<boolean>\",\"personalSyncNotifyDeleted\":\"<boolean>\",\"personalSyncNotificationsIncludingSelf\":\"<boolean>\",\"habitNotifyUpcoming\":\"<boolean>\",\"taskNotifyUpcoming\":\"<boolean>\",\"travelNotify\":\"<boolean>\",\"outsideHoursMigrated\":\"<boolean>\",\"statusSync\":\"<string>\",\"statusEnabled\":\"<boolean>\",\"privateStatus\":{\"emoji\":\"<string>\",\"template\":\"<string>\",\"dnd\":\"<boolean>\",\"enabled\":\"<boolean>\"},\"statuses\":{\"key_0\":{\"emoji\":\"<string>\",\"template\":\"<string>\",\"dnd\":\"<boolean>\",\"enabled\":\"<boolean>\"},\"key_1\":{\"emoji\":\"<string>\",\"template\":\"<string>\",\"dnd\":\"<boolean>\",\"enabled\":\"<boolean>\"},\"key_2\":{\"emoji\":\"<string>\",\"template\":\"<string>\",\"dnd\":\"<boolean>\",\"enabled\":\"<boolean>\"},\"key_3\":{\"emoji\":\"<string>\",\"template\":\"<string>\",\"dnd\":\"<boolean>\",\"enabled\":\"<boolean>\"}},\"outSideHours\":{\"dnd\":\"<boolean>\",\"policy\":\"<string>\",\"message\":\"<string>\"},\"stopNotifyingDisappearingAfterByType\":{\"key_0\":\"<date>\"}},\"smartOneOnOnes\":{\"enabled\":\"<boolean>\"},\"sync\":{\"enabled\":\"<boolean>\",\"hasVipPrivileges\":\"<boolean>\",\"daysBackwardOverride\":\"<integer>\"},\"taskSettings\":{\"defaults\":{\"timeChunksRequired\":\"<integer>\",\"commsTimeChunksRequired\":\"<integer>\",\"delayedStartInMinutes\":\"<integer>\",\"dueInDays\":\"<integer>\",\"category\":{\"deprecated\":true,\"value\":\"<Error: Too many levels of nesting to fake this schema>\"},\"alwaysPrivate\":\"<boolean>\",\"minChunkSize\":\"<integer>\",\"maxChunkSize\":\"<integer>\",\"timeSchemeId\":\"<string>\",\"priority\":\"<string>\",\"onDeck\":\"<boolean>\",\"splitUp\":\"<boolean>\",\"googleTaskIntegrationNoDueDateWhenMissing\":\"<boolean>\"},\"enabled\":\"<boolean>\",\"googleTasks\":\"<boolean>\",\"autoWorkflowSettings\":{\"category\":\"<string>\",\"durationToWaitInDays\":\"<integer>\"},\"scheduleWorkQueueOnly\":\"<boolean>\",\"cooldown\":\"<string>\"},\"temporal\":{\"eventTransitionsEnabled\":\"<boolean>\"},\"timezoneSettings\":{\"timeZonePreference\":\"<string>\",\"zoneId\":\"<string>\",\"timezonePreference\":\"<string>\"},\"todoistSettings\":{\"apiV1Enabled\":\"<boolean>\"},\"webhookSettings\":{\"enabled\":\"<boolean>\",\"all\":{\"value\":\"<Circular reference to #/components/schemas/WebhookSettings detected>\"}},\"weeklyReport\":{\"enabled\":\"<boolean>\",\"sendReport\":\"<boolean>\"},\"scheduler\":\"<integer>\",\"prioritizationEnabled\":\"<boolean>\",\"extraScopes\":\"<boolean>\",\"peopleScopes\":\"<boolean>\",\"directoryScopes\":\"<boolean>\",\"adventures\":{\"adventures\":{\"CORE_CONCEPTS\":{\"complete\":\"<boolean>\"},\"CONNECT_PRIMARY_CALENDAR\":{\"complete\":\"<boolean>\"},\"ADD_AGENT\":{\"complete\":\"<boolean>\"},\"ADD_FOCUS_TIME\":{\"complete\":\"<boolean>\"},\"ADD_BUFFERS\":{\"complete\":\"<boolean>\"},\"ADD_HABIT\":{\"complete\":\"<boolean>\"},\"HEAVY_MEETING_LOAD\":{\"complete\":\"<boolean>\"},\"CONNECT_CALENDARS\":{\"complete\":\"<boolean>\"},\"CALENDAR_SYNC\":{\"complete\":\"<boolean>\"},\"SHARED_CALENDARS\":{\"complete\":\"<boolean>\"},\"SCHEDULING_LINKS\":{\"complete\":\"<boolean>\"},\"SCHEDULING_LINK_SETTINGS\":{\"complete\":\"<boolean>\"},\"HOURS\":{\"complete\":\"<boolean>\"},\"PROFILE\":{\"complete\":\"<boolean>\"},\"PERMISSIONS\":{\"complete\":\"<boolean>\"},\"SLACK\":{\"complete\":\"<boolean>\"},\"INTEGRATIONS\":{\"complete\":\"<boolean>\"},\"TASK_INTEGRATIONS\":{\"complete\":\"<boolean>\"},\"CHAT\":{\"complete\":\"<boolean>\"},\"LOG_WORK\":{\"complete\":\"<boolean>\"},\"PREVIEW_MODE\":{\"complete\":\"<boolean>\"}}},\"appNotificationsSettings\":{\"enabled\":\"<boolean>\",\"unscheduledPriority\":\"<boolean>\",\"audioAlertEnabled\":\"<boolean>\",\"titleTagAlertEnabled\":\"<boolean>\"},\"maskSuppressUntil\":\"<dateTime>\",\"availableMeetingTimes\":[\"<integer>\",\"<integer>\"]}",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "settings",
+                  "value": "{\"autoAddHangouts\":\"<boolean>\",\"defaultEventLength\":\"<integer>\",\"weekStart\":\"<integer>\",\"format24HourTime\":\"<boolean>\",\"locale\":\"<string>\",\"showDeclinedEvents\":\"<boolean>\",\"timezone\":\"<string>\",\"dateFieldOrder\":\"<string>\"}",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "metadata",
+                  "value": "{\"jobTitle\":\"<string>\",\"companyName\":\"<string>\",\"companySize\":\"<string>\",\"usecase\":\"<string>\",\"role\":\"<string>\",\"goals\":[\"<string>\",\"<string>\"],\"isWorkspace\":\"<boolean>\",\"department\":\"<string>\",\"orgMetadata\":{\"employeeNumber\":\"<string>\",\"costCenter\":\"<string>\",\"organization\":\"<string>\",\"division\":\"<string>\",\"department\":\"<string>\",\"manager\":{\"displayName\":\"<string>\",\"managerId\":\"<string>\",\"ref\":\"<string>\"},\"customValues\":{\"key_0\":false,\"key_1\":true,\"key_2\":false}}}",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "created",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "deleted",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "onboarded",
+                  "value": "<boolean>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "trackingCode",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "likelyPersonal",
+                  "value": "<boolean>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "apiKey",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "editionAfterTrial",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "preDowngradeEditionUsage",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "overage",
+                  "value": "<boolean>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "logContextUser",
+                  "value": "<object>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "refCode",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "hostedDomain",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "primaryCalendar",
+                  "value": "{\"calendarId\":\"<string>\",\"credentialEmail\":\"<string>\",\"credentialId\":\"<long>\",\"id\":\"<long>\",\"lastSynced\":\"<dateTime>\",\"timezone\":\"<string>\"}",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "primaryCalendarId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "timezone",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "startOfWeek",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "usingDelegatedAccess",
+                  "value": "<boolean>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "firstLogin",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "signupMethod",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "providerCreated",
+                  "value": "<dateTime>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "userDateTimeFormatter",
+                  "value": "{\"locale\":\"<string>\"}",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "userProvisioningDetails",
+                  "value": "{\"hasTeamProvisionedMetadata\":\"<boolean>\"}",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "capabilities",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "redirect",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "dcc959f7-d4ab-4c3f-a370-cf35bb826582",
+              "name": "OK response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "zoom",
+                    "expand-capabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "edition",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "editionUsage",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "schedulerWindowWeeks",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sku",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "principal",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "provider",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "baseProvider",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "firstName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "entitlements",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "detailedEntitlements",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "editionEntitlements",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "lastName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "avatarUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "admin",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "slackEnabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "impersonated",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "timestampOffsetMs",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "features",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "settings",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "metadata",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "created",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "deleted",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "onboarded",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "trackingCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "locale",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "likelyPersonal",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "apiKey",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "editionAfterTrial",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "preDowngradeEditionUsage",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "overage",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "logContextUser",
+                      "value": "<object>"
+                    },
+                    {
+                      "key": "refCode",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "hostedDomain",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "primaryCalendar",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "primaryCalendarId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "timezone",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startOfWeek",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "usingDelegatedAccess",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "firstLogin",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "signupMethod",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "providerCreated",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "userDateTimeFormatter",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "userProvisioningDetails",
+                      "value": "[object Object]"
+                    },
+                    {
+                      "key": "capabilities",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "redirect",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aefbb07b-a957-4411-bcb3-9673845da0e0",
+          "name": "init Zoom",
+          "request": {
+            "name": "init Zoom",
+            "description": {},
+            "url": {
+              "path": [
+                "oauth",
+                "zoom",
+                "init"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "11d5f871-c7f9-4810-ab3b-b62d216a9e1d",
+              "name": "OK response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth",
+                    "zoom",
+                    "init"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4d257c97-6c5d-4190-8edd-7d211eb088fc",
+    "name": "Reclaim account-time-schemes Oauth API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

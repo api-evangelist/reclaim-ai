@@ -1,0 +1,847 @@
+{
+  "item": [
+    {
+      "id": "5eafaaee-cef3-4b9b-bbe5-d64eacbf4a49",
+      "name": "ooo-calendars",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "20645337-53a7-4cf0-a833-25685154720e",
+          "name": "list OOO Calendars",
+          "request": {
+            "name": "list OOO Calendars",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "team",
+                "ooo-calendars"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "239856b5-c6a2-4c1b-9c3d-5b6d7e7ecc96",
+              "name": "listOOOCalendars 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "team",
+                    "ooo-calendars"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"canManage\": true,\n    \"createdAt\": \"1998-10-29T14:07:50.389Z\",\n    \"id\": 479,\n    \"memberCount\": 5919,\n    \"name\": \"string\",\n    \"status\": \"INACTIVE_OWNER_CREDENTIALS_REVOKED\",\n    \"type\": \"MANUAL\",\n    \"updatedAt\": \"2026-02-10T05:10:06.854Z\",\n    \"calendarId\": \"string\",\n    \"calendarName\": \"string\",\n    \"ownerUserId\": \"string\",\n    \"ownerEmail\": \"string\",\n    \"externalCalendarUrl\": \"string\"\n  },\n  {\n    \"canManage\": true,\n    \"createdAt\": \"2001-07-24T16:10:44.408Z\",\n    \"id\": 1985,\n    \"memberCount\": 2640,\n    \"name\": \"string\",\n    \"status\": \"NEEDS_SETUP\",\n    \"type\": \"ACL\",\n    \"updatedAt\": \"1978-07-10T17:34:04.909Z\",\n    \"calendarId\": \"string\",\n    \"calendarName\": \"string\",\n    \"ownerUserId\": \"string\",\n    \"ownerEmail\": \"string\",\n    \"externalCalendarUrl\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f67a566a-f436-409f-b9a3-07b8943cdb30",
+          "name": "create OOO Calendar",
+          "request": {
+            "name": "create OOO Calendar",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "team",
+                "ooo-calendars"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"ownerUserId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3acfa282-09af-412c-aae5-8f51b7ec13b7",
+              "name": "createOOOCalendar 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "team",
+                    "ooo-calendars"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"ownerUserId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"canManage\": true,\n  \"createdAt\": \"2025-09-12T02:05:49.334Z\",\n  \"id\": 3969,\n  \"memberCount\": 3099,\n  \"name\": \"string\",\n  \"status\": \"INACTIVE_OWNER_DELETED\",\n  \"type\": \"ORG_HIERARCHY\",\n  \"updatedAt\": \"1979-01-01T07:37:55.807Z\",\n  \"calendarId\": \"string\",\n  \"calendarName\": \"string\",\n  \"ownerUserId\": \"string\",\n  \"ownerEmail\": \"string\",\n  \"externalCalendarUrl\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f7145f0-3efd-430f-9cdf-21579bc8d5dc",
+          "name": "get Available OOO Calendars",
+          "request": {
+            "name": "get Available OOO Calendars",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "team",
+                "ooo-calendars",
+                "available"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "a68f89c4-7499-4398-9cd3-9bbf119d14ff",
+              "name": "getAvailableOOOCalendars 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "team",
+                    "ooo-calendars",
+                    "available"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"colorHex\": \"string\",\n    \"connected\": false,\n    \"credentialId\": 7727,\n    \"externalId\": \"string\",\n    \"googleMeetAllowed\": true,\n    \"id\": 3397,\n    \"microsoftTeamsAllowed\": true,\n    \"name\": \"string\",\n    \"otherConnectedCalendarsExist\": false,\n    \"provider\": \"string\",\n    \"useType\": \"PERSONAL\",\n    \"writableFor\": [\n      \"SMART_HABIT\",\n      \"FOCUS\"\n    ],\n    \"reason\": \"SYNCED_ALREADY\",\n    \"defaultReminders\": [\n      9378,\n      4677\n    ],\n    \"reminderDefaults\": [\n      {\n        \"minutes\": 1336,\n        \"reminderType\": \"EMAIL\"\n      },\n      {\n        \"minutes\": 2757,\n        \"reminderType\": \"UI_NOTIFICATION\"\n      }\n    ],\n    \"accessDomainRead\": true\n  },\n  {\n    \"colorHex\": \"string\",\n    \"connected\": false,\n    \"credentialId\": 2966,\n    \"externalId\": \"string\",\n    \"googleMeetAllowed\": true,\n    \"id\": 1233,\n    \"microsoftTeamsAllowed\": true,\n    \"name\": \"string\",\n    \"otherConnectedCalendarsExist\": true,\n    \"provider\": \"string\",\n    \"useType\": \"TEAM\",\n    \"writableFor\": [\n      \"SMART_HABIT\",\n      \"TRAVEL_BUFFER\"\n    ],\n    \"reason\": \"FREE_BUSY_ONLY\",\n    \"defaultReminders\": [\n      6551,\n      9490\n    ],\n    \"reminderDefaults\": [\n      {\n        \"minutes\": 198,\n        \"reminderType\": \"EMAIL\"\n      },\n      {\n        \"minutes\": 8095,\n        \"reminderType\": \"UI_NOTIFICATION\"\n      }\n    ],\n    \"accessDomainRead\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d9ed86bc-3664-4a12-a799-a0f718c2d2f0",
+          "name": "get OOO Calendar",
+          "request": {
+            "name": "get OOO Calendar",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "team",
+                "ooo-calendars",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "67a9f0f2-346f-447e-b386-f17a51284011",
+              "name": "getOOOCalendar 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "team",
+                    "ooo-calendars",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"canManage\": true,\n  \"createdAt\": \"1991-09-12T15:44:05.670Z\",\n  \"id\": 8541,\n  \"memberCount\": 4530,\n  \"members\": [\n    {\n      \"email\": \"string\",\n      \"status\": \"ACTIVE\"\n    },\n    {\n      \"email\": \"string\",\n      \"status\": \"NOT_ON_RECLAIM\"\n    }\n  ],\n  \"name\": \"string\",\n  \"status\": \"INACTIVE_OWNER_DELETED\",\n  \"type\": \"ORG_HIERARCHY\",\n  \"updatedAt\": \"1961-03-28T01:08:15.840Z\",\n  \"calendarId\": \"string\",\n  \"calendarName\": \"string\",\n  \"ownerUserId\": \"string\",\n  \"ownerEmail\": \"string\",\n  \"externalCalendarUrl\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a6ad55c5-c087-4850-8529-ac8910d64246",
+          "name": "delete OOO Calendar",
+          "request": {
+            "name": "delete OOO Calendar",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "team",
+                "ooo-calendars",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "5cf8ce18-e1dc-4088-923b-4bdd7dd0d6bf",
+              "name": "deleteOOOCalendar 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "team",
+                    "ooo-calendars",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "07e7a7c7-5d5e-4f33-9c5a-bc37ed3372e0",
+          "name": "update OOO Calendar",
+          "request": {
+            "name": "update OOO Calendar",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "team",
+                "ooo-calendars",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"calendarId\": \"<string>\",\n  \"calendarName\": \"<string>\",\n  \"ownerUserId\": \"<string>\",\n  \"ownerEmail\": \"<string>\",\n  \"type\": \"<string>\",\n  \"status\": \"<string>\",\n  \"memberCount\": \"<integer>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e95afe38-f252-4738-9c43-44163f501d12",
+              "name": "updateOOOCalendar 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "team",
+                    "ooo-calendars",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"calendarId\": \"<string>\",\n  \"calendarName\": \"<string>\",\n  \"ownerUserId\": \"<string>\",\n  \"ownerEmail\": \"<string>\",\n  \"type\": \"<string>\",\n  \"status\": \"<string>\",\n  \"memberCount\": \"<integer>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"canManage\": true,\n  \"createdAt\": \"2020-09-22T21:53:26.181Z\",\n  \"id\": 5580,\n  \"memberCount\": 4061,\n  \"name\": \"string\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"updatedAt\": \"1965-05-05T15:20:26.414Z\",\n  \"calendarId\": \"string\",\n  \"calendarName\": \"string\",\n  \"ownerUserId\": \"string\",\n  \"ownerEmail\": \"string\",\n  \"externalCalendarUrl\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9e851daa-8675-4665-b86e-1e3258e30a5b",
+          "name": "link Calendar",
+          "request": {
+            "name": "link Calendar",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "team",
+                "ooo-calendars",
+                ":id",
+                "link-calendar"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"calendarId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dbbff4c0-69a9-4841-9af8-35ff5732174d",
+              "name": "linkCalendar 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "team",
+                    "ooo-calendars",
+                    ":id",
+                    "link-calendar"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"calendarId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"canManage\": false,\n  \"createdAt\": \"1993-09-25T07:42:05.171Z\",\n  \"id\": 735,\n  \"memberCount\": 457,\n  \"members\": [\n    {\n      \"email\": \"string\",\n      \"status\": \"NOT_ON_PIPELINE\"\n    },\n    {\n      \"email\": \"string\",\n      \"status\": \"NOT_ON_RECLAIM\"\n    }\n  ],\n  \"name\": \"string\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"updatedAt\": \"1958-09-28T21:49:31.237Z\",\n  \"calendarId\": \"string\",\n  \"calendarName\": \"string\",\n  \"ownerUserId\": \"string\",\n  \"ownerEmail\": \"string\",\n  \"externalCalendarUrl\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e0e38da5-e927-4586-a904-c3ebee129f9c",
+          "name": "reconcile OOO Calendar",
+          "request": {
+            "name": "reconcile OOO Calendar",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "team",
+                "ooo-calendars",
+                ":id",
+                "reconcile"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "d77a880d-609b-44a5-9e07-0162fc6f01f6",
+              "name": "reconcileOOOCalendar 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "team",
+                    "ooo-calendars",
+                    ":id",
+                    "reconcile"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"canManage\": false,\n  \"createdAt\": \"1993-09-25T07:42:05.171Z\",\n  \"id\": 735,\n  \"memberCount\": 457,\n  \"members\": [\n    {\n      \"email\": \"string\",\n      \"status\": \"NOT_ON_PIPELINE\"\n    },\n    {\n      \"email\": \"string\",\n      \"status\": \"NOT_ON_RECLAIM\"\n    }\n  ],\n  \"name\": \"string\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"updatedAt\": \"1958-09-28T21:49:31.237Z\",\n  \"calendarId\": \"string\",\n  \"calendarName\": \"string\",\n  \"ownerUserId\": \"string\",\n  \"ownerEmail\": \"string\",\n  \"externalCalendarUrl\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b52b1e20-79ef-43e4-b4a0-47de245f6292",
+    "name": "Reclaim account-time-schemes ooo-calendars API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

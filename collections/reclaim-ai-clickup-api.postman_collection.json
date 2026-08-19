@@ -1,0 +1,613 @@
+{
+  "item": [
+    {
+      "id": "5f67c645-2340-4570-939a-1b44030fa6e5",
+      "name": "clickup",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "09c6290e-d1d7-4022-9c1d-8a49fd0f5092",
+          "name": "integrations 2",
+          "request": {
+            "name": "integrations 2",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "clickup",
+                "integrations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "17cfb804-3cf6-4983-9834-65751c854c33",
+              "name": "integrations_2 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "clickup",
+                    "integrations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"workspace\": {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"withId\": \"string\",\n      \"withName\": \"string\",\n      \"equals\": \"\",\n      \"hashCode\": 6132,\n      \"toString\": \"string\"\n    },\n    \"available_spaces\": {\n      \"empty\": true,\n      \"partialView\": false,\n      \"hashCodeFast\": true\n    },\n    \"selected_space_ids\": {\n      \"empty\": true,\n      \"partialView\": true,\n      \"hashCodeFast\": false\n    },\n    \"requires_tag\": false,\n    \"withWorkspace\": {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"withId\": \"string\",\n      \"withName\": \"string\",\n      \"equals\": \"\",\n      \"hashCode\": 4539,\n      \"toString\": \"string\"\n    },\n    \"withAvailable_spaces\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"features\": {\n          \"key_0\": \"string\"\n        },\n        \"statuses\": {\n          \"empty\": true,\n          \"first\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"last\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"withId\": \"string\",\n        \"withName\": \"string\",\n        \"withFeatures\": {\n          \"key_0\": 731\n        },\n        \"withStatuses\": [\n          {\n            \"status\": \"string\",\n            \"orderindex\": 8708,\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"color\": \"string\",\n            \"withStatus\": \"string\",\n            \"withOrderindex\": 9560,\n            \"withType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"withColor\": \"string\",\n            \"equals\": \"\",\n            \"hashCode\": 8824,\n            \"toString\": \"string\"\n          },\n          {\n            \"status\": \"string\",\n            \"orderindex\": 117,\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"color\": \"string\",\n            \"withStatus\": \"string\",\n            \"withOrderindex\": 9348,\n            \"withType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"withColor\": \"string\",\n            \"equals\": \"\",\n            \"hashCode\": 8624,\n            \"toString\": \"string\"\n          }\n        ],\n        \"equals\": \"\",\n        \"hashCode\": 193,\n        \"toString\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"features\": {\n          \"key_0\": 7816\n        },\n        \"statuses\": {\n          \"empty\": false,\n          \"first\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"last\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"withId\": \"string\",\n        \"withName\": \"string\",\n        \"withFeatures\": {\n          \"key_0\": 1005\n        },\n        \"withStatuses\": [\n          {\n            \"status\": \"string\",\n            \"orderindex\": 3376,\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"color\": \"string\",\n            \"withStatus\": \"string\",\n            \"withOrderindex\": 6335,\n            \"withType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"withColor\": \"string\",\n            \"equals\": \"\",\n            \"hashCode\": 4008,\n            \"toString\": \"string\"\n          },\n          {\n            \"status\": \"string\",\n            \"orderindex\": 7721,\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"color\": \"string\",\n            \"withStatus\": \"string\",\n            \"withOrderindex\": 1842,\n            \"withType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"withColor\": \"string\",\n            \"equals\": \"\",\n            \"hashCode\": 8095,\n            \"toString\": \"string\"\n          }\n        ],\n        \"equals\": \"\",\n        \"hashCode\": 7723,\n        \"toString\": \"string\"\n      }\n    ],\n    \"withSelected_space_ids\": [\n      \"string\",\n      \"string\"\n    ],\n    \"withRequires_tag\": true,\n    \"equals\": \"\",\n    \"hashCode\": 1470,\n    \"toString\": \"string\"\n  },\n  {\n    \"workspace\": {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"withId\": \"string\",\n      \"withName\": \"string\",\n      \"equals\": \"\",\n      \"hashCode\": 2790,\n      \"toString\": \"string\"\n    },\n    \"available_spaces\": {\n      \"empty\": true,\n      \"partialView\": false,\n      \"hashCodeFast\": false\n    },\n    \"selected_space_ids\": {\n      \"empty\": false,\n      \"partialView\": true,\n      \"hashCodeFast\": false\n    },\n    \"requires_tag\": false,\n    \"withWorkspace\": {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"withId\": \"string\",\n      \"withName\": \"string\",\n      \"equals\": \"\",\n      \"hashCode\": 5859,\n      \"toString\": \"string\"\n    },\n    \"withAvailable_spaces\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"features\": {\n          \"key_0\": false,\n          \"key_1\": true,\n          \"key_2\": 5858.218900667472\n        },\n        \"statuses\": {\n          \"empty\": true,\n          \"first\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"last\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"withId\": \"string\",\n        \"withName\": \"string\",\n        \"withFeatures\": {\n          \"key_0\": 8893,\n          \"key_1\": true,\n          \"key_2\": 1004\n        },\n        \"withStatuses\": [\n          {\n            \"status\": \"string\",\n            \"orderindex\": 1294,\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"color\": \"string\",\n            \"withStatus\": \"string\",\n            \"withOrderindex\": 3028,\n            \"withType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"withColor\": \"string\",\n            \"equals\": \"\",\n            \"hashCode\": 8421,\n            \"toString\": \"string\"\n          },\n          {\n            \"status\": \"string\",\n            \"orderindex\": 4066,\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"color\": \"string\",\n            \"withStatus\": \"string\",\n            \"withOrderindex\": 2880,\n            \"withType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"withColor\": \"string\",\n            \"equals\": \"\",\n            \"hashCode\": 8468,\n            \"toString\": \"string\"\n          }\n        ],\n        \"equals\": \"\",\n        \"hashCode\": 2420,\n        \"toString\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"features\": {\n          \"key_0\": 7141\n        },\n        \"statuses\": {\n          \"empty\": true,\n          \"first\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"last\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"withId\": \"string\",\n        \"withName\": \"string\",\n        \"withFeatures\": {\n          \"key_0\": 3700\n        },\n        \"withStatuses\": [\n          {\n            \"status\": \"string\",\n            \"orderindex\": 4945,\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"color\": \"string\",\n            \"withStatus\": \"string\",\n            \"withOrderindex\": 7154,\n            \"withType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"withColor\": \"string\",\n            \"equals\": \"\",\n            \"hashCode\": 6533,\n            \"toString\": \"string\"\n          },\n          {\n            \"status\": \"string\",\n            \"orderindex\": 201,\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"color\": \"string\",\n            \"withStatus\": \"string\",\n            \"withOrderindex\": 2666,\n            \"withType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"withColor\": \"string\",\n            \"equals\": \"\",\n            \"hashCode\": 9377,\n            \"toString\": \"string\"\n          }\n        ],\n        \"equals\": \"\",\n        \"hashCode\": 3785,\n        \"toString\": \"string\"\n      }\n    ],\n    \"withSelected_space_ids\": [\n      \"string\",\n      \"string\"\n    ],\n    \"withRequires_tag\": true,\n    \"equals\": \"\",\n    \"hashCode\": 3009,\n    \"toString\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a6fc30e1-2727-4bf7-960b-0ae93e6cd930",
+          "name": "delete Integration 1",
+          "request": {
+            "name": "delete Integration 1",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "clickup",
+                "integrations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "ed95aa56-c9d4-45e3-8ace-b3197131ecf9",
+              "name": "deleteIntegration_1 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "clickup",
+                    "integrations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "72a1441c-c8d4-496b-b15b-654f8657550e",
+          "name": "click Up Integrations Details",
+          "request": {
+            "name": "click Up Integrations Details",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "clickup",
+                "integrations",
+                "details"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "9cba4473-e760-4047-8eca-89e3e0450547",
+              "name": "clickUpIntegrationsDetails 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "clickup",
+                    "integrations",
+                    "details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"availableSpaces\": [\n      {\n        \"features\": {\n          \"key_0\": 1823.5349195468164\n        },\n        \"id\": \"string\",\n        \"isEligible\": true,\n        \"name\": \"string\"\n      },\n      {\n        \"features\": {\n          \"key_0\": false,\n          \"key_1\": 4319.581400611148,\n          \"key_2\": 2846\n        },\n        \"id\": \"string\",\n        \"isEligible\": true,\n        \"name\": \"string\"\n      }\n    ],\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"titleFormat\": \"TASK_TITLE_ONLY\",\n    \"workspace\": {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"withId\": \"string\",\n      \"withName\": \"string\",\n      \"equals\": \"\",\n      \"hashCode\": 1109,\n      \"toString\": \"string\"\n    },\n    \"lastSynced\": \"2008-02-10T18:33:28.940Z\",\n    \"bypassTimeTracking\": false\n  },\n  {\n    \"availableSpaces\": [\n      {\n        \"features\": {\n          \"key_0\": 523,\n          \"key_1\": 6689.017181205823\n        },\n        \"id\": \"string\",\n        \"isEligible\": false,\n        \"name\": \"string\"\n      },\n      {\n        \"features\": {\n          \"key_0\": \"string\"\n        },\n        \"id\": \"string\",\n        \"isEligible\": true,\n        \"name\": \"string\"\n      }\n    ],\n    \"tags\": [\n      \"string\",\n      \"string\"\n    ],\n    \"titleFormat\": \"TASK_TITLE_THEN_SPACE\",\n    \"workspace\": {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"withId\": \"string\",\n      \"withName\": \"string\",\n      \"equals\": \"\",\n      \"hashCode\": 5758,\n      \"toString\": \"string\"\n    },\n    \"lastSynced\": \"1978-08-06T05:50:43.971Z\",\n    \"bypassTimeTracking\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0fdf0eed-279d-4400-8c15-e0b9e29466e1",
+          "name": "patch Integration",
+          "request": {
+            "name": "patch Integration",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "clickup",
+                "integrations",
+                "settings",
+                ":workspaceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"titleFormat\": \"<string>\",\n  \"bypassTimeTracking\": \"<boolean>\",\n  \"withTitleFormat\": \"<string>\",\n  \"withBypassTimeTracking\": \"<boolean>\",\n  \"equals\": \"\",\n  \"hashCode\": \"<integer>\",\n  \"toString\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e5aa2868-2c09-4baf-9d67-11b9540bf419",
+              "name": "patchIntegration 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "clickup",
+                    "integrations",
+                    "settings",
+                    ":workspaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"titleFormat\": \"<string>\",\n  \"bypassTimeTracking\": \"<boolean>\",\n  \"withTitleFormat\": \"<string>\",\n  \"withBypassTimeTracking\": \"<boolean>\",\n  \"equals\": \"\",\n  \"hashCode\": \"<integer>\",\n  \"toString\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e162e4c2-c057-4522-bffc-cd31fd8991f3",
+          "name": "patch Integration 1",
+          "request": {
+            "name": "patch Integration 1",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "clickup",
+                "integrations",
+                ":workspaceId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workspaceId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"selected_space_ids\": \"<object>\",\n  \"requires_tag\": \"<boolean>\",\n  \"withSelected_space_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"withRequires_tag\": \"<boolean>\",\n  \"equals\": \"\",\n  \"hashCode\": \"<integer>\",\n  \"toString\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "374025c4-c73d-491a-8b4d-8ddcc53ddaeb",
+              "name": "patchIntegration_1 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "clickup",
+                    "integrations",
+                    ":workspaceId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workspaceId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"selected_space_ids\": {\n    \"empty\": \"<boolean>\",\n    \"partialView\": \"<boolean>\",\n    \"hashCodeFast\": \"<boolean>\"\n  },\n  \"requires_tag\": \"<boolean>\",\n  \"withSelected_space_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"withRequires_tag\": \"<boolean>\",\n  \"equals\": \"\",\n  \"hashCode\": \"<integer>\",\n  \"toString\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "245c6f78-730a-40fd-a97c-3b65a2397298",
+          "name": "task Details 1",
+          "request": {
+            "name": "task Details 1",
+            "description": {},
+            "url": {
+              "path": [
+                "web",
+                "clickup",
+                "task",
+                ":taskId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "taskId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "81706d9c-7a04-414b-b6d6-f32c59931008",
+              "name": "taskDetails_1 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "web",
+                    "clickup",
+                    "task",
+                    ":taskId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taskId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2d4513d8-8d53-4207-847b-d33cff37367c",
+    "name": "Reclaim account-time-schemes clickup API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

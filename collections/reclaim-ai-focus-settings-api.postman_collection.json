@@ -1,0 +1,1016 @@
+{
+  "item": [
+    {
+      "id": "48ce04cd-5f2b-4f27-8960-19e2c2f617ec",
+      "name": "focus-settings",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dafabf16-df19-408f-aaa9-6865abc013f7",
+          "name": "clear Focus Time Events",
+          "request": {
+            "name": "clear Focus Time Events",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "focus-settings",
+                "clear-focus-time-events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "6e09155f-3755-4e2a-9bd8-e9786f9f2eb7",
+              "name": "clearFocusTimeEvents 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "focus-settings",
+                    "clear-focus-time-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "40ee2555-9fc6-4ab6-a12d-91660576c135",
+          "name": "remove Duplicated Focus Time Events",
+          "request": {
+            "name": "remove Duplicated Focus Time Events",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "focus-settings",
+                "remove-duplicated-focus-time-events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "59c347fd-c4a3-4216-8237-7d8b11b4a858",
+              "name": "removeDuplicatedFocusTimeEvents 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "focus-settings",
+                    "remove-duplicated-focus-time-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7cdeb660-f756-4475-bef7-a412508ee6e1",
+          "name": "find All For Team",
+          "request": {
+            "name": "find All For Team",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "focus-settings",
+                "team"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "4f3507d1-c685-4123-9d17-d34010ec8cc1",
+              "name": "findAllForTeam 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "focus-settings",
+                    "team"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"autoDecline\": false,\n    \"description\": \"string\",\n    \"enabled\": false,\n    \"focusType\": \"FOCUS_TIME\",\n    \"id\": 6356,\n    \"policyType\": \"MEETING\",\n    \"title\": \"string\",\n    \"visibility\": \"DEFAULT\",\n    \"focusTimeSettings\": {\n      \"schedulingType\": \"BALLOON_FILL\",\n      \"schedulingTypeV2\": \"CIRCUIT_BREAKER\",\n      \"balloonFill\": {\n        \"targetChunksPerWeek\": 9620,\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"idealChunksPerDay\": 5500,\n        \"maxChunksPerDay\": 4010,\n        \"minDurationChunks\": 8412,\n        \"maxDurationChunks\": 2784\n      },\n      \"circuitBreaker\": {\n        \"availableChunksInDayThreshold\": 5923,\n        \"availableChunksInWeekThreshold\": 8351,\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"minDurationChunks\": 4805\n      }\n    },\n    \"autoDeclineText\": \"string\"\n  },\n  {\n    \"autoDecline\": true,\n    \"description\": \"string\",\n    \"enabled\": true,\n    \"focusType\": \"FOCUS_TIME\",\n    \"id\": 1901,\n    \"policyType\": \"ONE_OFF\",\n    \"title\": \"string\",\n    \"visibility\": \"PUBLIC\",\n    \"focusTimeSettings\": {\n      \"schedulingType\": \"CIRCUIT_BREAKER_WEEK_LEVEL\",\n      \"schedulingTypeV2\": \"CIRCUIT_BREAKER\",\n      \"balloonFill\": {\n        \"targetChunksPerWeek\": 5537,\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"idealChunksPerDay\": 8451,\n        \"maxChunksPerDay\": 8293,\n        \"minDurationChunks\": 4340,\n        \"maxDurationChunks\": 3008\n      },\n      \"circuitBreaker\": {\n        \"availableChunksInDayThreshold\": 3221,\n        \"availableChunksInWeekThreshold\": 7491,\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"minDurationChunks\": 2985\n      }\n    },\n    \"autoDeclineText\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2623793f-41c8-45f2-9a21-1ce3ee291f01",
+          "name": "create Team Focus Settings",
+          "request": {
+            "name": "create Team Focus Settings",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "focus-settings",
+                "team"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"focusTimeSettings\": {\n    \"schedulingTypeV2\": \"<string>\",\n    \"schedulingType\": \"<string>\",\n    \"countingStyle\": \"<string>\",\n    \"balloonFill\": {\n      \"targetChunksPerWeek\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"idealChunksPerDay\": \"<integer>\",\n      \"maxChunksPerDay\": \"<integer>\",\n      \"minDurationChunks\": \"<integer>\",\n      \"maxDurationChunks\": \"<integer>\"\n    },\n    \"circuitBreaker\": {\n      \"availableChunksInDayThreshold\": \"<integer>\",\n      \"availableChunksInWeekThreshold\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"minDurationChunks\": \"<integer>\"\n    }\n  },\n  \"focusType\": \"<string>\",\n  \"policyType\": \"<string>\",\n  \"title\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"autoDecline\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"autoDeclineText\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ce54d4c8-1bdb-46e6-897d-8d9161e38fd6",
+              "name": "createTeamFocusSettings 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "focus-settings",
+                    "team"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"focusTimeSettings\": {\n    \"schedulingTypeV2\": \"<string>\",\n    \"schedulingType\": \"<string>\",\n    \"countingStyle\": \"<string>\",\n    \"balloonFill\": {\n      \"targetChunksPerWeek\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"idealChunksPerDay\": \"<integer>\",\n      \"maxChunksPerDay\": \"<integer>\",\n      \"minDurationChunks\": \"<integer>\",\n      \"maxDurationChunks\": \"<integer>\"\n    },\n    \"circuitBreaker\": {\n      \"availableChunksInDayThreshold\": \"<integer>\",\n      \"availableChunksInWeekThreshold\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"minDurationChunks\": \"<integer>\"\n    }\n  },\n  \"focusType\": \"<string>\",\n  \"policyType\": \"<string>\",\n  \"title\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"autoDecline\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"autoDeclineText\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"autoDecline\": false,\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"focusType\": \"<string>\",\n  \"id\": 2430,\n  \"policyType\": \"<string>\",\n  \"title\": \"string\",\n  \"visibility\": \"<string>\",\n  \"focusTimeSettings\": {\n    \"schedulingType\": \"<string>\",\n    \"schedulingTypeV2\": \"<string>\",\n    \"balloonFill\": {\n      \"targetChunksPerWeek\": 4241,\n      \"type\": \"<string>\",\n      \"idealChunksPerDay\": 1089,\n      \"maxChunksPerDay\": 8366,\n      \"minDurationChunks\": 9988,\n      \"maxDurationChunks\": 3038\n    },\n    \"circuitBreaker\": {\n      \"availableChunksInDayThreshold\": 3278,\n      \"availableChunksInWeekThreshold\": 5353,\n      \"type\": \"<string>\",\n      \"minDurationChunks\": 4533\n    }\n  },\n  \"autoDeclineText\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2a08c541-6e63-412a-87b5-102f63e02ed8",
+          "name": "find Team Focus Settings",
+          "request": {
+            "name": "find Team Focus Settings",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "focus-settings",
+                "team",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "90805556-625d-4334-b529-90829c8891e4",
+              "name": "findTeamFocusSettings 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "focus-settings",
+                    "team",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"autoDecline\": false,\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"focusType\": \"<string>\",\n  \"id\": 2430,\n  \"policyType\": \"<string>\",\n  \"title\": \"string\",\n  \"visibility\": \"<string>\",\n  \"focusTimeSettings\": {\n    \"schedulingType\": \"<string>\",\n    \"schedulingTypeV2\": \"<string>\",\n    \"balloonFill\": {\n      \"targetChunksPerWeek\": 4241,\n      \"type\": \"<string>\",\n      \"idealChunksPerDay\": 1089,\n      \"maxChunksPerDay\": 8366,\n      \"minDurationChunks\": 9988,\n      \"maxDurationChunks\": 3038\n    },\n    \"circuitBreaker\": {\n      \"availableChunksInDayThreshold\": 3278,\n      \"availableChunksInWeekThreshold\": 5353,\n      \"type\": \"<string>\",\n      \"minDurationChunks\": 4533\n    }\n  },\n  \"autoDeclineText\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "414559bd-fa44-41f0-b9b7-2eb2146e2c98",
+          "name": "patch Team Focus Settings",
+          "request": {
+            "name": "patch Team Focus Settings",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "focus-settings",
+                "team",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"focusType\": \"<string>\",\n  \"focusTimeSettings\": {\n    \"schedulingTypeV2\": \"<string>\",\n    \"schedulingType\": \"<string>\",\n    \"countingStyle\": \"<string>\",\n    \"balloonFill\": {\n      \"targetChunksPerWeek\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"idealChunksPerDay\": \"<integer>\",\n      \"maxChunksPerDay\": \"<integer>\",\n      \"minDurationChunks\": \"<integer>\",\n      \"maxDurationChunks\": \"<integer>\"\n    },\n    \"circuitBreaker\": {\n      \"availableChunksInDayThreshold\": \"<integer>\",\n      \"availableChunksInWeekThreshold\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"minDurationChunks\": \"<integer>\"\n    }\n  },\n  \"enabled\": \"<boolean>\",\n  \"policyType\": \"<string>\",\n  \"autoDecline\": \"<boolean>\",\n  \"autoDeclineText\": \"<string>\",\n  \"visibility\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "623be0b5-bd31-451d-b96d-26213a9f0e9f",
+              "name": "patchTeamFocusSettings 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "focus-settings",
+                    "team",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"focusType\": \"<string>\",\n  \"focusTimeSettings\": {\n    \"schedulingTypeV2\": \"<string>\",\n    \"schedulingType\": \"<string>\",\n    \"countingStyle\": \"<string>\",\n    \"balloonFill\": {\n      \"targetChunksPerWeek\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"idealChunksPerDay\": \"<integer>\",\n      \"maxChunksPerDay\": \"<integer>\",\n      \"minDurationChunks\": \"<integer>\",\n      \"maxDurationChunks\": \"<integer>\"\n    },\n    \"circuitBreaker\": {\n      \"availableChunksInDayThreshold\": \"<integer>\",\n      \"availableChunksInWeekThreshold\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"minDurationChunks\": \"<integer>\"\n    }\n  },\n  \"enabled\": \"<boolean>\",\n  \"policyType\": \"<string>\",\n  \"autoDecline\": \"<boolean>\",\n  \"autoDeclineText\": \"<string>\",\n  \"visibility\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"autoDecline\": false,\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"focusType\": \"<string>\",\n  \"id\": 2430,\n  \"policyType\": \"<string>\",\n  \"title\": \"string\",\n  \"visibility\": \"<string>\",\n  \"focusTimeSettings\": {\n    \"schedulingType\": \"<string>\",\n    \"schedulingTypeV2\": \"<string>\",\n    \"balloonFill\": {\n      \"targetChunksPerWeek\": 4241,\n      \"type\": \"<string>\",\n      \"idealChunksPerDay\": 1089,\n      \"maxChunksPerDay\": 8366,\n      \"minDurationChunks\": 9988,\n      \"maxDurationChunks\": 3038\n    },\n    \"circuitBreaker\": {\n      \"availableChunksInDayThreshold\": 3278,\n      \"availableChunksInWeekThreshold\": 5353,\n      \"type\": \"<string>\",\n      \"minDurationChunks\": 4533\n    }\n  },\n  \"autoDeclineText\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c52a2b9-5c8e-4c1d-b50a-dba62adc3efd",
+          "name": "find All",
+          "request": {
+            "name": "find All",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "focus-settings",
+                "user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "c24292e0-15e5-403a-9fee-16a101974fa3",
+              "name": "findAll 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "focus-settings",
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"autoDecline\": true,\n    \"description\": \"string\",\n    \"enabled\": false,\n    \"focusType\": \"<string>\",\n    \"id\": 3895,\n    \"status\": \"CALENDAR_NOT_FOUND\",\n    \"timeSchemeId\": \"string\",\n    \"title\": \"string\",\n    \"visibility\": \"<string>\",\n    \"focusTimeSettings\": {\n      \"schedulingType\": \"<string>\",\n      \"schedulingTypeV2\": \"<string>\",\n      \"balloonFill\": {\n        \"targetChunksPerWeek\": 8864,\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"idealChunksPerDay\": 6125,\n        \"maxChunksPerDay\": 3487,\n        \"minDurationChunks\": 1646,\n        \"maxDurationChunks\": 6058\n      },\n      \"circuitBreaker\": {\n        \"availableChunksInDayThreshold\": 7431,\n        \"availableChunksInWeekThreshold\": 4191,\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"minDurationChunks\": 784\n      }\n    },\n    \"autoDeclineText\": \"string\",\n    \"calendarId\": 9864\n  },\n  {\n    \"autoDecline\": false,\n    \"description\": \"string\",\n    \"enabled\": true,\n    \"focusType\": \"<string>\",\n    \"id\": 7773,\n    \"status\": \"INACTIVE_MULTI_CONNECTED_CALENDAR\",\n    \"timeSchemeId\": \"string\",\n    \"title\": \"string\",\n    \"visibility\": \"<string>\",\n    \"focusTimeSettings\": {\n      \"schedulingType\": \"<string>\",\n      \"schedulingTypeV2\": \"<string>\",\n      \"balloonFill\": {\n        \"targetChunksPerWeek\": 9849,\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"idealChunksPerDay\": 41,\n        \"maxChunksPerDay\": 9511,\n        \"minDurationChunks\": 5933,\n        \"maxDurationChunks\": 9195\n      },\n      \"circuitBreaker\": {\n        \"availableChunksInDayThreshold\": 9420,\n        \"availableChunksInWeekThreshold\": 2738,\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"minDurationChunks\": 2255\n      }\n    },\n    \"autoDeclineText\": \"string\",\n    \"calendarId\": 5151\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "edb63e94-7c14-4216-9ecf-e1ceda2064c9",
+          "name": "create User Focus Settings",
+          "request": {
+            "name": "create User Focus Settings",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "focus-settings",
+                "user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "notificationKey",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"focusTimeSettings\": {\n    \"schedulingTypeV2\": \"<string>\",\n    \"schedulingType\": \"<string>\",\n    \"countingStyle\": \"<string>\",\n    \"balloonFill\": {\n      \"targetChunksPerWeek\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"idealChunksPerDay\": \"<integer>\",\n      \"maxChunksPerDay\": \"<integer>\",\n      \"minDurationChunks\": \"<integer>\",\n      \"maxDurationChunks\": \"<integer>\"\n    },\n    \"circuitBreaker\": {\n      \"availableChunksInDayThreshold\": \"<integer>\",\n      \"availableChunksInWeekThreshold\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"minDurationChunks\": \"<integer>\"\n    }\n  },\n  \"focusType\": \"<string>\",\n  \"timeSchemeId\": \"<string>\",\n  \"title\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"autoDecline\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"autoDeclineText\": \"<string>\",\n  \"calendarId\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "01fc642b-ab72-4e76-91af-a4db0983cc28",
+              "name": "createUserFocusSettings 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "focus-settings",
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "notificationKey",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"focusTimeSettings\": {\n    \"schedulingTypeV2\": \"<string>\",\n    \"schedulingType\": \"<string>\",\n    \"countingStyle\": \"<string>\",\n    \"balloonFill\": {\n      \"targetChunksPerWeek\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"idealChunksPerDay\": \"<integer>\",\n      \"maxChunksPerDay\": \"<integer>\",\n      \"minDurationChunks\": \"<integer>\",\n      \"maxDurationChunks\": \"<integer>\"\n    },\n    \"circuitBreaker\": {\n      \"availableChunksInDayThreshold\": \"<integer>\",\n      \"availableChunksInWeekThreshold\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"minDurationChunks\": \"<integer>\"\n    }\n  },\n  \"focusType\": \"<string>\",\n  \"timeSchemeId\": \"<string>\",\n  \"title\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"autoDecline\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"autoDeclineText\": \"<string>\",\n  \"calendarId\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"autoDecline\": true,\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"focusType\": \"<string>\",\n  \"id\": 9083,\n  \"status\": \"DISABLED\",\n  \"timeSchemeId\": \"string\",\n  \"title\": \"string\",\n  \"visibility\": \"<string>\",\n  \"focusTimeSettings\": {\n    \"schedulingType\": \"<string>\",\n    \"schedulingTypeV2\": \"<string>\",\n    \"balloonFill\": {\n      \"targetChunksPerWeek\": 7632,\n      \"type\": \"<string>\",\n      \"idealChunksPerDay\": 4655,\n      \"maxChunksPerDay\": 8321,\n      \"minDurationChunks\": 7901,\n      \"maxDurationChunks\": 9080\n    },\n    \"circuitBreaker\": {\n      \"availableChunksInDayThreshold\": 515,\n      \"availableChunksInWeekThreshold\": 2642,\n      \"type\": \"<string>\",\n      \"minDurationChunks\": 6850\n    }\n  },\n  \"autoDeclineText\": \"string\",\n  \"calendarId\": 591\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bfa957a2-c98f-4140-8e68-a538e06e50e0",
+          "name": "fetch Focus Time Default",
+          "request": {
+            "name": "fetch Focus Time Default",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "focus-settings",
+                "user",
+                "focus-time",
+                "default"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "e7cb94d8-1dfc-44e1-b0a4-7da2cbaef784",
+              "name": "fetchFocusTimeDefault 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "focus-settings",
+                    "user",
+                    "focus-time",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"autoDecline\": true,\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"focusType\": \"<string>\",\n  \"id\": 9083,\n  \"status\": \"DISABLED\",\n  \"timeSchemeId\": \"string\",\n  \"title\": \"string\",\n  \"visibility\": \"<string>\",\n  \"focusTimeSettings\": {\n    \"schedulingType\": \"<string>\",\n    \"schedulingTypeV2\": \"<string>\",\n    \"balloonFill\": {\n      \"targetChunksPerWeek\": 7632,\n      \"type\": \"<string>\",\n      \"idealChunksPerDay\": 4655,\n      \"maxChunksPerDay\": 8321,\n      \"minDurationChunks\": 7901,\n      \"maxDurationChunks\": 9080\n    },\n    \"circuitBreaker\": {\n      \"availableChunksInDayThreshold\": 515,\n      \"availableChunksInWeekThreshold\": 2642,\n      \"type\": \"<string>\",\n      \"minDurationChunks\": 6850\n    }\n  },\n  \"autoDeclineText\": \"string\",\n  \"calendarId\": 591\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "777f1b40-00bd-443a-961a-21ccdbef8fc8",
+          "name": "patch User Focus Settings",
+          "request": {
+            "name": "patch User Focus Settings",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "focus-settings",
+                "user",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "notificationKey",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"focusType\": \"<string>\",\n  \"focusTimeSettings\": {\n    \"schedulingTypeV2\": \"<string>\",\n    \"schedulingType\": \"<string>\",\n    \"countingStyle\": \"<string>\",\n    \"balloonFill\": {\n      \"targetChunksPerWeek\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"idealChunksPerDay\": \"<integer>\",\n      \"maxChunksPerDay\": \"<integer>\",\n      \"minDurationChunks\": \"<integer>\",\n      \"maxDurationChunks\": \"<integer>\"\n    },\n    \"circuitBreaker\": {\n      \"availableChunksInDayThreshold\": \"<integer>\",\n      \"availableChunksInWeekThreshold\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"minDurationChunks\": \"<integer>\"\n    }\n  },\n  \"enabled\": \"<boolean>\",\n  \"timeSchemeId\": \"<string>\",\n  \"autoDecline\": \"<boolean>\",\n  \"autoDeclineText\": \"<string>\",\n  \"calendarId\": \"<long>\",\n  \"visibility\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e02748a9-6957-44eb-b068-7c282bc9f0d0",
+              "name": "patchUserFocusSettings 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "focus-settings",
+                    "user",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "notificationKey",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"focusType\": \"<string>\",\n  \"focusTimeSettings\": {\n    \"schedulingTypeV2\": \"<string>\",\n    \"schedulingType\": \"<string>\",\n    \"countingStyle\": \"<string>\",\n    \"balloonFill\": {\n      \"targetChunksPerWeek\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"idealChunksPerDay\": \"<integer>\",\n      \"maxChunksPerDay\": \"<integer>\",\n      \"minDurationChunks\": \"<integer>\",\n      \"maxDurationChunks\": \"<integer>\"\n    },\n    \"circuitBreaker\": {\n      \"availableChunksInDayThreshold\": \"<integer>\",\n      \"availableChunksInWeekThreshold\": \"<integer>\",\n      \"type\": \"<string>\",\n      \"minDurationChunks\": \"<integer>\"\n    }\n  },\n  \"enabled\": \"<boolean>\",\n  \"timeSchemeId\": \"<string>\",\n  \"autoDecline\": \"<boolean>\",\n  \"autoDeclineText\": \"<string>\",\n  \"calendarId\": \"<long>\",\n  \"visibility\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"autoDecline\": true,\n  \"description\": \"string\",\n  \"enabled\": true,\n  \"focusType\": \"<string>\",\n  \"id\": 9083,\n  \"status\": \"DISABLED\",\n  \"timeSchemeId\": \"string\",\n  \"title\": \"string\",\n  \"visibility\": \"<string>\",\n  \"focusTimeSettings\": {\n    \"schedulingType\": \"<string>\",\n    \"schedulingTypeV2\": \"<string>\",\n    \"balloonFill\": {\n      \"targetChunksPerWeek\": 7632,\n      \"type\": \"<string>\",\n      \"idealChunksPerDay\": 4655,\n      \"maxChunksPerDay\": 8321,\n      \"minDurationChunks\": 7901,\n      \"maxDurationChunks\": 9080\n    },\n    \"circuitBreaker\": {\n      \"availableChunksInDayThreshold\": 515,\n      \"availableChunksInWeekThreshold\": 2642,\n      \"type\": \"<string>\",\n      \"minDurationChunks\": 6850\n    }\n  },\n  \"autoDeclineText\": \"string\",\n  \"calendarId\": 591\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0b1cbad2-8ff8-4bdc-8c04-1ca3fb6425e7",
+    "name": "Reclaim account-time-schemes focus-settings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

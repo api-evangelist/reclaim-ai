@@ -1,0 +1,219 @@
+{
+  "item": [
+    {
+      "id": "e89b027b-fa4f-4d89-ad9b-c38b4262202d",
+      "name": "matcher",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "049d2b3e-f14e-448b-bdb6-37f97c440e8f",
+          "name": "generate Event Matcher",
+          "request": {
+            "name": "generate Event Matcher",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "matcher",
+                "event"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": \"<string>\",\n  \"existingMatcher\": {\n    \"attendeeMatcher\": {\n      \"field\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"operator\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"value\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"type\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2f2f55fe-a266-474e-b957-70ab6cb41f6b",
+              "name": "generateEventMatcher 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "matcher",
+                    "event"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"message\": \"<string>\",\n  \"existingMatcher\": {\n    \"attendeeMatcher\": {\n      \"field\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"operator\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"value\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"type\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"eventMatcher\": {\n    \"attendeeMatcher\": {\n      \"field\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"operator\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"value\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    \"type\": \"<string>\"\n  },\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8134cc3-9e56-428e-a750-80e7eec22c3c",
+          "name": "known Tagged Event Matchers",
+          "request": {
+            "name": "known Tagged Event Matchers",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "matcher",
+                "event",
+                "known-tagged-event-matchers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "6bf8a9b7-fd4a-49fb-a14e-5ede33bca1cc",
+              "name": "knownTaggedEventMatchers 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "matcher",
+                    "event",
+                    "known-tagged-event-matchers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"matchers\": {\n    \"EXTERNAL\": {\n      \"matcher\": {\n        \"attendeeMatcher\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      },\n      \"tagName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"CONFERENCE\": {\n      \"matcher\": {\n        \"attendeeMatcher\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      },\n      \"tagName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"LARGE_GROUP\": {\n      \"matcher\": {\n        \"attendeeMatcher\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      },\n      \"tagName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"LONG_MEETING\": {\n      \"matcher\": {\n        \"attendeeMatcher\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      },\n      \"tagName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"IS_TRAVEL\": {\n      \"matcher\": {\n        \"attendeeMatcher\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      },\n      \"tagName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"NEEDS_TRAVEL\": {\n      \"matcher\": {\n        \"attendeeMatcher\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      },\n      \"tagName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"IS_FLIGHT\": {\n      \"matcher\": {\n        \"attendeeMatcher\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      },\n      \"tagName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"MEETING_ORGANIZER\": {\n      \"matcher\": {\n        \"attendeeMatcher\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      },\n      \"tagName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"RECURRING_SERIES\": {\n      \"matcher\": {\n        \"attendeeMatcher\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      },\n      \"tagName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"NEEDS_RSVP\": {\n      \"matcher\": {\n        \"attendeeMatcher\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      },\n      \"tagName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"IS_MEETING\": {\n      \"matcher\": {\n        \"attendeeMatcher\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      },\n      \"tagName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"NO_LOCATION\": {\n      \"matcher\": {\n        \"attendeeMatcher\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      },\n      \"tagName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"LARGE_MEETINGS_YOU_ORGANIZED\": {\n      \"matcher\": {\n        \"attendeeMatcher\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      },\n      \"tagName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"MEETING_NEEDS_RSVP\": {\n      \"matcher\": {\n        \"attendeeMatcher\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      },\n      \"tagName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"MEETING_MISSING_VIDEO_CONFERENCE\": {\n      \"matcher\": {\n        \"attendeeMatcher\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      },\n      \"tagName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"RESOURCE_DECLINED\": {\n      \"matcher\": {\n        \"attendeeMatcher\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": \"<string>\"\n      },\n      \"tagName\": \"string\",\n      \"type\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "650cc346-6bfb-48b8-8c24-7519f05b1c9b",
+    "name": "Reclaim account-time-schemes matcher API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

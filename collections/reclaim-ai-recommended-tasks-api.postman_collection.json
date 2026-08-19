@@ -1,0 +1,397 @@
+{
+  "item": [
+    {
+      "id": "46613b51-c45a-4f62-9889-1c7dd5a13c83",
+      "name": "recommended-tasks",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b510fd87-f2ff-4fd9-b9ea-70e8ac890721",
+          "name": "list Recommended Tasks",
+          "request": {
+            "name": "list Recommended Tasks",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "recommended-tasks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "51f8567a-3ba1-4124-a4cb-670d735517ac",
+              "name": "listRecommendedTasks 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "recommended-tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"createdAt\": \"1961-08-11T08:52:45.308Z\",\n    \"id\": 460,\n    \"sourceRef\": \"string\",\n    \"sourceType\": \"ZOOM\",\n    \"status\": \"ACCEPTED\",\n    \"title\": \"string\",\n    \"calendarId\": 9112,\n    \"eventId\": \"string\",\n    \"dueDate\": \"1951-11-13\",\n    \"transcriptSnippet\": [\n      {\n        \"text\": \"string\",\n        \"speaker\": \"string\",\n        \"timestamp\": \"string\"\n      },\n      {\n        \"text\": \"string\",\n        \"speaker\": \"string\",\n        \"timestamp\": \"string\"\n      }\n    ]\n  },\n  {\n    \"createdAt\": \"1963-06-17T01:18:46.893Z\",\n    \"id\": 9048,\n    \"sourceRef\": \"string\",\n    \"sourceType\": \"ZOOM\",\n    \"status\": \"PENDING\",\n    \"title\": \"string\",\n    \"calendarId\": 4008,\n    \"eventId\": \"string\",\n    \"dueDate\": \"2013-11-12\",\n    \"transcriptSnippet\": [\n      {\n        \"text\": \"string\",\n        \"speaker\": \"string\",\n        \"timestamp\": \"string\"\n      },\n      {\n        \"text\": \"string\",\n        \"speaker\": \"string\",\n        \"timestamp\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "59407c04-9fca-4563-8528-ec3e2950eb1c",
+          "name": "count Recommended Tasks",
+          "request": {
+            "name": "count Recommended Tasks",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "recommended-tasks",
+                "count"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "0323e526-0de7-4ffa-8be2-ec8343baa6e4",
+              "name": "countRecommendedTasks 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "recommended-tasks",
+                    "count"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "5944",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "11089008-a745-429e-b0a2-a86436ca18cc",
+          "name": "list Groups",
+          "request": {
+            "name": "list Groups",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "recommended-tasks",
+                "groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "2c098b61-18a7-4494-8f18-829760ce30bb",
+              "name": "listGroups 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "recommended-tasks",
+                    "groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"sourceRef\": \"string\",\n    \"sourceType\": \"ZOOM\",\n    \"tasks\": [\n      {\n        \"createdAt\": \"1953-04-10T14:45:40.924Z\",\n        \"id\": 2503,\n        \"sourceRef\": \"string\",\n        \"sourceType\": \"ZOOM\",\n        \"status\": \"ERROR\",\n        \"title\": \"string\",\n        \"calendarId\": 8624,\n        \"eventId\": \"string\",\n        \"dueDate\": \"1954-05-05\",\n        \"transcriptSnippet\": [\n          {\n            \"text\": \"string\",\n            \"speaker\": \"string\",\n            \"timestamp\": \"string\"\n          },\n          {\n            \"text\": \"string\",\n            \"speaker\": \"string\",\n            \"timestamp\": \"string\"\n          }\n        ]\n      },\n      {\n        \"createdAt\": \"1958-12-04T14:07:25.973Z\",\n        \"id\": 1176,\n        \"sourceRef\": \"string\",\n        \"sourceType\": \"ZOOM\",\n        \"status\": \"PROCESSING\",\n        \"title\": \"string\",\n        \"calendarId\": 2452,\n        \"eventId\": \"string\",\n        \"dueDate\": \"2005-07-21\",\n        \"transcriptSnippet\": [\n          {\n            \"text\": \"string\",\n            \"speaker\": \"string\",\n            \"timestamp\": \"string\"\n          },\n          {\n            \"text\": \"string\",\n            \"speaker\": \"string\",\n            \"timestamp\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"meeting\": {\n      \"calendarId\": 5742,\n      \"eventId\": \"string\",\n      \"title\": \"string\",\n      \"startTime\": \"2011-05-27T02:05:35.687Z\",\n      \"endTime\": \"2018-11-03T07:02:53.579Z\",\n      \"shortDescription\": \"string\"\n    }\n  },\n  {\n    \"sourceRef\": \"string\",\n    \"sourceType\": \"ZOOM\",\n    \"tasks\": [\n      {\n        \"createdAt\": \"2026-01-27T10:15:01.125Z\",\n        \"id\": 1218,\n        \"sourceRef\": \"string\",\n        \"sourceType\": \"ZOOM\",\n        \"status\": \"ACCEPTED\",\n        \"title\": \"string\",\n        \"calendarId\": 9405,\n        \"eventId\": \"string\",\n        \"dueDate\": \"2011-07-14\",\n        \"transcriptSnippet\": [\n          {\n            \"text\": \"string\",\n            \"speaker\": \"string\",\n            \"timestamp\": \"string\"\n          },\n          {\n            \"text\": \"string\",\n            \"speaker\": \"string\",\n            \"timestamp\": \"string\"\n          }\n        ]\n      },\n      {\n        \"createdAt\": \"1954-01-16T01:01:52.096Z\",\n        \"id\": 6817,\n        \"sourceRef\": \"string\",\n        \"sourceType\": \"ZOOM\",\n        \"status\": \"PENDING\",\n        \"title\": \"string\",\n        \"calendarId\": 6390,\n        \"eventId\": \"string\",\n        \"dueDate\": \"1954-09-16\",\n        \"transcriptSnippet\": [\n          {\n            \"text\": \"string\",\n            \"speaker\": \"string\",\n            \"timestamp\": \"string\"\n          },\n          {\n            \"text\": \"string\",\n            \"speaker\": \"string\",\n            \"timestamp\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"meeting\": {\n      \"calendarId\": 5656,\n      \"eventId\": \"string\",\n      \"title\": \"string\",\n      \"startTime\": \"2001-07-28T02:37:26.348Z\",\n      \"endTime\": \"2011-03-08T01:49:28.134Z\",\n      \"shortDescription\": \"string\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ad81781b-8927-4d85-acee-860147c833dd",
+          "name": "update Status",
+          "request": {
+            "name": "update Status",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "recommended-tasks",
+                ":id",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "954fe1a3-c180-47d9-a47d-90cecf31767a",
+              "name": "updateStatus 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "recommended-tasks",
+                    ":id",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"status\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createdAt\": \"1966-09-07T18:06:04.787Z\",\n  \"id\": 866,\n  \"sourceRef\": \"string\",\n  \"sourceType\": \"ZOOM\",\n  \"status\": \"<string>\",\n  \"title\": \"string\",\n  \"calendarId\": 6780,\n  \"eventId\": \"string\",\n  \"dueDate\": \"1983-05-29\",\n  \"transcriptSnippet\": [\n    {\n      \"text\": \"string\",\n      \"speaker\": \"string\",\n      \"timestamp\": \"string\"\n    },\n    {\n      \"text\": \"string\",\n      \"speaker\": \"string\",\n      \"timestamp\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "068028ab-13e0-4c77-a61b-322f56b75ea3",
+    "name": "Reclaim account-time-schemes recommended-tasks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

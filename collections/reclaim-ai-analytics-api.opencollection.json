@@ -1,0 +1,273 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes analytics API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "analytics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "analytics_focusInsights_v3",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/analytics/focus/insights/V3",
+            "params": [
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "countingStyle",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "analytics_focusInsights_v4",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/analytics/focus/insights/V4",
+            "params": [
+              {
+                "name": "queryStart",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "queryEnd",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "analytics_teamAnalytics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/analytics/team",
+            "params": [
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "groupingInterval",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "analytics_teamAnalyticsV3",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/analytics/team/V3",
+            "params": [
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "groupingInterval",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "analytics_teamAnalyticsV4",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/analytics/team/V4",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "analytics_teamAnalyticsV4Export",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/analytics/team/V4/export",
+            "params": [
+              {
+                "name": "queryStart",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "queryEnd",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "meetingHeavyDayThreshold",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "analytics_teamAnalyticsV4Filters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/analytics/team/V4/filters",
+            "params": [
+              {
+                "name": "myOrg",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "analytics_teamAnalyticsV4Permissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/analytics/team/V4/permissions"
+          }
+        },
+        {
+          "info": {
+            "name": "analytics_userAnalytics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/analytics/user",
+            "params": [
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "groupingInterval",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "analytics_userAnalyticsV3",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/analytics/user/V3",
+            "params": [
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metricName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "groupingInterval",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

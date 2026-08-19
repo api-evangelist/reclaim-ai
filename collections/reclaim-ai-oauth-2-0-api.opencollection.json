@@ -1,0 +1,124 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes OAuth 2.0 API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OAuth 2.0",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Step 1: Authorization request - shows consent screen or redirects to login",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/oauth2/authorize",
+            "params": [
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "redirect_uri",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "response_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "code_challenge",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "code_challenge_method",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Step 1: Authorization request - shows consent screen or redirects to login"
+        },
+        {
+          "info": {
+            "name": "Step 2: User approves authorization - creates code and redirects back",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/oauth2/authorize/approve",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Step 2: User approves authorization - creates code and redirects back"
+        },
+        {
+          "info": {
+            "name": "Step 2 (alternative): User denies authorization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/oauth2/authorize/deny",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Step 2 (alternative): User denies authorization"
+        },
+        {
+          "info": {
+            "name": "revoke",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/oauth2/revoke",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/oauth2/token",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

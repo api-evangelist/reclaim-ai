@@ -1,0 +1,205 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes .well Known API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": ".well Known",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "oauth2Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/.well-known/oauth-authorization-server"
+          }
+        },
+        {
+          "info": {
+            "name": "oauth2MetadataMcpSuffix",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/.well-known/oauth-authorization-server/api/mcp"
+          }
+        },
+        {
+          "info": {
+            "name": "oauth2MetadataMcpSuffix2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/.well-known/oauth-authorization-server/api/mcp/:subpath1/:subpath2",
+            "params": [
+              {
+                "name": "subpath1",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "subpath2",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "oauth2MetadataMcpSuffix1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/.well-known/oauth-authorization-server/api/mcp/:subpath",
+            "params": [
+              {
+                "name": "subpath",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "protectedResourceMetadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/.well-known/oauth-protected-resource"
+          }
+        },
+        {
+          "info": {
+            "name": "protectedResourceMcpSuffix",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/.well-known/oauth-protected-resource/api/mcp"
+          }
+        },
+        {
+          "info": {
+            "name": "protectedResourceMcpSuffix2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/.well-known/oauth-protected-resource/api/mcp/:subpath1/:subpath2",
+            "params": [
+              {
+                "name": "subpath1",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "subpath2",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "protectedResourceMcpSuffix1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/.well-known/oauth-protected-resource/api/mcp/:subpath",
+            "params": [
+              {
+                "name": "subpath",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "openaiAppsChallenge",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/.well-known/openai-apps-challenge"
+          }
+        },
+        {
+          "info": {
+            "name": "openidConfiguration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/.well-known/openid-configuration"
+          }
+        },
+        {
+          "info": {
+            "name": "openidConfigMcpSuffix",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/.well-known/openid-configuration/api/mcp"
+          }
+        },
+        {
+          "info": {
+            "name": "openidConfigMcpSuffix2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/.well-known/openid-configuration/api/mcp/:subpath1/:subpath2",
+            "params": [
+              {
+                "name": "subpath1",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "subpath2",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "openidConfigMcpSuffix1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/.well-known/openid-configuration/api/mcp/:subpath",
+            "params": [
+              {
+                "name": "subpath",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

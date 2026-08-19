@@ -1,0 +1,45 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes jira-v2 API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "jira-v2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "sites",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/jira-v2/sites"
+          }
+        },
+        {
+          "info": {
+            "name": "deleteSite",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/jira-v2/sites/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

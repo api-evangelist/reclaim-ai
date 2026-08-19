@@ -1,0 +1,83 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes LLM Tool Approvals API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "LLM Tool Approvals",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all MCP tools approved by the current user, optionally filtered by server",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/llm/tool-approvals",
+            "params": [
+              {
+                "name": "user",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "server",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List all MCP tools approved by the current user, optionally filtered by server"
+        },
+        {
+          "info": {
+            "name": "Approve an MCP tool for automatic execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/llm/tool-approvals",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Approve an MCP tool for automatic execution"
+        },
+        {
+          "info": {
+            "name": "Revoke approval for a specific MCP tool",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/llm/tool-approvals/:mcpServerName/:toolName",
+            "params": [
+              {
+                "name": "mcpServerName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "toolName",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Revoke approval for a specific MCP tool"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

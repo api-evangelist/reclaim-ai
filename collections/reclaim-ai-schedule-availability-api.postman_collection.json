@@ -1,0 +1,414 @@
+{
+  "item": [
+    {
+      "id": "08dc1dac-74f7-45f6-9550-88caa482197b",
+      "name": "schedule-availability",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e6e64e92-3197-4fca-a70d-946337bcb615",
+          "name": "enable Redis Cache",
+          "request": {
+            "name": "enable Redis Cache",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "availability",
+                "enable-redis-cache"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "value",
+                  "value": "<boolean>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "e2cb8be5-4d72-48b9-9730-676b19fce02d",
+              "name": "enableRedisCache 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "availability",
+                    "enable-redis-cache"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "value",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "67f75541-2af1-41ed-97e7-a06bcfe46af9",
+          "name": "ideal Time Availability",
+          "request": {
+            "name": "ideal Time Availability",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "availability",
+                "ideal-time-availability"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"attendees\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scheduleWindow\": {\n    \"end\": \"<dateTime>\",\n    \"start\": \"<dateTime>\"\n  },\n  \"calendarId\": \"<long>\",\n  \"eventReference\": \"<string>\",\n  \"sessionScope\": {\n    \"userId\": \"<string>\",\n    \"type\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "366e8e56-3160-4b99-8940-a0e3bcba8266",
+              "name": "idealTimeAvailability 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "availability",
+                    "ideal-time-availability"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attendees\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scheduleWindow\": {\n    \"end\": \"<dateTime>\",\n    \"start\": \"<dateTime>\"\n  },\n  \"calendarId\": \"<long>\",\n  \"eventReference\": \"<string>\",\n  \"sessionScope\": {\n    \"userId\": \"<string>\",\n    \"type\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"attendees\": [\n    {\n      \"externalCalendarId\": \"string\",\n      \"freeBusy\": \"BUSY\",\n      \"movabilityScore\": 7204,\n      \"scoringReason\": \"AVAILABLE\",\n      \"timezone\": \"string\",\n      \"visibility\": \"RECLAIM\",\n      \"nextAvailability\": {\n        \"end\": \"1969-05-31T19:12:56.765Z\",\n        \"movabilityScore\": 2824,\n        \"start\": \"1979-07-05T17:35:10.350Z\"\n      },\n      \"slotDetails\": {\n        \"title\": \"string\",\n        \"start\": \"2011-04-03T08:11:31.285Z\",\n        \"end\": \"2016-07-01T22:51:22.596Z\",\n        \"eventSubType\": \"TRAIN\",\n        \"reclaimEventType\": \"SMART_HABIT\"\n      }\n    },\n    {\n      \"externalCalendarId\": \"string\",\n      \"freeBusy\": \"BUSY\",\n      \"movabilityScore\": 2426,\n      \"scoringReason\": \"CALENDAR_NOT_AVAILABLE\",\n      \"timezone\": \"string\",\n      \"visibility\": \"DETAILS\",\n      \"nextAvailability\": {\n        \"end\": \"2004-01-26T12:34:19.616Z\",\n        \"movabilityScore\": 2403,\n        \"start\": \"1986-10-19T21:08:55.853Z\"\n      },\n      \"slotDetails\": {\n        \"title\": \"string\",\n        \"start\": \"2019-10-01T13:44:25.097Z\",\n        \"end\": \"1956-10-05T20:02:44.069Z\",\n        \"eventSubType\": \"TRAIN\",\n        \"reclaimEventType\": \"TASK_ASSIGNMENT\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "204d938b-4b9a-4874-9fb9-6586edf5b33a",
+          "name": "suggested Times",
+          "request": {
+            "name": "suggested Times",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "availability",
+                "suggested-times"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"attendees\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"durationMinutes\": \"<integer>\",\n  \"idealTime\": \"<dateTime>\",\n  \"limit\": \"<integer>\",\n  \"sorting\": \"<string>\",\n  \"scheduleWindow\": {\n    \"end\": \"<date>\",\n    \"start\": \"<date>\"\n  },\n  \"calendarId\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1683608d-76cf-48dd-aa62-848e89e9afa5",
+              "name": "suggestedTimes 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "availability",
+                    "suggested-times"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attendees\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"durationMinutes\": \"<integer>\",\n  \"idealTime\": \"<dateTime>\",\n  \"limit\": \"<integer>\",\n  \"sorting\": \"<string>\",\n  \"scheduleWindow\": {\n    \"end\": \"<date>\",\n    \"start\": \"<date>\"\n  },\n  \"calendarId\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"suggestedTimes\": [\n    {\n      \"availabilityInfo\": {\n        \"attendees\": [\n          {\n            \"externalCalendarId\": \"string\",\n            \"freeBusy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"movabilityScore\": 8856,\n            \"reason\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timezone\": \"string\",\n            \"visibility\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"title\": \"string\",\n            \"eventType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"reclaimEventType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isOrganizer\": false,\n            \"isRecurring\": false,\n            \"hasVip\": false,\n            \"participantCount\": 3205,\n            \"priority\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"externalCalendarId\": \"string\",\n            \"freeBusy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"movabilityScore\": 8200,\n            \"reason\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timezone\": \"string\",\n            \"visibility\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"title\": \"string\",\n            \"eventType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"reclaimEventType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isOrganizer\": true,\n            \"isRecurring\": true,\n            \"hasVip\": true,\n            \"participantCount\": 1748,\n            \"priority\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"movabilityScore\": 7844\n      },\n      \"end\": \"1994-07-05T12:59:16.576Z\",\n      \"start\": \"2004-05-24T13:33:13.685Z\"\n    },\n    {\n      \"availabilityInfo\": {\n        \"attendees\": [\n          {\n            \"externalCalendarId\": \"string\",\n            \"freeBusy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"movabilityScore\": 4819,\n            \"reason\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timezone\": \"string\",\n            \"visibility\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"title\": \"string\",\n            \"eventType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"reclaimEventType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isOrganizer\": true,\n            \"isRecurring\": true,\n            \"hasVip\": true,\n            \"participantCount\": 7922,\n            \"priority\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"externalCalendarId\": \"string\",\n            \"freeBusy\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"movabilityScore\": 5699,\n            \"reason\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"timezone\": \"string\",\n            \"visibility\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"title\": \"string\",\n            \"eventType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"reclaimEventType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"isOrganizer\": false,\n            \"isRecurring\": false,\n            \"hasVip\": true,\n            \"participantCount\": 8286,\n            \"priority\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"movabilityScore\": 3074\n      },\n      \"end\": \"1981-04-24T01:29:55.315Z\",\n      \"start\": \"2001-07-18T02:33:30.017Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "45f66cf7-a9b7-4b6a-8c7c-3bd00d8946ab",
+          "name": "warm Cache",
+          "request": {
+            "name": "warm Cache",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "availability",
+                "warm-cache"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "bc45144f-2484-4d03-9fcd-df25a723ed26",
+              "name": "warmCache 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "availability",
+                    "warm-cache"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "2da7888b-f586-4890-bc9d-17c2fe9ad452",
+    "name": "Reclaim account-time-schemes schedule-availability API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,1165 @@
+{
+  "item": [
+    {
+      "id": "0d2923eb-b4b2-4efc-9dbe-d7b5da0d3a65",
+      "name": "schedule-policy",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2822d4b7-c72b-435e-8508-36afe5199998",
+          "name": "list Policies",
+          "request": {
+            "name": "list Policies",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "schedule-policy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "44b68ca9-abcd-444c-adef-795f32c65001",
+              "name": "listPolicies 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "schedule-policy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"policies\": [\n    {\n      \"commonData\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"timePolicy\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"commonData\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"timePolicy\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e86f5fc1-c432-4ef1-9052-3b4db84eeea6",
+          "name": "available Policy Types",
+          "request": {
+            "name": "available Policy Types",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "schedule-policy",
+                "available-types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "eea0ab65-76b6-4a43-8c70-23bece0609b9",
+              "name": "availablePolicyTypes 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "schedule-policy",
+                    "available-types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"availableTypes\": [\n    \"BasicEventWarningPolicy\",\n    \"AttendeeAvailabilityWarningPolicy\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "42d448a2-9edd-4f63-b674-d3c74c45d8dd",
+          "name": "create Default Policies",
+          "request": {
+            "name": "create Default Policies",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "schedule-policy",
+                "create-default-policies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "059d1359-752c-49a2-b00e-4afcf98c736a",
+              "name": "createDefaultPolicies 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "schedule-policy",
+                    "create-default-policies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"policies\": [\n    {\n      \"commonData\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"timePolicy\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"commonData\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"timePolicy\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f2c56c85-b97b-4b17-82cf-1a37f59a006c",
+          "name": "get Event Matcher Tags",
+          "request": {
+            "name": "get Event Matcher Tags",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "schedule-policy",
+                "event-matcher-tags"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "5b526ea9-c010-4057-a1bb-09ecfd7c4fa3",
+              "name": "getEventMatcherTags 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "schedule-policy",
+                    "event-matcher-tags"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"NO_LOCATION\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d2f08ec-e3f3-4680-8434-7e4a5450324d",
+          "name": "find Matching Events",
+          "request": {
+            "name": "find Matching Events",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "schedule-policy",
+                "matching-events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"calendarIds\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"eventMatcher\": {\n    \"attendeeMatcher\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"scheduleWindow\": {\n    \"end\": \"<date>\",\n    \"start\": \"<date>\"\n  },\n  \"policyId\": \"<uuid>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a3231e97-ce9a-49e9-9f32-1eb1233885d5",
+              "name": "findMatchingEvents 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "schedule-policy",
+                    "matching-events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"calendarIds\": [\n    \"<long>\",\n    \"<long>\"\n  ],\n  \"eventMatcher\": {\n    \"attendeeMatcher\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"type\": \"<string>\"\n  },\n  \"scheduleWindow\": {\n    \"end\": \"<date>\",\n    \"start\": \"<date>\"\n  },\n  \"policyId\": \"<uuid>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"events\": [\n    {\n      \"attendeesAndResources\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"calendarId\": 2843,\n      \"canInviteOthers\": true,\n      \"canModify\": false,\n      \"canRsvp\": false,\n      \"canSeeOtherGuests\": true,\n      \"dateMode\": \"ALL_DAY\",\n      \"descriptionOmitted\": false,\n      \"eventDate\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"freeBusy\": \"FREE\",\n      \"isOptimistic\": true,\n      \"key\": {\n        \"calendarId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"eventId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"originalStart\": \"1978-12-20T18:34:36.695Z\",\n      \"platformData\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"reclaimData\": {\n        \"associations\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"reclaimEventType\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"reclaimResourceId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"eventCategory\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"priority\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"reclaimSchedulerData\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"mergeableEvent\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"calendarSyncSourceData\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"assistantData\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"rsvpStatus\": \"DECLINED\",\n      \"selfOrganized\": true,\n      \"status\": \"CONFIRMED\",\n      \"titleTruncated\": false,\n      \"versionData\": {\n        \"syncStatus\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"ceVersion\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"visibility\": \"DEFAULT\",\n      \"recurringEventId\": \"string\",\n      \"color\": {\n        \"nullable\": true,\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"onlineMeetingUrl\": \"string\",\n      \"location\": \"string\",\n      \"reminders\": {\n        \"nullable\": true,\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"recurrence\": {\n        \"nullable\": true,\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"parentRecurrence\": {\n        \"nullable\": true,\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"conferenceData\": {\n        \"nullable\": true,\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"allowedRecurrenceEditTypes\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"allowedEditTypes\": {\n        \"nullable\": true,\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"attendeesAndResources\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"calendarId\": 2657,\n      \"canInviteOthers\": true,\n      \"canModify\": false,\n      \"canRsvp\": true,\n      \"canSeeOtherGuests\": true,\n      \"dateMode\": \"FIXED_TIMESTAMP\",\n      \"descriptionOmitted\": false,\n      \"eventDate\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"freeBusy\": \"FREE\",\n      \"isOptimistic\": false,\n      \"key\": {\n        \"calendarId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"eventId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"originalStart\": \"1957-07-20T22:47:55.125Z\",\n      \"platformData\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"reclaimData\": {\n        \"associations\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"reclaimEventType\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"reclaimResourceId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"eventCategory\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"priority\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"reclaimSchedulerData\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"mergeableEvent\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"calendarSyncSourceData\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"assistantData\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"rsvpStatus\": \"NEEDS_ACTION\",\n      \"selfOrganized\": false,\n      \"status\": \"CANCELLED\",\n      \"titleTruncated\": false,\n      \"versionData\": {\n        \"syncStatus\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"ceVersion\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"visibility\": \"PRIVATE\",\n      \"recurringEventId\": \"string\",\n      \"color\": {\n        \"nullable\": true,\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"title\": \"string\",\n      \"description\": \"string\",\n      \"onlineMeetingUrl\": \"string\",\n      \"location\": \"string\",\n      \"reminders\": {\n        \"nullable\": true,\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"recurrence\": {\n        \"nullable\": true,\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"parentRecurrence\": {\n        \"nullable\": true,\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"conferenceData\": {\n        \"nullable\": true,\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"allowedRecurrenceEditTypes\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"allowedEditTypes\": {\n        \"nullable\": true,\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "20e26b56-d5d4-4d84-b958-878d38100942",
+          "name": "recommended Policies",
+          "request": {
+            "name": "recommended Policies",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "schedule-policy",
+                "recommended"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"scheduleWindow\": {\n    \"end\": \"<date>\",\n    \"start\": \"<date>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "53eabcae-a134-4242-a772-f651da22d323",
+              "name": "recommendedPolicies 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "schedule-policy",
+                    "recommended"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"scheduleWindow\": {\n    \"end\": \"<date>\",\n    \"start\": \"<date>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"policiesToTry\": [\n    {\n      \"policyConfig\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"problemsWithActions\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    },\n    {\n      \"policyConfig\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"problemsWithActions\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c5aa43c2-b232-4cf0-beab-cdc2c42e1c1f",
+          "name": "find Smart Meeting Candidates",
+          "request": {
+            "name": "find Smart Meeting Candidates",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "schedule-policy",
+                "smart-meeting",
+                "candidates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "3d53e2ee-93e2-4e7f-859a-4293c7a34cdd",
+              "name": "findSmartMeetingCandidates 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "schedule-policy",
+                    "smart-meeting",
+                    "candidates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"candidates\": [\n    {\n      \"createSmartMeetingAction\": {\n        \"mutation\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"policyId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"hash\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"series\": {\n        \"attendeesAndResources\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"calendarId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"canInviteOthers\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"canModify\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"canRsvp\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"canSeeOtherGuests\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"dateMode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"descriptionOmitted\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"eventDate\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"freeBusy\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isOptimistic\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"key\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"originalStart\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"platformData\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"reclaimData\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"rsvpStatus\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"selfOrganized\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"status\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"titleTruncated\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"versionData\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"visibility\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"recurringEventId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"color\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"title\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"onlineMeetingUrl\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"location\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"reminders\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"recurrence\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"parentRecurrence\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"conferenceData\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"allowedRecurrenceEditTypes\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"allowedEditTypes\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"nextUpcomingInstance\": {\n        \"nullable\": true,\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"createSmartMeetingAction\": {\n        \"mutation\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"policyId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"hash\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"series\": {\n        \"attendeesAndResources\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"calendarId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"canInviteOthers\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"canModify\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"canRsvp\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"canSeeOtherGuests\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"dateMode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"descriptionOmitted\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"eventDate\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"freeBusy\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"isOptimistic\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"key\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"originalStart\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"platformData\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"reclaimData\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"rsvpStatus\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"selfOrganized\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"status\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"titleTruncated\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"versionData\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"visibility\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"recurringEventId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"color\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"title\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"description\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"onlineMeetingUrl\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"location\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"reminders\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"recurrence\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"parentRecurrence\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"conferenceData\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"allowedRecurrenceEditTypes\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"allowedEditTypes\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"nextUpcomingInstance\": {\n        \"nullable\": true,\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a0ff9b60-b43f-4b99-8efe-dd90373f8dfa",
+          "name": "find Templates",
+          "request": {
+            "name": "find Templates",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "schedule-policy",
+                "templates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "a1ec508c-1477-42dd-b26e-291fe1b48a2f",
+              "name": "findTemplates 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "schedule-policy",
+                    "templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"templates\": [\n    {\n      \"category\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"description\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"icon\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"templateId\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"title\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"category\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"description\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"icon\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"templateId\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"title\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "645dddb0-ca30-40fe-8879-5fbd70456ddf",
+          "name": "instantiate Meeting Quality Policies",
+          "request": {
+            "name": "instantiate Meeting Quality Policies",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "schedule-policy",
+                "templates",
+                "instantiate-meeting-quality"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "templateIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "templateIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "3791189a-8966-41a0-a8a3-9faa46f2e35c",
+              "name": "instantiateMeetingQualityPolicies 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "schedule-policy",
+                    "templates",
+                    "instantiate-meeting-quality"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "templateIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "templateIds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"policies\": [\n    {\n      \"commonData\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"timePolicy\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"commonData\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"timePolicy\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c9a7dd4a-f3ac-44bb-b87d-91ae96146fd0",
+          "name": "instantiate Template",
+          "request": {
+            "name": "instantiate Template",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "schedule-policy",
+                "templates",
+                "instantiated",
+                ":templateId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "templateId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "67300c95-af7d-4ba0-bd1d-d477a860d5ad",
+              "name": "instantiateTemplate 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "schedule-policy",
+                    "templates",
+                    "instantiated",
+                    ":templateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "templateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"instantiated\": {\n    \"candidatePolicyCreationRequests\": [\n      {\n        \"mutation\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"policyId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"hash\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      {\n        \"mutation\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"policyId\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"hash\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    ],\n    \"fallbackPolicyCreationSequence\": [\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bbc5984b-a45d-4401-91f2-9cca376b620d",
+          "name": "find Policy",
+          "request": {
+            "name": "find Policy",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "schedule-policy",
+                ":policyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "policyId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "f1ac20a5-9958-4902-bea8-841b6aa5ddc7",
+              "name": "findPolicy 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "schedule-policy",
+                    ":policyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "policyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"policies\": [\n    {\n      \"commonData\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"timePolicy\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"commonData\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"timePolicy\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"type\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f803e0eb-210f-4043-ad65-2b8a2317bd15",
+          "name": "find Upcoming Policy Events",
+          "request": {
+            "name": "find Upcoming Policy Events",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "schedule-policy",
+                ":policyId",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "numUpcoming",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "lookaheadDays",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "scopeId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "policyId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "7171b6d0-4bcf-4c4d-bb92-7e5cbadec0dd",
+              "name": "findUpcomingPolicyEvents 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "schedule-policy",
+                    ":policyId",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "numUpcoming",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "lookaheadDays",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "scopeId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "policyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"series\": [\n    {\n      \"instances\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"root\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    },\n    {\n      \"instances\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      },\n      \"root\": {\n        \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n      }\n    }\n  ],\n  \"nextUpcomingEvent\": {\n    \"attendeesAndResources\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"calendarId\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"canInviteOthers\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"canModify\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"canRsvp\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"canSeeOtherGuests\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"dateMode\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"descriptionOmitted\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"eventDate\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"freeBusy\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"isOptimistic\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"key\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"originalStart\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"platformData\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"reclaimData\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"rsvpStatus\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"selfOrganized\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"status\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"titleTruncated\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"versionData\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"visibility\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"recurringEventId\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"color\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"title\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"description\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"onlineMeetingUrl\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"location\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"reminders\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"recurrence\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"parentRecurrence\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"conferenceData\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"allowedRecurrenceEditTypes\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    },\n    \"allowedEditTypes\": {\n      \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n    }\n  },\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ed627905-1566-48bd-9c75-b621d145010f",
+    "name": "Reclaim account-time-schemes schedule-policy API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

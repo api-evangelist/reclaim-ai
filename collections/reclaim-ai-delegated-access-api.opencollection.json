@@ -1,0 +1,90 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes delegated-access API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "delegated-access",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getAllConfigsForGrantor",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/delegated-access"
+          }
+        },
+        {
+          "info": {
+            "name": "create_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/delegated-access",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getAllowed",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/delegated-access/allowed"
+          }
+        },
+        {
+          "info": {
+            "name": "toggle",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/delegated-access/toggle/:delegatedAccessId",
+            "params": [
+              {
+                "name": "delegatedAccessId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "delete_3",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/delegated-access/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

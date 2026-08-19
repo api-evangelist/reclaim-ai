@@ -1,0 +1,3022 @@
+{
+  "item": [
+    {
+      "id": "a5f3bd0a-533d-493c-95b2-0fcc7b67b3a9",
+      "name": "events",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f97fd98c-feb6-464a-9302-2bec07010139",
+          "name": "query",
+          "request": {
+            "name": "query",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "calendar",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "calendarIds",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "calendarIds",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "allConnected",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "priorities",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "priorities",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "project",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "project",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sourceDetails",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "thin",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "habitIds",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "habitIds",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "recurringOneOnOneIds",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "recurringOneOnOneIds",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "taskIds",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "taskIds",
+                  "value": "<long>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "c0566b80-c794-4992-8f2c-04cbd96309fd",
+              "name": "query 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "calendar",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "calendarIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "calendarIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "allConnected",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "priorities",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "priorities",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "project",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "sourceDetails",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "thin",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "habitIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "habitIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "recurringOneOnOneIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "recurringOneOnOneIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "taskIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "taskIds",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"allocatedTimeChunks\": 9597,\n    \"assist\": {\n      \"type\": \"RECLAIM_FOCUS\",\n      \"customHabit\": true,\n      \"smartSeries\": true,\n      \"focus\": false,\n      \"habitOrTask\": true,\n      \"task\": false,\n      \"conferenceBuffer\": false,\n      \"travelBuffer\": true,\n      \"status\": \"ARCHIVED\",\n      \"travelNewEventId\": \"string\",\n      \"conferenceEventId\": \"string\",\n      \"lastControlledUpdate\": \"1949-08-27T15:11:46.700Z\",\n      \"lastControlledHash\": 1075,\n      \"defended\": true,\n      \"pinned\": false,\n      \"lockState\": \"DECLINED\",\n      \"dailyHabitId\": 3101,\n      \"seriesLineageId\": 4602,\n      \"seriesId\": 2728,\n      \"taskId\": 9184,\n      \"taskIndex\": 7523,\n      \"policyOverride\": {\n        \"durationMax\": 7826,\n        \"durationMin\": 1690,\n        \"forceDefend\": true,\n        \"idealTime\": \"string\",\n        \"windowEnd\": \"string\",\n        \"windowStart\": \"string\"\n      },\n      \"lastManualAdjustment\": \"1991-06-06T18:41:41.233Z\",\n      \"recurringAssignmentType\": \"TASK\",\n      \"eventType\": \"ONE_ON_ONE_ASSIGNMENT\",\n      \"manuallyStarted\": false,\n      \"focusId\": 973,\n      \"assistReferenceValid\": true\n    },\n    \"calendarId\": 224,\n    \"categoryOverride\": {\n      \"color\": \"FLAMINGO\"\n    },\n    \"description\": \"string\",\n    \"etag\": \"string\",\n    \"eventEnd\": \"2021-04-24T16:25:14.850Z\",\n    \"eventId\": \"string\",\n    \"eventStart\": \"1995-03-20T14:42:40.499Z\",\n    \"key\": {\n      \"calendarId\": 1453,\n      \"eventId\": \"string\"\n    },\n    \"location\": \"string\",\n    \"meetingType\": \"PLANNING_MEETING\",\n    \"organizer\": \"string\",\n    \"priority\": \"P1\",\n    \"recurrence\": \"string\",\n    \"recurrenceMax\": \"1959-03-03T22:40:14.720Z\",\n    \"recurringEventId\": \"string\",\n    \"requiresTravel\": false,\n    \"rsvpStatus\": \"Organizer\",\n    \"sourceDetails\": {\n      \"base64Id\": \"string\",\n      \"calendarId\": 4889,\n      \"description\": \"string\",\n      \"etag\": \"string\",\n      \"eventId\": \"string\",\n      \"eventKey\": {\n        \"calendarId\": 3070,\n        \"eventId\": \"string\"\n      },\n      \"title\": \"string\",\n      \"url\": \"string\",\n      \"writable\": true\n    },\n    \"status\": \"CANCELLED\",\n    \"subType\": \"HEALTH\",\n    \"timeChunks\": 3757,\n    \"title\": \"string\",\n    \"titleSeenByOthers\": \"string\",\n    \"type\": \"<string>\",\n    \"updated\": \"2007-05-20T20:26:14.483Z\",\n    \"googleMetadata\": {\n      \"guestsCanInviteOthers\": true,\n      \"guestsCanModify\": true,\n      \"guestsCanSeeOtherGuests\": true\n    },\n    \"schedulingLinkId\": \"string\",\n    \"schedulingLinkMeetingId\": \"string\",\n    \"underAssistControl\": false,\n    \"reclaimEventType\": \"HABIT_ASSIGNMENT\",\n    \"personalSync\": false,\n    \"reclaimManaged\": true,\n    \"reclaimManagedAndSelfOrganized\": false,\n    \"prioritySource\": \"AI\",\n    \"onlineMeetingUrlRaw\": \"string\",\n    \"onlineMeetingUrl\": \"string\",\n    \"descriptionOmitted\": false,\n    \"titleTruncated\": true,\n    \"mergeDetails\": {\n      \"key\": \"string\",\n      \"sourceCalendarId\": \"string\",\n      \"sourceReclaimCalendarId\": 9681,\n      \"type\": \"ORGANIZER_EVENT\"\n    },\n    \"published\": false,\n    \"recurringException\": false,\n    \"recurring\": false,\n    \"recurringInstance\": true,\n    \"private\": true,\n    \"public\": true,\n    \"color\": \"TOMATO\",\n    \"numAttendees\": 2053,\n    \"attendees\": [\n      {\n        \"email\": \"string\",\n        \"self\": true,\n        \"displayName\": \"string\",\n        \"responseStatus\": \"NEEDS_ACTION\",\n        \"comment\": \"string\",\n        \"optional\": true,\n        \"additionalGuests\": 5435,\n        \"organizer\": false,\n        \"resource\": true\n      },\n      {\n        \"email\": \"string\",\n        \"self\": true,\n        \"displayName\": \"string\",\n        \"responseStatus\": \"ACCEPTED\",\n        \"comment\": \"string\",\n        \"optional\": true,\n        \"additionalGuests\": 1394,\n        \"organizer\": false,\n        \"resource\": true\n      }\n    ],\n    \"free\": false,\n    \"category\": {\n      \"color\": \"GRAPHITE\"\n    },\n    \"conferenceCall\": false,\n    \"smartSeriesId\": 4353,\n    \"sourceEventType\": \"FROM_MAIL\",\n    \"version\": \"string\",\n    \"manuallyStarted\": true,\n    \"inheritedExternalId\": \"string\"\n  },\n  {\n    \"allocatedTimeChunks\": 7981,\n    \"assist\": {\n      \"type\": \"TRAVEL_POST\",\n      \"customHabit\": true,\n      \"smartSeries\": true,\n      \"focus\": false,\n      \"habitOrTask\": true,\n      \"task\": true,\n      \"conferenceBuffer\": false,\n      \"travelBuffer\": true,\n      \"status\": \"CONTROLLED\",\n      \"travelNewEventId\": \"string\",\n      \"conferenceEventId\": \"string\",\n      \"lastControlledUpdate\": \"1986-09-02T05:05:51.404Z\",\n      \"lastControlledHash\": 2917,\n      \"defended\": false,\n      \"pinned\": false,\n      \"lockState\": \"MANUALLY_UNLOCKED\",\n      \"dailyHabitId\": 5808,\n      \"seriesLineageId\": 8846,\n      \"seriesId\": 9089,\n      \"taskId\": 9856,\n      \"taskIndex\": 8817,\n      \"policyOverride\": {\n        \"durationMax\": 9426,\n        \"durationMin\": 5704,\n        \"forceDefend\": false,\n        \"idealTime\": \"string\",\n        \"windowEnd\": \"string\",\n        \"windowStart\": \"string\"\n      },\n      \"lastManualAdjustment\": \"1965-02-13T16:27:31.244Z\",\n      \"recurringAssignmentType\": \"DAILY_HABIT\",\n      \"eventType\": \"TASK_ASSIGNMENT\",\n      \"manuallyStarted\": true,\n      \"focusId\": 7747,\n      \"assistReferenceValid\": false\n    },\n    \"calendarId\": 6085,\n    \"categoryOverride\": {\n      \"color\": \"SAGE\"\n    },\n    \"description\": \"string\",\n    \"etag\": \"string\",\n    \"eventEnd\": \"1958-12-14T05:31:09.950Z\",\n    \"eventId\": \"string\",\n    \"eventStart\": \"1970-03-22T07:24:28.234Z\",\n    \"key\": {\n      \"calendarId\": 7265,\n      \"eventId\": \"string\"\n    },\n    \"location\": \"string\",\n    \"meetingType\": \"ALL_HANDS\",\n    \"organizer\": \"string\",\n    \"priority\": \"DEFAULT\",\n    \"recurrence\": \"string\",\n    \"recurrenceMax\": \"1988-09-09T07:15:41.324Z\",\n    \"recurringEventId\": \"string\",\n    \"requiresTravel\": true,\n    \"rsvpStatus\": \"None\",\n    \"sourceDetails\": {\n      \"base64Id\": \"string\",\n      \"calendarId\": 8275,\n      \"description\": \"string\",\n      \"etag\": \"string\",\n      \"eventId\": \"string\",\n      \"eventKey\": {\n        \"calendarId\": 8938,\n        \"eventId\": \"string\"\n      },\n      \"title\": \"string\",\n      \"url\": \"string\",\n      \"writable\": true\n    },\n    \"status\": \"CANCELLED\",\n    \"subType\": \"TRAIN\",\n    \"timeChunks\": 7831,\n    \"title\": \"string\",\n    \"titleSeenByOthers\": \"string\",\n    \"type\": \"<string>\",\n    \"updated\": \"2002-12-24T04:08:46.339Z\",\n    \"googleMetadata\": {\n      \"guestsCanInviteOthers\": false,\n      \"guestsCanModify\": false,\n      \"guestsCanSeeOtherGuests\": false\n    },\n    \"schedulingLinkId\": \"string\",\n    \"schedulingLinkMeetingId\": \"string\",\n    \"underAssistControl\": false,\n    \"reclaimEventType\": \"USER\",\n    \"personalSync\": true,\n    \"reclaimManaged\": false,\n    \"reclaimManagedAndSelfOrganized\": true,\n    \"prioritySource\": \"RULES\",\n    \"onlineMeetingUrlRaw\": \"string\",\n    \"onlineMeetingUrl\": \"string\",\n    \"descriptionOmitted\": true,\n    \"titleTruncated\": false,\n    \"mergeDetails\": {\n      \"key\": \"string\",\n      \"sourceCalendarId\": \"string\",\n      \"sourceReclaimCalendarId\": 1537,\n      \"type\": \"ORGANIZER_EVENT\"\n    },\n    \"published\": true,\n    \"recurringException\": true,\n    \"recurring\": false,\n    \"recurringInstance\": false,\n    \"private\": true,\n    \"public\": false,\n    \"color\": \"BANANA\",\n    \"numAttendees\": 7336,\n    \"attendees\": [\n      {\n        \"email\": \"string\",\n        \"self\": true,\n        \"displayName\": \"string\",\n        \"responseStatus\": \"ACCEPTED\",\n        \"comment\": \"string\",\n        \"optional\": true,\n        \"additionalGuests\": 7362,\n        \"organizer\": true,\n        \"resource\": false\n      },\n      {\n        \"email\": \"string\",\n        \"self\": true,\n        \"displayName\": \"string\",\n        \"responseStatus\": \"DECLINED\",\n        \"comment\": \"string\",\n        \"optional\": false,\n        \"additionalGuests\": 6738,\n        \"organizer\": false,\n        \"resource\": true\n      }\n    ],\n    \"free\": true,\n    \"category\": {\n      \"color\": \"FLAMINGO\"\n    },\n    \"conferenceCall\": false,\n    \"smartSeriesId\": 237,\n    \"sourceEventType\": \"WORKING_LOCATION\",\n    \"version\": \"string\",\n    \"manuallyStarted\": true,\n    \"inheritedExternalId\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "18716e7e-2490-4f72-9047-8a744cd2921b",
+          "name": "fetch Instances Event Raw",
+          "request": {
+            "name": "fetch Instances Event Raw",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "events",
+                "fetch-instances",
+                "raw-event",
+                ":credentialId",
+                ":calendarId",
+                ":eventId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "eventField",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "eventField",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "credentialId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "calendarId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "c507cc68-b590-4208-bbfe-91ff6f9e287f",
+              "name": "fetchInstancesEventRaw 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "events",
+                    "fetch-instances",
+                    "raw-event",
+                    ":credentialId",
+                    ":calendarId",
+                    ":eventId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "eventField",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "eventField",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "credentialId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "calendarId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e64aab29-76e9-4302-9740-b9756c673825",
+          "name": "fetch Instances Google Raw",
+          "request": {
+            "name": "fetch Instances Google Raw",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "events",
+                "fetch-instances",
+                "raw-google",
+                ":credentialId",
+                ":calendarId",
+                ":eventId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "eventField",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "eventField",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "credentialId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "calendarId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "d37f2499-4773-4cb5-924d-9b440dc8d111",
+              "name": "fetchInstancesGoogleRaw 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "events",
+                    "fetch-instances",
+                    "raw-google",
+                    ":credentialId",
+                    ":calendarId",
+                    ":eventId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "eventField",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "eventField",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "credentialId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "calendarId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e3e0e1cc-1669-49e3-a25a-87ca1c27d414",
+          "name": "get Personal 1",
+          "request": {
+            "name": "get Personal 1",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "events",
+                "personal"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "ecf1a41f-acdd-42a4-b265-e0db9c5396f0",
+              "name": "getPersonal_1 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "events",
+                    "personal"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"allocatedTimeChunks\": 5264,\n    \"assist\": {\n      \"type\": \"TRAVEL_POST\",\n      \"customHabit\": true,\n      \"smartSeries\": true,\n      \"focus\": false,\n      \"habitOrTask\": false,\n      \"task\": true,\n      \"conferenceBuffer\": true,\n      \"travelBuffer\": true,\n      \"status\": \"ARCHIVED\",\n      \"travelNewEventId\": \"string\",\n      \"conferenceEventId\": \"string\",\n      \"lastControlledUpdate\": \"1956-06-11T11:31:14.757Z\",\n      \"lastControlledHash\": 1904,\n      \"defended\": false,\n      \"pinned\": false,\n      \"lockState\": \"DELETED\",\n      \"dailyHabitId\": 1318,\n      \"seriesLineageId\": 5444,\n      \"seriesId\": 5646,\n      \"taskId\": 6883,\n      \"taskIndex\": 3399,\n      \"policyOverride\": {\n        \"durationMax\": 1209,\n        \"durationMin\": 8139,\n        \"forceDefend\": false,\n        \"idealTime\": \"string\",\n        \"windowEnd\": \"string\",\n        \"windowStart\": \"string\"\n      },\n      \"lastManualAdjustment\": \"2002-03-18T01:15:41.452Z\",\n      \"recurringAssignmentType\": \"ONE_ON_ONE\",\n      \"eventType\": \"USER\",\n      \"manuallyStarted\": false,\n      \"focusId\": 4815,\n      \"assistReferenceValid\": true\n    },\n    \"calendarId\": 9626,\n    \"categoryOverride\": {\n      \"color\": \"TANGERINE\"\n    },\n    \"description\": \"string\",\n    \"etag\": \"string\",\n    \"eventEnd\": \"1960-12-25T02:04:25.898Z\",\n    \"eventId\": \"string\",\n    \"eventStart\": \"1990-04-02T05:03:33.906Z\",\n    \"key\": {\n      \"calendarId\": 3165,\n      \"eventId\": \"string\"\n    },\n    \"location\": \"string\",\n    \"meetingType\": \"EMERGENCY\",\n    \"organizer\": \"string\",\n    \"priority\": \"P2\",\n    \"recurrence\": \"string\",\n    \"recurrenceMax\": \"1963-10-09T12:07:41.291Z\",\n    \"recurringEventId\": \"string\",\n    \"requiresTravel\": false,\n    \"rsvpStatus\": \"Organizer\",\n    \"sourceDetails\": {\n      \"base64Id\": \"string\",\n      \"calendarId\": 2676,\n      \"description\": \"string\",\n      \"etag\": \"string\",\n      \"eventId\": \"string\",\n      \"eventKey\": {\n        \"calendarId\": 7548,\n        \"eventId\": \"string\"\n      },\n      \"title\": \"string\",\n      \"url\": \"string\",\n      \"writable\": true\n    },\n    \"status\": \"CANCELLED\",\n    \"subType\": \"OTHER_PERSONAL\",\n    \"timeChunks\": 6612,\n    \"title\": \"string\",\n    \"titleSeenByOthers\": \"string\",\n    \"type\": \"<string>\",\n    \"updated\": \"1962-06-01T08:07:02.604Z\",\n    \"googleMetadata\": {\n      \"guestsCanInviteOthers\": false,\n      \"guestsCanModify\": false,\n      \"guestsCanSeeOtherGuests\": false\n    },\n    \"schedulingLinkId\": \"string\",\n    \"schedulingLinkMeetingId\": \"string\",\n    \"underAssistControl\": false,\n    \"reclaimEventType\": \"UNKNOWN\",\n    \"personalSync\": true,\n    \"reclaimManaged\": false,\n    \"reclaimManagedAndSelfOrganized\": true,\n    \"prioritySource\": \"RULES\",\n    \"onlineMeetingUrlRaw\": \"string\",\n    \"onlineMeetingUrl\": \"string\",\n    \"descriptionOmitted\": true,\n    \"titleTruncated\": true,\n    \"mergeDetails\": {\n      \"key\": \"string\",\n      \"sourceCalendarId\": \"string\",\n      \"sourceReclaimCalendarId\": 6832,\n      \"type\": \"ATTENDEE_EVENT\"\n    },\n    \"published\": true,\n    \"recurringException\": true,\n    \"recurring\": false,\n    \"recurringInstance\": false,\n    \"private\": true,\n    \"public\": true,\n    \"color\": \"TANGERINE\",\n    \"numAttendees\": 9915,\n    \"attendees\": [\n      {\n        \"email\": \"string\",\n        \"self\": false,\n        \"displayName\": \"string\",\n        \"responseStatus\": \"DECLINED\",\n        \"comment\": \"string\",\n        \"optional\": true,\n        \"additionalGuests\": 3089,\n        \"organizer\": true,\n        \"resource\": true\n      },\n      {\n        \"email\": \"string\",\n        \"self\": true,\n        \"displayName\": \"string\",\n        \"responseStatus\": \"NEEDS_ACTION\",\n        \"comment\": \"string\",\n        \"optional\": true,\n        \"additionalGuests\": 8371,\n        \"organizer\": false,\n        \"resource\": false\n      }\n    ],\n    \"free\": true,\n    \"category\": {\n      \"color\": \"SAGE\"\n    },\n    \"conferenceCall\": true,\n    \"smartSeriesId\": 5341,\n    \"sourceEventType\": \"BIRTHDAY\",\n    \"version\": \"string\",\n    \"manuallyStarted\": true,\n    \"inheritedExternalId\": \"string\"\n  },\n  {\n    \"allocatedTimeChunks\": 3279,\n    \"assist\": {\n      \"type\": \"SMART_HABIT\",\n      \"customHabit\": false,\n      \"smartSeries\": false,\n      \"focus\": true,\n      \"habitOrTask\": true,\n      \"task\": true,\n      \"conferenceBuffer\": true,\n      \"travelBuffer\": false,\n      \"status\": \"CONTROLLED\",\n      \"travelNewEventId\": \"string\",\n      \"conferenceEventId\": \"string\",\n      \"lastControlledUpdate\": \"1978-02-05T14:24:55.120Z\",\n      \"lastControlledHash\": 1788,\n      \"defended\": true,\n      \"pinned\": true,\n      \"lockState\": \"MANUALLY_UNLOCKED\",\n      \"dailyHabitId\": 5062,\n      \"seriesLineageId\": 7017,\n      \"seriesId\": 1558,\n      \"taskId\": 4038,\n      \"taskIndex\": 2555,\n      \"policyOverride\": {\n        \"durationMax\": 5774,\n        \"durationMin\": 5839,\n        \"forceDefend\": false,\n        \"idealTime\": \"string\",\n        \"windowEnd\": \"string\",\n        \"windowStart\": \"string\"\n      },\n      \"lastManualAdjustment\": \"1985-05-29T11:18:59.758Z\",\n      \"recurringAssignmentType\": \"TASK\",\n      \"eventType\": \"USER\",\n      \"manuallyStarted\": false,\n      \"focusId\": 8299,\n      \"assistReferenceValid\": false\n    },\n    \"calendarId\": 2604,\n    \"categoryOverride\": {\n      \"color\": \"BANANA\"\n    },\n    \"description\": \"string\",\n    \"etag\": \"string\",\n    \"eventEnd\": \"1999-09-14T20:22:04.972Z\",\n    \"eventId\": \"string\",\n    \"eventStart\": \"1973-12-25T10:41:25.106Z\",\n    \"key\": {\n      \"calendarId\": 9556,\n      \"eventId\": \"string\"\n    },\n    \"location\": \"string\",\n    \"meetingType\": \"REQ_BRAIN\",\n    \"organizer\": \"string\",\n    \"priority\": \"PRIORITIZE\",\n    \"recurrence\": \"string\",\n    \"recurrenceMax\": \"1981-11-14T12:41:04.389Z\",\n    \"recurringEventId\": \"string\",\n    \"requiresTravel\": false,\n    \"rsvpStatus\": \"Declined\",\n    \"sourceDetails\": {\n      \"base64Id\": \"string\",\n      \"calendarId\": 6109,\n      \"description\": \"string\",\n      \"etag\": \"string\",\n      \"eventId\": \"string\",\n      \"eventKey\": {\n        \"calendarId\": 3874,\n        \"eventId\": \"string\"\n      },\n      \"title\": \"string\",\n      \"url\": \"string\",\n      \"writable\": true\n    },\n    \"status\": \"CANCELLED\",\n    \"subType\": \"UNKNOWN\",\n    \"timeChunks\": 2010,\n    \"title\": \"string\",\n    \"titleSeenByOthers\": \"string\",\n    \"type\": \"<string>\",\n    \"updated\": \"2021-12-12T01:58:18.087Z\",\n    \"googleMetadata\": {\n      \"guestsCanInviteOthers\": false,\n      \"guestsCanModify\": false,\n      \"guestsCanSeeOtherGuests\": false\n    },\n    \"schedulingLinkId\": \"string\",\n    \"schedulingLinkMeetingId\": \"string\",\n    \"underAssistControl\": false,\n    \"reclaimEventType\": \"SYNC\",\n    \"personalSync\": true,\n    \"reclaimManaged\": false,\n    \"reclaimManagedAndSelfOrganized\": true,\n    \"prioritySource\": \"MANUAL\",\n    \"onlineMeetingUrlRaw\": \"string\",\n    \"onlineMeetingUrl\": \"string\",\n    \"descriptionOmitted\": false,\n    \"titleTruncated\": false,\n    \"mergeDetails\": {\n      \"key\": \"string\",\n      \"sourceCalendarId\": \"string\",\n      \"sourceReclaimCalendarId\": 2748,\n      \"type\": \"SYNC_EVENT\"\n    },\n    \"published\": true,\n    \"recurringException\": false,\n    \"recurring\": true,\n    \"recurringInstance\": true,\n    \"private\": true,\n    \"public\": true,\n    \"color\": \"LAVENDER\",\n    \"numAttendees\": 6975,\n    \"attendees\": [\n      {\n        \"email\": \"string\",\n        \"self\": true,\n        \"displayName\": \"string\",\n        \"responseStatus\": \"DECLINED\",\n        \"comment\": \"string\",\n        \"optional\": false,\n        \"additionalGuests\": 4123,\n        \"organizer\": true,\n        \"resource\": false\n      },\n      {\n        \"email\": \"string\",\n        \"self\": true,\n        \"displayName\": \"string\",\n        \"responseStatus\": \"TENTATIVE\",\n        \"comment\": \"string\",\n        \"optional\": true,\n        \"additionalGuests\": 6829,\n        \"organizer\": true,\n        \"resource\": false\n      }\n    ],\n    \"free\": true,\n    \"category\": {\n      \"color\": \"BANANA\"\n    },\n    \"conferenceCall\": false,\n    \"smartSeriesId\": 9478,\n    \"sourceEventType\": \"DEFAULT\",\n    \"version\": \"string\",\n    \"manuallyStarted\": true,\n    \"inheritedExternalId\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "623bac00-1a9c-4e62-9d6d-2a9a227fad4d",
+          "name": "fetch Event Raw",
+          "request": {
+            "name": "fetch Event Raw",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "events",
+                "raw-event",
+                ":credentialId",
+                ":calendarId",
+                ":eventId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "eventField",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "eventField",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "credentialId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "calendarId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "e2cb6713-0e50-40dc-8634-1804ffa106ae",
+              "name": "fetchEventRaw 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "events",
+                    "raw-event",
+                    ":credentialId",
+                    ":calendarId",
+                    ":eventId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "eventField",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "eventField",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "credentialId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "calendarId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6981f589-a1fc-4f51-b836-c8d1033ec60e",
+          "name": "patch Event Raw",
+          "request": {
+            "name": "patch Event Raw",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "events",
+                "raw-event",
+                ":credentialId",
+                ":calendarId",
+                ":eventId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "credentialId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "calendarId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "file",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f8b2f073-2070-4709-bccb-1b318c029d93",
+              "name": "patchEventRaw 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "events",
+                    "raw-event",
+                    ":credentialId",
+                    ":calendarId",
+                    ":eventId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "credentialId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "calendarId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "file",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"allocatedTimeChunks\": 9314,\n  \"assist\": {\n    \"type\": \"LUNCH\",\n    \"customHabit\": true,\n    \"smartSeries\": true,\n    \"focus\": false,\n    \"habitOrTask\": false,\n    \"task\": false,\n    \"conferenceBuffer\": true,\n    \"travelBuffer\": true,\n    \"status\": \"RELEASED\",\n    \"travelNewEventId\": \"string\",\n    \"conferenceEventId\": \"string\",\n    \"lastControlledUpdate\": \"1957-06-21T22:36:36.395Z\",\n    \"lastControlledHash\": 2293,\n    \"defended\": true,\n    \"pinned\": false,\n    \"lockState\": \"IN_THE_PAST\",\n    \"dailyHabitId\": 2109,\n    \"seriesLineageId\": 7793,\n    \"seriesId\": 5835,\n    \"taskId\": 3941,\n    \"taskIndex\": 8662,\n    \"policyOverride\": {\n      \"durationMax\": 1424,\n      \"durationMin\": 5816,\n      \"forceDefend\": true,\n      \"idealTime\": \"string\",\n      \"windowEnd\": \"string\",\n      \"windowStart\": \"string\"\n    },\n    \"lastManualAdjustment\": \"1966-06-25T21:50:16.526Z\",\n    \"recurringAssignmentType\": \"ONE_ON_ONE\",\n    \"eventType\": \"USER\",\n    \"manuallyStarted\": true,\n    \"focusId\": 4505,\n    \"assistReferenceValid\": false\n  },\n  \"calendarId\": 5624,\n  \"categoryOverride\": {\n    \"color\": \"SAGE\"\n  },\n  \"description\": \"string\",\n  \"etag\": \"string\",\n  \"eventEnd\": \"1979-07-24T18:16:02.639Z\",\n  \"eventId\": \"string\",\n  \"eventStart\": \"1994-06-30T12:48:17.921Z\",\n  \"key\": {\n    \"calendarId\": 1803,\n    \"eventId\": \"string\"\n  },\n  \"location\": \"string\",\n  \"meetingType\": \"PLANNING_MEETING\",\n  \"organizer\": \"string\",\n  \"priority\": \"PRIORITIZE\",\n  \"rawData\": \"\",\n  \"recurrence\": \"string\",\n  \"recurrenceMax\": \"1977-08-03T18:26:30.396Z\",\n  \"recurringEventId\": \"string\",\n  \"requiresTravel\": true,\n  \"rsvpStatus\": \"NotResponded\",\n  \"sourceDetails\": {\n    \"base64Id\": \"string\",\n    \"calendarId\": 4094,\n    \"description\": \"string\",\n    \"etag\": \"string\",\n    \"eventId\": \"string\",\n    \"eventKey\": {\n      \"calendarId\": 2760,\n      \"eventId\": \"string\"\n    },\n    \"title\": \"string\",\n    \"url\": \"string\",\n    \"writable\": false\n  },\n  \"status\": \"CANCELLED\",\n  \"subType\": \"ERRAND\",\n  \"timeChunks\": 157,\n  \"title\": \"string\",\n  \"titleSeenByOthers\": \"string\",\n  \"type\": \"<string>\",\n  \"updated\": \"1986-12-24T00:50:00.944Z\",\n  \"googleMetadata\": {\n    \"guestsCanInviteOthers\": false,\n    \"guestsCanModify\": true,\n    \"guestsCanSeeOtherGuests\": true\n  },\n  \"schedulingLinkId\": \"string\",\n  \"schedulingLinkMeetingId\": \"string\",\n  \"underAssistControl\": false,\n  \"reclaimEventType\": \"ONE_ON_ONE_ASSIGNMENT\",\n  \"personalSync\": false,\n  \"reclaimManaged\": false,\n  \"reclaimManagedAndSelfOrganized\": true,\n  \"prioritySource\": \"RULES\",\n  \"onlineMeetingUrlRaw\": \"string\",\n  \"onlineMeetingUrl\": \"string\",\n  \"descriptionOmitted\": true,\n  \"titleTruncated\": true,\n  \"mergeDetails\": {\n    \"key\": \"string\",\n    \"sourceCalendarId\": \"string\",\n    \"sourceReclaimCalendarId\": 9139,\n    \"type\": \"SYNC_EVENT\"\n  },\n  \"published\": true,\n  \"recurringException\": false,\n  \"recurring\": false,\n  \"recurringInstance\": false,\n  \"private\": true,\n  \"public\": false,\n  \"color\": \"GRAPHITE\",\n  \"numAttendees\": 680,\n  \"attendees\": [\n    {\n      \"email\": \"string\",\n      \"self\": false,\n      \"displayName\": \"string\",\n      \"responseStatus\": \"DECLINED\",\n      \"comment\": \"string\",\n      \"optional\": false,\n      \"additionalGuests\": 2490,\n      \"organizer\": true,\n      \"resource\": true\n    },\n    {\n      \"email\": \"string\",\n      \"self\": true,\n      \"displayName\": \"string\",\n      \"responseStatus\": \"DECLINED\",\n      \"comment\": \"string\",\n      \"optional\": true,\n      \"additionalGuests\": 8926,\n      \"organizer\": true,\n      \"resource\": true\n    }\n  ],\n  \"free\": true,\n  \"category\": {\n    \"color\": \"LAVENDER\"\n  },\n  \"conferenceCall\": false,\n  \"smartSeriesId\": 4020,\n  \"sourceEventType\": \"FOCUS_TIME\",\n  \"version\": \"string\",\n  \"manuallyStarted\": false,\n  \"inheritedExternalId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1289e1fb-e149-45a3-92cb-0745e6ef173a",
+          "name": "query Events Raw",
+          "request": {
+            "name": "query Events Raw",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "events",
+                "raw-events",
+                ":credentialId",
+                ":calendarId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "singleEvents",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "eventField",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "eventField",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "privateExtendedProperty",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "privateExtendedProperty",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sharedExtendedProperty",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sharedExtendedProperty",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "credentialId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "calendarId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "db80e2e7-7e5b-417a-82da-e98343d64672",
+              "name": "queryEventsRaw 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "events",
+                    "raw-events",
+                    ":credentialId",
+                    ":calendarId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "singleEvents",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "eventField",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "eventField",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "privateExtendedProperty",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "privateExtendedProperty",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sharedExtendedProperty",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sharedExtendedProperty",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "credentialId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "calendarId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b9b8b4d-90da-4cec-91d7-1300488d0ab1",
+          "name": "query Google Raw",
+          "request": {
+            "name": "query Google Raw",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "events",
+                "raw-google",
+                ":credentialId",
+                ":calendarId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "singleEvents",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "eventField",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "eventField",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "privateExtendedProperty",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "privateExtendedProperty",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sharedExtendedProperty",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sharedExtendedProperty",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "credentialId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "calendarId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "ab7b884b-4a5d-4638-b1da-8c417e51bc9f",
+              "name": "queryGoogleRaw 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "events",
+                    "raw-google",
+                    ":credentialId",
+                    ":calendarId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "singleEvents",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "eventField",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "eventField",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "privateExtendedProperty",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "privateExtendedProperty",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sharedExtendedProperty",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sharedExtendedProperty",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "credentialId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "calendarId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "57842ab2-23ff-46ab-92ae-0f6af7d881ef",
+          "name": "fetch Google Raw",
+          "request": {
+            "name": "fetch Google Raw",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "events",
+                "raw-google",
+                ":credentialId",
+                ":calendarId",
+                ":eventId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "eventField",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "eventField",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "credentialId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "calendarId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "d50d0bff-4588-45a9-bff9-e3602401a38f",
+              "name": "fetchGoogleRaw 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "events",
+                    "raw-google",
+                    ":credentialId",
+                    ":calendarId",
+                    ":eventId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "eventField",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "eventField",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "credentialId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "calendarId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7522eb8e-e459-4bad-b9c2-060195c65748",
+          "name": "query Recurring Series",
+          "request": {
+            "name": "query Recurring Series",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "events",
+                "recurring-series"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "titleQuery",
+                  "value": "<string>",
+                  "description": "Case-insensitive substring match against the event title"
+                },
+                {
+                  "disabled": false,
+                  "key": "minAttendees",
+                  "value": "<integer>",
+                  "description": "Minimum number of attendees (inclusive)"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxAttendees",
+                  "value": "<integer>",
+                  "description": "Maximum number of attendees (inclusive)"
+                },
+                {
+                  "disabled": false,
+                  "key": "organizer",
+                  "value": "<string>",
+                  "description": "Organizer email to match, 'SELF' for events organized by the querying user, or 'NOT_SELF' to exclude them"
+                },
+                {
+                  "disabled": false,
+                  "key": "nextEventAfter",
+                  "value": "<dateTime>",
+                  "description": "Only include series whose next instance starts at or after this instant (inclusive)"
+                },
+                {
+                  "disabled": false,
+                  "key": "nextEventBefore",
+                  "value": "<dateTime>",
+                  "description": "Only include series whose next instance starts before this instant (exclusive)"
+                },
+                {
+                  "disabled": false,
+                  "key": "managementTypes",
+                  "value": "<string>",
+                  "description": "Include only series matching these management types"
+                },
+                {
+                  "disabled": false,
+                  "key": "managementTypes",
+                  "value": "<string>",
+                  "description": "Include only series matching these management types"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "5fe9cc80-f16a-4e58-b1de-6f80e4ee86f0",
+              "name": "queryRecurringSeries 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "events",
+                    "recurring-series"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "titleQuery",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "minAttendees",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "maxAttendees",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "organizer",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nextEventAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "nextEventBefore",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "managementTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "managementTypes",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"count\": 9720,\n  \"first\": \"string\",\n  \"hasNextPage\": true,\n  \"items\": [\n    {\n      \"event\": {\n        \"attendeesAndResources\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"calendarId\": 7779,\n        \"canInviteOthers\": true,\n        \"canModify\": false,\n        \"canRsvp\": true,\n        \"canSeeOtherGuests\": true,\n        \"dateMode\": \"FIXED_TIMESTAMP\",\n        \"descriptionOmitted\": true,\n        \"eventDate\": {\n          \"end\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"start\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"freeBusy\": \"BUSY\",\n        \"isOptimistic\": false,\n        \"key\": {\n          \"calendarId\": 9189,\n          \"eventId\": \"string\"\n        },\n        \"originalStart\": \"1975-01-10T01:57:34.845Z\",\n        \"platformData\": {\n          \"guestPermissions\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"focusTimeProperties\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"reclaimData\": {\n          \"associations\": {\n            \"canLock\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"canUnlock\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"locked\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"policyAssociations\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"readOnlyReason\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"reclaimEventType\": \"TRAVEL_BUFFER\",\n          \"reclaimResourceId\": {\n            \"nullable\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"eventCategory\": {\n            \"nullable\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"priority\": {\n            \"nullable\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"reclaimSchedulerData\": {\n            \"nullable\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"mergeableEvent\": {\n            \"nullable\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"calendarSyncSourceData\": {\n            \"nullable\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"assistantData\": {\n            \"nullable\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"rsvpStatus\": \"NEEDS_ACTION\",\n        \"selfOrganized\": true,\n        \"status\": \"TENTATIVE\",\n        \"titleTruncated\": true,\n        \"versionData\": {\n          \"syncStatus\": {\n            \"nullable\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"ceVersion\": 2246\n        },\n        \"visibility\": \"PRIVATE\",\n        \"recurringEventId\": \"string\",\n        \"color\": \"TOMATO\",\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"onlineMeetingUrl\": \"string\",\n        \"location\": \"string\",\n        \"reminders\": {\n          \"overrides\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"useDefault\": true\n        },\n        \"recurrence\": {\n          \"frequency\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interval\": 248,\n          \"days\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"monthlyDay\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"yearlyDay\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"until\": \"2001-06-02T07:02:41.058Z\",\n          \"count\": 4396,\n          \"valid\": true\n        },\n        \"parentRecurrence\": {\n          \"frequency\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interval\": 3310,\n          \"days\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"monthlyDay\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"yearlyDay\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"until\": \"1985-08-05T08:29:54.368Z\",\n          \"count\": 4876,\n          \"valid\": false\n        },\n        \"conferenceData\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"allowedRecurrenceEditTypes\": [\n          \"THIS_AND_FOLLOWING\",\n          \"THIS_AND_FOLLOWING\"\n        ],\n        \"allowedEditTypes\": {\n          \"reason\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"types\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      },\n      \"recurrence\": {\n        \"managementType\": \"<string>\",\n        \"lastInstance\": {\n          \"end\": \"1994-09-26T23:23:45.250Z\",\n          \"isEstimate\": true,\n          \"start\": \"1946-10-17T02:37:00.709Z\",\n          \"eventKey\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"nextInstance\": {\n          \"end\": \"2011-09-19T23:57:12.396Z\",\n          \"isEstimate\": true,\n          \"start\": \"1982-12-11T18:12:58.837Z\",\n          \"eventKey\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    },\n    {\n      \"event\": {\n        \"attendeesAndResources\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ],\n        \"calendarId\": 4511,\n        \"canInviteOthers\": true,\n        \"canModify\": false,\n        \"canRsvp\": false,\n        \"canSeeOtherGuests\": false,\n        \"dateMode\": \"FIXED_TIMESTAMP\",\n        \"descriptionOmitted\": false,\n        \"eventDate\": {\n          \"end\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"start\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"freeBusy\": \"BUSY\",\n        \"isOptimistic\": true,\n        \"key\": {\n          \"calendarId\": 5566,\n          \"eventId\": \"string\"\n        },\n        \"originalStart\": \"1975-01-21T12:01:13.089Z\",\n        \"platformData\": {\n          \"guestPermissions\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"focusTimeProperties\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"reclaimData\": {\n          \"associations\": {\n            \"canLock\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"canUnlock\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"locked\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"policyAssociations\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"readOnlyReason\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"reclaimEventType\": \"SMART_HABIT\",\n          \"reclaimResourceId\": {\n            \"nullable\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"eventCategory\": {\n            \"nullable\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"priority\": {\n            \"nullable\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"reclaimSchedulerData\": {\n            \"nullable\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"mergeableEvent\": {\n            \"nullable\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"calendarSyncSourceData\": {\n            \"nullable\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"assistantData\": {\n            \"nullable\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"rsvpStatus\": \"TENTATIVE\",\n        \"selfOrganized\": true,\n        \"status\": \"CANCELLED\",\n        \"titleTruncated\": false,\n        \"versionData\": {\n          \"syncStatus\": {\n            \"nullable\": true,\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"ceVersion\": 4756\n        },\n        \"visibility\": \"PUBLIC\",\n        \"recurringEventId\": \"string\",\n        \"color\": \"LAVENDER\",\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"onlineMeetingUrl\": \"string\",\n        \"location\": \"string\",\n        \"reminders\": {\n          \"overrides\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"useDefault\": true\n        },\n        \"recurrence\": {\n          \"frequency\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interval\": 7901,\n          \"days\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"monthlyDay\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"yearlyDay\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"until\": \"2009-02-07T13:20:06.497Z\",\n          \"count\": 2700,\n          \"valid\": true\n        },\n        \"parentRecurrence\": {\n          \"frequency\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"interval\": 5007,\n          \"days\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"monthlyDay\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"yearlyDay\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"until\": \"1948-02-13T09:30:08.588Z\",\n          \"count\": 9059,\n          \"valid\": true\n        },\n        \"conferenceData\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"allowedRecurrenceEditTypes\": [\n          \"ALL\",\n          \"ALL\"\n        ],\n        \"allowedEditTypes\": {\n          \"reason\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"types\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      },\n      \"recurrence\": {\n        \"managementType\": \"<string>\",\n        \"lastInstance\": {\n          \"end\": \"2024-11-19T13:09:53.295Z\",\n          \"isEstimate\": false,\n          \"start\": \"1953-12-05T18:12:10.276Z\",\n          \"eventKey\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"nextInstance\": {\n          \"end\": \"1982-10-26T13:00:24.298Z\",\n          \"isEstimate\": true,\n          \"start\": \"2002-06-29T13:03:06.203Z\",\n          \"eventKey\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    }\n  ],\n  \"last\": \"string\",\n  \"order\": \"<string>\",\n  \"totalCount\": 1930\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9455a983-760b-480b-ac88-484efaa6c04e",
+          "name": "query Smart Series Events By Lineage Ids",
+          "request": {
+            "name": "query Smart Series Events By Lineage Ids",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "events",
+                "smart-series"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<date>"
+                },
+                {
+                  "disabled": false,
+                  "key": "lineageIds",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "lineageIds",
+                  "value": "<long>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "3f06b4fa-11ef-4e62-8b43-ecb8da87f5eb",
+              "name": "querySmartSeriesEventsByLineageIds 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "events",
+                    "smart-series"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "lineageIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "lineageIds",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"allocatedTimeChunks\": 5264,\n    \"assist\": {\n      \"type\": \"TRAVEL_POST\",\n      \"customHabit\": true,\n      \"smartSeries\": true,\n      \"focus\": false,\n      \"habitOrTask\": false,\n      \"task\": true,\n      \"conferenceBuffer\": true,\n      \"travelBuffer\": true,\n      \"status\": \"ARCHIVED\",\n      \"travelNewEventId\": \"string\",\n      \"conferenceEventId\": \"string\",\n      \"lastControlledUpdate\": \"1956-06-11T11:31:14.757Z\",\n      \"lastControlledHash\": 1904,\n      \"defended\": false,\n      \"pinned\": false,\n      \"lockState\": \"DELETED\",\n      \"dailyHabitId\": 1318,\n      \"seriesLineageId\": 5444,\n      \"seriesId\": 5646,\n      \"taskId\": 6883,\n      \"taskIndex\": 3399,\n      \"policyOverride\": {\n        \"durationMax\": 1209,\n        \"durationMin\": 8139,\n        \"forceDefend\": false,\n        \"idealTime\": \"string\",\n        \"windowEnd\": \"string\",\n        \"windowStart\": \"string\"\n      },\n      \"lastManualAdjustment\": \"2002-03-18T01:15:41.452Z\",\n      \"recurringAssignmentType\": \"ONE_ON_ONE\",\n      \"eventType\": \"USER\",\n      \"manuallyStarted\": false,\n      \"focusId\": 4815,\n      \"assistReferenceValid\": true\n    },\n    \"calendarId\": 9626,\n    \"categoryOverride\": {\n      \"color\": \"TANGERINE\"\n    },\n    \"description\": \"string\",\n    \"etag\": \"string\",\n    \"eventEnd\": \"1960-12-25T02:04:25.898Z\",\n    \"eventId\": \"string\",\n    \"eventStart\": \"1990-04-02T05:03:33.906Z\",\n    \"key\": {\n      \"calendarId\": 3165,\n      \"eventId\": \"string\"\n    },\n    \"location\": \"string\",\n    \"meetingType\": \"EMERGENCY\",\n    \"organizer\": \"string\",\n    \"priority\": \"P2\",\n    \"recurrence\": \"string\",\n    \"recurrenceMax\": \"1963-10-09T12:07:41.291Z\",\n    \"recurringEventId\": \"string\",\n    \"requiresTravel\": false,\n    \"rsvpStatus\": \"Organizer\",\n    \"sourceDetails\": {\n      \"base64Id\": \"string\",\n      \"calendarId\": 2676,\n      \"description\": \"string\",\n      \"etag\": \"string\",\n      \"eventId\": \"string\",\n      \"eventKey\": {\n        \"calendarId\": 7548,\n        \"eventId\": \"string\"\n      },\n      \"title\": \"string\",\n      \"url\": \"string\",\n      \"writable\": true\n    },\n    \"status\": \"CANCELLED\",\n    \"subType\": \"OTHER_PERSONAL\",\n    \"timeChunks\": 6612,\n    \"title\": \"string\",\n    \"titleSeenByOthers\": \"string\",\n    \"type\": \"<string>\",\n    \"updated\": \"1962-06-01T08:07:02.604Z\",\n    \"googleMetadata\": {\n      \"guestsCanInviteOthers\": false,\n      \"guestsCanModify\": false,\n      \"guestsCanSeeOtherGuests\": false\n    },\n    \"schedulingLinkId\": \"string\",\n    \"schedulingLinkMeetingId\": \"string\",\n    \"underAssistControl\": false,\n    \"reclaimEventType\": \"UNKNOWN\",\n    \"personalSync\": true,\n    \"reclaimManaged\": false,\n    \"reclaimManagedAndSelfOrganized\": true,\n    \"prioritySource\": \"RULES\",\n    \"onlineMeetingUrlRaw\": \"string\",\n    \"onlineMeetingUrl\": \"string\",\n    \"descriptionOmitted\": true,\n    \"titleTruncated\": true,\n    \"mergeDetails\": {\n      \"key\": \"string\",\n      \"sourceCalendarId\": \"string\",\n      \"sourceReclaimCalendarId\": 6832,\n      \"type\": \"ATTENDEE_EVENT\"\n    },\n    \"published\": true,\n    \"recurringException\": true,\n    \"recurring\": false,\n    \"recurringInstance\": false,\n    \"private\": true,\n    \"public\": true,\n    \"color\": \"TANGERINE\",\n    \"numAttendees\": 9915,\n    \"attendees\": [\n      {\n        \"email\": \"string\",\n        \"self\": false,\n        \"displayName\": \"string\",\n        \"responseStatus\": \"DECLINED\",\n        \"comment\": \"string\",\n        \"optional\": true,\n        \"additionalGuests\": 3089,\n        \"organizer\": true,\n        \"resource\": true\n      },\n      {\n        \"email\": \"string\",\n        \"self\": true,\n        \"displayName\": \"string\",\n        \"responseStatus\": \"NEEDS_ACTION\",\n        \"comment\": \"string\",\n        \"optional\": true,\n        \"additionalGuests\": 8371,\n        \"organizer\": false,\n        \"resource\": false\n      }\n    ],\n    \"free\": true,\n    \"category\": {\n      \"color\": \"SAGE\"\n    },\n    \"conferenceCall\": true,\n    \"smartSeriesId\": 5341,\n    \"sourceEventType\": \"BIRTHDAY\",\n    \"version\": \"string\",\n    \"manuallyStarted\": true,\n    \"inheritedExternalId\": \"string\"\n  },\n  {\n    \"allocatedTimeChunks\": 3279,\n    \"assist\": {\n      \"type\": \"SMART_HABIT\",\n      \"customHabit\": false,\n      \"smartSeries\": false,\n      \"focus\": true,\n      \"habitOrTask\": true,\n      \"task\": true,\n      \"conferenceBuffer\": true,\n      \"travelBuffer\": false,\n      \"status\": \"CONTROLLED\",\n      \"travelNewEventId\": \"string\",\n      \"conferenceEventId\": \"string\",\n      \"lastControlledUpdate\": \"1978-02-05T14:24:55.120Z\",\n      \"lastControlledHash\": 1788,\n      \"defended\": true,\n      \"pinned\": true,\n      \"lockState\": \"MANUALLY_UNLOCKED\",\n      \"dailyHabitId\": 5062,\n      \"seriesLineageId\": 7017,\n      \"seriesId\": 1558,\n      \"taskId\": 4038,\n      \"taskIndex\": 2555,\n      \"policyOverride\": {\n        \"durationMax\": 5774,\n        \"durationMin\": 5839,\n        \"forceDefend\": false,\n        \"idealTime\": \"string\",\n        \"windowEnd\": \"string\",\n        \"windowStart\": \"string\"\n      },\n      \"lastManualAdjustment\": \"1985-05-29T11:18:59.758Z\",\n      \"recurringAssignmentType\": \"TASK\",\n      \"eventType\": \"USER\",\n      \"manuallyStarted\": false,\n      \"focusId\": 8299,\n      \"assistReferenceValid\": false\n    },\n    \"calendarId\": 2604,\n    \"categoryOverride\": {\n      \"color\": \"BANANA\"\n    },\n    \"description\": \"string\",\n    \"etag\": \"string\",\n    \"eventEnd\": \"1999-09-14T20:22:04.972Z\",\n    \"eventId\": \"string\",\n    \"eventStart\": \"1973-12-25T10:41:25.106Z\",\n    \"key\": {\n      \"calendarId\": 9556,\n      \"eventId\": \"string\"\n    },\n    \"location\": \"string\",\n    \"meetingType\": \"REQ_BRAIN\",\n    \"organizer\": \"string\",\n    \"priority\": \"PRIORITIZE\",\n    \"recurrence\": \"string\",\n    \"recurrenceMax\": \"1981-11-14T12:41:04.389Z\",\n    \"recurringEventId\": \"string\",\n    \"requiresTravel\": false,\n    \"rsvpStatus\": \"Declined\",\n    \"sourceDetails\": {\n      \"base64Id\": \"string\",\n      \"calendarId\": 6109,\n      \"description\": \"string\",\n      \"etag\": \"string\",\n      \"eventId\": \"string\",\n      \"eventKey\": {\n        \"calendarId\": 3874,\n        \"eventId\": \"string\"\n      },\n      \"title\": \"string\",\n      \"url\": \"string\",\n      \"writable\": true\n    },\n    \"status\": \"CANCELLED\",\n    \"subType\": \"UNKNOWN\",\n    \"timeChunks\": 2010,\n    \"title\": \"string\",\n    \"titleSeenByOthers\": \"string\",\n    \"type\": \"<string>\",\n    \"updated\": \"2021-12-12T01:58:18.087Z\",\n    \"googleMetadata\": {\n      \"guestsCanInviteOthers\": false,\n      \"guestsCanModify\": false,\n      \"guestsCanSeeOtherGuests\": false\n    },\n    \"schedulingLinkId\": \"string\",\n    \"schedulingLinkMeetingId\": \"string\",\n    \"underAssistControl\": false,\n    \"reclaimEventType\": \"SYNC\",\n    \"personalSync\": true,\n    \"reclaimManaged\": false,\n    \"reclaimManagedAndSelfOrganized\": true,\n    \"prioritySource\": \"MANUAL\",\n    \"onlineMeetingUrlRaw\": \"string\",\n    \"onlineMeetingUrl\": \"string\",\n    \"descriptionOmitted\": false,\n    \"titleTruncated\": false,\n    \"mergeDetails\": {\n      \"key\": \"string\",\n      \"sourceCalendarId\": \"string\",\n      \"sourceReclaimCalendarId\": 2748,\n      \"type\": \"SYNC_EVENT\"\n    },\n    \"published\": true,\n    \"recurringException\": false,\n    \"recurring\": true,\n    \"recurringInstance\": true,\n    \"private\": true,\n    \"public\": true,\n    \"color\": \"LAVENDER\",\n    \"numAttendees\": 6975,\n    \"attendees\": [\n      {\n        \"email\": \"string\",\n        \"self\": true,\n        \"displayName\": \"string\",\n        \"responseStatus\": \"DECLINED\",\n        \"comment\": \"string\",\n        \"optional\": false,\n        \"additionalGuests\": 4123,\n        \"organizer\": true,\n        \"resource\": false\n      },\n      {\n        \"email\": \"string\",\n        \"self\": true,\n        \"displayName\": \"string\",\n        \"responseStatus\": \"TENTATIVE\",\n        \"comment\": \"string\",\n        \"optional\": true,\n        \"additionalGuests\": 6829,\n        \"organizer\": true,\n        \"resource\": false\n      }\n    ],\n    \"free\": true,\n    \"category\": {\n      \"color\": \"BANANA\"\n    },\n    \"conferenceCall\": false,\n    \"smartSeriesId\": 9478,\n    \"sourceEventType\": \"DEFAULT\",\n    \"version\": \"string\",\n    \"manuallyStarted\": true,\n    \"inheritedExternalId\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16e29b37-f662-49d8-9c0f-a1cf08d8f8a9",
+          "name": "to Calendar Event",
+          "request": {
+            "name": "to Calendar Event",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "events",
+                "utils",
+                "to-v2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fromCacheMiss",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "associations",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"calendarId\": \"<long>\",\n    \"eventId\": \"<string>\"\n  },\n  {\n    \"calendarId\": \"<long>\",\n    \"eventId\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9eaddd27-22ad-4963-a951-5ea1a4c50c3d",
+              "name": "toCalendarEvent 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "events",
+                    "utils",
+                    "to-v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fromCacheMiss",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "associations",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"calendarId\": \"<long>\",\n    \"eventId\": \"<string>\"\n  },\n  {\n    \"calendarId\": \"<long>\",\n    \"eventId\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"attendeesAndResources\": [\n      {\n        \"email\": \"string\",\n        \"self\": false,\n        \"displayName\": \"string\",\n        \"responseStatus\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"comment\": \"string\",\n        \"optional\": true,\n        \"additionalGuests\": 8803,\n        \"organizer\": true,\n        \"type\": \"string\"\n      },\n      {\n        \"email\": \"string\",\n        \"self\": false,\n        \"displayName\": \"string\",\n        \"responseStatus\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"comment\": \"string\",\n        \"optional\": true,\n        \"additionalGuests\": 2343,\n        \"organizer\": false,\n        \"type\": \"string\"\n      }\n    ],\n    \"calendarId\": 4610,\n    \"canInviteOthers\": false,\n    \"canModify\": false,\n    \"canRsvp\": false,\n    \"canSeeOtherGuests\": false,\n    \"dateMode\": \"FIXED_TIMESTAMP\",\n    \"descriptionOmitted\": true,\n    \"eventDate\": {\n      \"end\": \"1983-03-22T03:11:58.197Z\",\n      \"start\": \"2019-06-08T07:15:13.020Z\",\n      \"type\": \"string\"\n    },\n    \"freeBusy\": \"BUSY\",\n    \"isOptimistic\": false,\n    \"key\": {\n      \"calendarId\": \"<long>\",\n      \"eventId\": \"<string>\"\n    },\n    \"originalStart\": \"1947-05-19T12:33:28.734Z\",\n    \"platformData\": {\n      \"guestPermissions\": {\n        \"guestsCanInviteOthers\": true,\n        \"guestsCanModify\": false,\n        \"guestsCanSeeOtherGuests\": false\n      },\n      \"focusTimeProperties\": {\n        \"autoDeclineMode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"declineMessage\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"chatStatus\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"type\": \"string\"\n    },\n    \"reclaimData\": {\n      \"associations\": {\n        \"canLock\": false,\n        \"canUnlock\": true,\n        \"locked\": false,\n        \"policyAssociations\": [\n          {\n            \"association\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"policyId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"policyType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"association\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"policyId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"policyType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"readOnlyReason\": \"SYNTHETIC_EDITABLE_AFTER_APPLY\"\n      },\n      \"reclaimEventType\": \"SMART_HABIT\",\n      \"reclaimResourceId\": {\n        \"id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"eventCategory\": {\n        \"color\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"priority\": \"PRIORITIZE\",\n      \"reclaimSchedulerData\": {\n        \"assistType\": \"RECLAIM_FOCUS\",\n        \"manuallyStarted\": true,\n        \"pinned\": false\n      },\n      \"mergeableEvent\": {\n        \"calendarId\": 5182,\n        \"eventId\": \"string\",\n        \"referenceType\": \"ATTENDEE_EVENT\",\n        \"shouldMerge\": false\n      },\n      \"calendarSyncSourceData\": {\n        \"description\": \"string\",\n        \"title\": \"string\",\n        \"url\": \"string\"\n      },\n      \"assistantData\": {\n        \"bufferEventData\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"shieldsUpEventData\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"focusTimeEventData\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"managedEventData\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"recurrenceContinuityData\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"taskEventData\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    },\n    \"rsvpStatus\": \"DECLINED\",\n    \"selfOrganized\": false,\n    \"status\": \"CANCELLED\",\n    \"titleTruncated\": true,\n    \"versionData\": {\n      \"syncStatus\": \"FATAL_UNKNOWN\",\n      \"ceVersion\": 1122\n    },\n    \"visibility\": \"DEFAULT\",\n    \"recurringEventId\": \"string\",\n    \"color\": \"PEACOCK\",\n    \"title\": \"string\",\n    \"description\": \"string\",\n    \"onlineMeetingUrl\": \"string\",\n    \"location\": \"string\",\n    \"reminders\": {\n      \"overrides\": [\n        {\n          \"minutes\": 9559,\n          \"reminderType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"minutes\": 5280,\n          \"reminderType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"useDefault\": false\n    },\n    \"recurrence\": {\n      \"frequency\": \"MONTHLY\",\n      \"interval\": 5467,\n      \"days\": [\n        \"MONDAY\",\n        \"SUNDAY\"\n      ],\n      \"monthlyDay\": {\n        \"dayOfMonth\": 9974,\n        \"dayOfWeek\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"week\": 359\n      },\n      \"yearlyDay\": {\n        \"month\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"monthlyDay\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"until\": \"1975-03-13T02:07:58.024Z\",\n      \"count\": 8056,\n      \"valid\": true\n    },\n    \"parentRecurrence\": {\n      \"frequency\": \"WEEKLY\",\n      \"interval\": 246,\n      \"days\": [\n        \"SATURDAY\",\n        \"SUNDAY\"\n      ],\n      \"monthlyDay\": {\n        \"dayOfMonth\": 2854,\n        \"dayOfWeek\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"week\": 7289\n      },\n      \"yearlyDay\": {\n        \"month\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"monthlyDay\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"until\": \"2009-02-05T01:34:12.098Z\",\n      \"count\": 6634,\n      \"valid\": true\n    },\n    \"conferenceData\": {\n      \"conferenceUrl\": \"string\",\n      \"entryPoints\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"type\": \"string\"\n    },\n    \"allowedRecurrenceEditTypes\": [\n      \"THIS_AND_FOLLOWING\",\n      \"ALL\"\n    ],\n    \"allowedEditTypes\": {\n      \"reason\": \"FIRST_INSTANCE\",\n      \"types\": [\n        \"THIS\",\n        \"THIS_AND_FOLLOWING\"\n      ]\n    }\n  },\n  {\n    \"attendeesAndResources\": [\n      {\n        \"email\": \"string\",\n        \"self\": true,\n        \"displayName\": \"string\",\n        \"responseStatus\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"comment\": \"string\",\n        \"optional\": false,\n        \"additionalGuests\": 6511,\n        \"organizer\": false,\n        \"type\": \"string\"\n      },\n      {\n        \"email\": \"string\",\n        \"self\": false,\n        \"displayName\": \"string\",\n        \"responseStatus\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"comment\": \"string\",\n        \"optional\": false,\n        \"additionalGuests\": 8133,\n        \"organizer\": true,\n        \"type\": \"string\"\n      }\n    ],\n    \"calendarId\": 7448,\n    \"canInviteOthers\": true,\n    \"canModify\": true,\n    \"canRsvp\": true,\n    \"canSeeOtherGuests\": true,\n    \"dateMode\": \"FIXED_TIMESTAMP\",\n    \"descriptionOmitted\": false,\n    \"eventDate\": {\n      \"end\": \"2025-05-02T11:31:48.819Z\",\n      \"start\": \"1997-08-23T14:16:50.188Z\",\n      \"type\": \"string\"\n    },\n    \"freeBusy\": \"BUSY\",\n    \"isOptimistic\": true,\n    \"key\": {\n      \"calendarId\": \"<long>\",\n      \"eventId\": \"<string>\"\n    },\n    \"originalStart\": \"1998-12-07T14:51:40.196Z\",\n    \"platformData\": {\n      \"guestPermissions\": {\n        \"guestsCanInviteOthers\": false,\n        \"guestsCanModify\": true,\n        \"guestsCanSeeOtherGuests\": true\n      },\n      \"focusTimeProperties\": {\n        \"autoDeclineMode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"declineMessage\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"chatStatus\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"type\": \"string\"\n    },\n    \"reclaimData\": {\n      \"associations\": {\n        \"canLock\": false,\n        \"canUnlock\": true,\n        \"locked\": true,\n        \"policyAssociations\": [\n          {\n            \"association\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"policyId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"policyType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"association\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"policyId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"policyType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"readOnlyReason\": \"SYNTHETIC_EDITABLE_AFTER_APPLY\"\n      },\n      \"reclaimEventType\": \"FOCUS\",\n      \"reclaimResourceId\": {\n        \"id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"eventCategory\": {\n        \"color\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"priority\": \"PRIORITIZE\",\n      \"reclaimSchedulerData\": {\n        \"assistType\": \"SMART_MEETING\",\n        \"manuallyStarted\": false,\n        \"pinned\": false\n      },\n      \"mergeableEvent\": {\n        \"calendarId\": 2951,\n        \"eventId\": \"string\",\n        \"referenceType\": \"ORGANIZER_EVENT\",\n        \"shouldMerge\": false\n      },\n      \"calendarSyncSourceData\": {\n        \"description\": \"string\",\n        \"title\": \"string\",\n        \"url\": \"string\"\n      },\n      \"assistantData\": {\n        \"bufferEventData\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"shieldsUpEventData\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"focusTimeEventData\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"managedEventData\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"recurrenceContinuityData\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"taskEventData\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    },\n    \"rsvpStatus\": \"ACCEPTED\",\n    \"selfOrganized\": false,\n    \"status\": \"TENTATIVE\",\n    \"titleTruncated\": true,\n    \"versionData\": {\n      \"syncStatus\": \"FATAL_UNKNOWN\",\n      \"ceVersion\": 3875\n    },\n    \"visibility\": \"PUBLIC\",\n    \"recurringEventId\": \"string\",\n    \"color\": \"NONE\",\n    \"title\": \"string\",\n    \"description\": \"string\",\n    \"onlineMeetingUrl\": \"string\",\n    \"location\": \"string\",\n    \"reminders\": {\n      \"overrides\": [\n        {\n          \"minutes\": 9887,\n          \"reminderType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"minutes\": 2897,\n          \"reminderType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"useDefault\": true\n    },\n    \"recurrence\": {\n      \"frequency\": \"MONTHLY\",\n      \"interval\": 5309,\n      \"days\": [\n        \"SATURDAY\",\n        \"MONDAY\"\n      ],\n      \"monthlyDay\": {\n        \"dayOfMonth\": 6013,\n        \"dayOfWeek\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"week\": 3898\n      },\n      \"yearlyDay\": {\n        \"month\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"monthlyDay\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"until\": \"1984-06-06T16:00:59.730Z\",\n      \"count\": 4061,\n      \"valid\": false\n    },\n    \"parentRecurrence\": {\n      \"frequency\": \"MONTHLY\",\n      \"interval\": 8270,\n      \"days\": [\n        \"SUNDAY\",\n        \"MONDAY\"\n      ],\n      \"monthlyDay\": {\n        \"dayOfMonth\": 7170,\n        \"dayOfWeek\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"week\": 1443\n      },\n      \"yearlyDay\": {\n        \"month\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"monthlyDay\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"until\": \"2012-12-04T13:30:56.184Z\",\n      \"count\": 1250,\n      \"valid\": false\n    },\n    \"conferenceData\": {\n      \"conferenceUrl\": \"string\",\n      \"entryPoints\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"type\": \"string\"\n    },\n    \"allowedRecurrenceEditTypes\": [\n      \"THIS_AND_FOLLOWING\",\n      \"THIS_AND_FOLLOWING\"\n    ],\n    \"allowedEditTypes\": {\n      \"reason\": \"FOCUS_CANNOT_BE_MODIFIED\",\n      \"types\": [\n        \"ALL\",\n        \"THIS_AND_FOLLOWING\"\n      ]\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65ec3391-8593-4cf2-a95a-1af538b85488",
+          "name": "query V2",
+          "request": {
+            "name": "query V2",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "events",
+                "v2"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "calendarIds",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "calendarIds",
+                  "value": "<long>"
+                },
+                {
+                  "disabled": false,
+                  "key": "allConnected",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<date>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<date>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "forceLegacyQuery",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "useCache",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "e7e2950a-f238-431f-955b-c900c519a0d3",
+              "name": "queryV2 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "events",
+                    "v2"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "calendarIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "calendarIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "allConnected",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "forceLegacyQuery",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "useCache",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"attendeesAndResources\": [\n      {\n        \"email\": \"string\",\n        \"self\": false,\n        \"displayName\": \"string\",\n        \"responseStatus\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"comment\": \"string\",\n        \"optional\": true,\n        \"additionalGuests\": 8299,\n        \"organizer\": false,\n        \"type\": \"string\"\n      },\n      {\n        \"email\": \"string\",\n        \"self\": false,\n        \"displayName\": \"string\",\n        \"responseStatus\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"comment\": \"string\",\n        \"optional\": true,\n        \"additionalGuests\": 1184,\n        \"organizer\": true,\n        \"type\": \"string\"\n      }\n    ],\n    \"calendarId\": 5381,\n    \"canInviteOthers\": true,\n    \"canModify\": true,\n    \"canRsvp\": true,\n    \"canSeeOtherGuests\": false,\n    \"dateMode\": \"FIXED_TIMESTAMP\",\n    \"descriptionOmitted\": false,\n    \"eventDate\": {\n      \"end\": \"1974-11-09T22:57:42.450Z\",\n      \"start\": \"1991-11-27T22:04:46.070Z\",\n      \"type\": \"string\"\n    },\n    \"freeBusy\": \"FREE\",\n    \"isOptimistic\": false,\n    \"key\": {\n      \"calendarId\": \"<long>\",\n      \"eventId\": \"<string>\"\n    },\n    \"originalStart\": \"1987-05-23T14:23:29.447Z\",\n    \"platformData\": {\n      \"guestPermissions\": {\n        \"guestsCanInviteOthers\": true,\n        \"guestsCanModify\": false,\n        \"guestsCanSeeOtherGuests\": false\n      },\n      \"focusTimeProperties\": {\n        \"autoDeclineMode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"declineMessage\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"chatStatus\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"type\": \"string\"\n    },\n    \"reclaimData\": {\n      \"associations\": {\n        \"canLock\": false,\n        \"canUnlock\": false,\n        \"locked\": false,\n        \"policyAssociations\": [\n          {\n            \"association\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"policyId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"policyType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"association\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"policyId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"policyType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"readOnlyReason\": \"SYNTHETIC_EDITABLE_AFTER_APPLY\"\n      },\n      \"reclaimEventType\": \"FOCUS\",\n      \"reclaimResourceId\": {\n        \"id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"eventCategory\": {\n        \"color\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"priority\": \"DEFAULT\",\n      \"reclaimSchedulerData\": {\n        \"assistType\": \"RECLAIM_FOCUS\",\n        \"manuallyStarted\": true,\n        \"pinned\": true\n      },\n      \"mergeableEvent\": {\n        \"calendarId\": 6091,\n        \"eventId\": \"string\",\n        \"referenceType\": \"SYNC_EVENT\",\n        \"shouldMerge\": true\n      },\n      \"calendarSyncSourceData\": {\n        \"description\": \"string\",\n        \"title\": \"string\",\n        \"url\": \"string\"\n      },\n      \"assistantData\": {\n        \"bufferEventData\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"shieldsUpEventData\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"focusTimeEventData\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"managedEventData\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"recurrenceContinuityData\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"taskEventData\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    },\n    \"rsvpStatus\": \"DECLINED\",\n    \"selfOrganized\": false,\n    \"status\": \"TENTATIVE\",\n    \"titleTruncated\": true,\n    \"versionData\": {\n      \"syncStatus\": \"FATAL_UNKNOWN\",\n      \"ceVersion\": 1727\n    },\n    \"visibility\": \"PUBLIC\",\n    \"recurringEventId\": \"string\",\n    \"color\": \"NONE\",\n    \"title\": \"string\",\n    \"description\": \"string\",\n    \"onlineMeetingUrl\": \"string\",\n    \"location\": \"string\",\n    \"reminders\": {\n      \"overrides\": [\n        {\n          \"minutes\": 1679,\n          \"reminderType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"minutes\": 2223,\n          \"reminderType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"useDefault\": true\n    },\n    \"recurrence\": {\n      \"frequency\": \"MONTHLY\",\n      \"interval\": 2275,\n      \"days\": [\n        \"TUESDAY\",\n        \"TUESDAY\"\n      ],\n      \"monthlyDay\": {\n        \"dayOfMonth\": 7991,\n        \"dayOfWeek\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"week\": 7155\n      },\n      \"yearlyDay\": {\n        \"month\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"monthlyDay\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"until\": \"2022-11-10T20:07:39.396Z\",\n      \"count\": 3390,\n      \"valid\": true\n    },\n    \"parentRecurrence\": {\n      \"frequency\": \"DAILY\",\n      \"interval\": 306,\n      \"days\": [\n        \"FRIDAY\",\n        \"WEDNESDAY\"\n      ],\n      \"monthlyDay\": {\n        \"dayOfMonth\": 8988,\n        \"dayOfWeek\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"week\": 9896\n      },\n      \"yearlyDay\": {\n        \"month\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"monthlyDay\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"until\": \"1964-05-31T11:29:43.262Z\",\n      \"count\": 6997,\n      \"valid\": true\n    },\n    \"conferenceData\": {\n      \"conferenceUrl\": \"string\",\n      \"entryPoints\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"type\": \"string\"\n    },\n    \"allowedRecurrenceEditTypes\": [\n      \"ALL\",\n      \"ALL\"\n    ],\n    \"allowedEditTypes\": {\n      \"reason\": \"SERIES_ROOT\",\n      \"types\": [\n        \"THIS_AND_FOLLOWING\",\n        \"THIS_AND_FOLLOWING\"\n      ]\n    }\n  },\n  {\n    \"attendeesAndResources\": [\n      {\n        \"email\": \"string\",\n        \"self\": false,\n        \"displayName\": \"string\",\n        \"responseStatus\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"comment\": \"string\",\n        \"optional\": true,\n        \"additionalGuests\": 2007,\n        \"organizer\": true,\n        \"type\": \"string\"\n      },\n      {\n        \"email\": \"string\",\n        \"self\": false,\n        \"displayName\": \"string\",\n        \"responseStatus\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"comment\": \"string\",\n        \"optional\": false,\n        \"additionalGuests\": 7104,\n        \"organizer\": false,\n        \"type\": \"string\"\n      }\n    ],\n    \"calendarId\": 9311,\n    \"canInviteOthers\": false,\n    \"canModify\": true,\n    \"canRsvp\": true,\n    \"canSeeOtherGuests\": true,\n    \"dateMode\": \"ALL_DAY\",\n    \"descriptionOmitted\": false,\n    \"eventDate\": {\n      \"end\": \"1965-06-20T15:30:33.015Z\",\n      \"start\": \"1960-05-05T03:23:48.810Z\",\n      \"type\": \"string\"\n    },\n    \"freeBusy\": \"FREE\",\n    \"isOptimistic\": false,\n    \"key\": {\n      \"calendarId\": \"<long>\",\n      \"eventId\": \"<string>\"\n    },\n    \"originalStart\": \"1984-12-08T09:10:40.255Z\",\n    \"platformData\": {\n      \"guestPermissions\": {\n        \"guestsCanInviteOthers\": true,\n        \"guestsCanModify\": true,\n        \"guestsCanSeeOtherGuests\": false\n      },\n      \"focusTimeProperties\": {\n        \"autoDeclineMode\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"declineMessage\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"chatStatus\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"type\": \"string\"\n    },\n    \"reclaimData\": {\n      \"associations\": {\n        \"canLock\": false,\n        \"canUnlock\": true,\n        \"locked\": true,\n        \"policyAssociations\": [\n          {\n            \"association\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"policyId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"policyType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"association\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"policyId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"policyType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"readOnlyReason\": \"FOCUS_CANNOT_BE_MODIFIED\"\n      },\n      \"reclaimEventType\": \"USER\",\n      \"reclaimResourceId\": {\n        \"id\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"type\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"eventCategory\": {\n        \"color\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"priority\": \"PRIORITIZE\",\n      \"reclaimSchedulerData\": {\n        \"assistType\": \"FOCUS\",\n        \"manuallyStarted\": true,\n        \"pinned\": false\n      },\n      \"mergeableEvent\": {\n        \"calendarId\": 3393,\n        \"eventId\": \"string\",\n        \"referenceType\": \"ATTENDEE_EVENT\",\n        \"shouldMerge\": true\n      },\n      \"calendarSyncSourceData\": {\n        \"description\": \"string\",\n        \"title\": \"string\",\n        \"url\": \"string\"\n      },\n      \"assistantData\": {\n        \"bufferEventData\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"shieldsUpEventData\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"focusTimeEventData\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"managedEventData\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"recurrenceContinuityData\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"taskEventData\": {\n          \"nullable\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      }\n    },\n    \"rsvpStatus\": \"UNKNOWN\",\n    \"selfOrganized\": false,\n    \"status\": \"TENTATIVE\",\n    \"titleTruncated\": false,\n    \"versionData\": {\n      \"syncStatus\": \"FATAL_UNKNOWN\",\n      \"ceVersion\": 2720\n    },\n    \"visibility\": \"PRIVATE\",\n    \"recurringEventId\": \"string\",\n    \"color\": \"TANGERINE\",\n    \"title\": \"string\",\n    \"description\": \"string\",\n    \"onlineMeetingUrl\": \"string\",\n    \"location\": \"string\",\n    \"reminders\": {\n      \"overrides\": [\n        {\n          \"minutes\": 6296,\n          \"reminderType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"minutes\": 9334,\n          \"reminderType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"useDefault\": true\n    },\n    \"recurrence\": {\n      \"frequency\": \"YEARLY\",\n      \"interval\": 1426,\n      \"days\": [\n        \"THURSDAY\",\n        \"WEDNESDAY\"\n      ],\n      \"monthlyDay\": {\n        \"dayOfMonth\": 4428,\n        \"dayOfWeek\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"week\": 4802\n      },\n      \"yearlyDay\": {\n        \"month\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"monthlyDay\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"until\": \"2019-10-29T09:01:55.315Z\",\n      \"count\": 1739,\n      \"valid\": true\n    },\n    \"parentRecurrence\": {\n      \"frequency\": \"WEEKLY\",\n      \"interval\": 7524,\n      \"days\": [\n        \"TUESDAY\",\n        \"SUNDAY\"\n      ],\n      \"monthlyDay\": {\n        \"dayOfMonth\": 7808,\n        \"dayOfWeek\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"week\": 8641\n      },\n      \"yearlyDay\": {\n        \"month\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"monthlyDay\": {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      },\n      \"until\": \"2019-04-15T13:36:29.463Z\",\n      \"count\": 4004,\n      \"valid\": true\n    },\n    \"conferenceData\": {\n      \"conferenceUrl\": \"string\",\n      \"entryPoints\": [\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        {\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        }\n      ],\n      \"type\": \"string\"\n    },\n    \"allowedRecurrenceEditTypes\": [\n      \"ALL\",\n      \"THIS_AND_FOLLOWING\"\n    ],\n    \"allowedEditTypes\": {\n      \"reason\": \"SERIES_ROOT\",\n      \"types\": [\n        \"THIS_AND_FOLLOWING\",\n        \"ALL\"\n      ]\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e4052670-755a-4e0d-b1ba-6aec0e057c7e",
+          "name": "gcal View Redirect",
+          "request": {
+            "name": "gcal View Redirect",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "events",
+                "view",
+                ":calendarId",
+                ":eventId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "skipSourceRedirect",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "calendarId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "042c2bbd-0c40-4363-b2ab-0bcf469e400b",
+              "name": "gcalViewRedirect 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "events",
+                    "view",
+                    ":calendarId",
+                    ":eventId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skipSourceRedirect",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "calendarId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "63a7da33-bdae-4f89-bab7-4fa9759e55c0",
+          "name": "get For Calendar",
+          "request": {
+            "name": "get For Calendar",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "events",
+                ":calendarId",
+                ":eventId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sourceDetails",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "thin",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "calendarId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "2d7ea242-a420-48ff-bf87-b67f341b5753",
+              "name": "getForCalendar 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "events",
+                    ":calendarId",
+                    ":eventId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sourceDetails",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "thin",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "calendarId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"allocatedTimeChunks\": 1879,\n  \"assist\": {\n    \"type\": \"TRAVEL_POST\",\n    \"customHabit\": true,\n    \"smartSeries\": false,\n    \"focus\": false,\n    \"habitOrTask\": true,\n    \"task\": false,\n    \"conferenceBuffer\": true,\n    \"travelBuffer\": true,\n    \"status\": \"ARCHIVED\",\n    \"travelNewEventId\": \"string\",\n    \"conferenceEventId\": \"string\",\n    \"lastControlledUpdate\": \"2020-05-26T18:50:56.187Z\",\n    \"lastControlledHash\": 279,\n    \"defended\": false,\n    \"pinned\": false,\n    \"lockState\": \"DECLINED\",\n    \"dailyHabitId\": 5466,\n    \"seriesLineageId\": 2486,\n    \"seriesId\": 5382,\n    \"taskId\": 9726,\n    \"taskIndex\": 1074,\n    \"policyOverride\": {\n      \"durationMax\": 7411,\n      \"durationMin\": 9201,\n      \"forceDefend\": false,\n      \"idealTime\": \"string\",\n      \"windowEnd\": \"string\",\n      \"windowStart\": \"string\"\n    },\n    \"lastManualAdjustment\": \"2020-06-21T21:45:03.372Z\",\n    \"recurringAssignmentType\": \"DAILY_HABIT\",\n    \"eventType\": \"SMART_MEETING\",\n    \"manuallyStarted\": false,\n    \"focusId\": 8576,\n    \"assistReferenceValid\": true\n  },\n  \"calendarId\": 5034,\n  \"categoryOverride\": {\n    \"color\": \"FLAMINGO\"\n  },\n  \"description\": \"string\",\n  \"etag\": \"string\",\n  \"eventEnd\": \"1952-04-05T15:33:19.042Z\",\n  \"eventId\": \"string\",\n  \"eventStart\": \"1986-09-02T06:36:28.636Z\",\n  \"key\": {\n    \"calendarId\": \"<long>\",\n    \"eventId\": \"<string>\"\n  },\n  \"location\": \"string\",\n  \"meetingType\": \"ONBOARDING_TRAINING\",\n  \"organizer\": \"string\",\n  \"priority\": \"P3\",\n  \"recurrence\": \"string\",\n  \"recurrenceMax\": \"1998-03-02T03:45:04.600Z\",\n  \"recurringEventId\": \"string\",\n  \"requiresTravel\": true,\n  \"rsvpStatus\": \"None\",\n  \"sourceDetails\": {\n    \"base64Id\": \"string\",\n    \"calendarId\": 9324,\n    \"description\": \"string\",\n    \"etag\": \"string\",\n    \"eventId\": \"string\",\n    \"eventKey\": {\n      \"calendarId\": \"<long>\",\n      \"eventId\": \"<string>\"\n    },\n    \"title\": \"string\",\n    \"url\": \"string\",\n    \"writable\": false\n  },\n  \"status\": \"PUBLISHED\",\n  \"subType\": \"TRAIN\",\n  \"timeChunks\": 6085,\n  \"title\": \"string\",\n  \"titleSeenByOthers\": \"string\",\n  \"type\": \"<string>\",\n  \"updated\": \"1984-03-20T16:10:32.139Z\",\n  \"googleMetadata\": {\n    \"guestsCanInviteOthers\": true,\n    \"guestsCanModify\": true,\n    \"guestsCanSeeOtherGuests\": true\n  },\n  \"schedulingLinkId\": \"string\",\n  \"schedulingLinkMeetingId\": \"string\",\n  \"underAssistControl\": true,\n  \"reclaimEventType\": \"SYNC\",\n  \"personalSync\": false,\n  \"reclaimManaged\": false,\n  \"reclaimManagedAndSelfOrganized\": false,\n  \"prioritySource\": \"RULES\",\n  \"onlineMeetingUrlRaw\": \"string\",\n  \"onlineMeetingUrl\": \"string\",\n  \"descriptionOmitted\": false,\n  \"titleTruncated\": true,\n  \"mergeDetails\": {\n    \"key\": \"string\",\n    \"sourceCalendarId\": \"string\",\n    \"sourceReclaimCalendarId\": 1573,\n    \"type\": \"ORGANIZER_EVENT\"\n  },\n  \"published\": false,\n  \"recurringException\": true,\n  \"recurring\": false,\n  \"recurringInstance\": false,\n  \"private\": true,\n  \"public\": false,\n  \"color\": \"PEACOCK\",\n  \"numAttendees\": 8688,\n  \"attendees\": [\n    {\n      \"email\": \"string\",\n      \"self\": true,\n      \"displayName\": \"string\",\n      \"responseStatus\": \"UNKNOWN\",\n      \"comment\": \"string\",\n      \"optional\": false,\n      \"additionalGuests\": 7576,\n      \"organizer\": false,\n      \"resource\": false\n    },\n    {\n      \"email\": \"string\",\n      \"self\": false,\n      \"displayName\": \"string\",\n      \"responseStatus\": \"TENTATIVE\",\n      \"comment\": \"string\",\n      \"optional\": true,\n      \"additionalGuests\": 7673,\n      \"organizer\": false,\n      \"resource\": true\n    }\n  ],\n  \"free\": true,\n  \"category\": {\n    \"color\": \"BANANA\"\n  },\n  \"conferenceCall\": false,\n  \"smartSeriesId\": 8530,\n  \"sourceEventType\": \"FROM_MAIL\",\n  \"version\": \"string\",\n  \"manuallyStarted\": false,\n  \"inheritedExternalId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8d49f9e6-9e67-4116-8317-24cfe635c1f1",
+          "name": "adjust Conference Buffer",
+          "request": {
+            "name": "adjust Conference Buffer",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "events",
+                ":calendarId",
+                ":eventId",
+                "buffer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "duration",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "notificationKey",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "calendarId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "302461e1-04b5-4848-87fe-36cd3db4531c",
+              "name": "adjustConferenceBuffer 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "events",
+                    ":calendarId",
+                    ":eventId",
+                    "buffer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "duration",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "notificationKey",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "calendarId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "27a3d6bd-0cf8-4cbe-9c70-a2f9d6d49a35",
+          "name": "adjust Priority",
+          "request": {
+            "name": "adjust Priority",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "events",
+                ":calendarId",
+                ":eventId",
+                "priority"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "priority",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "period",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "notificationKey",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "calendarId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "b071f261-4744-4704-ba09-0b9671ad5ea8",
+              "name": "adjustPriority 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "events",
+                    ":calendarId",
+                    ":eventId",
+                    "priority"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "priority",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "period",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notificationKey",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "calendarId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5377d8c2-3504-4141-89d1-2d1fac2798ce",
+          "name": "adjust Travel Time",
+          "request": {
+            "name": "adjust Travel Time",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "events",
+                ":calendarId",
+                ":eventId",
+                "travel",
+                ":type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "duration",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "notificationKey",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "calendarId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "type",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "26bac0d2-3105-4d9c-b901-4d4064909b32",
+              "name": "adjustTravelTime 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "events",
+                    ":calendarId",
+                    ":eventId",
+                    "travel",
+                    ":type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "duration",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "notificationKey",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "calendarId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5e1f2ef9-4852-4705-9902-28ea98ea64de",
+          "name": "get 1",
+          "request": {
+            "name": "get 1",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "events",
+                ":eventId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sourceDetails",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "thin",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "eventId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "13b5c125-24d1-425c-8b01-2348069869ac",
+              "name": "get_1 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "events",
+                    ":eventId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sourceDetails",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "thin",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "eventId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"allocatedTimeChunks\": 2865,\n  \"assist\": {\n    \"type\": \"<string>\",\n    \"customHabit\": false,\n    \"smartSeries\": true,\n    \"focus\": false,\n    \"habitOrTask\": false,\n    \"task\": true,\n    \"conferenceBuffer\": true,\n    \"travelBuffer\": false,\n    \"status\": \"RELEASED\",\n    \"travelNewEventId\": \"string\",\n    \"conferenceEventId\": \"string\",\n    \"lastControlledUpdate\": \"1970-12-18T19:58:34.547Z\",\n    \"lastControlledHash\": 174,\n    \"defended\": true,\n    \"pinned\": false,\n    \"lockState\": \"UPCOMING_WINDOW\",\n    \"dailyHabitId\": 2973,\n    \"seriesLineageId\": 385,\n    \"seriesId\": 3132,\n    \"taskId\": 3118,\n    \"taskIndex\": 8469,\n    \"policyOverride\": {\n      \"durationMax\": 1640,\n      \"durationMin\": 4019,\n      \"forceDefend\": false,\n      \"idealTime\": \"string\",\n      \"windowEnd\": \"string\",\n      \"windowStart\": \"string\"\n    },\n    \"lastManualAdjustment\": \"1970-12-28T15:57:59.322Z\",\n    \"recurringAssignmentType\": \"ONE_ON_ONE\",\n    \"eventType\": \"ONE_ON_ONE_ASSIGNMENT\",\n    \"manuallyStarted\": false,\n    \"focusId\": 9891,\n    \"assistReferenceValid\": true\n  },\n  \"calendarId\": 5922,\n  \"categoryOverride\": {\n    \"color\": \"SAGE\"\n  },\n  \"description\": \"string\",\n  \"etag\": \"string\",\n  \"eventEnd\": \"2008-01-27T23:15:05.275Z\",\n  \"eventId\": \"string\",\n  \"eventStart\": \"1959-05-11T03:02:14.940Z\",\n  \"key\": {\n    \"calendarId\": \"<long>\",\n    \"eventId\": \"<string>\"\n  },\n  \"location\": \"string\",\n  \"meetingType\": \"CUST_RESEARCH\",\n  \"organizer\": \"string\",\n  \"priority\": \"<string>\",\n  \"recurrence\": \"string\",\n  \"recurrenceMax\": \"1973-01-23T07:09:15.570Z\",\n  \"recurringEventId\": \"string\",\n  \"requiresTravel\": true,\n  \"rsvpStatus\": \"NotResponded\",\n  \"sourceDetails\": {\n    \"base64Id\": \"string\",\n    \"calendarId\": 4384,\n    \"description\": \"string\",\n    \"etag\": \"string\",\n    \"eventId\": \"string\",\n    \"eventKey\": {\n      \"calendarId\": \"<long>\",\n      \"eventId\": \"<string>\"\n    },\n    \"title\": \"string\",\n    \"url\": \"string\",\n    \"writable\": false\n  },\n  \"status\": \"PUBLISHED\",\n  \"subType\": \"PRODUCTIVITY\",\n  \"timeChunks\": 5131,\n  \"title\": \"string\",\n  \"titleSeenByOthers\": \"string\",\n  \"type\": \"<string>\",\n  \"updated\": \"1974-05-10T18:16:37.589Z\",\n  \"googleMetadata\": {\n    \"guestsCanInviteOthers\": true,\n    \"guestsCanModify\": true,\n    \"guestsCanSeeOtherGuests\": true\n  },\n  \"schedulingLinkId\": \"string\",\n  \"schedulingLinkMeetingId\": \"string\",\n  \"underAssistControl\": false,\n  \"reclaimEventType\": \"SCHEDULING_LINK_MEETING\",\n  \"personalSync\": false,\n  \"reclaimManaged\": false,\n  \"reclaimManagedAndSelfOrganized\": false,\n  \"prioritySource\": \"MANUAL\",\n  \"onlineMeetingUrlRaw\": \"string\",\n  \"onlineMeetingUrl\": \"string\",\n  \"descriptionOmitted\": true,\n  \"titleTruncated\": true,\n  \"mergeDetails\": {\n    \"key\": \"string\",\n    \"sourceCalendarId\": \"string\",\n    \"sourceReclaimCalendarId\": 9340,\n    \"type\": \"SYNC_EVENT\"\n  },\n  \"published\": false,\n  \"recurringException\": true,\n  \"recurring\": true,\n  \"recurringInstance\": true,\n  \"private\": true,\n  \"public\": false,\n  \"color\": \"GRAPE\",\n  \"numAttendees\": 1877,\n  \"attendees\": [\n    {\n      \"email\": \"string\",\n      \"self\": true,\n      \"displayName\": \"string\",\n      \"responseStatus\": \"TENTATIVE\",\n      \"comment\": \"string\",\n      \"optional\": true,\n      \"additionalGuests\": 2176,\n      \"organizer\": false,\n      \"resource\": false\n    },\n    {\n      \"email\": \"string\",\n      \"self\": false,\n      \"displayName\": \"string\",\n      \"responseStatus\": \"TENTATIVE\",\n      \"comment\": \"string\",\n      \"optional\": false,\n      \"additionalGuests\": 9300,\n      \"organizer\": false,\n      \"resource\": true\n    }\n  ],\n  \"free\": false,\n  \"category\": {\n    \"color\": \"FLAMINGO\"\n  },\n  \"conferenceCall\": true,\n  \"smartSeriesId\": 1874,\n  \"sourceEventType\": \"WORKING_LOCATION\",\n  \"version\": \"string\",\n  \"manuallyStarted\": false,\n  \"inheritedExternalId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "14cf0ab1-ae61-4341-9272-093016acfd8f",
+    "name": "Reclaim account-time-schemes events API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

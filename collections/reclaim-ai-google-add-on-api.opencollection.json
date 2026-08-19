@@ -1,0 +1,42 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes google-add-on API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "google-add-on",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "addHtmlToEmail",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/google-add-on/add-html-to-email",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "integrations_3",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/google-add-on/integrations"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

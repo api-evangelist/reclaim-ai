@@ -1,0 +1,1096 @@
+{
+  "item": [
+    {
+      "id": "eb36612e-bfc6-4aa2-ae00-d5c0c47a2490",
+      "name": "webhooks",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a47f5526-609e-408f-829e-846b0e81cc82",
+          "name": "query Webhook Configs",
+          "request": {
+            "name": "query Webhook Configs",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "team",
+                "current",
+                "webhooks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "statuses",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "statuses",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "593a524d-188f-43a9-a6c9-e31bf29426e1",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "team",
+                    "current",
+                    "webhooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "statuses",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"apiVersion\": \"v2025-01-15\",\n    \"createdAt\": \"1988-08-22T05:26:50.735Z\",\n    \"id\": \"abe40333-6e47-ec6e-08fa-df563b487914\",\n    \"name\": \"string\",\n    \"status\": \"<string>\",\n    \"url\": \"string\"\n  },\n  {\n    \"apiVersion\": \"v2025-09-26\",\n    \"createdAt\": \"1973-08-15T05:20:51.144Z\",\n    \"id\": \"ece740af-af50-201f-cf2c-5089989347c3\",\n    \"name\": \"string\",\n    \"status\": \"<string>\",\n    \"url\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8c345bc9-f847-4362-afa0-ec7014ba613a",
+          "name": "create Webhook Config",
+          "request": {
+            "name": "create Webhook Config",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "team",
+                "current",
+                "webhooks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"url\": \"<string>\",\n  \"apiVersion\": \"<string>\",\n  \"secret\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ffcef0c9-97ec-482c-b448-f3b1ff0caae7",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "team",
+                    "current",
+                    "webhooks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"url\": \"<string>\",\n  \"apiVersion\": \"<string>\",\n  \"secret\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"apiVersion\": \"<string>\",\n  \"createdAt\": \"2012-10-03T17:26:06.195Z\",\n  \"id\": \"060c3c35-886d-eafe-5a75-dacfd40a6098\",\n  \"name\": \"string\",\n  \"status\": \"<string>\",\n  \"url\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "45766e55-fe2d-4f43-8429-42693ac6e727",
+          "name": "get Messages",
+          "request": {
+            "name": "get Messages",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "team",
+                "current",
+                "webhooks",
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "webhookConfigId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "after",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "566a1c20-9757-422c-b4fd-e9c93e30e7b8",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "team",
+                    "current",
+                    "webhooks",
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "webhookConfigId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "after",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "29571e2f-c27c-4d0f-9f3d-8ac1c69c31e4",
+          "name": "retry",
+          "request": {
+            "name": "retry",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "team",
+                "current",
+                "webhooks",
+                "messages",
+                "retry"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"messageIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "df88535a-cfb6-41a4-8436-d4d6e13f9759",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "team",
+                    "current",
+                    "webhooks",
+                    "messages",
+                    "retry"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"messageIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"assigmentId\": \"string\",\n    \"assigmentSubId\": \"string\",\n    \"eventTs\": \"2013-10-17T00:43:18.842Z\",\n    \"eventType\": \"<string>\",\n    \"id\": \"string\",\n    \"nextRetryAfter\": \"2010-09-17T02:04:22.311Z\",\n    \"payload\": {},\n    \"retries\": [\n      {\n        \"at\": \"2026-01-02T18:50:13.426Z\",\n        \"status\": \"MULTI_STATUS\",\n        \"statusCode\": 6126\n      },\n      {\n        \"at\": \"2012-09-12T12:40:16.055Z\",\n        \"status\": \"INTERNAL_SERVER_ERROR\",\n        \"statusCode\": 5454\n      }\n    ],\n    \"retriesCount\": 7018,\n    \"status\": \"<string>\",\n    \"lastAttemptAt\": \"2013-07-30T14:29:24.453Z\",\n    \"succeedAt\": \"2008-10-19T14:49:03.697Z\"\n  },\n  {\n    \"assigmentId\": \"string\",\n    \"assigmentSubId\": \"string\",\n    \"eventTs\": \"2002-04-16T09:41:34.667Z\",\n    \"eventType\": \"<string>\",\n    \"id\": \"string\",\n    \"nextRetryAfter\": \"1977-08-24T17:53:13.105Z\",\n    \"payload\": {},\n    \"retries\": [\n      {\n        \"at\": \"2013-05-17T15:47:19.226Z\",\n        \"status\": \"LOCKED\",\n        \"statusCode\": 4357\n      },\n      {\n        \"at\": \"1984-05-30T13:20:07.992Z\",\n        \"status\": \"NO_RESPONSE\",\n        \"statusCode\": 1937\n      }\n    ],\n    \"retriesCount\": 7439,\n    \"status\": \"<string>\",\n    \"lastAttemptAt\": \"2014-03-07T15:41:23.964Z\",\n    \"succeedAt\": \"2008-05-03T09:23:59.058Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a14100a8-b3a2-4d32-8c89-9652b168244e",
+          "name": "get Webhook Versions",
+          "request": {
+            "name": "get Webhook Versions",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "team",
+                "current",
+                "webhooks",
+                "versions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "e7a714dc-b5a6-4c82-80e3-3d298db3a61d",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "team",
+                    "current",
+                    "webhooks",
+                    "versions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "889c36d1-9e3e-4fb5-940e-14346810f72c",
+          "name": "get Webhook Config",
+          "request": {
+            "name": "get Webhook Config",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "team",
+                "current",
+                "webhooks",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "a1084453-04a2-45e5-ab83-d714a1802cd8",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "team",
+                    "current",
+                    "webhooks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"apiVersion\": \"<string>\",\n  \"createdAt\": \"2012-10-03T17:26:06.195Z\",\n  \"id\": \"060c3c35-886d-eafe-5a75-dacfd40a6098\",\n  \"name\": \"string\",\n  \"status\": \"<string>\",\n  \"url\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "659b415c-280d-4ed8-9193-4069c5d01d99",
+          "name": "update Webhook Config",
+          "request": {
+            "name": "update Webhook Config",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "team",
+                "current",
+                "webhooks",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"url\": \"<string>\",\n  \"apiVersion\": \"<string>\",\n  \"secret\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fe79b4f8-e4d0-4b4f-a3b9-df6f3d826068",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "team",
+                    "current",
+                    "webhooks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"status\": \"<string>\",\n  \"url\": \"<string>\",\n  \"apiVersion\": \"<string>\",\n  \"secret\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"apiVersion\": \"<string>\",\n  \"createdAt\": \"2012-10-03T17:26:06.195Z\",\n  \"id\": \"060c3c35-886d-eafe-5a75-dacfd40a6098\",\n  \"name\": \"string\",\n  \"status\": \"<string>\",\n  \"url\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bbf70f9f-12f2-4768-9b8c-2dce86deb8b6",
+          "name": "delete Webhook Config",
+          "request": {
+            "name": "delete Webhook Config",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "team",
+                "current",
+                "webhooks",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "322f5d27-7617-4339-8d03-a0b251458130",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "team",
+                    "current",
+                    "webhooks",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9bc5986-4931-4242-911c-b37c94349e9f",
+          "name": "get Webhook Associations",
+          "request": {
+            "name": "get Webhook Associations",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "team",
+                "current",
+                "webhooks",
+                ":id",
+                "associations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "0b3ba419-f386-4f64-ac53-a42b3784c35a",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "team",
+                    "current",
+                    "webhooks",
+                    ":id",
+                    "associations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "70213e99-292a-4382-9e52-57593b1269ae",
+          "name": "Generate a secret",
+          "request": {
+            "name": "Generate a secret",
+            "description": {
+              "content": "Generate a proposal of secret with high entropy",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "team",
+                "webhook",
+                "generate-secret"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "bb723dd5-21c8-4460-b58b-63d717ee8c5d",
+              "name": "Ok",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "team",
+                    "webhook",
+                    "generate-secret"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"generatedSecret\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a942b005-1e72-43bb-a7ad-79d069af0427",
+    "name": "Reclaim account-time-schemes webhooks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

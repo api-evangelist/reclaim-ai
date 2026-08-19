@@ -1,0 +1,771 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes events API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "query",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/events",
+            "params": [
+              {
+                "name": "calendar",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "calendarIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "allConnected",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "priorities",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "project",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sourceDetails",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "thin",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "habitIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "recurringOneOnOneIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "taskIds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchInstancesEventRaw",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/events/fetch-instances/raw-event/:credentialId/:calendarId/:eventId",
+            "params": [
+              {
+                "name": "credentialId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "eventField",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchInstancesGoogleRaw",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/events/fetch-instances/raw-google/:credentialId/:calendarId/:eventId",
+            "params": [
+              {
+                "name": "credentialId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "eventField",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getPersonal_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/events/personal",
+            "params": [
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchEventRaw",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/events/raw-event/:credentialId/:calendarId/:eventId",
+            "params": [
+              {
+                "name": "credentialId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventField",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "patchEventRaw",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/events/raw-event/:credentialId/:calendarId/:eventId",
+            "params": [
+              {
+                "name": "credentialId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "queryEventsRaw",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/events/raw-events/:credentialId/:calendarId",
+            "params": [
+              {
+                "name": "credentialId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "singleEvents",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "eventField",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "privateExtendedProperty",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sharedExtendedProperty",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "queryGoogleRaw",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/events/raw-google/:credentialId/:calendarId",
+            "params": [
+              {
+                "name": "credentialId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "q",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "singleEvents",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "eventField",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "privateExtendedProperty",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sharedExtendedProperty",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "fetchGoogleRaw",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/events/raw-google/:credentialId/:calendarId/:eventId",
+            "params": [
+              {
+                "name": "credentialId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventField",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "queryRecurringSeries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/events/recurring-series",
+            "params": [
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "after",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "titleQuery",
+                "value": "",
+                "type": "query",
+                "description": "Case-insensitive substring match against the event title"
+              },
+              {
+                "name": "minAttendees",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of attendees (inclusive)"
+              },
+              {
+                "name": "maxAttendees",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of attendees (inclusive)"
+              },
+              {
+                "name": "organizer",
+                "value": "",
+                "type": "query",
+                "description": "Organizer email to match, 'SELF' for events organized by the querying user, or 'NOT_SELF' to exclude them"
+              },
+              {
+                "name": "nextEventAfter",
+                "value": "",
+                "type": "query",
+                "description": "Only include series whose next instance starts at or after this instant (inclusive)"
+              },
+              {
+                "name": "nextEventBefore",
+                "value": "",
+                "type": "query",
+                "description": "Only include series whose next instance starts before this instant (exclusive)"
+              },
+              {
+                "name": "managementTypes",
+                "value": "",
+                "type": "query",
+                "description": "Include only series matching these management types"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "querySmartSeriesEventsByLineageIds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/events/smart-series",
+            "params": [
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "lineageIds",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "toCalendarEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/events/utils/to-v2",
+            "params": [
+              {
+                "name": "fromCacheMiss",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "associations",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "queryV2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/events/v2",
+            "params": [
+              {
+                "name": "calendarIds",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "allConnected",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "forceLegacyQuery",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "useCache",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "gcalViewRedirect",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/events/view/:calendarId/:eventId",
+            "params": [
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "skipSourceRedirect",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getForCalendar",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/events/:calendarId/:eventId",
+            "params": [
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sourceDetails",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "thin",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "adjustConferenceBuffer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/events/:calendarId/:eventId/buffer",
+            "params": [
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "duration",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "adjustPriority",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/events/:calendarId/:eventId/priority",
+            "params": [
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "priority",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "adjustTravelTime",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/events/:calendarId/:eventId/travel/:type",
+            "params": [
+              {
+                "name": "calendarId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "duration",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "get_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/events/:eventId",
+            "params": [
+              {
+                "name": "eventId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sourceDetails",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "thin",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

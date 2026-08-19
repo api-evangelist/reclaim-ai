@@ -1,0 +1,34 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes aws-ses API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "aws-ses",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "sesEvent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/aws/ses/events",
+            "headers": [
+              {
+                "name": "x-amz-sns-message-type",
+                "value": ""
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

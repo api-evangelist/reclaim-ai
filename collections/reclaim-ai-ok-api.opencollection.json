@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes Ok API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ok",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "apiOk",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/ok",
+            "params": [
+              {
+                "name": "env",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ok_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/ok",
+            "params": [
+              {
+                "name": "env",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

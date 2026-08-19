@@ -1,0 +1,780 @@
+{
+  "item": [
+    {
+      "id": "8144cd6a-2240-4d92-a933-939ffd81bae9",
+      "name": "time-scheme",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3aa8e817-2f28-49f1-9d16-5d5422e92c68",
+          "name": "list Time Policy Schemes",
+          "request": {
+            "name": "list Time Policy Schemes",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "timeschemes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "taskCategory",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "policyType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "policyType",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "features",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "features",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "73715cb1-4832-4c93-9fd8-19789599d039",
+              "name": "listTimePolicySchemes 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "timeschemes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "taskCategory",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "policyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "policyType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "features",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "features",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"description\": \"string\",\n    \"features\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"id\": \"string\",\n    \"policy\": {\n      \"dayHours\": {\n        \"MONDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        },\n        \"TUESDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        },\n        \"WEDNESDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        },\n        \"THURSDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        },\n        \"FRIDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        },\n        \"SATURDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        },\n        \"SUNDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        }\n      },\n      \"startOfWeek\": \"WEDNESDAY\",\n      \"endOfWeek\": \"FRIDAY\"\n    },\n    \"policyType\": \"<string>\",\n    \"status\": \"TASK_CALENDAR_NOT_VALID\",\n    \"title\": \"string\",\n    \"userId\": \"string\",\n    \"taskCategory\": \"<string>\",\n    \"taskTargetCalendar\": {\n      \"colorHex\": \"string\",\n      \"connected\": true,\n      \"credentialId\": 3782,\n      \"externalId\": \"string\",\n      \"googleMeetAllowed\": true,\n      \"id\": 3279,\n      \"microsoftTeamsAllowed\": false,\n      \"name\": \"string\",\n      \"otherConnectedCalendarsExist\": true,\n      \"provider\": \"string\",\n      \"useType\": \"TEAM\",\n      \"writableFor\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"reason\": \"FREE_BUSY_ONLY\",\n      \"defaultReminders\": [\n        7403,\n        3809\n      ],\n      \"reminderDefaults\": [\n        {\n          \"minutes\": 5907,\n          \"reminderType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"minutes\": 7616,\n          \"reminderType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"accessDomainRead\": false\n    }\n  },\n  {\n    \"description\": \"string\",\n    \"features\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"id\": \"string\",\n    \"policy\": {\n      \"dayHours\": {\n        \"MONDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        },\n        \"TUESDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        },\n        \"WEDNESDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        },\n        \"THURSDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        },\n        \"FRIDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        },\n        \"SATURDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        },\n        \"SUNDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        }\n      },\n      \"startOfWeek\": \"MONDAY\",\n      \"endOfWeek\": \"TUESDAY\"\n    },\n    \"policyType\": \"<string>\",\n    \"status\": \"TASK_CALENDAR_NOT_CONNECTED\",\n    \"title\": \"string\",\n    \"userId\": \"string\",\n    \"taskCategory\": \"<string>\",\n    \"taskTargetCalendar\": {\n      \"colorHex\": \"string\",\n      \"connected\": false,\n      \"credentialId\": 4242,\n      \"externalId\": \"string\",\n      \"googleMeetAllowed\": true,\n      \"id\": 1172,\n      \"microsoftTeamsAllowed\": true,\n      \"name\": \"string\",\n      \"otherConnectedCalendarsExist\": true,\n      \"provider\": \"string\",\n      \"useType\": \"FAMILY\",\n      \"writableFor\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"reason\": \"MAIN_ACCOUNT_PRIMARY\",\n      \"defaultReminders\": [\n        6699,\n        5153\n      ],\n      \"reminderDefaults\": [\n        {\n          \"minutes\": 9238,\n          \"reminderType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"minutes\": 1530,\n          \"reminderType\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"accessDomainRead\": true\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0f4ca90c-2413-4cad-9105-10b954096e32",
+          "name": "create Time Scheme",
+          "request": {
+            "name": "create Time Scheme",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "timeschemes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"<string>\",\n  \"features\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"policy\": {\n    \"dayHours\": {\n      \"MONDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"TUESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"WEDNESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"THURSDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"FRIDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SATURDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SUNDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      }\n    },\n    \"startOfWeek\": \"<string>\",\n    \"endOfWeek\": \"<string>\"\n  },\n  \"policyType\": \"<string>\",\n  \"title\": \"<string>\",\n  \"taskCategory\": \"<string>\",\n  \"taskTargetCalendarId\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ba4c42a9-8e40-4d44-9b7b-c48cd7ed4eb4",
+              "name": "createTimeScheme 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "timeschemes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"description\": \"<string>\",\n  \"features\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"policy\": {\n    \"dayHours\": {\n      \"MONDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"TUESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"WEDNESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"THURSDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"FRIDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SATURDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SUNDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      }\n    },\n    \"startOfWeek\": \"<string>\",\n    \"endOfWeek\": \"<string>\"\n  },\n  \"policyType\": \"<string>\",\n  \"title\": \"<string>\",\n  \"taskCategory\": \"<string>\",\n  \"taskTargetCalendarId\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"description\": \"string\",\n  \"features\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"string\",\n  \"policy\": {\n    \"dayHours\": {\n      \"MONDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"TUESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"WEDNESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"THURSDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"FRIDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SATURDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SUNDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      }\n    },\n    \"startOfWeek\": \"<string>\",\n    \"endOfWeek\": \"<string>\"\n  },\n  \"policyType\": \"<string>\",\n  \"status\": \"ACTIVE\",\n  \"title\": \"string\",\n  \"userId\": \"string\",\n  \"taskCategory\": \"<string>\",\n  \"taskTargetCalendar\": {\n    \"colorHex\": \"string\",\n    \"connected\": false,\n    \"credentialId\": 3423,\n    \"externalId\": \"string\",\n    \"googleMeetAllowed\": false,\n    \"id\": 9045,\n    \"microsoftTeamsAllowed\": false,\n    \"name\": \"string\",\n    \"otherConnectedCalendarsExist\": false,\n    \"provider\": \"string\",\n    \"useType\": \"FAMILY\",\n    \"writableFor\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"reason\": \"SYNCED_ALREADY\",\n    \"defaultReminders\": [\n      1890,\n      2321\n    ],\n    \"reminderDefaults\": [\n      {\n        \"minutes\": 5313,\n        \"reminderType\": \"EMAIL\"\n      },\n      {\n        \"minutes\": 7883,\n        \"reminderType\": \"UI_NOTIFICATION\"\n      }\n    ],\n    \"accessDomainRead\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b1d2aae6-d30f-4a27-b7d4-3cd6ee9a0196",
+          "name": "query Time Policy Schemes By User Id And Feature",
+          "request": {
+            "name": "query Time Policy Schemes By User Id And Feature",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "timeschemes",
+                "filter-by-feature"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "userId",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "feature",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0cdc828a-9a7e-43fa-a43b-8d70bef66009",
+              "name": "queryTimePolicySchemesByUserIdAndFeature 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "timeschemes",
+                    "filter-by-feature"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "userId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "feature",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"features\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"id\": \"string\",\n    \"policy\": {\n      \"dayHours\": {\n        \"MONDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        },\n        \"TUESDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        },\n        \"WEDNESDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        },\n        \"THURSDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        },\n        \"FRIDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        },\n        \"SATURDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        },\n        \"SUNDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        }\n      },\n      \"startOfWeek\": \"<string>\",\n      \"endOfWeek\": \"<string>\"\n    },\n    \"policyType\": \"<string>\",\n    \"title\": \"string\",\n    \"userId\": \"string\"\n  },\n  {\n    \"features\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"id\": \"string\",\n    \"policy\": {\n      \"dayHours\": {\n        \"MONDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        },\n        \"TUESDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        },\n        \"WEDNESDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        },\n        \"THURSDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        },\n        \"FRIDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        },\n        \"SATURDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        },\n        \"SUNDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        }\n      },\n      \"startOfWeek\": \"<string>\",\n      \"endOfWeek\": \"<string>\"\n    },\n    \"policyType\": \"<string>\",\n    \"title\": \"string\",\n    \"userId\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c30c8eec-f5b6-4bd8-bd0b-3cb6578b8891",
+          "name": "list Time Policy Schemes By User Id And Feature",
+          "request": {
+            "name": "list Time Policy Schemes By User Id And Feature",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "timeschemes",
+                "filter-by-feature",
+                ":userId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "feature",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9b393f23-2ac5-4b70-8021-b344f584d335",
+              "name": "listTimePolicySchemesByUserIdAndFeature 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "timeschemes",
+                    "filter-by-feature",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "feature",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"features\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"id\": \"string\",\n    \"policy\": {\n      \"dayHours\": {\n        \"MONDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        },\n        \"TUESDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        },\n        \"WEDNESDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        },\n        \"THURSDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        },\n        \"FRIDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        },\n        \"SATURDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        },\n        \"SUNDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        }\n      },\n      \"startOfWeek\": \"<string>\",\n      \"endOfWeek\": \"<string>\"\n    },\n    \"policyType\": \"<string>\",\n    \"title\": \"string\",\n    \"userId\": \"string\"\n  },\n  {\n    \"features\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"id\": \"string\",\n    \"policy\": {\n      \"dayHours\": {\n        \"MONDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        },\n        \"TUESDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        },\n        \"WEDNESDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        },\n        \"THURSDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        },\n        \"FRIDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        },\n        \"SATURDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        },\n        \"SUNDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"<partial-time>\",\n          \"endOfDay\": \"<partial-time>\"\n        }\n      },\n      \"startOfWeek\": \"<string>\",\n      \"endOfWeek\": \"<string>\"\n    },\n    \"policyType\": \"<string>\",\n    \"title\": \"string\",\n    \"userId\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5dacb1bf-403c-4798-b798-0cd75e66b754",
+          "name": "update Time Scheme",
+          "request": {
+            "name": "update Time Scheme",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "timeschemes",
+                ":schemeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "schemeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "aa211246-fa34-469a-b56b-4581be5fe500",
+              "name": "updateTimeScheme 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "timeschemes",
+                    ":schemeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "schemeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"description\": \"string\",\n  \"features\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"string\",\n  \"policy\": {\n    \"dayHours\": {\n      \"MONDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"TUESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"WEDNESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"THURSDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"FRIDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SATURDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SUNDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      }\n    },\n    \"startOfWeek\": \"<string>\",\n    \"endOfWeek\": \"<string>\"\n  },\n  \"policyType\": \"<string>\",\n  \"status\": \"ACTIVE\",\n  \"title\": \"string\",\n  \"userId\": \"string\",\n  \"taskCategory\": \"<string>\",\n  \"taskTargetCalendar\": {\n    \"colorHex\": \"string\",\n    \"connected\": false,\n    \"credentialId\": 3423,\n    \"externalId\": \"string\",\n    \"googleMeetAllowed\": false,\n    \"id\": 9045,\n    \"microsoftTeamsAllowed\": false,\n    \"name\": \"string\",\n    \"otherConnectedCalendarsExist\": false,\n    \"provider\": \"string\",\n    \"useType\": \"FAMILY\",\n    \"writableFor\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"reason\": \"SYNCED_ALREADY\",\n    \"defaultReminders\": [\n      1890,\n      2321\n    ],\n    \"reminderDefaults\": [\n      {\n        \"minutes\": 5313,\n        \"reminderType\": \"EMAIL\"\n      },\n      {\n        \"minutes\": 7883,\n        \"reminderType\": \"UI_NOTIFICATION\"\n      }\n    ],\n    \"accessDomainRead\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61d422c1-c903-4fb4-b74d-b71c1755710d",
+          "name": "delete Time Scheme",
+          "request": {
+            "name": "delete Time Scheme",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "timeschemes",
+                ":schemeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "moveToTimeSchemeId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "schemeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "f61c469b-0f8c-4a9d-9e47-6a6336142f59",
+              "name": "deleteTimeScheme 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "timeschemes",
+                    ":schemeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "moveToTimeSchemeId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "schemeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "68ed5357-e7a7-4bd4-8e41-aca8e7cbf7a0",
+          "name": "update Time Scheme 1",
+          "request": {
+            "name": "update Time Scheme 1",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "timeschemes",
+                ":schemeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "schemeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"policyType\": \"<string>\",\n  \"policy\": {\n    \"dayHours\": {\n      \"MONDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"TUESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"WEDNESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"THURSDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"FRIDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SATURDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SUNDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      }\n    },\n    \"startOfWeek\": \"<string>\",\n    \"endOfWeek\": \"<string>\"\n  },\n  \"taskCategory\": \"<string>\",\n  \"taskTargetCalendarId\": \"<long>\",\n  \"features\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7d35170f-6857-4d5e-b2f9-09f1a2a107b4",
+              "name": "updateTimeScheme_1 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "timeschemes",
+                    ":schemeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "schemeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"policyType\": \"<string>\",\n  \"policy\": {\n    \"dayHours\": {\n      \"MONDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"TUESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"WEDNESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"THURSDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"FRIDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SATURDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SUNDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      }\n    },\n    \"startOfWeek\": \"<string>\",\n    \"endOfWeek\": \"<string>\"\n  },\n  \"taskCategory\": \"<string>\",\n  \"taskTargetCalendarId\": \"<long>\",\n  \"features\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"description\": \"string\",\n  \"features\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"string\",\n  \"policy\": {\n    \"dayHours\": {\n      \"MONDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"TUESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"WEDNESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"THURSDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"FRIDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SATURDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SUNDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      }\n    },\n    \"startOfWeek\": \"<string>\",\n    \"endOfWeek\": \"<string>\"\n  },\n  \"policyType\": \"<string>\",\n  \"status\": \"ACTIVE\",\n  \"title\": \"string\",\n  \"userId\": \"string\",\n  \"taskCategory\": \"<string>\",\n  \"taskTargetCalendar\": {\n    \"colorHex\": \"string\",\n    \"connected\": false,\n    \"credentialId\": 3423,\n    \"externalId\": \"string\",\n    \"googleMeetAllowed\": false,\n    \"id\": 9045,\n    \"microsoftTeamsAllowed\": false,\n    \"name\": \"string\",\n    \"otherConnectedCalendarsExist\": false,\n    \"provider\": \"string\",\n    \"useType\": \"FAMILY\",\n    \"writableFor\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"reason\": \"SYNCED_ALREADY\",\n    \"defaultReminders\": [\n      1890,\n      2321\n    ],\n    \"reminderDefaults\": [\n      {\n        \"minutes\": 5313,\n        \"reminderType\": \"EMAIL\"\n      },\n      {\n        \"minutes\": 7883,\n        \"reminderType\": \"UI_NOTIFICATION\"\n      }\n    ],\n    \"accessDomainRead\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c0a7113f-8398-49a1-ad76-68683cc1f4b9",
+    "name": "Reclaim account-time-schemes time-scheme API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

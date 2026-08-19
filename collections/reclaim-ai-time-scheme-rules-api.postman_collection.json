@@ -1,0 +1,573 @@
+{
+  "item": [
+    {
+      "id": "69ff98e8-10e2-40fe-b1f5-395248642ce9",
+      "name": "time-scheme-rules",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2c3efdde-ac88-463f-a103-f7a1b255cfa2",
+          "name": "list Rules",
+          "request": {
+            "name": "list Rules",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "timescheme",
+                "rules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "e8171846-3e30-4181-9fa4-f47e4a48a408",
+              "name": "listRules 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "timescheme",
+                    "rules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"action\": \"SYNC_TO\",\n    \"id\": \"string\",\n    \"index\": 2268,\n    \"ruleType\": \"CASE\",\n    \"serviceType\": \"<string>\",\n    \"userId\": \"string\",\n    \"dueDateRequired\": false,\n    \"labels\": [\n      \"string\",\n      \"string\"\n    ],\n    \"projectIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"timeSchemeId\": \"string\",\n    \"workspaceId\": \"string\"\n  },\n  {\n    \"action\": \"SYNC_TO\",\n    \"id\": \"string\",\n    \"index\": 1941,\n    \"ruleType\": \"CASE\",\n    \"serviceType\": \"<string>\",\n    \"userId\": \"string\",\n    \"dueDateRequired\": true,\n    \"labels\": [\n      \"string\",\n      \"string\"\n    ],\n    \"projectIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"timeSchemeId\": \"string\",\n    \"workspaceId\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "84075e0e-0c36-416e-82b0-2a9331364840",
+          "name": "create Rule",
+          "request": {
+            "name": "create Rule",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "timescheme",
+                "rules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"<string>\",\n  \"ruleType\": \"<string>\",\n  \"serviceType\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"projectIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"timeSchemeId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"dueDateRequired\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "93ded108-9d0a-4a76-86fb-bfe44e75c7e6",
+              "name": "createRule 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "timescheme",
+                    "rules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"action\": \"<string>\",\n  \"ruleType\": \"<string>\",\n  \"serviceType\": \"<string>\",\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"projectIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"timeSchemeId\": \"<string>\",\n  \"workspaceId\": \"<string>\",\n  \"dueDateRequired\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"action\": \"<string>\",\n  \"id\": \"string\",\n  \"index\": 4602,\n  \"ruleType\": \"<string>\",\n  \"serviceType\": \"<string>\",\n  \"userId\": \"string\",\n  \"dueDateRequired\": true,\n  \"labels\": [\n    \"string\",\n    \"string\"\n  ],\n  \"projectIds\": [\n    \"string\",\n    \"string\"\n  ],\n  \"timeSchemeId\": \"string\",\n  \"workspaceId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e2b74ada-b43c-45c3-a6d5-d0491e45c93b",
+          "name": "delete Rule",
+          "request": {
+            "name": "delete Rule",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "timescheme",
+                "rules",
+                ":ruleId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ruleId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "0fa96aa3-b219-4d13-a748-23bed208208c",
+              "name": "deleteRule 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "timescheme",
+                    "rules",
+                    ":ruleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ruleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a93ca072-fe6f-4136-9ff8-a9f3d9dc029a",
+          "name": "update Rule",
+          "request": {
+            "name": "update Rule",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "timescheme",
+                "rules",
+                ":ruleId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ruleId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"projectIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"action\": \"<string>\",\n  \"timeSchemeId\": \"<string>\",\n  \"dueDateRequired\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e0b61d71-f7da-42aa-b58a-3de556f13a6b",
+              "name": "updateRule 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "timescheme",
+                    "rules",
+                    ":ruleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ruleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"labels\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"projectIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"action\": \"<string>\",\n  \"timeSchemeId\": \"<string>\",\n  \"dueDateRequired\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"action\": \"<string>\",\n  \"id\": \"string\",\n  \"index\": 4602,\n  \"ruleType\": \"<string>\",\n  \"serviceType\": \"<string>\",\n  \"userId\": \"string\",\n  \"dueDateRequired\": true,\n  \"labels\": [\n    \"string\",\n    \"string\"\n  ],\n  \"projectIds\": [\n    \"string\",\n    \"string\"\n  ],\n  \"timeSchemeId\": \"string\",\n  \"workspaceId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ac6185d9-152b-479f-bf96-a223387250d3",
+          "name": "reindex 1",
+          "request": {
+            "name": "reindex 1",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "timescheme",
+                "rules",
+                ":ruleId",
+                "reindex"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ruleId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"newIndex\": \"<integer>\",\n  \"serviceType\": \"<string>\",\n  \"shiftDirection\": \"<integer>\",\n  \"workspaceId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "43c5c8f8-a996-4387-a081-57d030758ccc",
+              "name": "reindex_1 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "timescheme",
+                    "rules",
+                    ":ruleId",
+                    "reindex"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ruleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"newIndex\": \"<integer>\",\n  \"serviceType\": \"<string>\",\n  \"shiftDirection\": \"<integer>\",\n  \"workspaceId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6c77edc5-f9d2-4f47-a4c5-0c0f1c781df7",
+    "name": "Reclaim account-time-schemes time-scheme-rules API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

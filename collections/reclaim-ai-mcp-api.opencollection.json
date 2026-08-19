@@ -1,0 +1,258 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes Mcp API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Mcp",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "handleGet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/mcp",
+            "headers": [
+              {
+                "name": "Mcp-Session-Id",
+                "value": ""
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "handlePost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/mcp",
+            "headers": [
+              {
+                "name": "Mcp-Session-Id",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "handleDelete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/mcp",
+            "headers": [
+              {
+                "name": "Mcp-Session-Id",
+                "value": ""
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "mcpOauth2Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/mcp/.well-known/oauth-authorization-server"
+          }
+        },
+        {
+          "info": {
+            "name": "mcpOpenidConfiguration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/mcp/.well-known/openid-configuration"
+          }
+        },
+        {
+          "info": {
+            "name": "handleGetTyped",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/mcp/:mcpType",
+            "headers": [
+              {
+                "name": "Mcp-Session-Id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "mcpType",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "handlePostTyped",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/mcp/:mcpType",
+            "headers": [
+              {
+                "name": "Mcp-Session-Id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "mcpType",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "handleDeleteTyped",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/mcp/:mcpType",
+            "headers": [
+              {
+                "name": "Mcp-Session-Id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "mcpType",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "mcpSub2Oauth2Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/mcp/:subpath1/:subpath2/.well-known/oauth-authorization-server",
+            "params": [
+              {
+                "name": "subpath1",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "subpath2",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "mcpSub2OpenidConfiguration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/mcp/:subpath1/:subpath2/.well-known/openid-configuration",
+            "params": [
+              {
+                "name": "subpath1",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "subpath2",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "mcpSubOauth2Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/mcp/:subpath/.well-known/oauth-authorization-server",
+            "params": [
+              {
+                "name": "subpath",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "mcpSubProtectedResource",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/mcp/:subpath/.well-known/oauth-protected-resource",
+            "params": [
+              {
+                "name": "subpath",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "mcpSubOpenidConfiguration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/mcp/:subpath/.well-known/openid-configuration",
+            "params": [
+              {
+                "name": "subpath",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

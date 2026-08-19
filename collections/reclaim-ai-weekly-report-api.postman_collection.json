@@ -1,0 +1,400 @@
+{
+  "item": [
+    {
+      "id": "a574fb2a-9d49-4c8b-a8e2-4bf3d1580f95",
+      "name": "weekly-report",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d0c95680-9322-41f8-8fa3-9db31b28be6d",
+          "name": "social",
+          "request": {
+            "name": "social",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "weekly-report",
+                "social"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "verificationKey",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8d318869-e999-4d37-9355-6b6eca8c8817",
+              "name": "social 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "weekly-report",
+                    "social"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "verificationKey",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"agenda\": {\n    \"firstRow\": [\n      {\n        \"day\": \"string\",\n        \"extraClass\": \"string\",\n        \"items\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"day\": \"string\",\n        \"extraClass\": \"string\",\n        \"items\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"secondRow\": [\n      {\n        \"day\": \"string\",\n        \"extraClass\": \"string\",\n        \"items\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"day\": \"string\",\n        \"extraClass\": \"string\",\n        \"items\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ]\n  },\n  \"baseUrl\": \"string\",\n  \"callouts\": [\n    {\n      \"backgroundColor\": \"string\",\n      \"icon\": \"string\",\n      \"svgIcon\": \"string\",\n      \"text\": \"string\",\n      \"textColor\": \"string\"\n    },\n    {\n      \"backgroundColor\": \"string\",\n      \"icon\": \"string\",\n      \"svgIcon\": \"string\",\n      \"text\": \"string\",\n      \"textColor\": \"string\"\n    }\n  ],\n  \"celebration\": \"string\",\n  \"reportRange\": \"string\",\n  \"stats\": {\n    \"meetings\": {\n      \"eventType\": \"MEETING\",\n      \"eventTypeFriendly\": \"string\",\n      \"hours\": 4864.70980755143,\n      \"increased\": false,\n      \"infinity\": true,\n      \"noChange\": false,\n      \"percentChange\": 4652.971248608346\n    },\n    \"personal\": {\n      \"eventType\": \"LOGISTICS\",\n      \"eventTypeFriendly\": \"string\",\n      \"hours\": 170.6608003162935,\n      \"increased\": true,\n      \"infinity\": false,\n      \"noChange\": true,\n      \"percentChange\": 4360.175268939248\n    },\n    \"work\": {\n      \"eventType\": \"MEETING\",\n      \"eventTypeFriendly\": \"string\",\n      \"hours\": 4654.815965451809,\n      \"increased\": false,\n      \"infinity\": true,\n      \"noChange\": true,\n      \"percentChange\": 4305.331012685949\n    }\n  },\n  \"tasks\": [\n    {\n      \"chip\": \"string\",\n      \"name\": \"string\",\n      \"timeLeft\": \"string\",\n      \"due\": \"string\"\n    },\n    {\n      \"chip\": \"string\",\n      \"name\": \"string\",\n      \"timeLeft\": \"string\",\n      \"due\": \"string\"\n    }\n  ],\n  \"user\": {\n    \"disablePromotions\": true,\n    \"domain\": \"string\",\n    \"email\": \"string\",\n    \"firstName\": \"string\",\n    \"slackEnabled\": false,\n    \"slackStatusEnabled\": true,\n    \"teamId\": 2107,\n    \"trackingCode\": \"string\"\n  },\n  \"reportRangeEncoded\": \"string\",\n  \"baseUrlEncoded\": \"string\",\n  \"social\": {\n    \"id\": \"string\",\n    \"verificationKey\": \"string\"\n  },\n  \"unsubPayload\": \"string\",\n  \"currentWeekStartDate\": \"1966-03-30\",\n  \"currentWeekEndDate\": \"1994-03-16\",\n  \"currentWeekFocusStats\": {\n    \"actualFocusHours\": 2049.036477305656,\n    \"actualMeetingHours\": 9503.06463856156,\n    \"freeTimeHours\": 1483.5163359365222,\n    \"meetingCompareToLastWeekPercentage\": 3853,\n    \"meetingHoursDownComparedToLastWeek\": false,\n    \"otherWorkHours\": 9199.124704185766,\n    \"targetFocusHours\": 6638.950742132981,\n    \"outOfOfficeHours\": 9732.462976372391,\n    \"totalWorkingHours\": 5176.6460808139955\n  },\n  \"nextWeekFocusStats\": {\n    \"actualFocusHours\": 1436.818497990785,\n    \"actualMeetingHours\": 3392.9141960265197,\n    \"freeTimeHours\": 4980.7122741835,\n    \"meetingCompareToLastWeekPercentage\": 2272,\n    \"meetingHoursDownComparedToLastWeek\": false,\n    \"otherWorkHours\": 9278.594416261714,\n    \"targetFocusHours\": 8151.184989095672,\n    \"outOfOfficeHours\": 5645.1702199083675,\n    \"totalWorkingHours\": 936.2948382738379\n  },\n  \"nextWeekNumberOfConflicts\": 5931,\n  \"streaks\": [\n    {\n      \"emoji\": \"string\",\n      \"text\": \"string\"\n    },\n    {\n      \"emoji\": \"string\",\n      \"text\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "df77394f-c4c5-45f3-b5f2-e99118c8644e",
+          "name": "social Image",
+          "request": {
+            "name": "social Image",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "weekly-report",
+                "social",
+                "{{id}}.png"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4d19e3a7-9d69-4b59-95a2-df201dd0fe11",
+              "name": "socialImage 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "weekly-report",
+                    "social",
+                    "{{id}}.png"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "051ad7bf-7e6c-4ad1-870b-381d0b3e87bb",
+          "name": "social Image Alt",
+          "request": {
+            "name": "social Image Alt",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "weekly-report",
+                "social",
+                ":trackingCode",
+                "{{suffix}}.png"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "trackingCode",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ff2ac974-31f5-45df-887a-2ea8b71adb37",
+              "name": "socialImageAlt 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "weekly-report",
+                    "social",
+                    ":trackingCode",
+                    "{{suffix}}.png"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trackingCode",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b2d4815f-dcf5-4940-b7a6-49c130b2ccb5",
+          "name": "unsubscribe 1",
+          "request": {
+            "name": "unsubscribe 1",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "weekly-report",
+                "unsubscribe"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"verificationKey\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7651d0e7-b9fa-4527-a108-ac2784292bfd",
+              "name": "unsubscribe_1 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "weekly-report",
+                    "unsubscribe"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"verificationKey\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "id"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) ",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "suffix"
+    }
+  ],
+  "info": {
+    "_postman_id": "070b9eb9-2174-4e7b-b9f3-0818b2d58b7b",
+    "name": "Reclaim account-time-schemes weekly-report API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,1221 @@
+{
+  "item": [
+    {
+      "id": "0a851add-bd92-408a-b853-808ff83069a4",
+      "name": "Admin",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a6818823-572f-4cfb-a52f-43372cffdc54",
+          "name": "admin create User",
+          "request": {
+            "name": "admin create User",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "admin",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"orgMetadata\": {\n    \"employeeNumber\": \"<string>\",\n    \"costCenter\": \"<string>\",\n    \"organization\": \"<string>\",\n    \"division\": \"<string>\",\n    \"department\": \"<string>\",\n    \"manager\": {\n      \"displayName\": \"<string>\",\n      \"managerId\": \"<string>\",\n      \"ref\": \"<string>\"\n    },\n    \"customValues\": {\n      \"key_0\": \"string\",\n      \"key_1\": 3275.1328715188633,\n      \"key_2\": 6414,\n      \"key_3\": \"string\"\n    }\n  },\n  \"name\": \"<string>\",\n  \"givenName\": \"<string>\",\n  \"familyName\": \"<string>\",\n  \"externalId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f7934a4c-fbdd-4942-83ce-410239da4ec5",
+              "name": "admin_createUser 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "admin",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"orgMetadata\": {\n    \"employeeNumber\": \"<string>\",\n    \"costCenter\": \"<string>\",\n    \"organization\": \"<string>\",\n    \"division\": \"<string>\",\n    \"department\": \"<string>\",\n    \"manager\": {\n      \"displayName\": \"<string>\",\n      \"managerId\": \"<string>\",\n      \"ref\": \"<string>\"\n    },\n    \"customValues\": {\n      \"key_0\": 4073,\n      \"key_1\": 2695,\n      \"key_2\": \"string\"\n    }\n  },\n  \"name\": \"<string>\",\n  \"givenName\": \"<string>\",\n  \"familyName\": \"<string>\",\n  \"externalId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"email\": \"string\",\n  \"mainAccountId\": 2155,\n  \"name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "05c4804e-2459-4963-bc9b-6694d4bf9a11",
+          "name": "admin delete User",
+          "request": {
+            "name": "admin delete User",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "admin",
+                "users",
+                ":username"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "ee016d24-1943-4d3f-8482-f7d7162bd6f3",
+              "name": "admin_deleteUser 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "admin",
+                    "users",
+                    ":username"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "51960789-6f7f-4b52-88df-69bdaa6b1223",
+          "name": "admin list Accounts",
+          "request": {
+            "name": "admin list Accounts",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "admin",
+                "users",
+                ":username",
+                "accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "54f8cc61-2634-4df5-9a93-26d982e69379",
+              "name": "admin_listAccounts 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "admin",
+                    "users",
+                    ":username",
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 8078,\n    \"name\": \"string\",\n    \"valid\": false,\n    \"avatar\": \"http://VfZXEBdhMYSJU.zmDB-.2+vX5pE+GyVORYNJZ-XvnUwzPNn7bTFfKsklQtp+B3H0tyS1CPB157\",\n    \"main\": true,\n    \"primaryCalendarId\": 4314,\n    \"canDelete\": false,\n    \"type\": \"GOOGLE\",\n    \"identityAccess\": true,\n    \"calendarAccess\": \"SETTINGS_ONLY\",\n    \"taskAccess\": false,\n    \"unique\": true,\n    \"lastSynced\": \"1947-08-25T05:03:57.232Z\",\n    \"switchToMainURI\": \"https://GlhJPbmkKZZvsI.pcbrUmE.CTWc\",\n    \"canSwitchToMain\": false,\n    \"noSwitchToMainReason\": \"string\",\n    \"existingPrimaryUserId\": \"string\",\n    \"repairURI\": \"http://poU.yiebYkWC6nnKcbEWKp6XKRTEoyIDuZi5hQnhCtEmnda+\",\n    \"connectedCalendars\": {\n      \"empty\": true,\n      \"partialView\": false,\n      \"hashCodeFast\": true\n    },\n    \"numSyncedCalendars\": 6169,\n    \"userName\": \"string\",\n    \"firstName\": \"string\",\n    \"lastName\": \"string\",\n    \"scopes\": \"string\",\n    \"contactsAccess\": {\n      \"enabled\": false,\n      \"oauthURI\": \"https://WPGchSoFrcibfZmsRaFdLzAz.gnugHU+M2-XyotrPo8G.QGOZRcxI9ES2Dy7Jz\"\n    },\n    \"directoryAccess\": {\n      \"enabled\": false,\n      \"oauthURI\": \"http://hYeXFqSfpZPftmeRBX.brxPA1UYF1jKArs-DwA5PUt0Gh8G3AgbSwtWVG3F2kyKcQUP.pst2pILq1Jc7U5D6wdin\"\n    },\n    \"sharedCalendarsAccess\": {\n      \"enabled\": true,\n      \"oauthURI\": \"http://EfLzdkNJpynLjHiWrUiyHxJDYx.acgmz9xiBiinsf42OsFRaO.lAxzMUt4DoctM,59I-+4TmAHDwrtWstyOQcc,szA5ydVVNGbtuXPucu-\"\n    },\n    \"canRecolorEvents\": false,\n    \"noRecolorEventsReason\": \"string\",\n    \"capabilities\": {\n      \"IDENTITY\": {\n        \"status\": \"NOT_GRANTED\",\n        \"oauthURI\": \"http://Qcdiau.dsGhgkcFS1qgMxT2liZGNOdVUfmdpeRmPBpB,,ph2hajvsD.gyWR64hR.WOd.07Yad\"\n      },\n      \"AVAILABILITY\": {\n        \"status\": \"PARTIAL\",\n        \"oauthURI\": \"https://qBbcBTQIgpa.cbunQjlaAgTPGdRh8P5KK1u,\"\n      },\n      \"READ_EVENTS\": {\n        \"status\": \"NOT_GRANTED\",\n        \"oauthURI\": \"https://LQVfnHkYnm.npsACg.R,Vx.iBiUFD-zcVfcujPv5qODLUjumPO3sIs7xQud\"\n      },\n      \"WRITE_EVENTS\": {\n        \"status\": \"PARTIAL\",\n        \"oauthURI\": \"http://RGbNjZcGAGRcygJknwurNxfjjzIuj.ejjvFu5K2uNEeW2z5Dc66TEo+LuqQ0c-GDtwuroVzwUosB+,K.Z5OtKxV6oXEJEIfLAisyM\"\n      },\n      \"CALENDAR_ACCESS\": {\n        \"status\": \"PARTIAL\",\n        \"oauthURI\": \"https://FShFrVBuYyjtfymzKvFkBWng.movsANhSN.Sic\"\n      },\n      \"PEOPLE_SUGGESTIONS\": {\n        \"status\": \"NOT_GRANTED\",\n        \"oauthURI\": \"http://YXeCFgIsHcFeCaQKBzTpGOuFPzJziSw.nqxlj9r9SbjFKHvmRijaWwF,9Z7-zF3X6Wa.A\"\n      },\n      \"ROOMS_RESOURCES\": {\n        \"status\": \"NOT_GRANTED\",\n        \"oauthURI\": \"http://uhJeVlJifF.opjynmvRhpr2E4gxCXG.e3wi3Mw08rF4ZUliN0TX9.4ODaqG6ncI,NNN\"\n      },\n      \"SETTINGS\": {\n        \"status\": \"PARTIAL\",\n        \"oauthURI\": \"https://ujFxjhNYh.prYv9UAAQEMrPgnLKy\"\n      },\n      \"OUT_OF_OFFICE_SYNC\": {\n        \"status\": \"GRANTED\",\n        \"oauthURI\": \"http://DaXdBcNLGMphlDlqwLRepXaniKHLKyGwU.btweMenzU1yA5txIlZETc9MUCwXLr8cVo5kgFme++7IAR1qC-qEBINPIVBhzEKPVmDpsKkQMGSoTW\"\n      },\n      \"TASKS\": {\n        \"status\": \"NOT_GRANTED\",\n        \"oauthURI\": \"https://kLDPGVSzVVJZwGhKIIOWrvINRotkvnHSp.swapTDyGIUnGVQQ6lqKw4WHDHHCFNT--Blj,veAWqzMtSQ\"\n      },\n      \"ZOOM_MEETING_CREATION\": {\n        \"status\": \"PARTIAL\",\n        \"oauthURI\": \"http://TFjamdYy.dzwsD+NAmWIdAmenwd\"\n      },\n      \"ZOOM_PRESENCE_DETECTION\": {\n        \"status\": \"NOT_GRANTED\",\n        \"oauthURI\": \"http://pESaKd.vinYVfSzM,LIOtc2x5DIGeXoJ\"\n      },\n      \"ZOOM_MEETING_ASSET_RETRIEVAL\": {\n        \"status\": \"NOT_GRANTED\",\n        \"oauthURI\": \"https://poVKyv.qoiXsXspnA0,uvPCpdx.qB9814zFF0n8lGSn1HAuZ,-FmSQPNAIvy,IEYaI\"\n      }\n    },\n    \"withId\": 9465,\n    \"withName\": \"string\",\n    \"withValid\": true,\n    \"withAvatar\": \"https://WmbPgrEnqOPXXEa.awurO2qg9MEZyUqadeANKtoHbRYnsIBIT4H3tK5R0InOa30HdNslEDO,l\",\n    \"withMain\": false,\n    \"withPrimaryCalendarId\": 2186,\n    \"withCanDelete\": false,\n    \"withType\": \"GOOGLE\",\n    \"withIdentityAccess\": true,\n    \"withCalendarAccess\": \"READ\",\n    \"withTaskAccess\": false,\n    \"withUnique\": false,\n    \"withLastSynced\": \"2018-09-25T04:16:59.262Z\",\n    \"withSwitchToMainURI\": \"http://wuLfubAWqYEQVUlFKPpXNhqcvyKsfxWU.tyc.6ZKw8Vr1gDTMG83mN-.B.Pq\",\n    \"withCanSwitchToMain\": true,\n    \"withNoSwitchToMainReason\": \"string\",\n    \"withExistingPrimaryUserId\": \"string\",\n    \"withRepairURI\": \"http://VumaFhgZSkIJsBTOSSHbaJqZZEzfOcLdH.pgmtSH0JwdjTTnrtrAYFz,J7+XyC23LsM0r9-y-\",\n    \"withConnectedCalendars\": [\n      {\n        \"colorHex\": \"string\",\n        \"connected\": true,\n        \"credentialId\": 7731,\n        \"externalId\": \"string\",\n        \"googleMeetAllowed\": false,\n        \"id\": 8869,\n        \"microsoftTeamsAllowed\": true,\n        \"name\": \"string\",\n        \"otherConnectedCalendarsExist\": true,\n        \"provider\": \"string\",\n        \"useType\": \"FAMILY\",\n        \"writableFor\": [\n          \"FOCUS\",\n          \"SYNC\"\n        ],\n        \"reason\": \"FREE_BUSY_ONLY\",\n        \"defaultReminders\": [\n          8665,\n          2463\n        ],\n        \"reminderDefaults\": [\n          {\n            \"minutes\": 5810,\n            \"reminderType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"minutes\": 7220,\n            \"reminderType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"accessDomainRead\": true\n      },\n      {\n        \"colorHex\": \"string\",\n        \"connected\": false,\n        \"credentialId\": 1888,\n        \"externalId\": \"string\",\n        \"googleMeetAllowed\": true,\n        \"id\": 8709,\n        \"microsoftTeamsAllowed\": false,\n        \"name\": \"string\",\n        \"otherConnectedCalendarsExist\": true,\n        \"provider\": \"string\",\n        \"useType\": \"TEAM_OOO_CALENDAR\",\n        \"writableFor\": [\n          \"FOCUS\",\n          \"TASK_ASSIGNMENT\"\n        ],\n        \"reason\": \"SYNCED_ALREADY\",\n        \"defaultReminders\": [\n          5444,\n          4979\n        ],\n        \"reminderDefaults\": [\n          {\n            \"minutes\": 9287,\n            \"reminderType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"minutes\": 7887,\n            \"reminderType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"accessDomainRead\": false\n      }\n    ],\n    \"withNumSyncedCalendars\": 1519,\n    \"withUserName\": \"string\",\n    \"withFirstName\": \"string\",\n    \"withLastName\": \"string\",\n    \"withScopes\": \"string\",\n    \"withContactsAccess\": {\n      \"enabled\": false,\n      \"oauthURI\": \"https://cIHwFWNcNlReBAmRDqrDjh.zifbfpktwuhKajDSjVKEOnpphXjp8iyuucMWHjm+kf14oYNlcv9BfH3hCnsa75qT9EXlpfu88\"\n    },\n    \"withDirectoryAccess\": {\n      \"enabled\": true,\n      \"oauthURI\": \"https://ektcpnXwWDOtrBGTNXzduxh.atwvKB2NRcFqstnjHtG.O\"\n    },\n    \"withSharedCalendarsAccess\": {\n      \"enabled\": true,\n      \"oauthURI\": \"https://cLXri.uwndZLn2Rbg1a0hXRZkt7cbjuOFyzgBU.LJLYPjtKoVUg1a5dru0T5JI5Li65fb0vSXNXLSmv\"\n    },\n    \"withCanRecolorEvents\": false,\n    \"withNoRecolorEventsReason\": \"string\",\n    \"withCapabilities\": {\n      \"IDENTITY\": {\n        \"status\": \"GRANTED\",\n        \"oauthURI\": \"https://GaoaTCkRxUGe.emxrQ45QvvCQSJD+j3Mt3EpgF4jJ6JSL1\"\n      },\n      \"AVAILABILITY\": {\n        \"status\": \"PARTIAL\",\n        \"oauthURI\": \"https://w.ugLFv9hOTrqPJPRHc+wcOd0SnIAnqJdQQXzOZwi3Dc0ZwyK.Yf3x0YrQ1nXzLk5SgO\"\n      },\n      \"READ_EVENTS\": {\n        \"status\": \"PARTIAL\",\n        \"oauthURI\": \"http://gY.ceiwNl,RqYCSbCG2\"\n      },\n      \"WRITE_EVENTS\": {\n        \"status\": \"GRANTED\",\n        \"oauthURI\": \"http://iLmTHUftVJiSRjLSISEVZR.gyrCSVp-guxi-aFCVZmpTctcEhpYyUPXf2+m.0fMi-\"\n      },\n      \"CALENDAR_ACCESS\": {\n        \"status\": \"PARTIAL\",\n        \"oauthURI\": \"http://KDIcVFn.irYCWcksDk8FuF,iso1EJJaT\"\n      },\n      \"PEOPLE_SUGGESTIONS\": {\n        \"status\": \"GRANTED\",\n        \"oauthURI\": \"https://lcSMW.fdekcYM6h4,PFXDfjX+SwXa-xT0t7,A,+dKdBh\"\n      },\n      \"ROOMS_RESOURCES\": {\n        \"status\": \"GRANTED\",\n        \"oauthURI\": \"https://pGhItzECMFvvksijyGxiWlEW.gldJPub5z9rJ4H0-sBMDfE0ABq7lduV5HNN-eE,Ku0pRWaJjxZGvoLzxQHDvpBALDHhyXoohP\"\n      },\n      \"SETTINGS\": {\n        \"status\": \"GRANTED\",\n        \"oauthURI\": \"http://PoF.tlvhKPwmHTIqMvbc2gE6837GDtCEox9730,flf.gOADRiUdJH13AsiC\"\n      },\n      \"OUT_OF_OFFICE_SYNC\": {\n        \"status\": \"PARTIAL\",\n        \"oauthURI\": \"http://YUvfcsxmhSwgMaFFXUaInkSOZ.xaP5+bKN2BOl,y+aBndxL-mQDky5etxeqAaYO1L2Hfz7WfGqspMVCZGGAMdGsXTg,y..iMaQycY0g0\"\n      },\n      \"TASKS\": {\n        \"status\": \"NOT_GRANTED\",\n        \"oauthURI\": \"https://rJqS.ymxzEhOky3sW8Zdzu+006hVg,enLQFI.jA4UuVjAO-FW9opEFPBT9sxn5Tb0gXm3bQfsNb+VMhfVpcUSnU\"\n      },\n      \"ZOOM_MEETING_CREATION\": {\n        \"status\": \"GRANTED\",\n        \"oauthURI\": \"https://rcDotQLftHfMgHAezYYFQp.mwnwnuFZn7-,qnZcTvPqbHsH3rPfg74\"\n      },\n      \"ZOOM_PRESENCE_DETECTION\": {\n        \"status\": \"NOT_GRANTED\",\n        \"oauthURI\": \"http://QkfMBQBmzWxroXVzqshr.csXa5Bm7A5,hJQc1t-x1jQRJFRJG5XPJk,\"\n      },\n      \"ZOOM_MEETING_ASSET_RETRIEVAL\": {\n        \"status\": \"NOT_GRANTED\",\n        \"oauthURI\": \"http://iIcdMKZJLuu.jpj6-6BVDhMH8bRr5XaxabsXA0KVm+IGM41Ak.oZXfZNaUDQzAaC3GAREZoe59RJ8KnWLJw\"\n      }\n    },\n    \"equals\": \"\",\n    \"hashCode\": 483,\n    \"toString\": \"string\"\n  },\n  {\n    \"id\": 9267,\n    \"name\": \"string\",\n    \"valid\": false,\n    \"avatar\": \"https://SWhdQfXWCfHYCNMSNYyIdwlxkmywJFpj.zqJ3WsXsdgqWaFUC32bp2myM6mOWUXg0Ef+7+\",\n    \"main\": false,\n    \"primaryCalendarId\": 472,\n    \"canDelete\": true,\n    \"type\": \"MICROSOFT\",\n    \"identityAccess\": true,\n    \"calendarAccess\": \"NONE\",\n    \"taskAccess\": false,\n    \"unique\": true,\n    \"lastSynced\": \"2013-05-28T08:41:51.747Z\",\n    \"switchToMainURI\": \"http://ROjPGesNhEiYNJfE.vcju4wwT+Uf0oufJe.oMVDqZFbHXJUmlv5rMWRDONzjKeExdCrYRu726cwJw5jj71\",\n    \"canSwitchToMain\": false,\n    \"noSwitchToMainReason\": \"string\",\n    \"existingPrimaryUserId\": \"string\",\n    \"repairURI\": \"https://zrHh.ofauHY56paUzC-cmXtOmzczPWAFCWh08Z\",\n    \"connectedCalendars\": {\n      \"empty\": true,\n      \"partialView\": true,\n      \"hashCodeFast\": false\n    },\n    \"numSyncedCalendars\": 3090,\n    \"userName\": \"string\",\n    \"firstName\": \"string\",\n    \"lastName\": \"string\",\n    \"scopes\": \"string\",\n    \"contactsAccess\": {\n      \"enabled\": true,\n      \"oauthURI\": \"https://nZpFWKBROTiipfvIUNKroIt.lbjXyo0yNVPqTp8381h7VCynFkxs58eGm-Jwa3ZqokpPeBFieDpA,Nm5JCKzsm-\"\n    },\n    \"directoryAccess\": {\n      \"enabled\": false,\n      \"oauthURI\": \"https://LfnkFvEfYLSZrVZfUFOlobKKqFa.xfhIA-KJltNkqtyQgtO+EWWP.oeXF65iR.ttCmYRrGO\"\n    },\n    \"sharedCalendarsAccess\": {\n      \"enabled\": false,\n      \"oauthURI\": \"http://D.ybGUxXuJn4fAUJWCvdRoq2D\"\n    },\n    \"canRecolorEvents\": false,\n    \"noRecolorEventsReason\": \"string\",\n    \"capabilities\": {\n      \"IDENTITY\": {\n        \"status\": \"GRANTED\",\n        \"oauthURI\": \"https://qLghPjyCeMAFXsIsC.oxlctv06-ptHdpE.9,AGRRtD14NvOta6gqYC1qlV\"\n      },\n      \"AVAILABILITY\": {\n        \"status\": \"PARTIAL\",\n        \"oauthURI\": \"https://nugBJobYqPLeguEDOs.rztbDSHW8XlGSYjmq4Bq5SdwjdHgNxH1YDqOBzneB9lD4yeiXsn+Y0w\"\n      },\n      \"READ_EVENTS\": {\n        \"status\": \"NOT_GRANTED\",\n        \"oauthURI\": \"https://EqyryzamZRIkzTRHbKyowfFLKd.nqmuIahfuxyKf6,QS6RS,o.cEwYY-eNU-pwrjgR9g\"\n      },\n      \"WRITE_EVENTS\": {\n        \"status\": \"GRANTED\",\n        \"oauthURI\": \"http://i.jyHwj4u6oBnJb447ehrOieU1fHY\"\n      },\n      \"CALENDAR_ACCESS\": {\n        \"status\": \"NOT_GRANTED\",\n        \"oauthURI\": \"http://VUIWZphbyMumkjHPmJOWdPTNbvZX.tlpHRaQcfthAKF5MvSe-bnAU\"\n      },\n      \"PEOPLE_SUGGESTIONS\": {\n        \"status\": \"GRANTED\",\n        \"oauthURI\": \"https://XGRhYrEtqsVzYgoitF.kjyH-n5njEkTaHkCvXkjtvo\"\n      },\n      \"ROOMS_RESOURCES\": {\n        \"status\": \"PARTIAL\",\n        \"oauthURI\": \"https://TNee.bsmDI3YX3E0DjrDy3p6F3wTWrlOehUhNJexFMJQyeo4WZuMSNC9bcspryOfmOeqRCq.TSckT\"\n      },\n      \"SETTINGS\": {\n        \"status\": \"PARTIAL\",\n        \"oauthURI\": \"http://OppdnHvQzuqeHjxCsEhwutzQWeUmGho.nhdrjwNdQa3gssqQS.0ve2IfPDTmTcZgPveV7NSyxNK+qHJuI5Pyq9nFfA5QKFIGI183tp4WznACIgygSyarm\"\n      },\n      \"OUT_OF_OFFICE_SYNC\": {\n        \"status\": \"NOT_GRANTED\",\n        \"oauthURI\": \"http://UgOWpjgSyTitSuDjdt.npAgmw7FoLdZhZcqYe-4i3LJX2929KgJVLUcHmUuOWMyzBTi5t0xF1BUK4vj,NBkI3q3piEkQw\"\n      },\n      \"TASKS\": {\n        \"status\": \"GRANTED\",\n        \"oauthURI\": \"https://TjVEbXKKSavtkVJpgwhIyPc.nexsCS8G3k1V.DuoWlgdqvQgk8BM7SgK6lfUhnX3SwIS9NTJTBXeR2Nrca\"\n      },\n      \"ZOOM_MEETING_CREATION\": {\n        \"status\": \"NOT_GRANTED\",\n        \"oauthURI\": \"http://yOKIINKjrgjERvsGO.rlbcFou-MfRsUDAssupEv0AzDnGC6TOyxYDuYGc4FXhDLsK.ixMGntv6el15KO1vS\"\n      },\n      \"ZOOM_PRESENCE_DETECTION\": {\n        \"status\": \"GRANTED\",\n        \"oauthURI\": \"http://Im.adpoLIYhb\"\n      },\n      \"ZOOM_MEETING_ASSET_RETRIEVAL\": {\n        \"status\": \"PARTIAL\",\n        \"oauthURI\": \"https://oNDquHMkykClDectrb.awJf9AfWf2KLcsAcelAvcAWaDr6SGr.BwjirGdB6,J3GITO4AmUEuMe\"\n      }\n    },\n    \"withId\": 9518,\n    \"withName\": \"string\",\n    \"withValid\": true,\n    \"withAvatar\": \"http://qvGbktQWBzwlESz.nps-dNdw.otWlKpnB,s0\",\n    \"withMain\": true,\n    \"withPrimaryCalendarId\": 7759,\n    \"withCanDelete\": true,\n    \"withType\": \"GOOGLE\",\n    \"withIdentityAccess\": false,\n    \"withCalendarAccess\": \"SETTINGS_ONLY\",\n    \"withTaskAccess\": false,\n    \"withUnique\": false,\n    \"withLastSynced\": \"2013-11-06T01:46:42.524Z\",\n    \"withSwitchToMainURI\": \"http://TkmZkldwsYDQbeSBbOsKSGgTZuTTuxf.oyun,WTsFEBYPUb1d\",\n    \"withCanSwitchToMain\": true,\n    \"withNoSwitchToMainReason\": \"string\",\n    \"withExistingPrimaryUserId\": \"string\",\n    \"withRepairURI\": \"http://vluYedmviWMiyoUpATR.htMW+Kz.TEw-hdUwKPrahbuKd1g.0oLL\",\n    \"withConnectedCalendars\": [\n      {\n        \"colorHex\": \"string\",\n        \"connected\": false,\n        \"credentialId\": 5291,\n        \"externalId\": \"string\",\n        \"googleMeetAllowed\": false,\n        \"id\": 8725,\n        \"microsoftTeamsAllowed\": true,\n        \"name\": \"string\",\n        \"otherConnectedCalendarsExist\": false,\n        \"provider\": \"string\",\n        \"useType\": \"TEAM_OOO_CALENDAR\",\n        \"writableFor\": [\n          \"SCHEDULING_LINK_MEETING\",\n          \"ONE_ON_ONE_ASSIGNMENT\"\n        ],\n        \"reason\": \"SYNCED_ALREADY\",\n        \"defaultReminders\": [\n          4207,\n          1522\n        ],\n        \"reminderDefaults\": [\n          {\n            \"minutes\": 6874,\n            \"reminderType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"minutes\": 8757,\n            \"reminderType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"accessDomainRead\": true\n      },\n      {\n        \"colorHex\": \"string\",\n        \"connected\": false,\n        \"credentialId\": 6061,\n        \"externalId\": \"string\",\n        \"googleMeetAllowed\": false,\n        \"id\": 1925,\n        \"microsoftTeamsAllowed\": false,\n        \"name\": \"string\",\n        \"otherConnectedCalendarsExist\": true,\n        \"provider\": \"string\",\n        \"useType\": \"TEAM\",\n        \"writableFor\": [\n          \"SCHEDULING_LINK_MEETING\",\n          \"SMART_HABIT\"\n        ],\n        \"reason\": \"MAIN_ACCOUNT_PRIMARY\",\n        \"defaultReminders\": [\n          4434,\n          9868\n        ],\n        \"reminderDefaults\": [\n          {\n            \"minutes\": 2001,\n            \"reminderType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"minutes\": 7372,\n            \"reminderType\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"accessDomainRead\": true\n      }\n    ],\n    \"withNumSyncedCalendars\": 4935,\n    \"withUserName\": \"string\",\n    \"withFirstName\": \"string\",\n    \"withLastName\": \"string\",\n    \"withScopes\": \"string\",\n    \"withContactsAccess\": {\n      \"enabled\": false,\n      \"oauthURI\": \"https://NcxnRHUyqzkLrWSnDMpSHlvLrqXCsQ.swoxUN01FpoGFqI0AMHtD.T0gYw1MsZ-IQg-CWaCxyVq3Ki3IVH44\"\n    },\n    \"withDirectoryAccess\": {\n      \"enabled\": false,\n      \"oauthURI\": \"http://dnWTGJzhgnPDoKrdRLzSFWtOVoBmAguG.reyeCfrhBLebewfO3rgFtY7uhCAi\"\n    },\n    \"withSharedCalendarsAccess\": {\n      \"enabled\": false,\n      \"oauthURI\": \"https://A.nmoamK00ewLUIuDQ8W5OjMMQlrPNGbheImG1znrfRbsF\"\n    },\n    \"withCanRecolorEvents\": false,\n    \"withNoRecolorEventsReason\": \"string\",\n    \"withCapabilities\": {\n      \"IDENTITY\": {\n        \"status\": \"GRANTED\",\n        \"oauthURI\": \"http://lzLAJIeAn.wtfmvpnlbkHuIAWC7Qa9iKT6slwF9P-,-VM80Gw2Bola\"\n      },\n      \"AVAILABILITY\": {\n        \"status\": \"PARTIAL\",\n        \"oauthURI\": \"http://l.zroV7gZGLdvOC5o7cdz5RtruP.ZTNfWOuOwJmph7\"\n      },\n      \"READ_EVENTS\": {\n        \"status\": \"NOT_GRANTED\",\n        \"oauthURI\": \"https://tckjDIjFTUmdVooy.vbby,qAExdf\"\n      },\n      \"WRITE_EVENTS\": {\n        \"status\": \"GRANTED\",\n        \"oauthURI\": \"http://XcIXUzaqnWjBJsDQKRO.plOH0CtNjDCuO-vzuYOZ3OAb+,-5MtO+AxjAkWo0lm3vzNdM.BFUiQF7mqZsFMaMXmpv+o\"\n      },\n      \"CALENDAR_ACCESS\": {\n        \"status\": \"GRANTED\",\n        \"oauthURI\": \"https://NjGdMussPcIVJukjhJTpneD.qholyvKqx,WkQTU9qmA\"\n      },\n      \"PEOPLE_SUGGESTIONS\": {\n        \"status\": \"PARTIAL\",\n        \"oauthURI\": \"http://zhCXZwtiUNkWjpDKeYHLNqz.csx\"\n      },\n      \"ROOMS_RESOURCES\": {\n        \"status\": \"NOT_GRANTED\",\n        \"oauthURI\": \"https://mSffBAqrnzyOclnzruYmvKNPZZvBuYgZL.wjiuVWQ5dlAxHNsvUkD1mYPWMeEjk+r.KuRQJNG+\"\n      },\n      \"SETTINGS\": {\n        \"status\": \"PARTIAL\",\n        \"oauthURI\": \"https://beVZS.nqjzy5O5Y2TO5,PHWF4ShRZv,oMgQ0MkiQ\"\n      },\n      \"OUT_OF_OFFICE_SYNC\": {\n        \"status\": \"NOT_GRANTED\",\n        \"oauthURI\": \"http://BetgSzrlSVIr.hzrwkna3XnwIevgxpeKu1fgrIuOAn3xJQtChRhO0+no6z1TL7OeRzqIyyUs\"\n      },\n      \"TASKS\": {\n        \"status\": \"GRANTED\",\n        \"oauthURI\": \"https://XBeSLYLNCmcM.cieiXaA6jr67w3-hXFS+pqVVnc6Iws2Pp\"\n      },\n      \"ZOOM_MEETING_CREATION\": {\n        \"status\": \"NOT_GRANTED\",\n        \"oauthURI\": \"http://zXsAUMtLxRgmNjMwRYtYJnTCsbeiP.agawtAVZlXiD4u5xHWbPE9rW7nMaeNw.BNKRGqW8nbka+EvnBQy8o9JpEYF\"\n      },\n      \"ZOOM_PRESENCE_DETECTION\": {\n        \"status\": \"NOT_GRANTED\",\n        \"oauthURI\": \"https://uFexXNmUoabdWqMdzPuyQmpnRlYgbOsW.zdlhLD,w0odANfCh4EBSyHOfbfoYqwzV7ecbEvFb5tJzKbJyvUKaCkiqjR\"\n      },\n      \"ZOOM_MEETING_ASSET_RETRIEVAL\": {\n        \"status\": \"GRANTED\",\n        \"oauthURI\": \"http://HtFZqgIDneGvwfYTWw.wlsUeutav.qQZY2h7I01+pB8L-czVieuc25uN1ksHG18F\"\n      }\n    },\n    \"equals\": \"\",\n    \"hashCode\": 8372,\n    \"toString\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "31459ad4-f996-4f23-81dd-064052c2074a",
+          "name": "admin create Account",
+          "request": {
+            "name": "admin create Account",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "admin",
+                "users",
+                ":username",
+                "accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"accountName\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "03a6d478-d2b7-469c-a5b8-220ef9000b86",
+              "name": "admin_createAccount 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "admin",
+                    "users",
+                    ":username",
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountName\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 652,\n  \"name\": \"string\",\n  \"valid\": false,\n  \"avatar\": \"http://gpSScsLfIYljLGKKaclTbbZjKZfuv.yzats,4Zu1loW96.MZPOSEGJ.FlBaxsq4SDrM0fbL4y602yM0XQx\",\n  \"main\": true,\n  \"primaryCalendarId\": 5820,\n  \"canDelete\": true,\n  \"type\": \"GOOGLE\",\n  \"identityAccess\": false,\n  \"calendarAccess\": \"SETTINGS_ONLY\",\n  \"taskAccess\": true,\n  \"unique\": true,\n  \"lastSynced\": \"1953-01-23T12:19:57.071Z\",\n  \"switchToMainURI\": \"https://uqKTFvWjWw.fedtRh4S-qmY3eRfFoV4k,jn6.OZWLQhOC6ch7wPDWFo\",\n  \"canSwitchToMain\": true,\n  \"noSwitchToMainReason\": \"string\",\n  \"existingPrimaryUserId\": \"string\",\n  \"repairURI\": \"https://lyGRnoxQsEZBLFVHJ.vgjUkmLL6uTgzfUpLeMUczPs\",\n  \"connectedCalendars\": {\n    \"empty\": true,\n    \"partialView\": false,\n    \"hashCodeFast\": false\n  },\n  \"numSyncedCalendars\": 2617,\n  \"userName\": \"string\",\n  \"firstName\": \"string\",\n  \"lastName\": \"string\",\n  \"scopes\": \"string\",\n  \"contactsAccess\": {\n    \"enabled\": true,\n    \"oauthURI\": \"http://QDgWuF.oqfrLTSe,bdnZY,Nn6oSof4vlkwEdAEuJzZcY\"\n  },\n  \"directoryAccess\": {\n    \"enabled\": true,\n    \"oauthURI\": \"https://zCVyDeQELtTaNdJFlYj.cfjmWbhrN8nNCP4cE7PZF0+A-70Gn\"\n  },\n  \"sharedCalendarsAccess\": {\n    \"enabled\": false,\n    \"oauthURI\": \"https://mWhbJVkwasNtOLuJcWpgrCUYyHrsQoHv.hmSGVF4duqucyYZ8ssO116HGNQ2tp.GKwEuaIcC\"\n  },\n  \"canRecolorEvents\": false,\n  \"noRecolorEventsReason\": \"string\",\n  \"capabilities\": {\n    \"IDENTITY\": {\n      \"status\": \"PARTIAL\",\n      \"oauthURI\": \"https://fXmCQqSVSRVGKWhUSVemgXLfYOz.dfav79Niqsc9dPDrQq8pKSkQ3W5NpqMmhdX.QBLWypd,bUw.zw4k+IKJs5p0KJzKOg0I\"\n    },\n    \"AVAILABILITY\": {\n      \"status\": \"GRANTED\",\n      \"oauthURI\": \"http://GmKfhiXr.ovoNts9Fd8OKPG7JNT6eRsJ7P+ixEehr6iwj6s4\"\n    },\n    \"READ_EVENTS\": {\n      \"status\": \"NOT_GRANTED\",\n      \"oauthURI\": \"https://UhtlkFxvUUgL.cjtsWwtedASbqsmShFb5rA.mzqTnTVMl+xJFszuhBDQEz\"\n    },\n    \"WRITE_EVENTS\": {\n      \"status\": \"PARTIAL\",\n      \"oauthURI\": \"https://cbyApeRORYXDgvQgfNgKAPaGOTimGvCjo.cmjB6MhXL0iBdj-SS297VsRLt+TxIRRKXck7u3\"\n    },\n    \"CALENDAR_ACCESS\": {\n      \"status\": \"NOT_GRANTED\",\n      \"oauthURI\": \"https://bgkKFDCVckYWrkmOJjPfWflIg.xaweAmEVmiBzWriodwynwu1mtfgJGkL8xp370tN\"\n    },\n    \"PEOPLE_SUGGESTIONS\": {\n      \"status\": \"PARTIAL\",\n      \"oauthURI\": \"https://LhzBDOGsx.aqxTu+gnp0Ih.vr2,Kcfz3QWTIqw0WkFivhUKyyUyGkyMDk\"\n    },\n    \"ROOMS_RESOURCES\": {\n      \"status\": \"NOT_GRANTED\",\n      \"oauthURI\": \"https://merwYeagbDHBjWGLalHRifaBoQeAaB.nrjxYHPSfb2OPTe95paFKJSLz9.9R\"\n    },\n    \"SETTINGS\": {\n      \"status\": \"NOT_GRANTED\",\n      \"oauthURI\": \"https://YScGabAfPsxLdqWyyBES.pzvPA83RWPOJp74Uwx7IXn35QkXjcqVZ1bU0ly3Tua.wkPv0r-N558AEBruMrgAO9r-D1\"\n    },\n    \"OUT_OF_OFFICE_SYNC\": {\n      \"status\": \"NOT_GRANTED\",\n      \"oauthURI\": \"http://OqmkvJiiIzXladudhK.crqxZNP+a-gcSQbmTHNjzQvEPlmX4o,NNGKxbXF1.hK2FapLeq9T.GXjh-eZEXsd5b\"\n    },\n    \"TASKS\": {\n      \"status\": \"NOT_GRANTED\",\n      \"oauthURI\": \"http://fpVuuJudNqSMHKBizJm.zjqy6Pj.pwbGFa\"\n    },\n    \"ZOOM_MEETING_CREATION\": {\n      \"status\": \"NOT_GRANTED\",\n      \"oauthURI\": \"http://tRnVTDjwrBLJYZgeHqCpkQ.ysT0Lp+V\"\n    },\n    \"ZOOM_PRESENCE_DETECTION\": {\n      \"status\": \"NOT_GRANTED\",\n      \"oauthURI\": \"http://GiVqdRioIdPzzPIBKbIIHdPMhuT.kpx5TAR93c1xYGqYj4B9dFgXe8CwH8XU82NyoHU9VJ1D-.pg83\"\n    },\n    \"ZOOM_MEETING_ASSET_RETRIEVAL\": {\n      \"status\": \"NOT_GRANTED\",\n      \"oauthURI\": \"http://uFtpzKZqWL.bfusxjg90sbOVfN+mj3bzUjxbbQziN6lm5sQQ2mF8mk1rZf+C0zEZ+K3Lq9F0tuBzbRKF9,\"\n    }\n  },\n  \"withId\": 8674,\n  \"withName\": \"string\",\n  \"withValid\": false,\n  \"withAvatar\": \"http://eKaUZCHabvHqxDmVMZrfYVNrRgbeE.ngqcDPU3bwZfdFQ,-E1AxY7-\",\n  \"withMain\": false,\n  \"withPrimaryCalendarId\": 1952,\n  \"withCanDelete\": false,\n  \"withType\": \"GOOGLE\",\n  \"withIdentityAccess\": false,\n  \"withCalendarAccess\": \"SETTINGS_ONLY\",\n  \"withTaskAccess\": true,\n  \"withUnique\": false,\n  \"withLastSynced\": \"2016-10-29T11:48:42.359Z\",\n  \"withSwitchToMainURI\": \"https://PksjhIaP.tzlafhVr5Jv72pFyd2XLL6nl+FRoYtT42BZM8BWFKIA6dL4h66Edd\",\n  \"withCanSwitchToMain\": false,\n  \"withNoSwitchToMainReason\": \"string\",\n  \"withExistingPrimaryUserId\": \"string\",\n  \"withRepairURI\": \"https://JbywSpcrHHYctjjiKcAGCjkkEU.kfryCdQynonmTcTEA5PE6dmbWc-vlwcpdk.\",\n  \"withConnectedCalendars\": [\n    {\n      \"colorHex\": \"string\",\n      \"connected\": true,\n      \"credentialId\": 3035,\n      \"externalId\": \"string\",\n      \"googleMeetAllowed\": true,\n      \"id\": 6585,\n      \"microsoftTeamsAllowed\": true,\n      \"name\": \"string\",\n      \"otherConnectedCalendarsExist\": false,\n      \"provider\": \"string\",\n      \"useType\": \"VACATION\",\n      \"writableFor\": [\n        \"SCHEDULING_LINK_MEETING\",\n        \"CONF_BUFFER\"\n      ],\n      \"reason\": \"SYNCED_ALREADY\",\n      \"defaultReminders\": [\n        3978,\n        7704\n      ],\n      \"reminderDefaults\": [\n        {\n          \"minutes\": 5060,\n          \"reminderType\": \"EMAIL\"\n        },\n        {\n          \"minutes\": 9486,\n          \"reminderType\": \"UI_NOTIFICATION\"\n        }\n      ],\n      \"accessDomainRead\": false\n    },\n    {\n      \"colorHex\": \"string\",\n      \"connected\": true,\n      \"credentialId\": 6550,\n      \"externalId\": \"string\",\n      \"googleMeetAllowed\": false,\n      \"id\": 9540,\n      \"microsoftTeamsAllowed\": false,\n      \"name\": \"string\",\n      \"otherConnectedCalendarsExist\": false,\n      \"provider\": \"string\",\n      \"useType\": \"TEAM\",\n      \"writableFor\": [\n        \"SMART_HABIT\",\n        \"UNKNOWN\"\n      ],\n      \"reason\": \"MAIN_ACCOUNT_PRIMARY\",\n      \"defaultReminders\": [\n        3461,\n        5793\n      ],\n      \"reminderDefaults\": [\n        {\n          \"minutes\": 3683,\n          \"reminderType\": \"EMAIL\"\n        },\n        {\n          \"minutes\": 7976,\n          \"reminderType\": \"EMAIL\"\n        }\n      ],\n      \"accessDomainRead\": true\n    }\n  ],\n  \"withNumSyncedCalendars\": 1526,\n  \"withUserName\": \"string\",\n  \"withFirstName\": \"string\",\n  \"withLastName\": \"string\",\n  \"withScopes\": \"string\",\n  \"withContactsAccess\": {\n    \"enabled\": true,\n    \"oauthURI\": \"https://oqzXYLJHe.bubXO-pmjkBGRp8JaAjfQCh4ZA46MVWIXq-zvrhLt9UCkyDg2MW6glI\"\n  },\n  \"withDirectoryAccess\": {\n    \"enabled\": true,\n    \"oauthURI\": \"http://mJJKfiAuuEhn.igdvQuI6xXhEfunbjR8tK\"\n  },\n  \"withSharedCalendarsAccess\": {\n    \"enabled\": false,\n    \"oauthURI\": \"http://hkhsdhHXQbKVmnzSsJtcKEASOMvRCd.wcRyVfYDquScNRi4RYapk-qb9mv1T1jUCMf5KIty8kNnIlbQfpSX\"\n  },\n  \"withCanRecolorEvents\": true,\n  \"withNoRecolorEventsReason\": \"string\",\n  \"withCapabilities\": {\n    \"IDENTITY\": {\n      \"status\": \"GRANTED\",\n      \"oauthURI\": \"https://ZbkDfecbjpdZpDLIb.zvvgqt5rzmyilvSn.teHyRseQWut-myuPU9k7HD\"\n    },\n    \"AVAILABILITY\": {\n      \"status\": \"PARTIAL\",\n      \"oauthURI\": \"https://kKDAsjVlhCLSV.zyhFvezZxgHzGqvzLLb-1gvd5RDgwKbBbg.pVQ7O3Qc1CdM.AO0pa-G\"\n    },\n    \"READ_EVENTS\": {\n      \"status\": \"PARTIAL\",\n      \"oauthURI\": \"https://uBgFFyWouULbWqYp.tzXzSGKkESFR9CMbuRXhhB,Vbxf4nWm8ks\"\n    },\n    \"WRITE_EVENTS\": {\n      \"status\": \"NOT_GRANTED\",\n      \"oauthURI\": \"http://dYUmzyOHazH.xqtLx3eQgURMa-WWtGO12FvQDLyspeXyIFa4xzmz50KycJf31Mz+v48zzgRd3P598Q6aX\"\n    },\n    \"CALENDAR_ACCESS\": {\n      \"status\": \"NOT_GRANTED\",\n      \"oauthURI\": \"https://oAXMtXhHEGkP.maiiygS1XxhGXuZiuJbLfnZJc2YbeG7ngD505OAqhuHNvIMY0.Xyj2cZZqPmHaP+yzYs\"\n    },\n    \"PEOPLE_SUGGESTIONS\": {\n      \"status\": \"GRANTED\",\n      \"oauthURI\": \"http://xtOSynlMyUQhpqvsHzcqHVNUhc.omsntGx8Zv.g+sC6Sh2Sw8ATIZ6YLfAxLNpWwTv6M\"\n    },\n    \"ROOMS_RESOURCES\": {\n      \"status\": \"GRANTED\",\n      \"oauthURI\": \"https://cZgzqvriAZHbhaznPW.mlnxFOAFz,L\"\n    },\n    \"SETTINGS\": {\n      \"status\": \"GRANTED\",\n      \"oauthURI\": \"http://lGYXhATdVegGYhjTsvFZdOYiJABvFVS.kbzQxSyrh4W77SUQn6VIWmtVmeOKHWKZkVIb\"\n    },\n    \"OUT_OF_OFFICE_SYNC\": {\n      \"status\": \"NOT_GRANTED\",\n      \"oauthURI\": \"http://oKr.qqhSqU66LSVmiTN4tzcxZNSV86ZPxcQY7t++ZKlMGEcaXHEk\"\n    },\n    \"TASKS\": {\n      \"status\": \"GRANTED\",\n      \"oauthURI\": \"https://tfqbMVyTxMldSOphW.koMCgg5HyJSl6KwTmfpVLgGMEXrrKloBk+NE6Cqju\"\n    },\n    \"ZOOM_MEETING_CREATION\": {\n      \"status\": \"NOT_GRANTED\",\n      \"oauthURI\": \"https://u.abgAEsb4KI8z2bVC7wyO+IgA7xw9uUyzepwYFDfs\"\n    },\n    \"ZOOM_PRESENCE_DETECTION\": {\n      \"status\": \"GRANTED\",\n      \"oauthURI\": \"http://WyZZmOCKGLvCgHQuhQOl.qmzUNOSrGLaFfXxRINCUuOdxHgN+\"\n    },\n    \"ZOOM_MEETING_ASSET_RETRIEVAL\": {\n      \"status\": \"PARTIAL\",\n      \"oauthURI\": \"http://oAAigiAePXBAcUeVlqCnwcsXqhIUxPdPS.rtkxUG85csGnadb72pzXvkkdEsumjkxufcTmNwj0SxKMftO,lofsPIfIBY0BgVYtCPjwgSjTwiY+tny0hzyu7,A\"\n    }\n  },\n  \"equals\": \"\",\n  \"hashCode\": 6973,\n  \"toString\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6cbbe333-41a1-4116-ba23-cd62cded7c8d",
+          "name": "admin switch Main Account",
+          "request": {
+            "name": "admin switch Main Account",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "admin",
+                "users",
+                ":username",
+                "accounts",
+                ":accountId",
+                "main"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "accountId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "95bd300e-c990-4254-91ef-ce1a447f5b96",
+              "name": "admin_switchMainAccount 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "admin",
+                    "users",
+                    ":username",
+                    "accounts",
+                    ":accountId",
+                    "main"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "accountId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ac1a6fe-8938-4b65-a007-0e8479799b75",
+          "name": "admin get Calendar Syncs",
+          "request": {
+            "name": "admin get Calendar Syncs",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "admin",
+                "users",
+                ":username",
+                "calendar-syncs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "3769db1a-06b2-4b62-a2f4-4b2a24fc05ce",
+              "name": "admin_getCalendarSyncs 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "admin",
+                    "users",
+                    ":username",
+                    "calendar-syncs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"allDayEvents\": \"SYNC_ALL\",\n    \"color\": \"SAGE\",\n    \"defaultType\": \"PERSONAL\",\n    \"enabled\": true,\n    \"source\": {\n      \"colorHex\": \"string\",\n      \"connected\": true,\n      \"credentialId\": 9172,\n      \"externalId\": \"string\",\n      \"googleMeetAllowed\": false,\n      \"id\": 4237,\n      \"microsoftTeamsAllowed\": false,\n      \"name\": \"string\",\n      \"otherConnectedCalendarsExist\": false,\n      \"provider\": \"string\",\n      \"useType\": \"WORK\",\n      \"writableFor\": [\n        \"SMART_HABIT\",\n        \"TRAVEL_BUFFER\"\n      ],\n      \"reason\": \"SYNCED_ALREADY\",\n      \"defaultReminders\": [\n        4499,\n        8459\n      ],\n      \"reminderDefaults\": [\n        {\n          \"minutes\": 1320,\n          \"reminderType\": \"EMAIL\"\n        },\n        {\n          \"minutes\": 9303,\n          \"reminderType\": \"UI_NOTIFICATION\"\n        }\n      ],\n      \"accessDomainRead\": true\n    },\n    \"target\": {\n      \"colorHex\": \"string\",\n      \"connected\": false,\n      \"credentialId\": 1976,\n      \"externalId\": \"string\",\n      \"googleMeetAllowed\": false,\n      \"id\": 3529,\n      \"microsoftTeamsAllowed\": true,\n      \"name\": \"string\",\n      \"otherConnectedCalendarsExist\": true,\n      \"provider\": \"string\",\n      \"useType\": \"PERSONAL\",\n      \"writableFor\": [\n        \"SMART_HABIT\",\n        \"CONF_BUFFER\"\n      ],\n      \"reason\": \"SYNCED_ALREADY\",\n      \"defaultReminders\": [\n        3220,\n        3909\n      ],\n      \"reminderDefaults\": [\n        {\n          \"minutes\": 3668,\n          \"reminderType\": \"UI_NOTIFICATION\"\n        },\n        {\n          \"minutes\": 7622,\n          \"reminderType\": \"EMAIL\"\n        }\n      ],\n      \"accessDomainRead\": true\n    },\n    \"transparency\": \"PUBLIC\",\n    \"type\": \"TRAVEL\",\n    \"workingHours\": true\n  },\n  {\n    \"allDayEvents\": \"SKIP_ALL\",\n    \"color\": \"NONE\",\n    \"defaultType\": \"PERSONAL\",\n    \"enabled\": false,\n    \"source\": {\n      \"colorHex\": \"string\",\n      \"connected\": true,\n      \"credentialId\": 5448,\n      \"externalId\": \"string\",\n      \"googleMeetAllowed\": true,\n      \"id\": 5667,\n      \"microsoftTeamsAllowed\": false,\n      \"name\": \"string\",\n      \"otherConnectedCalendarsExist\": true,\n      \"provider\": \"string\",\n      \"useType\": \"TEAM_OOO_CALENDAR\",\n      \"writableFor\": [\n        \"TASK_ASSIGNMENT\",\n        \"USER\"\n      ],\n      \"reason\": \"SYNCED_ALREADY\",\n      \"defaultReminders\": [\n        4995,\n        2100\n      ],\n      \"reminderDefaults\": [\n        {\n          \"minutes\": 1750,\n          \"reminderType\": \"UI_NOTIFICATION\"\n        },\n        {\n          \"minutes\": 7777,\n          \"reminderType\": \"EMAIL\"\n        }\n      ],\n      \"accessDomainRead\": true\n    },\n    \"target\": {\n      \"colorHex\": \"string\",\n      \"connected\": true,\n      \"credentialId\": 5057,\n      \"externalId\": \"string\",\n      \"googleMeetAllowed\": true,\n      \"id\": 7230,\n      \"microsoftTeamsAllowed\": true,\n      \"name\": \"string\",\n      \"otherConnectedCalendarsExist\": true,\n      \"provider\": \"string\",\n      \"useType\": \"TEAM\",\n      \"writableFor\": [\n        \"FOCUS\",\n        \"TRAVEL_BUFFER\"\n      ],\n      \"reason\": \"SYNCED_ALREADY\",\n      \"defaultReminders\": [\n        7156,\n        8145\n      ],\n      \"reminderDefaults\": [\n        {\n          \"minutes\": 3600,\n          \"reminderType\": \"EMAIL\"\n        },\n        {\n          \"minutes\": 425,\n          \"reminderType\": \"UI_NOTIFICATION\"\n        }\n      ],\n      \"accessDomainRead\": true\n    },\n    \"transparency\": \"SEMI_PRIVATE\",\n    \"type\": \"PERSONAL\",\n    \"workingHours\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "59409a7e-de90-45f7-973e-9f9b97edd891",
+          "name": "admin create Calendar Sync",
+          "request": {
+            "name": "admin create Calendar Sync",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "admin",
+                "users",
+                ":username",
+                "calendar-syncs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"color\": \"<string>\",\n  \"defaultType\": \"<string>\",\n  \"sourceAccountId\": \"<long>\",\n  \"sourceCalendarId\": \"<string>\",\n  \"syncAllDayEvents\": \"<string>\",\n  \"targetAccountId\": \"<long>\",\n  \"targetCalendarId\": \"<string>\",\n  \"transparency\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "24025e48-63c0-47d3-8364-965bcefa50af",
+              "name": "admin_createCalendarSync 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "admin",
+                    "users",
+                    ":username",
+                    "calendar-syncs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"color\": \"<string>\",\n  \"defaultType\": \"<string>\",\n  \"sourceAccountId\": \"<long>\",\n  \"sourceCalendarId\": \"<string>\",\n  \"syncAllDayEvents\": \"<string>\",\n  \"targetAccountId\": \"<long>\",\n  \"targetCalendarId\": \"<string>\",\n  \"transparency\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"allDayEvents\": \"<string>\",\n  \"color\": \"<string>\",\n  \"defaultType\": \"<string>\",\n  \"enabled\": true,\n  \"source\": {\n    \"colorHex\": \"string\",\n    \"connected\": true,\n    \"credentialId\": 2159,\n    \"externalId\": \"string\",\n    \"googleMeetAllowed\": true,\n    \"id\": 5225,\n    \"microsoftTeamsAllowed\": false,\n    \"name\": \"string\",\n    \"otherConnectedCalendarsExist\": true,\n    \"provider\": \"string\",\n    \"useType\": \"FAMILY\",\n    \"writableFor\": [\n      \"SMART_MEETING\",\n      \"SMART_HABIT\"\n    ],\n    \"reason\": \"FREE_BUSY_ONLY\",\n    \"defaultReminders\": [\n      1769,\n      8754\n    ],\n    \"reminderDefaults\": [\n      {\n        \"minutes\": 4128,\n        \"reminderType\": \"UI_NOTIFICATION\"\n      },\n      {\n        \"minutes\": 9493,\n        \"reminderType\": \"UI_NOTIFICATION\"\n      }\n    ],\n    \"accessDomainRead\": true\n  },\n  \"target\": {\n    \"colorHex\": \"string\",\n    \"connected\": false,\n    \"credentialId\": 4736,\n    \"externalId\": \"string\",\n    \"googleMeetAllowed\": false,\n    \"id\": 4740,\n    \"microsoftTeamsAllowed\": true,\n    \"name\": \"string\",\n    \"otherConnectedCalendarsExist\": false,\n    \"provider\": \"string\",\n    \"useType\": \"TEAM_OOO_CALENDAR\",\n    \"writableFor\": [\n      \"ONE_ON_ONE_ASSIGNMENT\",\n      \"TRAVEL_BUFFER\"\n    ],\n    \"reason\": \"MAIN_ACCOUNT_PRIMARY\",\n    \"defaultReminders\": [\n      7242,\n      4108\n    ],\n    \"reminderDefaults\": [\n      {\n        \"minutes\": 3616,\n        \"reminderType\": \"EMAIL\"\n      },\n      {\n        \"minutes\": 4126,\n        \"reminderType\": \"UI_NOTIFICATION\"\n      }\n    ],\n    \"accessDomainRead\": false\n  },\n  \"transparency\": \"<string>\",\n  \"type\": \"<string>\",\n  \"workingHours\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5c91a483-6558-462a-be5f-a3436adf8b25",
+          "name": "admin delete Sync",
+          "request": {
+            "name": "admin delete Sync",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "admin",
+                "users",
+                ":username",
+                "calendar-syncs",
+                ":sourceId",
+                "to",
+                ":targetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "sourceId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "targetId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "a49cd956-c57f-4e76-8256-8032fe8072a2",
+              "name": "admin_deleteSync 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "admin",
+                    "users",
+                    ":username",
+                    "calendar-syncs",
+                    ":sourceId",
+                    "to",
+                    ":targetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "sourceId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "targetId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6c22ab83-8e16-4831-9260-9be3dd9613bd",
+          "name": "admin patch Sync",
+          "request": {
+            "name": "admin patch Sync",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "admin",
+                "users",
+                ":username",
+                "calendar-syncs",
+                ":sourceId",
+                "to",
+                ":targetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "sourceId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "targetId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": true,\n  \"key_1\": \"string\",\n  \"key_2\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7382df45-5944-4880-b01a-99af15516020",
+              "name": "admin_patchSync 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "admin",
+                    "users",
+                    ":username",
+                    "calendar-syncs",
+                    ":sourceId",
+                    "to",
+                    ":targetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "sourceId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "targetId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"allDayEvents\": \"<string>\",\n  \"color\": \"<string>\",\n  \"defaultType\": \"<string>\",\n  \"enabled\": true,\n  \"source\": {\n    \"colorHex\": \"string\",\n    \"connected\": true,\n    \"credentialId\": 2159,\n    \"externalId\": \"string\",\n    \"googleMeetAllowed\": true,\n    \"id\": 5225,\n    \"microsoftTeamsAllowed\": false,\n    \"name\": \"string\",\n    \"otherConnectedCalendarsExist\": true,\n    \"provider\": \"string\",\n    \"useType\": \"FAMILY\",\n    \"writableFor\": [\n      \"SMART_MEETING\",\n      \"SMART_HABIT\"\n    ],\n    \"reason\": \"FREE_BUSY_ONLY\",\n    \"defaultReminders\": [\n      1769,\n      8754\n    ],\n    \"reminderDefaults\": [\n      {\n        \"minutes\": 4128,\n        \"reminderType\": \"UI_NOTIFICATION\"\n      },\n      {\n        \"minutes\": 9493,\n        \"reminderType\": \"UI_NOTIFICATION\"\n      }\n    ],\n    \"accessDomainRead\": true\n  },\n  \"target\": {\n    \"colorHex\": \"string\",\n    \"connected\": false,\n    \"credentialId\": 4736,\n    \"externalId\": \"string\",\n    \"googleMeetAllowed\": false,\n    \"id\": 4740,\n    \"microsoftTeamsAllowed\": true,\n    \"name\": \"string\",\n    \"otherConnectedCalendarsExist\": false,\n    \"provider\": \"string\",\n    \"useType\": \"TEAM_OOO_CALENDAR\",\n    \"writableFor\": [\n      \"ONE_ON_ONE_ASSIGNMENT\",\n      \"TRAVEL_BUFFER\"\n    ],\n    \"reason\": \"MAIN_ACCOUNT_PRIMARY\",\n    \"defaultReminders\": [\n      7242,\n      4108\n    ],\n    \"reminderDefaults\": [\n      {\n        \"minutes\": 3616,\n        \"reminderType\": \"EMAIL\"\n      },\n      {\n        \"minutes\": 4126,\n        \"reminderType\": \"UI_NOTIFICATION\"\n      }\n    ],\n    \"accessDomainRead\": false\n  },\n  \"transparency\": \"<string>\",\n  \"type\": \"<string>\",\n  \"workingHours\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e8e19727-b8d0-4480-abda-a8e43ba2b23a",
+          "name": "admin patch Org Metadata",
+          "request": {
+            "name": "admin patch Org Metadata",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "admin",
+                "users",
+                ":username",
+                "orgMetadata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"employeeNumber\": \"<string>\",\n  \"costCenter\": \"<string>\",\n  \"organization\": \"<string>\",\n  \"division\": \"<string>\",\n  \"department\": \"<string>\",\n  \"manager\": {\n    \"displayName\": \"<string>\",\n    \"managerId\": \"<string>\",\n    \"ref\": \"<string>\"\n  },\n  \"customValues\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "56bf7e85-d82b-4a1c-80b0-853c406f7f35",
+              "name": "admin_patchOrgMetadata 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "admin",
+                    "users",
+                    ":username",
+                    "orgMetadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"employeeNumber\": \"<string>\",\n  \"costCenter\": \"<string>\",\n  \"organization\": \"<string>\",\n  \"division\": \"<string>\",\n  \"department\": \"<string>\",\n  \"manager\": {\n    \"displayName\": \"<string>\",\n    \"managerId\": \"<string>\",\n    \"ref\": \"<string>\"\n  },\n  \"customValues\": {\n    \"key_0\": 7157.032139452638\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"edition\": \"TEAM\",\n  \"editionUsage\": \"ENTERPRISE\",\n  \"schedulerWindowWeeks\": \"TWO\",\n  \"sku\": \"LEGACY_PRO_TRIAL\",\n  \"id\": \"string\",\n  \"email\": \"string\",\n  \"principal\": \"string\",\n  \"provider\": \"string\",\n  \"baseProvider\": \"string\",\n  \"name\": \"string\",\n  \"firstName\": \"string\",\n  \"entitlements\": {\n    \"unlimitedHabitsEnabled\": false,\n    \"unlimitedConnectedCalendarsEnabled\": true,\n    \"unlimitedSyncEnabled\": false,\n    \"customSyncTransparencyEnabled\": true,\n    \"smart11CreationEnabled\": false,\n    \"customSlackSyncStatusEnabled\": false,\n    \"customConferenceBufferTitleEnabled\": false,\n    \"schedulingLinkSurveyEnabled\": false,\n    \"maxDaysAheadForSchedulingLinks\": 3970,\n    \"linearEnabled\": false,\n    \"jiraEnabled\": false,\n    \"todoistEnabled\": true,\n    \"asanaEnabled\": false,\n    \"clickupEnabled\": false,\n    \"trelloEnabled\": true,\n    \"mondayEnabled\": false,\n    \"dropboxEnabled\": true,\n    \"SSOEnabled\": false\n  },\n  \"detailedEntitlements\": {\n    \"unlimitedHabitsEnabled\": {\n      \"minimumEdition\": \"string\",\n      \"name\": \"string\",\n      \"enabledForUser\": true\n    },\n    \"unlimitedSyncEnabled\": {\n      \"minimumEdition\": \"string\",\n      \"name\": \"string\",\n      \"enabledForUser\": false\n    },\n    \"unlimitedConnectedCalendarsEnabled\": {\n      \"minimumEdition\": \"string\",\n      \"name\": \"string\",\n      \"enabledForUser\": false\n    },\n    \"customSyncTransparencyEnabled\": {\n      \"minimumEdition\": \"string\",\n      \"name\": \"string\",\n      \"enabledForUser\": false\n    },\n    \"smart11CreationEnabled\": {\n      \"minimumEdition\": \"string\",\n      \"name\": \"string\",\n      \"enabledForUser\": true\n    },\n    \"customSlackSyncStatusEnabled\": {\n      \"minimumEdition\": \"string\",\n      \"name\": \"string\",\n      \"enabledForUser\": true\n    },\n    \"customConferenceBufferTitleEnabled\": {\n      \"minimumEdition\": \"string\",\n      \"name\": \"string\",\n      \"enabledForUser\": false\n    },\n    \"linearEnabled\": {\n      \"minimumEdition\": \"string\",\n      \"name\": \"string\",\n      \"enabledForUser\": true\n    },\n    \"jiraEnabled\": {\n      \"minimumEdition\": \"string\",\n      \"name\": \"string\",\n      \"enabledForUser\": true\n    },\n    \"todoistEnabled\": {\n      \"minimumEdition\": \"string\",\n      \"name\": \"string\",\n      \"enabledForUser\": true\n    },\n    \"asanaEnabled\": {\n      \"minimumEdition\": \"string\",\n      \"name\": \"string\",\n      \"enabledForUser\": false\n    },\n    \"clickupEnabled\": {\n      \"minimumEdition\": \"string\",\n      \"name\": \"string\",\n      \"enabledForUser\": true\n    },\n    \"trelloEnabled\": {\n      \"minimumEdition\": \"string\",\n      \"name\": \"string\",\n      \"enabledForUser\": true\n    },\n    \"mondayEnabled\": {\n      \"minimumEdition\": \"string\",\n      \"name\": \"string\",\n      \"enabledForUser\": true\n    }\n  },\n  \"editionEntitlements\": {\n    \"MAX_TEAM_SIZE\": {\n      \"nextEdition\": \"STARTER\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"SCHEDULER_WEEKS\": {\n      \"nextEdition\": \"TEAM_REWARD\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"MAX_TASKS\": {\n      \"nextEdition\": \"TEAM\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"MAX_CALENDARS\": {\n      \"nextEdition\": \"ASSISTANT\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"MAX_SYNCS\": {\n      \"nextEdition\": \"NONE\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"MAX_HABITS\": {\n      \"nextEdition\": \"LEGACY_PRO_TRIAL\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"MAX_TASKS_WEEK\": {\n      \"nextEdition\": \"LITE_V3\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"TRAVEL_TIME\": {\n      \"nextEdition\": \"LEGACY_PRO_TRIAL\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"DECOMPRESSION_TIME\": {\n      \"nextEdition\": \"TEAM\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"CUSTOM_BLOCKING\": {\n      \"nextEdition\": \"ASSISTANT\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"CUSTOM_BLOCKING_DECOMPRESSION\": {\n      \"nextEdition\": \"PRO\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"CUSTOM_BLOCKING_HABITS\": {\n      \"nextEdition\": \"LITE\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"CUSTOM_BLOCKING_CALENDAR_SYNC\": {\n      \"nextEdition\": \"LITE_V2\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"CUSTOM_SLACK_STATUS\": {\n      \"nextEdition\": \"TRIAL_BUSINESS\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"MAX_SCHEDULING_LINKS\": {\n      \"nextEdition\": \"LITE_V2\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"DERIVATIVE_SCHEDULING_LINKS\": {\n      \"nextEdition\": \"ENTERPRISE\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"SCHEDULING_LINK_SURVEY\": {\n      \"nextEdition\": \"ASSISTANT\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"SCHEDULING_LINK_REDIRECT\": {\n      \"nextEdition\": \"TRIAL_BUSINESS_FOR_LEGACY_PLANS\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"MAX_SCHEDULING_LINK_MEETINGS_QUARTER\": {\n      \"nextEdition\": \"TRIAL\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"MAX_1_ON_1_ORGANIZE\": {\n      \"nextEdition\": \"NONE\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"MAX_1_ON_1_ATTEND\": {\n      \"nextEdition\": \"TEAM\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"MAX_CUSTOM_TIME_SCHEMES\": {\n      \"nextEdition\": \"TEAM_REWARD\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"INTEGRATIONS\": {\n      \"nextEdition\": \"LITE_V2\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"INTEGRATION_GOOGLE_TASKS\": {\n      \"nextEdition\": \"ENTERPRISE\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"INTEGRATION_GOOGLE_ADD_ON\": {\n      \"nextEdition\": \"LITE\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"INTEGRATION_SLACK\": {\n      \"nextEdition\": \"PRO\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"INTEGRATION_RAYCAST\": {\n      \"nextEdition\": \"BUSINESS\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"INTEGRATION_ZOOM\": {\n      \"nextEdition\": \"TEAM_REWARD\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"INTEGRATION_TODOIST\": {\n      \"nextEdition\": \"TRIAL_BUSINESS_FOR_LEGACY_PLANS\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"INTEGRATION_LINEAR\": {\n      \"nextEdition\": \"LITE_V2\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"INTEGRATION_JIRA\": {\n      \"nextEdition\": \"TRIAL_BUSINESS\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"INTEGRATION_CLICKUP\": {\n      \"nextEdition\": \"ASSISTANT\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"INTEGRATION_ASANA\": {\n      \"nextEdition\": \"LITE_V3\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"INTEGRATION_OFFICE_365\": {\n      \"nextEdition\": \"LEGACY_PRO_TRIAL\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"INTEGRATION_MONDAY\": {\n      \"nextEdition\": \"REWARD\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"INTEGRATION_TRELLO\": {\n      \"nextEdition\": \"ENTERPRISE\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"INTEGRATION_DROPBOX\": {\n      \"nextEdition\": \"LEGACY_PRO_TRIAL\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"SUPPORT\": {\n      \"nextEdition\": \"NONE\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"SSO\": {\n      \"nextEdition\": \"TEAM\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"TEAM_ANALYTICS\": {\n      \"nextEdition\": \"TRIAL\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"EVENT_PREFERENCES\": {\n      \"nextEdition\": \"TRIAL\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"DELEGATED_ACCESS\": {\n      \"nextEdition\": \"TRIAL\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"SCHEDULING_LINK_ROUND_ROBIN\": {\n      \"nextEdition\": \"NONE\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"SCHEDULING_LINK_BRANDING\": {\n      \"nextEdition\": \"LITE_V3\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"SMART_MEETING_ATTENDEE_USERS\": {\n      \"nextEdition\": \"LITE\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"WEBHOOKS\": {\n      \"nextEdition\": \"TRIAL_BUSINESS_12W\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"MAX_STATS_WINDOW\": {\n      \"nextEdition\": \"TEAM\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"FOCUS_TIME\": {\n      \"nextEdition\": \"REWARD\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"OOO_CALENDAR\": {\n      \"nextEdition\": \"LEGACY_PRO_TRIAL\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"MAX_AGENTS\": {\n      \"nextEdition\": \"LEGACY_PRO_TRIAL\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"MAX_DAILY_LLM_COST_MICROS\": {\n      \"nextEdition\": \"LITE_V3\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"PROACTIVE_LLM\": {\n      \"nextEdition\": \"TEAM\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    },\n    \"MCP\": {\n      \"nextEdition\": \"TEAM\",\n      \"nextValue\": {},\n      \"value\": \"\"\n    }\n  },\n  \"lastName\": \"string\",\n  \"avatarUrl\": \"string\",\n  \"admin\": true,\n  \"slackEnabled\": false,\n  \"impersonated\": false,\n  \"timestampOffsetMs\": 113,\n  \"features\": {\n    \"accountLocks\": [\n      {\n        \"accountLockType\": \"PIPELINE_MIGRATION\",\n        \"lockMessage\": \"string\"\n      },\n      {\n        \"accountLockType\": \"PIPELINE_MIGRATION\",\n        \"lockMessage\": \"string\"\n      }\n    ],\n    \"analyticsSettings\": {\n      \"teamAnalyticsV4ViewEnabled\": true,\n      \"teamAnalyticsV4FiltersEnabled\": true\n    },\n    \"appNotifications\": {\n      \"enabled\": true,\n      \"unscheduledPriority\": false,\n      \"audioAlertEnabled\": true,\n      \"titleTagAlertEnabled\": false\n    },\n    \"asana\": {\n      \"enabled\": false\n    },\n    \"assistSettings\": {\n      \"travel\": false,\n      \"otherTravelDuration\": 3726,\n      \"conferenceBuffer\": false,\n      \"conferenceBufferDuration\": 2521,\n      \"assignmentPaddingDuration\": 9526,\n      \"conferenceBufferPrivate\": true,\n      \"conferenceBufferType\": \"CONFERENCE_MEETINGS\",\n      \"customConferenceBufferTitle\": \"string\",\n      \"focus\": true,\n      \"allOneOnOnesBusy\": true,\n      \"autoLockForMeetings\": \"SAME_DAY\",\n      \"autoLockForNonMeetings\": \"OFF\",\n      \"sendMeetingNotifications\": true,\n      \"useFreeBusyEmojis\": true,\n      \"useLockEmoji\": true,\n      \"includeDescription\": false,\n      \"includeAttribution\": false,\n      \"smartSeries\": true,\n      \"smartMeetingRecurrenceType\": \"RECURRING_SERIES\",\n      \"smartHabitRecurrenceType\": \"RECURRING_SERIES\",\n      \"showClassicHabits\": true,\n      \"allowSmartSeriesOptIn\": true,\n      \"smartSeriesMigrateComplete\": false,\n      \"neverSeenClassicHabits\": true,\n      \"notificationSettings\": {\n        \"detectedDigest\": true,\n        \"instanceChanges\": true,\n        \"instanceWindowInDays\": 871,\n        \"needsAttentionDigest\": false\n      },\n      \"assistDays\": 5307,\n      \"bypassed\": true,\n      \"dayZero\": \"2021-04-11\",\n      \"schedulerDisabled\": false,\n      \"schedulerSuppressedUntil\": \"1986-06-17T13:35:53.910Z\",\n      \"schedulerSuppressed\": false,\n      \"rescheduleUnstarted\": false,\n      \"rescheduleUnstartedOkToSchedule\": true,\n      \"dampSmartMeetings\": false,\n      \"scheduleSmartMeetingsAtMostDaily\": true,\n      \"scheduleSmartMeetingsOnce\": false,\n      \"manualAssistRunsEnabled\": false,\n      \"schedulerWindowWeeks\": \"THREE\",\n      \"extendedSmartMeetingCooldown\": false,\n      \"includeOrganizerInSmartSeries\": false,\n      \"debugScheduler\": true,\n      \"smartHabitGen2ToGen3MigrationDate\": \"1952-05-12T21:18:23.058Z\",\n      \"smartMeetingGen2ToGen3MigrationDate\": \"2000-09-21T04:54:07.940Z\",\n      \"gen1HabitsAndMeetingsToGen3AutoMigrate\": true,\n      \"smartHabitsToGen3AutoMigrate\": false,\n      \"smartMeetingsToGen3AutoMigrate\": false\n    },\n    \"assistant\": {\n      \"enabled\": true,\n      \"calendarUIEnabled\": false,\n      \"scoringSettings\": {\n        \"version\": \"V1\"\n      },\n      \"experimentalFeaturesEnabled\": true,\n      \"mcpDebug\": false,\n      \"disableBackgroundAutomation\": true,\n      \"orgRelationshipsEnabled\": true,\n      \"enableExternalLlm\": true,\n      \"selfServiceMigrationEnabled\": false,\n      \"persistedToolApprovalsEnabled\": false\n    },\n    \"availabilitySettings\": {\n      \"redisCacheEnabled\": true\n    },\n    \"billing\": {\n      \"enabled\": false\n    },\n    \"calendar\": {\n      \"enabled\": false,\n      \"calendarCleanupRunning\": \"1959-05-29T22:29:38.350Z\"\n    },\n    \"calendarEntrySettings\": {\n      \"pipelineEnabled\": false,\n      \"pipelineWatchEnabled\": true,\n      \"autoMigrate\": true,\n      \"shouldMigrate\": false,\n      \"selfServiceMigrate\": false,\n      \"dailyAudit\": false,\n      \"microsoftPipelineBatching\": true,\n      \"scoredTopContacts\": true,\n      \"googleGhCutoff\": true,\n      \"usePipelineCleanCalendar\": false,\n      \"dedicatedUpsertEnabled\": true\n    },\n    \"calendarPermissionSettings\": {\n      \"enabled\": true\n    },\n    \"colors\": {\n      \"enabled\": true,\n      \"categoriesEnabled\": false,\n      \"lastModified\": \"1967-03-11T03:06:34.358Z\",\n      \"priorities\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"categories\": {\n        \"key_0\": \"<string>\"\n      }\n    },\n    \"dropboxSettings\": {\n      \"enabled\": true\n    },\n    \"eventDisplayPreferences\": {\n      \"attribution\": true,\n      \"busyEmoji\": false,\n      \"description\": true,\n      \"doneEmoji\": false,\n      \"freeEmoji\": false,\n      \"lockEmoji\": false,\n      \"prefix\": true,\n      \"progressEmoji\": true,\n      \"warningEmoji\": true\n    },\n    \"experimentalSettings\": {\n      \"treatOptionalSmartMeetingAttendeesAsFree\": true,\n      \"lookAheadForSmartMeetingIdealDayOnWeeklyMeetings\": true\n    },\n    \"focus\": {\n      \"enabled\": false,\n      \"debug\": true\n    },\n    \"googleAddOnSettings\": {\n      \"enabled\": false\n    },\n    \"interests\": {\n      \"tasks\": true,\n      \"priorities\": true,\n      \"office365\": false,\n      \"calendar\": true,\n      \"asana\": true,\n      \"trello\": false,\n      \"todoist\": false,\n      \"jira\": false,\n      \"linear\": false,\n      \"clickup\": true,\n      \"monday\": false,\n      \"MSTeams\": true\n    },\n    \"microsoft\": {\n      \"smartSeriesDetectionEnabled\": true,\n      \"useFullyExpandedSeriesMasterForInterop\": false,\n      \"resolveReclaimForNonMemberUsingCalendarView\": false\n    },\n    \"onboard\": {\n      \"habits\": true,\n      \"tasks\": false,\n      \"googleTasks\": false,\n      \"planItemPrioritized\": true,\n      \"smartOneOnOnes\": false,\n      \"bufferTime\": true,\n      \"tasksReindex\": true,\n      \"googleAddOn\": true,\n      \"v16Scheduler\": true,\n      \"helpMenus\": true,\n      \"smartMeetingsJustNewQuest\": false,\n      \"smartHabitsJustNewQuest\": true,\n      \"smartMeetingsNavItem\": false,\n      \"smartMeetingsPricingWarning\": true,\n      \"showDowngradeAcknowledgement\": true,\n      \"showUpgradeRestoreModal\": true,\n      \"setupGuideV2\": false,\n      \"accountAndPersonalSettings\": true,\n      \"webhooks\": false,\n      \"focus\": true,\n      \"eventCreationInPlanner\": false,\n      \"assistantIntegrations\": true,\n      \"assistMigrationWelcomePending\": false,\n      \"assistantPreviewChanges\": false,\n      \"schedulingLinks\": true\n    },\n    \"postOnboard\": {\n      \"welcomed\": \"NEVER_INTERACTED\",\n      \"focus\": \"NEVER_INTERACTED\",\n      \"hours\": \"CTA\",\n      \"habits\": \"CHECK\",\n      \"firstTask\": \"PASS\",\n      \"integration\": \"CHECK\",\n      \"smartMeetings\": \"CTA\",\n      \"schedulingLinks\": \"NEVER_INTERACTED\",\n      \"slackStatusSync\": \"PASS\",\n      \"travelTime\": \"PASS\",\n      \"zoom\": \"NEVER_INTERACTED\",\n      \"connectCalendars\": \"CHECK\",\n      \"colors\": \"CHECK\",\n      \"reclaimFree\": \"NEVER_SHOWN\",\n      \"guidedTours\": \"CHECK\"\n    },\n    \"priorities\": {\n      \"enabled\": true\n    },\n    \"projects\": {\n      \"enabled\": false\n    },\n    \"quests\": {\n      \"enabled\": true\n    },\n    \"rsvpSetting\": {\n      \"calendarSync\": {\n        \"treatNeedsActionRsvpAs\": \"FREE\"\n      }\n    },\n    \"schedulingLinks\": {\n      \"enabled\": false,\n      \"note\": \"string\",\n      \"remindersMigrated\": true,\n      \"messageTemplates\": {\n        \"key_0\": \"string\"\n      },\n      \"nameVisibility\": \"VISIBLE_TO_TEAM_MEMBERS\"\n    },\n    \"slackSettings\": {\n      \"enabled\": false,\n      \"newSlackExperienceEnabled\": true,\n      \"customSlackStatusWaterMark\": \"string\",\n      \"previousStatusWaterMarks\": [\n        \"string\",\n        \"string\"\n      ],\n      \"oooMessageTemplate\": \"string\",\n      \"personalSyncNotifyNew\": true,\n      \"personalSyncNotifyUpdated\": false,\n      \"personalSyncNotifyDeleted\": true,\n      \"personalSyncNotificationsIncludingSelf\": false,\n      \"habitNotifyUpcoming\": true,\n      \"taskNotifyUpcoming\": true,\n      \"travelNotify\": true,\n      \"outsideHoursMigrated\": false,\n      \"statusSync\": \"TEAM\",\n      \"statusEnabled\": false,\n      \"privateStatus\": {\n        \"emoji\": \"string\",\n        \"template\": \"string\",\n        \"dnd\": false,\n        \"enabled\": false\n      },\n      \"statuses\": {\n        \"key_0\": {\n          \"emoji\": \"string\",\n          \"template\": \"string\",\n          \"dnd\": true,\n          \"enabled\": true\n        },\n        \"key_1\": {\n          \"emoji\": \"string\",\n          \"template\": \"string\",\n          \"dnd\": false,\n          \"enabled\": true\n        }\n      },\n      \"outSideHours\": {\n        \"dnd\": true,\n        \"policy\": \"string\",\n        \"message\": \"string\"\n      },\n      \"stopNotifyingDisappearingAfterByType\": {\n        \"key_0\": \"2012-07-30\",\n        \"key_1\": \"1968-10-24\"\n      }\n    },\n    \"smartOneOnOnes\": {\n      \"enabled\": true\n    },\n    \"sync\": {\n      \"enabled\": true,\n      \"hasVipPrivileges\": false,\n      \"daysBackwardOverride\": 8206\n    },\n    \"taskSettings\": {\n      \"defaults\": {\n        \"timeChunksRequired\": 9078,\n        \"commsTimeChunksRequired\": 439,\n        \"delayedStartInMinutes\": 4229,\n        \"dueInDays\": 8553,\n        \"category\": {\n          \"deprecated\": true,\n          \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n        },\n        \"alwaysPrivate\": true,\n        \"minChunkSize\": 4385,\n        \"maxChunkSize\": 815,\n        \"timeSchemeId\": \"string\",\n        \"priority\": \"string\",\n        \"onDeck\": true,\n        \"splitUp\": true,\n        \"googleTaskIntegrationNoDueDateWhenMissing\": true\n      },\n      \"enabled\": false,\n      \"googleTasks\": true,\n      \"autoWorkflowSettings\": {\n        \"category\": \"CLOSE\",\n        \"durationToWaitInDays\": 9965\n      },\n      \"scheduleWorkQueueOnly\": false,\n      \"cooldown\": \"ONCE_A_DAY\"\n    },\n    \"temporal\": {\n      \"eventTransitionsEnabled\": true\n    },\n    \"timezoneSettings\": {\n      \"timeZonePreference\": \"USE_RECLAIM_TZ\",\n      \"zoneId\": \"string\",\n      \"timezonePreference\": \"USE_PRIMARY_CALENDAR_TZ\"\n    },\n    \"todoistSettings\": {\n      \"apiV1Enabled\": false\n    },\n    \"webhookSettings\": {\n      \"enabled\": true,\n      \"all\": {\n        \"value\": \"<Circular reference to #/components/schemas/WebhookSettings detected>\"\n      }\n    },\n    \"weeklyReport\": {\n      \"enabled\": true,\n      \"sendReport\": true\n    },\n    \"scheduler\": 2884,\n    \"prioritizationEnabled\": true,\n    \"extraScopes\": false,\n    \"peopleScopes\": false,\n    \"directoryScopes\": true,\n    \"adventures\": {\n      \"adventures\": {\n        \"CORE_CONCEPTS\": {\n          \"complete\": false\n        },\n        \"CONNECT_PRIMARY_CALENDAR\": {\n          \"complete\": true\n        },\n        \"ADD_AGENT\": {\n          \"complete\": false\n        },\n        \"ADD_FOCUS_TIME\": {\n          \"complete\": false\n        },\n        \"ADD_BUFFERS\": {\n          \"complete\": true\n        },\n        \"ADD_HABIT\": {\n          \"complete\": false\n        },\n        \"HEAVY_MEETING_LOAD\": {\n          \"complete\": false\n        },\n        \"CONNECT_CALENDARS\": {\n          \"complete\": true\n        },\n        \"CALENDAR_SYNC\": {\n          \"complete\": false\n        },\n        \"SHARED_CALENDARS\": {\n          \"complete\": true\n        },\n        \"SCHEDULING_LINKS\": {\n          \"complete\": true\n        },\n        \"SCHEDULING_LINK_SETTINGS\": {\n          \"complete\": false\n        },\n        \"HOURS\": {\n          \"complete\": false\n        },\n        \"PROFILE\": {\n          \"complete\": true\n        },\n        \"PERMISSIONS\": {\n          \"complete\": false\n        },\n        \"SLACK\": {\n          \"complete\": true\n        },\n        \"INTEGRATIONS\": {\n          \"complete\": false\n        },\n        \"TASK_INTEGRATIONS\": {\n          \"complete\": false\n        },\n        \"CHAT\": {\n          \"complete\": false\n        },\n        \"LOG_WORK\": {\n          \"complete\": false\n        },\n        \"PREVIEW_MODE\": {\n          \"complete\": true\n        }\n      }\n    },\n    \"appNotificationsSettings\": {\n      \"enabled\": true,\n      \"unscheduledPriority\": false,\n      \"audioAlertEnabled\": true,\n      \"titleTagAlertEnabled\": false\n    },\n    \"maskSuppressUntil\": \"1999-04-18T10:50:35.796Z\",\n    \"availableMeetingTimes\": [\n      6874,\n      5082\n    ]\n  },\n  \"settings\": {\n    \"autoAddHangouts\": false,\n    \"defaultEventLength\": 2229,\n    \"weekStart\": 8925,\n    \"format24HourTime\": false,\n    \"locale\": \"string\",\n    \"showDeclinedEvents\": false,\n    \"timezone\": \"string\",\n    \"dateFieldOrder\": \"MDY\"\n  },\n  \"metadata\": {\n    \"jobTitle\": \"string\",\n    \"companyName\": \"string\",\n    \"companySize\": \"SUB_500\",\n    \"usecase\": \"WORK\",\n    \"role\": \"NON_MANAGER\",\n    \"goals\": [\n      \"WORK_LIFE_BALANCE\",\n      \"MULTIPLE_CALENDARS\"\n    ],\n    \"isWorkspace\": true,\n    \"department\": \"DESIGN\",\n    \"orgMetadata\": {\n      \"employeeNumber\": \"<string>\",\n      \"costCenter\": \"<string>\",\n      \"organization\": \"<string>\",\n      \"division\": \"<string>\",\n      \"department\": \"<string>\",\n      \"manager\": {\n        \"displayName\": \"<string>\",\n        \"managerId\": \"<string>\",\n        \"ref\": \"<string>\"\n      },\n      \"customValues\": {\n        \"key_0\": \"string\"\n      }\n    }\n  },\n  \"created\": \"2001-10-04T01:43:41.571Z\",\n  \"deleted\": \"2013-11-11T13:55:29.790Z\",\n  \"onboarded\": true,\n  \"trackingCode\": \"string\",\n  \"locale\": \"string\",\n  \"likelyPersonal\": false,\n  \"apiKey\": \"string\",\n  \"editionAfterTrial\": \"ASSISTANT\",\n  \"preDowngradeEditionUsage\": \"LEGACY_TEAM_TRIAL\",\n  \"overage\": true,\n  \"logContextUser\": {\n    \"id\": \"string\",\n    \"trackingCode\": \"string\",\n    \"edition\": \"LITE\"\n  },\n  \"refCode\": \"string\",\n  \"hostedDomain\": \"string\",\n  \"primaryCalendar\": {\n    \"calendarId\": \"string\",\n    \"credentialEmail\": \"string\",\n    \"credentialId\": 1328,\n    \"id\": 2962,\n    \"lastSynced\": \"1982-07-20T23:57:40.846Z\",\n    \"timezone\": \"string\"\n  },\n  \"primaryCalendarId\": \"string\",\n  \"timezone\": \"string\",\n  \"startOfWeek\": \"SATURDAY\",\n  \"usingDelegatedAccess\": false,\n  \"firstLogin\": \"1975-10-30T19:34:46.921Z\",\n  \"signupMethod\": \"SCIM\",\n  \"providerCreated\": \"1977-01-28T17:35:44.994Z\",\n  \"userDateTimeFormatter\": {\n    \"locale\": \"string\"\n  },\n  \"userProvisioningDetails\": {\n    \"hasTeamProvisionedMetadata\": false\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "11b25fd8-71e1-4d29-b21f-335d54ed59c8",
+    "name": "Reclaim account-time-schemes Admin API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

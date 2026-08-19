@@ -1,0 +1,737 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes users API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "User details for the currently authenticated user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/users/current"
+          },
+          "docs": "User details for the currently authenticated user"
+        },
+        {
+          "info": {
+            "name": "patch_2",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/users/current",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "delete_6",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/users/current"
+          }
+        },
+        {
+          "info": {
+            "name": "access",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/users/current/access"
+          }
+        },
+        {
+          "info": {
+            "name": "accessByEntityType",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/users/current/access/:entityType",
+            "params": [
+              {
+                "name": "entityType",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getAdventures",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/users/current/adventures"
+          }
+        },
+        {
+          "info": {
+            "name": "getAdventure",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/users/current/adventures/:adventure",
+            "params": [
+              {
+                "name": "adventure",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateAdventure",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/users/current/adventures/:adventure",
+            "params": [
+              {
+                "name": "adventure",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "What should the order of day (D), month (M) and year (Y) be when displaying dates.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/users/current/date-field-order-settings",
+            "params": [
+              {
+                "name": "dateFieldOrder",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "What should the order of day (D), month (M) and year (Y) be when displaying dates. Allowed values:   \nMDY (default), DMY, YMD   \nNOTE: the dateFieldOrder value is case-sensitive."
+        },
+        {
+          "info": {
+            "name": "getHardDowngradeSnapshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/users/current/downgrade-snapshot"
+          }
+        },
+        {
+          "info": {
+            "name": "updateAppNotifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/users/current/features/app-notifications",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateDampSmartMeetings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/users/current/features/assist-settings/damp-smart-meetings",
+            "params": [
+              {
+                "name": "value",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateEnableExternalLlm",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/users/current/features/assist-settings/enable-external-llm",
+            "params": [
+              {
+                "name": "value",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateAssistNotificationSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/users/current/features/assist-settings/notification-settings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateRescheduleUnstarted",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/users/current/features/assist-settings/reschedule-unstarted",
+            "params": [
+              {
+                "name": "value",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateScheduleSmartMeetingsAtMostDaily",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/users/current/features/assist-settings/schedule-smart-meetings-at-most-daily",
+            "params": [
+              {
+                "name": "value",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateScheduleSmartMeetingsOnce",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/users/current/features/assist-settings/schedule-smart-meetings-once",
+            "params": [
+              {
+                "name": "value",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateSchedulingBehavior",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/users/current/features/assist-settings/scheduling-behavior",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateSmartHabitRecurrenceType",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/users/current/features/assist-settings/smart-habit-recurrence-type",
+            "params": [
+              {
+                "name": "value",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateSmartHabitsToGen3AutoMigrate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/users/current/features/assist-settings/smart-habits-to-reclaim-recurrence-auto-migrate",
+            "params": [
+              {
+                "name": "value",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateSmartMeetingRecurrenceType",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/users/current/features/assist-settings/smart-meeting-recurrence-type",
+            "params": [
+              {
+                "name": "value",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateSmartMeetingsToGen3AutoMigrate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/users/current/features/assist-settings/smart-meetings-to-reclaim-recurrence-auto-migrate",
+            "params": [
+              {
+                "name": "value",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateGen1HabitsAndMeetingsToGen3AutoMigrate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/users/current/features/assist-settings/v1-habits-and-meetings-to-reclaim-recurrence-auto-migrate",
+            "params": [
+              {
+                "name": "value",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateCalendarPermissionSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/users/current/features/calendar-permission-settings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateEventDisplayPreferences",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/users/current/features/event-display-preferences",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateLookAheadForSmartMeetingIdealDayOnWeeklyMeetings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/users/current/features/experimental-settings/look-ahead-for-smart-meeting-ideal-day-on-weekly-meetings",
+            "params": [
+              {
+                "name": "value",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateTreatOptionalSmartMeetingAttendeesAsFree",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/users/current/features/experimental-settings/treat-optional-smart-meeting-attendees-as-free",
+            "params": [
+              {
+                "name": "value",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateFocusDebug",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/users/current/features/focus/debug",
+            "params": [
+              {
+                "name": "value",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateMaskSuppressUntil",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/users/current/features/mask-suppress-until",
+            "params": [
+              {
+                "name": "value",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "clearMaskSuppressUntil",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/users/current/features/mask-suppress-until"
+          }
+        },
+        {
+          "info": {
+            "name": "patchPostOnboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/users/current/features/post-onboard",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "Whether to show the time in 24h format.",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/users/current/format24hour-settings",
+            "params": [
+              {
+                "name": "format24HourTime",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Whether to show the time in 24h format. Default is false."
+        },
+        {
+          "info": {
+            "name": "onboarded",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/users/current/onboarded",
+            "params": [
+              {
+                "name": "notificationKey",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "migrationToPipeline",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/users/current/pipeline-migration"
+          }
+        },
+        {
+          "info": {
+            "name": "migrationToPipelineAsync",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/users/current/pipeline-migration-async"
+          }
+        },
+        {
+          "info": {
+            "name": "productUsage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/users/current/product-usage"
+          }
+        },
+        {
+          "info": {
+            "name": "hardDowngrade",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/users/current/product-usage/hard-downgrade"
+          }
+        },
+        {
+          "info": {
+            "name": "referrals",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/users/current/referrals"
+          }
+        },
+        {
+          "info": {
+            "name": "reset",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/users/current/reset"
+          }
+        },
+        {
+          "info": {
+            "name": "getRestorableFeatures",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/users/current/restorable-features"
+          }
+        },
+        {
+          "info": {
+            "name": "restoreFeatures",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/users/current/restore-features",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "claimRewards",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/users/current/rewards",
+            "params": [
+              {
+                "name": "claim",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateRSVPSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/users/current/rsvp-settings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "runManualAssist",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/users/current/run-manual-assist",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "updateTimezoneSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/users/current/timezone-settings",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "Whether the week should start on Sunday (0), Monday (1) or Saturday (6).",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/users/current/week-start-settings",
+            "params": [
+              {
+                "name": "dayOfWeek",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Whether the week should start on Sunday (0), Monday (1) or Saturday (6). Default is Sunday (0)."
+        },
+        {
+          "info": {
+            "name": "interest_2",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/users/interest",
+            "params": [
+              {
+                "name": "feature",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "addTrait",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/users/trait/:trait",
+            "params": [
+              {
+                "name": "trait",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "value",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "getAvailableTimeZones",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/users/tzs"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

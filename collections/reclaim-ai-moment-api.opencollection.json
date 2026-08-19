@@ -1,0 +1,38 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes moment API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "moment",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "get_3",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/moment"
+          }
+        },
+        {
+          "info": {
+            "name": "next",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/moment/next"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

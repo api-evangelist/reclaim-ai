@@ -1,0 +1,632 @@
+{
+  "item": [
+    {
+      "id": "95d44a19-76dc-48a1-82ab-1c6e9ac16f80",
+      "name": "changelog",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e819e750-2d7e-44f8-b62f-6ab76ca30e6c",
+          "name": "get Change Log",
+          "request": {
+            "name": "get Change Log",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "changelog"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "591d1987-79c6-4e2c-ab0a-7f77ac2a5fa0",
+              "name": "getChangeLog 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "changelog"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"changedAt\": \"2009-12-04T14:31:07.152Z\",\n    \"id\": 469,\n    \"reason\": \"HABIT_MARKED_DONE\",\n    \"reclaimEventType\": \"FOCUS\",\n    \"assignmentId\": 1964,\n    \"assignmentSubId\": 7396,\n    \"eventId\": \"string\",\n    \"organizerId\": \"string\",\n    \"actorId\": \"string\",\n    \"lockChangedMetadata\": {},\n    \"periodSkippedMetadata\": {},\n    \"eventMovedMetadata\": {},\n    \"periodSkippedDueToReservedWordMetadata\": {}\n  },\n  {\n    \"changedAt\": \"1993-11-16T01:50:14.819Z\",\n    \"id\": 5894,\n    \"reason\": \"SMART_HABIT_RESET_SCHEDULE\",\n    \"reclaimEventType\": \"TRAVEL_BUFFER\",\n    \"assignmentId\": 8678,\n    \"assignmentSubId\": 4320,\n    \"eventId\": \"string\",\n    \"organizerId\": \"string\",\n    \"actorId\": \"string\",\n    \"lockChangedMetadata\": {},\n    \"periodSkippedMetadata\": {},\n    \"eventMovedMetadata\": {},\n    \"periodSkippedDueToReservedWordMetadata\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c18f4930-68b0-423e-ab21-02ebd271bf51",
+          "name": "events",
+          "request": {
+            "name": "events",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "changelog",
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "eventIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "eventIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "c47f104a-327a-4c1d-a4e5-953f0df44ecc",
+              "name": "events 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "changelog",
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "eventIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "eventIds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"changedAt\": \"2009-12-04T14:31:07.152Z\",\n    \"id\": 469,\n    \"reason\": \"HABIT_MARKED_DONE\",\n    \"reclaimEventType\": \"FOCUS\",\n    \"assignmentId\": 1964,\n    \"assignmentSubId\": 7396,\n    \"eventId\": \"string\",\n    \"organizerId\": \"string\",\n    \"actorId\": \"string\",\n    \"lockChangedMetadata\": {},\n    \"periodSkippedMetadata\": {},\n    \"eventMovedMetadata\": {},\n    \"periodSkippedDueToReservedWordMetadata\": {}\n  },\n  {\n    \"changedAt\": \"1993-11-16T01:50:14.819Z\",\n    \"id\": 5894,\n    \"reason\": \"SMART_HABIT_RESET_SCHEDULE\",\n    \"reclaimEventType\": \"TRAVEL_BUFFER\",\n    \"assignmentId\": 8678,\n    \"assignmentSubId\": 4320,\n    \"eventId\": \"string\",\n    \"organizerId\": \"string\",\n    \"actorId\": \"string\",\n    \"lockChangedMetadata\": {},\n    \"periodSkippedMetadata\": {},\n    \"eventMovedMetadata\": {},\n    \"periodSkippedDueToReservedWordMetadata\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a22cc1a8-9a26-49c8-9317-fe0635b0e8c0",
+          "name": "scheduling Links",
+          "request": {
+            "name": "scheduling Links",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "changelog",
+                "scheduling-links"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "schedulingLinkIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "schedulingLinkIds",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "16ccd2d0-14b3-4b55-a33d-a48b34982f5c",
+              "name": "schedulingLinks 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "changelog",
+                    "scheduling-links"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "schedulingLinkIds",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "schedulingLinkIds",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"changedAt\": \"2009-12-04T14:31:07.152Z\",\n    \"id\": 469,\n    \"reason\": \"HABIT_MARKED_DONE\",\n    \"reclaimEventType\": \"FOCUS\",\n    \"assignmentId\": 1964,\n    \"assignmentSubId\": 7396,\n    \"eventId\": \"string\",\n    \"organizerId\": \"string\",\n    \"actorId\": \"string\",\n    \"lockChangedMetadata\": {},\n    \"periodSkippedMetadata\": {},\n    \"eventMovedMetadata\": {},\n    \"periodSkippedDueToReservedWordMetadata\": {}\n  },\n  {\n    \"changedAt\": \"1993-11-16T01:50:14.819Z\",\n    \"id\": 5894,\n    \"reason\": \"SMART_HABIT_RESET_SCHEDULE\",\n    \"reclaimEventType\": \"TRAVEL_BUFFER\",\n    \"assignmentId\": 8678,\n    \"assignmentSubId\": 4320,\n    \"eventId\": \"string\",\n    \"organizerId\": \"string\",\n    \"actorId\": \"string\",\n    \"lockChangedMetadata\": {},\n    \"periodSkippedMetadata\": {},\n    \"eventMovedMetadata\": {},\n    \"periodSkippedDueToReservedWordMetadata\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ef0283b2-04ff-40d7-a27b-b3a5351a069f",
+          "name": "habits",
+          "request": {
+            "name": "habits",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "changelog",
+                "smart-habits"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lineageIds",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "lineageIds",
+                  "value": "<long>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "827f6f75-e988-4278-bdc1-d7d907278f78",
+              "name": "habits 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "changelog",
+                    "smart-habits"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lineageIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "lineageIds",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"changedAt\": \"2009-12-04T14:31:07.152Z\",\n    \"id\": 469,\n    \"reason\": \"HABIT_MARKED_DONE\",\n    \"reclaimEventType\": \"FOCUS\",\n    \"assignmentId\": 1964,\n    \"assignmentSubId\": 7396,\n    \"eventId\": \"string\",\n    \"organizerId\": \"string\",\n    \"actorId\": \"string\",\n    \"lockChangedMetadata\": {},\n    \"periodSkippedMetadata\": {},\n    \"eventMovedMetadata\": {},\n    \"periodSkippedDueToReservedWordMetadata\": {}\n  },\n  {\n    \"changedAt\": \"1993-11-16T01:50:14.819Z\",\n    \"id\": 5894,\n    \"reason\": \"SMART_HABIT_RESET_SCHEDULE\",\n    \"reclaimEventType\": \"TRAVEL_BUFFER\",\n    \"assignmentId\": 8678,\n    \"assignmentSubId\": 4320,\n    \"eventId\": \"string\",\n    \"organizerId\": \"string\",\n    \"actorId\": \"string\",\n    \"lockChangedMetadata\": {},\n    \"periodSkippedMetadata\": {},\n    \"eventMovedMetadata\": {},\n    \"periodSkippedDueToReservedWordMetadata\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b7e2e4fe-c075-4f05-82cf-3611d6afb3e7",
+          "name": "meetings",
+          "request": {
+            "name": "meetings",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "changelog",
+                "smart-meetings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lineageIds",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "lineageIds",
+                  "value": "<long>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "9a561418-960e-4e2d-9736-02bc8a0c7244",
+              "name": "meetings 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "changelog",
+                    "smart-meetings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lineageIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "lineageIds",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"changedAt\": \"2009-12-04T14:31:07.152Z\",\n    \"id\": 469,\n    \"reason\": \"HABIT_MARKED_DONE\",\n    \"reclaimEventType\": \"FOCUS\",\n    \"assignmentId\": 1964,\n    \"assignmentSubId\": 7396,\n    \"eventId\": \"string\",\n    \"organizerId\": \"string\",\n    \"actorId\": \"string\",\n    \"lockChangedMetadata\": {},\n    \"periodSkippedMetadata\": {},\n    \"eventMovedMetadata\": {},\n    \"periodSkippedDueToReservedWordMetadata\": {}\n  },\n  {\n    \"changedAt\": \"1993-11-16T01:50:14.819Z\",\n    \"id\": 5894,\n    \"reason\": \"SMART_HABIT_RESET_SCHEDULE\",\n    \"reclaimEventType\": \"TRAVEL_BUFFER\",\n    \"assignmentId\": 8678,\n    \"assignmentSubId\": 4320,\n    \"eventId\": \"string\",\n    \"organizerId\": \"string\",\n    \"actorId\": \"string\",\n    \"lockChangedMetadata\": {},\n    \"periodSkippedMetadata\": {},\n    \"eventMovedMetadata\": {},\n    \"periodSkippedDueToReservedWordMetadata\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a59f3feb-7c67-4cc2-bb58-62e964a9c0ef",
+          "name": "tasks",
+          "request": {
+            "name": "tasks",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "changelog",
+                "tasks"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "taskIds",
+                  "value": "<long>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "taskIds",
+                  "value": "<long>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "6849b7a5-dff1-43a0-b83e-bbaf332140f6",
+              "name": "tasks 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "changelog",
+                    "tasks"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "taskIds",
+                      "value": "<long>"
+                    },
+                    {
+                      "key": "taskIds",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"changedAt\": \"2009-12-04T14:31:07.152Z\",\n    \"id\": 469,\n    \"reason\": \"HABIT_MARKED_DONE\",\n    \"reclaimEventType\": \"FOCUS\",\n    \"assignmentId\": 1964,\n    \"assignmentSubId\": 7396,\n    \"eventId\": \"string\",\n    \"organizerId\": \"string\",\n    \"actorId\": \"string\",\n    \"lockChangedMetadata\": {},\n    \"periodSkippedMetadata\": {},\n    \"eventMovedMetadata\": {},\n    \"periodSkippedDueToReservedWordMetadata\": {}\n  },\n  {\n    \"changedAt\": \"1993-11-16T01:50:14.819Z\",\n    \"id\": 5894,\n    \"reason\": \"SMART_HABIT_RESET_SCHEDULE\",\n    \"reclaimEventType\": \"TRAVEL_BUFFER\",\n    \"assignmentId\": 8678,\n    \"assignmentSubId\": 4320,\n    \"eventId\": \"string\",\n    \"organizerId\": \"string\",\n    \"actorId\": \"string\",\n    \"lockChangedMetadata\": {},\n    \"periodSkippedMetadata\": {},\n    \"eventMovedMetadata\": {},\n    \"periodSkippedDueToReservedWordMetadata\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "57da5145-f439-4e36-8383-87b75eb15f99",
+    "name": "Reclaim account-time-schemes changelog API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

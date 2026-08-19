@@ -1,0 +1,130 @@
+{
+  "item": [
+    {
+      "id": "75cf31cc-54c5-4a67-b260-e32e5fb13525",
+      "name": "user-notifications",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8018052a-6922-444f-be4b-87ab7fd7c01c",
+          "name": "get User Notifications",
+          "request": {
+            "name": "get User Notifications",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "notifications",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "fff43968-3c5d-4df5-9ddc-85ec41e8d9e5",
+              "name": "getUserNotifications 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "notifications",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"channel\": \"SLACK\",\n      \"id\": {\n        \"id\": \"66d41e9b-ee78-1310-8dfc-4d86866b494c\"\n      },\n      \"notificationId\": {\n        \"id\": \"b79ca3dc-f44f-9f1d-2431-03dedbab55d4\"\n      },\n      \"retries\": 7144,\n      \"status\": \"PENDING\",\n      \"userId\": {\n        \"id\": \"string\"\n      },\n      \"lastAttemptAt\": \"2023-10-30T22:29:36.636Z\",\n      \"succeedAt\": \"1989-11-03T18:01:09.058Z\"\n    },\n    {\n      \"channel\": \"SLACK\",\n      \"id\": {\n        \"id\": \"0e643931-72f6-6880-a9ba-8e3b30028e59\"\n      },\n      \"notificationId\": {\n        \"id\": \"a7abff4d-c616-1dc9-c4d5-e0d3289a937c\"\n      },\n      \"retries\": 5979,\n      \"status\": \"INVALIDATED\",\n      \"userId\": {\n        \"id\": \"string\"\n      },\n      \"lastAttemptAt\": \"1973-08-20T12:47:31.690Z\",\n      \"succeedAt\": \"1949-03-26T22:05:56.935Z\"\n    }\n  ],\n  \"notification\": {\n    \"context\": {},\n    \"contextDateTime\": \"2018-10-03T19:11:34.961Z\",\n    \"id\": {\n      \"id\": \"5403995d-7623-e024-1f02-f87fe75b1611\"\n    },\n    \"status\": \"PROCESSED\",\n    \"type\": \"EVENT_REMINDERS\",\n    \"userId\": {\n      \"id\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "ef1c8199-65e9-4209-b286-b289b63e6a64",
+    "name": "Reclaim account-time-schemes user-notifications API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

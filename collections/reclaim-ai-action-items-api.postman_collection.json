@@ -1,0 +1,129 @@
+{
+  "item": [
+    {
+      "id": "4162259d-e631-4c92-bcc0-b594ef617477",
+      "name": "action-items",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5843ae7f-3a3c-48a9-a46b-01eb791cdba1",
+          "name": "action Items create",
+          "request": {
+            "name": "action Items create",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "interactions",
+                "action-items",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"integration\": \"<string>\",\n  \"tasks\": [\n    {\n      \"recommendedTaskId\": \"<long>\",\n      \"title\": \"<string>\",\n      \"dueDate\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8074b20d-79fc-4b08-a7a6-046c6a6508fa",
+              "name": "actionItems_create 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "interactions",
+                    "action-items",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"integration\": \"<string>\",\n  \"tasks\": [\n    {\n      \"recommendedTaskId\": \"<long>\",\n      \"title\": \"<string>\",\n      \"dueDate\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d5ec57fa-cc6d-474c-b0ee-072cb1cb1c40",
+    "name": "Reclaim account-time-schemes action-items API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

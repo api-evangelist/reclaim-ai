@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes participant-resolution API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "participant-resolution",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "resolveParticipantsForSmartSeries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/participant-resolution",
+            "params": [
+              {
+                "name": "emails",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "userCalendarId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "resolveParticipantsForSchedulingLink",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/participant-resolution/scheduling-link",
+            "params": [
+              {
+                "name": "emails",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "userCalendarId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "schedulingLinkId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,112 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes Avatar API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Avatar",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "credential",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/avatar/credential/:credentialId",
+            "params": [
+              {
+                "name": "credentialId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "avatar",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/avatar/lookup",
+            "params": [
+              {
+                "name": "email",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "me",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/avatar/me"
+          }
+        },
+        {
+          "info": {
+            "name": "streamedCredential",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/avatar/streamed/credential/:userId/:credentialId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "credentialId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Microsoft doesn't provide a public URL for fetching profile photos / avatars so we have to stream them.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/avatar/streamed/id/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Microsoft doesn't provide a public URL for fetching profile photos / avatars so we have to stream them. This is marked as allowing anonymous access because we need scheduling link attendees to be able to see avatars of the organizers on the booking pages and also for smart meeting invitations, etc..."
+        },
+        {
+          "info": {
+            "name": "streamedMe",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/avatar/streamed/me"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

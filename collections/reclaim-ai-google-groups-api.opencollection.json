@@ -1,0 +1,40 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes google-groups API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "google-groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "expand",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/google/groups/expand",
+            "params": [
+              {
+                "name": "email",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "credentialId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

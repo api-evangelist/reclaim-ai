@@ -1,0 +1,163 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes time-scheme API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "time-scheme",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "listTimePolicySchemes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/timeschemes",
+            "params": [
+              {
+                "name": "taskCategory",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "policyType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "features",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "createTimeScheme",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/timeschemes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "queryTimePolicySchemesByUserIdAndFeature",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/timeschemes/filter-by-feature",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "feature",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "listTimePolicySchemesByUserIdAndFeature",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/timeschemes/filter-by-feature/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "feature",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateTimeScheme",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/timeschemes/:schemeId",
+            "params": [
+              {
+                "name": "schemeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "updateTimeScheme_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/timeschemes/:schemeId",
+            "params": [
+              {
+                "name": "schemeId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteTimeScheme",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/timeschemes/:schemeId",
+            "params": [
+              {
+                "name": "schemeId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "moveToTimeSchemeId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

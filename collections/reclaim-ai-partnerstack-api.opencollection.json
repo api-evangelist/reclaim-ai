@@ -1,0 +1,32 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes partnerstack API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "partnerstack",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "repairCustomers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/partnerstack/partners/repair-customers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

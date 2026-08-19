@@ -1,0 +1,153 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes calendarSyncPolicy API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "calendarSyncPolicy",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "getSyncPolicies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/calendars/sync-policy"
+          }
+        },
+        {
+          "info": {
+            "name": "createSyncPolicy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/calendars/sync-policy",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "testSyncPolicy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/calendars/sync-policy/validate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "getSyncPolicy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/calendars/sync-policy/:sourceId/to/:targetId",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "targetId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "patchSyncPolicy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/calendars/sync-policy/:sourceId/to/:targetId",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "targetId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "suppressEncodingChange",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteSyncPolicy",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/calendars/sync-policy/:sourceId/to/:targetId",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "targetId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "repairSync",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/calendars/sync-policy/:sourceId/to/:targetId/repair",
+            "params": [
+              {
+                "name": "sourceId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "targetId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

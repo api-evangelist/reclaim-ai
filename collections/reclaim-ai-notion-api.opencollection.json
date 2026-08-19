@@ -1,0 +1,45 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes notion API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "notion",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "notionIntegrations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/notion/workspaces"
+          }
+        },
+        {
+          "info": {
+            "name": "deleteNotionWorkspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/notion/workspaces/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,622 @@
+{
+  "item": [
+    {
+      "id": "ed5c0992-9b03-47a6-8c93-0ef023194b3c",
+      "name": "api-management",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "7ba8bf17-c717-4401-adb3-cfdd99508af7",
+          "name": "create Api Key",
+          "request": {
+            "name": "create Api Key",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "api-management",
+                "api-key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"createdAt\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"id\": \"<string>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"lifetimeMs\": \"<long>\",\n  \"token\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "03ec3f2f-7407-4ccc-a4d2-9c9d35e14bfe",
+              "name": "createApiKey 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "api-management",
+                    "api-key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdAt\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"id\": \"<string>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"lifetimeMs\": \"<long>\",\n  \"token\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createdAt\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"id\": \"<string>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"lifetimeMs\": \"<long>\",\n  \"token\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6954684a-a76a-4624-b6af-2426a5e0373d",
+          "name": "update Api Key",
+          "request": {
+            "name": "update Api Key",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "api-management",
+                "api-key"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"createdAt\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"id\": \"<string>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"lifetimeMs\": \"<long>\",\n  \"token\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f08639c7-c37a-4c73-bd15-1335859f4967",
+              "name": "updateApiKey 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "api-management",
+                    "api-key"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"createdAt\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"id\": \"<string>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"lifetimeMs\": \"<long>\",\n  \"token\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createdAt\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"id\": \"<string>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"lifetimeMs\": \"<long>\",\n  \"token\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5364218f-87d5-44cf-8318-aa13992f5aa3",
+          "name": "reissue Api Key",
+          "request": {
+            "name": "reissue Api Key",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "api-management",
+                "api-key",
+                "reissue",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "93b83214-80f9-4715-a694-3b73bd1fe126",
+              "name": "reissueApiKey 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "api-management",
+                    "api-key",
+                    "reissue",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createdAt\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"id\": \"<string>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"lifetimeMs\": \"<long>\",\n  \"token\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50a17213-15f0-4d52-9aca-eadf589fee86",
+          "name": "list Api Key",
+          "request": {
+            "name": "list Api Key",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "api-management",
+                "api-key",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "8e8987bf-e89f-4edb-86df-2f0e743771d7",
+              "name": "listApiKey 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "api-management",
+                    "api-key",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"createdAt\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"id\": \"<string>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"lifetimeMs\": \"<long>\",\n  \"token\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ef341830-2e5e-4a22-98f1-fde0bc627f7e",
+          "name": "delete Api Key",
+          "request": {
+            "name": "delete Api Key",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "api-management",
+                "api-key",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "a87a73c9-2685-4c90-9590-7b575793f595",
+              "name": "deleteApiKey 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "api-management",
+                    "api-key",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5537daa3-d034-44a0-b897-a53ddc93bcea",
+          "name": "list Api Key 1",
+          "request": {
+            "name": "list Api Key 1",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "api-management",
+                "api-keys"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "7eaa8354-15da-4797-ba19-359a5ea31285",
+              "name": "listApiKey_1 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "api-management",
+                    "api-keys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"createdAt\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"id\": \"<string>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"lifetimeMs\": \"<long>\",\n    \"token\": \"<string>\"\n  },\n  {\n    \"createdAt\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"id\": \"<string>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"lifetimeMs\": \"<long>\",\n    \"token\": \"<string>\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e5243bf6-e554-4f14-8fe0-bea575b03722",
+    "name": "Reclaim account-time-schemes api-management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

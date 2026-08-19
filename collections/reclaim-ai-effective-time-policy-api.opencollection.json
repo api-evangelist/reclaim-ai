@@ -1,0 +1,32 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes effective-time-policy API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "effective-time-policy",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "effectiveTimePolicy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/effective-time-policy",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,742 @@
+{
+  "item": [
+    {
+      "id": "468a9285-a73f-4ef4-ab53-e6674ae0ebe6",
+      "name": "smart-habit-custom-templates",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b53b44fc-7255-4a54-9125-d1da35ade595",
+          "name": "find All Habit Templates",
+          "request": {
+            "name": "find All Habit Templates",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "templates",
+                "smart-habit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "188d4f44-86a7-4c38-a3dd-c8c5a5ee9448",
+              "name": "findAllHabitTemplates 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "templates",
+                    "smart-habit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"defendedDescription\": \"string\",\n    \"defenseAggression\": \"MAX\",\n    \"description\": \"string\",\n    \"durationMaxMins\": 5017,\n    \"durationMinMins\": 2943,\n    \"enabled\": true,\n    \"entityType\": {\n      \"access\": {\n        \"permissions\": {\n          \"permissions\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    },\n    \"eventType\": \"PERSONAL\",\n    \"id\": 8548,\n    \"idealTime\": \"string\",\n    \"priority\": \"PRIORITIZE\",\n    \"recurrence\": {\n      \"frequency\": \"MONTHLY\",\n      \"interval\": 6347,\n      \"idealDays\": [\n        \"SATURDAY\",\n        \"SUNDAY\"\n      ],\n      \"idealMonthlyDay\": {\n        \"idealDayOfMonth\": 6455,\n        \"idealDayOfWeek\": \"SUNDAY\",\n        \"idealWeek\": 9282\n      },\n      \"daysBetweenPeriods\": 1703\n    },\n    \"reservedWords\": [\n      \"string\",\n      \"string\"\n    ],\n    \"timePolicyType\": \"MEETING\",\n    \"title\": \"string\",\n    \"visibility\": \"PUBLIC\",\n    \"color\": \"BLUEBERRY\",\n    \"oneOffPolicy\": {\n      \"dayHours\": {\n        \"MONDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        },\n        \"TUESDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        },\n        \"WEDNESDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        },\n        \"THURSDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        },\n        \"FRIDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        },\n        \"SATURDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        },\n        \"SUNDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        }\n      },\n      \"startOfWeek\": \"THURSDAY\",\n      \"endOfWeek\": \"TUESDAY\"\n    },\n    \"starting\": \"1980-02-28\",\n    \"ending\": \"2004-03-29\",\n    \"failurePolicy\": \"REMOVE\"\n  },\n  {\n    \"defendedDescription\": \"string\",\n    \"defenseAggression\": \"HIGH\",\n    \"description\": \"string\",\n    \"durationMaxMins\": 2198,\n    \"durationMinMins\": 4861,\n    \"enabled\": false,\n    \"entityType\": {\n      \"access\": {\n        \"permissions\": {\n          \"permissions\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"type\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    },\n    \"eventType\": \"ONE_ON_ONE\",\n    \"id\": 9608,\n    \"idealTime\": \"string\",\n    \"priority\": \"P3\",\n    \"recurrence\": {\n      \"frequency\": \"MONTHLY\",\n      \"interval\": 1354,\n      \"idealDays\": [\n        \"MONDAY\",\n        \"SUNDAY\"\n      ],\n      \"idealMonthlyDay\": {\n        \"idealDayOfMonth\": 3612,\n        \"idealDayOfWeek\": \"SATURDAY\",\n        \"idealWeek\": 1866\n      },\n      \"daysBetweenPeriods\": 1377\n    },\n    \"reservedWords\": [\n      \"string\",\n      \"string\"\n    ],\n    \"timePolicyType\": \"WORK\",\n    \"title\": \"string\",\n    \"visibility\": \"PUBLIC\",\n    \"color\": \"TANGERINE\",\n    \"oneOffPolicy\": {\n      \"dayHours\": {\n        \"MONDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        },\n        \"TUESDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        },\n        \"WEDNESDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        },\n        \"THURSDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        },\n        \"FRIDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        },\n        \"SATURDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        },\n        \"SUNDAY\": {\n          \"intervals\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"startOfDay\": \"string\",\n          \"endOfDay\": \"string\"\n        }\n      },\n      \"startOfWeek\": \"WEDNESDAY\",\n      \"endOfWeek\": \"MONDAY\"\n    },\n    \"starting\": \"1992-01-12\",\n    \"ending\": \"1978-08-28\",\n    \"failurePolicy\": \"LEAVE_LAST_OR_RETURN_TO_ORIGINAL\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "477c099b-1200-44f5-bb8e-9098c1ef8d54",
+          "name": "create Habit Template",
+          "request": {
+            "name": "create Habit Template",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "templates",
+                "smart-habit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"defenseAggression\": \"<string>\",\n  \"durationMaxMins\": \"<integer>\",\n  \"durationMinMins\": \"<integer>\",\n  \"eventType\": \"<string>\",\n  \"idealTime\": \"<partial-time>\",\n  \"priority\": \"<string>\",\n  \"recurrence\": {\n    \"frequency\": \"<string>\",\n    \"interval\": \"<integer>\",\n    \"idealDays\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"idealMonthlyDay\": {\n      \"idealDayOfMonth\": \"<integer>\",\n      \"idealDayOfWeek\": \"<string>\",\n      \"idealWeek\": \"<integer>\"\n    }\n  },\n  \"timePolicyType\": \"<string>\",\n  \"title\": \"<string>\",\n  \"color\": \"<string>\",\n  \"oneOffPolicy\": {\n    \"dayHours\": {\n      \"MONDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"TUESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"WEDNESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"THURSDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"FRIDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SATURDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SUNDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      }\n    },\n    \"startOfWeek\": \"<string>\",\n    \"endOfWeek\": \"<string>\"\n  },\n  \"starting\": \"<date>\",\n  \"ending\": \"<date>\",\n  \"defendedDescription\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"failurePolicy\": \"<string>\",\n  \"reservedWords\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8e47dfe0-fa58-4e5f-8dee-e9ca7b9276e0",
+              "name": "createHabitTemplate 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "templates",
+                    "smart-habit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"defenseAggression\": \"<string>\",\n  \"durationMaxMins\": \"<integer>\",\n  \"durationMinMins\": \"<integer>\",\n  \"eventType\": \"<string>\",\n  \"idealTime\": \"<partial-time>\",\n  \"priority\": \"<string>\",\n  \"recurrence\": {\n    \"frequency\": \"<string>\",\n    \"interval\": \"<integer>\",\n    \"idealDays\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"idealMonthlyDay\": {\n      \"idealDayOfMonth\": \"<integer>\",\n      \"idealDayOfWeek\": \"<string>\",\n      \"idealWeek\": \"<integer>\"\n    }\n  },\n  \"timePolicyType\": \"<string>\",\n  \"title\": \"<string>\",\n  \"color\": \"<string>\",\n  \"oneOffPolicy\": {\n    \"dayHours\": {\n      \"MONDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"TUESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"WEDNESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"THURSDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"FRIDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SATURDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SUNDAY\": {\n        \"intervals\": [\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          },\n          {\n            \"end\": \"<partial-time>\",\n            \"start\": \"<partial-time>\",\n            \"duration\": \"<string>\"\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      }\n    },\n    \"startOfWeek\": \"<string>\",\n    \"endOfWeek\": \"<string>\"\n  },\n  \"starting\": \"<date>\",\n  \"ending\": \"<date>\",\n  \"defendedDescription\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"failurePolicy\": \"<string>\",\n  \"reservedWords\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"defendedDescription\": \"string\",\n  \"defenseAggression\": \"<string>\",\n  \"description\": \"string\",\n  \"durationMaxMins\": 4423,\n  \"durationMinMins\": 250,\n  \"enabled\": false,\n  \"entityType\": {\n    \"access\": {\n      \"permissions\": {\n        \"permissions\": {\n          \"canCreate\": true,\n          \"canView\": true\n        },\n        \"type\": \"WEBHOOKS_ASSOCIATION\"\n      }\n    }\n  },\n  \"eventType\": \"<string>\",\n  \"id\": 9429,\n  \"idealTime\": \"string\",\n  \"priority\": \"<string>\",\n  \"recurrence\": {\n    \"frequency\": \"<string>\",\n    \"interval\": \"<integer>\",\n    \"idealDays\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"idealMonthlyDay\": {\n      \"idealDayOfMonth\": \"<integer>\",\n      \"idealDayOfWeek\": \"<string>\",\n      \"idealWeek\": \"<integer>\"\n    },\n    \"daysBetweenPeriods\": 2736\n  },\n  \"reservedWords\": [\n    \"string\",\n    \"string\"\n  ],\n  \"timePolicyType\": \"<string>\",\n  \"title\": \"string\",\n  \"visibility\": \"<string>\",\n  \"color\": \"<string>\",\n  \"oneOffPolicy\": {\n    \"dayHours\": {\n      \"MONDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"TUESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"WEDNESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"THURSDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"FRIDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SATURDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SUNDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      }\n    },\n    \"startOfWeek\": \"<string>\",\n    \"endOfWeek\": \"<string>\"\n  },\n  \"starting\": \"1977-09-03\",\n  \"ending\": \"2015-09-16\",\n  \"failurePolicy\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7ee4e92b-648b-457d-a442-cd7e79cee555",
+          "name": "find Habit Template By Id",
+          "request": {
+            "name": "find Habit Template By Id",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "templates",
+                "smart-habit",
+                ":templateId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "templateId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "797d9a75-d877-4af0-888d-0b7652063bde",
+              "name": "findHabitTemplateById 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "templates",
+                    "smart-habit",
+                    ":templateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "templateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"defendedDescription\": \"string\",\n  \"defenseAggression\": \"<string>\",\n  \"description\": \"string\",\n  \"durationMaxMins\": 4423,\n  \"durationMinMins\": 250,\n  \"enabled\": false,\n  \"entityType\": {\n    \"access\": {\n      \"permissions\": {\n        \"permissions\": {\n          \"canCreate\": true,\n          \"canView\": true\n        },\n        \"type\": \"WEBHOOKS_ASSOCIATION\"\n      }\n    }\n  },\n  \"eventType\": \"<string>\",\n  \"id\": 9429,\n  \"idealTime\": \"string\",\n  \"priority\": \"<string>\",\n  \"recurrence\": {\n    \"frequency\": \"<string>\",\n    \"interval\": \"<integer>\",\n    \"idealDays\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"idealMonthlyDay\": {\n      \"idealDayOfMonth\": \"<integer>\",\n      \"idealDayOfWeek\": \"<string>\",\n      \"idealWeek\": \"<integer>\"\n    },\n    \"daysBetweenPeriods\": 2736\n  },\n  \"reservedWords\": [\n    \"string\",\n    \"string\"\n  ],\n  \"timePolicyType\": \"<string>\",\n  \"title\": \"string\",\n  \"visibility\": \"<string>\",\n  \"color\": \"<string>\",\n  \"oneOffPolicy\": {\n    \"dayHours\": {\n      \"MONDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"TUESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"WEDNESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"THURSDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"FRIDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SATURDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SUNDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      }\n    },\n    \"startOfWeek\": \"<string>\",\n    \"endOfWeek\": \"<string>\"\n  },\n  \"starting\": \"1977-09-03\",\n  \"ending\": \"2015-09-16\",\n  \"failurePolicy\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c0c8eda-b04f-48e7-b531-f9ef15543430",
+          "name": "delete Habit Template",
+          "request": {
+            "name": "delete Habit Template",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "templates",
+                "smart-habit",
+                ":templateId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "templateId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "daa32764-2b0a-4cad-a337-3446a6348d89",
+              "name": "deleteHabitTemplate 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "templates",
+                    "smart-habit",
+                    ":templateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "templateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61d0703f-4d2c-4bf9-9eeb-ab66853d173e",
+          "name": "update Habit Template",
+          "request": {
+            "name": "update Habit Template",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "templates",
+                "smart-habit",
+                ":templateId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "templateId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"priority\": \"<string>\",\n  \"eventType\": \"<string>\",\n  \"color\": \"<string>\",\n  \"timePolicyType\": \"<string>\",\n  \"oneOffPolicy\": {\n    \"dayHours\": {\n      \"MONDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"TUESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"WEDNESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"THURSDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"FRIDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SATURDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SUNDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      }\n    },\n    \"startOfWeek\": \"<string>\",\n    \"endOfWeek\": \"<string>\"\n  },\n  \"recurrence\": {\n    \"frequency\": \"<string>\",\n    \"interval\": \"<integer>\",\n    \"idealDays\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"idealMonthlyDay\": {\n      \"idealDayOfMonth\": \"<integer>\",\n      \"idealDayOfWeek\": \"<string>\",\n      \"idealWeek\": \"<integer>\"\n    }\n  },\n  \"starting\": \"<date>\",\n  \"ending\": \"<date>\",\n  \"idealTime\": \"<partial-time>\",\n  \"durationMinMins\": \"<integer>\",\n  \"durationMaxMins\": \"<integer>\",\n  \"defenseAggression\": \"<string>\",\n  \"defendedDescription\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"failurePolicy\": \"<string>\",\n  \"reservedWords\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ef9c3fd4-bab9-4ec4-9c93-e9f2d8f4a1e0",
+              "name": "updateHabitTemplate 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "templates",
+                    "smart-habit",
+                    ":templateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "templateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"priority\": \"<string>\",\n  \"eventType\": \"<string>\",\n  \"color\": \"<string>\",\n  \"timePolicyType\": \"<string>\",\n  \"oneOffPolicy\": {\n    \"dayHours\": {\n      \"MONDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"TUESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"WEDNESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"THURSDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"FRIDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SATURDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SUNDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      }\n    },\n    \"startOfWeek\": \"<string>\",\n    \"endOfWeek\": \"<string>\"\n  },\n  \"recurrence\": {\n    \"frequency\": \"<string>\",\n    \"interval\": \"<integer>\",\n    \"idealDays\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"idealMonthlyDay\": {\n      \"idealDayOfMonth\": \"<integer>\",\n      \"idealDayOfWeek\": \"<string>\",\n      \"idealWeek\": \"<integer>\"\n    }\n  },\n  \"starting\": \"<date>\",\n  \"ending\": \"<date>\",\n  \"idealTime\": \"<partial-time>\",\n  \"durationMinMins\": \"<integer>\",\n  \"durationMaxMins\": \"<integer>\",\n  \"defenseAggression\": \"<string>\",\n  \"defendedDescription\": \"<string>\",\n  \"visibility\": \"<string>\",\n  \"failurePolicy\": \"<string>\",\n  \"reservedWords\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"defendedDescription\": \"string\",\n  \"defenseAggression\": \"<string>\",\n  \"description\": \"string\",\n  \"durationMaxMins\": 4423,\n  \"durationMinMins\": 250,\n  \"enabled\": false,\n  \"entityType\": {\n    \"access\": {\n      \"permissions\": {\n        \"permissions\": {\n          \"canCreate\": true,\n          \"canView\": true\n        },\n        \"type\": \"WEBHOOKS_ASSOCIATION\"\n      }\n    }\n  },\n  \"eventType\": \"<string>\",\n  \"id\": 9429,\n  \"idealTime\": \"string\",\n  \"priority\": \"<string>\",\n  \"recurrence\": {\n    \"frequency\": \"<string>\",\n    \"interval\": \"<integer>\",\n    \"idealDays\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"idealMonthlyDay\": {\n      \"idealDayOfMonth\": \"<integer>\",\n      \"idealDayOfWeek\": \"<string>\",\n      \"idealWeek\": \"<integer>\"\n    },\n    \"daysBetweenPeriods\": 2736\n  },\n  \"reservedWords\": [\n    \"string\",\n    \"string\"\n  ],\n  \"timePolicyType\": \"<string>\",\n  \"title\": \"string\",\n  \"visibility\": \"<string>\",\n  \"color\": \"<string>\",\n  \"oneOffPolicy\": {\n    \"dayHours\": {\n      \"MONDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"TUESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"WEDNESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"THURSDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"FRIDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SATURDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SUNDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      }\n    },\n    \"startOfWeek\": \"<string>\",\n    \"endOfWeek\": \"<string>\"\n  },\n  \"starting\": \"1977-09-03\",\n  \"ending\": \"2015-09-16\",\n  \"failurePolicy\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "28c7cbbf-58bb-473c-a713-f05b78a4f43e",
+          "name": "disable Habit Template",
+          "request": {
+            "name": "disable Habit Template",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "templates",
+                "smart-habit",
+                ":templateId",
+                "disable"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "templateId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "5c545e55-9d56-4c35-935d-e5768f20c747",
+              "name": "disableHabitTemplate 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "templates",
+                    "smart-habit",
+                    ":templateId",
+                    "disable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "templateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"defendedDescription\": \"string\",\n  \"defenseAggression\": \"<string>\",\n  \"description\": \"string\",\n  \"durationMaxMins\": 4423,\n  \"durationMinMins\": 250,\n  \"enabled\": false,\n  \"entityType\": {\n    \"access\": {\n      \"permissions\": {\n        \"permissions\": {\n          \"canCreate\": true,\n          \"canView\": true\n        },\n        \"type\": \"WEBHOOKS_ASSOCIATION\"\n      }\n    }\n  },\n  \"eventType\": \"<string>\",\n  \"id\": 9429,\n  \"idealTime\": \"string\",\n  \"priority\": \"<string>\",\n  \"recurrence\": {\n    \"frequency\": \"<string>\",\n    \"interval\": \"<integer>\",\n    \"idealDays\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"idealMonthlyDay\": {\n      \"idealDayOfMonth\": \"<integer>\",\n      \"idealDayOfWeek\": \"<string>\",\n      \"idealWeek\": \"<integer>\"\n    },\n    \"daysBetweenPeriods\": 2736\n  },\n  \"reservedWords\": [\n    \"string\",\n    \"string\"\n  ],\n  \"timePolicyType\": \"<string>\",\n  \"title\": \"string\",\n  \"visibility\": \"<string>\",\n  \"color\": \"<string>\",\n  \"oneOffPolicy\": {\n    \"dayHours\": {\n      \"MONDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"TUESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"WEDNESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"THURSDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"FRIDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SATURDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SUNDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      }\n    },\n    \"startOfWeek\": \"<string>\",\n    \"endOfWeek\": \"<string>\"\n  },\n  \"starting\": \"1977-09-03\",\n  \"ending\": \"2015-09-16\",\n  \"failurePolicy\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "73f3f4a1-15b9-4879-939d-fb3b4b687f1c",
+          "name": "enable Habit Template",
+          "request": {
+            "name": "enable Habit Template",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "templates",
+                "smart-habit",
+                ":templateId",
+                "enable"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "templateId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "2fb7d422-f499-4a19-bf69-09d6f563a73b",
+              "name": "enableHabitTemplate 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "templates",
+                    "smart-habit",
+                    ":templateId",
+                    "enable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "templateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"defendedDescription\": \"string\",\n  \"defenseAggression\": \"<string>\",\n  \"description\": \"string\",\n  \"durationMaxMins\": 4423,\n  \"durationMinMins\": 250,\n  \"enabled\": false,\n  \"entityType\": {\n    \"access\": {\n      \"permissions\": {\n        \"permissions\": {\n          \"canCreate\": true,\n          \"canView\": true\n        },\n        \"type\": \"WEBHOOKS_ASSOCIATION\"\n      }\n    }\n  },\n  \"eventType\": \"<string>\",\n  \"id\": 9429,\n  \"idealTime\": \"string\",\n  \"priority\": \"<string>\",\n  \"recurrence\": {\n    \"frequency\": \"<string>\",\n    \"interval\": \"<integer>\",\n    \"idealDays\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"idealMonthlyDay\": {\n      \"idealDayOfMonth\": \"<integer>\",\n      \"idealDayOfWeek\": \"<string>\",\n      \"idealWeek\": \"<integer>\"\n    },\n    \"daysBetweenPeriods\": 2736\n  },\n  \"reservedWords\": [\n    \"string\",\n    \"string\"\n  ],\n  \"timePolicyType\": \"<string>\",\n  \"title\": \"string\",\n  \"visibility\": \"<string>\",\n  \"color\": \"<string>\",\n  \"oneOffPolicy\": {\n    \"dayHours\": {\n      \"MONDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"TUESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"WEDNESDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"THURSDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"FRIDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SATURDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      },\n      \"SUNDAY\": {\n        \"intervals\": [\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"end\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"start\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"duration\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"startOfDay\": \"<partial-time>\",\n        \"endOfDay\": \"<partial-time>\"\n      }\n    },\n    \"startOfWeek\": \"<string>\",\n    \"endOfWeek\": \"<string>\"\n  },\n  \"starting\": \"1977-09-03\",\n  \"ending\": \"2015-09-16\",\n  \"failurePolicy\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "bfdc860e-c2b2-4753-a703-82253049a3d0",
+    "name": "Reclaim account-time-schemes smart-habit-custom-templates API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

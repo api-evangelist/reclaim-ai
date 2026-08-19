@@ -1,0 +1,315 @@
+{
+  "item": [
+    {
+      "id": "88e9e5e3-a82d-4a88-8e23-96e300044921",
+      "name": "Time Window Overrides",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5e908102-8bd0-4107-9a35-f835ae5c183c",
+          "name": "fetch 1",
+          "request": {
+            "name": "fetch 1",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "time-window-overrides"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "37cdfb27-1fdf-459d-8c67-ddd841d4198e",
+              "name": "fetch_1 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "time-window-overrides"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"defaultTimezone\": \"string\",\n  \"entries\": [\n    {\n      \"endDate\": \"1986-02-23\",\n      \"id\": 5374,\n      \"startDate\": \"1951-09-30\",\n      \"timezone\": \"string\"\n    },\n    {\n      \"endDate\": \"1953-07-26\",\n      \"id\": 5332,\n      \"startDate\": \"1973-03-17\",\n      \"timezone\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8f8e4b8-9187-4248-a701-445448e2e39b",
+          "name": "create 3",
+          "request": {
+            "name": "create 3",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "time-window-overrides",
+                "entry"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"endDate\": \"<date>\",\n  \"startDate\": \"<date>\",\n  \"timezone\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "799d4710-b735-4ebf-aa1d-9aec0c1eafee",
+              "name": "create_3 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "time-window-overrides",
+                    "entry"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"endDate\": \"<date>\",\n  \"startDate\": \"<date>\",\n  \"timezone\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"defaultTimezone\": \"string\",\n  \"entries\": [\n    {\n      \"endDate\": \"2013-07-19\",\n      \"id\": 5339,\n      \"startDate\": \"1954-11-24\",\n      \"timezone\": \"string\"\n    },\n    {\n      \"endDate\": \"2010-09-11\",\n      \"id\": 76,\n      \"startDate\": \"1978-02-14\",\n      \"timezone\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ffc82999-86b8-4d8c-ad3e-995ea81699ea",
+          "name": "delete 5",
+          "request": {
+            "name": "delete 5",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "time-window-overrides",
+                "entry",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "6caf1368-0c86-4f7f-a5ad-8ea567ee6153",
+              "name": "delete_5 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "time-window-overrides",
+                    "entry",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"defaultTimezone\": \"string\",\n  \"entries\": [\n    {\n      \"endDate\": \"2013-07-19\",\n      \"id\": 5339,\n      \"startDate\": \"1954-11-24\",\n      \"timezone\": \"string\"\n    },\n    {\n      \"endDate\": \"2010-09-11\",\n      \"id\": 76,\n      \"startDate\": \"1978-02-14\",\n      \"timezone\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6af978ed-5ad0-47cd-89eb-5bcbd19f9404",
+    "name": "Reclaim account-time-schemes Time Window Overrides API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

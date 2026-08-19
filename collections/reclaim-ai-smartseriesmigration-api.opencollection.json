@@ -1,0 +1,46 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes SmartSeriesMigration API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SmartSeriesMigration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "This is only intended for dev use to simulate the UserTaskSchedulerService causing the nightly scheduled migration check to run",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-series-migration/reclaim-recurrence/migrate-all"
+          },
+          "docs": "This is only intended for dev use to simulate the UserTaskSchedulerService causing the nightly scheduled migration check to run"
+        },
+        {
+          "info": {
+            "name": "migrateAllToSmartSeries",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/smart-series-migration/run",
+            "params": [
+              {
+                "name": "migrateExistingAssignments",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

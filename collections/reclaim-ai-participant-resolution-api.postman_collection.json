@@ -1,0 +1,265 @@
+{
+  "item": [
+    {
+      "id": "9f2e3898-ad23-4a6b-a609-d2a2367093ff",
+      "name": "participant-resolution",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "09c25b1e-dc28-472e-b898-c06ab87f5891",
+          "name": "resolve Participants For Smart Series",
+          "request": {
+            "name": "resolve Participants For Smart Series",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "participant-resolution"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "emails",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "emails",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "userCalendarId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "e381b116-9fc3-41ca-9e30-510187838a39",
+              "name": "resolveParticipantsForSmartSeries 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "participant-resolution"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "emails",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "emails",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "userCalendarId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"matchedEmails\": [\n      \"string\",\n      \"string\"\n    ],\n    \"participant\": {\n      \"email\": \"string\",\n      \"reclaimUser\": false,\n      \"userId\": \"string\",\n      \"name\": \"string\",\n      \"avatarUrl\": \"string\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\"\n    },\n    \"timeSchemes\": [\n      {\n        \"features\": [\n          \"SMART_HABIT\",\n          \"FOCUS\"\n        ],\n        \"id\": \"string\",\n        \"policy\": {\n          \"dayHours\": {\n            \"MONDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TUESDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"WEDNESDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"THURSDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"FRIDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"SATURDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"SUNDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"startOfWeek\": \"THURSDAY\",\n          \"endOfWeek\": \"FRIDAY\"\n        },\n        \"policyType\": \"WORK\",\n        \"title\": \"string\",\n        \"userId\": \"string\"\n      },\n      {\n        \"features\": [\n          \"SMART_HABIT\",\n          \"USER\"\n        ],\n        \"id\": \"string\",\n        \"policy\": {\n          \"dayHours\": {\n            \"MONDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TUESDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"WEDNESDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"THURSDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"FRIDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"SATURDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"SUNDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"startOfWeek\": \"MONDAY\",\n          \"endOfWeek\": \"WEDNESDAY\"\n        },\n        \"policyType\": \"PERSONAL\",\n        \"title\": \"string\",\n        \"userId\": \"string\"\n      }\n    ],\n    \"timezone\": \"string\",\n    \"visibility\": \"FREE_BUSY\"\n  },\n  {\n    \"matchedEmails\": [\n      \"string\",\n      \"string\"\n    ],\n    \"participant\": {\n      \"email\": \"string\",\n      \"reclaimUser\": true,\n      \"userId\": \"string\",\n      \"name\": \"string\",\n      \"avatarUrl\": \"string\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\"\n    },\n    \"timeSchemes\": [\n      {\n        \"features\": [\n          \"SYNC\",\n          \"USER\"\n        ],\n        \"id\": \"string\",\n        \"policy\": {\n          \"dayHours\": {\n            \"MONDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TUESDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"WEDNESDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"THURSDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"FRIDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"SATURDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"SUNDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"startOfWeek\": \"SATURDAY\",\n          \"endOfWeek\": \"WEDNESDAY\"\n        },\n        \"policyType\": \"MEETING\",\n        \"title\": \"string\",\n        \"userId\": \"string\"\n      },\n      {\n        \"features\": [\n          \"TASK_ASSIGNMENT\",\n          \"SYNC\"\n        ],\n        \"id\": \"string\",\n        \"policy\": {\n          \"dayHours\": {\n            \"MONDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TUESDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"WEDNESDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"THURSDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"FRIDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"SATURDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"SUNDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"startOfWeek\": \"SUNDAY\",\n          \"endOfWeek\": \"WEDNESDAY\"\n        },\n        \"policyType\": \"WORK\",\n        \"title\": \"string\",\n        \"userId\": \"string\"\n      }\n    ],\n    \"timezone\": \"string\",\n    \"visibility\": \"RECLAIM\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f511b2b0-638d-4c86-ab42-a88001b2de7c",
+          "name": "resolve Participants For Scheduling Link",
+          "request": {
+            "name": "resolve Participants For Scheduling Link",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "participant-resolution",
+                "scheduling-link"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "emails",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "emails",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "userCalendarId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "schedulingLinkId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "c11817b2-4eeb-4f0f-9c50-7451deef249b",
+              "name": "resolveParticipantsForSchedulingLink 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "participant-resolution",
+                    "scheduling-link"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "emails",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "emails",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "userCalendarId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "schedulingLinkId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"matchedEmails\": [\n      \"string\",\n      \"string\"\n    ],\n    \"participant\": {\n      \"email\": \"string\",\n      \"reclaimUser\": false,\n      \"userId\": \"string\",\n      \"name\": \"string\",\n      \"avatarUrl\": \"string\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\"\n    },\n    \"timeSchemes\": [\n      {\n        \"features\": [\n          \"TASK_ASSIGNMENT\",\n          \"TRAVEL_BUFFER\"\n        ],\n        \"id\": \"string\",\n        \"policy\": {\n          \"dayHours\": {\n            \"MONDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TUESDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"WEDNESDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"THURSDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"FRIDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"SATURDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"SUNDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"startOfWeek\": \"TUESDAY\",\n          \"endOfWeek\": \"THURSDAY\"\n        },\n        \"policyType\": \"CUSTOM\",\n        \"title\": \"string\",\n        \"userId\": \"string\"\n      },\n      {\n        \"features\": [\n          \"FOCUS\",\n          \"SMART_MEETING\"\n        ],\n        \"id\": \"string\",\n        \"policy\": {\n          \"dayHours\": {\n            \"MONDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TUESDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"WEDNESDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"THURSDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"FRIDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"SATURDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"SUNDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"startOfWeek\": \"SUNDAY\",\n          \"endOfWeek\": \"SATURDAY\"\n        },\n        \"policyType\": \"PERSONAL\",\n        \"title\": \"string\",\n        \"userId\": \"string\"\n      }\n    ],\n    \"timezone\": \"string\",\n    \"visibility\": \"FREE_BUSY\"\n  },\n  {\n    \"matchedEmails\": [\n      \"string\",\n      \"string\"\n    ],\n    \"participant\": {\n      \"email\": \"st\",\n      \"reclaimUser\": true,\n      \"userId\": \"string\",\n      \"name\": \"string\",\n      \"avatarUrl\": \"string\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\"\n    },\n    \"timeSchemes\": [\n      {\n        \"features\": [\n          \"UNKNOWN\",\n          \"SMART_MEETING\"\n        ],\n        \"id\": \"string\",\n        \"policy\": {\n          \"dayHours\": {\n            \"MONDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TUESDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"WEDNESDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"THURSDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"FRIDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"SATURDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"SUNDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"startOfWeek\": \"TUESDAY\",\n          \"endOfWeek\": \"WEDNESDAY\"\n        },\n        \"policyType\": \"MEETING\",\n        \"title\": \"string\",\n        \"userId\": \"string\"\n      },\n      {\n        \"features\": [\n          \"SMART_HABIT\",\n          \"HABIT_ASSIGNMENT\"\n        ],\n        \"id\": \"string\",\n        \"policy\": {\n          \"dayHours\": {\n            \"MONDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TUESDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"WEDNESDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"THURSDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"FRIDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"SATURDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"SUNDAY\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"startOfWeek\": \"SATURDAY\",\n          \"endOfWeek\": \"WEDNESDAY\"\n        },\n        \"policyType\": \"PERSONAL\",\n        \"title\": \"string\",\n        \"userId\": \"string\"\n      }\n    ],\n    \"timezone\": \"string\",\n    \"visibility\": \"NONE\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "6cd35045-f871-422e-a922-5989d911adbc",
+    "name": "Reclaim account-time-schemes participant-resolution API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,1216 @@
+{
+  "item": [
+    {
+      "id": "b8e6e8e0-6793-4448-90ca-bb2ab79f1ff1",
+      "name": "analytics",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "81adb03e-fd16-4095-98b1-29c297b0fa33",
+          "name": "analytics focus Insights v3",
+          "request": {
+            "name": "analytics focus Insights v3",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "analytics",
+                "focus",
+                "insights",
+                "V3"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<date>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<date>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "countingStyle",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "0a860f4a-d05e-40fd-baf1-0022dbeda0a4",
+              "name": "analytics_focusInsights_v3 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "analytics",
+                    "focus",
+                    "insights",
+                    "V3"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "countingStyle",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"insightsForDays\": [\n    {\n      \"analyticsResults\": [\n        {\n          \"metric\": {\n            \"appendixKeys\": {\n              \"people\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"description\": \"string\",\n            \"noData\": false,\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"name\": \"COUNT_BY_CATEGORY\"\n        },\n        {\n          \"metric\": {\n            \"appendixKeys\": {\n              \"people\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"description\": \"string\",\n            \"noData\": false,\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"name\": \"RECLAIM_SCHEDULED_EVENT_COUNT\"\n        }\n      ],\n      \"day\": \"2011-08-07\",\n      \"deepFocusOpportunityCount\": 1705,\n      \"freeTimeMinutes\": 944,\n      \"meetingTimeInMinutes\": 84,\n      \"meetingsCount\": 2400,\n      \"shortBreakBetweenMeetingCount\": 6944,\n      \"stats\": [\n        {\n          \"count\": 8397,\n          \"eventMinutesMap\": {\n            \"key_0\": 4337\n          },\n          \"focusInsightsCategory\": \"Focus\",\n          \"minutes\": 5157,\n          \"reclaimEventType\": \"TRAVEL_BUFFER\"\n        },\n        {\n          \"count\": 4539,\n          \"eventMinutesMap\": {\n            \"key_0\": 6512,\n            \"key_1\": 9288\n          },\n          \"focusInsightsCategory\": \"SoloWork\",\n          \"minutes\": 7134,\n          \"reclaimEventType\": \"SYNC\"\n        }\n      ]\n    },\n    {\n      \"analyticsResults\": [\n        {\n          \"metric\": {\n            \"appendixKeys\": {\n              \"people\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"description\": \"string\",\n            \"noData\": false,\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"name\": \"PERSONAL_HABITS_AND_TASKS_DURATION_BY_DATE_BY_NAME\"\n        },\n        {\n          \"metric\": {\n            \"appendixKeys\": {\n              \"people\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"description\": \"string\",\n            \"noData\": true,\n            \"type\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"unit\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"name\": \"MEETING_CALLOUT_GROUP\"\n        }\n      ],\n      \"day\": \"2002-05-30\",\n      \"deepFocusOpportunityCount\": 1797,\n      \"freeTimeMinutes\": 3676,\n      \"meetingTimeInMinutes\": 9652,\n      \"meetingsCount\": 2848,\n      \"shortBreakBetweenMeetingCount\": 5290,\n      \"stats\": [\n        {\n          \"count\": 6059,\n          \"eventMinutesMap\": {\n            \"key_0\": 9732,\n            \"key_1\": 1287\n          },\n          \"focusInsightsCategory\": \"Focus\",\n          \"minutes\": 5740,\n          \"reclaimEventType\": \"TRAVEL_BUFFER\"\n        },\n        {\n          \"count\": 8590,\n          \"eventMinutesMap\": {\n            \"key_0\": 5275\n          },\n          \"focusInsightsCategory\": \"ExternalMeeting\",\n          \"minutes\": 8627,\n          \"reclaimEventType\": \"CONF_BUFFER\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2bf7f2ca-710e-40e2-a345-ae7842d3bd51",
+          "name": "analytics focus Insights v4",
+          "request": {
+            "name": "analytics focus Insights v4",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "analytics",
+                "focus",
+                "insights",
+                "V4"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "queryStart",
+                  "value": "<date>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "queryEnd",
+                  "value": "<date>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "9520d93b-5d66-409b-8a3d-560963c541d4",
+              "name": "analytics_focusInsights_v4 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "analytics",
+                    "focus",
+                    "insights",
+                    "V4"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "queryStart",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "queryEnd",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"currentMetrics\": {\n    \"avgFocusDuration\": 3674.9503837982843,\n    \"decompressionTimeHoursPerWeek\": 6966.294478047069,\n    \"end\": \"2022-09-11\",\n    \"focusScore\": 1849.6962484864055,\n    \"meetingLoad\": 299.71603178492455,\n    \"reclaimScheduledPerWeek\": 2418.2353116622767,\n    \"reclaimedTimeHoursPerWeek\": 3702.7918936692317,\n    \"start\": \"2024-07-25\",\n    \"travelTimeHoursPerWeek\": 3085.3458265546074,\n    \"deepWork\": {\n      \"deepFocusOpportunityCountNormalizedAvg\": 2948.4529627678135,\n      \"deepFocusOpportunityCountWeeklyAvg\": 1447.2537687934018,\n      \"freeTimeHoursDailyAvg\": 4406.303324971408,\n      \"index\": 4037.6557189241003,\n      \"meetingHeavyDaysNormalizedAvg\": 3588.426293531496,\n      \"meetingHeavyDaysWeeklyAvg\": 3942.272767899023,\n      \"meetingTimeInHoursNormalizedAvg\": 9602.521012664762,\n      \"meetingTimeInHoursWeeklyAvg\": 930.5176840367857,\n      \"meetingsCountDailyAvg\": 7675.094844508944,\n      \"meetingsCountNormalizedAvg\": 6223.204356637993,\n      \"shortBreakBetweenMeetingCountNormalizedAvg\": 9926.790553503923,\n      \"shortBreakBetweenMeetingCountWeeklyAvg\": 6667.653016997107,\n      \"timeSeries\": [\n        {\n          \"deepFocusOpportunityCountNormalized\": 4589.703916663817,\n          \"deepFocusOpportunityCountWeeklyAvg\": 4067.379254943734,\n          \"end\": \"1970-11-21\",\n          \"freeTimeHoursDailyAvg\": 5957.428238729861,\n          \"index\": 5793.709606443782,\n          \"meetingHeavyDaysNormalized\": 3129.911810407803,\n          \"meetingHeavyDaysWeeklyAvg\": 1761.3919058365923,\n          \"meetingTimeInHoursNormalized\": 4855.152009923485,\n          \"meetingTimeInHoursWeeklyAvg\": 7578.523117982571,\n          \"meetingsCountDailyAvg\": 2152.20258701234,\n          \"meetingsCountNormalized\": 1422.510561525312,\n          \"shortBreakBetweenMeetingCountNormalized\": 1529.3187973945953,\n          \"shortBreakBetweenMeetingCountWeeklyAvg\": 4787.321358621006,\n          \"start\": \"1974-09-20\"\n        },\n        {\n          \"deepFocusOpportunityCountNormalized\": 9773.57900863682,\n          \"deepFocusOpportunityCountWeeklyAvg\": 2892.2193578479214,\n          \"end\": \"1986-02-03\",\n          \"freeTimeHoursDailyAvg\": 9659.170564764701,\n          \"index\": 8994.94927765051,\n          \"meetingHeavyDaysNormalized\": 1579.2741452118519,\n          \"meetingHeavyDaysWeeklyAvg\": 9513.374551095523,\n          \"meetingTimeInHoursNormalized\": 2198.3889022352255,\n          \"meetingTimeInHoursWeeklyAvg\": 646.1342515935909,\n          \"meetingsCountDailyAvg\": 3066.73509884137,\n          \"meetingsCountNormalized\": 2145.996303494202,\n          \"shortBreakBetweenMeetingCountNormalized\": 6437.142310625138,\n          \"shortBreakBetweenMeetingCountWeeklyAvg\": 125.0869627604989,\n          \"start\": \"1992-12-21\"\n        }\n      ]\n    },\n    \"timeBreakdown\": {\n      \"eventTypeToHoursDailyAvg\": {\n        \"ExternalMeeting\": {\n          \"hoursDailyAvg\": 6035.368171568184,\n          \"shallowCount\": 5253.41757099761,\n          \"deepCount\": 9074.793883643675\n        },\n        \"OneOnOne\": {\n          \"hoursDailyAvg\": 4757.6600145884,\n          \"shallowCount\": 1386.4105609245692,\n          \"deepCount\": 8144.603278024256\n        },\n        \"TeamMeeting\": {\n          \"hoursDailyAvg\": 2071.2902019395806,\n          \"shallowCount\": 5297.780125748612,\n          \"deepCount\": 1983.0145477586937\n        },\n        \"SoloWork\": {\n          \"hoursDailyAvg\": 3044.8628434438897,\n          \"shallowCount\": 6424.784813707486,\n          \"deepCount\": 4973.5422730213695\n        },\n        \"Personal\": {\n          \"hoursDailyAvg\": 1295.0400949044217,\n          \"shallowCount\": 8254.449652518133,\n          \"deepCount\": 6658.009841649646\n        },\n        \"Logistics\": {\n          \"hoursDailyAvg\": 5127.719498433989,\n          \"shallowCount\": 1979.9727847652648,\n          \"deepCount\": 1995.1691896209657\n        },\n        \"Focus\": {\n          \"hoursDailyAvg\": 4246.0883027239815,\n          \"shallowCount\": 1293.1911843446342,\n          \"deepCount\": 5863.2366000404545\n        }\n      },\n      \"timeSeries\": [\n        {\n          \"end\": \"1964-07-30\",\n          \"eventTypeToHoursAvg\": {\n            \"ExternalMeeting\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"OneOnOne\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamMeeting\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"SoloWork\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Personal\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Logistics\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Focus\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"freeTimeHoursAvg\": 3194.2513043482913,\n          \"start\": \"1956-09-22\"\n        },\n        {\n          \"end\": \"1948-08-27\",\n          \"eventTypeToHoursAvg\": {\n            \"ExternalMeeting\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"OneOnOne\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamMeeting\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"SoloWork\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Personal\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Logistics\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Focus\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"freeTimeHoursAvg\": 4666.5818994653255,\n          \"start\": \"2003-12-05\"\n        }\n      ]\n    },\n    \"timeInMeetings\": {\n      \"dayOfWeekMeetingBuckets\": [\n        {\n          \"dayOfTheWeek\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"meetingHoursAvg\": 8942.097382426151\n        },\n        {\n          \"dayOfTheWeek\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"meetingHoursAvg\": 5088.5877724105085\n        }\n      ],\n      \"timeInMeetingsHistogram\": {\n        \"key_0\": [\n          {\n            \"meetingHours\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"meetingHours\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    },\n    \"policyMetrics\": {\n      \"metrics\": [\n        {\n          \"name\": \"string\",\n          \"value\": 8253.655944786795\n        },\n        {\n          \"name\": \"string\",\n          \"value\": 2116.6363855330283\n        }\n      ],\n      \"overallPolicyAdherenceAverage\": 7730.386905374356\n    }\n  },\n  \"previousMetrics\": {\n    \"avgFocusDuration\": 2103.7979102068207,\n    \"decompressionTimeHoursPerWeek\": 2512.9504706432303,\n    \"end\": \"1979-08-29\",\n    \"focusScore\": 8200.846475862534,\n    \"meetingLoad\": 6367.333804017593,\n    \"reclaimScheduledPerWeek\": 4070.9163771955546,\n    \"reclaimedTimeHoursPerWeek\": 2428.407765347277,\n    \"start\": \"1996-05-16\",\n    \"travelTimeHoursPerWeek\": 9961.46386537353,\n    \"deepWork\": {\n      \"deepFocusOpportunityCountNormalizedAvg\": 5769.164656557741,\n      \"deepFocusOpportunityCountWeeklyAvg\": 8949.044694990158,\n      \"freeTimeHoursDailyAvg\": 9487.173193715586,\n      \"index\": 808.0623410054544,\n      \"meetingHeavyDaysNormalizedAvg\": 5546.890680574442,\n      \"meetingHeavyDaysWeeklyAvg\": 9363.773518141494,\n      \"meetingTimeInHoursNormalizedAvg\": 8956.249928647741,\n      \"meetingTimeInHoursWeeklyAvg\": 8927.608843184615,\n      \"meetingsCountDailyAvg\": 5314.0876227374565,\n      \"meetingsCountNormalizedAvg\": 5514.135137924785,\n      \"shortBreakBetweenMeetingCountNormalizedAvg\": 3073.672546921624,\n      \"shortBreakBetweenMeetingCountWeeklyAvg\": 8291.137739746104,\n      \"timeSeries\": [\n        {\n          \"deepFocusOpportunityCountNormalized\": 2965.2102268525227,\n          \"deepFocusOpportunityCountWeeklyAvg\": 4924.961048686073,\n          \"end\": \"1968-06-11\",\n          \"freeTimeHoursDailyAvg\": 4607.372783147252,\n          \"index\": 530.37585196549,\n          \"meetingHeavyDaysNormalized\": 9709.517893319628,\n          \"meetingHeavyDaysWeeklyAvg\": 5935.196238356486,\n          \"meetingTimeInHoursNormalized\": 191.90381947986722,\n          \"meetingTimeInHoursWeeklyAvg\": 7503.691834410025,\n          \"meetingsCountDailyAvg\": 573.575986058642,\n          \"meetingsCountNormalized\": 6216.313746033333,\n          \"shortBreakBetweenMeetingCountNormalized\": 2010.3893516872563,\n          \"shortBreakBetweenMeetingCountWeeklyAvg\": 4329.030336056318,\n          \"start\": \"2018-12-29\"\n        },\n        {\n          \"deepFocusOpportunityCountNormalized\": 6726.373408432049,\n          \"deepFocusOpportunityCountWeeklyAvg\": 7364.405162198945,\n          \"end\": \"1965-10-14\",\n          \"freeTimeHoursDailyAvg\": 9901.4857866535,\n          \"index\": 3879.9157350773985,\n          \"meetingHeavyDaysNormalized\": 234.85270948083837,\n          \"meetingHeavyDaysWeeklyAvg\": 9407.251302443905,\n          \"meetingTimeInHoursNormalized\": 980.6820778668935,\n          \"meetingTimeInHoursWeeklyAvg\": 5079.436844567185,\n          \"meetingsCountDailyAvg\": 1105.40865962095,\n          \"meetingsCountNormalized\": 9946.19748457931,\n          \"shortBreakBetweenMeetingCountNormalized\": 3814.8283028340156,\n          \"shortBreakBetweenMeetingCountWeeklyAvg\": 7348.796178196233,\n          \"start\": \"1976-04-24\"\n        }\n      ]\n    },\n    \"timeBreakdown\": {\n      \"eventTypeToHoursDailyAvg\": {\n        \"ExternalMeeting\": {\n          \"hoursDailyAvg\": 2653.8448003933645,\n          \"shallowCount\": 4950.504394803519,\n          \"deepCount\": 2714.730020552736\n        },\n        \"OneOnOne\": {\n          \"hoursDailyAvg\": 5778.350736410003,\n          \"shallowCount\": 9591.857854662258,\n          \"deepCount\": 8041.559735303455\n        },\n        \"TeamMeeting\": {\n          \"hoursDailyAvg\": 2568.4998979257025,\n          \"shallowCount\": 9846.35884519371,\n          \"deepCount\": 5012.048022960511\n        },\n        \"SoloWork\": {\n          \"hoursDailyAvg\": 5838.667476844173,\n          \"shallowCount\": 6653.31897393471,\n          \"deepCount\": 7390.88749407417\n        },\n        \"Personal\": {\n          \"hoursDailyAvg\": 6099.614506573752,\n          \"shallowCount\": 5422.043779210708,\n          \"deepCount\": 6296.17079427366\n        },\n        \"Logistics\": {\n          \"hoursDailyAvg\": 619.2079605011214,\n          \"shallowCount\": 3861.811610174938,\n          \"deepCount\": 755.8468869227996\n        },\n        \"Focus\": {\n          \"hoursDailyAvg\": 1656.8988532528983,\n          \"shallowCount\": 2254.423814327616,\n          \"deepCount\": 6938.926245932898\n        }\n      },\n      \"timeSeries\": [\n        {\n          \"end\": \"1951-01-31\",\n          \"eventTypeToHoursAvg\": {\n            \"ExternalMeeting\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"OneOnOne\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamMeeting\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"SoloWork\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Personal\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Logistics\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Focus\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"freeTimeHoursAvg\": 3949.545242026006,\n          \"start\": \"1986-04-29\"\n        },\n        {\n          \"end\": \"1964-02-28\",\n          \"eventTypeToHoursAvg\": {\n            \"ExternalMeeting\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"OneOnOne\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamMeeting\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"SoloWork\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Personal\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Logistics\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Focus\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"freeTimeHoursAvg\": 6555.292592050882,\n          \"start\": \"2002-03-15\"\n        }\n      ]\n    },\n    \"timeInMeetings\": {\n      \"dayOfWeekMeetingBuckets\": [\n        {\n          \"dayOfTheWeek\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"meetingHoursAvg\": 947.7386556656786\n        },\n        {\n          \"dayOfTheWeek\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"meetingHoursAvg\": 6018.606099224443\n        }\n      ],\n      \"timeInMeetingsHistogram\": {\n        \"key_0\": [\n          {\n            \"meetingHours\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"meetingHours\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    },\n    \"policyMetrics\": {\n      \"metrics\": [\n        {\n          \"name\": \"string\",\n          \"value\": 4449.52865960411\n        },\n        {\n          \"name\": \"string\",\n          \"value\": 3431.43189607498\n        }\n      ],\n      \"overallPolicyAdherenceAverage\": 8645.769787269981\n    }\n  },\n  \"tooFewUsers\": false,\n  \"userCount\": 3168\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9d124988-4d72-4240-9b16-26ab6b6a401c",
+          "name": "analytics team Analytics",
+          "request": {
+            "name": "analytics team Analytics",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "analytics",
+                "team"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<date>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<date>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "metricName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "metricName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "groupingInterval",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "f3009449-f623-49a1-9545-10a66308a27e",
+              "name": "analytics_teamAnalytics 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "analytics",
+                    "team"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "metricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupingInterval",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"appendix\": {\n    \"teamSize\": 8083,\n    \"people\": {\n      \"missingScopes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"values\": {\n        \"key_0\": {\n          \"email\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"reclaimUser\": false,\n          \"userId\": \"string\",\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"avatarUrl\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"firstName\": \"string\",\n          \"lastName\": \"string\"\n        },\n        \"key_1\": {\n          \"email\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"reclaimUser\": false,\n          \"userId\": \"string\",\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"avatarUrl\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"firstName\": \"string\",\n          \"lastName\": \"string\"\n        }\n      }\n    }\n  },\n  \"metrics\": [\n    {\n      \"metric\": {\n        \"appendixKeys\": {\n          \"people\": {\n            \"empty\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"first\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"last\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"description\": \"string\",\n        \"noData\": false,\n        \"type\": \"countByCategory\",\n        \"unit\": \"DURATION_MINUTES\"\n      },\n      \"name\": \"<string>\"\n    },\n    {\n      \"metric\": {\n        \"appendixKeys\": {\n          \"people\": {\n            \"empty\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"first\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"last\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"description\": \"string\",\n        \"noData\": false,\n        \"type\": \"calloutGroup\",\n        \"unit\": \"PERCENTAGE\"\n      },\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8b7f675a-70f5-4a12-adf8-4a208cfa51f5",
+          "name": "analytics team Analytics V3",
+          "request": {
+            "name": "analytics team Analytics V3",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "analytics",
+                "team",
+                "V3"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<date>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<date>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "metricName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "metricName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "groupingInterval",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "notificationKey",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "def82c80-74bd-4620-b363-9e9fed8affad",
+              "name": "analytics_teamAnalyticsV3 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "analytics",
+                    "team",
+                    "V3"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "metricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupingInterval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notificationKey",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {\n    \"appendix\": {\n      \"teamSize\": 4011,\n      \"people\": {\n        \"missingScopes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"values\": {\n          \"key_0\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key_1\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key_2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key_3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key_4\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    },\n    \"metrics\": [\n      {\n        \"metric\": {\n          \"appendixKeys\": {\n            \"people\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"description\": \"string\",\n          \"noData\": true,\n          \"type\": \"durationSummary\",\n          \"unit\": \"COUNT\"\n        },\n        \"name\": \"<string>\"\n      },\n      {\n        \"metric\": {\n          \"appendixKeys\": {\n            \"people\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"description\": \"string\",\n          \"noData\": true,\n          \"type\": \"durationByDateByCategory\",\n          \"unit\": \"COUNT\"\n        },\n        \"name\": \"<string>\"\n      }\n    ]\n  },\n  \"status\": \"PENDING\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5647097d-f310-4986-a0f3-2a373a4a04fa",
+          "name": "analytics team Analytics V4",
+          "request": {
+            "name": "analytics team Analytics V4",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "analytics",
+                "team",
+                "V4"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"queryEnd\": \"<date>\",\n  \"queryStart\": \"<date>\",\n  \"filters\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"myOrg\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "134fd13d-c66c-41d5-a5a7-30f21699e4f0",
+              "name": "analytics_teamAnalyticsV4 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "analytics",
+                    "team",
+                    "V4"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"queryEnd\": \"<date>\",\n  \"queryStart\": \"<date>\",\n  \"filters\": [\n    {\n      \"value\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\"\n    }\n  ],\n  \"myOrg\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"currentMetrics\": {\n    \"avgFocusDuration\": 7428.274521124089,\n    \"decompressionTimeHoursPerWeek\": 1108.0259726237573,\n    \"end\": \"2003-01-10\",\n    \"focusScore\": 6566.11281060957,\n    \"meetingLoad\": 9639.705481862387,\n    \"reclaimScheduledPerWeek\": 5584.769608078401,\n    \"reclaimedTimeHoursPerWeek\": 4662.814282241265,\n    \"start\": \"1996-05-08\",\n    \"travelTimeHoursPerWeek\": 4158.364392444953,\n    \"deepWork\": {\n      \"deepFocusOpportunityCountNormalizedAvg\": 2571.5020732395387,\n      \"deepFocusOpportunityCountWeeklyAvg\": 4915.945856391465,\n      \"freeTimeHoursDailyAvg\": 9984.86440074111,\n      \"index\": 6818.805878307975,\n      \"meetingHeavyDaysNormalizedAvg\": 9080.10393232221,\n      \"meetingHeavyDaysWeeklyAvg\": 8620.673274892566,\n      \"meetingTimeInHoursNormalizedAvg\": 9524.592012276282,\n      \"meetingTimeInHoursWeeklyAvg\": 7604.447267271528,\n      \"meetingsCountDailyAvg\": 7145.942107977212,\n      \"meetingsCountNormalizedAvg\": 8314.508619156424,\n      \"shortBreakBetweenMeetingCountNormalizedAvg\": 715.2230768854506,\n      \"shortBreakBetweenMeetingCountWeeklyAvg\": 4745.142412902017,\n      \"timeSeries\": [\n        {\n          \"deepFocusOpportunityCountNormalized\": 1486.312485752611,\n          \"deepFocusOpportunityCountWeeklyAvg\": 9136.253496415133,\n          \"end\": \"2000-12-14\",\n          \"freeTimeHoursDailyAvg\": 1803.743492771358,\n          \"index\": 6552.606721892514,\n          \"meetingHeavyDaysNormalized\": 7589.344049798392,\n          \"meetingHeavyDaysWeeklyAvg\": 6289.924338406515,\n          \"meetingTimeInHoursNormalized\": 5139.4085654221035,\n          \"meetingTimeInHoursWeeklyAvg\": 3627.801312446861,\n          \"meetingsCountDailyAvg\": 5093.556506868915,\n          \"meetingsCountNormalized\": 3779.9272221812485,\n          \"shortBreakBetweenMeetingCountNormalized\": 801.959511469722,\n          \"shortBreakBetweenMeetingCountWeeklyAvg\": 9979.84625889729,\n          \"start\": \"1998-01-04\"\n        },\n        {\n          \"deepFocusOpportunityCountNormalized\": 1473.2436787080694,\n          \"deepFocusOpportunityCountWeeklyAvg\": 1085.1779182274468,\n          \"end\": \"1986-06-19\",\n          \"freeTimeHoursDailyAvg\": 6671.987108562107,\n          \"index\": 5757.639179476793,\n          \"meetingHeavyDaysNormalized\": 8751.379858118515,\n          \"meetingHeavyDaysWeeklyAvg\": 5962.83007930673,\n          \"meetingTimeInHoursNormalized\": 2976.702854225366,\n          \"meetingTimeInHoursWeeklyAvg\": 2011.1397944148302,\n          \"meetingsCountDailyAvg\": 1904.6743849988002,\n          \"meetingsCountNormalized\": 916.8616922234985,\n          \"shortBreakBetweenMeetingCountNormalized\": 183.51571011658518,\n          \"shortBreakBetweenMeetingCountWeeklyAvg\": 8940.881907819252,\n          \"start\": \"1972-08-04\"\n        }\n      ]\n    },\n    \"timeBreakdown\": {\n      \"eventTypeToHoursDailyAvg\": {\n        \"ExternalMeeting\": {\n          \"hoursDailyAvg\": 992.5945145195315,\n          \"shallowCount\": 5355.764679613193,\n          \"deepCount\": 1054.8020724778396\n        },\n        \"OneOnOne\": {\n          \"hoursDailyAvg\": 1508.4619421228729,\n          \"shallowCount\": 9401.173291591707,\n          \"deepCount\": 8284.313537079765\n        },\n        \"TeamMeeting\": {\n          \"hoursDailyAvg\": 7043.989970457892,\n          \"shallowCount\": 8667.94960482154,\n          \"deepCount\": 6404.742511725684\n        },\n        \"SoloWork\": {\n          \"hoursDailyAvg\": 3208.4536066023193,\n          \"shallowCount\": 2586.2300408097763,\n          \"deepCount\": 387.9899202538084\n        },\n        \"Personal\": {\n          \"hoursDailyAvg\": 1654.6498069340864,\n          \"shallowCount\": 159.1416645942201,\n          \"deepCount\": 431.37083769357656\n        },\n        \"Logistics\": {\n          \"hoursDailyAvg\": 6102.647116575372,\n          \"shallowCount\": 892.4265037789347,\n          \"deepCount\": 5301.22446702074\n        },\n        \"Focus\": {\n          \"hoursDailyAvg\": 4966.211293924389,\n          \"shallowCount\": 4482.255546697395,\n          \"deepCount\": 5465.115762053787\n        }\n      },\n      \"timeSeries\": [\n        {\n          \"end\": \"1963-04-06\",\n          \"eventTypeToHoursAvg\": {\n            \"ExternalMeeting\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"OneOnOne\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamMeeting\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"SoloWork\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Personal\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Logistics\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Focus\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"freeTimeHoursAvg\": 5414.683879135155,\n          \"start\": \"1996-05-27\"\n        },\n        {\n          \"end\": \"1954-02-19\",\n          \"eventTypeToHoursAvg\": {\n            \"ExternalMeeting\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"OneOnOne\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamMeeting\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"SoloWork\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Personal\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Logistics\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Focus\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"freeTimeHoursAvg\": 661.3696529778457,\n          \"start\": \"2003-04-11\"\n        }\n      ]\n    },\n    \"timeInMeetings\": {\n      \"dayOfWeekMeetingBuckets\": [\n        {\n          \"dayOfTheWeek\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"meetingHoursAvg\": 9687.676002295384\n        },\n        {\n          \"dayOfTheWeek\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"meetingHoursAvg\": 9386.935281451317\n        }\n      ],\n      \"timeInMeetingsHistogram\": {\n        \"key_0\": [\n          {\n            \"meetingHours\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"meetingHours\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"key_1\": [\n          {\n            \"meetingHours\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"meetingHours\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"key_2\": [\n          {\n            \"meetingHours\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"meetingHours\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"key_3\": [\n          {\n            \"meetingHours\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"meetingHours\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    },\n    \"policyMetrics\": {\n      \"metrics\": [\n        {\n          \"name\": \"string\",\n          \"value\": 6741.499815765059\n        },\n        {\n          \"name\": \"string\",\n          \"value\": 8850.21747876142\n        }\n      ],\n      \"overallPolicyAdherenceAverage\": 9748.736557477516\n    }\n  },\n  \"previousMetrics\": {\n    \"avgFocusDuration\": 8614.174574535717,\n    \"decompressionTimeHoursPerWeek\": 3267.4684651640505,\n    \"end\": \"1985-12-17\",\n    \"focusScore\": 7288.605265502259,\n    \"meetingLoad\": 9950.29860458058,\n    \"reclaimScheduledPerWeek\": 8526.520208048982,\n    \"reclaimedTimeHoursPerWeek\": 616.2698190140014,\n    \"start\": \"1971-08-05\",\n    \"travelTimeHoursPerWeek\": 7618.969951941369,\n    \"deepWork\": {\n      \"deepFocusOpportunityCountNormalizedAvg\": 7108.769895810206,\n      \"deepFocusOpportunityCountWeeklyAvg\": 313.75507286665606,\n      \"freeTimeHoursDailyAvg\": 4419.461332845342,\n      \"index\": 8146.892311227568,\n      \"meetingHeavyDaysNormalizedAvg\": 5389.170890629948,\n      \"meetingHeavyDaysWeeklyAvg\": 9267.201341587202,\n      \"meetingTimeInHoursNormalizedAvg\": 8163.604523574295,\n      \"meetingTimeInHoursWeeklyAvg\": 9862.322435278342,\n      \"meetingsCountDailyAvg\": 706.3941452368693,\n      \"meetingsCountNormalizedAvg\": 1455.5784051819553,\n      \"shortBreakBetweenMeetingCountNormalizedAvg\": 1658.9615876582652,\n      \"shortBreakBetweenMeetingCountWeeklyAvg\": 3635.4177227006444,\n      \"timeSeries\": [\n        {\n          \"deepFocusOpportunityCountNormalized\": 3202.4853126807384,\n          \"deepFocusOpportunityCountWeeklyAvg\": 6917.337396820551,\n          \"end\": \"2025-04-20\",\n          \"freeTimeHoursDailyAvg\": 3782.5089243630505,\n          \"index\": 8121.285708639725,\n          \"meetingHeavyDaysNormalized\": 179.13371576991244,\n          \"meetingHeavyDaysWeeklyAvg\": 1338.5378347052324,\n          \"meetingTimeInHoursNormalized\": 3748.6756593387627,\n          \"meetingTimeInHoursWeeklyAvg\": 779.2854415235751,\n          \"meetingsCountDailyAvg\": 4845.936735612398,\n          \"meetingsCountNormalized\": 8197.21845561262,\n          \"shortBreakBetweenMeetingCountNormalized\": 1839.1701796689708,\n          \"shortBreakBetweenMeetingCountWeeklyAvg\": 8056.140662606564,\n          \"start\": \"2010-08-08\"\n        },\n        {\n          \"deepFocusOpportunityCountNormalized\": 4970.630805564558,\n          \"deepFocusOpportunityCountWeeklyAvg\": 1319.826509193307,\n          \"end\": \"2000-06-24\",\n          \"freeTimeHoursDailyAvg\": 828.1549647203923,\n          \"index\": 8373.743513657626,\n          \"meetingHeavyDaysNormalized\": 5779.836141971892,\n          \"meetingHeavyDaysWeeklyAvg\": 774.687803927413,\n          \"meetingTimeInHoursNormalized\": 8307.222827566104,\n          \"meetingTimeInHoursWeeklyAvg\": 1306.413916014526,\n          \"meetingsCountDailyAvg\": 7256.934045961405,\n          \"meetingsCountNormalized\": 2114.095303192649,\n          \"shortBreakBetweenMeetingCountNormalized\": 1440.6815360731584,\n          \"shortBreakBetweenMeetingCountWeeklyAvg\": 455.3101296031925,\n          \"start\": \"2010-06-20\"\n        }\n      ]\n    },\n    \"timeBreakdown\": {\n      \"eventTypeToHoursDailyAvg\": {\n        \"ExternalMeeting\": {\n          \"hoursDailyAvg\": 2486.2565801707615,\n          \"shallowCount\": 2837.344908909081,\n          \"deepCount\": 4075.988335388617\n        },\n        \"OneOnOne\": {\n          \"hoursDailyAvg\": 5033.066034653289,\n          \"shallowCount\": 6700.089948884911,\n          \"deepCount\": 5804.705823186316\n        },\n        \"TeamMeeting\": {\n          \"hoursDailyAvg\": 4234.213451063004,\n          \"shallowCount\": 5287.90468175557,\n          \"deepCount\": 3146.94014431269\n        },\n        \"SoloWork\": {\n          \"hoursDailyAvg\": 8995.982974356295,\n          \"shallowCount\": 348.7796531886478,\n          \"deepCount\": 8139.243170152415\n        },\n        \"Personal\": {\n          \"hoursDailyAvg\": 7765.80659258242,\n          \"shallowCount\": 7915.914960261144,\n          \"deepCount\": 6708.33010747107\n        },\n        \"Logistics\": {\n          \"hoursDailyAvg\": 352.90306031634077,\n          \"shallowCount\": 9471.231005961461,\n          \"deepCount\": 2079.1592913015056\n        },\n        \"Focus\": {\n          \"hoursDailyAvg\": 9669.326406175145,\n          \"shallowCount\": 9310.008850558523,\n          \"deepCount\": 1139.2467194595001\n        }\n      },\n      \"timeSeries\": [\n        {\n          \"end\": \"2025-05-16\",\n          \"eventTypeToHoursAvg\": {\n            \"ExternalMeeting\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"OneOnOne\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamMeeting\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"SoloWork\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Personal\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Logistics\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Focus\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"freeTimeHoursAvg\": 2920.5802759422595,\n          \"start\": \"1950-06-14\"\n        },\n        {\n          \"end\": \"1966-08-27\",\n          \"eventTypeToHoursAvg\": {\n            \"ExternalMeeting\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"OneOnOne\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"TeamMeeting\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"SoloWork\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Personal\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Logistics\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"Focus\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"freeTimeHoursAvg\": 5709.5991558387195,\n          \"start\": \"1992-03-24\"\n        }\n      ]\n    },\n    \"timeInMeetings\": {\n      \"dayOfWeekMeetingBuckets\": [\n        {\n          \"dayOfTheWeek\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"meetingHoursAvg\": 6079.4671667354305\n        },\n        {\n          \"dayOfTheWeek\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"meetingHoursAvg\": 9611.784052407207\n        }\n      ],\n      \"timeInMeetingsHistogram\": {\n        \"key_0\": [\n          {\n            \"meetingHours\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"meetingHours\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ],\n        \"key_1\": [\n          {\n            \"meetingHours\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          {\n            \"meetingHours\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"userCount\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        ]\n      }\n    },\n    \"policyMetrics\": {\n      \"metrics\": [\n        {\n          \"name\": \"string\",\n          \"value\": 5411.334603229987\n        },\n        {\n          \"name\": \"string\",\n          \"value\": 6653.589464185879\n        }\n      ],\n      \"overallPolicyAdherenceAverage\": 7074.085722915332\n    }\n  },\n  \"tooFewUsers\": false,\n  \"userCount\": 4501\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "76567351-572b-49ab-bc83-aa78e4f65c3e",
+          "name": "analytics team Analytics V4Export",
+          "request": {
+            "name": "analytics team Analytics V4Export",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "analytics",
+                "team",
+                "V4",
+                "export"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "queryStart",
+                  "value": "<date>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "queryEnd",
+                  "value": "<date>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "meetingHeavyDayThreshold",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "d0918094-69e1-43c6-943d-f71556ca83ec",
+              "name": "analytics_teamAnalyticsV4Export 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "analytics",
+                    "team",
+                    "V4",
+                    "export"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "queryStart",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "queryEnd",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "meetingHeavyDayThreshold",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f805be6-3ef1-4584-b6bb-2ed139aa4fb3",
+          "name": "analytics team Analytics V4Filters",
+          "request": {
+            "name": "analytics team Analytics V4Filters",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "analytics",
+                "team",
+                "V4",
+                "filters"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "myOrg",
+                  "value": "false"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "437372cf-3bd8-4507-9c02-e7c4626515ee",
+              "name": "analytics_teamAnalyticsV4Filters 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "analytics",
+                    "team",
+                    "V4",
+                    "filters"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "myOrg",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"filterCandidates\": [\n    {\n      \"options\": [\n        {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"variant\": \"FULL\"\n    },\n    {\n      \"options\": [\n        {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        {\n          \"value\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      ],\n      \"variant\": \"COMPACT\"\n    }\n  ],\n  \"teamId\": 5932\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b9c42a0a-c5ae-47f0-b2fe-58cf7c4836e9",
+          "name": "analytics team Analytics V4Permissions",
+          "request": {
+            "name": "analytics team Analytics V4Permissions",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "analytics",
+                "team",
+                "V4",
+                "permissions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "709814bd-69bf-41c6-b2c5-c59265edbbac",
+              "name": "analytics_teamAnalyticsV4Permissions 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "analytics",
+                    "team",
+                    "V4",
+                    "permissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"hasMyOrg\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5a453a38-0c18-42e2-8ed4-630cca80a51f",
+          "name": "analytics user Analytics",
+          "request": {
+            "name": "analytics user Analytics",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "analytics",
+                "user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<date>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<date>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "metricName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "metricName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "groupingInterval",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "be90e044-2fe1-4eaf-a93d-a3b8a28be0cf",
+              "name": "analytics_userAnalytics 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "analytics",
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "metricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupingInterval",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"appendix\": {\n    \"teamSize\": 444,\n    \"people\": {\n      \"missingScopes\": [\n        \"string\",\n        \"string\"\n      ],\n      \"values\": {\n        \"key_0\": {\n          \"email\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"reclaimUser\": true,\n          \"userId\": \"string\",\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"avatarUrl\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"firstName\": \"string\",\n          \"lastName\": \"string\"\n        },\n        \"key_1\": {\n          \"email\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"reclaimUser\": true,\n          \"userId\": \"string\",\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"avatarUrl\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"firstName\": \"string\",\n          \"lastName\": \"string\"\n        },\n        \"key_2\": {\n          \"email\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"reclaimUser\": true,\n          \"userId\": \"string\",\n          \"name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"avatarUrl\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"firstName\": \"string\",\n          \"lastName\": \"string\"\n        }\n      }\n    }\n  },\n  \"metrics\": [\n    {\n      \"metric\": {\n        \"appendixKeys\": {\n          \"people\": {\n            \"empty\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"first\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"last\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"description\": \"string\",\n        \"noData\": false,\n        \"type\": \"integerValue\",\n        \"unit\": \"COUNT\"\n      },\n      \"name\": \"<string>\"\n    },\n    {\n      \"metric\": {\n        \"appendixKeys\": {\n          \"people\": {\n            \"empty\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"first\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"last\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          }\n        },\n        \"description\": \"string\",\n        \"noData\": false,\n        \"type\": \"integerValue\",\n        \"unit\": \"DURATION_MINUTES\"\n      },\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f60b31f0-324a-48cb-a80e-7fb9d6d7ad9f",
+          "name": "analytics user Analytics V3",
+          "request": {
+            "name": "analytics user Analytics V3",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "analytics",
+                "user",
+                "V3"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<date>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<date>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "metricName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "metricName",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "groupingInterval",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "notificationKey",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "69d9172a-0e26-47d5-ac6c-7b8f34130820",
+              "name": "analytics_userAnalyticsV3 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "analytics",
+                    "user",
+                    "V3"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "metricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metricName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "groupingInterval",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "notificationKey",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {\n    \"appendix\": {\n      \"teamSize\": 4011,\n      \"people\": {\n        \"missingScopes\": [\n          \"string\",\n          \"string\"\n        ],\n        \"values\": {\n          \"key_0\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key_1\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key_2\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key_3\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"key_4\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        }\n      }\n    },\n    \"metrics\": [\n      {\n        \"metric\": {\n          \"appendixKeys\": {\n            \"people\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"description\": \"string\",\n          \"noData\": true,\n          \"type\": \"durationSummary\",\n          \"unit\": \"COUNT\"\n        },\n        \"name\": \"<string>\"\n      },\n      {\n        \"metric\": {\n          \"appendixKeys\": {\n            \"people\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"description\": \"string\",\n          \"noData\": true,\n          \"type\": \"durationByDateByCategory\",\n          \"unit\": \"COUNT\"\n        },\n        \"name\": \"<string>\"\n      }\n    ]\n  },\n  \"status\": \"PENDING\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c3ac7b21-a2df-4ee6-bf83-ce997152fbb3",
+    "name": "Reclaim account-time-schemes analytics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

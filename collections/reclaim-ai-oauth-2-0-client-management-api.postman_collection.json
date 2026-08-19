@@ -1,0 +1,640 @@
+{
+  "item": [
+    {
+      "id": "0dbf363b-f2f4-44ee-b9a1-42150af01563",
+      "name": "OAuth 2.0 Client Management",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "15a1ee5d-2ab0-49d5-a3e7-e8fe6704ff92",
+          "name": "list Clients",
+          "request": {
+            "name": "list Clients",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "oauth2",
+                "clients"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "edcb2a2e-438d-4088-9f90-71f69868528e",
+              "name": "listClients 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "oauth2",
+                    "clients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"clientId\": \"string\",\n    \"clientName\": \"string\",\n    \"createdAt\": \"1996-05-01T02:20:53.830Z\",\n    \"grantTypes\": [\n      \"REFRESH_TOKEN\",\n      \"AUTHORIZATION_CODE\"\n    ],\n    \"id\": \"string\",\n    \"isConfidential\": false,\n    \"redirectUris\": [\n      \"string\",\n      \"string\"\n    ],\n    \"scopes\": [\n      \"READ\",\n      \"ADMIN\"\n    ],\n    \"updatedAt\": \"1961-09-09T09:15:46.422Z\",\n    \"userId\": \"string\"\n  },\n  {\n    \"clientId\": \"string\",\n    \"clientName\": \"string\",\n    \"createdAt\": \"1961-07-31T11:41:24.523Z\",\n    \"grantTypes\": [\n      \"REFRESH_TOKEN\",\n      \"REFRESH_TOKEN\"\n    ],\n    \"id\": \"string\",\n    \"isConfidential\": true,\n    \"redirectUris\": [\n      \"string\",\n      \"string\"\n    ],\n    \"scopes\": [\n      \"MCP\",\n      \"ADMIN\"\n    ],\n    \"updatedAt\": \"1965-04-08T02:59:32.449Z\",\n    \"userId\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fe16dd9c-397c-45f1-a9bb-1132f21ba45c",
+          "name": "create Client",
+          "request": {
+            "name": "create Client",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "oauth2",
+                "clients"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"client_name\": \"<string>\",\n  \"grant_types\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"is_confidential\": \"<boolean>\",\n  \"redirect_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scopes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "62abdaf6-b2e3-482a-8ed4-f6d95654c8a9",
+              "name": "createClient 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "oauth2",
+                    "clients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"client_name\": \"<string>\",\n  \"grant_types\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"is_confidential\": \"<boolean>\",\n  \"redirect_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scopes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b7d84f5b-26a0-4e2e-b7d5-649ea5f8f950",
+          "name": "get Client",
+          "request": {
+            "name": "get Client",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "oauth2",
+                "clients",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "50076780-c4e5-401c-96b6-a02bc97f8903",
+              "name": "getClient 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "oauth2",
+                    "clients",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"clientId\": \"string\",\n  \"clientName\": \"string\",\n  \"createdAt\": \"1993-11-14T01:09:04.782Z\",\n  \"grantTypes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"id\": \"string\",\n  \"isConfidential\": false,\n  \"redirectUris\": [\n    \"string\",\n    \"string\"\n  ],\n  \"scopes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"updatedAt\": \"1996-07-05T13:44:19.605Z\",\n  \"userId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9e15b6c1-976b-441a-9cef-6b2e3d2e52ea",
+          "name": "update Client",
+          "request": {
+            "name": "update Client",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "oauth2",
+                "clients",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"client_name\": \"<string>\",\n  \"grant_types\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"redirect_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scopes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bdfa7896-bffd-420d-b06b-4367e1c5ccc8",
+              "name": "updateClient 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "oauth2",
+                    "clients",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"client_name\": \"<string>\",\n  \"grant_types\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"redirect_uris\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"scopes\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01a38086-d250-4bae-b225-4e0ee20e8ea4",
+          "name": "delete Client",
+          "request": {
+            "name": "delete Client",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "oauth2",
+                "clients",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "546e9776-c8ea-4243-b5bc-87ad28d51418",
+              "name": "deleteClient 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "oauth2",
+                    "clients",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3f0218ee-a8f0-463c-8edb-7929278b41a9",
+          "name": "reset Secret",
+          "request": {
+            "name": "reset Secret",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "oauth2",
+                "clients",
+                ":id",
+                "reset-secret"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "f771113f-70b2-4e73-92f3-d6c4de03648d",
+              "name": "resetSecret 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "oauth2",
+                    "clients",
+                    ":id",
+                    "reset-secret"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "85ae81d5-3a86-4a07-b86e-ee585b18be10",
+    "name": "Reclaim account-time-schemes OAuth 2.0 Client Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

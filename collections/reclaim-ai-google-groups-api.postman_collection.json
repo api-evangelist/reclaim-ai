@@ -1,0 +1,138 @@
+{
+  "item": [
+    {
+      "id": "9efb4a84-995c-49b0-b883-bb66b4c69b6e",
+      "name": "google-groups",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9870c34d-3a6a-4904-a9b1-8244e913db8b",
+          "name": "expand",
+          "request": {
+            "name": "expand",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "google",
+                "groups",
+                "expand"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "credentialId",
+                  "value": "<long>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "77443390-5ce7-40fe-aea0-33f15cb1540a",
+              "name": "expand 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "google",
+                    "groups",
+                    "expand"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "credentialId",
+                      "value": "<long>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"groupId\": \"string\",\n  \"isGroup\": true,\n  \"members\": [\n    {\n      \"email\": \"string\",\n      \"isTeamMember\": true,\n      \"userId\": \"string\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"avatarUrl\": \"string\"\n    },\n    {\n      \"email\": \"string\",\n      \"isTeamMember\": true,\n      \"userId\": \"string\",\n      \"firstName\": \"string\",\n      \"lastName\": \"string\",\n      \"avatarUrl\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "91420ab0-2ae9-4a04-a0db-4cb888f3ff6c",
+    "name": "Reclaim account-time-schemes google-groups API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

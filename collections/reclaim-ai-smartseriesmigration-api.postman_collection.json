@@ -1,0 +1,213 @@
+{
+  "item": [
+    {
+      "id": "6df5d361-88e3-4812-9d3e-6dbb5220e71e",
+      "name": "SmartSeriesMigration",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2e092755-dc22-426d-a99f-7dc6ab364a7e",
+          "name": "This is only intended for dev use to simulate the UserTaskSchedulerService causing the nightly scheduled migration check to run",
+          "request": {
+            "name": "This is only intended for dev use to simulate the UserTaskSchedulerService causing the nightly scheduled migration check to run",
+            "description": {
+              "content": "This is only intended for dev use to simulate the UserTaskSchedulerService causing the nightly scheduled migration check to run",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "smart-series-migration",
+                "reclaim-recurrence",
+                "migrate-all"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "f814c747-1adc-4903-9e20-de6e7f34c80c",
+              "name": "migrateToGen3SmartSeries 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "smart-series-migration",
+                    "reclaim-recurrence",
+                    "migrate-all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "888abe97-7009-4d97-a8f2-03e87b8c6759",
+          "name": "migrate All To Smart Series",
+          "request": {
+            "name": "migrate All To Smart Series",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "smart-series-migration",
+                "run"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "migrateExistingAssignments",
+                  "value": "<boolean>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": []
+            }
+          },
+          "response": [
+            {
+              "id": "59691330-2a4b-4c40-bbb3-2f5a930e873e",
+              "name": "migrateAllToSmartSeries 200 response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "smart-series-migration",
+                    "run"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "migrateExistingAssignments",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "/",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "236ea47b-54b7-414f-b175-20d0fb617888",
+    "name": "Reclaim account-time-schemes SmartSeriesMigration API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Reclaim's awesome API\n\nContact Support:\n Name: Reclaim.ai Inc.\n Email: info@reclaim.ai",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes timePolicies API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "timePolicies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "get_5",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/users/current/timePolicies"
+          }
+        },
+        {
+          "info": {
+            "name": "patch_3",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/users/current/timePolicies",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

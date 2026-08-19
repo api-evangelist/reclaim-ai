@@ -1,0 +1,240 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes asana API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "asana",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "integrations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/asana/integrations"
+          }
+        },
+        {
+          "info": {
+            "name": "integrations_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/asana/integrations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteIntegration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/asana/integrations"
+          }
+        },
+        {
+          "info": {
+            "name": "fieldChangeCallback",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/web/asana/formfieldchange"
+          }
+        },
+        {
+          "info": {
+            "name": "fieldChangeCallbackPreflight",
+            "type": "http"
+          },
+          "http": {
+            "method": "OPTIONS",
+            "url": "{{baseUrl}}/web/asana/formfieldchange"
+          }
+        },
+        {
+          "info": {
+            "name": "Called on-submit of the \"schedule via reclaim\" widget.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/web/asana/formsubmit",
+            "headers": [
+              {
+                "name": "x-asana-request-signature",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Called on-submit of the \"schedule via reclaim\" widget."
+        },
+        {
+          "info": {
+            "name": "formCallbackPreflight",
+            "type": "http"
+          },
+          "http": {
+            "method": "OPTIONS",
+            "url": "{{baseUrl}}/web/asana/formsubmit"
+          }
+        },
+        {
+          "info": {
+            "name": "Called on-render of a task inside of Asana for tasks that have already been associated with / scheduled in Reclaim.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/web/asana/syncform",
+            "headers": [
+              {
+                "name": "x-asana-request-signature",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspace",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "task",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "expires_at",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Called on-render of a task inside of Asana for tasks that have already been associated with / scheduled in Reclaim."
+        },
+        {
+          "info": {
+            "name": "syncFormPreflight",
+            "type": "http"
+          },
+          "http": {
+            "method": "OPTIONS",
+            "url": "{{baseUrl}}/web/asana/syncform"
+          }
+        },
+        {
+          "info": {
+            "name": "taskDetails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/web/asana/task/:asanaTaskId",
+            "params": [
+              {
+                "name": "asanaTaskId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "taskDetailsPreflight",
+            "type": "http"
+          },
+          "http": {
+            "method": "OPTIONS",
+            "url": "{{baseUrl}}/web/asana/task/:asanaTaskId",
+            "params": [
+              {
+                "name": "asanaTaskId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Called on-render of a task inside of Asana for tasks that have NOT already been associated with / scheduled in Reclaim.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/web/asana/widget",
+            "headers": [
+              {
+                "name": "x-asana-request-signature",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspace",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "task",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "attachment",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "expires_at",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Called on-render of a task inside of Asana for tasks that have NOT already been associated with / scheduled in Reclaim."
+        },
+        {
+          "info": {
+            "name": "widgetPreflight",
+            "type": "http"
+          },
+          "http": {
+            "method": "OPTIONS",
+            "url": "{{baseUrl}}/web/asana/widget"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

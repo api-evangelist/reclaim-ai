@@ -1,0 +1,950 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes private API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "private",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "integrations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/asana/integrations"
+          }
+        },
+        {
+          "info": {
+            "name": "integrations_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/asana/integrations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteIntegration",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/asana/integrations"
+          }
+        },
+        {
+          "info": {
+            "name": "cleanCalendar",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/calendars/:credentialId/:externalCalendarId/clean",
+            "params": [
+              {
+                "name": "credentialId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "externalCalendarId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "integrations_2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/clickup/integrations"
+          }
+        },
+        {
+          "info": {
+            "name": "deleteIntegration_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/clickup/integrations"
+          }
+        },
+        {
+          "info": {
+            "name": "clickUpIntegrationsDetails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/clickup/integrations/details"
+          }
+        },
+        {
+          "info": {
+            "name": "patchIntegration",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/clickup/integrations/settings/:workspaceId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "patchIntegration_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/clickup/integrations/:workspaceId",
+            "params": [
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "addHtmlToEmail",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/google-add-on/add-html-to-email",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "integrations_3",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/google-add-on/integrations"
+          }
+        },
+        {
+          "info": {
+            "name": "enabled",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/integrations/enabled"
+          }
+        },
+        {
+          "info": {
+            "name": "sites",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/jira-v2/sites"
+          }
+        },
+        {
+          "info": {
+            "name": "deleteSite",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/jira-v2/sites/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "integrations_4",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/jira/integrations"
+          }
+        },
+        {
+          "info": {
+            "name": "patchIntegration_2",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/jira/integrations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteIntegration_2",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/jira/integrations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "integrations_5",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/linear/integrations"
+          }
+        },
+        {
+          "info": {
+            "name": "patchIntegration_3",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/linear/integrations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteIntegration_3",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/linear/integrations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "issueDetails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/linear/issue/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "notionIntegrations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/notion/workspaces"
+          }
+        },
+        {
+          "info": {
+            "name": "deleteNotionWorkspace",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/notion/workspaces/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "repairCustomers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/partnerstack/partners/repair-customers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "unsubscribe",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/people/subscriptions",
+            "params": [
+              {
+                "name": "email",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "refreshContacts",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/people/sync"
+          }
+        },
+        {
+          "info": {
+            "name": "actionEndpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/slack/action-endpoint"
+          }
+        },
+        {
+          "info": {
+            "name": "slackRedirect",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/slack/add",
+            "params": [
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "bot",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "userScopes",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "command",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/slack/command"
+          }
+        },
+        {
+          "info": {
+            "name": "connect",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/slack/connect",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "error",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "get_4",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/slack/integrations"
+          }
+        },
+        {
+          "info": {
+            "name": "put",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/slack/integrations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "interactiveEndpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/slack/interactive-endpoint"
+          }
+        },
+        {
+          "info": {
+            "name": "link",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/slack/link",
+            "params": [
+              {
+                "name": "teamId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "optionsLoadEndpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/slack/options-load-endpoint",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "streamlinedConnect",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/slack/streamlined-connect",
+            "params": [
+              {
+                "name": "code",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "error",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "streamLinedRedirect",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/slack/streamlined-init",
+            "params": [
+              {
+                "name": "slackTeamId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "slackUserId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "integrations_6",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/todoist/integrations"
+          }
+        },
+        {
+          "info": {
+            "name": "integrationsDetails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/todoist/integrations/details"
+          }
+        },
+        {
+          "info": {
+            "name": "patchIntegrationSettings",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/todoist/integrations/settings/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "patchIntegration_4",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/api/todoist/integrations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "deleteIntegration_4",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/todoist/integrations/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Initiate a Todoist sync job.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/todoist/sync"
+          },
+          "docs": "Initiate a Todoist sync job. Used by support (hence the private tag) for customers when debugging issues."
+        },
+        {
+          "info": {
+            "name": "fieldChangeCallback",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/web/asana/formfieldchange"
+          }
+        },
+        {
+          "info": {
+            "name": "fieldChangeCallbackPreflight",
+            "type": "http"
+          },
+          "http": {
+            "method": "OPTIONS",
+            "url": "{{baseUrl}}/web/asana/formfieldchange"
+          }
+        },
+        {
+          "info": {
+            "name": "Called on-submit of the \"schedule via reclaim\" widget.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/web/asana/formsubmit",
+            "headers": [
+              {
+                "name": "x-asana-request-signature",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Called on-submit of the \"schedule via reclaim\" widget."
+        },
+        {
+          "info": {
+            "name": "formCallbackPreflight",
+            "type": "http"
+          },
+          "http": {
+            "method": "OPTIONS",
+            "url": "{{baseUrl}}/web/asana/formsubmit"
+          }
+        },
+        {
+          "info": {
+            "name": "Called on-render of a task inside of Asana for tasks that have already been associated with / scheduled in Reclaim.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/web/asana/syncform",
+            "headers": [
+              {
+                "name": "x-asana-request-signature",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspace",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "task",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "expires_at",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Called on-render of a task inside of Asana for tasks that have already been associated with / scheduled in Reclaim."
+        },
+        {
+          "info": {
+            "name": "syncFormPreflight",
+            "type": "http"
+          },
+          "http": {
+            "method": "OPTIONS",
+            "url": "{{baseUrl}}/web/asana/syncform"
+          }
+        },
+        {
+          "info": {
+            "name": "taskDetails",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/web/asana/task/:asanaTaskId",
+            "params": [
+              {
+                "name": "asanaTaskId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "taskDetailsPreflight",
+            "type": "http"
+          },
+          "http": {
+            "method": "OPTIONS",
+            "url": "{{baseUrl}}/web/asana/task/:asanaTaskId",
+            "params": [
+              {
+                "name": "asanaTaskId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Called on-render of a task inside of Asana for tasks that have NOT already been associated with / scheduled in Reclaim.",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/web/asana/widget",
+            "headers": [
+              {
+                "name": "x-asana-request-signature",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "workspace",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "task",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "user",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "attachment",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "expires_at",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Called on-render of a task inside of Asana for tasks that have NOT already been associated with / scheduled in Reclaim."
+        },
+        {
+          "info": {
+            "name": "widgetPreflight",
+            "type": "http"
+          },
+          "http": {
+            "method": "OPTIONS",
+            "url": "{{baseUrl}}/web/asana/widget"
+          }
+        },
+        {
+          "info": {
+            "name": "taskDetails_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/web/clickup/task/:taskId",
+            "params": [
+              {
+                "name": "taskId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "taskDetails_2",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/web/jira/task/:issueKey/:issueId",
+            "params": [
+              {
+                "name": "issueKey",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "issueId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "taskDetails_3",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/web/linear/task/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "taskDetails_4",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/web/todoist/task/:itemId",
+            "params": [
+              {
+                "name": "itemId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

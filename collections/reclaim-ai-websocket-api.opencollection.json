@@ -1,0 +1,140 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes websocket API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "websocket",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "relay",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ws-relay",
+            "params": [
+              {
+                "name": "connectionId",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "This is a bogus endpoint that gives us swagger generated objects for our websocket specific classes.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ws/bogus",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This is a bogus endpoint that gives us swagger generated objects for our websocket specific classes."
+        },
+        {
+          "info": {
+            "name": "connect_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ws/connect",
+            "headers": [
+              {
+                "name": "connectionId",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "defaultHandler",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ws/default"
+          }
+        },
+        {
+          "info": {
+            "name": "disconnect",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ws/disconnect",
+            "headers": [
+              {
+                "name": "connectionId",
+                "value": ""
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "subscribe",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ws/subscribe",
+            "headers": [
+              {
+                "name": "connectionId",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "unsubscribe_2",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/ws/unsubscribe",
+            "headers": [
+              {
+                "name": "connectionId",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

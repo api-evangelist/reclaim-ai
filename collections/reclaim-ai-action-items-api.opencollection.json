@@ -1,0 +1,32 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes action-items API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "action-items",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "actionItems_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/interactions/action-items/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

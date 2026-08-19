@@ -1,0 +1,59 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Reclaim account-time-schemes Time Window Overrides API",
+    "version": "0.1"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Time Window Overrides",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "fetch_1",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/time-window-overrides"
+          }
+        },
+        {
+          "info": {
+            "name": "create_3",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/time-window-overrides/entry",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "delete_5",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/time-window-overrides/entry/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
