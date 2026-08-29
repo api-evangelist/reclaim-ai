@@ -3,6 +3,18 @@ description: AI-powered scheduling platform with a REST API for managing tasks, 
   meeting buffers, and automatically optimizing calendar time for deep work and meetings.
   Reclaim integrates with Google Calendar and Outlook to protect focus time, improve
   meeting quality, and provide workforce scheduling analytics.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -1122,6 +1134,9 @@ apis:
   - type: Documentation
     url: https://help.reclaim.ai/en/collections/3455874-developer-api
 common:
+  - type: CapabilityMap
+    url: capabilities/reclaim-ai-capability-edges.yml
+    name: Reclaim.ai Business Capability Map
   - type: AgenticAccess
     url: agentic-access/reclaim-ai-agentic-access.yml
   - type: TrustCenter
