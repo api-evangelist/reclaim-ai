@@ -1,0 +1,59 @@
+slug: reclaim-ai
+provider: Reclaim.ai
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: webhooks
+  spec_file: reclaim-ai-webhooks-api-openapi.yml
+  capability_id: BC-4270.80
+  capability_id_l1: BC-4270
+  capability_name: Webhook & Event Subscription Management
+  confidence: 0.85
+  evidence: POST /api/team/current/webhooks  createWebhookConfig; GET /api/team/current/webhooks/messages  getMessages;
+    POST /api/team/current/webhooks/messages/retry  retry; schemas WebhookEventType, WebhookMessageStatus,
+    WebhookSecret
+  reason: Full lifecycle of outbound webhook subscriptions, event types, secrets, versioning and delivery
+    retry — squarely Webhook & Event Subscription Management within the developer platform/API ecosystem.
+- tag: Scim
+  spec_file: reclaim-ai-scim-api-openapi.yml
+  capability_id: BC-4230.50
+  capability_id_l1: BC-4230
+  capability_name: Tenant Identity Federation
+  confidence: 0.78
+  evidence: GET /scim/v2/Users getUsers; POST /scim/v2/Users createUser; DELETE /scim/v2/Users/{id} deleteUser;
+    schemas ScimUser, ScimEnterprise, ScimManager
+  reason: SCIM 2.0 Users/Groups provisioning surface for enterprise customer directories, which is exactly
+    the tenant user account lifecycle via SSO/SCIM described by Tenant Identity Federation.
+- tag: OAuth 2.0 Client Management
+  spec_file: reclaim-ai-oauth-2-0-client-management-api-openapi.yml
+  capability_id: BC-4270.40
+  capability_id_l1: BC-4270
+  capability_name: Developer Identity & Credential Management
+  confidence: 0.7
+  evidence: POST /api/oauth2/clients createClient; POST /api/oauth2/clients/{id}/reset-secret resetSecret;
+    schemas OAuthClient.GrantType, OAuthClient.Scope
+  reason: Operations create, update and rotate secrets for OAuth 2.0 clients with grant types and scopes
+    — issuance and stewardship of API client credentials for integrating developers, matching Developer
+    Identity & Credential Management rather than internal enterprise IAM.
+- tag: api-management
+  spec_file: reclaim-ai-api-management-api-openapi.yml
+  capability_id: BC-4270.40
+  capability_id_l1: BC-4270
+  capability_name: Developer Identity & Credential Management
+  confidence: 0.7
+  evidence: POST /api/api-management/api-key  createApiKey; PATCH /api/api-management/api-key/reissue/{id}  reissueApiKey;
+    schema ApiKey
+  reason: The operations issue, reissue, list and revoke API keys used by developers to call the vendor's
+    public API — this is developer credential issuance and stewardship, not a business-domain capability.
+    Mapped to Developer Identity & Credential Management with moderate confidence since it could also
+    be read as generic access management.
