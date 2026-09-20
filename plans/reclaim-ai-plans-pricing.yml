@@ -1,73 +1,84 @@
-name: Reclaim.ai Plans and Pricing
-description: Pricing plans for Reclaim.ai, the AI-powered scheduling and calendar
-  optimization platform. Plans range from a free Lite tier to Enterprise with SSO
-  and SCIM provisioning.
-specificationVersion: '0.1'
-url: https://reclaim.ai/pricing
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://reclaim.ai/pricing
+sources:
+- https://reclaim.ai/pricing
+provenance:
+  tool: planning/api-economics/harvest_pricing.py
+  run: 20260920T120546
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: per-seat
+published: true
+note: 'Per-seat SaaS pricing with monthly/annual toggle; annual described as 29% discount, banner offers
+  30% off Starter & Business. Discounts listed: Student 50% Off, Nonprofit/Startup/Switching 20% Off.
+  Attendee User (AU) add-on packs priced; AUs free through July 31 per launch promo.'
+plan_count: 9
+currency: USD
 plans:
-  - name: Lite
-    description: Free plan for individual users with core AI scheduling features
-      including Focus Time, Habits, Buffer Time, and Smart Meetings.
-    price: 0
-    currency: USD
-    billingCycle: monthly
-    maxUsers: 1
-    features:
-      - 5 AI Agents
-      - Focus Time protection
-      - Habits scheduling
-      - Buffer Time management
-      - Smart Meetings (limited)
-      - Meeting Quality tracking
-      - 1 Calendar Sync
-      - 1 Scheduling Link
-      - Limited integrations
-  - name: Starter
-    description: For small teams needing unlimited integrations, expanded scheduling
-      range, and task recommendations.
-    price: 10
-    currency: USD
-    billingCycle: monthly
-    annualPrice: 8
-    maxUsers: 10
-    features:
-      - 10 AI Agents per seat
-      - 8-week scheduling range
-      - 3 Calendar Syncs
-      - 3 Scheduling Links
-      - Unlimited integrations
-      - Task recommendations
-      - All Lite features
-  - name: Business
-    description: Most popular plan for growing teams with unlimited scheduling links,
-      delegated access, team OOO calendar, and webhook support.
-    price: 15
-    currency: USD
-    billingCycle: monthly
-    annualPrice: 12
-    maxUsers: 100
-    features:
-      - 100 AI Agents per seat
-      - 12-week scheduling range
-      - Unlimited Calendar Syncs
-      - Unlimited Scheduling Links
-      - Team OOO Calendar
-      - Delegated Access
-      - Webhook support
-      - Unlimited integrations
-      - All Starter features
-  - name: Enterprise
-    description: Enterprise plan for large organizations requiring SSO, SCIM provisioning,
-      org-chart aware scheduling, and advanced administrative controls.
-    price: 22
-    currency: USD
-    billingCycle: annual
-    maxUsers: unlimited
-    features:
-      - Unlimited AI Agents per seat
-      - SSO (Single Sign-On)
-      - SCIM provisioning
-      - Org-chart aware scheduling
-      - Domain capture
-      - Org-wide analytics
-      - All Business features
+- name: Lite
+  price_text: Free
+  period: none
+  unit: user
+  included_quota: 5 AI Agents, 1 user team, 1 week scheduling range, 1 Calendar Sync, 1 Scheduling Link,
+    limited integrations
+- name: Starter (annual)
+  price_text: $10 per seat/month
+  price: 10
+  currency: USD
+  period: month
+  unit: seat
+  included_quota: 10 AI Agents/seat, up to 10 seats, 8 week scheduling range, 3 Calendar Syncs, 3 Scheduling
+    Links
+  overage: 'Additional 3 AUs in Starter: $8/month; 6 AUs: $16/month; 9 AUs: $24/month; 12 AUs: $32/month'
+- name: Business (annual)
+  price_text: $15 per seat/month
+  price: 15
+  currency: USD
+  period: month
+  unit: seat
+  included_quota: 100 AI Agents/seat, up to 100 seats, 12 week scheduling range, unlimited Calendar Syncs
+    & Scheduling Links
+  overage: 'Additional 6 AUs in Business: $12/month; 12 AUs: $24/month; 18 AUs: $36/month; 24 AUs: $48/month'
+- name: Enterprise (annual)
+  price_text: $22 per seat/month
+  price: 22
+  currency: USD
+  period: month
+  unit: seat
+  included_quota: Unlimited AI Agents/seat, over 100 seats, SSO & SCIM
+  overage: 'Additional 10 AUs in Enterprise: $18/month; 20 AUs: $36/month; 30 AUs: $54/month; 40 AUs:
+    $72/month'
+- name: Starter (monthly)
+  price_text: $12 per seat/month
+  price: 12
+  currency: USD
+  period: month
+  unit: seat
+  included_quota: 10 AI Agents/seat, up to 10 seats
+  overage: 'Additional 3 AUs in Starter: $10/month; 6 AUs: $20/month; 9 AUs: $30/month; 12 AUs: $40/month'
+- name: Business (monthly)
+  price_text: $18 per seat/month
+  price: 18
+  currency: USD
+  period: month
+  unit: seat
+  included_quota: 100 AI Agents/seat, up to 100 seats
+  overage: 'Additional 6 AUs in Business: $15/month; 12 AUs: $30/month; 18 AUs: $45/month; 24 AUs: $60/month'
+- name: Enterprise (monthly)
+  price_text: Unavailable on monthly plans
+  period: none
+  unit: seat
+- name: Analytics-only seats add-on
+  price_text: Talk to sales →
+  period: none
+  unit: seat
+- name: Enterprise pilot add-on
+  price_text: Talk to sales →
+  period: none
+rate_limit_statements:
+- 100 Max Users Across Domain
+- 1 week scheduling range (exc. Scheduling Links)
+- Up to 10 seats
+- Up to 100 seats
