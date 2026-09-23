@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes effective-time-policy API
+  title: Reclaim Effective Time Policy API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -33,53 +33,129 @@ paths:
                 $ref: '#/components/schemas/EffectiveTimePolicyView'
       security:
       - Authorization: []
+      summary: Effective time policy
+      x-summary-source: derived
 components:
   schemas:
-    EffectiveTimePolicyParticipant:
+    EffectiveTimePolicyView:
       required:
-      - timePolicyType
-      - userEmail
+      - participants
+      - timePolicy
       type: object
       properties:
-        organizerUserId:
+        timePolicy:
+          $ref: '#/components/schemas/TimePolicy'
+        participants:
+          type: array
+          items:
+            $ref: '#/components/schemas/EffectiveTimePolicyParticipantView'
+    EffectiveTimePolicyParticipantView:
+      required:
+      - participant
+      - timePolicy
+      - timezone
+      type: object
+      properties:
+        participant:
+          $ref: '#/components/schemas/ThinPerson'
+        timezone:
+          type:
+          - string
+          - 'null'
+        timePolicy:
+          $ref: '#/components/schemas/TimePolicy'
+    ThinPerson:
+      required:
+      - email
+      type: object
+      properties:
+        reclaimUser:
+          type: boolean
+        userId:
+          type:
+          - string
+          - 'null'
+        email:
+          minLength: 1
           type: string
-          nullable: true
-        userEmail:
+        name:
           type: string
-        timePolicyType:
-          $ref: '#/components/schemas/TimePolicyType'
-        oneOffPolicy:
-          nullable: true
-          allOf:
-          - $ref: '#/components/schemas/TimePolicy'
-        timeSchemeId:
+        avatarUrl:
           type: string
-          nullable: true
-        role:
-          nullable: true
-          deprecated: true
-          allOf:
-          - $ref: '#/components/schemas/SmartSeriesRole'
-        participantRole:
-          nullable: true
-          allOf:
-          - $ref: '#/components/schemas/ParticipantRole'
-        targetCalendarId:
-          type: integer
-          format: int64
-          nullable: true
-        zoneId:
-          type: string
-          nullable: true
-    ParticipantRole:
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+    DayOfWeek:
       type: string
       enum:
-      - NONE
+      - MONDAY
+      - TUESDAY
+      - WEDNESDAY
+      - THURSDAY
+      - FRIDAY
+      - SATURDAY
+      - SUNDAY
+    EffectiveTimePolicyResource:
+      type: string
+      enum:
+      - SMART_MEETING
+      - SMART_HABIT
+      - SCHEDULING_LINK
+    DayHours:
+      required:
+      - intervals
+      type: object
+      properties:
+        intervals:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocalTimeInterval'
+        startOfDay:
+          type:
+          - string
+          - 'null'
+          format: partial-time
+        endOfDay:
+          type:
+          - string
+          - 'null'
+          format: partial-time
+    SmartSeriesRole:
+      type: string
+      enum:
       - ORGANIZER
-      - REQUIRED
-      - OPTIONAL
-      - ANY_OF
-      - ROUND_ROBIN
+      - REQUIRED_ATTENDEE
+      - OPTIONAL_ATTENDEE
+    EffectiveTimePolicyRequest:
+      required:
+      - participants
+      - resource
+      type: object
+      properties:
+        participants:
+          type: array
+          items:
+            $ref: '#/components/schemas/EffectiveTimePolicyParticipant'
+        resource:
+          $ref: '#/components/schemas/EffectiveTimePolicyResource'
+        now:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        fixedTimePolicy:
+          type:
+          - boolean
+          - 'null'
+        schedulingLinkId:
+          type:
+          - string
+          - 'null'
     TimePolicy:
       required:
       - dayHours
@@ -105,110 +181,15 @@ components:
               $ref: '#/components/schemas/DayHours'
             SUNDAY:
               $ref: '#/components/schemas/DayHours'
-    EffectiveTimePolicyRequest:
-      required:
-      - participants
-      - resource
-      type: object
-      properties:
-        participants:
-          type: array
-          items:
-            $ref: '#/components/schemas/EffectiveTimePolicyParticipant'
-        resource:
-          $ref: '#/components/schemas/EffectiveTimePolicyResource'
-        now:
-          type: string
-          format: date-time
-          nullable: true
-        fixedTimePolicy:
-          type: boolean
-          nullable: true
-        schedulingLinkId:
-          type: string
-          nullable: true
-    DayOfWeek:
+    ParticipantRole:
       type: string
       enum:
-      - MONDAY
-      - TUESDAY
-      - WEDNESDAY
-      - THURSDAY
-      - FRIDAY
-      - SATURDAY
-      - SUNDAY
-    EffectiveTimePolicyParticipantView:
-      required:
-      - participant
-      - timePolicy
-      - timezone
-      type: object
-      properties:
-        participant:
-          $ref: '#/components/schemas/ThinPerson'
-        timezone:
-          type: string
-          nullable: true
-        timePolicy:
-          $ref: '#/components/schemas/TimePolicy'
-    SmartSeriesRole:
-      type: string
-      enum:
+      - NONE
       - ORGANIZER
-      - REQUIRED_ATTENDEE
-      - OPTIONAL_ATTENDEE
-    ThinPerson:
-      required:
-      - email
-      type: object
-      properties:
-        reclaimUser:
-          type: boolean
-        userId:
-          type: string
-          nullable: true
-        email:
-          minLength: 1
-          type: string
-        name:
-          type: string
-        avatarUrl:
-          type: string
-        firstName:
-          type: string
-          nullable: true
-        lastName:
-          type: string
-          nullable: true
-    EffectiveTimePolicyView:
-      required:
-      - participants
-      - timePolicy
-      type: object
-      properties:
-        timePolicy:
-          $ref: '#/components/schemas/TimePolicy'
-        participants:
-          type: array
-          items:
-            $ref: '#/components/schemas/EffectiveTimePolicyParticipantView'
-    DayHours:
-      required:
-      - intervals
-      type: object
-      properties:
-        intervals:
-          type: array
-          items:
-            $ref: '#/components/schemas/LocalTimeInterval'
-        startOfDay:
-          type: string
-          format: partial-time
-          nullable: true
-        endOfDay:
-          type: string
-          format: partial-time
-          nullable: true
+      - REQUIRED
+      - OPTIONAL
+      - ANY_OF
+      - ROUND_ROBIN
     TimePolicyType:
       type: string
       enum:
@@ -232,12 +213,43 @@ components:
           format: partial-time
         duration:
           type: string
-    EffectiveTimePolicyResource:
-      type: string
-      enum:
-      - SMART_MEETING
-      - SMART_HABIT
-      - SCHEDULING_LINK
+    EffectiveTimePolicyParticipant:
+      required:
+      - timePolicyType
+      - userEmail
+      type: object
+      properties:
+        organizerUserId:
+          type:
+          - string
+          - 'null'
+        userEmail:
+          type: string
+        timePolicyType:
+          $ref: '#/components/schemas/TimePolicyType'
+        oneOffPolicy:
+          allOf:
+          - $ref: '#/components/schemas/TimePolicy'
+        timeSchemeId:
+          type:
+          - string
+          - 'null'
+        role:
+          deprecated: true
+          allOf:
+          - $ref: '#/components/schemas/SmartSeriesRole'
+        participantRole:
+          allOf:
+          - $ref: '#/components/schemas/ParticipantRole'
+        targetCalendarId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        zoneId:
+          type:
+          - string
+          - 'null'
   securitySchemes:
     Authorization:
       type: oauth2

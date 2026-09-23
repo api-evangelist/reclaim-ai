@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes Mcp API
+  title: Reclaim MCP API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -11,7 +11,7 @@ info:
     url: http://reclaim.ai
   version: '0.1'
 tags:
-- name: Mcp
+- name: MCP
 paths:
   /api/mcp:
     get:
@@ -20,8 +20,9 @@ paths:
       - name: Mcp-Session-Id
         in: header
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: handleGet 200 response
@@ -34,15 +35,18 @@ paths:
         - isAuthenticated()
         - isAnonymous()
       tags:
-      - Mcp
+      - MCP
+      summary: Handle get
+      x-summary-source: derived
     post:
       operationId: handlePost
       parameters:
       - name: Mcp-Session-Id
         in: header
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       requestBody:
         content:
           application/json:
@@ -61,15 +65,18 @@ paths:
         - isAuthenticated()
         - isAnonymous()
       tags:
-      - Mcp
+      - MCP
+      summary: Handle post
+      x-summary-source: derived
     delete:
       operationId: handleDelete
       parameters:
       - name: Mcp-Session-Id
         in: header
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: handleDelete 200 response
@@ -82,7 +89,9 @@ paths:
         - isAuthenticated()
         - isAnonymous()
       tags:
-      - Mcp
+      - MCP
+      summary: Handle delete
+      x-summary-source: derived
   /api/mcp/.well-known/oauth-authorization-server:
     get:
       operationId: mcpOauth2Metadata
@@ -95,7 +104,9 @@ paths:
                 type: object
                 additionalProperties: true
       tags:
-      - Mcp
+      - MCP
+      summary: Mcp oauth2 metadata
+      x-summary-source: derived
   /api/mcp/.well-known/openid-configuration:
     get:
       operationId: mcpOpenidConfiguration
@@ -108,7 +119,9 @@ paths:
                 type: object
                 additionalProperties: true
       tags:
-      - Mcp
+      - MCP
+      summary: Mcp openid configuration
+      x-summary-source: derived
   /api/mcp/{mcpType}:
     get:
       operationId: handleGetTyped
@@ -116,8 +129,9 @@ paths:
       - name: Mcp-Session-Id
         in: header
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       - name: mcpType
         in: path
         required: true
@@ -135,15 +149,18 @@ paths:
         - isAuthenticated()
         - isAnonymous()
       tags:
-      - Mcp
+      - MCP
+      summary: Handle get typed
+      x-summary-source: derived
     post:
       operationId: handlePostTyped
       parameters:
       - name: Mcp-Session-Id
         in: header
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       - name: mcpType
         in: path
         required: true
@@ -167,15 +184,18 @@ paths:
         - isAuthenticated()
         - isAnonymous()
       tags:
-      - Mcp
+      - MCP
+      summary: Handle post typed
+      x-summary-source: derived
     delete:
       operationId: handleDeleteTyped
       parameters:
       - name: Mcp-Session-Id
         in: header
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       - name: mcpType
         in: path
         required: true
@@ -193,7 +213,9 @@ paths:
         - isAuthenticated()
         - isAnonymous()
       tags:
-      - Mcp
+      - MCP
+      summary: Handle delete typed
+      x-summary-source: derived
   /api/mcp/{subpath1}/{subpath2}/.well-known/oauth-authorization-server:
     get:
       operationId: mcpSub2Oauth2Metadata
@@ -217,7 +239,9 @@ paths:
                 type: object
                 additionalProperties: true
       tags:
-      - Mcp
+      - MCP
+      summary: Mcp sub2 oauth2 metadata
+      x-summary-source: derived
   /api/mcp/{subpath1}/{subpath2}/.well-known/openid-configuration:
     get:
       operationId: mcpSub2OpenidConfiguration
@@ -241,7 +265,9 @@ paths:
                 type: object
                 additionalProperties: true
       tags:
-      - Mcp
+      - MCP
+      summary: Mcp sub2 openid configuration
+      x-summary-source: derived
   /api/mcp/{subpath}/.well-known/oauth-authorization-server:
     get:
       operationId: mcpSubOauth2Metadata
@@ -259,7 +285,9 @@ paths:
               schema:
                 type: object
       tags:
-      - Mcp
+      - MCP
+      summary: Mcp sub oauth2 metadata
+      x-summary-source: derived
   /api/mcp/{subpath}/.well-known/oauth-protected-resource:
     get:
       operationId: mcpSubProtectedResource
@@ -277,7 +305,9 @@ paths:
               schema:
                 type: object
       tags:
-      - Mcp
+      - MCP
+      summary: Mcp sub protected resource
+      x-summary-source: derived
   /api/mcp/{subpath}/.well-known/openid-configuration:
     get:
       operationId: mcpSubOpenidConfiguration
@@ -295,7 +325,9 @@ paths:
               schema:
                 type: object
       tags:
-      - Mcp
+      - MCP
+      summary: Mcp sub openid configuration
+      x-summary-source: derived
 components:
   securitySchemes:
     Authorization:

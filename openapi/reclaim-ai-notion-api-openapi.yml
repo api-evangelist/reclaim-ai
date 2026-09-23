@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes notion API
+  title: Reclaim Notion API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -29,6 +29,8 @@ paths:
                   $ref: '#/components/schemas/NotionIntegrationView'
       security:
       - Authorization: []
+      summary: Notion integrations
+      x-summary-source: derived
   /api/notion/workspaces/{id}:
     delete:
       tags:
@@ -50,6 +52,8 @@ paths:
                 type: object
       security:
       - Authorization: []
+      summary: Delete notion workspace
+      x-summary-source: derived
 components:
   schemas:
     NotionIntegrationView:
@@ -64,8 +68,9 @@ components:
         workspaceName:
           type: string
         workspaceIcon:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
   securitySchemes:
     Authorization:
       type: oauth2

@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes Avatar API
+  title: Reclaim Avatar API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -34,6 +34,8 @@ paths:
       - Authorization: []
       tags:
       - Avatar
+      summary: Credential
+      x-summary-source: derived
   /avatar/lookup:
     get:
       operationId: avatar
@@ -54,6 +56,8 @@ paths:
       - Authorization: []
       tags:
       - Avatar
+      summary: Avatar
+      x-summary-source: derived
   /avatar/me:
     get:
       operationId: me
@@ -68,6 +72,8 @@ paths:
       - Authorization: []
       tags:
       - Avatar
+      summary: Me
+      x-summary-source: derived
   /avatar/streamed/credential/{userId}/{credentialId}:
     get:
       operationId: streamedCredential
@@ -93,9 +99,11 @@ paths:
                 format: binary
       tags:
       - Avatar
+      summary: Streamed credential
+      x-summary-source: derived
   /avatar/streamed/id/{userId}:
     get:
-      summary: Microsoft doesn't provide a public URL for fetching profile photos / avatars so we have to stream them.
+      summary: Microsoft doesn't provide a public URL for fetching profile photos / avatars so…
       description: Microsoft doesn't provide a public URL for fetching profile photos / avatars so we have to stream them. This is marked as allowing anonymous access because we need scheduling link attendees to be able to see avatars of the organizers on the booking pages and also for smart meeting invitations, etc...
       operationId: streamedByUserId
       parameters:
@@ -129,6 +137,8 @@ paths:
       - Authorization: []
       tags:
       - Avatar
+      summary: Streamed me
+      x-summary-source: derived
 components:
   securitySchemes:
     Authorization:

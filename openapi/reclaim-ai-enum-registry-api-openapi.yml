@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes Enum Registry API
+  title: Reclaim Enum Registry API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -27,6 +27,8 @@ paths:
       - Authorization: []
       tags:
       - Enum Registry
+      summary: List 2
+      x-summary-source: derived
 components:
   schemas:
     OauthErrorCodes:

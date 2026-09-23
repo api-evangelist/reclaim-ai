@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes Ok API
+  title: Reclaim Ok API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -20,8 +20,9 @@ paths:
       - name: env
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: apiOk 200 response
@@ -31,6 +32,8 @@ paths:
                 type: string
       tags:
       - Ok
+      summary: Api ok
+      x-summary-source: derived
   /ok:
     get:
       operationId: ok_1
@@ -38,8 +41,9 @@ paths:
       - name: env
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: ok_1 200 response
@@ -49,6 +53,8 @@ paths:
                 type: string
       tags:
       - Ok
+      summary: Ok 1
+      x-summary-source: derived
 components:
   securitySchemes:
     Authorization:

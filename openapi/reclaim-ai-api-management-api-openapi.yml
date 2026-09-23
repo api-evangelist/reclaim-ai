@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes api-management API
+  title: Reclaim API Management API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -33,6 +33,8 @@ paths:
                 $ref: '#/components/schemas/ApiKey'
       security:
       - Authorization: []
+      summary: Create api key
+      x-summary-source: derived
     patch:
       tags:
       - api-management
@@ -52,6 +54,8 @@ paths:
                 $ref: '#/components/schemas/ApiKey'
       security:
       - Authorization: []
+      summary: Update api key
+      x-summary-source: derived
   /api/api-management/api-key/reissue/{id}:
     patch:
       tags:
@@ -72,6 +76,8 @@ paths:
                 $ref: '#/components/schemas/ApiKey'
       security:
       - Authorization: []
+      summary: Reissue api key
+      x-summary-source: derived
   /api/api-management/api-key/{id}:
     get:
       tags:
@@ -92,6 +98,8 @@ paths:
                 $ref: '#/components/schemas/ApiKey'
       security:
       - Authorization: []
+      summary: List api key
+      x-summary-source: derived
     delete:
       tags:
       - api-management
@@ -111,6 +119,8 @@ paths:
                 type: object
       security:
       - Authorization: []
+      summary: Delete api key
+      x-summary-source: derived
   /api/api-management/api-keys:
     get:
       tags:
@@ -127,6 +137,8 @@ paths:
                   $ref: '#/components/schemas/ApiKey'
       security:
       - Authorization: []
+      summary: List api key 1
+      x-summary-source: derived
 components:
   schemas:
     ApiKey:
@@ -143,12 +155,14 @@ components:
           minLength: 1
           type: string
         lifetimeMs:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
-          nullable: true
         token:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         createdAt:
           type: string
           format: date-time

@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes Scim API
+  title: Reclaim SCIM API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -11,7 +11,7 @@ info:
     url: http://reclaim.ai
   version: '0.1'
 tags:
-- name: Scim
+- name: SCIM
 paths:
   /scim/v2/Groups:
     get:
@@ -27,7 +27,9 @@ paths:
       - Authorization:
         - ROLE_API
       tags:
-      - Scim
+      - SCIM
+      summary: Get groups
+      x-summary-source: derived
   /scim/v2/ResourceTypes:
     get:
       operationId: getResourceTypes
@@ -42,7 +44,9 @@ paths:
       - Authorization:
         - ROLE_API
       tags:
-      - Scim
+      - SCIM
+      summary: Get resource types
+      x-summary-source: derived
   /scim/v2/Schemas:
     get:
       operationId: getSchemas
@@ -57,7 +61,9 @@ paths:
       - Authorization:
         - ROLE_API
       tags:
-      - Scim
+      - SCIM
+      summary: Get schemas
+      x-summary-source: derived
   /scim/v2/ServiceProvider:
     get:
       operationId: getServiceProvider
@@ -72,7 +78,9 @@ paths:
       - Authorization:
         - ROLE_API
       tags:
-      - Scim
+      - SCIM
+      summary: Get service provider
+      x-summary-source: derived
   /scim/v2/Users:
     get:
       operationId: getUsers
@@ -80,27 +88,31 @@ paths:
       - name: attributes
         in: query
         schema:
-          type: array
-          nullable: true
+          type:
+          - array
+          - 'null'
           items:
             type: string
       - name: startIndex
         in: query
         schema:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int32
-          nullable: true
       - name: count
         in: query
         schema:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int32
-          nullable: true
       - name: filter
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: getUsers 200 response
@@ -112,7 +124,9 @@ paths:
       - Authorization:
         - ROLE_API
       tags:
-      - Scim
+      - SCIM
+      summary: Get users
+      x-summary-source: derived
     put:
       operationId: putUser
       requestBody:
@@ -135,7 +149,9 @@ paths:
       - Authorization:
         - ROLE_API
       tags:
-      - Scim
+      - SCIM
+      summary: Put user
+      x-summary-source: derived
     post:
       operationId: createUser
       requestBody:
@@ -158,7 +174,9 @@ paths:
       - Authorization:
         - ROLE_API
       tags:
-      - Scim
+      - SCIM
+      summary: Create user
+      x-summary-source: derived
   /scim/v2/Users/{id}:
     get:
       operationId: getUser
@@ -179,9 +197,11 @@ paths:
       - Authorization:
         - ROLE_API
       tags:
-      - Scim
+      - SCIM
+      summary: Get user
+      x-summary-source: derived
     put:
-      summary: Using Map here instead of @Body ScimUser because we suspect that there are arbitrary properties that are being sent from the SCIM providers that would be useful for us to capture so that we can provide richer analytics facets.
+      summary: Using Map here instead of @Body ScimUser because we suspect that there are…
       description: Using Map here instead of @Body ScimUser because we suspect that there are arbitrary properties that are being sent from the SCIM providers that would be useful for us to capture so that we can provide richer analytics facets.
       operationId: putUserId
       parameters:
@@ -212,7 +232,7 @@ paths:
       - Authorization:
         - ROLE_API
       tags:
-      - Scim
+      - SCIM
     delete:
       operationId: deleteUser
       parameters:
@@ -232,7 +252,9 @@ paths:
       - Authorization:
         - ROLE_API
       tags:
-      - Scim
+      - SCIM
+      summary: Delete user
+      x-summary-source: derived
     patch:
       operationId: patchUser
       parameters:
@@ -261,9 +283,128 @@ paths:
       - Authorization:
         - ROLE_API
       tags:
-      - Scim
+      - SCIM
+      summary: Patch user
+      x-summary-source: derived
 components:
   schemas:
+    ScimReclaimExtension:
+      type: object
+      properties:
+        location:
+          type:
+          - string
+          - 'null'
+        hireDate:
+          type:
+          - string
+          - 'null'
+        jobCategory:
+          type:
+          - string
+          - 'null'
+        orgRole:
+          type:
+          - string
+          - 'null'
+        team:
+          type:
+          - string
+          - 'null'
+      description: Encapsulates the reclaim-defined core attributes extending the SCIM user resource.
+    ScimEmail:
+      type: object
+      properties:
+        type:
+          type: string
+        value:
+          type: string
+        display:
+          type: string
+        primary:
+          type: boolean
+    ScimManager:
+      type: object
+      properties:
+        displayName:
+          type:
+          - string
+          - 'null'
+        value:
+          type:
+          - string
+          - 'null'
+        ref:
+          type:
+          - string
+          - 'null'
+    ScimEnterprise:
+      type: object
+      properties:
+        employeeNumber:
+          type:
+          - string
+          - 'null'
+        costCenter:
+          type:
+          - string
+          - 'null'
+        organization:
+          type:
+          - string
+          - 'null'
+        division:
+          type:
+          - string
+          - 'null'
+        department:
+          type:
+          - string
+          - 'null'
+        manager:
+          allOf:
+          - $ref: '#/components/schemas/ScimManager'
+    ScimOperations:
+      required:
+      - op
+      - path
+      - value
+      type: object
+      properties:
+        op:
+          type: string
+        path:
+          type: string
+        value:
+          description: This getter handles the type switching
+        valueAsMap:
+          type: object
+          additionalProperties: true
+          description: This getter handles the type switching
+    ScimPatch:
+      required:
+      - Operations
+      - schemas
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+        Operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScimOperations'
+    ScimName:
+      required:
+      - familyName
+      - givenName
+      type: object
+      properties:
+        givenName:
+          type: string
+        familyName:
+          type: string
     ScimMeta:
       type: object
       properties:
@@ -308,111 +449,6 @@ components:
         attributes:
           type: object
           additionalProperties: true
-    ScimPatch:
-      required:
-      - Operations
-      - schemas
-      type: object
-      properties:
-        schemas:
-          type: array
-          items:
-            type: string
-        Operations:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScimOperations'
-    ScimOperations:
-      required:
-      - op
-      - path
-      - value
-      type: object
-      properties:
-        op:
-          type: string
-        path:
-          type: string
-        value:
-          description: This getter handles the type switching
-        valueAsMap:
-          type: object
-          additionalProperties: true
-          description: This getter handles the type switching
-    ScimEmail:
-      type: object
-      properties:
-        type:
-          type: string
-        value:
-          type: string
-        display:
-          type: string
-        primary:
-          type: boolean
-    ScimReclaimExtension:
-      type: object
-      properties:
-        location:
-          type: string
-          nullable: true
-        hireDate:
-          type: string
-          nullable: true
-        jobCategory:
-          type: string
-          nullable: true
-        orgRole:
-          type: string
-          nullable: true
-        team:
-          type: string
-          nullable: true
-      description: Encapsulates the reclaim-defined core attributes extending the SCIM user resource.
-    ScimName:
-      required:
-      - familyName
-      - givenName
-      type: object
-      properties:
-        givenName:
-          type: string
-        familyName:
-          type: string
-    ScimEnterprise:
-      type: object
-      properties:
-        employeeNumber:
-          type: string
-          nullable: true
-        costCenter:
-          type: string
-          nullable: true
-        organization:
-          type: string
-          nullable: true
-        division:
-          type: string
-          nullable: true
-        department:
-          type: string
-          nullable: true
-        manager:
-          nullable: true
-          allOf:
-          - $ref: '#/components/schemas/ScimManager'
-    ScimManager:
-      type: object
-      properties:
-        displayName:
-          type: string
-          nullable: true
-        value:
-          type: string
-          nullable: true
-        ref:
-          type: string
-          nullable: true
   securitySchemes:
     Authorization:
       type: oauth2

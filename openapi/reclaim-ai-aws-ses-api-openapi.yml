@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes aws-ses API
+  title: Reclaim Aws Ses API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -37,6 +37,8 @@ paths:
             application/json:
               schema:
                 type: object
+      summary: Ses event
+      x-summary-source: derived
 components:
   securitySchemes:
     Authorization:

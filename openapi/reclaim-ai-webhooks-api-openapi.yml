@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes webhooks API
+  title: Reclaim Webhooks API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -11,19 +11,20 @@ info:
     url: http://reclaim.ai
   version: '0.1'
 tags:
-- name: webhooks
+- name: Webhooks
 paths:
   /api/team/current/webhooks:
     get:
       tags:
-      - webhooks
+      - Webhooks
       operationId: queryWebhookConfigs
       parameters:
       - name: statuses
         in: query
         schema:
-          type: array
-          nullable: true
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/WebhookStatus'
       responses:
@@ -37,9 +38,11 @@ paths:
                   $ref: '#/components/schemas/WebhookConfig'
       security:
       - Authorization: []
+      summary: Query webhook configs
+      x-summary-source: derived
     post:
       tags:
-      - webhooks
+      - Webhooks
       operationId: createWebhookConfig
       requestBody:
         content:
@@ -56,44 +59,46 @@ paths:
                 $ref: '#/components/schemas/WebhookConfig'
       security:
       - Authorization: []
+      summary: Create webhook config
+      x-summary-source: derived
   /api/team/current/webhooks/messages:
     get:
       tags:
-      - webhooks
+      - Webhooks
       operationId: getMessages
       parameters:
       - name: status
         in: query
         schema:
-          nullable: true
           allOf:
           - $ref: '#/components/schemas/WebhookMessageStatus'
       - name: type
         in: query
         schema:
-          nullable: true
           allOf:
           - $ref: '#/components/schemas/WebhookEventType'
       - name: webhookConfigId
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       - name: count
         in: query
         schema:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int32
-          nullable: true
       - name: after
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       - name: order
         in: query
         schema:
-          nullable: true
           allOf:
           - $ref: '#/components/schemas/SortOrder'
       responses:
@@ -103,10 +108,12 @@ paths:
             application/json: {}
       security:
       - Authorization: []
+      summary: Get messages
+      x-summary-source: derived
   /api/team/current/webhooks/messages/retry:
     post:
       tags:
-      - webhooks
+      - Webhooks
       operationId: retry
       requestBody:
         content:
@@ -125,10 +132,12 @@ paths:
                   $ref: '#/components/schemas/WebhookMessageView'
       security:
       - Authorization: []
+      summary: Retry
+      x-summary-source: derived
   /api/team/current/webhooks/versions:
     get:
       tags:
-      - webhooks
+      - Webhooks
       operationId: getWebhookVersions
       responses:
         '200':
@@ -137,10 +146,12 @@ paths:
             application/json: {}
       security:
       - Authorization: []
+      summary: Get webhook versions
+      x-summary-source: derived
   /api/team/current/webhooks/{id}:
     get:
       tags:
-      - webhooks
+      - Webhooks
       operationId: getWebhookConfig
       parameters:
       - name: id
@@ -157,9 +168,11 @@ paths:
                 $ref: '#/components/schemas/WebhookConfig'
       security:
       - Authorization: []
+      summary: Get webhook config
+      x-summary-source: derived
     put:
       tags:
-      - webhooks
+      - Webhooks
       operationId: updateWebhookConfig
       parameters:
       - name: id
@@ -182,9 +195,11 @@ paths:
                 $ref: '#/components/schemas/WebhookConfig'
       security:
       - Authorization: []
+      summary: Update webhook config
+      x-summary-source: derived
     delete:
       tags:
-      - webhooks
+      - Webhooks
       operationId: deleteWebhookConfig
       parameters:
       - name: id
@@ -197,14 +212,15 @@ paths:
           description: Ok
           content:
             application/json:
-              schema:
-                nullable: true
+              schema: {}
       security:
       - Authorization: []
+      summary: Delete webhook config
+      x-summary-source: derived
   /api/team/current/webhooks/{id}/associations:
     get:
       tags:
-      - webhooks
+      - Webhooks
       operationId: getWebhookAssociations
       parameters:
       - name: id
@@ -219,10 +235,12 @@ paths:
             application/json: {}
       security:
       - Authorization: []
+      summary: Get webhook associations
+      x-summary-source: derived
   /api/team/webhook/generate-secret:
     get:
       tags:
-      - webhooks
+      - Webhooks
       summary: Generate a secret
       description: Generate a proposal of secret with high entropy
       operationId: generateRandomSecrete
@@ -253,74 +271,14 @@ components:
         status:
           $ref: '#/components/schemas/WebhookStatus'
         apiVersion:
-          nullable: true
           allOf:
           - $ref: '#/components/schemas/WebhookApiVersion'
         secret:
           maxLength: 60
           minLength: 12
-          type: string
-          nullable: true
-    WebhookSecret:
-      required:
-      - generatedSecret
-      type: object
-      properties:
-        generatedSecret:
-          type: string
-    WebhookRetryRequest:
-      required:
-      - messageIds
-      type: object
-      properties:
-        messageIds:
-          type: array
-          items:
-            type: string
-    WebhookConfig:
-      required:
-      - apiVersion
-      - createdAt
-      - id
-      - name
-      - status
-      - url
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        name:
-          type: string
-        url:
-          type: string
-        status:
-          $ref: '#/components/schemas/WebhookStatus'
-        apiVersion:
-          $ref: '#/components/schemas/WebhookApiVersion'
-        createdAt:
-          type: string
-          format: date-time
-    WebhookExternalPayload:
-      type: object
-      discriminator:
-        propertyName: type
-        mapping:
-          SchedulingLink.Meeting.Created: '#/components/schemas/WebhookExternalSchedulingLinkMeetingCreated'
-          SchedulingLink.Meeting.Updated: '#/components/schemas/WebhookExternalSchedulingLinkMeetingUpdated'
-          SchedulingLink.Meeting.Cancelled: '#/components/schemas/WebhookExternalSchedulingLinkMeetingCancelled'
-    WebhookApiVersion:
-      type: string
-      enum:
-      - v2024-10-02
-      - v2025-01-15
-      - v2025-09-26
-      - v2026-04-13
-      x-enum-varnames:
-      - V2024_10_02
-      - V2025_01_15
-      - V2025_09_26
-      - V2026_04_13
+          type:
+          - string
+          - 'null'
     WebhookMessageRequestHistoryView:
       required:
       - at
@@ -336,26 +294,14 @@ components:
         at:
           type: string
           format: date-time
-    WebhookEventType:
-      type: string
-      enum:
-      - SCHEDULING_LINK_MEETING_CREATED
-      - SCHEDULING_LINK_MEETING_UPDATED
-      - SCHEDULING_LINK_MEETING_CANCELLED
-    SortOrder:
-      type: string
-      enum:
-      - ASCENDING
-      - DESCENDING
-      - UNSORTED
-    WebhookMessageStatus:
-      type: string
-      enum:
-      - PENDING
-      - FAILURE_BUT_WILL_RETRY
-      - FAILED
-      - MANUAL_RETRY
-      - COMPLETED
+    WebhookExternalPayload:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          SchedulingLink.Meeting.Created: '#/components/schemas/WebhookExternalSchedulingLinkMeetingCreated'
+          SchedulingLink.Meeting.Updated: '#/components/schemas/WebhookExternalSchedulingLinkMeetingUpdated'
+          SchedulingLink.Meeting.Cancelled: '#/components/schemas/WebhookExternalSchedulingLinkMeetingCancelled'
     HttpStatus:
       type: string
       enum:
@@ -428,6 +374,32 @@ components:
       - NOT_EXTENDED
       - NETWORK_AUTHENTICATION_REQUIRED
       - CONNECTION_TIMED_OUT
+    WebhookApiVersion:
+      type: string
+      enum:
+      - v2024-10-02
+      - v2025-01-15
+      - v2025-09-26
+      - v2026-04-13
+      x-enum-varnames:
+      - V2024_10_02
+      - V2025_01_15
+      - V2025_09_26
+      - V2026_04_13
+    WebhookMessageStatus:
+      type: string
+      enum:
+      - PENDING
+      - FAILURE_BUT_WILL_RETRY
+      - FAILED
+      - MANUAL_RETRY
+      - COMPLETED
+    WebhookEventType:
+      type: string
+      enum:
+      - SCHEDULING_LINK_MEETING_CREATED
+      - SCHEDULING_LINK_MEETING_UPDATED
+      - SCHEDULING_LINK_MEETING_CANCELLED
     WebhookStatus:
       type: string
       enum:
@@ -468,20 +440,68 @@ components:
           type: string
           format: date-time
         lastAttemptAt:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         nextRetryAfter:
           type: string
           format: date-time
         succeedAt:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         retries:
           type: array
           items:
             $ref: '#/components/schemas/WebhookMessageRequestHistoryView'
+    WebhookSecret:
+      required:
+      - generatedSecret
+      type: object
+      properties:
+        generatedSecret:
+          type: string
+    SortOrder:
+      type: string
+      enum:
+      - ASCENDING
+      - DESCENDING
+      - UNSORTED
+    WebhookRetryRequest:
+      required:
+      - messageIds
+      type: object
+      properties:
+        messageIds:
+          type: array
+          items:
+            type: string
+    WebhookConfig:
+      required:
+      - apiVersion
+      - createdAt
+      - id
+      - name
+      - status
+      - url
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        url:
+          type: string
+        status:
+          $ref: '#/components/schemas/WebhookStatus'
+        apiVersion:
+          $ref: '#/components/schemas/WebhookApiVersion'
+        createdAt:
+          type: string
+          format: date-time
   securitySchemes:
     Authorization:
       type: oauth2

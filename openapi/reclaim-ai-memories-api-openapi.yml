@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes memories API
+  title: Reclaim Memories API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -11,29 +11,30 @@ info:
     url: http://reclaim.ai
   version: '0.1'
 tags:
-- name: memories
+- name: Memories
 paths:
   /api/memories:
     get:
       tags:
-      - memories
+      - Memories
       operationId: listMemories
       parameters:
       - name: count
         in: query
         schema:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int32
-          nullable: true
       - name: after
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       - name: order
         in: query
         schema:
-          nullable: true
           allOf:
           - $ref: '#/components/schemas/SortOrder'
       responses:
@@ -45,9 +46,11 @@ paths:
                 $ref: '#/components/schemas/Page_UserMemoryView_'
       security:
       - Authorization: []
+      summary: List memories
+      x-summary-source: derived
     delete:
       tags:
-      - memories
+      - Memories
       operationId: deleteAllMemories
       responses:
         '200':
@@ -58,10 +61,12 @@ paths:
                 type: object
       security:
       - Authorization: []
+      summary: Delete all memories
+      x-summary-source: derived
   /api/memories/{id}:
     delete:
       tags:
-      - memories
+      - Memories
       operationId: deleteMemory
       parameters:
       - name: id
@@ -78,32 +83,10 @@ paths:
                 type: object
       security:
       - Authorization: []
+      summary: Delete memory
+      x-summary-source: derived
 components:
   schemas:
-    UserMemoryView:
-      required:
-      - content
-      - createdAt
-      - expiresAt
-      - id
-      type: object
-      properties:
-        id:
-          type: string
-        content:
-          type: string
-        createdAt:
-          type: string
-          format: date-time
-        expiresAt:
-          type: string
-          format: date-time
-    SortOrder:
-      type: string
-      enum:
-      - ASCENDING
-      - DESCENDING
-      - UNSORTED
     Page_UserMemoryView_:
       required:
       - count
@@ -130,9 +113,34 @@ components:
           items:
             $ref: '#/components/schemas/UserMemoryView'
         totalCount:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
-          nullable: true
+    SortOrder:
+      type: string
+      enum:
+      - ASCENDING
+      - DESCENDING
+      - UNSORTED
+    UserMemoryView:
+      required:
+      - content
+      - createdAt
+      - expiresAt
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+        content:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        expiresAt:
+          type: string
+          format: date-time
   securitySchemes:
     Authorization:
       type: oauth2

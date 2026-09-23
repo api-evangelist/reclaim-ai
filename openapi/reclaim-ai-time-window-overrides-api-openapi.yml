@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes Time Window Overrides API
+  title: Reclaim Time Window Overrides API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -27,6 +27,8 @@ paths:
       - Authorization: []
       tags:
       - Time Window Overrides
+      summary: Fetch 1
+      x-summary-source: derived
   /api/time-window-overrides/entry:
     post:
       operationId: create_3
@@ -47,6 +49,8 @@ paths:
       - Authorization: []
       tags:
       - Time Window Overrides
+      summary: Create 3
+      x-summary-source: derived
   /api/time-window-overrides/entry/{id}:
     delete:
       operationId: delete_5
@@ -68,20 +72,10 @@ paths:
       - Authorization: []
       tags:
       - Time Window Overrides
+      summary: Delete 5
+      x-summary-source: derived
 components:
   schemas:
-    TimeWindowOverridesView:
-      required:
-      - defaultTimezone
-      - entries
-      type: object
-      properties:
-        entries:
-          type: array
-          items:
-            $ref: '#/components/schemas/TimeWindowOverrideView'
-        defaultTimezone:
-          type: string
     TimeWindowOverrideRequest:
       required:
       - endDate
@@ -96,8 +90,9 @@ components:
           type: string
           format: date
         timezone:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
     TimeWindowOverrideView:
       required:
       - endDate
@@ -115,8 +110,21 @@ components:
           type: string
           format: date
         timezone:
+          type:
+          - string
+          - 'null'
+    TimeWindowOverridesView:
+      required:
+      - defaultTimezone
+      - entries
+      type: object
+      properties:
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeWindowOverrideView'
+        defaultTimezone:
           type: string
-          nullable: true
   securitySchemes:
     Authorization:
       type: oauth2

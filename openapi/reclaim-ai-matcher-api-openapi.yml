@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes matcher API
+  title: Reclaim Matcher API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -33,6 +33,8 @@ paths:
                 $ref: '#/components/schemas/GenerateEventMatcherResponse'
       security:
       - Authorization: []
+      summary: Generate event matcher
+      x-summary-source: derived
   /api/matcher/event/known-tagged-event-matchers:
     get:
       tags:
@@ -47,233 +49,30 @@ paths:
                 $ref: '#/components/schemas/KnownTaggedEventMatchersResponse'
       security:
       - Authorization: []
+      summary: Known tagged event matchers
+      x-summary-source: derived
 components:
   schemas:
-    KnownTaggedEventMatchersResponse:
-      required:
-      - matchers
-      type: object
-      properties:
-        matchers:
-          properties:
-            EXTERNAL:
-              $ref: '#/components/schemas/TaggedEventMatcher'
-            CONFERENCE:
-              $ref: '#/components/schemas/TaggedEventMatcher'
-            LARGE_GROUP:
-              $ref: '#/components/schemas/TaggedEventMatcher'
-            LONG_MEETING:
-              $ref: '#/components/schemas/TaggedEventMatcher'
-            IS_TRAVEL:
-              $ref: '#/components/schemas/TaggedEventMatcher'
-            NEEDS_TRAVEL:
-              $ref: '#/components/schemas/TaggedEventMatcher'
-            IS_FLIGHT:
-              $ref: '#/components/schemas/TaggedEventMatcher'
-            MEETING_ORGANIZER:
-              $ref: '#/components/schemas/TaggedEventMatcher'
-            RECURRING_SERIES:
-              $ref: '#/components/schemas/TaggedEventMatcher'
-            NEEDS_RSVP:
-              $ref: '#/components/schemas/TaggedEventMatcher'
-            IS_MEETING:
-              $ref: '#/components/schemas/TaggedEventMatcher'
-            NO_LOCATION:
-              $ref: '#/components/schemas/TaggedEventMatcher'
-            LARGE_MEETINGS_YOU_ORGANIZED:
-              $ref: '#/components/schemas/TaggedEventMatcher'
-            MEETING_NEEDS_RSVP:
-              $ref: '#/components/schemas/TaggedEventMatcher'
-            MEETING_MISSING_VIDEO_CONFERENCE:
-              $ref: '#/components/schemas/TaggedEventMatcher'
-            RESOURCE_DECLINED:
-              $ref: '#/components/schemas/TaggedEventMatcher'
-    AttendeeStringMatcher:
-      required:
-      - field
-      - operator
-      - value
-      type: object
-      properties:
-        field:
-          $ref: '#/components/schemas/AttendeeStringMatcher.StringField'
-        operator:
-          $ref: '#/components/schemas/AttendeeStringMatcher.StringOperator'
-        value:
-          type: string
-        type:
-          type: string
-      description: Matches an attendee's string field using an operator
-    EventCategoryEventMatcher:
-      required:
-      - operator
-      - predicateValue
-      type: object
-      properties:
-        operator:
-          $ref: '#/components/schemas/EventMatcherOperator'
-        predicateValue:
-          $ref: '#/components/schemas/EventCategory'
-        type:
-          type: string
-      description: Matches by event category
-    IsRecurringInstanceEventMatcher:
-      type: object
-      description: Matches events that are an instance of a recurring series
-    TimeOfDayEventMatcher.TimeField:
+    EventColor:
       type: string
       enum:
-      - START
-      - END
-    TimeOfDayEventMatcher:
-      required:
-      - operator
-      - predicateValue
-      - timeField
+      - NONE
+      - LAVENDER
+      - SAGE
+      - GRAPE
+      - FLAMINGO
+      - BANANA
+      - TANGERINE
+      - PEACOCK
+      - GRAPHITE
+      - BLUEBERRY
+      - BASIL
+      - TOMATO
+    Colorized:
       type: object
       properties:
-        timeField:
-          $ref: '#/components/schemas/TimeOfDayEventMatcher.TimeField'
-        operator:
-          $ref: '#/components/schemas/EventMatcherOperator'
-        predicateValue:
-          type: string
-          format: partial-time
-        type:
-          type: string
-      description: Matches events based on their start or end time of day
-    TrueEventMatcher:
-      type: object
-      description: Always matches any event
-    AttendeeCountEventMatcher:
-      required:
-      - attendeeType
-      - includeResources
-      - operator
-      - predicateValue
-      type: object
-      properties:
-        operator:
-          $ref: '#/components/schemas/EventMatcherOperator'
-        predicateValue:
-          type: integer
-          format: int32
-        attendeeType:
-          $ref: '#/components/schemas/AttendeeCountEventMatcher.AttendeeType'
-        includeResources:
-          type: boolean
-          default: false
-        type:
-          type: string
-      description: Matches by attendee count using a comparison operator
-    EventKey:
-      required:
-      - calendarId
-      - eventId
-      type: object
-      properties:
-        eventId:
-          type: string
-        calendarId:
-          type: integer
-          format: int64
-    DurationEventMatcher:
-      required:
-      - operator
-      - predicateValue
-      type: object
-      properties:
-        operator:
-          $ref: '#/components/schemas/EventMatcherOperator'
-        predicateValue:
-          type: integer
-          format: int64
-        type:
-          type: string
-      description: Matches by event duration in minutes
-    HasAgendaEventMatcher:
-      required:
-      - defaultValue
-      - matchType
-      type: object
-      properties:
-        matchType:
-          $ref: '#/components/schemas/HasAgenda.AgendaType'
-        defaultValue:
-          type: boolean
-        type:
-          type: string
-      description: Matches events that have an agenda
-    AnyTextEventMatcher:
-      required:
-      - predicateValue
-      type: object
-      properties:
-        predicateValue:
-          type: string
-        type:
-          type: string
-      description: Matches if text appears in title, description, or location
-    AttendeeResponseStatusMatcher.SetOperator:
-      type: string
-      enum:
-      - IN
-      - NOT_IN
-    RequiresTravelEventMatcher:
-      required:
-      - predicateValue
-      type: object
-      properties:
-        predicateValue:
-          type: boolean
-        type:
-          type: string
-      description: Matches events that require travel
-    AttendeeIntMatcher:
-      required:
-      - field
-      - operator
-      - value
-      type: object
-      properties:
-        field:
-          $ref: '#/components/schemas/AttendeeIntMatcher.IntField'
-        operator:
-          $ref: '#/components/schemas/EventMatcherOperator'
-        value:
-          type: integer
-          format: int32
-        type:
-          type: string
-      description: Matches an attendee's integer field using an operator
-    ResourceRSVPEventMatcher:
-      required:
-      - responseStatuses
-      type: object
-      properties:
-        responseStatuses:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResponseStatus'
-        type:
-          type: string
-      description: Matches by resource attendee RSVP status
-    AnyAttendeeEventMatcher:
-      required:
-      - attendeeMatcher
-      type: object
-      properties:
-        attendeeMatcher:
-          $ref: '#/components/schemas/AttendeeMatcher'
-        type:
-          type: string
-      description: Matches if any attendee satisfies the given attendee predicate
-    AttendeeStringMatcher.StringField:
-      type: string
-      enum:
-      - EMAIL
-      - DISPLAY_NAME
-      - COMMENT
+        color:
+          $ref: '#/components/schemas/EventColor'
     MatchingAttendeeCountEventMatcher:
       required:
       - attendeeMatcher
@@ -291,58 +90,41 @@ components:
         type:
           type: string
       description: Matches by count of attendees satisfying a predicate, compared with an operator
-    AttendeeIntMatcher.IntField:
+    FalseAttendeeMatcher:
+      type: object
+      description: Never matches any attendee
+    AttendeeStringMatcher.StringField:
       type: string
       enum:
-      - ADDITIONAL_GUESTS
-    AnyEventMatcher:
+      - EMAIL
+      - DISPLAY_NAME
+      - COMMENT
+    HasVideoConferenceEventMatcher:
       required:
-      - matchers
+      - predicateValue
       type: object
       properties:
-        matchers:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventMatcher'
+        predicateValue:
+          type: boolean
         type:
           type: string
-      description: Matches if ANY matcher in the list matches
-    AndEventMatcher:
+      description: Matches events with or without a video conference link
+    ReclaimEventTypeEventMatcher:
       required:
-      - left
-      - right
+      - operator
+      - predicateValue
       type: object
       properties:
-        left:
-          $ref: '#/components/schemas/EventMatcher'
-        right:
-          $ref: '#/components/schemas/EventMatcher'
+        operator:
+          $ref: '#/components/schemas/EventMatcherOperator'
+        predicateValue:
+          $ref: '#/components/schemas/ReclaimEventType'
         type:
           type: string
-      description: Matches if both the left and right matchers match
-    OrAttendeeMatcher:
-      required:
-      - left
-      - right
+      description: Matches by Reclaim event type
+    FalseEventMatcher:
       type: object
-      properties:
-        left:
-          $ref: '#/components/schemas/AttendeeMatcher'
-        right:
-          $ref: '#/components/schemas/AttendeeMatcher'
-        type:
-          type: string
-      description: Matches if either attendee matcher matches
-    GenerateEventMatcherResponse:
-      type: object
-      properties:
-        eventMatcher:
-          nullable: true
-          allOf:
-          - $ref: '#/components/schemas/EventMatcher'
-        message:
-          type: string
-          nullable: true
+      description: Never matches any event
     AttendeeStringMatcher.StringOperator:
       type: string
       enum:
@@ -350,29 +132,242 @@ components:
       - NOT_EQUALS
       - CONTAINS
       - MATCHES
-    NotAttendeeMatcher:
+    AttendeeIntMatcher:
       required:
-      - toNegate
+      - field
+      - operator
+      - value
       type: object
       properties:
-        toNegate:
-          $ref: '#/components/schemas/AttendeeMatcher'
+        field:
+          $ref: '#/components/schemas/AttendeeIntMatcher.IntField'
+        operator:
+          $ref: '#/components/schemas/EventMatcherOperator'
+        value:
+          type: integer
+          format: int32
         type:
           type: string
-      description: Negates an attendee matcher
-    AndAttendeeMatcher:
+      description: Matches an attendee's integer field using an operator
+    SelfRSVPMatcher:
+      required:
+      - operator
+      type: object
+      properties:
+        operator:
+          $ref: '#/components/schemas/EventMatcherOperator'
+        predicateValue:
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        predicateValues:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/ResponseStatus'
+        type:
+          type: string
+      description: Matches by the user's own RSVP status
+    EventCategoryEventMatcher:
+      required:
+      - operator
+      - predicateValue
+      type: object
+      properties:
+        operator:
+          $ref: '#/components/schemas/EventMatcherOperator'
+        predicateValue:
+          $ref: '#/components/schemas/EventCategory'
+        type:
+          type: string
+      description: Matches by event category
+    AttendeeResponseStatusMatcher:
+      required:
+      - operator
+      - values
+      type: object
+      properties:
+        operator:
+          $ref: '#/components/schemas/AttendeeResponseStatusMatcher.SetOperator'
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResponseStatus'
+        type:
+          type: string
+      description: Matches an attendee's RSVP response status
+    RecurringSeriesEventMatcher:
+      required:
+      - operator
+      - seriesEventId
+      type: object
+      properties:
+        operator:
+          $ref: '#/components/schemas/EventMatcherOperator'
+        seriesEventId:
+          type: string
+        calendarId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        type:
+          type: string
+      description: Matches the root series event itself by its eventKey ID. Rarely needed — prefer RecurringInstanceEventMatcher to target all occurrences.
+    TimeWindowEventMatcher:
+      required:
+      - matchMode
+      - windowEnd
+      - windowStart
+      type: object
+      properties:
+        windowStart:
+          type: string
+          format: date-time
+        windowEnd:
+          type: string
+          format: date-time
+        matchMode:
+          $ref: '#/components/schemas/TimeWindowEventMatcher.TimeWindowMatchMode'
+        type:
+          type: string
+      description: Matches events within a time window
+    OrEventMatcher:
       required:
       - left
       - right
       type: object
       properties:
         left:
-          $ref: '#/components/schemas/AttendeeMatcher'
+          $ref: '#/components/schemas/EventMatcher'
         right:
+          $ref: '#/components/schemas/EventMatcher'
+        type:
+          type: string
+      description: Matches if either the left or right matcher matches
+    NotEventMatcher:
+      required:
+      - toNegate
+      type: object
+      properties:
+        toNegate:
+          $ref: '#/components/schemas/EventMatcher'
+        type:
+          type: string
+      description: Negates another matcher
+    AttendeeMatcher:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          TrueAttendeeMatcher: '#/components/schemas/TrueAttendeeMatcher'
+          AttendeeResponseStatusMatcher: '#/components/schemas/AttendeeResponseStatusMatcher'
+          FalseAttendeeMatcher: '#/components/schemas/FalseAttendeeMatcher'
+          AttendeeStringMatcher: '#/components/schemas/AttendeeStringMatcher'
+          OrAttendeeMatcher: '#/components/schemas/OrAttendeeMatcher'
+          NotAttendeeMatcher: '#/components/schemas/NotAttendeeMatcher'
+          AttendeeBooleanMatcher: '#/components/schemas/AttendeeBooleanMatcher'
+          AttendeeIntMatcher: '#/components/schemas/AttendeeIntMatcher'
+          AndAttendeeMatcher: '#/components/schemas/AndAttendeeMatcher'
+      oneOf:
+      - $ref: '#/components/schemas/AttendeeStringMatcher'
+      - $ref: '#/components/schemas/AttendeeBooleanMatcher'
+      - $ref: '#/components/schemas/AttendeeIntMatcher'
+      - $ref: '#/components/schemas/AttendeeResponseStatusMatcher'
+      - $ref: '#/components/schemas/AndAttendeeMatcher'
+      - $ref: '#/components/schemas/OrAttendeeMatcher'
+      - $ref: '#/components/schemas/NotAttendeeMatcher'
+      - $ref: '#/components/schemas/TrueAttendeeMatcher'
+      - $ref: '#/components/schemas/FalseAttendeeMatcher'
+    IsRecurringInstanceEventMatcher:
+      type: object
+      description: Matches events that are an instance of a recurring series
+    ResponseStatus:
+      type: string
+      enum:
+      - DECLINED
+      - NEEDS_ACTION
+      - TENTATIVE
+      - ACCEPTED
+      - UNKNOWN
+    TimeWindowEventMatcher.TimeWindowMatchMode:
+      type: string
+      enum:
+      - STARTS_WITHIN
+      - ENDS_WITHIN
+      - STARTS_OR_ENDS_WITHIN
+      - CONTAINED_WITHIN
+      - OVERLAPS
+    IsOrganizerEventMatcher:
+      required:
+      - predicateValue
+      type: object
+      properties:
+        predicateValue:
+          type: boolean
+        type:
+          type: string
+      description: Matches based on whether the user is the event organizer
+    ReclaimEventType:
+      type: string
+      enum:
+      - USER
+      - SYNC
+      - HABIT_ASSIGNMENT
+      - SMART_HABIT
+      - ONE_ON_ONE_ASSIGNMENT
+      - SMART_MEETING
+      - TASK_ASSIGNMENT
+      - CONF_BUFFER
+      - TRAVEL_BUFFER
+      - SCHEDULING_LINK_MEETING
+      - UNKNOWN
+      - FOCUS
+    AttendeeBooleanMatcher.BooleanField:
+      type: string
+      enum:
+      - SELF
+      - OPTIONAL
+      - ORGANIZER
+      - RESOURCE
+    HasAgenda.AgendaType:
+      type: string
+      enum:
+      - TEXT
+      - URL
+    AttendeeResponseStatusMatcher.SetOperator:
+      type: string
+      enum:
+      - IN
+      - NOT_IN
+    TrueEventMatcher:
+      type: object
+      description: Always matches any event
+    AnyAttendeeEventMatcher:
+      required:
+      - attendeeMatcher
+      type: object
+      properties:
+        attendeeMatcher:
           $ref: '#/components/schemas/AttendeeMatcher'
         type:
           type: string
-      description: Matches if both attendee matchers match
+      description: Matches if any attendee satisfies the given attendee predicate
+    GenerateEventMatcherResponse:
+      type: object
+      properties:
+        eventMatcher:
+          allOf:
+          - $ref: '#/components/schemas/EventMatcher'
+        message:
+          type:
+          - string
+          - 'null'
+    TimeOfDayEventMatcher.TimeField:
+      type: string
+      enum:
+      - START
+      - END
     TaggedEventMatcher:
       required:
       - matcher
@@ -386,82 +381,51 @@ components:
         type:
           type: string
       description: Wraps a matcher with a named tag
-    AllEventMatcher:
+    AttendeeBooleanMatcher:
       required:
-      - matchers
+      - field
+      - value
       type: object
       properties:
-        matchers:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventMatcher'
-        type:
-          type: string
-      description: Matches if ALL matchers in the list match
-    IsOrganizerEventMatcher:
-      required:
-      - predicateValue
-      type: object
-      properties:
-        predicateValue:
+        field:
+          $ref: '#/components/schemas/AttendeeBooleanMatcher.BooleanField'
+        value:
           type: boolean
         type:
           type: string
-      description: Matches based on whether the user is the event organizer
-    CalendarEventMatcher:
+      description: Matches an attendee's boolean field
+    AndEventMatcher:
       required:
-      - calendarId
+      - left
+      - right
       type: object
       properties:
-        calendarId:
-          type: integer
-          format: int64
+        left:
+          $ref: '#/components/schemas/EventMatcher'
+        right:
+          $ref: '#/components/schemas/EventMatcher'
         type:
           type: string
-      description: Matches events on a specific calendar
-    EventMatcherOperator:
+      description: Matches if both the left and right matchers match
+    AttendeeCountEventMatcher.AttendeeType:
       type: string
       enum:
-      - NOT_SPECIFIED
-      - EQUALS
-      - CONTAINS
-      - LESS_THAN
-      - LESS_THAN_OR_EQUALS
-      - GREATER_THAN
-      - GREATER_THAN_OR_EQUALS
-      - MATCHES
-    RecurringSeriesEventMatcher:
+      - ANY
+      - REQUIRED
+      - OPTIONAL
+    AttendeeEmailEventMatcher:
       required:
       - operator
-      - seriesEventId
+      - predicateValue
       type: object
       properties:
         operator:
           $ref: '#/components/schemas/EventMatcherOperator'
-        seriesEventId:
+        predicateValue:
           type: string
-        calendarId:
-          type: integer
-          format: int64
-          nullable: true
         type:
           type: string
-      description: Matches the root series event itself by its eventKey ID. Rarely needed — prefer RecurringInstanceEventMatcher to target all occurrences.
-    EventColor:
-      type: string
-      enum:
-      - NONE
-      - LAVENDER
-      - SAGE
-      - GRAPE
-      - FLAMINGO
-      - BANANA
-      - TANGERINE
-      - PEACOCK
-      - GRAPHITE
-      - BLUEBERRY
-      - BASIL
-      - TOMATO
+      description: Matches events where any attendee's email satisfies the operator/predicate
     EventMatcher:
       type: object
       discriminator:
@@ -542,78 +506,6 @@ components:
       - $ref: '#/components/schemas/TitleEventMatcher'
       - $ref: '#/components/schemas/TrueEventMatcher'
       - $ref: '#/components/schemas/DurationEventMatcher'
-    HasAgenda.AgendaType:
-      type: string
-      enum:
-      - TEXT
-      - URL
-    OrEventMatcher:
-      required:
-      - left
-      - right
-      type: object
-      properties:
-        left:
-          $ref: '#/components/schemas/EventMatcher'
-        right:
-          $ref: '#/components/schemas/EventMatcher'
-        type:
-          type: string
-      description: Matches if either the left or right matcher matches
-    AttendeeBooleanMatcher.BooleanField:
-      type: string
-      enum:
-      - SELF
-      - OPTIONAL
-      - ORGANIZER
-      - RESOURCE
-    TimeWindowEventMatcher:
-      required:
-      - matchMode
-      - windowEnd
-      - windowStart
-      type: object
-      properties:
-        windowStart:
-          type: string
-          format: date-time
-        windowEnd:
-          type: string
-          format: date-time
-        matchMode:
-          $ref: '#/components/schemas/TimeWindowEventMatcher.TimeWindowMatchMode'
-        type:
-          type: string
-      description: Matches events within a time window
-    GenerateEventMatcherRequest:
-      required:
-      - message
-      type: object
-      properties:
-        message:
-          type: string
-        existingMatcher:
-          nullable: true
-          allOf:
-          - $ref: '#/components/schemas/EventMatcher'
-    AttendeeEmailEventMatcher:
-      required:
-      - operator
-      - predicateValue
-      type: object
-      properties:
-        operator:
-          $ref: '#/components/schemas/EventMatcherOperator'
-        predicateValue:
-          type: string
-        type:
-          type: string
-      description: Matches events where any attendee's email satisfies the operator/predicate
-    Colorized:
-      type: object
-      properties:
-        color:
-          $ref: '#/components/schemas/EventColor'
     SummarizedEventMatcher:
       required:
       - matcher
@@ -627,59 +519,7 @@ components:
         type:
           type: string
       description: Wraps a matcher with a human-readable summary
-    RecurringInstanceEventMatcher:
-      required:
-      - operator
-      - recurringEventId
-      type: object
-      properties:
-        operator:
-          $ref: '#/components/schemas/EventMatcherOperator'
-        recurringEventId:
-          type: string
-        calendarId:
-          type: integer
-          format: int64
-          nullable: true
-        ignoreBranches:
-          type: boolean
-          nullable: true
-        type:
-          type: string
-      description: Matches all occurrences of a recurring event by recurringEventId. This is the preferred matcher for targeting a recurring event in policies.
-    LocationEventMatcher:
-      required:
-      - operator
-      - predicateValue
-      type: object
-      properties:
-        operator:
-          $ref: '#/components/schemas/EventMatcherOperator'
-        predicateValue:
-          type: string
-        type:
-          type: string
-      description: Matches by event location text
-    AttendeeCountEventMatcher.AttendeeType:
-      type: string
-      enum:
-      - ANY
-      - REQUIRED
-      - OPTIONAL
-    EventTagEventMatcher:
-      required:
-      - predicateValue
-      type: object
-      properties:
-        predicateValue:
-          type: string
-        type:
-          type: string
-      description: Matches events with a specific tag
-    FalseEventMatcher:
-      type: object
-      description: Never matches any event
-    NoneEventMatcher:
+    AllEventMatcher:
       required:
       - matchers
       type: object
@@ -690,7 +530,22 @@ components:
             $ref: '#/components/schemas/EventMatcher'
         type:
           type: string
-      description: Matches if NONE of the matchers in the list match
+      description: Matches if ALL matchers in the list match
+    TrueAttendeeMatcher:
+      type: object
+      description: Always matches any attendee
+    AnyEventMatcher:
+      required:
+      - matchers
+      type: object
+      properties:
+        matchers:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventMatcher'
+        type:
+          type: string
+      description: Matches if ANY matcher in the list matches
     EventKeyEventMatcher:
       required:
       - operator
@@ -704,34 +559,50 @@ components:
         type:
           type: string
       description: Matches a specific event by its key
-    TitleEventMatcher:
+    TimeOfDayEventMatcher:
       required:
       - operator
       - predicateValue
+      - timeField
       type: object
       properties:
+        timeField:
+          $ref: '#/components/schemas/TimeOfDayEventMatcher.TimeField'
         operator:
           $ref: '#/components/schemas/EventMatcherOperator'
         predicateValue:
           type: string
+          format: partial-time
         type:
           type: string
-      description: Matches by event title text
-    EventCategory:
-      $ref: '#/components/schemas/Colorized'
-    DescriptionEventMatcher:
+      description: Matches events based on their start or end time of day
+    EventMatcherOperator:
+      type: string
+      enum:
+      - NOT_SPECIFIED
+      - EQUALS
+      - CONTAINS
+      - LESS_THAN
+      - LESS_THAN_OR_EQUALS
+      - GREATER_THAN
+      - GREATER_THAN_OR_EQUALS
+      - MATCHES
+    AttendeeStringMatcher:
       required:
+      - field
       - operator
-      - predicateValue
+      - value
       type: object
       properties:
+        field:
+          $ref: '#/components/schemas/AttendeeStringMatcher.StringField'
         operator:
-          $ref: '#/components/schemas/EventMatcherOperator'
-        predicateValue:
+          $ref: '#/components/schemas/AttendeeStringMatcher.StringOperator'
+        value:
           type: string
         type:
           type: string
-      description: Matches by event description text
+      description: Matches an attendee's string field using an operator
     RecentPaperDocMatcher:
       required:
       - defaultValue
@@ -746,48 +617,271 @@ components:
         type:
           type: string
       description: Matches events with a recently modified paper document
-    SelfRSVPMatcher:
+    NoneEventMatcher:
+      required:
+      - matchers
+      type: object
+      properties:
+        matchers:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventMatcher'
+        type:
+          type: string
+      description: Matches if NONE of the matchers in the list match
+    EventCategory:
+      $ref: '#/components/schemas/Colorized'
+    DurationEventMatcher:
       required:
       - operator
+      - predicateValue
       type: object
       properties:
         operator:
           $ref: '#/components/schemas/EventMatcherOperator'
         predicateValue:
-          nullable: true
-          allOf:
-          - $ref: '#/components/schemas/ResponseStatus'
-        predicateValues:
-          type: array
-          nullable: true
-          items:
-            $ref: '#/components/schemas/ResponseStatus'
+          type: integer
+          format: int64
         type:
           type: string
-      description: Matches by the user's own RSVP status
-    AttendeeResponseStatusMatcher:
+      description: Matches by event duration in minutes
+    NotAttendeeMatcher:
       required:
+      - toNegate
+      type: object
+      properties:
+        toNegate:
+          $ref: '#/components/schemas/AttendeeMatcher'
+        type:
+          type: string
+      description: Negates an attendee matcher
+    AttendeeCountEventMatcher:
+      required:
+      - attendeeType
+      - includeResources
       - operator
-      - values
+      - predicateValue
       type: object
       properties:
         operator:
-          $ref: '#/components/schemas/AttendeeResponseStatusMatcher.SetOperator'
-        values:
+          $ref: '#/components/schemas/EventMatcherOperator'
+        predicateValue:
+          type: integer
+          format: int32
+        attendeeType:
+          $ref: '#/components/schemas/AttendeeCountEventMatcher.AttendeeType'
+        includeResources:
+          type: boolean
+          default: false
+        type:
+          type: string
+      description: Matches by attendee count using a comparison operator
+    AttendeeIntMatcher.IntField:
+      type: string
+      enum:
+      - ADDITIONAL_GUESTS
+    RecurringInstanceEventMatcher:
+      required:
+      - operator
+      - recurringEventId
+      type: object
+      properties:
+        operator:
+          $ref: '#/components/schemas/EventMatcherOperator'
+        recurringEventId:
+          type: string
+        calendarId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        ignoreBranches:
+          type:
+          - boolean
+          - 'null'
+        type:
+          type: string
+      description: Matches all occurrences of a recurring event by recurringEventId. This is the preferred matcher for targeting a recurring event in policies.
+    EventKey:
+      required:
+      - calendarId
+      - eventId
+      type: object
+      properties:
+        eventId:
+          type: string
+        calendarId:
+          type: integer
+          format: int64
+    RequiresTravelEventMatcher:
+      required:
+      - predicateValue
+      type: object
+      properties:
+        predicateValue:
+          type: boolean
+        type:
+          type: string
+      description: Matches events that require travel
+    TitleEventMatcher:
+      required:
+      - operator
+      - predicateValue
+      type: object
+      properties:
+        operator:
+          $ref: '#/components/schemas/EventMatcherOperator'
+        predicateValue:
+          type: string
+        type:
+          type: string
+      description: Matches by event title text
+    OrAttendeeMatcher:
+      required:
+      - left
+      - right
+      type: object
+      properties:
+        left:
+          $ref: '#/components/schemas/AttendeeMatcher'
+        right:
+          $ref: '#/components/schemas/AttendeeMatcher'
+        type:
+          type: string
+      description: Matches if either attendee matcher matches
+    HasAgendaEventMatcher:
+      required:
+      - defaultValue
+      - matchType
+      type: object
+      properties:
+        matchType:
+          $ref: '#/components/schemas/HasAgenda.AgendaType'
+        defaultValue:
+          type: boolean
+        type:
+          type: string
+      description: Matches events that have an agenda
+    ResourceRSVPEventMatcher:
+      required:
+      - responseStatuses
+      type: object
+      properties:
+        responseStatuses:
           type: array
           items:
             $ref: '#/components/schemas/ResponseStatus'
         type:
           type: string
-      description: Matches an attendee's RSVP response status
-    ResponseStatus:
-      type: string
-      enum:
-      - DECLINED
-      - NEEDS_ACTION
-      - TENTATIVE
-      - ACCEPTED
-      - UNKNOWN
+      description: Matches by resource attendee RSVP status
+    KnownTaggedEventMatchersResponse:
+      required:
+      - matchers
+      type: object
+      properties:
+        matchers:
+          properties:
+            EXTERNAL:
+              $ref: '#/components/schemas/TaggedEventMatcher'
+            CONFERENCE:
+              $ref: '#/components/schemas/TaggedEventMatcher'
+            LARGE_GROUP:
+              $ref: '#/components/schemas/TaggedEventMatcher'
+            LONG_MEETING:
+              $ref: '#/components/schemas/TaggedEventMatcher'
+            IS_TRAVEL:
+              $ref: '#/components/schemas/TaggedEventMatcher'
+            NEEDS_TRAVEL:
+              $ref: '#/components/schemas/TaggedEventMatcher'
+            IS_FLIGHT:
+              $ref: '#/components/schemas/TaggedEventMatcher'
+            MEETING_ORGANIZER:
+              $ref: '#/components/schemas/TaggedEventMatcher'
+            RECURRING_SERIES:
+              $ref: '#/components/schemas/TaggedEventMatcher'
+            NEEDS_RSVP:
+              $ref: '#/components/schemas/TaggedEventMatcher'
+            IS_MEETING:
+              $ref: '#/components/schemas/TaggedEventMatcher'
+            NO_LOCATION:
+              $ref: '#/components/schemas/TaggedEventMatcher'
+            LARGE_MEETINGS_YOU_ORGANIZED:
+              $ref: '#/components/schemas/TaggedEventMatcher'
+            MEETING_NEEDS_RSVP:
+              $ref: '#/components/schemas/TaggedEventMatcher'
+            MEETING_MISSING_VIDEO_CONFERENCE:
+              $ref: '#/components/schemas/TaggedEventMatcher'
+            RESOURCE_DECLINED:
+              $ref: '#/components/schemas/TaggedEventMatcher'
+    AnyTextEventMatcher:
+      required:
+      - predicateValue
+      type: object
+      properties:
+        predicateValue:
+          type: string
+        type:
+          type: string
+      description: Matches if text appears in title, description, or location
+    AndAttendeeMatcher:
+      required:
+      - left
+      - right
+      type: object
+      properties:
+        left:
+          $ref: '#/components/schemas/AttendeeMatcher'
+        right:
+          $ref: '#/components/schemas/AttendeeMatcher'
+        type:
+          type: string
+      description: Matches if both attendee matchers match
+    LocationEventMatcher:
+      required:
+      - operator
+      - predicateValue
+      type: object
+      properties:
+        operator:
+          $ref: '#/components/schemas/EventMatcherOperator'
+        predicateValue:
+          type: string
+        type:
+          type: string
+      description: Matches by event location text
+    EventTagEventMatcher:
+      required:
+      - predicateValue
+      type: object
+      properties:
+        predicateValue:
+          type: string
+        type:
+          type: string
+      description: Matches events with a specific tag
+    DescriptionEventMatcher:
+      required:
+      - operator
+      - predicateValue
+      type: object
+      properties:
+        operator:
+          $ref: '#/components/schemas/EventMatcherOperator'
+        predicateValue:
+          type: string
+        type:
+          type: string
+      description: Matches by event description text
+    GenerateEventMatcherRequest:
+      required:
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+        existingMatcher:
+          allOf:
+          - $ref: '#/components/schemas/EventMatcher'
     AllAttendeesEventMatcher:
       required:
       - attendeeMatcher
@@ -798,105 +892,17 @@ components:
         type:
           type: string
       description: Matches if all attendees satisfy the given attendee predicate
-    ReclaimEventType:
-      type: string
-      enum:
-      - USER
-      - SYNC
-      - HABIT_ASSIGNMENT
-      - SMART_HABIT
-      - ONE_ON_ONE_ASSIGNMENT
-      - SMART_MEETING
-      - TASK_ASSIGNMENT
-      - CONF_BUFFER
-      - TRAVEL_BUFFER
-      - SCHEDULING_LINK_MEETING
-      - UNKNOWN
-      - FOCUS
-    TrueAttendeeMatcher:
-      type: object
-      description: Always matches any attendee
-    HasVideoConferenceEventMatcher:
+    CalendarEventMatcher:
       required:
-      - predicateValue
+      - calendarId
       type: object
       properties:
-        predicateValue:
-          type: boolean
+        calendarId:
+          type: integer
+          format: int64
         type:
           type: string
-      description: Matches events with or without a video conference link
-    ReclaimEventTypeEventMatcher:
-      required:
-      - operator
-      - predicateValue
-      type: object
-      properties:
-        operator:
-          $ref: '#/components/schemas/EventMatcherOperator'
-        predicateValue:
-          $ref: '#/components/schemas/ReclaimEventType'
-        type:
-          type: string
-      description: Matches by Reclaim event type
-    TimeWindowEventMatcher.TimeWindowMatchMode:
-      type: string
-      enum:
-      - STARTS_WITHIN
-      - ENDS_WITHIN
-      - STARTS_OR_ENDS_WITHIN
-      - CONTAINED_WITHIN
-      - OVERLAPS
-    FalseAttendeeMatcher:
-      type: object
-      description: Never matches any attendee
-    AttendeeBooleanMatcher:
-      required:
-      - field
-      - value
-      type: object
-      properties:
-        field:
-          $ref: '#/components/schemas/AttendeeBooleanMatcher.BooleanField'
-        value:
-          type: boolean
-        type:
-          type: string
-      description: Matches an attendee's boolean field
-    AttendeeMatcher:
-      type: object
-      discriminator:
-        propertyName: type
-        mapping:
-          TrueAttendeeMatcher: '#/components/schemas/TrueAttendeeMatcher'
-          AttendeeResponseStatusMatcher: '#/components/schemas/AttendeeResponseStatusMatcher'
-          FalseAttendeeMatcher: '#/components/schemas/FalseAttendeeMatcher'
-          AttendeeStringMatcher: '#/components/schemas/AttendeeStringMatcher'
-          OrAttendeeMatcher: '#/components/schemas/OrAttendeeMatcher'
-          NotAttendeeMatcher: '#/components/schemas/NotAttendeeMatcher'
-          AttendeeBooleanMatcher: '#/components/schemas/AttendeeBooleanMatcher'
-          AttendeeIntMatcher: '#/components/schemas/AttendeeIntMatcher'
-          AndAttendeeMatcher: '#/components/schemas/AndAttendeeMatcher'
-      oneOf:
-      - $ref: '#/components/schemas/AttendeeStringMatcher'
-      - $ref: '#/components/schemas/AttendeeBooleanMatcher'
-      - $ref: '#/components/schemas/AttendeeIntMatcher'
-      - $ref: '#/components/schemas/AttendeeResponseStatusMatcher'
-      - $ref: '#/components/schemas/AndAttendeeMatcher'
-      - $ref: '#/components/schemas/OrAttendeeMatcher'
-      - $ref: '#/components/schemas/NotAttendeeMatcher'
-      - $ref: '#/components/schemas/TrueAttendeeMatcher'
-      - $ref: '#/components/schemas/FalseAttendeeMatcher'
-    NotEventMatcher:
-      required:
-      - toNegate
-      type: object
-      properties:
-        toNegate:
-          $ref: '#/components/schemas/EventMatcher'
-        type:
-          type: string
-      description: Negates another matcher
+      description: Matches events on a specific calendar
   securitySchemes:
     Authorization:
       type: oauth2

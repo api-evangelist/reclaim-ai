@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes OAuth 2.0 Client Management API
+  title: Reclaim OAuth 2.0 Client Management API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -29,6 +29,8 @@ paths:
                   $ref: '#/components/schemas/OAuthClient'
       security:
       - Authorization: []
+      summary: List clients
+      x-summary-source: derived
     post:
       tags:
       - OAuth 2.0 Client Management
@@ -48,6 +50,8 @@ paths:
                 type: object
       security:
       - Authorization: []
+      summary: Create client
+      x-summary-source: derived
   /api/oauth2/clients/{id}:
     get:
       tags:
@@ -68,6 +72,8 @@ paths:
                 $ref: '#/components/schemas/OAuthClient'
       security:
       - Authorization: []
+      summary: Get client
+      x-summary-source: derived
     put:
       tags:
       - OAuth 2.0 Client Management
@@ -93,6 +99,8 @@ paths:
                 type: object
       security:
       - Authorization: []
+      summary: Update client
+      x-summary-source: derived
     delete:
       tags:
       - OAuth 2.0 Client Management
@@ -112,6 +120,8 @@ paths:
                 type: object
       security:
       - Authorization: []
+      summary: Delete client
+      x-summary-source: derived
   /api/oauth2/clients/{id}/reset-secret:
     post:
       tags:
@@ -132,72 +142,10 @@ paths:
                 type: object
       security:
       - Authorization: []
+      summary: Reset secret
+      x-summary-source: derived
 components:
   schemas:
-    OAuth2ClientController.UpdateClientRequest:
-      required:
-      - client_name
-      - grant_types
-      - redirect_uris
-      - scopes
-      type: object
-      properties:
-        client_name:
-          type: string
-        redirect_uris:
-          type: array
-          items:
-            type: string
-        grant_types:
-          type: array
-          items:
-            $ref: '#/components/schemas/OAuthClient.GrantType'
-        scopes:
-          type: array
-          items:
-            $ref: '#/components/schemas/OAuthClient.Scope'
-    OAuthClient:
-      required:
-      - clientId
-      - clientName
-      - createdAt
-      - grantTypes
-      - id
-      - isConfidential
-      - redirectUris
-      - scopes
-      - updatedAt
-      type: object
-      properties:
-        id:
-          type: string
-        userId:
-          type: string
-          nullable: true
-        clientName:
-          type: string
-        clientId:
-          type: string
-        redirectUris:
-          type: array
-          items:
-            type: string
-        grantTypes:
-          type: array
-          items:
-            $ref: '#/components/schemas/OAuthClient.GrantType'
-        scopes:
-          type: array
-          items:
-            $ref: '#/components/schemas/OAuthClient.Scope'
-        isConfidential:
-          type: boolean
-        createdAt:
-          type: string
-          format: date-time
-        updatedAt:
-          type: string
-          format: date-time
     OAuth2ClientController.CreateClientRequest:
       required:
       - client_name
@@ -223,12 +171,49 @@ components:
             $ref: '#/components/schemas/OAuthClient.Scope'
         is_confidential:
           type: boolean
-    OAuthClient.GrantType:
-      type: string
-      enum:
-      - AUTHORIZATION_CODE
-      - REFRESH_TOKEN
-      - CLIENT_CREDENTIALS
+    OAuthClient:
+      required:
+      - clientId
+      - clientName
+      - createdAt
+      - grantTypes
+      - id
+      - isConfidential
+      - redirectUris
+      - scopes
+      - updatedAt
+      type: object
+      properties:
+        id:
+          type: string
+        userId:
+          type:
+          - string
+          - 'null'
+        clientName:
+          type: string
+        clientId:
+          type: string
+        redirectUris:
+          type: array
+          items:
+            type: string
+        grantTypes:
+          type: array
+          items:
+            $ref: '#/components/schemas/OAuthClient.GrantType'
+        scopes:
+          type: array
+          items:
+            $ref: '#/components/schemas/OAuthClient.Scope'
+        isConfidential:
+          type: boolean
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
     OAuthClient.Scope:
       type: string
       enum:
@@ -236,6 +221,34 @@ components:
       - WRITE
       - ADMIN
       - MCP
+    OAuth2ClientController.UpdateClientRequest:
+      required:
+      - client_name
+      - grant_types
+      - redirect_uris
+      - scopes
+      type: object
+      properties:
+        client_name:
+          type: string
+        redirect_uris:
+          type: array
+          items:
+            type: string
+        grant_types:
+          type: array
+          items:
+            $ref: '#/components/schemas/OAuthClient.GrantType'
+        scopes:
+          type: array
+          items:
+            $ref: '#/components/schemas/OAuthClient.Scope'
+    OAuthClient.GrantType:
+      type: string
+      enum:
+      - AUTHORIZATION_CODE
+      - REFRESH_TOKEN
+      - CLIENT_CREDENTIALS
   securitySchemes:
     Authorization:
       type: oauth2

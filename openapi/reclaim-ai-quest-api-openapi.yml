@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes quest API
+  title: Reclaim Quest API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -11,12 +11,12 @@ info:
     url: http://reclaim.ai
   version: '0.1'
 tags:
-- name: quest
+- name: Quest
 paths:
   /api/users/current/quest:
     get:
       tags:
-      - quest
+      - Quest
       operationId: getCompletedQuests
       responses:
         '200':
@@ -27,9 +27,11 @@ paths:
                 $ref: '#/components/schemas/UserQuests'
       security:
       - Authorization: []
+      summary: Get completed quests
+      x-summary-source: derived
     patch:
       tags:
-      - quest
+      - Quest
       operationId: completeQuest
       requestBody:
         content:
@@ -46,17 +48,10 @@ paths:
                 $ref: '#/components/schemas/UserQuests'
       security:
       - Authorization: []
+      summary: Complete quest
+      x-summary-source: derived
 components:
   schemas:
-    UserQuests:
-      required:
-      - completedQuests
-      type: object
-      properties:
-        completedQuests:
-          type: array
-          items:
-            $ref: '#/components/schemas/QuestType'
     QuestType:
       type: string
       enum:
@@ -109,6 +104,15 @@ components:
       - TRACK_AND_ANALYZE_PRODUCTIVITY
       - ADD_MEMBERS_TO_TEAM
       - SELECT_PLAN
+    UserQuests:
+      required:
+      - completedQuests
+      type: object
+      properties:
+        completedQuests:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuestType'
     CompleteQuestRequest:
       required:
       - isComplete
@@ -118,8 +122,9 @@ components:
         questType:
           $ref: '#/components/schemas/QuestType'
         isComplete:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
   securitySchemes:
     Authorization:
       type: oauth2

@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes delegated-access API
+  title: Reclaim Delegated Access API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -29,6 +29,8 @@ paths:
                   $ref: '#/components/schemas/DelegatedAccessView'
       security:
       - Authorization: []
+      summary: Get all configs for grantor
+      x-summary-source: derived
     post:
       tags:
       - delegated-access
@@ -48,6 +50,8 @@ paths:
                 $ref: '#/components/schemas/DelegatedAccessView'
       security:
       - Authorization: []
+      summary: Create 1
+      x-summary-source: derived
   /api/delegated-access/allowed:
     get:
       tags:
@@ -62,6 +66,8 @@ paths:
                 $ref: '#/components/schemas/AuthorizedDelegatedAccessView'
       security:
       - Authorization: []
+      summary: Get allowed
+      x-summary-source: derived
   /api/delegated-access/toggle/{delegatedAccessId}:
     put:
       tags:
@@ -89,6 +95,8 @@ paths:
                 $ref: '#/components/schemas/DelegatedAccessView'
       security:
       - Authorization: []
+      summary: Toggle
+      x-summary-source: derived
   /api/delegated-access/{id}:
     delete:
       tags:
@@ -106,24 +114,13 @@ paths:
           description: OK response
           content:
             application/json:
-              schema:
-                nullable: true
+              schema: {}
       security:
       - Authorization: []
+      summary: Delete 3
+      x-summary-source: derived
 components:
   schemas:
-    ApiResourceView:
-      required:
-      - httpMethods
-      - uri
-      type: object
-      properties:
-        uri:
-          type: string
-        httpMethods:
-          type: array
-          items:
-            type: string
     DelegatedAccessView:
       required:
       - authorizedUserId
@@ -170,6 +167,18 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ApiResourceView'
+    ApiResourceView:
+      required:
+      - httpMethods
+      - uri
+      type: object
+      properties:
+        uri:
+          type: string
+        httpMethods:
+          type: array
+          items:
+            type: string
   securitySchemes:
     Authorization:
       type: oauth2

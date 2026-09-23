@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes .well Known API
+  title: Reclaim .well Known API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -26,6 +26,8 @@ paths:
                 additionalProperties: true
       tags:
       - .well Known
+      summary: Oauth2 metadata
+      x-summary-source: derived
   /.well-known/oauth-authorization-server/api/mcp:
     get:
       operationId: oauth2MetadataMcpSuffix
@@ -39,6 +41,8 @@ paths:
                 additionalProperties: true
       tags:
       - .well Known
+      summary: Oauth2 metadata mcp suffix
+      x-summary-source: derived
   /.well-known/oauth-authorization-server/api/mcp/{subpath1}/{subpath2}:
     get:
       operationId: oauth2MetadataMcpSuffix2
@@ -63,6 +67,8 @@ paths:
                 additionalProperties: true
       tags:
       - .well Known
+      summary: Oauth2 metadata mcp suffix2
+      x-summary-source: derived
   /.well-known/oauth-authorization-server/api/mcp/{subpath}:
     get:
       operationId: oauth2MetadataMcpSuffix1
@@ -81,6 +87,8 @@ paths:
                 type: object
       tags:
       - .well Known
+      summary: Oauth2 metadata mcp suffix1
+      x-summary-source: derived
   /.well-known/oauth-protected-resource:
     get:
       operationId: protectedResourceMetadata
@@ -94,6 +102,8 @@ paths:
                 additionalProperties: true
       tags:
       - .well Known
+      summary: Protected resource metadata
+      x-summary-source: derived
   /.well-known/oauth-protected-resource/api/mcp:
     get:
       operationId: protectedResourceMcpSuffix
@@ -107,6 +117,8 @@ paths:
                 additionalProperties: true
       tags:
       - .well Known
+      summary: Protected resource mcp suffix
+      x-summary-source: derived
   /.well-known/oauth-protected-resource/api/mcp/{subpath1}/{subpath2}:
     get:
       operationId: protectedResourceMcpSuffix2
@@ -130,6 +142,8 @@ paths:
                 type: object
       tags:
       - .well Known
+      summary: Protected resource mcp suffix2
+      x-summary-source: derived
   /.well-known/oauth-protected-resource/api/mcp/{subpath}:
     get:
       operationId: protectedResourceMcpSuffix1
@@ -148,6 +162,8 @@ paths:
                 type: object
       tags:
       - .well Known
+      summary: Protected resource mcp suffix1
+      x-summary-source: derived
   /.well-known/openai-apps-challenge:
     get:
       operationId: openaiAppsChallenge
@@ -160,6 +176,8 @@ paths:
                 type: string
       tags:
       - .well Known
+      summary: Openai apps challenge
+      x-summary-source: derived
   /.well-known/openid-configuration:
     get:
       operationId: openidConfiguration
@@ -173,6 +191,8 @@ paths:
                 additionalProperties: true
       tags:
       - .well Known
+      summary: Openid configuration
+      x-summary-source: derived
   /.well-known/openid-configuration/api/mcp:
     get:
       operationId: openidConfigMcpSuffix
@@ -186,6 +206,8 @@ paths:
                 additionalProperties: true
       tags:
       - .well Known
+      summary: Openid config mcp suffix
+      x-summary-source: derived
   /.well-known/openid-configuration/api/mcp/{subpath1}/{subpath2}:
     get:
       operationId: openidConfigMcpSuffix2
@@ -210,6 +232,8 @@ paths:
                 additionalProperties: true
       tags:
       - .well Known
+      summary: Openid config mcp suffix2
+      x-summary-source: derived
   /.well-known/openid-configuration/api/mcp/{subpath}:
     get:
       operationId: openidConfigMcpSuffix1
@@ -228,6 +252,8 @@ paths:
                 type: object
       tags:
       - .well Known
+      summary: Openid config mcp suffix1
+      x-summary-source: derived
 components:
   securitySchemes:
     Authorization:

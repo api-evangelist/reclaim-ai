@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes scoring API
+  title: Reclaim Scoring API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -11,12 +11,12 @@ info:
     url: http://reclaim.ai
   version: '0.1'
 tags:
-- name: scoring
+- name: Scoring
 paths:
   /api/scoring/rescore:
     post:
       tags:
-      - scoring
+      - Scoring
       operationId: rescore
       responses:
         '200':
@@ -27,6 +27,8 @@ paths:
                 type: object
       security:
       - Authorization: []
+      summary: Rescore
+      x-summary-source: derived
 components:
   securitySchemes:
     Authorization:

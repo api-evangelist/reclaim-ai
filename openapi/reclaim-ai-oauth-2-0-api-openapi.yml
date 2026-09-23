@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes OAuth 2.0 API
+  title: Reclaim OAuth 2.0 API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -18,7 +18,6 @@ paths:
       tags:
       - OAuth 2.0
       summary: 'Step 1: Authorization request - shows consent screen or redirects to login'
-      description: 'Step 1: Authorization request - shows consent screen or redirects to login'
       operationId: authorize
       parameters:
       - name: client_id
@@ -39,8 +38,9 @@ paths:
       - name: scope
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       - name: state
         in: query
         required: true
@@ -71,7 +71,6 @@ paths:
       tags:
       - OAuth 2.0
       summary: 'Step 2: User approves authorization - creates code and redirects back'
-      description: 'Step 2: User approves authorization - creates code and redirects back'
       operationId: approveAuthorization
       requestBody:
         content:
@@ -95,7 +94,6 @@ paths:
       tags:
       - OAuth 2.0
       summary: 'Step 2 (alternative): User denies authorization'
-      description: 'Step 2 (alternative): User denies authorization'
       operationId: denyAuthorization
       requestBody:
         content:
@@ -134,6 +132,8 @@ paths:
             application/json:
               schema:
                 type: object
+      summary: Revoke
+      x-summary-source: derived
   /oauth2/token:
     post:
       tags:
@@ -154,6 +154,8 @@ paths:
             application/json:
               schema:
                 type: object
+      summary: Token
+      x-summary-source: derived
 components:
   securitySchemes:
     Authorization:

@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes linear API
+  title: Reclaim Linear API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -11,12 +11,12 @@ info:
     url: http://reclaim.ai
   version: '0.1'
 tags:
-- name: linear
+- name: Linear
 paths:
   /api/linear/integrations:
     get:
       tags:
-      - linear
+      - Linear
       operationId: integrations_5
       responses:
         '200':
@@ -29,10 +29,12 @@ paths:
                   $ref: '#/components/schemas/LinearIntegration'
       security:
       - Authorization: []
+      summary: Integrations 5
+      x-summary-source: derived
   /api/linear/integrations/{id}:
     delete:
       tags:
-      - linear
+      - Linear
       operationId: deleteIntegration_3
       parameters:
       - name: id
@@ -49,9 +51,11 @@ paths:
                 type: object
       security:
       - Authorization: []
+      summary: Delete integration 3
+      x-summary-source: derived
     patch:
       tags:
-      - linear
+      - Linear
       operationId: patchIntegration_3
       parameters:
       - name: id
@@ -74,10 +78,12 @@ paths:
                 type: object
       security:
       - Authorization: []
+      summary: Patch integration 3
+      x-summary-source: derived
   /api/linear/issue/{id}:
     get:
       tags:
-      - linear
+      - Linear
       operationId: issueDetails
       parameters:
       - name: id
@@ -92,10 +98,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/LinearTaskDetails'
+      summary: Issue details
+      x-summary-source: derived
   /web/linear/task/{id}:
     get:
       tags:
-      - linear
+      - Linear
       operationId: taskDetails_3
       parameters:
       - name: id
@@ -110,124 +118,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/LinearTaskDetails'
+      summary: Task details 3
+      x-summary-source: derived
 components:
   schemas:
-    LinearWorkflowStateType:
-      type: string
-      enum:
-      - triage
-      - backlog
-      - started
-      - unstarted
-      - completed
-      - canceled
-      - duplicate
-      - unknown
-      x-enum-varnames:
-      - triage
-      - backlog
-      - started
-      - unstarted
-      - completed
-      - canceled
-      - duplicate
-      - unknown
-    AbstractCollection_AbstractLinearTeam_:
-      type: object
-      properties:
-        empty:
-          type: boolean
-    AbstractLinearTeam:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        key:
-          type: string
-        issueEstimationType:
-          type: string
-          nullable: true
-        issueStatuses:
-          type: array
-          items:
-            $ref: '#/components/schemas/LinearState'
-    TaskStatus:
-      type: string
-      enum:
-      - NEW
-      - SCHEDULED
-      - IN_PROGRESS
-      - COMPLETE
-      - CANCELLED
-      - ARCHIVED
-    AbstractCollection_String_:
-      type: object
-      properties:
-        empty:
-          type: boolean
-    LinearTaskDetails:
-      type: object
-      properties:
-        taskId:
-          type: integer
-          format: int64
-        owner:
-          type: boolean
-        status:
-          $ref: '#/components/schemas/TaskStatus'
-        withTaskId:
-          type: integer
-          format: int64
-        withOwner:
-          type: boolean
-        withStatus:
-          $ref: '#/components/schemas/TaskStatus'
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    ImmutableCollection_String_:
+    ImmutableCollection_AbstractLinearTeam_:
       type: object
       allOf:
-      - $ref: '#/components/schemas/AbstractCollection_String_'
+      - $ref: '#/components/schemas/AbstractCollection_AbstractLinearTeam_'
       - properties:
           empty:
             type: boolean
           partialView:
             type: boolean
-    LinearIntegrationPatch:
-      type: object
-      properties:
-        requiresLabel:
-          type: boolean
-          nullable: true
-        dueDateRequired:
-          type: boolean
-          nullable: true
-        selectedTeamIds:
-          type: array
-          nullable: true
-          items:
-            type: string
-        withRequiresLabel:
-          type: boolean
-        withDueDateRequired:
-          type: boolean
-        withSelectedTeamIds:
-          type: array
-          nullable: true
-          items:
-            type: string
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
     LinearIntegration:
       type: object
       properties:
@@ -261,27 +164,92 @@ components:
           format: int32
         toString:
           type: string
-    ImmutableList_AbstractLinearTeam_:
+    ImmutableCollection_String_:
       type: object
       allOf:
-      - $ref: '#/components/schemas/ImmutableCollection_AbstractLinearTeam_'
-      - $ref: '#/components/schemas/AbstractCollection_AbstractLinearTeam_'
-      - properties:
-          empty:
-            type: boolean
-          first:
-            $ref: '#/components/schemas/AbstractLinearTeam'
-          last:
-            $ref: '#/components/schemas/AbstractLinearTeam'
-    ImmutableCollection_AbstractLinearTeam_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/AbstractCollection_AbstractLinearTeam_'
+      - $ref: '#/components/schemas/AbstractCollection_String_'
       - properties:
           empty:
             type: boolean
           partialView:
             type: boolean
+    AbstractCollection_AbstractLinearTeam_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    TaskStatus:
+      type: string
+      enum:
+      - NEW
+      - SCHEDULED
+      - IN_PROGRESS
+      - COMPLETE
+      - CANCELLED
+      - ARCHIVED
+    ImmutableSet_String_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_String_'
+      - $ref: '#/components/schemas/AbstractCollection_String_'
+      - properties:
+          empty:
+            type: boolean
+          hashCodeFast:
+            type: boolean
+    LinearIntegrationPatch:
+      type: object
+      properties:
+        requiresLabel:
+          type:
+          - boolean
+          - 'null'
+        dueDateRequired:
+          type:
+          - boolean
+          - 'null'
+        selectedTeamIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        withRequiresLabel:
+          type: boolean
+        withDueDateRequired:
+          type: boolean
+        withSelectedTeamIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    LinearWorkflowStateType:
+      type: string
+      enum:
+      - triage
+      - backlog
+      - started
+      - unstarted
+      - completed
+      - canceled
+      - duplicate
+      - unknown
+      x-enum-varnames:
+      - triage
+      - backlog
+      - started
+      - unstarted
+      - completed
+      - canceled
+      - duplicate
+      - unknown
     LinearState:
       type: object
       properties:
@@ -290,8 +258,9 @@ components:
         name:
           type: string
         description:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         color:
           type: string
         type:
@@ -304,8 +273,9 @@ components:
         withName:
           type: string
         withDescription:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         withColor:
           type: string
         withType:
@@ -319,16 +289,63 @@ components:
           format: int32
         toString:
           type: string
-    ImmutableSet_String_:
+    AbstractLinearTeam:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        key:
+          type: string
+        issueEstimationType:
+          type:
+          - string
+          - 'null'
+        issueStatuses:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinearState'
+    ImmutableList_AbstractLinearTeam_:
       type: object
       allOf:
-      - $ref: '#/components/schemas/ImmutableCollection_String_'
-      - $ref: '#/components/schemas/AbstractCollection_String_'
+      - $ref: '#/components/schemas/ImmutableCollection_AbstractLinearTeam_'
+      - $ref: '#/components/schemas/AbstractCollection_AbstractLinearTeam_'
       - properties:
           empty:
             type: boolean
-          hashCodeFast:
-            type: boolean
+          first:
+            $ref: '#/components/schemas/AbstractLinearTeam'
+          last:
+            $ref: '#/components/schemas/AbstractLinearTeam'
+    LinearTaskDetails:
+      type: object
+      properties:
+        taskId:
+          type: integer
+          format: int64
+        owner:
+          type: boolean
+        status:
+          $ref: '#/components/schemas/TaskStatus'
+        withTaskId:
+          type: integer
+          format: int64
+        withOwner:
+          type: boolean
+        withStatus:
+          $ref: '#/components/schemas/TaskStatus'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    AbstractCollection_String_:
+      type: object
+      properties:
+        empty:
+          type: boolean
   securitySchemes:
     Authorization:
       type: oauth2

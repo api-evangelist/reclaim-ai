@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes user-notification-settings API
+  title: Reclaim User Notification Settings API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -27,6 +27,8 @@ paths:
                 $ref: '#/components/schemas/NotificationSettingsView'
       security:
       - Authorization: []
+      summary: Get user settings
+      x-summary-source: derived
     patch:
       tags:
       - user-notification-settings
@@ -46,6 +48,8 @@ paths:
                 $ref: '#/components/schemas/NotificationSettingsView'
       security:
       - Authorization: []
+      summary: Update 2
+      x-summary-source: derived
 components:
   schemas:
     NotificationSettingsRequest:
@@ -74,9 +78,17 @@ components:
             EVENT_REMINDERS:
               $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
         allowSlackNotificationsWithinDays:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int32
-          nullable: true
+    AbstractMap_NotificationChannel.Boolean_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    EnumMap_NotificationChannel.Boolean_:
+      $ref: '#/components/schemas/AbstractMap_NotificationChannel.Boolean_'
     NotificationSettingsView:
       required:
       - allowSlackNotificationsWithinDays
@@ -106,13 +118,6 @@ components:
         allowSlackNotificationsWithinDays:
           type: integer
           format: int32
-    AbstractMap_NotificationChannel.Boolean_:
-      type: object
-      properties:
-        empty:
-          type: boolean
-    EnumMap_NotificationChannel.Boolean_:
-      $ref: '#/components/schemas/AbstractMap_NotificationChannel.Boolean_'
   securitySchemes:
     Authorization:
       type: oauth2

@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes changelog API
+  title: Reclaim Changelog API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -11,12 +11,12 @@ info:
     url: http://reclaim.ai
   version: '0.1'
 tags:
-- name: changelog
+- name: Changelog
 paths:
   /api/changelog:
     get:
       tags:
-      - changelog
+      - Changelog
       operationId: getChangeLog
       responses:
         '200':
@@ -29,10 +29,12 @@ paths:
                   $ref: '#/components/schemas/ChangeLogEntryView'
       security:
       - Authorization: []
+      summary: Get change log
+      x-summary-source: derived
   /api/changelog/events:
     get:
       tags:
-      - changelog
+      - Changelog
       operationId: events
       parameters:
       - name: eventIds
@@ -53,10 +55,12 @@ paths:
                   $ref: '#/components/schemas/ChangeLogEntryView'
       security:
       - Authorization: []
+      summary: Events
+      x-summary-source: derived
   /api/changelog/scheduling-links:
     get:
       tags:
-      - changelog
+      - Changelog
       operationId: schedulingLinks
       parameters:
       - name: schedulingLinkIds
@@ -77,10 +81,12 @@ paths:
                   $ref: '#/components/schemas/ChangeLogEntryView'
       security:
       - Authorization: []
+      summary: Scheduling links
+      x-summary-source: derived
   /api/changelog/smart-habits:
     get:
       tags:
-      - changelog
+      - Changelog
       operationId: habits
       parameters:
       - name: lineageIds
@@ -102,10 +108,12 @@ paths:
                   $ref: '#/components/schemas/ChangeLogEntryView'
       security:
       - Authorization: []
+      summary: Habits
+      x-summary-source: derived
   /api/changelog/smart-meetings:
     get:
       tags:
-      - changelog
+      - Changelog
       operationId: meetings
       parameters:
       - name: lineageIds
@@ -127,10 +135,12 @@ paths:
                   $ref: '#/components/schemas/ChangeLogEntryView'
       security:
       - Authorization: []
+      summary: Meetings
+      x-summary-source: derived
   /api/changelog/tasks:
     get:
       tags:
-      - changelog
+      - Changelog
       operationId: tasks
       parameters:
       - name: taskIds
@@ -152,10 +162,77 @@ paths:
                   $ref: '#/components/schemas/ChangeLogEntryView'
       security:
       - Authorization: []
+      summary: Tasks
+      x-summary-source: derived
 components:
   schemas:
-    ChangeLogEntryMetadataView:
+    ReclaimEventType:
+      type: string
+      enum:
+      - USER
+      - SYNC
+      - HABIT_ASSIGNMENT
+      - SMART_HABIT
+      - ONE_ON_ONE_ASSIGNMENT
+      - SMART_MEETING
+      - TASK_ASSIGNMENT
+      - CONF_BUFFER
+      - TRAVEL_BUFFER
+      - SCHEDULING_LINK_MEETING
+      - UNKNOWN
+      - FOCUS
+    ChangeLogEntryView:
+      required:
+      - changedAt
+      - id
+      - reason
       type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        changedAt:
+          type: string
+          format: date-time
+        reclaimEventType:
+          allOf:
+          - $ref: '#/components/schemas/ReclaimEventType'
+        assignmentId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        assignmentSubId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        eventId:
+          type:
+          - string
+          - 'null'
+        organizerId:
+          type:
+          - string
+          - 'null'
+        actorId:
+          type:
+          - string
+          - 'null'
+        reason:
+          $ref: '#/components/schemas/ChangeLogReason'
+        lockChangedMetadata:
+          allOf:
+          - $ref: '#/components/schemas/ChangeLogEntryMetadataView'
+        periodSkippedMetadata:
+          allOf:
+          - $ref: '#/components/schemas/ChangeLogEntryMetadataView'
+        eventMovedMetadata:
+          allOf:
+          - $ref: '#/components/schemas/ChangeLogEntryMetadataView'
+        periodSkippedDueToReservedWordMetadata:
+          allOf:
+          - $ref: '#/components/schemas/ChangeLogEntryMetadataView'
     ChangeLogReason:
       type: string
       enum:
@@ -223,73 +300,8 @@ components:
       - FOCUS_EVENT_RESCHEDULE
       - EVENT_DELETED_VIA_CALENDAR_ASSIGNMENT_SKIPPED_FOR_PERIOD
       - EVENT_DELETED_VIA_CALENDAR_ASSIGNMENT_SKIPPED_FOR_DAY
-    ReclaimEventType:
-      type: string
-      enum:
-      - USER
-      - SYNC
-      - HABIT_ASSIGNMENT
-      - SMART_HABIT
-      - ONE_ON_ONE_ASSIGNMENT
-      - SMART_MEETING
-      - TASK_ASSIGNMENT
-      - CONF_BUFFER
-      - TRAVEL_BUFFER
-      - SCHEDULING_LINK_MEETING
-      - UNKNOWN
-      - FOCUS
-    ChangeLogEntryView:
-      required:
-      - changedAt
-      - id
-      - reason
+    ChangeLogEntryMetadataView:
       type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        changedAt:
-          type: string
-          format: date-time
-        reclaimEventType:
-          nullable: true
-          allOf:
-          - $ref: '#/components/schemas/ReclaimEventType'
-        assignmentId:
-          type: integer
-          format: int64
-          nullable: true
-        assignmentSubId:
-          type: integer
-          format: int64
-          nullable: true
-        eventId:
-          type: string
-          nullable: true
-        organizerId:
-          type: string
-          nullable: true
-        actorId:
-          type: string
-          nullable: true
-        reason:
-          $ref: '#/components/schemas/ChangeLogReason'
-        lockChangedMetadata:
-          nullable: true
-          allOf:
-          - $ref: '#/components/schemas/ChangeLogEntryMetadataView'
-        periodSkippedMetadata:
-          nullable: true
-          allOf:
-          - $ref: '#/components/schemas/ChangeLogEntryMetadataView'
-        eventMovedMetadata:
-          nullable: true
-          allOf:
-          - $ref: '#/components/schemas/ChangeLogEntryMetadataView'
-        periodSkippedDueToReservedWordMetadata:
-          nullable: true
-          allOf:
-          - $ref: '#/components/schemas/ChangeLogEntryMetadataView'
   securitySchemes:
     Authorization:
       type: oauth2

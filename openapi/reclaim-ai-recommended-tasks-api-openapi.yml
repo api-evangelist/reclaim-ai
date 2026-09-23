@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes recommended-tasks API
+  title: Reclaim Recommended Tasks API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -29,6 +29,8 @@ paths:
                   $ref: '#/components/schemas/RecommendedTask'
       security:
       - Authorization: []
+      summary: List recommended tasks
+      x-summary-source: derived
   /api/recommended-tasks/count:
     get:
       tags:
@@ -44,6 +46,8 @@ paths:
                 format: int64
       security:
       - Authorization: []
+      summary: Count recommended tasks
+      x-summary-source: derived
   /api/recommended-tasks/groups:
     get:
       tags:
@@ -60,6 +64,8 @@ paths:
                   $ref: '#/components/schemas/RecommendedTaskGroup'
       security:
       - Authorization: []
+      summary: List groups
+      x-summary-source: derived
   /api/recommended-tasks/{id}/status:
     patch:
       tags:
@@ -87,55 +93,10 @@ paths:
                 $ref: '#/components/schemas/RecommendedTask'
       security:
       - Authorization: []
+      summary: Update status
+      x-summary-source: derived
 components:
   schemas:
-    RecommendedTaskSourceType:
-      type: string
-      enum:
-      - ZOOM
-    RecommendedTaskGroup:
-      required:
-      - sourceRef
-      - sourceType
-      - tasks
-      type: object
-      properties:
-        sourceRef:
-          type: string
-        sourceType:
-          $ref: '#/components/schemas/RecommendedTaskSourceType'
-        meeting:
-          nullable: true
-          allOf:
-          - $ref: '#/components/schemas/MeetingSummary'
-        tasks:
-          type: array
-          items:
-            $ref: '#/components/schemas/RecommendedTask'
-    MeetingSummary:
-      type: object
-      properties:
-        calendarId:
-          type: integer
-          format: int64
-          nullable: true
-        eventId:
-          type: string
-          nullable: true
-        title:
-          type: string
-          nullable: true
-        startTime:
-          type: string
-          format: date-time
-          nullable: true
-        endTime:
-          type: string
-          format: date-time
-          nullable: true
-        shortDescription:
-          type: string
-          nullable: true
     RecommendedTaskStatus:
       type: string
       enum:
@@ -151,19 +112,73 @@ components:
       properties:
         status:
           $ref: '#/components/schemas/RecommendedTaskStatus'
+    MeetingSummary:
+      type: object
+      properties:
+        calendarId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        eventId:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        startTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        endTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        shortDescription:
+          type:
+          - string
+          - 'null'
     TranscriptSnippetItem:
       required:
       - text
       type: object
       properties:
         speaker:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         timestamp:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         text:
           type: string
+    RecommendedTaskGroup:
+      required:
+      - sourceRef
+      - sourceType
+      - tasks
+      type: object
+      properties:
+        sourceRef:
+          type: string
+        sourceType:
+          $ref: '#/components/schemas/RecommendedTaskSourceType'
+        meeting:
+          allOf:
+          - $ref: '#/components/schemas/MeetingSummary'
+        tasks:
+          type: array
+          items:
+            $ref: '#/components/schemas/RecommendedTask'
+    RecommendedTaskSourceType:
+      type: string
+      enum:
+      - ZOOM
     RecommendedTask:
       required:
       - createdAt
@@ -182,21 +197,25 @@ components:
         sourceRef:
           type: string
         calendarId:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
-          nullable: true
         eventId:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         title:
           type: string
         dueDate:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date
-          nullable: true
         transcriptSnippet:
-          type: array
-          nullable: true
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/TranscriptSnippetItem'
         status:

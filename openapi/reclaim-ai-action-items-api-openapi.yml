@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes action-items API
+  title: Reclaim Action Items API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -11,12 +11,12 @@ info:
     url: http://reclaim.ai
   version: '0.1'
 tags:
-- name: action-items
+- name: Action Items
 paths:
   /api/interactions/action-items/create:
     post:
       tags:
-      - action-items
+      - Action Items
       operationId: actionItems_create
       requestBody:
         content:
@@ -29,32 +29,10 @@ paths:
           description: actionItems_create 200 response
       security:
       - Authorization: []
+      summary: Action items create
+      x-summary-source: derived
 components:
   schemas:
-    GtdTaskId.TaskSourceType:
-      type: string
-      enum:
-      - TODOIST
-      - CLICK_UP
-      - LINEAR
-      - GOOGLE_TASKS
-      - JIRA
-      - ASANA
-      - NOTION
-      - RECLAIM
-    ActionItemCreationRequest:
-      required:
-      - integration
-      - tasks
-      type: object
-      properties:
-        tasks:
-          minItems: 1
-          type: array
-          items:
-            $ref: '#/components/schemas/ActionItemCreationRequest.TaskItem'
-        integration:
-          $ref: '#/components/schemas/GtdTaskId.TaskSourceType'
     ActionItemCreationRequest.TaskItem:
       required:
       - recommendedTaskId
@@ -68,8 +46,33 @@ components:
           minLength: 1
           type: string
         dueDate:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
+    ActionItemCreationRequest:
+      required:
+      - integration
+      - tasks
+      type: object
+      properties:
+        tasks:
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/ActionItemCreationRequest.TaskItem'
+        integration:
+          $ref: '#/components/schemas/GtdTaskId.TaskSourceType'
+    GtdTaskId.TaskSourceType:
+      type: string
+      enum:
+      - TODOIST
+      - CLICK_UP
+      - LINEAR
+      - GOOGLE_TASKS
+      - JIRA
+      - ASANA
+      - NOTION
+      - RECLAIM
   securitySchemes:
     Authorization:
       type: oauth2

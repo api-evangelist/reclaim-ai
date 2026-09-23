@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes actions API
+  title: Reclaim Actions API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -11,12 +11,12 @@ info:
     url: http://reclaim.ai
   version: '0.1'
 tags:
-- name: actions
+- name: Actions
 paths:
   /api/planner/add-time/task/{taskId}:
     post:
       tags:
-      - actions
+      - Actions
       operationId: addTime
       parameters:
       - name: taskId
@@ -28,14 +28,16 @@ paths:
       - name: minutes
         in: query
         schema:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int32
-          nullable: true
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: addTime 200 response
@@ -45,10 +47,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Add time
+      x-summary-source: derived
   /api/planner/clear-exceptions/habit/{habitId}:
     post:
       tags:
-      - actions
+      - Actions
       operationId: clearHabitTimePolicyExceptions
       parameters:
       - name: habitId
@@ -60,8 +64,9 @@ paths:
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: clearHabitTimePolicyExceptions 200 response
@@ -71,10 +76,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Clear habit time policy exceptions
+      x-summary-source: derived
   /api/planner/clear-exceptions/one-on-one/{oneOnOneId}:
     post:
       tags:
-      - actions
+      - Actions
       operationId: clearOneOnOneTimePolicyExceptions
       parameters:
       - name: oneOnOneId
@@ -86,8 +93,9 @@ paths:
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: clearOneOnOneTimePolicyExceptions 200 response
@@ -97,10 +105,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Clear one on one time policy exceptions
+      x-summary-source: derived
   /api/planner/clear-exceptions/task/{taskId}:
     post:
       tags:
-      - actions
+      - Actions
       operationId: clearTaskTimePolicyExceptions
       parameters:
       - name: taskId
@@ -112,8 +122,9 @@ paths:
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: clearTaskTimePolicyExceptions 200 response
@@ -123,10 +134,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Clear task time policy exceptions
+      x-summary-source: derived
   /api/planner/done/habit/{habitId}:
     post:
       tags:
-      - actions
+      - Actions
       operationId: doneHabit
       parameters:
       - name: habitId
@@ -138,8 +151,9 @@ paths:
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: doneHabit 200 response
@@ -149,10 +163,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Done habit
+      x-summary-source: derived
   /api/planner/done/task/{taskId}:
     post:
       tags:
-      - actions
+      - Actions
       operationId: doneTask
       parameters:
       - name: taskId
@@ -164,8 +180,9 @@ paths:
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: doneTask 200 response
@@ -175,10 +192,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Done task
+      x-summary-source: derived
   /api/planner/event/category/{calendarId}/{eventId}:
     put:
       tags:
-      - actions
+      - Actions
       operationId: changeCategory
       parameters:
       - name: calendarId
@@ -200,8 +219,9 @@ paths:
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: changeCategory 200 response
@@ -211,12 +231,13 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Change category
+      x-summary-source: derived
   /api/planner/event/move/{eventId}:
     post:
       tags:
-      - actions
+      - Actions
       summary: Event Actions
-      description: Event Actions
       operationId: moveEvent
       parameters:
       - name: eventId
@@ -239,8 +260,9 @@ paths:
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: moveEvent 200 response
@@ -253,7 +275,7 @@ paths:
   /api/planner/event/pin/{eventId}:
     post:
       tags:
-      - actions
+      - Actions
       operationId: pinEvent
       parameters:
       - name: eventId
@@ -264,8 +286,9 @@ paths:
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: pinEvent 200 response
@@ -275,10 +298,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Pin event
+      x-summary-source: derived
   /api/planner/event/rsvp/{calendarId}/{eventId}:
     put:
       tags:
-      - actions
+      - Actions
       operationId: rsvp
       parameters:
       - name: calendarId
@@ -295,8 +320,9 @@ paths:
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       requestBody:
         content:
           application/json:
@@ -312,10 +338,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Rsvp
+      x-summary-source: derived
   /api/planner/event/unpin/{eventId}:
     post:
       tags:
-      - actions
+      - Actions
       operationId: unpinEvent
       parameters:
       - name: eventId
@@ -338,10 +366,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Unpin event
+      x-summary-source: derived
   /api/planner/event/{calendarId}/{eventId}/move:
     post:
       tags:
-      - actions
+      - Actions
       operationId: moveTask
       parameters:
       - name: calendarId
@@ -370,8 +400,9 @@ paths:
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: moveTask 200 response
@@ -381,10 +412,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Move task
+      x-summary-source: derived
   /api/planner/event/{calendarId}/{eventId}/pin:
     post:
       tags:
-      - actions
+      - Actions
       operationId: pinEventV2
       parameters:
       - name: calendarId
@@ -413,10 +446,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Pin event V2
+      x-summary-source: derived
   /api/planner/event/{calendarId}/{eventId}/unpin:
     post:
       tags:
-      - actions
+      - Actions
       operationId: unpinEventV2
       parameters:
       - name: calendarId
@@ -445,10 +480,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Unpin event V2
+      x-summary-source: derived
   /api/planner/habit/{calendarId}/{eventId}/reschedule:
     post:
       tags:
-      - actions
+      - Actions
       operationId: habitDeleteInstanceAndReschedule
       parameters:
       - name: calendarId
@@ -465,14 +502,14 @@ paths:
       - name: snoozeOption
         in: query
         schema:
-          nullable: true
           allOf:
           - $ref: '#/components/schemas/SnoozeOption'
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: habitDeleteInstanceAndReschedule 200 response
@@ -482,10 +519,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Habit delete instance and reschedule
+      x-summary-source: derived
   /api/planner/log-work/task/{taskId}:
     post:
       tags:
-      - actions
+      - Actions
       operationId: logWork
       parameters:
       - name: taskId
@@ -497,20 +536,23 @@ paths:
       - name: minutes
         in: query
         schema:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int32
-          nullable: true
       - name: end
         in: query
         schema:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: logWork 200 response
@@ -520,10 +562,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Log work
+      x-summary-source: derived
   /api/planner/migration/priorities:
     post:
       tags:
-      - actions
+      - Actions
       operationId: migrateToPrioritySystem
       responses:
         '200':
@@ -534,10 +578,12 @@ paths:
                 type: object
       security:
       - Authorization: []
+      summary: Migrate to priority system
+      x-summary-source: derived
   /api/planner/one-on-one/reschedule/{oneOnOneId}/{eventId}:
     post:
       tags:
-      - actions
+      - Actions
       operationId: oneOnOneReschedule
       parameters:
       - name: oneOnOneId
@@ -566,10 +612,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: One on one reschedule
+      x-summary-source: derived
   /api/planner/one-on-one/skip-day/{oneOnOneId}/{eventId}:
     post:
       tags:
-      - actions
+      - Actions
       operationId: oneOnOneSkipDay
       parameters:
       - name: oneOnOneId
@@ -598,10 +646,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: One on one skip day
+      x-summary-source: derived
   /api/planner/one-on-one/skip-until/{oneOnOneId}/{eventId}:
     post:
       tags:
-      - actions
+      - Actions
       operationId: oneOnOneSkipUntil
       parameters:
       - name: oneOnOneId
@@ -630,10 +680,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: One on one skip until
+      x-summary-source: derived
   /api/planner/one-on-one/skip-week/{oneOnOneId}/{eventId}:
     post:
       tags:
-      - actions
+      - Actions
       operationId: oneOnOneSkipWeek
       parameters:
       - name: oneOnOneId
@@ -662,10 +714,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: One on one skip week
+      x-summary-source: derived
   /api/planner/plan-work/task/{taskId}:
     post:
       tags:
-      - actions
+      - Actions
       operationId: planWork
       parameters:
       - name: taskId
@@ -683,14 +737,16 @@ paths:
       - name: durationMinutes
         in: query
         schema:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
-          nullable: true
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: planWork 200 response
@@ -700,10 +756,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Plan work
+      x-summary-source: derived
   /api/planner/policy/habit/{habitId}:
     delete:
       tags:
-      - actions
+      - Actions
       operationId: deleteHabitPolicy
       parameters:
       - name: habitId
@@ -715,8 +773,9 @@ paths:
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: deleteHabitPolicy 200 response
@@ -726,12 +785,13 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Delete habit policy
+      x-summary-source: derived
   /api/planner/policy/task/{taskId}:
     delete:
       tags:
-      - actions
+      - Actions
       summary: Task Actions
-      description: Task Actions
       operationId: deleteTaskPolicy
       parameters:
       - name: taskId
@@ -743,8 +803,9 @@ paths:
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: deleteTaskPolicy 200 response
@@ -757,7 +818,7 @@ paths:
   /api/planner/prioritize/task/{taskId}:
     post:
       tags:
-      - actions
+      - Actions
       operationId: prioritizeTask
       parameters:
       - name: taskId
@@ -775,10 +836,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Prioritize task
+      x-summary-source: derived
   /api/planner/reschedule/habit/event/{eventId}:
     post:
       tags:
-      - actions
+      - Actions
       operationId: rescheduleHabitEvent
       parameters:
       - name: eventId
@@ -789,8 +852,9 @@ paths:
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: rescheduleHabitEvent 200 response
@@ -800,10 +864,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Reschedule habit event
+      x-summary-source: derived
   /api/planner/reschedule/task/event/{eventId}:
     post:
       tags:
-      - actions
+      - Actions
       operationId: rescheduleTaskEvent
       parameters:
       - name: eventId
@@ -814,8 +880,9 @@ paths:
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: rescheduleTaskEvent 200 response
@@ -826,10 +893,12 @@ paths:
       deprecated: true
       security:
       - Authorization: []
+      summary: Reschedule task event
+      x-summary-source: derived
   /api/planner/restart/habit/{habitId}:
     post:
       tags:
-      - actions
+      - Actions
       operationId: restartHabit
       parameters:
       - name: habitId
@@ -841,8 +910,9 @@ paths:
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: restartHabit 200 response
@@ -852,10 +922,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Restart habit
+      x-summary-source: derived
   /api/planner/restart/task/{taskId}:
     post:
       tags:
-      - actions
+      - Actions
       operationId: restartTask
       parameters:
       - name: taskId
@@ -867,8 +939,9 @@ paths:
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: restartTask 200 response
@@ -878,10 +951,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Restart task
+      x-summary-source: derived
   /api/planner/skip/habit/event/{eventId}:
     post:
       tags:
-      - actions
+      - Actions
       operationId: skipHabitEvent
       parameters:
       - name: eventId
@@ -892,8 +967,9 @@ paths:
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: skipHabitEvent 200 response
@@ -903,12 +979,13 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Skip habit event
+      x-summary-source: derived
   /api/planner/start/habit/{habitId}:
     post:
       tags:
-      - actions
+      - Actions
       summary: Habit Actions
-      description: Habit Actions
       operationId: startHabit
       parameters:
       - name: habitId
@@ -920,8 +997,9 @@ paths:
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: startHabit 200 response
@@ -934,7 +1012,7 @@ paths:
   /api/planner/start/task/{taskId}:
     post:
       tags:
-      - actions
+      - Actions
       operationId: startTask
       parameters:
       - name: taskId
@@ -946,8 +1024,9 @@ paths:
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: startTask 200 response
@@ -957,10 +1036,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Start task
+      x-summary-source: derived
   /api/planner/stop/habit/{habitId}:
     post:
       tags:
-      - actions
+      - Actions
       operationId: stopHabit
       parameters:
       - name: habitId
@@ -972,8 +1053,9 @@ paths:
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: stopHabit 200 response
@@ -983,10 +1065,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Stop habit
+      x-summary-source: derived
   /api/planner/stop/task/{taskId}:
     post:
       tags:
-      - actions
+      - Actions
       operationId: stopTask
       parameters:
       - name: taskId
@@ -998,8 +1082,9 @@ paths:
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: stopTask 200 response
@@ -1009,17 +1094,20 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Stop task
+      x-summary-source: derived
   /api/planner/task/reschedule/bulk:
     post:
       tags:
-      - actions
+      - Actions
       operationId: taskDeleteMultipleInstanceAndReschedule
       parameters:
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       requestBody:
         content:
           application/json:
@@ -1035,10 +1123,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Task delete multiple instance and reschedule
+      x-summary-source: derived
   /api/planner/task/{calendarId}/{eventId}/reschedule:
     post:
       tags:
-      - actions
+      - Actions
       operationId: taskDeleteInstanceAndReschedule
       parameters:
       - name: calendarId
@@ -1055,14 +1145,14 @@ paths:
       - name: snoozeOption
         in: query
         schema:
-          nullable: true
           allOf:
           - $ref: '#/components/schemas/SnoozeOption'
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: taskDeleteInstanceAndReschedule 200 response
@@ -1072,10 +1162,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Task delete instance and reschedule
+      x-summary-source: derived
   /api/planner/task/{taskId}/clear-snooze:
     post:
       tags:
-      - actions
+      - Actions
       operationId: taskClearSnooze
       parameters:
       - name: taskId
@@ -1087,8 +1179,9 @@ paths:
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: taskClearSnooze 200 response
@@ -1098,10 +1191,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Task clear snooze
+      x-summary-source: derived
   /api/planner/task/{taskId}/snooze:
     post:
       tags:
-      - actions
+      - Actions
       operationId: snoozeTask
       parameters:
       - name: taskId
@@ -1113,20 +1208,21 @@ paths:
       - name: snoozeOption
         in: query
         schema:
-          nullable: true
           allOf:
           - $ref: '#/components/schemas/SnoozeOption'
       - name: relativeFrom
         in: query
         schema:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: snoozeTask 200 response
@@ -1136,10 +1232,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Snooze task
+      x-summary-source: derived
   /api/planner/toggle/habit/{habitId}:
     post:
       tags:
-      - actions
+      - Actions
       operationId: toggleHabit
       parameters:
       - name: habitId
@@ -1151,13 +1249,15 @@ paths:
       - name: enable
         in: query
         schema:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: toggleHabit 200 response
@@ -1167,10 +1267,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Toggle habit
+      x-summary-source: derived
   /api/planner/unarchive/task/{taskId}:
     post:
       tags:
-      - actions
+      - Actions
       operationId: unarchiveTask
       parameters:
       - name: taskId
@@ -1182,8 +1284,9 @@ paths:
       - name: notificationKey
         in: query
         schema:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
       responses:
         '200':
           description: unarchiveTask 200 response
@@ -1193,10 +1296,12 @@ paths:
                 $ref: '#/components/schemas/PlannerActionIntermediateResult'
       security:
       - Authorization: []
+      summary: Unarchive task
+      x-summary-source: derived
   /api/sso/provider/{email}:
     get:
       tags:
-      - actions
+      - Actions
       operationId: findProvider
       parameters:
       - name: email
@@ -1211,8 +1316,52 @@ paths:
             application/json:
               schema:
                 type: string
+      summary: Find provider
+      x-summary-source: derived
 components:
   schemas:
+    Colorized:
+      type: object
+      properties:
+        color:
+          $ref: '#/components/schemas/EventColor'
+    PlatformEventType:
+      type: string
+      enum:
+      - DEFAULT
+      - OUT_OF_OFFICE
+      - FROM_MAIL
+      - WORKING_LOCATION
+      - FOCUS_TIME
+      - BIRTHDAY
+    EventSubType:
+      type: string
+      enum:
+      - ONE_ON_ONE
+      - STAFF_MEETING
+      - OP_REVIEW
+      - EXTERNAL
+      - IDEATION
+      - FOCUS
+      - PRODUCTIVITY
+      - TRAVEL
+      - FLIGHT
+      - TRAIN
+      - RECLAIM
+      - VACATION
+      - HEALTH
+      - ERRAND
+      - OTHER_PERSONAL
+      - UNKNOWN
+    EventList:
+      required:
+      - eventKeys
+      type: object
+      properties:
+        eventKeys:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventKey'
     PlannerActionIntermediateResult:
       required:
       - events
@@ -1223,21 +1372,16 @@ components:
           items:
             $ref: '#/components/schemas/Event'
         taskOrHabit:
-          nullable: true
           allOf:
           - $ref: '#/components/schemas/TaskOrHabit'
         timeoutReached:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
         userInfoMessage:
-          type: string
-          nullable: true
-    AssistStatus:
-      type: string
-      enum:
-      - CONTROLLED
-      - RELEASED
-      - ARCHIVED
+          type:
+          - string
+          - 'null'
     EventAttendee:
       required:
       - email
@@ -1246,31 +1390,60 @@ components:
         email:
           type: string
         self:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
         displayName:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         responseStatus:
-          nullable: true
           allOf:
           - $ref: '#/components/schemas/ResponseStatus'
         comment:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         optional:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
         additionalGuests:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int32
-          nullable: true
         organizer:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
         resource:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
+    PrioritySource:
+      type: string
+      enum:
+      - MANUAL
+      - AI
+      - RULES
+    NotificationKeyRequest:
+      type: object
+      properties:
+        notificationKey:
+          maxLength: 200
+          pattern: '[A-Za-z0-9_-]+'
+          type:
+          - string
+          - 'null'
+    ResponseStatus:
+      type: string
+      enum:
+      - DECLINED
+      - NEEDS_ACTION
+      - TENTATIVE
+      - ACCEPTED
+      - UNKNOWN
     EventSourceDetails:
       required:
       - base64Id
@@ -1303,6 +1476,68 @@ components:
           type: string
         description:
           type: string
+    MeetingType:
+      type: string
+      enum:
+      - DIRECT_11
+      - PEER_11
+      - SKIP_11
+      - XFUNC_11
+      - OTHER_11
+      - TEAM
+      - XFUNC_TEAM
+      - EXEC
+      - SKIP_TEAM
+      - ALL_HANDS
+      - ONBOARDING_TRAINING
+      - COMPANY_EVENT
+      - BOARD_MEETING
+      - OTHER_STAFF
+      - DEAL_REVIEW
+      - EXECUTION_REVIEW
+      - DEMO
+      - PLANNING_MEETING
+      - RETRO
+      - EMERGENCY
+      - PEOPLE_REVIEW
+      - OTHER_OP
+      - ROADMAP
+      - CUST_MEETING
+      - CUST_RESEARCH
+      - CUST_URGENT
+      - RECRUIT_SCREEN
+      - OTHER_EXTERNAL
+      - DESIGN_BRAIN
+      - TECH_REVIEW
+      - KICKOFF
+      - REQ_BRAIN
+      - OTHER_IDEATION
+      - UNKNOWN
+    LockState:
+      type: string
+      enum:
+      - MANUALLY_LOCKED
+      - ADJUSTED
+      - UPCOMING_WINDOW
+      - MANUALLY_UNLOCKED
+      - DELETED
+      - DECLINED
+      - IN_THE_PAST
+    ReclaimEventType:
+      type: string
+      enum:
+      - USER
+      - SYNC
+      - HABIT_ASSIGNMENT
+      - SMART_HABIT
+      - ONE_ON_ONE_ASSIGNMENT
+      - SMART_MEETING
+      - TASK_ASSIGNMENT
+      - CONF_BUFFER
+      - TRAVEL_BUFFER
+      - SCHEDULING_LINK_MEETING
+      - UNKNOWN
+      - FOCUS
     TaskOrHabit:
       type: object
       properties:
@@ -1351,6 +1586,155 @@ components:
       - $ref: '#/components/schemas/Snoozeable'
       - $ref: '#/components/schemas/FlexibleTimeSpan'
       - $ref: '#/components/schemas/LogContext'
+    AssistType:
+      type: string
+      enum:
+      - TASK
+      - CUSTOM_DAILY
+      - CATCHUP_AM
+      - CATCHUP_PM
+      - LUNCH
+      - FOCUS
+      - TRAVEL_PRE
+      - TRAVEL_POST
+      - CONBUF
+      - SMART_HABIT
+      - SMART_MEETING
+      - RECLAIM_FOCUS
+    RsvpResponsePeriod:
+      type: string
+      enum:
+      - SINGLE
+      - FORWARD
+      - ALL
+    MergeDetails.EventType:
+      type: string
+      enum:
+      - ORGANIZER_EVENT
+      - ATTENDEE_EVENT
+      - SYNC_EVENT
+    AssistPolicyOverride:
+      required:
+      - durationMax
+      - durationMin
+      - forceDefend
+      - idealTime
+      - windowEnd
+      - windowStart
+      type: object
+      properties:
+        windowStart:
+          type: string
+          format: partial-time
+        idealTime:
+          type: string
+          format: partial-time
+        windowEnd:
+          type: string
+          format: partial-time
+        durationMin:
+          type: integer
+          format: int32
+        durationMax:
+          type: integer
+          format: int32
+        forceDefend:
+          type: boolean
+    AssistStatus:
+      type: string
+      enum:
+      - CONTROLLED
+      - RELEASED
+      - ARCHIVED
+    AssistDetails:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/AssistType'
+        customHabit:
+          type: boolean
+        smartSeries:
+          type: boolean
+        focus:
+          type: boolean
+        habitOrTask:
+          type: boolean
+        task:
+          type: boolean
+        conferenceBuffer:
+          type: boolean
+        travelBuffer:
+          type: boolean
+        status:
+          $ref: '#/components/schemas/AssistStatus'
+        travelNewEventId:
+          type:
+          - string
+          - 'null'
+          description: The source event id for a travel assist event.
+        conferenceEventId:
+          type:
+          - string
+          - 'null'
+          description: The source event id for a conference (decompression time) event.
+        lastControlledUpdate:
+          type: string
+          format: date-time
+        lastControlledHash:
+          type: integer
+          format: int32
+        defended:
+          type: boolean
+        pinned:
+          type: boolean
+        lockState:
+          allOf:
+          - $ref: '#/components/schemas/LockState'
+        dailyHabitId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        seriesLineageId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        seriesId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        taskId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        taskIndex:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        policyOverride:
+          allOf:
+          - $ref: '#/components/schemas/AssistPolicyOverride'
+        lastManualAdjustment:
+          type: string
+          format: date-time
+        recurringAssignmentType:
+          $ref: '#/components/schemas/RecurringAssignmentType'
+        eventType:
+          $ref: '#/components/schemas/ReclaimEventType'
+        manuallyStarted:
+          type: boolean
+        focusId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        assistReferenceValid:
+          type: boolean
+      description: This entity maps to the assist_events table.
     GoogleCalendarEventMetadata:
       required:
       - guestsCanInviteOthers
@@ -1364,77 +1748,6 @@ components:
           type: boolean
         guestsCanSeeOtherGuests:
           type: boolean
-    EventKey:
-      required:
-      - calendarId
-      - eventId
-      type: object
-      properties:
-        eventId:
-          type: string
-        calendarId:
-          type: integer
-          format: int64
-    EventSubType:
-      type: string
-      enum:
-      - ONE_ON_ONE
-      - STAFF_MEETING
-      - OP_REVIEW
-      - EXTERNAL
-      - IDEATION
-      - FOCUS
-      - PRODUCTIVITY
-      - TRAVEL
-      - FLIGHT
-      - TRAIN
-      - RECLAIM
-      - VACATION
-      - HEALTH
-      - ERRAND
-      - OTHER_PERSONAL
-      - UNKNOWN
-    Prioritizable:
-      type: object
-      properties:
-        priority:
-          $ref: '#/components/schemas/PriorityLevel'
-        priorityUntil:
-          type: string
-          format: date
-      discriminator:
-        propertyName: prioritizableType
-        mapping:
-          HABIT: '#/components/schemas/DailyHabit'
-          TASK: '#/components/schemas/Task'
-          ONE_ON_ONE: '#/components/schemas/RecurringOneOnOne'
-    NotificationKeyRequest:
-      type: object
-      properties:
-        notificationKey:
-          maxLength: 200
-          pattern: '[A-Za-z0-9_-]+'
-          type: string
-          nullable: true
-    MergeDetails:
-      required:
-      - key
-      - sourceCalendarId
-      - sourceReclaimCalendarId
-      - type
-      type: object
-      properties:
-        key:
-          type: string
-        type:
-          $ref: '#/components/schemas/MergeDetails.EventType'
-        sourceCalendarId:
-          type: string
-          nullable: true
-        sourceReclaimCalendarId:
-          type: integer
-          format: int64
-          nullable: true
     EventResponseStatus:
       type: string
       enum:
@@ -1451,6 +1764,31 @@ components:
       - Declined
       - TentativelyAccepted
       - NotResponded
+    PriorityLevel:
+      type: string
+      enum:
+      - P1
+      - P2
+      - P3
+      - P4
+      - PRIORITIZE
+      - DEFAULT
+      x-deprecated:
+      - PRIORITIZE
+      - DEFAULT
+    EventCategory:
+      $ref: '#/components/schemas/Colorized'
+    SnoozeOption:
+      type: string
+      enum:
+      - FROM_NOW_15M
+      - FROM_NOW_30M
+      - FROM_NOW_1H
+      - FROM_NOW_2H
+      - FROM_NOW_4H
+      - TOMORROW
+      - IN_TWO_DAYS
+      - NEXT_WEEK
     Event:
       required:
       - allocatedTimeChunks
@@ -1484,15 +1822,16 @@ components:
       properties:
         googleMetadata:
           description: Returns Google Calendar-specific metadata that doesn't fit into a common event model, but that services and UI might be interested in introspecting. If the event isn't a Google Calendar event, this method will return an empty value.
-          nullable: true
           allOf:
           - $ref: '#/components/schemas/GoogleCalendarEventMetadata'
         schedulingLinkId:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         schedulingLinkMeetingId:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         underAssistControl:
           type: boolean
         assist:
@@ -1517,7 +1856,6 @@ components:
         priority:
           $ref: '#/components/schemas/PriorityLevel'
         prioritySource:
-          nullable: true
           allOf:
           - $ref: '#/components/schemas/PrioritySource'
         title:
@@ -1606,12 +1944,14 @@ components:
         conferenceCall:
           type: boolean
         etag:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
         smartSeriesId:
-          type: integer
+          type:
+          - integer
+          - 'null'
           format: int64
-          nullable: true
         sourceEventType:
           $ref: '#/components/schemas/PlatformEventType'
         version:
@@ -1619,7 +1959,9 @@ components:
         manuallyStarted:
           type: boolean
         inheritedExternalId:
-          type: string
+          type:
+          - string
+          - 'null'
           description: 'Retrieves the inherited external ID for the event. The inherited external ID is used in scenarios where a non-pipeline user is invited to an event created by Reclaim on a pipeline user''s Microsoft calendar.
 
 
@@ -1630,7 +1972,123 @@ components:
             existing logic for detecting and parsing event information, even when the event ID cannot be directly
 
             relied upon (e.g., in Microsoft calendars).'
-          nullable: true
+    RecurringAssignmentType:
+      type: string
+      enum:
+      - ONE_ON_ONE
+      - DAILY_HABIT
+      - TASK
+    EventKey:
+      required:
+      - calendarId
+      - eventId
+      type: object
+      properties:
+        eventId:
+          type: string
+        calendarId:
+          type: integer
+          format: int64
+    ThinPerson:
+      required:
+      - email
+      type: object
+      properties:
+        reclaimUser:
+          type: boolean
+        userId:
+          type:
+          - string
+          - 'null'
+        email:
+          minLength: 1
+          type: string
+        name:
+          type: string
+        avatarUrl:
+          type: string
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+    EventType:
+      type: string
+      enum:
+      - MEETING
+      - WORK
+      - LOGISTICS
+      - PERSONAL
+    LogContext:
+      type: object
+    EventStatus:
+      type: string
+      enum:
+      - PUBLISHED
+      - CANCELLED
+    Snoozeable:
+      type: object
+      properties:
+        snoozeUntil:
+          type:
+          - string
+          - 'null'
+          format: date-time
+    RsvpResponseBody:
+      required:
+      - responseStatus
+      - sendUpdates
+      type: object
+      properties:
+        responseStatus:
+          $ref: '#/components/schemas/EventResponseStatus'
+        sendUpdates:
+          type: boolean
+        comment:
+          type:
+          - string
+          - 'null'
+        period:
+          allOf:
+          - $ref: '#/components/schemas/RsvpResponsePeriod'
+    Prioritizable:
+      type: object
+      properties:
+        priority:
+          $ref: '#/components/schemas/PriorityLevel'
+        priorityUntil:
+          type: string
+          format: date
+      discriminator:
+        propertyName: prioritizableType
+        mapping:
+          HABIT: '#/components/schemas/DailyHabit'
+          TASK: '#/components/schemas/Task'
+          ONE_ON_ONE: '#/components/schemas/RecurringOneOnOne'
+    MergeDetails:
+      required:
+      - key
+      - sourceCalendarId
+      - sourceReclaimCalendarId
+      - type
+      type: object
+      properties:
+        key:
+          type: string
+        type:
+          $ref: '#/components/schemas/MergeDetails.EventType'
+        sourceCalendarId:
+          type:
+          - string
+          - 'null'
+        sourceReclaimCalendarId:
+          type:
+          - integer
+          - 'null'
+          format: int64
     EventColor:
       type: string
       enum:
@@ -1646,18 +2104,6 @@ components:
       - BLUEBERRY
       - BASIL
       - TOMATO
-    PrioritySource:
-      type: string
-      enum:
-      - MANUAL
-      - AI
-      - RULES
-    RsvpResponsePeriod:
-      type: string
-      enum:
-      - SINGLE
-      - FORWARD
-      - ALL
     FlexibleTimeSpan:
       type: object
       properties:
@@ -1667,322 +2113,6 @@ components:
         durationMax:
           type: integer
           format: int32
-    SnoozeOption:
-      type: string
-      enum:
-      - FROM_NOW_15M
-      - FROM_NOW_30M
-      - FROM_NOW_1H
-      - FROM_NOW_2H
-      - FROM_NOW_4H
-      - TOMORROW
-      - IN_TWO_DAYS
-      - NEXT_WEEK
-    Colorized:
-      type: object
-      properties:
-        color:
-          $ref: '#/components/schemas/EventColor'
-    AssistDetails:
-      type: object
-      properties:
-        type:
-          $ref: '#/components/schemas/AssistType'
-        customHabit:
-          type: boolean
-        smartSeries:
-          type: boolean
-        focus:
-          type: boolean
-        habitOrTask:
-          type: boolean
-        task:
-          type: boolean
-        conferenceBuffer:
-          type: boolean
-        travelBuffer:
-          type: boolean
-        status:
-          $ref: '#/components/schemas/AssistStatus'
-        travelNewEventId:
-          type: string
-          description: The source event id for a travel assist event.
-          nullable: true
-        conferenceEventId:
-          type: string
-          description: The source event id for a conference (decompression time) event.
-          nullable: true
-        lastControlledUpdate:
-          type: string
-          format: date-time
-        lastControlledHash:
-          type: integer
-          format: int32
-        defended:
-          type: boolean
-        pinned:
-          type: boolean
-        lockState:
-          nullable: true
-          allOf:
-          - $ref: '#/components/schemas/LockState'
-        dailyHabitId:
-          type: integer
-          format: int64
-          nullable: true
-        seriesLineageId:
-          type: integer
-          format: int64
-          nullable: true
-        seriesId:
-          type: integer
-          format: int64
-          nullable: true
-        taskId:
-          type: integer
-          format: int64
-          nullable: true
-        taskIndex:
-          type: integer
-          format: int32
-          nullable: true
-        policyOverride:
-          nullable: true
-          allOf:
-          - $ref: '#/components/schemas/AssistPolicyOverride'
-        lastManualAdjustment:
-          type: string
-          format: date-time
-        recurringAssignmentType:
-          $ref: '#/components/schemas/RecurringAssignmentType'
-        eventType:
-          $ref: '#/components/schemas/ReclaimEventType'
-        manuallyStarted:
-          type: boolean
-        focusId:
-          type: integer
-          format: int64
-          nullable: true
-        assistReferenceValid:
-          type: boolean
-      description: This entity maps to the assist_events table.
-    EventList:
-      required:
-      - eventKeys
-      type: object
-      properties:
-        eventKeys:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventKey'
-    EventCategory:
-      $ref: '#/components/schemas/Colorized'
-    EventStatus:
-      type: string
-      enum:
-      - PUBLISHED
-      - CANCELLED
-    EventType:
-      type: string
-      enum:
-      - MEETING
-      - WORK
-      - LOGISTICS
-      - PERSONAL
-    RecurringAssignmentType:
-      type: string
-      enum:
-      - ONE_ON_ONE
-      - DAILY_HABIT
-      - TASK
-    LockState:
-      type: string
-      enum:
-      - MANUALLY_LOCKED
-      - ADJUSTED
-      - UPCOMING_WINDOW
-      - MANUALLY_UNLOCKED
-      - DELETED
-      - DECLINED
-      - IN_THE_PAST
-    ResponseStatus:
-      type: string
-      enum:
-      - DECLINED
-      - NEEDS_ACTION
-      - TENTATIVE
-      - ACCEPTED
-      - UNKNOWN
-    ThinPerson:
-      required:
-      - email
-      type: object
-      properties:
-        reclaimUser:
-          type: boolean
-        userId:
-          type: string
-          nullable: true
-        email:
-          minLength: 1
-          type: string
-        name:
-          type: string
-        avatarUrl:
-          type: string
-        firstName:
-          type: string
-          nullable: true
-        lastName:
-          type: string
-          nullable: true
-    ReclaimEventType:
-      type: string
-      enum:
-      - USER
-      - SYNC
-      - HABIT_ASSIGNMENT
-      - SMART_HABIT
-      - ONE_ON_ONE_ASSIGNMENT
-      - SMART_MEETING
-      - TASK_ASSIGNMENT
-      - CONF_BUFFER
-      - TRAVEL_BUFFER
-      - SCHEDULING_LINK_MEETING
-      - UNKNOWN
-      - FOCUS
-    LogContext:
-      type: object
-    AssistPolicyOverride:
-      required:
-      - durationMax
-      - durationMin
-      - forceDefend
-      - idealTime
-      - windowEnd
-      - windowStart
-      type: object
-      properties:
-        windowStart:
-          type: string
-          format: partial-time
-        idealTime:
-          type: string
-          format: partial-time
-        windowEnd:
-          type: string
-          format: partial-time
-        durationMin:
-          type: integer
-          format: int32
-        durationMax:
-          type: integer
-          format: int32
-        forceDefend:
-          type: boolean
-    MergeDetails.EventType:
-      type: string
-      enum:
-      - ORGANIZER_EVENT
-      - ATTENDEE_EVENT
-      - SYNC_EVENT
-    RsvpResponseBody:
-      required:
-      - responseStatus
-      - sendUpdates
-      type: object
-      properties:
-        responseStatus:
-          $ref: '#/components/schemas/EventResponseStatus'
-        sendUpdates:
-          type: boolean
-        comment:
-          type: string
-          nullable: true
-        period:
-          nullable: true
-          allOf:
-          - $ref: '#/components/schemas/RsvpResponsePeriod'
-    Snoozeable:
-      type: object
-      properties:
-        snoozeUntil:
-          type: string
-          format: date-time
-          nullable: true
-    PlatformEventType:
-      type: string
-      enum:
-      - DEFAULT
-      - OUT_OF_OFFICE
-      - FROM_MAIL
-      - WORKING_LOCATION
-      - FOCUS_TIME
-      - BIRTHDAY
-    MeetingType:
-      type: string
-      enum:
-      - DIRECT_11
-      - PEER_11
-      - SKIP_11
-      - XFUNC_11
-      - OTHER_11
-      - TEAM
-      - XFUNC_TEAM
-      - EXEC
-      - SKIP_TEAM
-      - ALL_HANDS
-      - ONBOARDING_TRAINING
-      - COMPANY_EVENT
-      - BOARD_MEETING
-      - OTHER_STAFF
-      - DEAL_REVIEW
-      - EXECUTION_REVIEW
-      - DEMO
-      - PLANNING_MEETING
-      - RETRO
-      - EMERGENCY
-      - PEOPLE_REVIEW
-      - OTHER_OP
-      - ROADMAP
-      - CUST_MEETING
-      - CUST_RESEARCH
-      - CUST_URGENT
-      - RECRUIT_SCREEN
-      - OTHER_EXTERNAL
-      - DESIGN_BRAIN
-      - TECH_REVIEW
-      - KICKOFF
-      - REQ_BRAIN
-      - OTHER_IDEATION
-      - UNKNOWN
-    AssistType:
-      type: string
-      enum:
-      - TASK
-      - CUSTOM_DAILY
-      - CATCHUP_AM
-      - CATCHUP_PM
-      - LUNCH
-      - FOCUS
-      - TRAVEL_PRE
-      - TRAVEL_POST
-      - CONBUF
-      - SMART_HABIT
-      - SMART_MEETING
-      - RECLAIM_FOCUS
-    PriorityLevel:
-      type: string
-      enum:
-      - P1
-      - P2
-      - P3
-      - P4
-      - PRIORITIZE
-      - DEFAULT
-      x-deprecated:
-      - PRIORITIZE
-      - DEFAULT
   securitySchemes:
     Authorization:
       type: oauth2

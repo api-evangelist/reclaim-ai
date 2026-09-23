@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes accounts API
+  title: Reclaim Accounts API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -11,12 +11,12 @@ info:
     url: http://reclaim.ai
   version: '0.1'
 tags:
-- name: accounts
+- name: Accounts
 paths:
   /api/accounts:
     get:
       tags:
-      - accounts
+      - Accounts
       operationId: list
       responses:
         '200':
@@ -29,10 +29,12 @@ paths:
                   $ref: '#/components/schemas/ConnectedAccount'
       security:
       - Authorization: []
+      summary: List
+      x-summary-source: derived
   /api/accounts/calendars:
     get:
       tags:
-      - accounts
+      - Accounts
       operationId: getAllCalendars
       responses:
         '200':
@@ -47,10 +49,12 @@ paths:
                     $ref: '#/components/schemas/CalendarView'
       security:
       - Authorization: []
+      summary: Get all calendars
+      x-summary-source: derived
   /api/accounts/validate:
     post:
       tags:
-      - accounts
+      - Accounts
       operationId: validateAll
       responses:
         '200':
@@ -61,10 +65,12 @@ paths:
                 type: object
       security:
       - Authorization: []
+      summary: Validate all
+      x-summary-source: derived
   /api/accounts/{accountId}/calendars:
     get:
       tags:
-      - accounts
+      - Accounts
       operationId: getCalendars
       parameters:
       - name: accountId
@@ -84,10 +90,12 @@ paths:
                   $ref: '#/components/schemas/CalendarView'
       security:
       - Authorization: []
+      summary: Get calendars
+      x-summary-source: derived
   /api/accounts/{accountId}/calendars/connected:
     put:
       tags:
-      - accounts
+      - Accounts
       operationId: setAvailability
       parameters:
       - name: accountId
@@ -113,9 +121,11 @@ paths:
                 type: object
       security:
       - Authorization: []
+      summary: Set availability
+      x-summary-source: derived
     post:
       tags:
-      - accounts
+      - Accounts
       operationId: postConnectedCalendar
       parameters:
       - name: accountId
@@ -139,10 +149,12 @@ paths:
                 $ref: '#/components/schemas/CalendarView'
       security:
       - Authorization: []
+      summary: Post connected calendar
+      x-summary-source: derived
   /api/accounts/{accountId}/calendars/connected/{calendarId}:
     get:
       tags:
-      - accounts
+      - Accounts
       operationId: getConnectedCalendar
       parameters:
       - name: accountId
@@ -166,9 +178,11 @@ paths:
                 $ref: '#/components/schemas/CalendarView'
       security:
       - Authorization: []
+      summary: Get connected calendar
+      x-summary-source: derived
     put:
       tags:
-      - accounts
+      - Accounts
       operationId: putConnectedCalendar
       parameters:
       - name: accountId
@@ -201,9 +215,11 @@ paths:
                 $ref: '#/components/schemas/CalendarView'
       security:
       - Authorization: []
+      summary: Put connected calendar
+      x-summary-source: derived
     delete:
       tags:
-      - accounts
+      - Accounts
       operationId: deleteConnectedCalendar
       parameters:
       - name: accountId
@@ -227,10 +243,12 @@ paths:
                 type: object
       security:
       - Authorization: []
+      summary: Delete connected calendar
+      x-summary-source: derived
   /api/accounts/{accountId}/main:
     post:
       tags:
-      - accounts
+      - Accounts
       operationId: switchMain
       parameters:
       - name: accountId
@@ -248,10 +266,12 @@ paths:
                 type: object
       security:
       - Authorization: []
+      summary: Switch main
+      x-summary-source: derived
   /api/accounts/{id}:
     delete:
       tags:
-      - accounts
+      - Accounts
       operationId: delete
       parameters:
       - name: id
@@ -269,10 +289,12 @@ paths:
                 type: object
       security:
       - Authorization: []
+      summary: Delete
+      x-summary-source: derived
   /api/accounts/{id}/validate:
     post:
       tags:
-      - accounts
+      - Accounts
       operationId: validate
       parameters:
       - name: id
@@ -290,6 +312,8 @@ paths:
                 type: object
       security:
       - Authorization: []
+      summary: Validate
+      x-summary-source: derived
 components:
   schemas:
     ImmutableCollection_CalendarView_:
@@ -301,242 +325,23 @@ components:
             type: boolean
           partialView:
             type: boolean
-    ConnectedAccount:
+    CapabilityInfo:
+      required:
+      - status
       type: object
       properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        valid:
-          type: boolean
-        avatar:
-          type: string
+        status:
+          $ref: '#/components/schemas/CapabilityStatus'
+        oauthURI:
+          type:
+          - string
+          - 'null'
           format: uri
-          nullable: true
-        main:
+    AbstractCollection_CalendarView_:
+      type: object
+      properties:
+        empty:
           type: boolean
-        primaryCalendarId:
-          type: integer
-          format: int64
-          nullable: true
-        canDelete:
-          type: boolean
-        type:
-          $ref: '#/components/schemas/ConnectedAccountType'
-        identityAccess:
-          type: boolean
-        calendarAccess:
-          $ref: '#/components/schemas/CalendarAccess'
-        taskAccess:
-          type: boolean
-        unique:
-          type: boolean
-        lastSynced:
-          type: string
-          format: date-time
-          nullable: true
-        switchToMainURI:
-          type: string
-          format: uri
-          nullable: true
-        canSwitchToMain:
-          type: boolean
-        noSwitchToMainReason:
-          type: string
-        existingPrimaryUserId:
-          type: string
-          nullable: true
-        repairURI:
-          type: string
-          format: uri
-          nullable: true
-        connectedCalendars:
-          $ref: '#/components/schemas/ImmutableSet_CalendarView_'
-        numSyncedCalendars:
-          type: integer
-          format: int32
-        userName:
-          type: string
-          nullable: true
-        firstName:
-          type: string
-          nullable: true
-        lastName:
-          type: string
-          nullable: true
-        scopes:
-          type: string
-        contactsAccess:
-          nullable: true
-          allOf:
-          - $ref: '#/components/schemas/ContactsAccess'
-        directoryAccess:
-          nullable: true
-          allOf:
-          - $ref: '#/components/schemas/DirectoryAccess'
-        sharedCalendarsAccess:
-          nullable: true
-          allOf:
-          - $ref: '#/components/schemas/SharedCalendarsAccess'
-        canRecolorEvents:
-          type: boolean
-        noRecolorEventsReason:
-          type: string
-          nullable: true
-        capabilities:
-          properties:
-            IDENTITY:
-              $ref: '#/components/schemas/CapabilityInfo'
-            AVAILABILITY:
-              $ref: '#/components/schemas/CapabilityInfo'
-            READ_EVENTS:
-              $ref: '#/components/schemas/CapabilityInfo'
-            WRITE_EVENTS:
-              $ref: '#/components/schemas/CapabilityInfo'
-            CALENDAR_ACCESS:
-              $ref: '#/components/schemas/CapabilityInfo'
-            PEOPLE_SUGGESTIONS:
-              $ref: '#/components/schemas/CapabilityInfo'
-            ROOMS_RESOURCES:
-              $ref: '#/components/schemas/CapabilityInfo'
-            SETTINGS:
-              $ref: '#/components/schemas/CapabilityInfo'
-            OUT_OF_OFFICE_SYNC:
-              $ref: '#/components/schemas/CapabilityInfo'
-            TASKS:
-              $ref: '#/components/schemas/CapabilityInfo'
-            ZOOM_MEETING_CREATION:
-              $ref: '#/components/schemas/CapabilityInfo'
-            ZOOM_PRESENCE_DETECTION:
-              $ref: '#/components/schemas/CapabilityInfo'
-            ZOOM_MEETING_ASSET_RETRIEVAL:
-              $ref: '#/components/schemas/CapabilityInfo'
-        withId:
-          type: integer
-          format: int64
-        withName:
-          type: string
-        withValid:
-          type: boolean
-        withAvatar:
-          type: string
-          format: uri
-          nullable: true
-        withMain:
-          type: boolean
-        withPrimaryCalendarId:
-          type: integer
-          format: int64
-        withCanDelete:
-          type: boolean
-        withType:
-          $ref: '#/components/schemas/ConnectedAccountType'
-        withIdentityAccess:
-          type: boolean
-        withCalendarAccess:
-          $ref: '#/components/schemas/CalendarAccess'
-        withTaskAccess:
-          type: boolean
-        withUnique:
-          type: boolean
-        withLastSynced:
-          type: string
-          format: date-time
-          nullable: true
-        withSwitchToMainURI:
-          type: string
-          format: uri
-          nullable: true
-        withCanSwitchToMain:
-          type: boolean
-        withNoSwitchToMainReason:
-          type: string
-        withExistingPrimaryUserId:
-          type: string
-          nullable: true
-        withRepairURI:
-          type: string
-          format: uri
-          nullable: true
-        withConnectedCalendars:
-          type: array
-          items:
-            $ref: '#/components/schemas/CalendarView'
-        withNumSyncedCalendars:
-          type: integer
-          format: int32
-        withUserName:
-          type: string
-          nullable: true
-        withFirstName:
-          type: string
-          nullable: true
-        withLastName:
-          type: string
-          nullable: true
-        withScopes:
-          type: string
-        withContactsAccess:
-          nullable: true
-          allOf:
-          - $ref: '#/components/schemas/ContactsAccess'
-        withDirectoryAccess:
-          nullable: true
-          allOf:
-          - $ref: '#/components/schemas/DirectoryAccess'
-        withSharedCalendarsAccess:
-          nullable: true
-          allOf:
-          - $ref: '#/components/schemas/SharedCalendarsAccess'
-        withCanRecolorEvents:
-          type: boolean
-        withNoRecolorEventsReason:
-          type: string
-          nullable: true
-        withCapabilities:
-          properties:
-            IDENTITY:
-              $ref: '#/components/schemas/CapabilityInfo'
-            AVAILABILITY:
-              $ref: '#/components/schemas/CapabilityInfo'
-            READ_EVENTS:
-              $ref: '#/components/schemas/CapabilityInfo'
-            WRITE_EVENTS:
-              $ref: '#/components/schemas/CapabilityInfo'
-            CALENDAR_ACCESS:
-              $ref: '#/components/schemas/CapabilityInfo'
-            PEOPLE_SUGGESTIONS:
-              $ref: '#/components/schemas/CapabilityInfo'
-            ROOMS_RESOURCES:
-              $ref: '#/components/schemas/CapabilityInfo'
-            SETTINGS:
-              $ref: '#/components/schemas/CapabilityInfo'
-            OUT_OF_OFFICE_SYNC:
-              $ref: '#/components/schemas/CapabilityInfo'
-            TASKS:
-              $ref: '#/components/schemas/CapabilityInfo'
-            ZOOM_MEETING_CREATION:
-              $ref: '#/components/schemas/CapabilityInfo'
-            ZOOM_PRESENCE_DETECTION:
-              $ref: '#/components/schemas/CapabilityInfo'
-            ZOOM_MEETING_ASSET_RETRIEVAL:
-              $ref: '#/components/schemas/CapabilityInfo'
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    CalendarAccess:
-      type: string
-      enum:
-      - NONE
-      - SETTINGS_ONLY
-      - READ
-      - WRITE
-      - SUPER
     DirectoryAccess:
       required:
       - enabled
@@ -548,74 +353,21 @@ components:
         oauthURI:
           type: string
           format: uri
-    IneligibilityReason:
+    ReclaimEventType:
       type: string
       enum:
-      - MAIN_ACCOUNT_PRIMARY
-      - SYNCED_ALREADY
-      - FREE_BUSY_ONLY
-    ImmutableSet_CalendarView_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ImmutableCollection_CalendarView_'
-      - $ref: '#/components/schemas/AbstractCollection_CalendarView_'
-      - properties:
-          empty:
-            type: boolean
-          hashCodeFast:
-            type: boolean
-    CapabilityStatus:
-      type: string
-      enum:
-      - GRANTED
-      - PARTIAL
-      - NOT_GRANTED
-    AbstractCollection_CalendarView_:
-      type: object
-      properties:
-        empty:
-          type: boolean
-    CalendarUseType:
-      type: string
-      enum:
+      - USER
+      - SYNC
+      - HABIT_ASSIGNMENT
+      - SMART_HABIT
+      - ONE_ON_ONE_ASSIGNMENT
+      - SMART_MEETING
+      - TASK_ASSIGNMENT
+      - CONF_BUFFER
+      - TRAVEL_BUFFER
+      - SCHEDULING_LINK_MEETING
       - UNKNOWN
-      - MULTI_USE
-      - WORK
-      - PERSONAL
-      - FAMILY
-      - TEAM
-      - VACATION
-      - TRAVEL
-      - TEAM_OOO_CALENDAR
-    CapabilityInfo:
-      required:
-      - status
-      type: object
-      properties:
-        status:
-          $ref: '#/components/schemas/CapabilityStatus'
-        oauthURI:
-          type: string
-          format: uri
-          nullable: true
-    ConnectedCalendarUpdateRequest:
-      required:
-      - useType
-      type: object
-      properties:
-        useType:
-          $ref: '#/components/schemas/CalendarUseType'
-    SharedCalendarsAccess:
-      required:
-      - enabled
-      - oauthURI
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        oauthURI:
-          type: string
-          format: uri
+      - FOCUS
     ConnectedCalendarCreateRequest:
       required:
       - externalId
@@ -657,7 +409,6 @@ components:
           type: integer
           format: int64
         reason:
-          nullable: true
           allOf:
           - $ref: '#/components/schemas/IneligibilityReason'
         writableFor:
@@ -671,15 +422,17 @@ components:
         microsoftTeamsAllowed:
           type: boolean
         defaultReminders:
-          type: array
-          nullable: true
+          type:
+          - array
+          - 'null'
           deprecated: true
           items:
             type: integer
             format: int32
         reminderDefaults:
-          type: array
-          nullable: true
+          type:
+          - array
+          - 'null'
           items:
             $ref: '#/components/schemas/Reminder'
         useType:
@@ -687,40 +440,54 @@ components:
         otherConnectedCalendarsExist:
           type: boolean
         accessDomainRead:
-          type: boolean
-          nullable: true
-    Reminder:
+          type:
+          - boolean
+          - 'null'
+    IneligibilityReason:
+      type: string
+      enum:
+      - MAIN_ACCOUNT_PRIMARY
+      - SYNCED_ALREADY
+      - FREE_BUSY_ONLY
+    CalendarUseType:
+      type: string
+      enum:
+      - UNKNOWN
+      - MULTI_USE
+      - WORK
+      - PERSONAL
+      - FAMILY
+      - TEAM
+      - VACATION
+      - TRAVEL
+      - TEAM_OOO_CALENDAR
+    ConnectedCalendarUpdateRequest:
       required:
-      - minutes
-      - reminderType
+      - useType
       type: object
       properties:
-        reminderType:
-          $ref: '#/components/schemas/ReminderType'
-        minutes:
-          type: integer
-          format: int32
+        useType:
+          $ref: '#/components/schemas/CalendarUseType'
     ReminderType:
       type: string
       enum:
       - UI_NOTIFICATION
       - EMAIL
-    ReclaimEventType:
+    CapabilityStatus:
       type: string
       enum:
-      - USER
-      - SYNC
-      - HABIT_ASSIGNMENT
-      - SMART_HABIT
-      - ONE_ON_ONE_ASSIGNMENT
-      - SMART_MEETING
-      - TASK_ASSIGNMENT
-      - CONF_BUFFER
-      - TRAVEL_BUFFER
-      - SCHEDULING_LINK_MEETING
-      - UNKNOWN
-      - FOCUS
-    ContactsAccess:
+      - GRANTED
+      - PARTIAL
+      - NOT_GRANTED
+    CalendarAccess:
+      type: string
+      enum:
+      - NONE
+      - SETTINGS_ONLY
+      - READ
+      - WRITE
+      - SUPER
+    SharedCalendarsAccess:
       required:
       - enabled
       - oauthURI
@@ -736,6 +503,279 @@ components:
       enum:
       - GOOGLE
       - MICROSOFT
+    ImmutableSet_CalendarView_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_CalendarView_'
+      - $ref: '#/components/schemas/AbstractCollection_CalendarView_'
+      - properties:
+          empty:
+            type: boolean
+          hashCodeFast:
+            type: boolean
+    Reminder:
+      required:
+      - minutes
+      - reminderType
+      type: object
+      properties:
+        reminderType:
+          $ref: '#/components/schemas/ReminderType'
+        minutes:
+          type: integer
+          format: int32
+    ContactsAccess:
+      required:
+      - enabled
+      - oauthURI
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        oauthURI:
+          type: string
+          format: uri
+    ConnectedAccount:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        valid:
+          type: boolean
+        avatar:
+          type:
+          - string
+          - 'null'
+          format: uri
+        main:
+          type: boolean
+        primaryCalendarId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        canDelete:
+          type: boolean
+        type:
+          $ref: '#/components/schemas/ConnectedAccountType'
+        identityAccess:
+          type: boolean
+        calendarAccess:
+          $ref: '#/components/schemas/CalendarAccess'
+        taskAccess:
+          type: boolean
+        unique:
+          type: boolean
+        lastSynced:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        switchToMainURI:
+          type:
+          - string
+          - 'null'
+          format: uri
+        canSwitchToMain:
+          type: boolean
+        noSwitchToMainReason:
+          type: string
+        existingPrimaryUserId:
+          type:
+          - string
+          - 'null'
+        repairURI:
+          type:
+          - string
+          - 'null'
+          format: uri
+        connectedCalendars:
+          $ref: '#/components/schemas/ImmutableSet_CalendarView_'
+        numSyncedCalendars:
+          type: integer
+          format: int32
+        userName:
+          type:
+          - string
+          - 'null'
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+        scopes:
+          type: string
+        contactsAccess:
+          allOf:
+          - $ref: '#/components/schemas/ContactsAccess'
+        directoryAccess:
+          allOf:
+          - $ref: '#/components/schemas/DirectoryAccess'
+        sharedCalendarsAccess:
+          allOf:
+          - $ref: '#/components/schemas/SharedCalendarsAccess'
+        canRecolorEvents:
+          type: boolean
+        noRecolorEventsReason:
+          type:
+          - string
+          - 'null'
+        capabilities:
+          properties:
+            IDENTITY:
+              $ref: '#/components/schemas/CapabilityInfo'
+            AVAILABILITY:
+              $ref: '#/components/schemas/CapabilityInfo'
+            READ_EVENTS:
+              $ref: '#/components/schemas/CapabilityInfo'
+            WRITE_EVENTS:
+              $ref: '#/components/schemas/CapabilityInfo'
+            CALENDAR_ACCESS:
+              $ref: '#/components/schemas/CapabilityInfo'
+            PEOPLE_SUGGESTIONS:
+              $ref: '#/components/schemas/CapabilityInfo'
+            ROOMS_RESOURCES:
+              $ref: '#/components/schemas/CapabilityInfo'
+            SETTINGS:
+              $ref: '#/components/schemas/CapabilityInfo'
+            OUT_OF_OFFICE_SYNC:
+              $ref: '#/components/schemas/CapabilityInfo'
+            TASKS:
+              $ref: '#/components/schemas/CapabilityInfo'
+            ZOOM_MEETING_CREATION:
+              $ref: '#/components/schemas/CapabilityInfo'
+            ZOOM_PRESENCE_DETECTION:
+              $ref: '#/components/schemas/CapabilityInfo'
+            ZOOM_MEETING_ASSET_RETRIEVAL:
+              $ref: '#/components/schemas/CapabilityInfo'
+        withId:
+          type: integer
+          format: int64
+        withName:
+          type: string
+        withValid:
+          type: boolean
+        withAvatar:
+          type:
+          - string
+          - 'null'
+          format: uri
+        withMain:
+          type: boolean
+        withPrimaryCalendarId:
+          type: integer
+          format: int64
+        withCanDelete:
+          type: boolean
+        withType:
+          $ref: '#/components/schemas/ConnectedAccountType'
+        withIdentityAccess:
+          type: boolean
+        withCalendarAccess:
+          $ref: '#/components/schemas/CalendarAccess'
+        withTaskAccess:
+          type: boolean
+        withUnique:
+          type: boolean
+        withLastSynced:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        withSwitchToMainURI:
+          type:
+          - string
+          - 'null'
+          format: uri
+        withCanSwitchToMain:
+          type: boolean
+        withNoSwitchToMainReason:
+          type: string
+        withExistingPrimaryUserId:
+          type:
+          - string
+          - 'null'
+        withRepairURI:
+          type:
+          - string
+          - 'null'
+          format: uri
+        withConnectedCalendars:
+          type: array
+          items:
+            $ref: '#/components/schemas/CalendarView'
+        withNumSyncedCalendars:
+          type: integer
+          format: int32
+        withUserName:
+          type:
+          - string
+          - 'null'
+        withFirstName:
+          type:
+          - string
+          - 'null'
+        withLastName:
+          type:
+          - string
+          - 'null'
+        withScopes:
+          type: string
+        withContactsAccess:
+          allOf:
+          - $ref: '#/components/schemas/ContactsAccess'
+        withDirectoryAccess:
+          allOf:
+          - $ref: '#/components/schemas/DirectoryAccess'
+        withSharedCalendarsAccess:
+          allOf:
+          - $ref: '#/components/schemas/SharedCalendarsAccess'
+        withCanRecolorEvents:
+          type: boolean
+        withNoRecolorEventsReason:
+          type:
+          - string
+          - 'null'
+        withCapabilities:
+          properties:
+            IDENTITY:
+              $ref: '#/components/schemas/CapabilityInfo'
+            AVAILABILITY:
+              $ref: '#/components/schemas/CapabilityInfo'
+            READ_EVENTS:
+              $ref: '#/components/schemas/CapabilityInfo'
+            WRITE_EVENTS:
+              $ref: '#/components/schemas/CapabilityInfo'
+            CALENDAR_ACCESS:
+              $ref: '#/components/schemas/CapabilityInfo'
+            PEOPLE_SUGGESTIONS:
+              $ref: '#/components/schemas/CapabilityInfo'
+            ROOMS_RESOURCES:
+              $ref: '#/components/schemas/CapabilityInfo'
+            SETTINGS:
+              $ref: '#/components/schemas/CapabilityInfo'
+            OUT_OF_OFFICE_SYNC:
+              $ref: '#/components/schemas/CapabilityInfo'
+            TASKS:
+              $ref: '#/components/schemas/CapabilityInfo'
+            ZOOM_MEETING_CREATION:
+              $ref: '#/components/schemas/CapabilityInfo'
+            ZOOM_PRESENCE_DETECTION:
+              $ref: '#/components/schemas/CapabilityInfo'
+            ZOOM_MEETING_ASSET_RETRIEVAL:
+              $ref: '#/components/schemas/CapabilityInfo'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
   securitySchemes:
     Authorization:
       type: oauth2

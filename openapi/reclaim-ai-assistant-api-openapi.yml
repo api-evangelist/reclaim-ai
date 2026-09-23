@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes Assistant API
+  title: Reclaim Assistant API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -27,65 +27,15 @@ paths:
       - Authorization: []
       tags:
       - Assistant
+      summary: Fake endpoint1
+      x-summary-source: derived
 components:
   schemas:
-    ConferenceDetails:
-      required:
-      - solution
-      - source
-      - status
-      - url
+    Colorized:
       type: object
       properties:
-        solution:
-          $ref: '#/components/schemas/ConferenceSolution'
-        url:
-          type: string
-          nullable: true
-        status:
-          $ref: '#/components/schemas/ConferenceStatus'
-        source:
-          $ref: '#/components/schemas/ConferenceSource'
-    EventKey:
-      required:
-      - calendarId
-      - eventId
-      type: object
-      properties:
-        eventId:
-          type: string
-        calendarId:
-          type: integer
-          format: int64
-    CalendarEntryDateTime:
-      required:
-      - date
-      - dateTime
-      - timezone
-      type: object
-      properties:
-        date:
-          type: string
-          format: date
-        dateTime:
-          type: string
-          format: date-time
-        timezone:
-          type: string
-    EventDescription:
-      required:
-      - raw
-      type: object
-      properties:
-        raw:
-          type: string
-        processed:
-          type: string
-    ConferenceSource:
-      type: string
-      enum:
-      - NATIVE
-      - PARSED
+        color:
+          $ref: '#/components/schemas/EventColor'
     CalendarEntryColor:
       required:
       - defaultCalendarColor
@@ -98,66 +48,17 @@ components:
         defaultCalendarColor:
           type: boolean
         google:
-          nullable: true
           allOf:
           - $ref: '#/components/schemas/EventColor'
-    ConferenceStatus:
-      type: string
-      enum:
-      - PENDING
-      - SUCCESS
-      - FAILURE
-      - UNKNOWN
-    ConferenceSolution:
-      type: string
-      enum:
-      - GOOGLE_MEET
-      - MICROSOFT_TEAMS
-      - ZOOM
-      - WEBEX
-      - RING_CENTRAL
-      - POP
-      - COSCREEN
-      - BLUE_JEANS
-      - JITSI
-      - OTHER
-      - UNKNOWN
-    EventResponseStatus:
-      type: string
-      enum:
-      - None
-      - Organizer
-      - Accepted
-      - Declined
-      - TentativelyAccepted
-      - NotResponded
-      x-enum-varnames:
-      - None
-      - Organizer
-      - Accepted
-      - Declined
-      - TentativelyAccepted
-      - NotResponded
-    EventColor:
-      type: string
-      enum:
-      - NONE
-      - LAVENDER
-      - SAGE
-      - GRAPE
-      - FLAMINGO
-      - BANANA
-      - TANGERINE
-      - PEACOCK
-      - GRAPHITE
-      - BLUEBERRY
-      - BASIL
-      - TOMATO
-    Colorized:
+    EventDescription:
+      required:
+      - raw
       type: object
       properties:
-        color:
-          $ref: '#/components/schemas/EventColor'
+        raw:
+          type: string
+        processed:
+          type: string
     CalendarEntryView:
       required:
       - attendees
@@ -195,7 +96,6 @@ components:
         color:
           $ref: '#/components/schemas/CalendarEntryColor'
         conferenceDetails:
-          nullable: true
           allOf:
           - $ref: '#/components/schemas/ConferenceDetails'
         rsvpStatus:
@@ -207,11 +107,9 @@ components:
         free:
           type: boolean
         recurrence:
-          nullable: true
           allOf:
           - $ref: '#/components/schemas/CalendarEntryAssistantViewRecurrence'
         recurringInstance:
-          nullable: true
           allOf:
           - $ref: '#/components/schemas/CalendarEntryRecurringInstance'
         reclaimEventType:
@@ -222,33 +120,21 @@ components:
           type: boolean
         version:
           type: string
-    CalendarEntryAssistantViewRecurrence:
+    CalendarEntryRecurringInstance:
       required:
-      - definition
-      - timezone
+      - originalStart
+      - source
       type: object
       properties:
-        definition:
-          $ref: '#/components/schemas/Rfc2445Definition'
-        timezone:
-          type: string
-    EventCategory:
-      $ref: '#/components/schemas/Colorized'
-    RecurrenceExDates:
-      required:
-      - timezone
-      - value
-      type: object
-      properties:
-        value:
-          type: string
-        timezone:
-          type: string
-    EventStatus:
+        source:
+          $ref: '#/components/schemas/EventKey'
+        originalStart:
+          $ref: '#/components/schemas/CalendarEntryDateTime'
+    ConferenceSource:
       type: string
       enum:
-      - PUBLISHED
-      - CANCELLED
+      - NATIVE
+      - PARSED
     ReclaimEventType:
       type: string
       enum:
@@ -264,16 +150,59 @@ components:
       - SCHEDULING_LINK_MEETING
       - UNKNOWN
       - FOCUS
-    CalendarEntryRecurringInstance:
+    ConferenceStatus:
+      type: string
+      enum:
+      - PENDING
+      - SUCCESS
+      - FAILURE
+      - UNKNOWN
+    CalendarEntryDateTime:
       required:
-      - originalStart
-      - source
+      - date
+      - dateTime
+      - timezone
       type: object
       properties:
-        source:
-          $ref: '#/components/schemas/EventKey'
-        originalStart:
-          $ref: '#/components/schemas/CalendarEntryDateTime'
+        date:
+          type: string
+          format: date
+        dateTime:
+          type: string
+          format: date-time
+        timezone:
+          type: string
+    EventColor:
+      type: string
+      enum:
+      - NONE
+      - LAVENDER
+      - SAGE
+      - GRAPE
+      - FLAMINGO
+      - BANANA
+      - TANGERINE
+      - PEACOCK
+      - GRAPHITE
+      - BLUEBERRY
+      - BASIL
+      - TOMATO
+    EventResponseStatus:
+      type: string
+      enum:
+      - None
+      - Organizer
+      - Accepted
+      - Declined
+      - TentativelyAccepted
+      - NotResponded
+      x-enum-varnames:
+      - None
+      - Organizer
+      - Accepted
+      - Declined
+      - TentativelyAccepted
+      - NotResponded
     PriorityLevel:
       type: string
       enum:
@@ -286,6 +215,46 @@ components:
       x-deprecated:
       - PRIORITIZE
       - DEFAULT
+    RecurrenceExDates:
+      required:
+      - timezone
+      - value
+      type: object
+      properties:
+        value:
+          type: string
+        timezone:
+          type: string
+    ConferenceSolution:
+      type: string
+      enum:
+      - GOOGLE_MEET
+      - MICROSOFT_TEAMS
+      - ZOOM
+      - WEBEX
+      - RING_CENTRAL
+      - POP
+      - COSCREEN
+      - BLUE_JEANS
+      - JITSI
+      - OTHER
+      - UNKNOWN
+    EventKey:
+      required:
+      - calendarId
+      - eventId
+      type: object
+      properties:
+        eventId:
+          type: string
+        calendarId:
+          type: integer
+          format: int64
+    EventStatus:
+      type: string
+      enum:
+      - PUBLISHED
+      - CANCELLED
     Rfc2445Definition:
       required:
       - exDates
@@ -298,6 +267,36 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RecurrenceExDates'
+    CalendarEntryAssistantViewRecurrence:
+      required:
+      - definition
+      - timezone
+      type: object
+      properties:
+        definition:
+          $ref: '#/components/schemas/Rfc2445Definition'
+        timezone:
+          type: string
+    ConferenceDetails:
+      required:
+      - solution
+      - source
+      - status
+      - url
+      type: object
+      properties:
+        solution:
+          $ref: '#/components/schemas/ConferenceSolution'
+        url:
+          type:
+          - string
+          - 'null'
+        status:
+          $ref: '#/components/schemas/ConferenceStatus'
+        source:
+          $ref: '#/components/schemas/ConferenceSource'
+    EventCategory:
+      $ref: '#/components/schemas/Colorized'
   securitySchemes:
     Authorization:
       type: oauth2

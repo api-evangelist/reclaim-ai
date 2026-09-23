@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes jira API
+  title: Reclaim Jira API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -11,12 +11,12 @@ info:
     url: http://reclaim.ai
   version: '0.1'
 tags:
-- name: jira
+- name: JIRA
 paths:
   /api/jira/integrations:
     get:
       tags:
-      - jira
+      - JIRA
       operationId: integrations_4
       responses:
         '200':
@@ -29,10 +29,12 @@ paths:
                   $ref: '#/components/schemas/JiraIntegration'
       security:
       - Authorization: []
+      summary: Integrations 4
+      x-summary-source: derived
   /api/jira/integrations/{id}:
     delete:
       tags:
-      - jira
+      - JIRA
       operationId: deleteIntegration_2
       parameters:
       - name: id
@@ -51,9 +53,11 @@ paths:
                   $ref: '#/components/schemas/JiraIntegration'
       security:
       - Authorization: []
+      summary: Delete integration 2
+      x-summary-source: derived
     patch:
       tags:
-      - jira
+      - JIRA
       operationId: patchIntegration_2
       parameters:
       - name: id
@@ -76,10 +80,12 @@ paths:
                 type: object
       security:
       - Authorization: []
+      summary: Patch integration 2
+      x-summary-source: derived
   /web/jira/task/{issueKey}/{issueId}:
     get:
       tags:
-      - jira
+      - JIRA
       operationId: taskDetails_2
       parameters:
       - name: issueKey
@@ -99,32 +105,10 @@ paths:
             application/json:
               schema:
                 type: object
+      summary: Task details 2
+      x-summary-source: derived
 components:
   schemas:
-    ImmutableSet_JiraProject_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ImmutableCollection_JiraProject_'
-      - $ref: '#/components/schemas/AbstractCollection_JiraProject_'
-      - properties:
-          empty:
-            type: boolean
-          hashCodeFast:
-            type: boolean
-    ImmutableCollection_JiraProject_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/AbstractCollection_JiraProject_'
-      - properties:
-          empty:
-            type: boolean
-          partialView:
-            type: boolean
-    AbstractCollection_String_:
-      type: object
-      properties:
-        empty:
-          type: boolean
     ImmutableCollection_String_:
       type: object
       allOf:
@@ -134,11 +118,6 @@ components:
             type: boolean
           partialView:
             type: boolean
-    AbstractCollection_JiraProject_:
-      type: object
-      properties:
-        empty:
-          type: boolean
     JiraIntegrationPatch:
       type: object
       properties:
@@ -147,8 +126,9 @@ components:
         selected_project_keys:
           $ref: '#/components/schemas/ImmutableSet_String_'
         due_date_required:
-          type: boolean
-          nullable: true
+          type:
+          - boolean
+          - 'null'
         withInstallation:
           type: string
         withSelected_project_keys:
@@ -163,6 +143,48 @@ components:
           format: int32
         toString:
           type: string
+    ImmutableSet_String_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_String_'
+      - $ref: '#/components/schemas/AbstractCollection_String_'
+      - properties:
+          empty:
+            type: boolean
+          hashCodeFast:
+            type: boolean
+    ImmutableCollection_JiraProject_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_JiraProject_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    JiraProject:
+      type: object
+      properties:
+        project_key:
+          type: string
+        project_name:
+          type: string
+        withProject_key:
+          type: string
+        withProject_name:
+          type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+        toAnalyticsValue: {}
+    AbstractCollection_JiraProject_:
+      type: object
+      properties:
+        empty:
+          type: boolean
     JiraIntegration:
       type: object
       properties:
@@ -196,35 +218,21 @@ components:
           format: int32
         toString:
           type: string
-    JiraProject:
-      type: object
-      properties:
-        project_key:
-          type: string
-        project_name:
-          type: string
-        withProject_key:
-          type: string
-        withProject_name:
-          type: string
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-        toAnalyticsValue:
-          nullable: true
-    ImmutableSet_String_:
+    ImmutableSet_JiraProject_:
       type: object
       allOf:
-      - $ref: '#/components/schemas/ImmutableCollection_String_'
-      - $ref: '#/components/schemas/AbstractCollection_String_'
+      - $ref: '#/components/schemas/ImmutableCollection_JiraProject_'
+      - $ref: '#/components/schemas/AbstractCollection_JiraProject_'
       - properties:
           empty:
             type: boolean
           hashCodeFast:
             type: boolean
+    AbstractCollection_String_:
+      type: object
+      properties:
+        empty:
+          type: boolean
   securitySchemes:
     Authorization:
       type: oauth2

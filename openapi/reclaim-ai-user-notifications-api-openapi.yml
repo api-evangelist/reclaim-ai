@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes user-notifications API
+  title: Reclaim User Notifications API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -11,12 +11,12 @@ info:
     url: http://reclaim.ai
   version: '0.1'
 tags:
-- name: user-notifications
+- name: User Notifications
 paths:
   /api/notifications/{id}:
     get:
       tags:
-      - user-notifications
+      - User Notifications
       operationId: getUserNotifications
       parameters:
       - name: id
@@ -34,64 +34,10 @@ paths:
                 $ref: '#/components/schemas/NotificationWithMessages'
       security:
       - Authorization: []
+      summary: Get user notifications
+      x-summary-source: derived
 components:
   schemas:
-    Notification:
-      required:
-      - context
-      - contextDateTime
-      - id
-      - status
-      - type
-      - userId
-      type: object
-      properties:
-        id:
-          $ref: '#/components/schemas/NotificationId'
-        userId:
-          $ref: '#/components/schemas/UserIdentifier'
-        contextDateTime:
-          type: string
-          format: date-time
-        type:
-          $ref: '#/components/schemas/NotificationType'
-        context:
-          $ref: '#/components/schemas/NotificationContext'
-        status:
-          $ref: '#/components/schemas/NotificationStatus'
-    NotificationChannelMessageStatus:
-      type: string
-      enum:
-      - PENDING
-      - EXPIRED
-      - NO_LONGER_NEEDED
-      - SENT
-      - INVALIDATED
-      - FAILURE_BUT_WILL_RETRY
-      - FAILED
-    ChannelMessageId:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-    NotificationStatus:
-      type: string
-      enum:
-      - PENDING
-      - PROCESSED
-      - EXPIRED
-      - NO_LONGER_NEEDED
-    NotificationId:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
     NotificationType:
       type: string
       enum:
@@ -106,13 +52,16 @@ components:
       - EVENT_REMINDERS
     LogContext:
       type: object
-    UserIdentifier:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          type: string
+    NotificationChannelMessageStatus:
+      type: string
+      enum:
+      - PENDING
+      - EXPIRED
+      - NO_LONGER_NEEDED
+      - SENT
+      - INVALIDATED
+      - FAILURE_BUT_WILL_RETRY
+      - FAILED
     ChannelMessage:
       required:
       - channel
@@ -137,18 +86,58 @@ components:
           type: integer
           format: int32
         lastAttemptAt:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
         succeedAt:
-          type: string
+          type:
+          - string
+          - 'null'
           format: date-time
-          nullable: true
     NotificationChannel:
       type: string
       enum:
       - SLACK
       - EMAIL
+    UserIdentifier:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+    ChannelMessageId:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+    Notification:
+      required:
+      - context
+      - contextDateTime
+      - id
+      - status
+      - type
+      - userId
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/NotificationId'
+        userId:
+          $ref: '#/components/schemas/UserIdentifier'
+        contextDateTime:
+          type: string
+          format: date-time
+        type:
+          $ref: '#/components/schemas/NotificationType'
+        context:
+          $ref: '#/components/schemas/NotificationContext'
+        status:
+          $ref: '#/components/schemas/NotificationStatus'
     NotificationContext:
       type: object
       discriminator:
@@ -165,6 +154,21 @@ components:
           EVENT_CONFLICT: '#/components/schemas/EventsConflictContext'
       allOf:
       - $ref: '#/components/schemas/LogContext'
+    NotificationStatus:
+      type: string
+      enum:
+      - PENDING
+      - PROCESSED
+      - EXPIRED
+      - NO_LONGER_NEEDED
+    NotificationId:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
     NotificationWithMessages:
       required:
       - messages

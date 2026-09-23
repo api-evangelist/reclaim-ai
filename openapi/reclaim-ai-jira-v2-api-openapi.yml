@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Reclaim account-time-schemes jira-v2 API
+  title: Reclaim Jira V2 API
   description: Reclaim's awesome API
   contact:
     name: Reclaim.ai Inc.
@@ -29,6 +29,8 @@ paths:
                   $ref: '#/components/schemas/JiraV2IntegrationView'
       security:
       - Authorization: []
+      summary: Sites
+      x-summary-source: derived
   /api/jira-v2/sites/{id}:
     delete:
       tags:
@@ -50,6 +52,8 @@ paths:
                 type: object
       security:
       - Authorization: []
+      summary: Delete site
+      x-summary-source: derived
 components:
   schemas:
     JiraV2IntegrationView:
@@ -64,8 +68,9 @@ components:
         siteUrl:
           type: string
         displayName:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
   securitySchemes:
     Authorization:
       type: oauth2
