@@ -171,6 +171,41 @@ components:
             $ref: '#/components/schemas/OAuthClient.Scope'
         is_confidential:
           type: boolean
+    OAuthClient.GrantType:
+      type: string
+      enum:
+      - AUTHORIZATION_CODE
+      - REFRESH_TOKEN
+      - CLIENT_CREDENTIALS
+    OAuth2ClientController.UpdateClientRequest:
+      required:
+      - client_name
+      - grant_types
+      - redirect_uris
+      - scopes
+      type: object
+      properties:
+        client_name:
+          type: string
+        redirect_uris:
+          type: array
+          items:
+            type: string
+        grant_types:
+          type: array
+          items:
+            $ref: '#/components/schemas/OAuthClient.GrantType'
+        scopes:
+          type: array
+          items:
+            $ref: '#/components/schemas/OAuthClient.Scope'
+    OAuthClient.Scope:
+      type: string
+      enum:
+      - READ
+      - WRITE
+      - ADMIN
+      - MCP
     OAuthClient:
       required:
       - clientId
@@ -214,41 +249,6 @@ components:
         updatedAt:
           type: string
           format: date-time
-    OAuthClient.Scope:
-      type: string
-      enum:
-      - READ
-      - WRITE
-      - ADMIN
-      - MCP
-    OAuth2ClientController.UpdateClientRequest:
-      required:
-      - client_name
-      - grant_types
-      - redirect_uris
-      - scopes
-      type: object
-      properties:
-        client_name:
-          type: string
-        redirect_uris:
-          type: array
-          items:
-            type: string
-        grant_types:
-          type: array
-          items:
-            $ref: '#/components/schemas/OAuthClient.GrantType'
-        scopes:
-          type: array
-          items:
-            $ref: '#/components/schemas/OAuthClient.Scope'
-    OAuthClient.GrantType:
-      type: string
-      enum:
-      - AUTHORIZATION_CODE
-      - REFRESH_TOKEN
-      - CLIENT_CREDENTIALS
   securitySchemes:
     Authorization:
       type: oauth2

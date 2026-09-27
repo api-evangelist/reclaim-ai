@@ -104,15 +104,6 @@ components:
       - TRACK_AND_ANALYZE_PRODUCTIVITY
       - ADD_MEMBERS_TO_TEAM
       - SELECT_PLAN
-    UserQuests:
-      required:
-      - completedQuests
-      type: object
-      properties:
-        completedQuests:
-          type: array
-          items:
-            $ref: '#/components/schemas/QuestType'
     CompleteQuestRequest:
       required:
       - isComplete
@@ -125,6 +116,15 @@ components:
           type:
           - boolean
           - 'null'
+    UserQuests:
+      required:
+      - completedQuests
+      type: object
+      properties:
+        completedQuests:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuestType'
   securitySchemes:
     Authorization:
       type: oauth2

@@ -31,25 +31,160 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    CalendarEntryRecurringInstance:
+      required:
+      - originalStart
+      - source
+      type: object
+      properties:
+        source:
+          $ref: '#/components/schemas/EventKey'
+        originalStart:
+          $ref: '#/components/schemas/CalendarEntryDateTime'
+    ConferenceDetails:
+      required:
+      - solution
+      - source
+      - status
+      - url
+      type: object
+      properties:
+        solution:
+          $ref: '#/components/schemas/ConferenceSolution'
+        url:
+          type:
+          - string
+          - 'null'
+        status:
+          $ref: '#/components/schemas/ConferenceStatus'
+        source:
+          $ref: '#/components/schemas/ConferenceSource'
+    ConferenceStatus:
+      type: string
+      enum:
+      - PENDING
+      - SUCCESS
+      - FAILURE
+      - UNKNOWN
+    PriorityLevel:
+      type: string
+      enum:
+      - P1
+      - P2
+      - P3
+      - P4
+      - PRIORITIZE
+      - DEFAULT
+      x-deprecated:
+      - PRIORITIZE
+      - DEFAULT
+    CalendarEntryAssistantViewRecurrence:
+      required:
+      - definition
+      - timezone
+      type: object
+      properties:
+        definition:
+          $ref: '#/components/schemas/Rfc2445Definition'
+        timezone:
+          type: string
+    EventKey:
+      required:
+      - calendarId
+      - eventId
+      type: object
+      properties:
+        eventId:
+          type: string
+        calendarId:
+          type: integer
+          format: int64
+    EventColor:
+      type: string
+      enum:
+      - NONE
+      - LAVENDER
+      - SAGE
+      - GRAPE
+      - FLAMINGO
+      - BANANA
+      - TANGERINE
+      - PEACOCK
+      - GRAPHITE
+      - BLUEBERRY
+      - BASIL
+      - TOMATO
+    ConferenceSource:
+      type: string
+      enum:
+      - NATIVE
+      - PARSED
+    ConferenceSolution:
+      type: string
+      enum:
+      - GOOGLE_MEET
+      - MICROSOFT_TEAMS
+      - ZOOM
+      - WEBEX
+      - RING_CENTRAL
+      - POP
+      - COSCREEN
+      - BLUE_JEANS
+      - JITSI
+      - OTHER
+      - UNKNOWN
+    EventStatus:
+      type: string
+      enum:
+      - PUBLISHED
+      - CANCELLED
+    CalendarEntryDateTime:
+      required:
+      - date
+      - dateTime
+      - timezone
+      type: object
+      properties:
+        date:
+          type: string
+          format: date
+        dateTime:
+          type: string
+          format: date-time
+        timezone:
+          type: string
+    EventCategory:
+      $ref: '#/components/schemas/Colorized'
+    RecurrenceExDates:
+      required:
+      - timezone
+      - value
+      type: object
+      properties:
+        value:
+          type: string
+        timezone:
+          type: string
     Colorized:
       type: object
       properties:
         color:
           $ref: '#/components/schemas/EventColor'
-    CalendarEntryColor:
-      required:
-      - defaultCalendarColor
-      - google
-      - hex
-      type: object
-      properties:
-        hex:
-          type: string
-        defaultCalendarColor:
-          type: boolean
-        google:
-          allOf:
-          - $ref: '#/components/schemas/EventColor'
+    ReclaimEventType:
+      type: string
+      enum:
+      - USER
+      - SYNC
+      - HABIT_ASSIGNMENT
+      - SMART_HABIT
+      - ONE_ON_ONE_ASSIGNMENT
+      - SMART_MEETING
+      - TASK_ASSIGNMENT
+      - CONF_BUFFER
+      - TRAVEL_BUFFER
+      - SCHEDULING_LINK_MEETING
+      - UNKNOWN
+      - FOCUS
     EventDescription:
       required:
       - raw
@@ -120,73 +255,20 @@ components:
           type: boolean
         version:
           type: string
-    CalendarEntryRecurringInstance:
+    CalendarEntryColor:
       required:
-      - originalStart
-      - source
+      - defaultCalendarColor
+      - google
+      - hex
       type: object
       properties:
-        source:
-          $ref: '#/components/schemas/EventKey'
-        originalStart:
-          $ref: '#/components/schemas/CalendarEntryDateTime'
-    ConferenceSource:
-      type: string
-      enum:
-      - NATIVE
-      - PARSED
-    ReclaimEventType:
-      type: string
-      enum:
-      - USER
-      - SYNC
-      - HABIT_ASSIGNMENT
-      - SMART_HABIT
-      - ONE_ON_ONE_ASSIGNMENT
-      - SMART_MEETING
-      - TASK_ASSIGNMENT
-      - CONF_BUFFER
-      - TRAVEL_BUFFER
-      - SCHEDULING_LINK_MEETING
-      - UNKNOWN
-      - FOCUS
-    ConferenceStatus:
-      type: string
-      enum:
-      - PENDING
-      - SUCCESS
-      - FAILURE
-      - UNKNOWN
-    CalendarEntryDateTime:
-      required:
-      - date
-      - dateTime
-      - timezone
-      type: object
-      properties:
-        date:
+        hex:
           type: string
-          format: date
-        dateTime:
-          type: string
-          format: date-time
-        timezone:
-          type: string
-    EventColor:
-      type: string
-      enum:
-      - NONE
-      - LAVENDER
-      - SAGE
-      - GRAPE
-      - FLAMINGO
-      - BANANA
-      - TANGERINE
-      - PEACOCK
-      - GRAPHITE
-      - BLUEBERRY
-      - BASIL
-      - TOMATO
+        defaultCalendarColor:
+          type: boolean
+        google:
+          allOf:
+          - $ref: '#/components/schemas/EventColor'
     EventResponseStatus:
       type: string
       enum:
@@ -203,58 +285,6 @@ components:
       - Declined
       - TentativelyAccepted
       - NotResponded
-    PriorityLevel:
-      type: string
-      enum:
-      - P1
-      - P2
-      - P3
-      - P4
-      - PRIORITIZE
-      - DEFAULT
-      x-deprecated:
-      - PRIORITIZE
-      - DEFAULT
-    RecurrenceExDates:
-      required:
-      - timezone
-      - value
-      type: object
-      properties:
-        value:
-          type: string
-        timezone:
-          type: string
-    ConferenceSolution:
-      type: string
-      enum:
-      - GOOGLE_MEET
-      - MICROSOFT_TEAMS
-      - ZOOM
-      - WEBEX
-      - RING_CENTRAL
-      - POP
-      - COSCREEN
-      - BLUE_JEANS
-      - JITSI
-      - OTHER
-      - UNKNOWN
-    EventKey:
-      required:
-      - calendarId
-      - eventId
-      type: object
-      properties:
-        eventId:
-          type: string
-        calendarId:
-          type: integer
-          format: int64
-    EventStatus:
-      type: string
-      enum:
-      - PUBLISHED
-      - CANCELLED
     Rfc2445Definition:
       required:
       - exDates
@@ -267,36 +297,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RecurrenceExDates'
-    CalendarEntryAssistantViewRecurrence:
-      required:
-      - definition
-      - timezone
-      type: object
-      properties:
-        definition:
-          $ref: '#/components/schemas/Rfc2445Definition'
-        timezone:
-          type: string
-    ConferenceDetails:
-      required:
-      - solution
-      - source
-      - status
-      - url
-      type: object
-      properties:
-        solution:
-          $ref: '#/components/schemas/ConferenceSolution'
-        url:
-          type:
-          - string
-          - 'null'
-        status:
-          $ref: '#/components/schemas/ConferenceStatus'
-        source:
-          $ref: '#/components/schemas/ConferenceSource'
-    EventCategory:
-      $ref: '#/components/schemas/Colorized'
   securitySchemes:
     Authorization:
       type: oauth2

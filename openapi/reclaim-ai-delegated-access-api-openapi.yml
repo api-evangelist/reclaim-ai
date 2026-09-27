@@ -121,6 +121,20 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    AuthorizedDelegatedAccessView:
+      required:
+      - authorized
+      - availableApis
+      type: object
+      properties:
+        authorized:
+          type: array
+          items:
+            $ref: '#/components/schemas/DelegatedAccessView'
+        availableApis:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiResourceView'
     DelegatedAccessView:
       required:
       - authorizedUserId
@@ -153,20 +167,6 @@ components:
         userIdToAuthorize:
           minLength: 1
           type: string
-    AuthorizedDelegatedAccessView:
-      required:
-      - authorized
-      - availableApis
-      type: object
-      properties:
-        authorized:
-          type: array
-          items:
-            $ref: '#/components/schemas/DelegatedAccessView'
-        availableApis:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApiResourceView'
     ApiResourceView:
       required:
       - httpMethods

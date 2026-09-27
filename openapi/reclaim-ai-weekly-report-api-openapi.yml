@@ -106,13 +106,30 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    EventType:
-      type: string
-      enum:
-      - MEETING
-      - WORK
-      - LOGISTICS
-      - PERSONAL
+    StreakMessage:
+      required:
+      - emoji
+      - text
+      type: object
+      properties:
+        text:
+          type: string
+        emoji:
+          type: string
+    WeeklyReportAgenda:
+      required:
+      - firstRow
+      - secondRow
+      type: object
+      properties:
+        firstRow:
+          type: array
+          items:
+            $ref: '#/components/schemas/WeeklyReportAgendaDay'
+        secondRow:
+          type: array
+          items:
+            $ref: '#/components/schemas/WeeklyReportAgendaDay'
     WeeklyReportAgendaDay:
       required:
       - day
@@ -127,6 +144,33 @@ components:
           items:
             type: string
         extraClass:
+          type: string
+    WeeklyReportUnsubscribeRequest:
+      required:
+      - id
+      - verificationKey
+      type: object
+      properties:
+        id:
+          type: string
+        verificationKey:
+          type: string
+    WeeklyReportTask:
+      required:
+      - chip
+      - name
+      - timeLeft
+      type: object
+      properties:
+        name:
+          type: string
+        chip:
+          type: string
+        due:
+          type:
+          - string
+          - 'null'
+        timeLeft:
           type: string
     UserData:
       required:
@@ -157,84 +201,59 @@ components:
           type: boolean
         slackStatusEnabled:
           type: boolean
-    WeeklyReportTask:
+    WeeklyReportCallout:
       required:
-      - chip
-      - name
-      - timeLeft
-      type: object
-      properties:
-        name:
-          type: string
-        chip:
-          type: string
-        due:
-          type:
-          - string
-          - 'null'
-        timeLeft:
-          type: string
-    WeeklyFocusStats:
-      required:
-      - actualFocusHours
-      - actualMeetingHours
-      - freeTimeHours
-      - meetingCompareToLastWeekPercentage
-      - meetingHoursDownComparedToLastWeek
-      - otherWorkHours
-      - targetFocusHours
-      type: object
-      properties:
-        actualFocusHours:
-          type: number
-          format: double
-        targetFocusHours:
-          type: number
-          format: double
-        actualMeetingHours:
-          type: number
-          format: double
-        meetingCompareToLastWeekPercentage:
-          type: integer
-          format: int32
-        meetingHoursDownComparedToLastWeek:
-          type: boolean
-        freeTimeHours:
-          type: number
-          format: double
-        otherWorkHours:
-          type: number
-          format: double
-        outOfOfficeHours:
-          type:
-          - number
-          - 'null'
-          format: double
-        totalWorkingHours:
-          type:
-          - number
-          - 'null'
-          format: double
-    StreakMessage:
-      required:
-      - emoji
+      - backgroundColor
+      - icon
+      - svgIcon
       - text
+      - textColor
       type: object
       properties:
         text:
           type: string
-        emoji:
+        textColor:
           type: string
-    WeeklyReportSocialShare:
+        backgroundColor:
+          type: string
+        icon:
+          type: string
+        svgIcon:
+          type: string
+    TimeSpentDuringWeek:
       required:
-      - id
-      - verificationKey
+      - eventType
+      - eventTypeFriendly
+      - hours
+      - increased
+      - infinity
+      - noChange
+      - percentChange
       type: object
       properties:
-        id:
+        eventType:
+          $ref: '#/components/schemas/EventType'
+        eventTypeFriendly:
           type: string
-        verificationKey:
-          type: string
+        hours:
+          type: number
+          format: double
+        percentChange:
+          type: number
+          format: double
+        noChange:
+          type: boolean
+        increased:
+          type: boolean
+        infinity:
+          type: boolean
+    EventType:
+      type: string
+      enum:
+      - MEETING
+      - WORK
+      - LOGISTICS
+      - PERSONAL
     WeeklyReportTemplateData:
       required:
       - agenda
@@ -292,67 +311,48 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/StreakMessage'
-    TimeSpentDuringWeek:
+    WeeklyFocusStats:
       required:
-      - eventType
-      - eventTypeFriendly
-      - hours
-      - increased
-      - infinity
-      - noChange
-      - percentChange
+      - actualFocusHours
+      - actualMeetingHours
+      - freeTimeHours
+      - meetingCompareToLastWeekPercentage
+      - meetingHoursDownComparedToLastWeek
+      - otherWorkHours
+      - targetFocusHours
       type: object
       properties:
-        eventType:
-          $ref: '#/components/schemas/EventType'
-        eventTypeFriendly:
-          type: string
-        hours:
+        actualFocusHours:
           type: number
           format: double
-        percentChange:
+        targetFocusHours:
           type: number
           format: double
-        noChange:
+        actualMeetingHours:
+          type: number
+          format: double
+        meetingCompareToLastWeekPercentage:
+          type: integer
+          format: int32
+        meetingHoursDownComparedToLastWeek:
           type: boolean
-        increased:
-          type: boolean
-        infinity:
-          type: boolean
-    WeeklyReportCallout:
-      required:
-      - backgroundColor
-      - icon
-      - svgIcon
-      - text
-      - textColor
-      type: object
-      properties:
-        text:
-          type: string
-        textColor:
-          type: string
-        backgroundColor:
-          type: string
-        icon:
-          type: string
-        svgIcon:
-          type: string
-    WeeklyReportAgenda:
-      required:
-      - firstRow
-      - secondRow
-      type: object
-      properties:
-        firstRow:
-          type: array
-          items:
-            $ref: '#/components/schemas/WeeklyReportAgendaDay'
-        secondRow:
-          type: array
-          items:
-            $ref: '#/components/schemas/WeeklyReportAgendaDay'
-    WeeklyReportUnsubscribeRequest:
+        freeTimeHours:
+          type: number
+          format: double
+        otherWorkHours:
+          type: number
+          format: double
+        outOfOfficeHours:
+          type:
+          - number
+          - 'null'
+          format: double
+        totalWorkingHours:
+          type:
+          - number
+          - 'null'
+          format: double
+    WeeklyReportSocialShare:
       required:
       - id
       - verificationKey

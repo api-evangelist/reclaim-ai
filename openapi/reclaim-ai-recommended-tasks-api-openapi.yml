@@ -97,21 +97,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    RecommendedTaskStatus:
-      type: string
-      enum:
-      - PENDING
-      - PROCESSING
-      - ACCEPTED
-      - REJECTED
-      - ERROR
-    UpdateRecommendedTaskStatusRequest:
-      required:
-      - status
-      type: object
-      properties:
-        status:
-          $ref: '#/components/schemas/RecommendedTaskStatus'
     MeetingSummary:
       type: object
       properties:
@@ -142,6 +127,13 @@ components:
           type:
           - string
           - 'null'
+    UpdateRecommendedTaskStatusRequest:
+      required:
+      - status
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/RecommendedTaskStatus'
     TranscriptSnippetItem:
       required:
       - text
@@ -157,6 +149,18 @@ components:
           - 'null'
         text:
           type: string
+    RecommendedTaskStatus:
+      type: string
+      enum:
+      - PENDING
+      - PROCESSING
+      - ACCEPTED
+      - REJECTED
+      - ERROR
+    RecommendedTaskSourceType:
+      type: string
+      enum:
+      - ZOOM
     RecommendedTaskGroup:
       required:
       - sourceRef
@@ -175,10 +179,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RecommendedTask'
-    RecommendedTaskSourceType:
-      type: string
-      enum:
-      - ZOOM
     RecommendedTask:
       required:
       - createdAt

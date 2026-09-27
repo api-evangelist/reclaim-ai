@@ -220,6 +220,37 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    CreateReclaimTaskRequest:
+      required:
+      - title
+      type: object
+      properties:
+        title:
+          type: string
+        dueDate:
+          type:
+          - string
+          - 'null'
+          format: date
+        startDate:
+          type:
+          - string
+          - 'null'
+          format: date
+        estimateMinutes:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        priority:
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+    ReclaimTaskRelativeDue:
+      type: string
+      enum:
+      - TODAY
+      - THIS_WEEK
+      - THIS_MONTH
     Page_ReclaimTaskView_:
       required:
       - count
@@ -262,19 +293,19 @@ components:
       x-deprecated:
       - PRIORITIZE
       - DEFAULT
-    ReclaimTaskRelativeDue:
+    ReclaimTaskSortField:
       type: string
       enum:
-      - TODAY
-      - THIS_WEEK
-      - THIS_MONTH
-    CreateReclaimTaskRequest:
-      required:
-      - title
+      - DUE_DATE
+      - NAME
+      - PRIORITY
+    UpdateReclaimTaskRequest:
       type: object
       properties:
         title:
-          type: string
+          type:
+          - string
+          - 'null'
         dueDate:
           type:
           - string
@@ -285,6 +316,10 @@ components:
           - string
           - 'null'
           format: date
+        completed:
+          type:
+          - boolean
+          - 'null'
         estimateMinutes:
           type:
           - integer
@@ -300,6 +335,12 @@ components:
       properties:
         url:
           type: string
+    SortOrder:
+      type: string
+      enum:
+      - ASCENDING
+      - DESCENDING
+      - UNSORTED
     ReclaimTask:
       required:
       - completed
@@ -348,47 +389,6 @@ components:
           additionalProperties: true
         type:
           type: string
-    SortOrder:
-      type: string
-      enum:
-      - ASCENDING
-      - DESCENDING
-      - UNSORTED
-    ReclaimTaskSortField:
-      type: string
-      enum:
-      - DUE_DATE
-      - NAME
-      - PRIORITY
-    UpdateReclaimTaskRequest:
-      type: object
-      properties:
-        title:
-          type:
-          - string
-          - 'null'
-        dueDate:
-          type:
-          - string
-          - 'null'
-          format: date
-        startDate:
-          type:
-          - string
-          - 'null'
-          format: date
-        completed:
-          type:
-          - boolean
-          - 'null'
-        estimateMinutes:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        priority:
-          allOf:
-          - $ref: '#/components/schemas/PriorityLevel'
   securitySchemes:
     Authorization:
       type: oauth2

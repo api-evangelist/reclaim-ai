@@ -49,6 +49,17 @@ components:
           type:
           - string
           - 'null'
+    GtdTaskId.TaskSourceType:
+      type: string
+      enum:
+      - TODOIST
+      - CLICK_UP
+      - LINEAR
+      - GOOGLE_TASKS
+      - JIRA
+      - ASANA
+      - NOTION
+      - RECLAIM
     ActionItemCreationRequest:
       required:
       - integration
@@ -62,17 +73,6 @@ components:
             $ref: '#/components/schemas/ActionItemCreationRequest.TaskItem'
         integration:
           $ref: '#/components/schemas/GtdTaskId.TaskSourceType'
-    GtdTaskId.TaskSourceType:
-      type: string
-      enum:
-      - TODOIST
-      - CLICK_UP
-      - LINEAR
-      - GOOGLE_TASKS
-      - JIRA
-      - ASANA
-      - NOTION
-      - RECLAIM
   securitySchemes:
     Authorization:
       type: oauth2

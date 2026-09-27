@@ -201,19 +201,39 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    Colorized:
+    UserPostOnboard:
       type: object
       properties:
-        color:
-          $ref: '#/components/schemas/EventColor'
-    SchedulingLinkNameVisibility:
-      type: string
-      enum:
-      - NEVER
-      - USER_IS_LINK_OWNER
-      - VISIBLE_TO_TEAM_MEMBERS
-      - VISIBLE_ON_TEAM_MEMBERS_LINKS
-      - ALWAYS
+        welcomed:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        focus:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        hours:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        habits:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        firstTask:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        integration:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        smartMeetings:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        schedulingLinks:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        slackStatusSync:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        travelTime:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        zoom:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        connectCalendars:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        colors:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        reclaimFree:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        guidedTours:
+          $ref: '#/components/schemas/UserPostOnboardState'
     EventTypeSupport:
       required:
       - checkAfter
@@ -225,11 +245,441 @@ components:
         checkAfter:
           type: string
           format: date-time
+    TemporalSettings:
+      type: object
+      properties:
+        eventTransitionsEnabled:
+          type: boolean
+    SyncFeatureSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        hasVipPrivileges:
+          type: boolean
+        daysBackwardOverride:
+          type: integer
+          format: int32
+    TaskSettings:
+      required:
+      - defaults
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        googleTasks:
+          type: boolean
+        defaults:
+          $ref: '#/components/schemas/TaskDefaults'
+        autoWorkflowSettings:
+          $ref: '#/components/schemas/TaskAutoWorkflowSettings'
+        scheduleWorkQueueOnly:
+          type: boolean
+        cooldown:
+          $ref: '#/components/schemas/TaskCooldown'
+    RSVPSetting:
+      type: object
+      properties:
+        calendarSync:
+          $ref: '#/components/schemas/DefaultRsvpAvailability'
+    UserOnboard:
+      type: object
+      properties:
+        habits:
+          type: boolean
+        tasks:
+          type: boolean
+        googleTasks:
+          type: boolean
+        planItemPrioritized:
+          type: boolean
+        smartOneOnOnes:
+          type: boolean
+        bufferTime:
+          type: boolean
+        tasksReindex:
+          type: boolean
+        googleAddOn:
+          type: boolean
+        v16Scheduler:
+          type: boolean
+        helpMenus:
+          type: boolean
+        smartMeetingsJustNewQuest:
+          type: boolean
+        smartHabitsJustNewQuest:
+          type: boolean
+        smartMeetingsNavItem:
+          type: boolean
+        smartMeetingsPricingWarning:
+          type: boolean
+        showDowngradeAcknowledgement:
+          type: boolean
+        showUpgradeRestoreModal:
+          type: boolean
+        setupGuideV2:
+          type: boolean
+        accountAndPersonalSettings:
+          type: boolean
+        webhooks:
+          type: boolean
+        focus:
+          type: boolean
+        eventCreationInPlanner:
+          type: boolean
+        assistantIntegrations:
+          type: boolean
+        assistMigrationWelcomePending:
+          type: boolean
+        assistantPreviewChanges:
+          type: boolean
+        schedulingLinks:
+          type: boolean
+    DateFieldOrder:
+      type: string
+      enum:
+      - MDY
+      - DMY
+      - YMD
+    UserProfileDepartment:
+      type: string
+      enum:
+      - PRODUCT
+      - ENGINEERING
+      - SUPPORT
+      - MARKETING
+      - SALES
+      - DESIGN
+      - HR
+      - OPERATIONS
+      - ACCOUNTING_AND_FINANCE
+      - FOUNDER
+      - EXECUTIVE_ASSISTANT
+      - IT_SECURITY
+      - OTHER
+      x-deprecated:
+      - OTHER
+    UserAdventures:
+      type: object
+      properties:
+        adventures:
+          properties:
+            CORE_CONCEPTS:
+              $ref: '#/components/schemas/AdventureSetting'
+            CONNECT_PRIMARY_CALENDAR:
+              $ref: '#/components/schemas/AdventureSetting'
+            ADD_AGENT:
+              $ref: '#/components/schemas/AdventureSetting'
+            ADD_FOCUS_TIME:
+              $ref: '#/components/schemas/AdventureSetting'
+            ADD_BUFFERS:
+              $ref: '#/components/schemas/AdventureSetting'
+            ADD_HABIT:
+              $ref: '#/components/schemas/AdventureSetting'
+            HEAVY_MEETING_LOAD:
+              $ref: '#/components/schemas/AdventureSetting'
+            CONNECT_CALENDARS:
+              $ref: '#/components/schemas/AdventureSetting'
+            CALENDAR_SYNC:
+              $ref: '#/components/schemas/AdventureSetting'
+            SHARED_CALENDARS:
+              $ref: '#/components/schemas/AdventureSetting'
+            SCHEDULING_LINKS:
+              $ref: '#/components/schemas/AdventureSetting'
+            SCHEDULING_LINK_SETTINGS:
+              $ref: '#/components/schemas/AdventureSetting'
+            HOURS:
+              $ref: '#/components/schemas/AdventureSetting'
+            PROFILE:
+              $ref: '#/components/schemas/AdventureSetting'
+            PERMISSIONS:
+              $ref: '#/components/schemas/AdventureSetting'
+            SLACK:
+              $ref: '#/components/schemas/AdventureSetting'
+            INTEGRATIONS:
+              $ref: '#/components/schemas/AdventureSetting'
+            TASK_INTEGRATIONS:
+              $ref: '#/components/schemas/AdventureSetting'
+            CHAT:
+              $ref: '#/components/schemas/AdventureSetting'
+            LOG_WORK:
+              $ref: '#/components/schemas/AdventureSetting'
+            PREVIEW_MODE:
+              $ref: '#/components/schemas/AdventureSetting'
     AvailabilitySettings:
       type: object
       properties:
         redisCacheEnabled:
           type: boolean
+    UserProvisioningDetails:
+      required:
+      - hasTeamProvisionedMetadata
+      type: object
+      properties:
+        hasTeamProvisionedMetadata:
+          type: boolean
+    CalendarSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        calendarCleanupRunning:
+          type: string
+          format: date-time
+    ReclaimEdition:
+      type: string
+      enum:
+      - NONE
+      - TRIAL
+      - ASSISTANT
+      - PRO
+      - TEAM
+      - REWARD
+      - LEGACY_PRO_TRIAL
+      - LEGACY_TEAM_TRIAL
+      - LITE
+      - STARTER
+      - BUSINESS
+      - TRIAL_BUSINESS
+      - TRIAL_BUSINESS_12W
+      - TRIAL_BUSINESS_FOR_LEGACY_PLANS
+      - ENTERPRISE
+      - TEAM_REWARD
+      - LITE_V2
+      - LITE_V3
+    MicrosoftSettings:
+      type: object
+      properties:
+        smartSeriesDetectionEnabled:
+          type: boolean
+        useFullyExpandedSeriesMasterForInterop:
+          type: boolean
+        resolveReclaimForNonMemberUsingCalendarView:
+          type: boolean
+    SmartSeriesRecurrenceType:
+      type: string
+      enum:
+      - SINGLE_INSTANCES
+      - RECURRING_SERIES
+    Calendar.Type:
+      type: string
+      enum:
+      - PRIMARY
+      - SHADOW
+      - PERSONAL
+      - PRIORITY
+      - PROJECT
+      - OOO
+    AvailabilityType:
+      type: string
+      enum:
+      - BUSY
+      - FREE
+    ScheduleAssistantScoringSettings:
+      type: object
+      properties:
+        version:
+          $ref: '#/components/schemas/SlotScorerVersion'
+    SlackOutsideHoursSetting:
+      required:
+      - dnd
+      - policy
+      type: object
+      properties:
+        policy:
+          type: string
+        message:
+          type:
+          - string
+          - 'null'
+        dnd:
+          type: boolean
+    UserMetadata:
+      type: object
+      properties:
+        jobTitle:
+          type: string
+        companyName:
+          type: string
+        companySize:
+          $ref: '#/components/schemas/UserMetadataCompanySize'
+        usecase:
+          $ref: '#/components/schemas/UserMetadataUsecase'
+        role:
+          allOf:
+          - $ref: '#/components/schemas/UserProfileRole'
+        goals:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserProfileGoal'
+        isWorkspace:
+          type: boolean
+        department:
+          allOf:
+          - $ref: '#/components/schemas/UserProfileDepartment'
+        orgMetadata:
+          $ref: '#/components/schemas/OrgMetadata'
+    DropboxSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+    AutoLock:
+      type: string
+      enum:
+      - 'OFF'
+      - SAME_DAY
+      - SAME_WEEK
+      - TOMORROW
+      - ROLLING_3_DAYS
+    UserProfileRole:
+      type: string
+      enum:
+      - EXEC
+      - MANAGER
+      - NON_MANAGER
+      - CONSULTANT
+      - STUDENT
+    SyncAllDayEvents:
+      type: string
+      enum:
+      - SKIP_ALL
+      - SYNC_BUSY
+      - SYNC_ALL
+    ThinCalendar:
+      required:
+      - calendarId
+      - credentialEmail
+      - credentialId
+      - id
+      - lastSynced
+      - timezone
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        timezone:
+          type: string
+        calendarId:
+          type: string
+        lastSynced:
+          type: string
+          format: date-time
+        credentialId:
+          type: integer
+          format: int64
+        credentialEmail:
+          type: string
+    DetailedEntitlements:
+      type: object
+      properties:
+        unlimitedHabitsEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+        unlimitedSyncEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+        unlimitedConnectedCalendarsEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+        customSyncTransparencyEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+        smart11CreationEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+        customSlackSyncStatusEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+        customConferenceBufferTitleEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+        linearEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+        jiraEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+        todoistEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+        asanaEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+        clickupEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+        trelloEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+        mondayEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+    TaskAutoWorkflowType:
+      type: string
+      enum:
+      - NOTHING
+      - REOPEN
+      - CLOSE
+    CalendarSyncPolicy:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/SyncSettings'
+      - properties:
+          sourceCalendarId:
+            type: integer
+            format: int64
+          compositeId:
+            type: string
+          targetCalendarId:
+            type: integer
+            format: int64
+          enabled:
+            type: boolean
+          lastSyncToken:
+            type: string
+          autoDisabledReason:
+            $ref: '#/components/schemas/DisabledReason'
+          usePipeline:
+            type: boolean
+          managedByTeamOooCalendarId:
+            type:
+            - integer
+            - 'null'
+            format: int64
+    GCalConstants.AccessRole:
+      type: string
+      enum:
+      - freeBusyReader
+      - reader
+      - owner
+      - writer
+      - none
+      x-enum-varnames:
+      - freeBusyReader
+      - reader
+      - owner
+      - writer
+      - none
+    TodoistSettings:
+      type: object
+      properties:
+        apiV1Enabled:
+          type: boolean
+    AssistNotificationSettings:
+      required:
+      - detectedDigest
+      - instanceChanges
+      - instanceWindowInDays
+      - needsAttentionDigest
+      type: object
+      properties:
+        instanceChanges:
+          type: boolean
+        instanceWindowInDays:
+          type: integer
+          format: int32
+        needsAttentionDigest:
+          type: boolean
+        detectedDigest:
+          type: boolean
+    UserDateTimeFormatter:
+      type: object
+      properties:
+        locale:
+          type: string
+    TimezonePreference:
+      type: string
+      enum:
+      - USE_PRIMARY_CALENDAR_TZ
+      - USE_RECLAIM_TZ
     Entitlements:
       type: object
       properties:
@@ -270,102 +720,263 @@ components:
           type: boolean
         SSOEnabled:
           type: boolean
-    GCalConstants.AccessRole:
-      type: string
-      enum:
-      - freeBusyReader
-      - reader
-      - owner
-      - writer
-      - none
-      x-enum-varnames:
-      - freeBusyReader
-      - reader
-      - owner
-      - writer
-      - none
-    UserProfileDepartment:
-      type: string
-      enum:
-      - PRODUCT
-      - ENGINEERING
-      - SUPPORT
-      - MARKETING
-      - SALES
-      - DESIGN
-      - HR
-      - OPERATIONS
-      - ACCOUNTING_AND_FINANCE
-      - FOUNDER
-      - EXECUTIVE_ASSISTANT
-      - IT_SECURITY
-      - OTHER
-      x-deprecated:
-      - OTHER
-    TaskDefaults:
+    CredentialName:
+      required:
+      - email
       type: object
       properties:
-        timeChunksRequired:
-          type: integer
-          format: int32
-        commsTimeChunksRequired:
-          type: integer
-          format: int32
-        delayedStartInMinutes:
-          type: integer
-          format: int32
-        dueInDays:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        category:
-          deprecated: true
-          allOf:
-          - $ref: '#/components/schemas/EventCategory'
-        alwaysPrivate:
-          type: boolean
-        minChunkSize:
-          type: integer
-          format: int32
-        maxChunkSize:
-          type: integer
-          format: int32
-        timeSchemeId:
-          type:
-          - string
-          - 'null'
-        priority:
+        email:
           type: string
-        onDeck:
-          type: boolean
-        splitUp:
-          type: boolean
-        googleTaskIntegrationNoDueDateWhenMissing:
-          type: boolean
-    AuthProvider:
+    SyncCalendarType:
       type: string
       enum:
-      - google
-      - microsoft
-      - dropbox
-      - test
-      - mock_provider
-      x-enum-varnames:
-      - google
-      - microsoft
-      - dropbox
-      - test
-      - mock_provider
-    TodoistSettings:
+      - BUSINESS
+      - PERSONAL
+      - TRAVEL
+      - OOO
+    SlackStatusSetting:
       type: object
       properties:
-        apiV1Enabled:
+        emoji:
+          type: string
+        template:
+          type: string
+        dnd:
           type: boolean
-    UserAccountLock.AccountLockType:
+        enabled:
+          type: boolean
+    WeeklyReport:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        sendReport:
+          type: boolean
+    ObservedUser:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/LogContext'
+      - properties:
+          id:
+            type: string
+          trackingCode:
+            type: string
+          edition:
+            $ref: '#/components/schemas/ReclaimEdition'
+    AnalyticsSettings:
+      type: object
+      properties:
+        teamAnalyticsV4ViewEnabled:
+          type: boolean
+        teamAnalyticsV4FiltersEnabled:
+          type: boolean
+    SyncTransparency:
       type: string
       enum:
-      - PIPELINE_MIGRATION
+      - DEFAULT
+      - SEMI_PRIVATE
+      - PRIVATE
+      - PUBLIC
+      - SEMI_PRIVATE_ALT
+    UserSettings:
+      required:
+      - accountLocks
+      - analyticsSettings
+      - appNotifications
+      - asana
+      - assistSettings
+      - assistant
+      - availabilitySettings
+      - billing
+      - calendar
+      - calendarEntrySettings
+      - calendarPermissionSettings
+      - colors
+      - dropboxSettings
+      - eventDisplayPreferences
+      - experimentalSettings
+      - focus
+      - googleAddOnSettings
+      - interests
+      - microsoft
+      - onboard
+      - postOnboard
+      - priorities
+      - projects
+      - quests
+      - rsvpSetting
+      - schedulingLinks
+      - slackSettings
+      - smartOneOnOnes
+      - sync
+      - taskSettings
+      - temporal
+      - timezoneSettings
+      - todoistSettings
+      - webhookSettings
+      - weeklyReport
+      type: object
+      properties:
+        assistSettings:
+          $ref: '#/components/schemas/AssistSettings'
+        scheduler:
+          type: integer
+          format: int32
+        prioritizationEnabled:
+          type: boolean
+        extraScopes:
+          type: boolean
+        peopleScopes:
+          type: boolean
+        directoryScopes:
+          type: boolean
+        taskSettings:
+          $ref: '#/components/schemas/TaskSettings'
+        priorities:
+          $ref: '#/components/schemas/PrioritiesSettings'
+        colors:
+          $ref: '#/components/schemas/ColorsSettings'
+        calendar:
+          $ref: '#/components/schemas/CalendarSettings'
+        focus:
+          $ref: '#/components/schemas/FocusSettings'
+        asana:
+          $ref: '#/components/schemas/AsanaSettings'
+        webhookSettings:
+          $ref: '#/components/schemas/WebhookSettings'
+        billing:
+          $ref: '#/components/schemas/BillingSettings'
+        projects:
+          $ref: '#/components/schemas/ProjectsSettings'
+        sync:
+          $ref: '#/components/schemas/SyncFeatureSettings'
+        slackSettings:
+          $ref: '#/components/schemas/SlackSettings'
+        todoistSettings:
+          $ref: '#/components/schemas/TodoistSettings'
+        appNotifications:
+          $ref: '#/components/schemas/AppNotificationsSettings'
+        interests:
+          $ref: '#/components/schemas/UserInterests'
+        onboard:
+          $ref: '#/components/schemas/UserOnboard'
+        postOnboard:
+          $ref: '#/components/schemas/UserPostOnboard'
+        weeklyReport:
+          $ref: '#/components/schemas/WeeklyReport'
+        smartOneOnOnes:
+          $ref: '#/components/schemas/SmartOneOnOneSettings'
+        schedulingLinks:
+          $ref: '#/components/schemas/SchedulingLinkSettings'
+        quests:
+          $ref: '#/components/schemas/QuestSettings'
+        googleAddOnSettings:
+          $ref: '#/components/schemas/GoogleAddOnSettings'
+        calendarEntrySettings:
+          $ref: '#/components/schemas/CalendarEntrySettings'
+        microsoft:
+          $ref: '#/components/schemas/MicrosoftSettings'
+        eventDisplayPreferences:
+          $ref: '#/components/schemas/EventDisplayPreferences'
+        timezoneSettings:
+          $ref: '#/components/schemas/TimezoneSettings'
+        rsvpSetting:
+          $ref: '#/components/schemas/RSVPSetting'
+        experimentalSettings:
+          $ref: '#/components/schemas/ExperimentalSettings'
+        dropboxSettings:
+          $ref: '#/components/schemas/DropboxSettings'
+        assistant:
+          $ref: '#/components/schemas/ScheduleAssistantSettings'
+        availabilitySettings:
+          $ref: '#/components/schemas/AvailabilitySettings'
+        calendarPermissionSettings:
+          $ref: '#/components/schemas/CalendarPermissionSettings'
+        analyticsSettings:
+          $ref: '#/components/schemas/AnalyticsSettings'
+        temporal:
+          $ref: '#/components/schemas/TemporalSettings'
+        accountLocks:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserAccountLock'
+        adventures:
+          $ref: '#/components/schemas/UserAdventures'
+        appNotificationsSettings:
+          $ref: '#/components/schemas/AppNotificationsSettings'
+        maskSuppressUntil:
+          type: string
+          format: date-time
+        availableMeetingTimes:
+          type: array
+          items:
+            type: integer
+            format: int32
+    EventDisplayPreferences:
+      required:
+      - attribution
+      - busyEmoji
+      - description
+      - doneEmoji
+      - freeEmoji
+      - lockEmoji
+      - prefix
+      - progressEmoji
+      - warningEmoji
+      type: object
+      properties:
+        progressEmoji:
+          type: boolean
+        lockEmoji:
+          type: boolean
+        freeEmoji:
+          type: boolean
+        busyEmoji:
+          type: boolean
+        doneEmoji:
+          type: boolean
+        warningEmoji:
+          type: boolean
+        description:
+          type: boolean
+        attribution:
+          type: boolean
+        prefix:
+          type: boolean
+    ExperimentalSettings:
+      type: object
+      properties:
+        treatOptionalSmartMeetingAttendeesAsFree:
+          type: boolean
+        lookAheadForSmartMeetingIdealDayOnWeeklyMeetings:
+          type: boolean
+    SchedulingWindowWeeksOverride:
+      type: string
+      enum:
+      - ONE
+      - TWO
+      - THREE
+      - FOUR
+      - FIVE
+      - SIX
+      - SEVEN
+      - EIGHT
+      - NINE
+      - TEN
+      - ELEVEN
+      - TWELVE
+    SignupMethod:
+      type: string
+      enum:
+      - SCIM
+      - ADMIN_API
+      - SLACK
+      - SELF
+    QuestSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
     SlackSettings:
       type: object
       properties:
@@ -420,182 +1031,166 @@ components:
           additionalProperties:
             type: string
             format: date
-    Reminder:
+    UserAccountLock:
       required:
-      - minutes
-      - reminderType
+      - accountLockType
+      - lockMessage
       type: object
       properties:
-        reminderType:
-          $ref: '#/components/schemas/ReminderType'
-        minutes:
-          type: integer
-          format: int32
-    PrioritiesSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-    EventType:
+        accountLockType:
+          $ref: '#/components/schemas/UserAccountLock.AccountLockType'
+        lockMessage:
+          type: string
+    CalendarUseType:
       type: string
       enum:
-      - MEETING
+      - UNKNOWN
+      - MULTI_USE
       - WORK
-      - LOGISTICS
       - PERSONAL
-    AvailabilityType:
-      type: string
-      enum:
-      - BUSY
-      - FREE
-    AssistSettings:
-      type: object
-      properties:
-        travel:
-          type: boolean
-        otherTravelDuration:
-          type: integer
-          format: int32
-        conferenceBuffer:
-          type: boolean
-        conferenceBufferDuration:
-          type: integer
-          format: int32
-        assignmentPaddingDuration:
-          type: integer
-          format: int32
-        conferenceBufferPrivate:
-          type: boolean
-        conferenceBufferType:
-          $ref: '#/components/schemas/ConferenceBufferType'
-        customConferenceBufferTitle:
-          type: string
-        focus:
-          type: boolean
-        allOneOnOnesBusy:
-          type: boolean
-        autoLockForMeetings:
-          $ref: '#/components/schemas/AutoLock'
-        autoLockForNonMeetings:
-          $ref: '#/components/schemas/AutoLock'
-        sendMeetingNotifications:
-          type: boolean
-        useFreeBusyEmojis:
-          type: boolean
-        useLockEmoji:
-          type: boolean
-        includeDescription:
-          type: boolean
-        includeAttribution:
-          type: boolean
-        smartSeries:
-          type: boolean
-        smartMeetingRecurrenceType:
-          $ref: '#/components/schemas/SmartSeriesRecurrenceType'
-        smartHabitRecurrenceType:
-          $ref: '#/components/schemas/SmartSeriesRecurrenceType'
-        showClassicHabits:
-          type: boolean
-        allowSmartSeriesOptIn:
-          type: boolean
-        smartSeriesMigrateComplete:
-          type: boolean
-        neverSeenClassicHabits:
-          type: boolean
-        notificationSettings:
-          $ref: '#/components/schemas/AssistNotificationSettings'
-        assistDays:
-          type: integer
-          format: int32
-        bypassed:
-          type: boolean
-        dayZero:
-          type: string
-          format: date
-        schedulerDisabled:
-          type: boolean
-        schedulerSuppressedUntil:
-          type: string
-          format: date-time
-        schedulerSuppressed:
-          type: boolean
-        rescheduleUnstarted:
-          type: boolean
-        rescheduleUnstartedOkToSchedule:
-          type: boolean
-        dampSmartMeetings:
-          type: boolean
-        scheduleSmartMeetingsAtMostDaily:
-          type: boolean
-        scheduleSmartMeetingsOnce:
-          type: boolean
-        manualAssistRunsEnabled:
-          type: boolean
-        schedulerWindowWeeks:
-          allOf:
-          - $ref: '#/components/schemas/SchedulingWindowWeeksOverride'
-        extendedSmartMeetingCooldown:
-          type: boolean
-        includeOrganizerInSmartSeries:
-          type: boolean
-          deprecated: true
-        debugScheduler:
-          type: boolean
-        smartHabitGen2ToGen3MigrationDate:
-          type: string
-          format: date-time
-        smartMeetingGen2ToGen3MigrationDate:
-          type: string
-          format: date-time
-        gen1HabitsAndMeetingsToGen3AutoMigrate:
-          type: boolean
-        smartHabitsToGen3AutoMigrate:
-          type: boolean
-        smartMeetingsToGen3AutoMigrate:
-          type: boolean
-    AnalyticsSettings:
-      type: object
-      properties:
-        teamAnalyticsV4ViewEnabled:
-          type: boolean
-        teamAnalyticsV4FiltersEnabled:
-          type: boolean
-    SchedulingWindowWeeksOverride:
-      type: string
-      enum:
-      - ONE
-      - TWO
-      - THREE
-      - FOUR
-      - FIVE
-      - SIX
-      - SEVEN
-      - EIGHT
-      - NINE
-      - TEN
-      - ELEVEN
-      - TWELVE
-    SmartOneOnOneSettings:
+      - FAMILY
+      - TEAM
+      - VACATION
+      - TRAVEL
+      - TEAM_OOO_CALENDAR
+    CalendarPermissionSettings:
       type: object
       properties:
         enabled:
           type: boolean
-    UserPostOnboardState:
+    AuthProvider:
       type: string
       enum:
-      - NEVER_SHOWN
-      - NEVER_INTERACTED
-      - PASS
-      - CHECK
-      - CTA
-    DateFieldOrder:
+      - google
+      - microsoft
+      - dropbox
+      - test
+      - mock_provider
+      x-enum-varnames:
+      - google
+      - microsoft
+      - dropbox
+      - test
+      - mock_provider
+    GoogleAddOnSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+    EntitlementDetails:
+      required:
+      - minimumEdition
+      - name
+      type: object
+      properties:
+        minimumEdition:
+          type: string
+        name:
+          type: string
+        enabledForUser:
+          type: boolean
+    AdventureSetting:
+      required:
+      - complete
+      type: object
+      properties:
+        complete:
+          type: boolean
+    OrgMetadata.OrgManager:
+      required:
+      - displayName
+      - managerId
+      - ref
+      type: object
+      properties:
+        managerId:
+          type: string
+        displayName:
+          type: string
+        ref:
+          type: string
+    CalendarEntrySettings:
+      type: object
+      properties:
+        pipelineEnabled:
+          type: boolean
+        pipelineWatchEnabled:
+          type: boolean
+        autoMigrate:
+          type: boolean
+        shouldMigrate:
+          type: boolean
+        selfServiceMigrate:
+          type: boolean
+        dailyAudit:
+          type: boolean
+        microsoftPipelineBatching:
+          type: boolean
+        scoredTopContacts:
+          type: boolean
+        googleGhCutoff:
+          type: boolean
+        usePipelineCleanCalendar:
+          type: boolean
+        dedicatedUpsertEnabled:
+          type: boolean
+    EventColor:
       type: string
       enum:
-      - MDY
-      - DMY
-      - YMD
-    EventCategory:
-      $ref: '#/components/schemas/Colorized'
+      - NONE
+      - LAVENDER
+      - SAGE
+      - GRAPE
+      - FLAMINGO
+      - BANANA
+      - TANGERINE
+      - PEACOCK
+      - GRAPHITE
+      - BLUEBERRY
+      - BASIL
+      - TOMATO
+    ProjectsSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+    UserInterests:
+      type: object
+      properties:
+        tasks:
+          type: boolean
+        priorities:
+          type: boolean
+        office365:
+          type: boolean
+        calendar:
+          type: boolean
+        asana:
+          type: boolean
+        trello:
+          type: boolean
+        todoist:
+          type: boolean
+        jira:
+          type: boolean
+        linear:
+          type: boolean
+        clickup:
+          type: boolean
+        monday:
+          type: boolean
+        MSTeams:
+          type: boolean
+    TaskCooldown:
+      type: string
+      enum:
+      - NONE
+      - LEGACY
+      - HALF_HOUR
+      - ONE_HOUR
+      - TWO_HOURS
+      - FOUR_HOURS
+      - ONCE_A_DAY
     User:
       required:
       - edition
@@ -819,6 +1414,254 @@ components:
           $ref: '#/components/schemas/UserDateTimeFormatter'
         userProvisioningDetails:
           $ref: '#/components/schemas/UserProvisioningDetails'
+    DisabledReason:
+      type: string
+      enum:
+      - LOOP_SUSPECTED
+    TimezoneSettings:
+      required:
+      - timeZonePreference
+      type: object
+      properties:
+        zoneId:
+          type:
+          - string
+          - 'null'
+        timeZonePreference:
+          $ref: '#/components/schemas/TimezonePreference'
+        timezonePreference:
+          $ref: '#/components/schemas/TimezonePreference'
+    Colorized:
+      type: object
+      properties:
+        color:
+          $ref: '#/components/schemas/EventColor'
+    DefaultRsvpAvailability:
+      type: object
+      properties:
+        treatNeedsActionRsvpAs:
+          $ref: '#/components/schemas/AvailabilityType'
+    ColorsSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        categoriesEnabled:
+          type: boolean
+        lastModified:
+          type: string
+          format: date-time
+        priorities:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/EventColor'
+        categories:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/EventColor'
+    FocusSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        debug:
+          type: boolean
+    BillingSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+    SchedulingLinkNameVisibility:
+      type: string
+      enum:
+      - NEVER
+      - USER_IS_LINK_OWNER
+      - VISIBLE_TO_TEAM_MEMBERS
+      - VISIBLE_ON_TEAM_MEMBERS_LINKS
+      - ALWAYS
+    LogContext:
+      type: object
+    UserMetadataCompanySize:
+      type: string
+      enum:
+      - SUB_10
+      - SUB_50
+      - SUB_100
+      - SUB_500
+      - SUB_1000
+      - THOUSAND_PLUS
+    TaskDefaults:
+      type: object
+      properties:
+        timeChunksRequired:
+          type: integer
+          format: int32
+        commsTimeChunksRequired:
+          type: integer
+          format: int32
+        delayedStartInMinutes:
+          type: integer
+          format: int32
+        dueInDays:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        category:
+          deprecated: true
+          allOf:
+          - $ref: '#/components/schemas/EventCategory'
+        alwaysPrivate:
+          type: boolean
+        minChunkSize:
+          type: integer
+          format: int32
+        maxChunkSize:
+          type: integer
+          format: int32
+        timeSchemeId:
+          type:
+          - string
+          - 'null'
+        priority:
+          type: string
+        onDeck:
+          type: boolean
+        splitUp:
+          type: boolean
+        googleTaskIntegrationNoDueDateWhenMissing:
+          type: boolean
+    SmartOneOnOneSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+    AssistSettings:
+      type: object
+      properties:
+        travel:
+          type: boolean
+        otherTravelDuration:
+          type: integer
+          format: int32
+        conferenceBuffer:
+          type: boolean
+        conferenceBufferDuration:
+          type: integer
+          format: int32
+        assignmentPaddingDuration:
+          type: integer
+          format: int32
+        conferenceBufferPrivate:
+          type: boolean
+        conferenceBufferType:
+          $ref: '#/components/schemas/ConferenceBufferType'
+        customConferenceBufferTitle:
+          type: string
+        focus:
+          type: boolean
+        allOneOnOnesBusy:
+          type: boolean
+        autoLockForMeetings:
+          $ref: '#/components/schemas/AutoLock'
+        autoLockForNonMeetings:
+          $ref: '#/components/schemas/AutoLock'
+        sendMeetingNotifications:
+          type: boolean
+        useFreeBusyEmojis:
+          type: boolean
+        useLockEmoji:
+          type: boolean
+        includeDescription:
+          type: boolean
+        includeAttribution:
+          type: boolean
+        smartSeries:
+          type: boolean
+        smartMeetingRecurrenceType:
+          $ref: '#/components/schemas/SmartSeriesRecurrenceType'
+        smartHabitRecurrenceType:
+          $ref: '#/components/schemas/SmartSeriesRecurrenceType'
+        showClassicHabits:
+          type: boolean
+        allowSmartSeriesOptIn:
+          type: boolean
+        smartSeriesMigrateComplete:
+          type: boolean
+        neverSeenClassicHabits:
+          type: boolean
+        notificationSettings:
+          $ref: '#/components/schemas/AssistNotificationSettings'
+        assistDays:
+          type: integer
+          format: int32
+        bypassed:
+          type: boolean
+        dayZero:
+          type: string
+          format: date
+        schedulerDisabled:
+          type: boolean
+        schedulerSuppressedUntil:
+          type: string
+          format: date-time
+        schedulerSuppressed:
+          type: boolean
+        rescheduleUnstarted:
+          type: boolean
+        rescheduleUnstartedOkToSchedule:
+          type: boolean
+        dampSmartMeetings:
+          type: boolean
+        scheduleSmartMeetingsAtMostDaily:
+          type: boolean
+        scheduleSmartMeetingsOnce:
+          type: boolean
+        manualAssistRunsEnabled:
+          type: boolean
+        schedulerWindowWeeks:
+          allOf:
+          - $ref: '#/components/schemas/SchedulingWindowWeeksOverride'
+        extendedSmartMeetingCooldown:
+          type: boolean
+        includeOrganizerInSmartSeries:
+          type: boolean
+          deprecated: true
+        debugScheduler:
+          type: boolean
+        smartHabitGen2ToGen3MigrationDate:
+          type: string
+          format: date-time
+        smartMeetingGen2ToGen3MigrationDate:
+          type: string
+          format: date-time
+        gen1HabitsAndMeetingsToGen3AutoMigrate:
+          type: boolean
+        smartHabitsToGen3AutoMigrate:
+          type: boolean
+        smartMeetingsToGen3AutoMigrate:
+          type: boolean
+    Settings:
+      type: object
+      properties:
+        autoAddHangouts:
+          type: boolean
+        defaultEventLength:
+          type: integer
+          format: int32
+        weekStart:
+          type: integer
+          format: int32
+        format24HourTime:
+          type: boolean
+        locale:
+          type: string
+        showDeclinedEvents:
+          type: boolean
+        timezone:
+          type: string
+        dateFieldOrder:
+          $ref: '#/components/schemas/DateFieldOrder'
     OrgMetadata:
       type: object
       properties:
@@ -850,6 +1693,64 @@ components:
           - object
           - 'null'
           additionalProperties: true
+    PrioritiesSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+    ConferenceBufferType:
+      type: string
+      enum:
+      - ALL_MEETINGS
+      - CONFERENCE_MEETINGS
+    CalendarSyncPolicyWithCalendars:
+      required:
+      - sourceCalendar
+      - targetCalendar
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/CalendarSyncPolicy'
+      - $ref: '#/components/schemas/SyncSettings'
+      - properties:
+          sourceCalendar:
+            $ref: '#/components/schemas/Calendar'
+          targetCalendar:
+            $ref: '#/components/schemas/Calendar'
+    UserAccountLock.AccountLockType:
+      type: string
+      enum:
+      - PIPELINE_MIGRATION
+    CalendarSyncPolicyRequest:
+      required:
+      - calendarSyncPolicy
+      type: object
+      properties:
+        calendarSyncPolicy:
+          $ref: '#/components/schemas/CalendarSyncPolicy'
+    ReminderType:
+      type: string
+      enum:
+      - UI_NOTIFICATION
+      - EMAIL
+    SchedulingWindowWeeks:
+      type: string
+      enum:
+      - ONE
+      - TWO
+      - THREE
+      - FOUR
+      - FIVE
+      - SIX
+      - SEVEN
+      - EIGHT
+      - NINE
+      - TEN
+      - ELEVEN
+      - TWELVE
+    SlotScorerVersion:
+      type: string
+      enum:
+      - V1
     ScheduleAssistantSettings:
       type: object
       properties:
@@ -873,6 +1774,73 @@ components:
           type: boolean
         persistedToolApprovalsEnabled:
           type: boolean
+    DayOfWeek:
+      type: string
+      enum:
+      - MONDAY
+      - TUESDAY
+      - WEDNESDAY
+      - THURSDAY
+      - FRIDAY
+      - SATURDAY
+      - SUNDAY
+    WebhookSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        all:
+          $ref: '#/components/schemas/WebhookSettings'
+    ExternalCalendarId:
+      required:
+      - externalId
+      type: object
+      properties:
+        externalId:
+          type: string
+    Reminder:
+      required:
+      - minutes
+      - reminderType
+      type: object
+      properties:
+        reminderType:
+          $ref: '#/components/schemas/ReminderType'
+        minutes:
+          type: integer
+          format: int32
+    UserPostOnboardState:
+      type: string
+      enum:
+      - NEVER_SHOWN
+      - NEVER_INTERACTED
+      - PASS
+      - CHECK
+      - CTA
+    TaskAutoWorkflowSettings:
+      type: object
+      properties:
+        category:
+          $ref: '#/components/schemas/TaskAutoWorkflowType'
+        durationToWaitInDays:
+          type: integer
+          format: int32
+    AppNotificationsSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        unscheduledPriority:
+          type: boolean
+        audioAlertEnabled:
+          type: boolean
+        titleTagAlertEnabled:
+          type: boolean
+    AsanaSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
     SchedulingLinkSettings:
       type: object
       properties:
@@ -889,22 +1857,16 @@ components:
         nameVisibility:
           allOf:
           - $ref: '#/components/schemas/SchedulingLinkNameVisibility'
-    BillingSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-    AppNotificationsSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        unscheduledPriority:
-          type: boolean
-        audioAlertEnabled:
-          type: boolean
-        titleTagAlertEnabled:
-          type: boolean
+    EventCategory:
+      $ref: '#/components/schemas/Colorized'
+    SlackSettings.StatusSync:
+      type: string
+      enum:
+      - 'OFF'
+      - DEFAULT
+      - BUSY
+      - CUSTOM
+      - TEAM
     EntitlementValue_Object_:
       required:
       - nextEdition
@@ -917,74 +1879,32 @@ components:
         nextEdition:
           allOf:
           - $ref: '#/components/schemas/ReclaimEdition'
-    RSVPSetting:
-      type: object
-      properties:
-        calendarSync:
-          $ref: '#/components/schemas/DefaultRsvpAvailability'
-    EventDisplayPreferences:
-      required:
-      - attribution
-      - busyEmoji
-      - description
-      - doneEmoji
-      - freeEmoji
-      - lockEmoji
-      - prefix
-      - progressEmoji
-      - warningEmoji
-      type: object
-      properties:
-        progressEmoji:
-          type: boolean
-        lockEmoji:
-          type: boolean
-        freeEmoji:
-          type: boolean
-        busyEmoji:
-          type: boolean
-        doneEmoji:
-          type: boolean
-        warningEmoji:
-          type: boolean
-        description:
-          type: boolean
-        attribution:
-          type: boolean
-        prefix:
-          type: boolean
-    MicrosoftSettings:
-      type: object
-      properties:
-        smartSeriesDetectionEnabled:
-          type: boolean
-        useFullyExpandedSeriesMasterForInterop:
-          type: boolean
-        resolveReclaimForNonMemberUsingCalendarView:
-          type: boolean
-    TaskSettings:
-      required:
-      - defaults
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        googleTasks:
-          type: boolean
-        defaults:
-          $ref: '#/components/schemas/TaskDefaults'
-        autoWorkflowSettings:
-          $ref: '#/components/schemas/TaskAutoWorkflowSettings'
-        scheduleWorkQueueOnly:
-          type: boolean
-        cooldown:
-          $ref: '#/components/schemas/TaskCooldown'
-    SyncAllDayEvents:
+    UserMetadataUsecase:
       type: string
       enum:
-      - SKIP_ALL
-      - SYNC_BUSY
-      - SYNC_ALL
+      - EDUCATION
+      - WORK
+      - NON_PROFIT
+      - TEAM
+      - SOLO_WORK
+      - PERSONAL
+      x-deprecated:
+      - EDUCATION
+      - NON_PROFIT
+    UserProfileGoal:
+      type: string
+      enum:
+      - HEADS_DOWN_TIME
+      - MEETINGS
+      - WORK_LIFE_BALANCE
+      - MULTIPLE_CALENDARS
+    EventType:
+      type: string
+      enum:
+      - MEETING
+      - WORK
+      - LOGISTICS
+      - PERSONAL
     SyncSettings:
       type: object
       properties:
@@ -1002,415 +1922,6 @@ components:
           $ref: '#/components/schemas/SyncAllDayEvents'
         syncReclaimEvents:
           type: boolean
-    DetailedEntitlements:
-      type: object
-      properties:
-        unlimitedHabitsEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
-        unlimitedSyncEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
-        unlimitedConnectedCalendarsEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
-        customSyncTransparencyEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
-        smart11CreationEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
-        customSlackSyncStatusEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
-        customConferenceBufferTitleEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
-        linearEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
-        jiraEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
-        todoistEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
-        asanaEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
-        clickupEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
-        trelloEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
-        mondayEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
-    CalendarUseType:
-      type: string
-      enum:
-      - UNKNOWN
-      - MULTI_USE
-      - WORK
-      - PERSONAL
-      - FAMILY
-      - TEAM
-      - VACATION
-      - TRAVEL
-      - TEAM_OOO_CALENDAR
-    AutoLock:
-      type: string
-      enum:
-      - 'OFF'
-      - SAME_DAY
-      - SAME_WEEK
-      - TOMORROW
-      - ROLLING_3_DAYS
-    ScheduleAssistantScoringSettings:
-      type: object
-      properties:
-        version:
-          $ref: '#/components/schemas/SlotScorerVersion'
-    UserInterests:
-      type: object
-      properties:
-        tasks:
-          type: boolean
-        priorities:
-          type: boolean
-        office365:
-          type: boolean
-        calendar:
-          type: boolean
-        asana:
-          type: boolean
-        trello:
-          type: boolean
-        todoist:
-          type: boolean
-        jira:
-          type: boolean
-        linear:
-          type: boolean
-        clickup:
-          type: boolean
-        monday:
-          type: boolean
-        MSTeams:
-          type: boolean
-    CalendarSyncPolicyWithCalendars:
-      required:
-      - sourceCalendar
-      - targetCalendar
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/CalendarSyncPolicy'
-      - $ref: '#/components/schemas/SyncSettings'
-      - properties:
-          sourceCalendar:
-            $ref: '#/components/schemas/Calendar'
-          targetCalendar:
-            $ref: '#/components/schemas/Calendar'
-    ColorsSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        categoriesEnabled:
-          type: boolean
-        lastModified:
-          type: string
-          format: date-time
-        priorities:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/EventColor'
-        categories:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/EventColor'
-    EntitlementDetails:
-      required:
-      - minimumEdition
-      - name
-      type: object
-      properties:
-        minimumEdition:
-          type: string
-        name:
-          type: string
-        enabledForUser:
-          type: boolean
-    ExperimentalSettings:
-      type: object
-      properties:
-        treatOptionalSmartMeetingAttendeesAsFree:
-          type: boolean
-        lookAheadForSmartMeetingIdealDayOnWeeklyMeetings:
-          type: boolean
-    AssistNotificationSettings:
-      required:
-      - detectedDigest
-      - instanceChanges
-      - instanceWindowInDays
-      - needsAttentionDigest
-      type: object
-      properties:
-        instanceChanges:
-          type: boolean
-        instanceWindowInDays:
-          type: integer
-          format: int32
-        needsAttentionDigest:
-          type: boolean
-        detectedDigest:
-          type: boolean
-    SyncFeatureSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        hasVipPrivileges:
-          type: boolean
-        daysBackwardOverride:
-          type: integer
-          format: int32
-    TaskAutoWorkflowType:
-      type: string
-      enum:
-      - NOTHING
-      - REOPEN
-      - CLOSE
-    AsanaSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-    UserProfileGoal:
-      type: string
-      enum:
-      - HEADS_DOWN_TIME
-      - MEETINGS
-      - WORK_LIFE_BALANCE
-      - MULTIPLE_CALENDARS
-    LogContext:
-      type: object
-    UserMetadataUsecase:
-      type: string
-      enum:
-      - EDUCATION
-      - WORK
-      - NON_PROFIT
-      - TEAM
-      - SOLO_WORK
-      - PERSONAL
-      x-deprecated:
-      - EDUCATION
-      - NON_PROFIT
-    UserAdventures:
-      type: object
-      properties:
-        adventures:
-          properties:
-            CORE_CONCEPTS:
-              $ref: '#/components/schemas/AdventureSetting'
-            CONNECT_PRIMARY_CALENDAR:
-              $ref: '#/components/schemas/AdventureSetting'
-            ADD_AGENT:
-              $ref: '#/components/schemas/AdventureSetting'
-            ADD_FOCUS_TIME:
-              $ref: '#/components/schemas/AdventureSetting'
-            ADD_BUFFERS:
-              $ref: '#/components/schemas/AdventureSetting'
-            ADD_HABIT:
-              $ref: '#/components/schemas/AdventureSetting'
-            HEAVY_MEETING_LOAD:
-              $ref: '#/components/schemas/AdventureSetting'
-            CONNECT_CALENDARS:
-              $ref: '#/components/schemas/AdventureSetting'
-            CALENDAR_SYNC:
-              $ref: '#/components/schemas/AdventureSetting'
-            SHARED_CALENDARS:
-              $ref: '#/components/schemas/AdventureSetting'
-            SCHEDULING_LINKS:
-              $ref: '#/components/schemas/AdventureSetting'
-            SCHEDULING_LINK_SETTINGS:
-              $ref: '#/components/schemas/AdventureSetting'
-            HOURS:
-              $ref: '#/components/schemas/AdventureSetting'
-            PROFILE:
-              $ref: '#/components/schemas/AdventureSetting'
-            PERMISSIONS:
-              $ref: '#/components/schemas/AdventureSetting'
-            SLACK:
-              $ref: '#/components/schemas/AdventureSetting'
-            INTEGRATIONS:
-              $ref: '#/components/schemas/AdventureSetting'
-            TASK_INTEGRATIONS:
-              $ref: '#/components/schemas/AdventureSetting'
-            CHAT:
-              $ref: '#/components/schemas/AdventureSetting'
-            LOG_WORK:
-              $ref: '#/components/schemas/AdventureSetting'
-            PREVIEW_MODE:
-              $ref: '#/components/schemas/AdventureSetting'
-    CalendarEntrySettings:
-      type: object
-      properties:
-        pipelineEnabled:
-          type: boolean
-        pipelineWatchEnabled:
-          type: boolean
-        autoMigrate:
-          type: boolean
-        shouldMigrate:
-          type: boolean
-        selfServiceMigrate:
-          type: boolean
-        dailyAudit:
-          type: boolean
-        microsoftPipelineBatching:
-          type: boolean
-        scoredTopContacts:
-          type: boolean
-        googleGhCutoff:
-          type: boolean
-        usePipelineCleanCalendar:
-          type: boolean
-        dedicatedUpsertEnabled:
-          type: boolean
-    SyncCalendarType:
-      type: string
-      enum:
-      - BUSINESS
-      - PERSONAL
-      - TRAVEL
-      - OOO
-    UserMetadata:
-      type: object
-      properties:
-        jobTitle:
-          type: string
-        companyName:
-          type: string
-        companySize:
-          $ref: '#/components/schemas/UserMetadataCompanySize'
-        usecase:
-          $ref: '#/components/schemas/UserMetadataUsecase'
-        role:
-          allOf:
-          - $ref: '#/components/schemas/UserProfileRole'
-        goals:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserProfileGoal'
-        isWorkspace:
-          type: boolean
-        department:
-          allOf:
-          - $ref: '#/components/schemas/UserProfileDepartment'
-        orgMetadata:
-          $ref: '#/components/schemas/OrgMetadata'
-    ThinCalendar:
-      required:
-      - calendarId
-      - credentialEmail
-      - credentialId
-      - id
-      - lastSynced
-      - timezone
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        timezone:
-          type: string
-        calendarId:
-          type: string
-        lastSynced:
-          type: string
-          format: date-time
-        credentialId:
-          type: integer
-          format: int64
-        credentialEmail:
-          type: string
-    TimezonePreference:
-      type: string
-      enum:
-      - USE_PRIMARY_CALENDAR_TZ
-      - USE_RECLAIM_TZ
-    ProjectsSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-    SlackStatusSetting:
-      type: object
-      properties:
-        emoji:
-          type: string
-        template:
-          type: string
-        dnd:
-          type: boolean
-        enabled:
-          type: boolean
-    CredentialName:
-      required:
-      - email
-      type: object
-      properties:
-        email:
-          type: string
-    CalendarPermissionSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-    UserMetadataCompanySize:
-      type: string
-      enum:
-      - SUB_10
-      - SUB_50
-      - SUB_100
-      - SUB_500
-      - SUB_1000
-      - THOUSAND_PLUS
-    WeeklyReport:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        sendReport:
-          type: boolean
-    SmartSeriesRecurrenceType:
-      type: string
-      enum:
-      - SINGLE_INSTANCES
-      - RECURRING_SERIES
-    DefaultRsvpAvailability:
-      type: object
-      properties:
-        treatNeedsActionRsvpAs:
-          $ref: '#/components/schemas/AvailabilityType'
-    SlotScorerVersion:
-      type: string
-      enum:
-      - V1
-    DisabledReason:
-      type: string
-      enum:
-      - LOOP_SUSPECTED
-    Settings:
-      type: object
-      properties:
-        autoAddHangouts:
-          type: boolean
-        defaultEventLength:
-          type: integer
-          format: int32
-        weekStart:
-          type: integer
-          format: int32
-        format24HourTime:
-          type: boolean
-        locale:
-          type: string
-        showDeclinedEvents:
-          type: boolean
-        timezone:
-          type: string
-        dateFieldOrder:
-          $ref: '#/components/schemas/DateFieldOrder'
     Calendar:
       required:
       - syncSettings
@@ -1510,517 +2021,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Reminder'
-    SchedulingWindowWeeks:
-      type: string
-      enum:
-      - ONE
-      - TWO
-      - THREE
-      - FOUR
-      - FIVE
-      - SIX
-      - SEVEN
-      - EIGHT
-      - NINE
-      - TEN
-      - ELEVEN
-      - TWELVE
-    Calendar.Type:
-      type: string
-      enum:
-      - PRIMARY
-      - SHADOW
-      - PERSONAL
-      - PRIORITY
-      - PROJECT
-      - OOO
-    UserOnboard:
-      type: object
-      properties:
-        habits:
-          type: boolean
-        tasks:
-          type: boolean
-        googleTasks:
-          type: boolean
-        planItemPrioritized:
-          type: boolean
-        smartOneOnOnes:
-          type: boolean
-        bufferTime:
-          type: boolean
-        tasksReindex:
-          type: boolean
-        googleAddOn:
-          type: boolean
-        v16Scheduler:
-          type: boolean
-        helpMenus:
-          type: boolean
-        smartMeetingsJustNewQuest:
-          type: boolean
-        smartHabitsJustNewQuest:
-          type: boolean
-        smartMeetingsNavItem:
-          type: boolean
-        smartMeetingsPricingWarning:
-          type: boolean
-        showDowngradeAcknowledgement:
-          type: boolean
-        showUpgradeRestoreModal:
-          type: boolean
-        setupGuideV2:
-          type: boolean
-        accountAndPersonalSettings:
-          type: boolean
-        webhooks:
-          type: boolean
-        focus:
-          type: boolean
-        eventCreationInPlanner:
-          type: boolean
-        assistantIntegrations:
-          type: boolean
-        assistMigrationWelcomePending:
-          type: boolean
-        assistantPreviewChanges:
-          type: boolean
-        schedulingLinks:
-          type: boolean
-    QuestSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-    TemporalSettings:
-      type: object
-      properties:
-        eventTransitionsEnabled:
-          type: boolean
-    UserDateTimeFormatter:
-      type: object
-      properties:
-        locale:
-          type: string
-    TaskAutoWorkflowSettings:
-      type: object
-      properties:
-        category:
-          $ref: '#/components/schemas/TaskAutoWorkflowType'
-        durationToWaitInDays:
-          type: integer
-          format: int32
-    OrgMetadata.OrgManager:
-      required:
-      - displayName
-      - managerId
-      - ref
-      type: object
-      properties:
-        managerId:
-          type: string
-        displayName:
-          type: string
-        ref:
-          type: string
-    SyncTransparency:
-      type: string
-      enum:
-      - DEFAULT
-      - SEMI_PRIVATE
-      - PRIVATE
-      - PUBLIC
-      - SEMI_PRIVATE_ALT
-    EventColor:
-      type: string
-      enum:
-      - NONE
-      - LAVENDER
-      - SAGE
-      - GRAPE
-      - FLAMINGO
-      - BANANA
-      - TANGERINE
-      - PEACOCK
-      - GRAPHITE
-      - BLUEBERRY
-      - BASIL
-      - TOMATO
-    UserAccountLock:
-      required:
-      - accountLockType
-      - lockMessage
-      type: object
-      properties:
-        accountLockType:
-          $ref: '#/components/schemas/UserAccountLock.AccountLockType'
-        lockMessage:
-          type: string
-    UserPostOnboard:
-      type: object
-      properties:
-        welcomed:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        focus:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        hours:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        habits:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        firstTask:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        integration:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        smartMeetings:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        schedulingLinks:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        slackStatusSync:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        travelTime:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        zoom:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        connectCalendars:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        colors:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        reclaimFree:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        guidedTours:
-          $ref: '#/components/schemas/UserPostOnboardState'
-    UserSettings:
-      required:
-      - accountLocks
-      - analyticsSettings
-      - appNotifications
-      - asana
-      - assistSettings
-      - assistant
-      - availabilitySettings
-      - billing
-      - calendar
-      - calendarEntrySettings
-      - calendarPermissionSettings
-      - colors
-      - dropboxSettings
-      - eventDisplayPreferences
-      - experimentalSettings
-      - focus
-      - googleAddOnSettings
-      - interests
-      - microsoft
-      - onboard
-      - postOnboard
-      - priorities
-      - projects
-      - quests
-      - rsvpSetting
-      - schedulingLinks
-      - slackSettings
-      - smartOneOnOnes
-      - sync
-      - taskSettings
-      - temporal
-      - timezoneSettings
-      - todoistSettings
-      - webhookSettings
-      - weeklyReport
-      type: object
-      properties:
-        assistSettings:
-          $ref: '#/components/schemas/AssistSettings'
-        scheduler:
-          type: integer
-          format: int32
-        prioritizationEnabled:
-          type: boolean
-        extraScopes:
-          type: boolean
-        peopleScopes:
-          type: boolean
-        directoryScopes:
-          type: boolean
-        taskSettings:
-          $ref: '#/components/schemas/TaskSettings'
-        priorities:
-          $ref: '#/components/schemas/PrioritiesSettings'
-        colors:
-          $ref: '#/components/schemas/ColorsSettings'
-        calendar:
-          $ref: '#/components/schemas/CalendarSettings'
-        focus:
-          $ref: '#/components/schemas/FocusSettings'
-        asana:
-          $ref: '#/components/schemas/AsanaSettings'
-        webhookSettings:
-          $ref: '#/components/schemas/WebhookSettings'
-        billing:
-          $ref: '#/components/schemas/BillingSettings'
-        projects:
-          $ref: '#/components/schemas/ProjectsSettings'
-        sync:
-          $ref: '#/components/schemas/SyncFeatureSettings'
-        slackSettings:
-          $ref: '#/components/schemas/SlackSettings'
-        todoistSettings:
-          $ref: '#/components/schemas/TodoistSettings'
-        appNotifications:
-          $ref: '#/components/schemas/AppNotificationsSettings'
-        interests:
-          $ref: '#/components/schemas/UserInterests'
-        onboard:
-          $ref: '#/components/schemas/UserOnboard'
-        postOnboard:
-          $ref: '#/components/schemas/UserPostOnboard'
-        weeklyReport:
-          $ref: '#/components/schemas/WeeklyReport'
-        smartOneOnOnes:
-          $ref: '#/components/schemas/SmartOneOnOneSettings'
-        schedulingLinks:
-          $ref: '#/components/schemas/SchedulingLinkSettings'
-        quests:
-          $ref: '#/components/schemas/QuestSettings'
-        googleAddOnSettings:
-          $ref: '#/components/schemas/GoogleAddOnSettings'
-        calendarEntrySettings:
-          $ref: '#/components/schemas/CalendarEntrySettings'
-        microsoft:
-          $ref: '#/components/schemas/MicrosoftSettings'
-        eventDisplayPreferences:
-          $ref: '#/components/schemas/EventDisplayPreferences'
-        timezoneSettings:
-          $ref: '#/components/schemas/TimezoneSettings'
-        rsvpSetting:
-          $ref: '#/components/schemas/RSVPSetting'
-        experimentalSettings:
-          $ref: '#/components/schemas/ExperimentalSettings'
-        dropboxSettings:
-          $ref: '#/components/schemas/DropboxSettings'
-        assistant:
-          $ref: '#/components/schemas/ScheduleAssistantSettings'
-        availabilitySettings:
-          $ref: '#/components/schemas/AvailabilitySettings'
-        calendarPermissionSettings:
-          $ref: '#/components/schemas/CalendarPermissionSettings'
-        analyticsSettings:
-          $ref: '#/components/schemas/AnalyticsSettings'
-        temporal:
-          $ref: '#/components/schemas/TemporalSettings'
-        accountLocks:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserAccountLock'
-        adventures:
-          $ref: '#/components/schemas/UserAdventures'
-        appNotificationsSettings:
-          $ref: '#/components/schemas/AppNotificationsSettings'
-        maskSuppressUntil:
-          type: string
-          format: date-time
-        availableMeetingTimes:
-          type: array
-          items:
-            type: integer
-            format: int32
-    SlackSettings.StatusSync:
-      type: string
-      enum:
-      - 'OFF'
-      - DEFAULT
-      - BUSY
-      - CUSTOM
-      - TEAM
-    TimezoneSettings:
-      required:
-      - timeZonePreference
-      type: object
-      properties:
-        zoneId:
-          type:
-          - string
-          - 'null'
-        timeZonePreference:
-          $ref: '#/components/schemas/TimezonePreference'
-        timezonePreference:
-          $ref: '#/components/schemas/TimezonePreference'
-    UserProvisioningDetails:
-      required:
-      - hasTeamProvisionedMetadata
-      type: object
-      properties:
-        hasTeamProvisionedMetadata:
-          type: boolean
-    SlackOutsideHoursSetting:
-      required:
-      - dnd
-      - policy
-      type: object
-      properties:
-        policy:
-          type: string
-        message:
-          type:
-          - string
-          - 'null'
-        dnd:
-          type: boolean
-    ObservedUser:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/LogContext'
-      - properties:
-          id:
-            type: string
-          trackingCode:
-            type: string
-          edition:
-            $ref: '#/components/schemas/ReclaimEdition'
-    DropboxSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-    SignupMethod:
-      type: string
-      enum:
-      - SCIM
-      - ADMIN_API
-      - SLACK
-      - SELF
-    ReminderType:
-      type: string
-      enum:
-      - UI_NOTIFICATION
-      - EMAIL
-    CalendarSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        calendarCleanupRunning:
-          type: string
-          format: date-time
-    ExternalCalendarId:
-      required:
-      - externalId
-      type: object
-      properties:
-        externalId:
-          type: string
-    ConferenceBufferType:
-      type: string
-      enum:
-      - ALL_MEETINGS
-      - CONFERENCE_MEETINGS
-    WebhookSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        all:
-          $ref: '#/components/schemas/WebhookSettings'
-    FocusSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        debug:
-          type: boolean
-    DayOfWeek:
-      type: string
-      enum:
-      - MONDAY
-      - TUESDAY
-      - WEDNESDAY
-      - THURSDAY
-      - FRIDAY
-      - SATURDAY
-      - SUNDAY
-    CalendarSyncPolicyRequest:
-      required:
-      - calendarSyncPolicy
-      type: object
-      properties:
-        calendarSyncPolicy:
-          $ref: '#/components/schemas/CalendarSyncPolicy'
-    GoogleAddOnSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-    UserProfileRole:
-      type: string
-      enum:
-      - EXEC
-      - MANAGER
-      - NON_MANAGER
-      - CONSULTANT
-      - STUDENT
-    AdventureSetting:
-      required:
-      - complete
-      type: object
-      properties:
-        complete:
-          type: boolean
-    ReclaimEdition:
-      type: string
-      enum:
-      - NONE
-      - TRIAL
-      - ASSISTANT
-      - PRO
-      - TEAM
-      - REWARD
-      - LEGACY_PRO_TRIAL
-      - LEGACY_TEAM_TRIAL
-      - LITE
-      - STARTER
-      - BUSINESS
-      - TRIAL_BUSINESS
-      - TRIAL_BUSINESS_12W
-      - TRIAL_BUSINESS_FOR_LEGACY_PLANS
-      - ENTERPRISE
-      - TEAM_REWARD
-      - LITE_V2
-      - LITE_V3
-    CalendarSyncPolicy:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/SyncSettings'
-      - properties:
-          sourceCalendarId:
-            type: integer
-            format: int64
-          compositeId:
-            type: string
-          targetCalendarId:
-            type: integer
-            format: int64
-          enabled:
-            type: boolean
-          lastSyncToken:
-            type: string
-          autoDisabledReason:
-            $ref: '#/components/schemas/DisabledReason'
-          usePipeline:
-            type: boolean
-          managedByTeamOooCalendarId:
-            type:
-            - integer
-            - 'null'
-            format: int64
-    TaskCooldown:
-      type: string
-      enum:
-      - NONE
-      - LEGACY
-      - HALF_HOUR
-      - ONE_HOUR
-      - TWO_HOURS
-      - FOUR_HOURS
-      - ONCE_A_DAY
   securitySchemes:
     Authorization:
       type: oauth2

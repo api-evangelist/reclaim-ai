@@ -352,6 +352,603 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    FocusInsightsStatisticV3:
+      required:
+      - count
+      - eventMinutesMap
+      - focusInsightsCategory
+      - minutes
+      - reclaimEventType
+      type: object
+      properties:
+        minutes:
+          type: integer
+          format: int32
+        count:
+          type: integer
+          format: int32
+        reclaimEventType:
+          $ref: '#/components/schemas/ReclaimEventType'
+        eventMinutesMap:
+          type: object
+          additionalProperties:
+            type: integer
+            format: int32
+        focusInsightsCategory:
+          $ref: '#/components/schemas/FocusInsightsCategory'
+    FocusTimeCountingStyle:
+      type: string
+      enum:
+      - IGNORE_TIME_SCHEME
+      - ONLY_WITHIN_TIME_SCHEME
+    AnalyticsGroupingInterval:
+      type: string
+      enum:
+      - DAILY
+      - WEEKLY
+    RichAppendixEntry:
+      required:
+      - missingScopes
+      - values
+      type: object
+      properties:
+        missingScopes:
+          type: array
+          items:
+            type: string
+        values:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/RichContact'
+    TeamMetadataFilterChoice.Variant:
+      type: string
+      enum:
+      - FULL
+      - COMPACT
+    Collection_String_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    TimeBreakdownDetails:
+      type: object
+      properties:
+        hoursDailyAvg:
+          type: number
+          format: double
+        shallowCount:
+          type: number
+          format: double
+        deepCount:
+          type: number
+          format: double
+    ThinPerson:
+      required:
+      - email
+      type: object
+      properties:
+        reclaimUser:
+          type: boolean
+        userId:
+          type:
+          - string
+          - 'null'
+        email:
+          minLength: 1
+          type: string
+        name:
+          type: string
+        avatarUrl:
+          type: string
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+    AnalyticsResult:
+      required:
+      - metric
+      - name
+      type: object
+      properties:
+        name:
+          $ref: '#/components/schemas/AnalyticsMetricName'
+        metric:
+          $ref: '#/components/schemas/AbstractMetric'
+    Appendix:
+      required:
+      - teamSize
+      type: object
+      properties:
+        people:
+          $ref: '#/components/schemas/RichAppendixEntry'
+        teamSize:
+          type: integer
+          format: int32
+    TeamMetadataFilterDate:
+      required:
+      - maxDate
+      - minDate
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/TeamMetadataFilter'
+      - properties:
+          minDate:
+            type: string
+            format: date-time
+          maxDate:
+            type: string
+            format: date-time
+    AbstractMetric:
+      required:
+      - appendixKeys
+      - description
+      - noData
+      - type
+      - unit
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/AnalyticsType'
+        unit:
+          $ref: '#/components/schemas/AnalyticsUnit'
+        description:
+          type: string
+        appendixKeys:
+          properties:
+            people:
+              $ref: '#/components/schemas/List_String_'
+        noData:
+          type: boolean
+      discriminator:
+        propertyName: type
+        mapping:
+          durationByDate: '#/components/schemas/AnalyticsDurationByDateMetric'
+          countByCategory: '#/components/schemas/AnalyticsCountByCategoryMetric'
+          durationByDateByString: '#/components/schemas/AnalyticsDurationByDateByStringMetric'
+          doubleValue: '#/components/schemas/AnalyticsDoubleValueMetric'
+          durationByCategory: '#/components/schemas/AnalyticsDurationByCategoryMetric'
+          durationByCategoryByString: '#/components/schemas/AnalyticsDurationByCategoryByStringMetric'
+          durationByString: '#/components/schemas/AnalyticsDurationByStringMetric'
+          calloutGroup: '#/components/schemas/CalloutGroupMetric'
+          durationByDateByCategory: '#/components/schemas/AnalyticsDurationByDateByCategoryMetric'
+          percentageByDateByDuration: '#/components/schemas/AnalyticsPercentageByDurationRangeByDateMetric'
+          countByString: '#/components/schemas/AnalyticsCountByStringMetric'
+          integerValue: '#/components/schemas/AnalyticsIntegerValueMetric'
+          durationByDayOfWeek: '#/components/schemas/AnalyticsDurationByDayOfWeekMetric'
+          countByTeamMember: '#/components/schemas/AnalyticsCountByTeamMemberMetric'
+    PolicyMetrics:
+      required:
+      - metrics
+      - overallPolicyAdherenceAverage
+      type: object
+      properties:
+        overallPolicyAdherenceAverage:
+          type: number
+          format: double
+        metrics:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolicyMetric'
+    TeamMetadataSelectedFilter:
+      required:
+      - key
+      - type
+      type: object
+      properties:
+        key:
+          type: string
+        type:
+          $ref: '#/components/schemas/TeamMetadataFilterType'
+      oneOf:
+      - $ref: '#/components/schemas/TeamMetadataSelectedFilterChoice'
+    RichContact:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ThinPerson'
+      - properties:
+          reclaimUser:
+            type: boolean
+          userId:
+            type:
+            - string
+            - 'null'
+          firstName:
+            type:
+            - string
+            - 'null'
+          lastName:
+            type:
+            - string
+            - 'null'
+    TimeInMeetingsBucket:
+      required:
+      - meetingHours
+      - userCount
+      type: object
+      properties:
+        meetingHours:
+          type: integer
+          format: int32
+        userCount:
+          type: integer
+          format: int32
+    TimeInMeetings:
+      required:
+      - dayOfWeekMeetingBuckets
+      - timeInMeetingsHistogram
+      type: object
+      properties:
+        timeInMeetingsHistogram:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/TimeInMeetingsBucket'
+        dayOfWeekMeetingBuckets:
+          type: array
+          items:
+            $ref: '#/components/schemas/DayOfWeekMeetingBucket'
+    DayOfWeek:
+      type: string
+      enum:
+      - MONDAY
+      - TUESDAY
+      - WEDNESDAY
+      - THURSDAY
+      - FRIDAY
+      - SATURDAY
+      - SUNDAY
+    AnalyticsResultsProcessingStatus:
+      type: string
+      enum:
+      - PENDING
+      - COMPLETED
+      - ERROR
+    DayOfWeekMeetingBucket:
+      required:
+      - dayOfTheWeek
+      - meetingHoursAvg
+      type: object
+      properties:
+        dayOfTheWeek:
+          $ref: '#/components/schemas/DayOfWeek'
+        meetingHoursAvg:
+          type: number
+          format: double
+    TeamMetadataFilter:
+      required:
+      - key
+      - label
+      - type
+      type: object
+      properties:
+        key:
+          type: string
+        label:
+          type: string
+        type:
+          $ref: '#/components/schemas/TeamMetadataFilterType'
+      oneOf:
+      - $ref: '#/components/schemas/TeamMetadataFilterChoice'
+      - $ref: '#/components/schemas/TeamMetadataFilterDate'
+      - $ref: '#/components/schemas/TeamMetadataFilterHierarchy'
+    TeamMetadataFilterChoiceOption:
+      required:
+      - value
+      type: object
+      properties:
+        value:
+          type: string
+    TeamMetadataFilterType:
+      type: string
+      enum:
+      - CHOICE
+      - DATE_RANGE
+      - HIERARCHY
+    AnalyticsUnit:
+      type: string
+      enum:
+      - COUNT
+      - DURATION_MINUTES
+      - PERCENTAGE
+    PolicyMetric:
+      required:
+      - name
+      - value
+      type: object
+      properties:
+        name:
+          type: string
+        value:
+          type: number
+          format: double
+    TeamAnalyticsV4Request:
+      required:
+      - queryEnd
+      - queryStart
+      type: object
+      properties:
+        queryStart:
+          type: string
+          format: date
+        queryEnd:
+          type: string
+          format: date
+        filters:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/TeamMetadataSelectedFilter'
+        myOrg:
+          type:
+          - boolean
+          - 'null'
+    TeamAnalyticsV4View:
+      required:
+      - currentMetrics
+      - previousMetrics
+      - tooFewUsers
+      - userCount
+      type: object
+      properties:
+        currentMetrics:
+          $ref: '#/components/schemas/TeamAnalyticsV4Metrics'
+        previousMetrics:
+          $ref: '#/components/schemas/TeamAnalyticsV4Metrics'
+        userCount:
+          type: integer
+          format: int64
+        tooFewUsers:
+          type: boolean
+    FocusInsightsViewV3:
+      required:
+      - insightsForDays
+      type: object
+      properties:
+        insightsForDays:
+          type: array
+          items:
+            $ref: '#/components/schemas/FocusInsightsForDayV3'
+    TeamAnalyticsV4Metrics:
+      required:
+      - avgFocusDuration
+      - decompressionTimeHoursPerWeek
+      - end
+      - focusScore
+      - meetingLoad
+      - reclaimScheduledPerWeek
+      - reclaimedTimeHoursPerWeek
+      - start
+      - travelTimeHoursPerWeek
+      type: object
+      properties:
+        start:
+          type: string
+          format: date
+        end:
+          type: string
+          format: date
+        deepWork:
+          allOf:
+          - $ref: '#/components/schemas/DeepWork'
+        timeBreakdown:
+          allOf:
+          - $ref: '#/components/schemas/TimeBreakdown'
+        timeInMeetings:
+          allOf:
+          - $ref: '#/components/schemas/TimeInMeetings'
+        focusScore:
+          type: number
+          format: double
+        meetingLoad:
+          type: number
+          format: double
+        avgFocusDuration:
+          type: number
+          format: double
+        reclaimedTimeHoursPerWeek:
+          type: number
+          format: double
+        decompressionTimeHoursPerWeek:
+          type: number
+          format: double
+        reclaimScheduledPerWeek:
+          type: number
+          format: double
+        travelTimeHoursPerWeek:
+          type: number
+          format: double
+        policyMetrics:
+          allOf:
+          - $ref: '#/components/schemas/PolicyMetrics'
+    TimeBreakdown:
+      required:
+      - eventTypeToHoursDailyAvg
+      - timeSeries
+      type: object
+      properties:
+        eventTypeToHoursDailyAvg:
+          properties:
+            ExternalMeeting:
+              $ref: '#/components/schemas/TimeBreakdownDetails'
+            OneOnOne:
+              $ref: '#/components/schemas/TimeBreakdownDetails'
+            TeamMeeting:
+              $ref: '#/components/schemas/TimeBreakdownDetails'
+            SoloWork:
+              $ref: '#/components/schemas/TimeBreakdownDetails'
+            Personal:
+              $ref: '#/components/schemas/TimeBreakdownDetails'
+            Logistics:
+              $ref: '#/components/schemas/TimeBreakdownDetails'
+            Focus:
+              $ref: '#/components/schemas/TimeBreakdownDetails'
+        timeSeries:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeBreakdownBucket'
+    AnalyticsMetricName:
+      type: string
+      enum:
+      - DIAGNOSTICS_EVENT_COUNT
+      - DIAGNOSTICS_EVENT_COUNT_BY_TEAM_MEMBER
+      - DIAGNOSTICS_EVENT_BUSY_COUNT_BY_TEAM_MEMBER
+      - DIAGNOSTICS_MEETING_COUNT_BY_TEAM_MEMBER
+      - TIME_WITH_PEOPLE_DURATION_BY_DATE_BY_PERSON
+      - TIME_WITH_PEOPLE_DURATION_BY_PERSON
+      - FOCUS_TIME_DURATION_BY_DATE_BY_TEAM_MEMBER
+      - FREE_TIME_DURATION_BY_DATE_BY_TEAM_MEMBER
+      - MEETING_TIME_DURATION_BY_DATE_BY_TEAM_MEMBER
+      - TASK_TIME_DURATION_BY_DATE_BY_TEAM_MEMBER
+      - HABIT_TIME_DURATION_BY_DATE_BY_TEAM_MEMBER
+      - MEETING_TIME_PERCENTAGE_BY_DATE_BY_DURATION_RANGE
+      - FOCUS_DURATION_BY_CATEGORY_BY_EVENT_NAME
+      - SCHEDULING_LINK_EVENT_COUNT
+      - RECLAIM_SCHEDULED_EVENT_COUNT
+      - DURATION_BY_CATEGORY
+      - RECLAIM_WORK_DURATION_BY_DATE_BY_ASSIGNMENT_TYPE
+      - DURATION_BY_DATE_BY_CATEGORY
+      - PERSONAL_HABIT_TIME_DURATION
+      - VACATION_TIME_DURATION
+      - OUTSIDE_WORK_TIME_DURATION
+      - RECLAIMED_TIME_DURATION
+      - DECOMPRESSION_TIME_DURATION
+      - TRAVEL_TIME_DURATION
+      - MEETING_TIME_DURATION_BY_DAY_OF_WEEK
+      - FOCUS_TIME_DURATION_BY_DAY_OF_WEEK
+      - WORK_HABITS_AND_TASKS_DURATION_BY_DATE_BY_NAME
+      - PERSONAL_HABITS_AND_TASKS_DURATION_BY_DATE_BY_NAME
+      - PERSONAL_TIME_DURATION
+      - LARGE_MEETINGS_COUNT
+      - MEETINGS_DECLINED_COUNT
+      - MEETING_CALLOUT_GROUP
+      - WORK_LIFE_CALLOUT_GROUP
+      - ROI_CALLOUT_GROUP
+      - CALENDAR_SYNC_COUNT
+      - CALENDAR_SYNC_TIME_DURATION
+      - COUNT_BY_CATEGORY
+      - COUNT_BY_ASSIGNMENT_TYPE
+      - DROPBOX_AGENDA_POLICY_ADHERENCE
+    AnalyticsResults:
+      required:
+      - appendix
+      - metrics
+      type: object
+      properties:
+        metrics:
+          type: array
+          items:
+            $ref: '#/components/schemas/AnalyticsResult'
+        appendix:
+          $ref: '#/components/schemas/Appendix'
+    TeamMetadataFilterView:
+      required:
+      - filterCandidates
+      - teamId
+      type: object
+      properties:
+        teamId:
+          type: integer
+          format: int64
+        filterCandidates:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamMetadataFilter'
+    ReclaimEventType:
+      type: string
+      enum:
+      - USER
+      - SYNC
+      - HABIT_ASSIGNMENT
+      - SMART_HABIT
+      - ONE_ON_ONE_ASSIGNMENT
+      - SMART_MEETING
+      - TASK_ASSIGNMENT
+      - CONF_BUFFER
+      - TRAVEL_BUFFER
+      - SCHEDULING_LINK_MEETING
+      - UNKNOWN
+      - FOCUS
+    TimeBreakdownBucket:
+      required:
+      - end
+      - eventTypeToHoursAvg
+      - freeTimeHoursAvg
+      - start
+      type: object
+      properties:
+        start:
+          type: string
+          format: date
+        end:
+          type: string
+          format: date
+        eventTypeToHoursAvg:
+          properties:
+            ExternalMeeting:
+              $ref: '#/components/schemas/TimeBreakdownDetails'
+            OneOnOne:
+              $ref: '#/components/schemas/TimeBreakdownDetails'
+            TeamMeeting:
+              $ref: '#/components/schemas/TimeBreakdownDetails'
+            SoloWork:
+              $ref: '#/components/schemas/TimeBreakdownDetails'
+            Personal:
+              $ref: '#/components/schemas/TimeBreakdownDetails'
+            Logistics:
+              $ref: '#/components/schemas/TimeBreakdownDetails'
+            Focus:
+              $ref: '#/components/schemas/TimeBreakdownDetails'
+        freeTimeHoursAvg:
+          type: number
+          format: double
+    TeamMetadataFilterChoice:
+      required:
+      - options
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/TeamMetadataFilter'
+      - properties:
+          options:
+            type: array
+            items:
+              $ref: '#/components/schemas/TeamMetadataFilterChoiceOption'
+          variant:
+            $ref: '#/components/schemas/TeamMetadataFilterChoice.Variant'
+    AnalyticsResultView:
+      required:
+      - result
+      - status
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/AnalyticsResultsProcessingStatus'
+        result:
+          $ref: '#/components/schemas/AnalyticsResults'
+    TeamMetadataFilterHierarchy.Child:
+      required:
+      - childIds
+      - descendantCount
+      - id
+      - label
+      type: object
+      properties:
+        id:
+          type: string
+        label:
+          type: string
+        descendantCount:
+          type: integer
+          format: int32
+        childIds:
+          type: array
+          items:
+            type: string
     FocusInsightsForDayV3:
       required:
       - analyticsResults
@@ -390,23 +987,77 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AnalyticsResult'
-    TeamMetadataFilter:
+    TeamMetadataSelectedFilterChoice:
       required:
-      - key
-      - label
-      - type
+      - value
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/TeamMetadataSelectedFilter'
+      - properties:
+          value:
+            type: string
+    TeamAnalyticsV4Permissions:
       type: object
       properties:
-        key:
-          type: string
-        label:
-          type: string
-        type:
-          $ref: '#/components/schemas/TeamMetadataFilterType'
-      oneOf:
-      - $ref: '#/components/schemas/TeamMetadataFilterChoice'
-      - $ref: '#/components/schemas/TeamMetadataFilterDate'
-      - $ref: '#/components/schemas/TeamMetadataFilterHierarchy'
+        hasMyOrg:
+          type:
+          - boolean
+          - 'null'
+    TeamMetadataFilterHierarchy:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/TeamMetadataFilter'
+      - properties:
+          descendantCount:
+            type: integer
+            format: int32
+          dictionary:
+            type: object
+            additionalProperties:
+              $ref: '#/components/schemas/TeamMetadataFilterHierarchy.Child'
+          childIds:
+            type: array
+            items:
+              type: string
+    List_String_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/SequencedCollection_String_'
+      - $ref: '#/components/schemas/Collection_String_'
+      - properties:
+          empty:
+            type: boolean
+          first:
+            type: string
+          last:
+            type: string
+    FocusInsightsCategory:
+      type: string
+      enum:
+      - ExternalMeeting
+      - OneOnOne
+      - TeamMeeting
+      - SoloWork
+      - Personal
+      - Logistics
+      - Focus
+      x-enum-varnames:
+      - ExternalMeeting
+      - OneOnOne
+      - TeamMeeting
+      - SoloWork
+      - Personal
+      - Logistics
+      - Focus
+    SequencedCollection_String_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/Collection_String_'
+      - properties:
+          first:
+            type: string
+          last:
+            type: string
     DeepWork:
       required:
       - deepFocusOpportunityCountNormalizedAvg
@@ -464,146 +1115,40 @@ components:
         meetingHeavyDaysNormalizedAvg:
           type: number
           format: double
-    TeamMetadataFilterDate:
-      required:
-      - maxDate
-      - minDate
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/TeamMetadataFilter'
-      - properties:
-          minDate:
-            type: string
-            format: date-time
-          maxDate:
-            type: string
-            format: date-time
-    SequencedCollection_String_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/Collection_String_'
-      - properties:
-          first:
-            type: string
-          last:
-            type: string
-    AnalyticsGroupingInterval:
+    AnalyticsType:
       type: string
       enum:
-      - DAILY
-      - WEEKLY
-    TeamMetadataSelectedFilterChoice:
-      required:
-      - value
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/TeamMetadataSelectedFilter'
-      - properties:
-          value:
-            type: string
-    TimeBreakdown:
-      required:
-      - eventTypeToHoursDailyAvg
-      - timeSeries
-      type: object
-      properties:
-        eventTypeToHoursDailyAvg:
-          properties:
-            ExternalMeeting:
-              $ref: '#/components/schemas/TimeBreakdownDetails'
-            OneOnOne:
-              $ref: '#/components/schemas/TimeBreakdownDetails'
-            TeamMeeting:
-              $ref: '#/components/schemas/TimeBreakdownDetails'
-            SoloWork:
-              $ref: '#/components/schemas/TimeBreakdownDetails'
-            Personal:
-              $ref: '#/components/schemas/TimeBreakdownDetails'
-            Logistics:
-              $ref: '#/components/schemas/TimeBreakdownDetails'
-            Focus:
-              $ref: '#/components/schemas/TimeBreakdownDetails'
-        timeSeries:
-          type: array
-          items:
-            $ref: '#/components/schemas/TimeBreakdownBucket'
-    ReclaimEventType:
-      type: string
-      enum:
-      - USER
-      - SYNC
-      - HABIT_ASSIGNMENT
-      - SMART_HABIT
-      - ONE_ON_ONE_ASSIGNMENT
-      - SMART_MEETING
-      - TASK_ASSIGNMENT
-      - CONF_BUFFER
-      - TRAVEL_BUFFER
-      - SCHEDULING_LINK_MEETING
-      - UNKNOWN
-      - FOCUS
-    AnalyticsResult:
-      required:
-      - metric
-      - name
-      type: object
-      properties:
-        name:
-          $ref: '#/components/schemas/AnalyticsMetricName'
-        metric:
-          $ref: '#/components/schemas/AbstractMetric'
-    PolicyMetric:
-      required:
-      - name
-      - value
-      type: object
-      properties:
-        name:
-          type: string
-        value:
-          type: number
-          format: double
-    FocusInsightsCategory:
-      type: string
-      enum:
-      - ExternalMeeting
-      - OneOnOne
-      - TeamMeeting
-      - SoloWork
-      - Personal
-      - Logistics
-      - Focus
+      - integerValue
+      - countByString
+      - countByCategory
+      - durationSummary
+      - durationByDateByCategory
+      - durationByCategory
+      - countByReclaimEventType
+      - durationByDate
+      - durationByString
+      - durationByDayOfWeek
+      - durationByDateByString
+      - durationByRangeByDate
+      - durationByCategoryByString
+      - calloutGroup
+      - doubleValue
       x-enum-varnames:
-      - ExternalMeeting
-      - OneOnOne
-      - TeamMeeting
-      - SoloWork
-      - Personal
-      - Logistics
-      - Focus
-    TeamMetadataFilterChoice:
-      required:
-      - options
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/TeamMetadataFilter'
-      - properties:
-          options:
-            type: array
-            items:
-              $ref: '#/components/schemas/TeamMetadataFilterChoiceOption'
-          variant:
-            $ref: '#/components/schemas/TeamMetadataFilterChoice.Variant'
-    AnalyticsResultView:
-      required:
-      - result
-      - status
-      type: object
-      properties:
-        status:
-          $ref: '#/components/schemas/AnalyticsResultsProcessingStatus'
-        result:
-          $ref: '#/components/schemas/AnalyticsResults'
+      - integerValue
+      - countByString
+      - countByCategory
+      - durationSummary
+      - durationByDateByCategory
+      - durationByCategory
+      - countByReclaimEventType
+      - durationByDate
+      - durationByString
+      - durationByDayOfWeek
+      - durationByDateByString
+      - durationByRangeByDate
+      - durationByCategoryByString
+      - calloutGroup
+      - doubleValue
     DeepWorkBucket:
       required:
       - deepFocusOpportunityCountNormalized
@@ -664,551 +1209,6 @@ components:
         meetingHeavyDaysNormalized:
           type: number
           format: double
-    TimeInMeetingsBucket:
-      required:
-      - meetingHours
-      - userCount
-      type: object
-      properties:
-        meetingHours:
-          type: integer
-          format: int32
-        userCount:
-          type: integer
-          format: int32
-    TeamMetadataFilterView:
-      required:
-      - filterCandidates
-      - teamId
-      type: object
-      properties:
-        teamId:
-          type: integer
-          format: int64
-        filterCandidates:
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamMetadataFilter'
-    AnalyticsResultsProcessingStatus:
-      type: string
-      enum:
-      - PENDING
-      - COMPLETED
-      - ERROR
-    TeamAnalyticsV4Permissions:
-      type: object
-      properties:
-        hasMyOrg:
-          type:
-          - boolean
-          - 'null'
-    Appendix:
-      required:
-      - teamSize
-      type: object
-      properties:
-        people:
-          $ref: '#/components/schemas/RichAppendixEntry'
-        teamSize:
-          type: integer
-          format: int32
-    TeamAnalyticsV4Metrics:
-      required:
-      - avgFocusDuration
-      - decompressionTimeHoursPerWeek
-      - end
-      - focusScore
-      - meetingLoad
-      - reclaimScheduledPerWeek
-      - reclaimedTimeHoursPerWeek
-      - start
-      - travelTimeHoursPerWeek
-      type: object
-      properties:
-        start:
-          type: string
-          format: date
-        end:
-          type: string
-          format: date
-        deepWork:
-          allOf:
-          - $ref: '#/components/schemas/DeepWork'
-        timeBreakdown:
-          allOf:
-          - $ref: '#/components/schemas/TimeBreakdown'
-        timeInMeetings:
-          allOf:
-          - $ref: '#/components/schemas/TimeInMeetings'
-        focusScore:
-          type: number
-          format: double
-        meetingLoad:
-          type: number
-          format: double
-        avgFocusDuration:
-          type: number
-          format: double
-        reclaimedTimeHoursPerWeek:
-          type: number
-          format: double
-        decompressionTimeHoursPerWeek:
-          type: number
-          format: double
-        reclaimScheduledPerWeek:
-          type: number
-          format: double
-        travelTimeHoursPerWeek:
-          type: number
-          format: double
-        policyMetrics:
-          allOf:
-          - $ref: '#/components/schemas/PolicyMetrics'
-    TeamMetadataFilterHierarchy:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/TeamMetadataFilter'
-      - properties:
-          descendantCount:
-            type: integer
-            format: int32
-          dictionary:
-            type: object
-            additionalProperties:
-              $ref: '#/components/schemas/TeamMetadataFilterHierarchy.Child'
-          childIds:
-            type: array
-            items:
-              type: string
-    TimeBreakdownDetails:
-      type: object
-      properties:
-        hoursDailyAvg:
-          type: number
-          format: double
-        shallowCount:
-          type: number
-          format: double
-        deepCount:
-          type: number
-          format: double
-    TeamMetadataFilterChoiceOption:
-      required:
-      - value
-      type: object
-      properties:
-        value:
-          type: string
-    List_String_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/SequencedCollection_String_'
-      - $ref: '#/components/schemas/Collection_String_'
-      - properties:
-          empty:
-            type: boolean
-          first:
-            type: string
-          last:
-            type: string
-    AnalyticsResults:
-      required:
-      - appendix
-      - metrics
-      type: object
-      properties:
-        metrics:
-          type: array
-          items:
-            $ref: '#/components/schemas/AnalyticsResult'
-        appendix:
-          $ref: '#/components/schemas/Appendix'
-    DayOfWeekMeetingBucket:
-      required:
-      - dayOfTheWeek
-      - meetingHoursAvg
-      type: object
-      properties:
-        dayOfTheWeek:
-          $ref: '#/components/schemas/DayOfWeek'
-        meetingHoursAvg:
-          type: number
-          format: double
-    TeamMetadataFilterHierarchy.Child:
-      required:
-      - childIds
-      - descendantCount
-      - id
-      - label
-      type: object
-      properties:
-        id:
-          type: string
-        label:
-          type: string
-        descendantCount:
-          type: integer
-          format: int32
-        childIds:
-          type: array
-          items:
-            type: string
-    RichAppendixEntry:
-      required:
-      - missingScopes
-      - values
-      type: object
-      properties:
-        missingScopes:
-          type: array
-          items:
-            type: string
-        values:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/RichContact'
-    DayOfWeek:
-      type: string
-      enum:
-      - MONDAY
-      - TUESDAY
-      - WEDNESDAY
-      - THURSDAY
-      - FRIDAY
-      - SATURDAY
-      - SUNDAY
-    Collection_String_:
-      type: object
-      properties:
-        empty:
-          type: boolean
-    TeamMetadataSelectedFilter:
-      required:
-      - key
-      - type
-      type: object
-      properties:
-        key:
-          type: string
-        type:
-          $ref: '#/components/schemas/TeamMetadataFilterType'
-      oneOf:
-      - $ref: '#/components/schemas/TeamMetadataSelectedFilterChoice'
-    TeamAnalyticsV4Request:
-      required:
-      - queryEnd
-      - queryStart
-      type: object
-      properties:
-        queryStart:
-          type: string
-          format: date
-        queryEnd:
-          type: string
-          format: date
-        filters:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/TeamMetadataSelectedFilter'
-        myOrg:
-          type:
-          - boolean
-          - 'null'
-    RichContact:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ThinPerson'
-      - properties:
-          reclaimUser:
-            type: boolean
-          userId:
-            type:
-            - string
-            - 'null'
-          firstName:
-            type:
-            - string
-            - 'null'
-          lastName:
-            type:
-            - string
-            - 'null'
-    TeamMetadataFilterChoice.Variant:
-      type: string
-      enum:
-      - FULL
-      - COMPACT
-    TimeBreakdownBucket:
-      required:
-      - end
-      - eventTypeToHoursAvg
-      - freeTimeHoursAvg
-      - start
-      type: object
-      properties:
-        start:
-          type: string
-          format: date
-        end:
-          type: string
-          format: date
-        eventTypeToHoursAvg:
-          properties:
-            ExternalMeeting:
-              $ref: '#/components/schemas/TimeBreakdownDetails'
-            OneOnOne:
-              $ref: '#/components/schemas/TimeBreakdownDetails'
-            TeamMeeting:
-              $ref: '#/components/schemas/TimeBreakdownDetails'
-            SoloWork:
-              $ref: '#/components/schemas/TimeBreakdownDetails'
-            Personal:
-              $ref: '#/components/schemas/TimeBreakdownDetails'
-            Logistics:
-              $ref: '#/components/schemas/TimeBreakdownDetails'
-            Focus:
-              $ref: '#/components/schemas/TimeBreakdownDetails'
-        freeTimeHoursAvg:
-          type: number
-          format: double
-    FocusTimeCountingStyle:
-      type: string
-      enum:
-      - IGNORE_TIME_SCHEME
-      - ONLY_WITHIN_TIME_SCHEME
-    AnalyticsType:
-      type: string
-      enum:
-      - integerValue
-      - countByString
-      - countByCategory
-      - durationSummary
-      - durationByDateByCategory
-      - durationByCategory
-      - countByReclaimEventType
-      - durationByDate
-      - durationByString
-      - durationByDayOfWeek
-      - durationByDateByString
-      - durationByRangeByDate
-      - durationByCategoryByString
-      - calloutGroup
-      - doubleValue
-      x-enum-varnames:
-      - integerValue
-      - countByString
-      - countByCategory
-      - durationSummary
-      - durationByDateByCategory
-      - durationByCategory
-      - countByReclaimEventType
-      - durationByDate
-      - durationByString
-      - durationByDayOfWeek
-      - durationByDateByString
-      - durationByRangeByDate
-      - durationByCategoryByString
-      - calloutGroup
-      - doubleValue
-    TimeInMeetings:
-      required:
-      - dayOfWeekMeetingBuckets
-      - timeInMeetingsHistogram
-      type: object
-      properties:
-        timeInMeetingsHistogram:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              $ref: '#/components/schemas/TimeInMeetingsBucket'
-        dayOfWeekMeetingBuckets:
-          type: array
-          items:
-            $ref: '#/components/schemas/DayOfWeekMeetingBucket'
-    TeamAnalyticsV4View:
-      required:
-      - currentMetrics
-      - previousMetrics
-      - tooFewUsers
-      - userCount
-      type: object
-      properties:
-        currentMetrics:
-          $ref: '#/components/schemas/TeamAnalyticsV4Metrics'
-        previousMetrics:
-          $ref: '#/components/schemas/TeamAnalyticsV4Metrics'
-        userCount:
-          type: integer
-          format: int64
-        tooFewUsers:
-          type: boolean
-    PolicyMetrics:
-      required:
-      - metrics
-      - overallPolicyAdherenceAverage
-      type: object
-      properties:
-        overallPolicyAdherenceAverage:
-          type: number
-          format: double
-        metrics:
-          type: array
-          items:
-            $ref: '#/components/schemas/PolicyMetric'
-    TeamMetadataFilterType:
-      type: string
-      enum:
-      - CHOICE
-      - DATE_RANGE
-      - HIERARCHY
-    AnalyticsUnit:
-      type: string
-      enum:
-      - COUNT
-      - DURATION_MINUTES
-      - PERCENTAGE
-    ThinPerson:
-      required:
-      - email
-      type: object
-      properties:
-        reclaimUser:
-          type: boolean
-        userId:
-          type:
-          - string
-          - 'null'
-        email:
-          minLength: 1
-          type: string
-        name:
-          type: string
-        avatarUrl:
-          type: string
-        firstName:
-          type:
-          - string
-          - 'null'
-        lastName:
-          type:
-          - string
-          - 'null'
-    FocusInsightsStatisticV3:
-      required:
-      - count
-      - eventMinutesMap
-      - focusInsightsCategory
-      - minutes
-      - reclaimEventType
-      type: object
-      properties:
-        minutes:
-          type: integer
-          format: int32
-        count:
-          type: integer
-          format: int32
-        reclaimEventType:
-          $ref: '#/components/schemas/ReclaimEventType'
-        eventMinutesMap:
-          type: object
-          additionalProperties:
-            type: integer
-            format: int32
-        focusInsightsCategory:
-          $ref: '#/components/schemas/FocusInsightsCategory'
-    AnalyticsMetricName:
-      type: string
-      enum:
-      - DIAGNOSTICS_EVENT_COUNT
-      - DIAGNOSTICS_EVENT_COUNT_BY_TEAM_MEMBER
-      - DIAGNOSTICS_EVENT_BUSY_COUNT_BY_TEAM_MEMBER
-      - DIAGNOSTICS_MEETING_COUNT_BY_TEAM_MEMBER
-      - TIME_WITH_PEOPLE_DURATION_BY_DATE_BY_PERSON
-      - TIME_WITH_PEOPLE_DURATION_BY_PERSON
-      - FOCUS_TIME_DURATION_BY_DATE_BY_TEAM_MEMBER
-      - FREE_TIME_DURATION_BY_DATE_BY_TEAM_MEMBER
-      - MEETING_TIME_DURATION_BY_DATE_BY_TEAM_MEMBER
-      - TASK_TIME_DURATION_BY_DATE_BY_TEAM_MEMBER
-      - HABIT_TIME_DURATION_BY_DATE_BY_TEAM_MEMBER
-      - MEETING_TIME_PERCENTAGE_BY_DATE_BY_DURATION_RANGE
-      - FOCUS_DURATION_BY_CATEGORY_BY_EVENT_NAME
-      - SCHEDULING_LINK_EVENT_COUNT
-      - RECLAIM_SCHEDULED_EVENT_COUNT
-      - DURATION_BY_CATEGORY
-      - RECLAIM_WORK_DURATION_BY_DATE_BY_ASSIGNMENT_TYPE
-      - DURATION_BY_DATE_BY_CATEGORY
-      - PERSONAL_HABIT_TIME_DURATION
-      - VACATION_TIME_DURATION
-      - OUTSIDE_WORK_TIME_DURATION
-      - RECLAIMED_TIME_DURATION
-      - DECOMPRESSION_TIME_DURATION
-      - TRAVEL_TIME_DURATION
-      - MEETING_TIME_DURATION_BY_DAY_OF_WEEK
-      - FOCUS_TIME_DURATION_BY_DAY_OF_WEEK
-      - WORK_HABITS_AND_TASKS_DURATION_BY_DATE_BY_NAME
-      - PERSONAL_HABITS_AND_TASKS_DURATION_BY_DATE_BY_NAME
-      - PERSONAL_TIME_DURATION
-      - LARGE_MEETINGS_COUNT
-      - MEETINGS_DECLINED_COUNT
-      - MEETING_CALLOUT_GROUP
-      - WORK_LIFE_CALLOUT_GROUP
-      - ROI_CALLOUT_GROUP
-      - CALENDAR_SYNC_COUNT
-      - CALENDAR_SYNC_TIME_DURATION
-      - COUNT_BY_CATEGORY
-      - COUNT_BY_ASSIGNMENT_TYPE
-      - DROPBOX_AGENDA_POLICY_ADHERENCE
-    FocusInsightsViewV3:
-      required:
-      - insightsForDays
-      type: object
-      properties:
-        insightsForDays:
-          type: array
-          items:
-            $ref: '#/components/schemas/FocusInsightsForDayV3'
-    AbstractMetric:
-      required:
-      - appendixKeys
-      - description
-      - noData
-      - type
-      - unit
-      type: object
-      properties:
-        type:
-          $ref: '#/components/schemas/AnalyticsType'
-        unit:
-          $ref: '#/components/schemas/AnalyticsUnit'
-        description:
-          type: string
-        appendixKeys:
-          properties:
-            people:
-              $ref: '#/components/schemas/List_String_'
-        noData:
-          type: boolean
-      discriminator:
-        propertyName: type
-        mapping:
-          durationByDate: '#/components/schemas/AnalyticsDurationByDateMetric'
-          countByCategory: '#/components/schemas/AnalyticsCountByCategoryMetric'
-          durationByDateByString: '#/components/schemas/AnalyticsDurationByDateByStringMetric'
-          doubleValue: '#/components/schemas/AnalyticsDoubleValueMetric'
-          durationByCategory: '#/components/schemas/AnalyticsDurationByCategoryMetric'
-          durationByCategoryByString: '#/components/schemas/AnalyticsDurationByCategoryByStringMetric'
-          durationByString: '#/components/schemas/AnalyticsDurationByStringMetric'
-          calloutGroup: '#/components/schemas/CalloutGroupMetric'
-          durationByDateByCategory: '#/components/schemas/AnalyticsDurationByDateByCategoryMetric'
-          percentageByDateByDuration: '#/components/schemas/AnalyticsPercentageByDurationRangeByDateMetric'
-          countByString: '#/components/schemas/AnalyticsCountByStringMetric'
-          integerValue: '#/components/schemas/AnalyticsIntegerValueMetric'
-          durationByDayOfWeek: '#/components/schemas/AnalyticsDurationByDayOfWeekMetric'
-          countByTeamMember: '#/components/schemas/AnalyticsCountByTeamMemberMetric'
   securitySchemes:
     Authorization:
       type: oauth2

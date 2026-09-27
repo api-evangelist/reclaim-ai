@@ -52,6 +52,42 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    NotificationSettingsView:
+      required:
+      - allowSlackNotificationsWithinDays
+      - settings
+      type: object
+      properties:
+        settings:
+          properties:
+            DAILY_DIGEST:
+              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
+            WEEKLY_DIGEST:
+              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
+            EVENT_CONFLICT:
+              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
+            EVENT_ABOUT_TO_START:
+              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
+            INVITED_TO_MEETING:
+              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
+            MEETING_UPDATED:
+              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
+            MEETING_CANCELLED:
+              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
+            APP_UPDATES:
+              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
+            EVENT_REMINDERS:
+              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
+        allowSlackNotificationsWithinDays:
+          type: integer
+          format: int32
+    AbstractMap_NotificationChannel.Boolean_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    EnumMap_NotificationChannel.Boolean_:
+      $ref: '#/components/schemas/AbstractMap_NotificationChannel.Boolean_'
     NotificationSettingsRequest:
       required:
       - settings
@@ -81,42 +117,6 @@ components:
           type:
           - integer
           - 'null'
-          format: int32
-    AbstractMap_NotificationChannel.Boolean_:
-      type: object
-      properties:
-        empty:
-          type: boolean
-    EnumMap_NotificationChannel.Boolean_:
-      $ref: '#/components/schemas/AbstractMap_NotificationChannel.Boolean_'
-    NotificationSettingsView:
-      required:
-      - allowSlackNotificationsWithinDays
-      - settings
-      type: object
-      properties:
-        settings:
-          properties:
-            DAILY_DIGEST:
-              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
-            WEEKLY_DIGEST:
-              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
-            EVENT_CONFLICT:
-              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
-            EVENT_ABOUT_TO_START:
-              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
-            INVITED_TO_MEETING:
-              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
-            MEETING_UPDATED:
-              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
-            MEETING_CANCELLED:
-              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
-            APP_UPDATES:
-              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
-            EVENT_REMINDERS:
-              $ref: '#/components/schemas/EnumMap_NotificationChannel.Boolean_'
-        allowSlackNotificationsWithinDays:
-          type: integer
           format: int32
   securitySchemes:
     Authorization:

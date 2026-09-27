@@ -85,47 +85,15 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ReclaimEventType:
+    TimePolicyType:
       type: string
       enum:
-      - USER
-      - SYNC
-      - HABIT_ASSIGNMENT
-      - SMART_HABIT
-      - ONE_ON_ONE_ASSIGNMENT
-      - SMART_MEETING
-      - TASK_ASSIGNMENT
-      - CONF_BUFFER
-      - TRAVEL_BUFFER
-      - SCHEDULING_LINK_MEETING
-      - UNKNOWN
-      - FOCUS
-    ThinPerson:
-      required:
-      - email
-      type: object
-      properties:
-        reclaimUser:
-          type: boolean
-        userId:
-          type:
-          - string
-          - 'null'
-        email:
-          minLength: 1
-          type: string
-        name:
-          type: string
-        avatarUrl:
-          type: string
-        firstName:
-          type:
-          - string
-          - 'null'
-        lastName:
-          type:
-          - string
-          - 'null'
+      - WORK
+      - PERSONAL
+      - MEETING
+      - ONE_OFF
+      - INHERITED
+      - CUSTOM
     AttendeeCalendarVisibility:
       type: string
       enum:
@@ -134,41 +102,6 @@ components:
       - DETAILS
       - FULL
       - RECLAIM
-    AttendeeResolutionView:
-      required:
-      - matchedEmails
-      - participant
-      - timeSchemes
-      - timezone
-      - visibility
-      type: object
-      properties:
-        participant:
-          $ref: '#/components/schemas/ThinPerson'
-        timezone:
-          type:
-          - string
-          - 'null'
-        visibility:
-          $ref: '#/components/schemas/AttendeeCalendarVisibility'
-        matchedEmails:
-          type: array
-          items:
-            type: string
-        timeSchemes:
-          type: array
-          items:
-            $ref: '#/components/schemas/BasicTimeSchemeView'
-    DayOfWeek:
-      type: string
-      enum:
-      - MONDAY
-      - TUESDAY
-      - WEDNESDAY
-      - THURSDAY
-      - FRIDAY
-      - SATURDAY
-      - SUNDAY
     DayHours:
       required:
       - intervals
@@ -188,6 +121,20 @@ components:
           - string
           - 'null'
           format: partial-time
+    LocalTimeInterval:
+      required:
+      - end
+      - start
+      type: object
+      properties:
+        start:
+          type: string
+          format: partial-time
+        end:
+          type: string
+          format: partial-time
+        duration:
+          type: string
     BasicTimeSchemeView:
       required:
       - features
@@ -237,29 +184,82 @@ components:
               $ref: '#/components/schemas/DayHours'
             SUNDAY:
               $ref: '#/components/schemas/DayHours'
-    TimePolicyType:
-      type: string
-      enum:
-      - WORK
-      - PERSONAL
-      - MEETING
-      - ONE_OFF
-      - INHERITED
-      - CUSTOM
-    LocalTimeInterval:
+    AttendeeResolutionView:
       required:
-      - end
-      - start
+      - matchedEmails
+      - participant
+      - timeSchemes
+      - timezone
+      - visibility
       type: object
       properties:
-        start:
+        participant:
+          $ref: '#/components/schemas/ThinPerson'
+        timezone:
+          type:
+          - string
+          - 'null'
+        visibility:
+          $ref: '#/components/schemas/AttendeeCalendarVisibility'
+        matchedEmails:
+          type: array
+          items:
+            type: string
+        timeSchemes:
+          type: array
+          items:
+            $ref: '#/components/schemas/BasicTimeSchemeView'
+    ThinPerson:
+      required:
+      - email
+      type: object
+      properties:
+        reclaimUser:
+          type: boolean
+        userId:
+          type:
+          - string
+          - 'null'
+        email:
+          minLength: 1
           type: string
-          format: partial-time
-        end:
+        name:
           type: string
-          format: partial-time
-        duration:
+        avatarUrl:
           type: string
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+    ReclaimEventType:
+      type: string
+      enum:
+      - USER
+      - SYNC
+      - HABIT_ASSIGNMENT
+      - SMART_HABIT
+      - ONE_ON_ONE_ASSIGNMENT
+      - SMART_MEETING
+      - TASK_ASSIGNMENT
+      - CONF_BUFFER
+      - TRAVEL_BUFFER
+      - SCHEDULING_LINK_MEETING
+      - UNKNOWN
+      - FOCUS
+    DayOfWeek:
+      type: string
+      enum:
+      - MONDAY
+      - TUESDAY
+      - WEDNESDAY
+      - THURSDAY
+      - FRIDAY
+      - SATURDAY
+      - SUNDAY
   securitySchemes:
     Authorization:
       type: oauth2

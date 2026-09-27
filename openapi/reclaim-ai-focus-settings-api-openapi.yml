@@ -234,10 +234,11 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    FocusType:
+    FocusTimeCountingStyle:
       type: string
       enum:
-      - FOCUS_TIME
+      - IGNORE_TIME_SCHEME
+      - ONLY_WITHIN_TIME_SCHEME
     FocusTimeSettingsView:
       required:
       - schedulingType
@@ -254,6 +255,36 @@ components:
         circuitBreaker:
           allOf:
           - $ref: '#/components/schemas/CircuitBreakerView'
+    CircuitBreakerRequest:
+      required:
+      - availableChunksInDayThreshold
+      - availableChunksInWeekThreshold
+      - type
+      type: object
+      properties:
+        availableChunksInWeekThreshold:
+          type: integer
+          format: int32
+        availableChunksInDayThreshold:
+          type: integer
+          format: int32
+        type:
+          $ref: '#/components/schemas/FocusTimeCircuitBreakerType'
+        minDurationChunks:
+          type:
+          - integer
+          - 'null'
+          format: int32
+    UserFocusSettingsStatus:
+      type: string
+      enum:
+      - ACTIVE
+      - DISABLED
+      - CALENDAR_NOT_FOUND
+      - CALENDAR_NOT_VALID
+      - CALENDAR_NOT_CONNECTED
+      - CALENDAR_NOT_WRITABLE
+      - INACTIVE_MULTI_CONNECTED_CALENDAR
     BalloonFillRequest:
       required:
       - targetChunksPerWeek
@@ -285,15 +316,10 @@ components:
           format: int32
         type:
           $ref: '#/components/schemas/FocusTimeBalloonFillType'
-    FocusTimeSchedulingType:
+    FocusType:
       type: string
-      deprecated: true
       enum:
-      - BALLOON_FILL
-      - BALLOON_FILL_MAXIMIZE_DURATIONS
-      - CIRCUIT_BREAKER_WEEK_LEVEL
-      - CIRCUIT_BREAKER_DAY_LEVEL
-      - CIRCUIT_BREAKER_WEEK_AND_DAY_LEVEL
+      - FOCUS_TIME
     UserFocusSettingsView:
       required:
       - autoDecline
@@ -338,12 +364,51 @@ components:
           format: int64
         visibility:
           $ref: '#/components/schemas/FocusVisibility'
-    FocusTimeCircuitBreakerType:
+    FocusTimeSchedulingTypeV2:
       type: string
       enum:
-      - WEEK
-      - DAY
-      - WEEK_AND_DAY
+      - BALLOON_FILL
+      - CIRCUIT_BREAKER
+    FocusTimeRequest:
+      required:
+      - schedulingTypeV2
+      type: object
+      properties:
+        schedulingType:
+          deprecated: true
+          allOf:
+          - $ref: '#/components/schemas/FocusTimeSchedulingType'
+        schedulingTypeV2:
+          $ref: '#/components/schemas/FocusTimeSchedulingTypeV2'
+        countingStyle:
+          allOf:
+          - $ref: '#/components/schemas/FocusTimeCountingStyle'
+        balloonFill:
+          allOf:
+          - $ref: '#/components/schemas/BalloonFillRequest'
+        circuitBreaker:
+          allOf:
+          - $ref: '#/components/schemas/CircuitBreakerRequest'
+    CircuitBreakerView:
+      required:
+      - availableChunksInDayThreshold
+      - availableChunksInWeekThreshold
+      - type
+      type: object
+      properties:
+        availableChunksInWeekThreshold:
+          type: integer
+          format: int32
+        availableChunksInDayThreshold:
+          type: integer
+          format: int32
+        type:
+          $ref: '#/components/schemas/FocusTimeCircuitBreakerType'
+        minDurationChunks:
+          type:
+          - integer
+          - 'null'
+          format: int32
     TimePolicyType:
       type: string
       enum:
@@ -353,57 +418,6 @@ components:
       - ONE_OFF
       - INHERITED
       - CUSTOM
-    UserFocusSettingsCreateRequest:
-      required:
-      - focusTimeSettings
-      - focusType
-      - timeSchemeId
-      - title
-      - visibility
-      type: object
-      properties:
-        autoDecline:
-          type:
-          - boolean
-          - 'null'
-        title:
-          type: string
-        description:
-          type:
-          - string
-          - 'null'
-        focusType:
-          $ref: '#/components/schemas/FocusType'
-        focusTimeSettings:
-          $ref: '#/components/schemas/FocusTimeRequest'
-        timeSchemeId:
-          type: string
-        autoDeclineText:
-          type:
-          - string
-          - 'null'
-        calendarId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        visibility:
-          $ref: '#/components/schemas/FocusVisibility'
-    FocusTimeSchedulingTypeV2:
-      type: string
-      enum:
-      - BALLOON_FILL
-      - CIRCUIT_BREAKER
-    UserFocusSettingsStatus:
-      type: string
-      enum:
-      - ACTIVE
-      - DISABLED
-      - CALENDAR_NOT_FOUND
-      - CALENDAR_NOT_VALID
-      - CALENDAR_NOT_CONNECTED
-      - CALENDAR_NOT_WRITABLE
-      - INACTIVE_MULTI_CONNECTED_CALENDAR
     TeamFocusSettingsView:
       required:
       - autoDecline
@@ -440,62 +454,116 @@ components:
           - 'null'
         visibility:
           $ref: '#/components/schemas/FocusVisibility'
-    FocusTimeRequest:
+    UserFocusSettingsCreateRequest:
       required:
-      - schedulingTypeV2
+      - focusTimeSettings
+      - focusType
+      - timeSchemeId
+      - title
+      - visibility
       type: object
       properties:
-        schedulingType:
-          deprecated: true
-          allOf:
-          - $ref: '#/components/schemas/FocusTimeSchedulingType'
-        schedulingTypeV2:
-          $ref: '#/components/schemas/FocusTimeSchedulingTypeV2'
-        countingStyle:
-          allOf:
-          - $ref: '#/components/schemas/FocusTimeCountingStyle'
-        balloonFill:
-          allOf:
-          - $ref: '#/components/schemas/BalloonFillRequest'
-        circuitBreaker:
-          allOf:
-          - $ref: '#/components/schemas/CircuitBreakerRequest'
-    FocusTimeBalloonFillType:
-      type: string
-      enum:
-      - BALLOON_FILL_NORMAL
-      - BALLOON_FILL_MAXIMIZE_DURATIONS
-    FocusTimeCountingStyle:
-      type: string
-      enum:
-      - IGNORE_TIME_SCHEME
-      - ONLY_WITHIN_TIME_SCHEME
+        autoDecline:
+          type:
+          - boolean
+          - 'null'
+        title:
+          type: string
+        description:
+          type:
+          - string
+          - 'null'
+        focusType:
+          $ref: '#/components/schemas/FocusType'
+        focusTimeSettings:
+          $ref: '#/components/schemas/FocusTimeRequest'
+        timeSchemeId:
+          type: string
+        autoDeclineText:
+          type:
+          - string
+          - 'null'
+        calendarId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        visibility:
+          $ref: '#/components/schemas/FocusVisibility'
     FocusVisibility:
       type: string
       enum:
       - DEFAULT
       - PRIVATE
       - PUBLIC
-    CircuitBreakerRequest:
-      required:
-      - availableChunksInDayThreshold
-      - availableChunksInWeekThreshold
-      - type
+    UserFocusSettingsPatchRequest:
       type: object
       properties:
-        availableChunksInWeekThreshold:
-          type: integer
-          format: int32
-        availableChunksInDayThreshold:
-          type: integer
-          format: int32
-        type:
-          $ref: '#/components/schemas/FocusTimeCircuitBreakerType'
-        minDurationChunks:
+        title:
+          type: string
+        description:
           type:
-          - integer
+          - string
           - 'null'
-          format: int32
+        focusType:
+          $ref: '#/components/schemas/FocusType'
+        focusTimeSettings:
+          $ref: '#/components/schemas/FocusTimeRequest'
+        enabled:
+          type: boolean
+        timeSchemeId:
+          type: string
+        autoDecline:
+          type: boolean
+        autoDeclineText:
+          type:
+          - string
+          - 'null'
+        calendarId:
+          type: integer
+          format: int64
+        visibility:
+          $ref: '#/components/schemas/FocusVisibility'
+    FocusTimeSchedulingType:
+      type: string
+      deprecated: true
+      enum:
+      - BALLOON_FILL
+      - BALLOON_FILL_MAXIMIZE_DURATIONS
+      - CIRCUIT_BREAKER_WEEK_LEVEL
+      - CIRCUIT_BREAKER_DAY_LEVEL
+      - CIRCUIT_BREAKER_WEEK_AND_DAY_LEVEL
+    FocusTimeCircuitBreakerType:
+      type: string
+      enum:
+      - WEEK
+      - DAY
+      - WEEK_AND_DAY
+    TeamFocusSettingsPatchRequest:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type:
+          - string
+          - 'null'
+        focusType:
+          $ref: '#/components/schemas/FocusType'
+        focusTimeSettings:
+          $ref: '#/components/schemas/FocusTimeRequest'
+        enabled:
+          type: boolean
+        policyType:
+          $ref: '#/components/schemas/TimePolicyType'
+        autoDecline:
+          type: boolean
+        autoDeclineText:
+          type:
+          - string
+          - 'null'
+        visibility:
+          $ref: '#/components/schemas/FocusVisibility'
     BalloonFillView:
       required:
       - targetChunksPerWeek
@@ -527,79 +595,6 @@ components:
           format: int32
         type:
           $ref: '#/components/schemas/FocusTimeBalloonFillType'
-    CircuitBreakerView:
-      required:
-      - availableChunksInDayThreshold
-      - availableChunksInWeekThreshold
-      - type
-      type: object
-      properties:
-        availableChunksInWeekThreshold:
-          type: integer
-          format: int32
-        availableChunksInDayThreshold:
-          type: integer
-          format: int32
-        type:
-          $ref: '#/components/schemas/FocusTimeCircuitBreakerType'
-        minDurationChunks:
-          type:
-          - integer
-          - 'null'
-          format: int32
-    TeamFocusSettingsPatchRequest:
-      type: object
-      properties:
-        title:
-          type: string
-        description:
-          type:
-          - string
-          - 'null'
-        focusType:
-          $ref: '#/components/schemas/FocusType'
-        focusTimeSettings:
-          $ref: '#/components/schemas/FocusTimeRequest'
-        enabled:
-          type: boolean
-        policyType:
-          $ref: '#/components/schemas/TimePolicyType'
-        autoDecline:
-          type: boolean
-        autoDeclineText:
-          type:
-          - string
-          - 'null'
-        visibility:
-          $ref: '#/components/schemas/FocusVisibility'
-    UserFocusSettingsPatchRequest:
-      type: object
-      properties:
-        title:
-          type: string
-        description:
-          type:
-          - string
-          - 'null'
-        focusType:
-          $ref: '#/components/schemas/FocusType'
-        focusTimeSettings:
-          $ref: '#/components/schemas/FocusTimeRequest'
-        enabled:
-          type: boolean
-        timeSchemeId:
-          type: string
-        autoDecline:
-          type: boolean
-        autoDeclineText:
-          type:
-          - string
-          - 'null'
-        calendarId:
-          type: integer
-          format: int64
-        visibility:
-          $ref: '#/components/schemas/FocusVisibility'
     TeamFocusSettingsCreateRequest:
       required:
       - focusTimeSettings
@@ -631,6 +626,11 @@ components:
           - 'null'
         visibility:
           $ref: '#/components/schemas/FocusVisibility'
+    FocusTimeBalloonFillType:
+      type: string
+      enum:
+      - BALLOON_FILL_NORMAL
+      - BALLOON_FILL_MAXIMIZE_DURATIONS
   securitySchemes:
     Authorization:
       type: oauth2

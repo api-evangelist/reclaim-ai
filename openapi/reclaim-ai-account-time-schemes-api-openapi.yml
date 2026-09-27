@@ -99,42 +99,48 @@ components:
           type: string
         description:
           type: string
-    DayOfWeek:
+    TimePolicyType:
       type: string
       enum:
-      - MONDAY
-      - TUESDAY
-      - WEDNESDAY
-      - THURSDAY
-      - FRIDAY
-      - SATURDAY
-      - SUNDAY
-    EntityTypeAccessView:
-      required:
-      - permissions
+      - WORK
+      - PERSONAL
+      - MEETING
+      - ONE_OFF
+      - INHERITED
+      - CUSTOM
+    AccountTimeSchemePatchRequest:
       type: object
       properties:
-        permissions:
-          $ref: '#/components/schemas/EntityTypePermissionsView'
-    DayHours:
+        title:
+          type: string
+        description:
+          type: string
+        policy:
+          $ref: '#/components/schemas/TimePolicy'
+    EntityTypePermissions:
       required:
-      - intervals
+      - canCreate
+      - canView
       type: object
       properties:
-        intervals:
-          type: array
-          items:
-            $ref: '#/components/schemas/LocalTimeInterval'
-        startOfDay:
-          type:
-          - string
-          - 'null'
+        canView:
+          type: boolean
+        canCreate:
+          type: boolean
+    LocalTimeInterval:
+      required:
+      - end
+      - start
+      type: object
+      properties:
+        start:
+          type: string
           format: partial-time
-        endOfDay:
-          type:
-          - string
-          - 'null'
+        end:
+          type: string
           format: partial-time
+        duration:
+          type: string
     AccountTimeSchemeView:
       required:
       - accountId
@@ -162,15 +168,6 @@ components:
           - 'null'
         entityType:
           $ref: '#/components/schemas/EntityTypeView'
-    EntityType:
-      type: string
-      enum:
-      - ACCOUNT_INVITATION
-      - ACCOUNT_TIME_SCHEMES
-      - WEBHOOKS_CONFIG
-      - WEBHOOKS_ASSOCIATION
-      - SMART_HABIT_TEMPLATES
-      - TEAM
     TimePolicy:
       required:
       - dayHours
@@ -196,6 +193,15 @@ components:
               $ref: '#/components/schemas/DayHours'
             SUNDAY:
               $ref: '#/components/schemas/DayHours'
+    EntityType:
+      type: string
+      enum:
+      - ACCOUNT_INVITATION
+      - ACCOUNT_TIME_SCHEMES
+      - WEBHOOKS_CONFIG
+      - WEBHOOKS_ASSOCIATION
+      - SMART_HABIT_TEMPLATES
+      - TEAM
     EntityTypeView:
       required:
       - access
@@ -203,25 +209,32 @@ components:
       properties:
         access:
           $ref: '#/components/schemas/EntityTypeAccessView'
-    EntityTypePermissions:
+    DayHours:
       required:
-      - canCreate
-      - canView
+      - intervals
       type: object
       properties:
-        canView:
-          type: boolean
-        canCreate:
-          type: boolean
-    AccountTimeSchemePatchRequest:
+        intervals:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocalTimeInterval'
+        startOfDay:
+          type:
+          - string
+          - 'null'
+          format: partial-time
+        endOfDay:
+          type:
+          - string
+          - 'null'
+          format: partial-time
+    EntityTypeAccessView:
+      required:
+      - permissions
       type: object
       properties:
-        title:
-          type: string
-        description:
-          type: string
-        policy:
-          $ref: '#/components/schemas/TimePolicy'
+        permissions:
+          $ref: '#/components/schemas/EntityTypePermissionsView'
     EntityTypePermissionsView:
       required:
       - permissions
@@ -232,29 +245,16 @@ components:
           $ref: '#/components/schemas/EntityType'
         permissions:
           $ref: '#/components/schemas/EntityTypePermissions'
-    TimePolicyType:
+    DayOfWeek:
       type: string
       enum:
-      - WORK
-      - PERSONAL
-      - MEETING
-      - ONE_OFF
-      - INHERITED
-      - CUSTOM
-    LocalTimeInterval:
-      required:
-      - end
-      - start
-      type: object
-      properties:
-        start:
-          type: string
-          format: partial-time
-        end:
-          type: string
-          format: partial-time
-        duration:
-          type: string
+      - MONDAY
+      - TUESDAY
+      - WEDNESDAY
+      - THURSDAY
+      - FRIDAY
+      - SATURDAY
+      - SUNDAY
   securitySchemes:
     Authorization:
       type: oauth2

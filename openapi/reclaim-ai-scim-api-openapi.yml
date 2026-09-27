@@ -312,17 +312,56 @@ components:
           - string
           - 'null'
       description: Encapsulates the reclaim-defined core attributes extending the SCIM user resource.
-    ScimEmail:
+    ScimPatch:
+      required:
+      - Operations
+      - schemas
       type: object
       properties:
-        type:
+        schemas:
+          type: array
+          items:
+            type: string
+        Operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScimOperations'
+    ScimUser:
+      type: object
+      properties:
+        userName:
           type: string
-        value:
+        name:
+          $ref: '#/components/schemas/ScimName'
+        id:
           type: string
-        display:
-          type: string
-        primary:
+        emails:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScimEmail'
+        active:
           type: boolean
+        displayName:
+          type: string
+        title:
+          type: string
+        userType:
+          type: string
+        externalId:
+          type: string
+        meta:
+          $ref: '#/components/schemas/ScimMeta'
+        schemas:
+          type: array
+          items:
+            type: string
+        scimEnterprise:
+          $ref: '#/components/schemas/ScimEnterprise'
+        reclaimExtension:
+          $ref: '#/components/schemas/ScimReclaimExtension'
+        attributes:
+          type: object
+          additionalProperties: true
     ScimManager:
       type: object
       properties:
@@ -381,20 +420,17 @@ components:
           type: object
           additionalProperties: true
           description: This getter handles the type switching
-    ScimPatch:
-      required:
-      - Operations
-      - schemas
+    ScimEmail:
       type: object
       properties:
-        schemas:
-          type: array
-          items:
-            type: string
-        Operations:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScimOperations'
+        type:
+          type: string
+        value:
+          type: string
+        display:
+          type: string
+        primary:
+          type: boolean
     ScimName:
       required:
       - familyName
@@ -413,42 +449,6 @@ components:
         created:
           type: string
           format: date-time
-    ScimUser:
-      type: object
-      properties:
-        userName:
-          type: string
-        name:
-          $ref: '#/components/schemas/ScimName'
-        id:
-          type: string
-        emails:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScimEmail'
-        active:
-          type: boolean
-        displayName:
-          type: string
-        title:
-          type: string
-        userType:
-          type: string
-        externalId:
-          type: string
-        meta:
-          $ref: '#/components/schemas/ScimMeta'
-        schemas:
-          type: array
-          items:
-            type: string
-        scimEnterprise:
-          $ref: '#/components/schemas/ScimEnterprise'
-        reclaimExtension:
-          $ref: '#/components/schemas/ScimReclaimExtension'
-        attributes:
-          type: object
-          additionalProperties: true
   securitySchemes:
     Authorization:
       type: oauth2

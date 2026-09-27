@@ -144,6 +144,115 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    ImmutableList_ClickUpStatus_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_ClickUpStatus_'
+      - $ref: '#/components/schemas/AbstractCollection_ClickUpStatus_'
+      - properties:
+          empty:
+            type: boolean
+          first:
+            $ref: '#/components/schemas/ClickUpStatus'
+          last:
+            $ref: '#/components/schemas/ClickUpStatus'
+    ImmutableCollection_String_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_String_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    ImmutableSet_String_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_String_'
+      - $ref: '#/components/schemas/AbstractCollection_String_'
+      - properties:
+          empty:
+            type: boolean
+          hashCodeFast:
+            type: boolean
+    ClickUpStatus:
+      type: object
+      properties:
+        status:
+          type: string
+        orderindex:
+          type: integer
+          format: int32
+        type:
+          $ref: '#/components/schemas/ClickUpStatusType'
+        color:
+          type:
+          - string
+          - 'null'
+        withStatus:
+          type: string
+        withOrderindex:
+          type: integer
+          format: int32
+        withType:
+          $ref: '#/components/schemas/ClickUpStatusType'
+        withColor:
+          type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    ImmutableSet_ClickUpSpace_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_ClickUpSpace_'
+      - $ref: '#/components/schemas/AbstractCollection_ClickUpSpace_'
+      - properties:
+          empty:
+            type: boolean
+          hashCodeFast:
+            type: boolean
+    ClickUpTitleFormat:
+      type: string
+      enum:
+      - TASK_TITLE_ONLY
+      - TASK_TITLE_THEN_LIST
+      - TASK_TITLE_THEN_LIST_THEN_SPACE
+      - TASK_TITLE_THEN_SPACE
+      - SPACE_NAME_THEN_TASK_TITLE
+    ClickUpSpaceWithEligibility:
+      required:
+      - features
+      - id
+      - isEligible
+      - name
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        isEligible:
+          type: boolean
+        features:
+          type: object
+          additionalProperties: true
+    ImmutableCollection_ClickUpSpace_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_ClickUpSpace_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    AbstractCollection_ClickUpStatus_:
+      type: object
+      properties:
+        empty:
+          type: boolean
     ClickUpResource:
       type: object
       properties:
@@ -161,11 +270,6 @@ components:
           format: int32
         toString:
           type: string
-    AbstractCollection_ClickUpStatus_:
-      type: object
-      properties:
-        empty:
-          type: boolean
     ClickUpIntegration:
       type: object
       properties:
@@ -188,6 +292,35 @@ components:
           items:
             type: string
         withRequires_tag:
+          type: boolean
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    ImmutableCollection_ClickUpStatus_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_ClickUpStatus_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    ClickUpIntegrationPatch:
+      type: object
+      properties:
+        titleFormat:
+          allOf:
+          - $ref: '#/components/schemas/ClickUpTitleFormat'
+        bypassTimeTracking:
+          type:
+          - boolean
+          - 'null'
+        withTitleFormat:
+          $ref: '#/components/schemas/ClickUpTitleFormat'
+        withBypassTimeTracking:
           type: boolean
         equals: {}
         hashCode:
@@ -224,37 +357,11 @@ components:
           format: int32
         toString:
           type: string
-    AbstractCollection_ClickUpSpace_:
+    AbstractCollection_String_:
       type: object
       properties:
         empty:
           type: boolean
-    ImmutableCollection_ClickUpStatus_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/AbstractCollection_ClickUpStatus_'
-      - properties:
-          empty:
-            type: boolean
-          partialView:
-            type: boolean
-    ClickUpSpaceWithEligibility:
-      required:
-      - features
-      - id
-      - isEligible
-      - name
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        isEligible:
-          type: boolean
-        features:
-          type: object
-          additionalProperties: true
     ClickUpStatusType:
       type: string
       enum:
@@ -300,79 +407,11 @@ components:
           type:
           - boolean
           - 'null'
-    ImmutableList_ClickUpStatus_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ImmutableCollection_ClickUpStatus_'
-      - $ref: '#/components/schemas/AbstractCollection_ClickUpStatus_'
-      - properties:
-          empty:
-            type: boolean
-          first:
-            $ref: '#/components/schemas/ClickUpStatus'
-          last:
-            $ref: '#/components/schemas/ClickUpStatus'
-    ClickUpTitleFormat:
-      type: string
-      enum:
-      - TASK_TITLE_ONLY
-      - TASK_TITLE_THEN_LIST
-      - TASK_TITLE_THEN_LIST_THEN_SPACE
-      - TASK_TITLE_THEN_SPACE
-      - SPACE_NAME_THEN_TASK_TITLE
-    ImmutableSet_String_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ImmutableCollection_String_'
-      - $ref: '#/components/schemas/AbstractCollection_String_'
-      - properties:
-          empty:
-            type: boolean
-          hashCodeFast:
-            type: boolean
-    ClickUpIntegrationPatch:
-      type: object
-      properties:
-        titleFormat:
-          allOf:
-          - $ref: '#/components/schemas/ClickUpTitleFormat'
-        bypassTimeTracking:
-          type:
-          - boolean
-          - 'null'
-        withTitleFormat:
-          $ref: '#/components/schemas/ClickUpTitleFormat'
-        withBypassTimeTracking:
-          type: boolean
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    AbstractCollection_String_:
+    AbstractCollection_ClickUpSpace_:
       type: object
       properties:
         empty:
           type: boolean
-    ImmutableCollection_String_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/AbstractCollection_String_'
-      - properties:
-          empty:
-            type: boolean
-          partialView:
-            type: boolean
-    ImmutableCollection_ClickUpSpace_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/AbstractCollection_ClickUpSpace_'
-      - properties:
-          empty:
-            type: boolean
-          partialView:
-            type: boolean
     DeprecatedClickUpIntegrationPatch:
       type: object
       properties:
@@ -393,45 +432,6 @@ components:
         toString:
           type: string
       deprecated: true
-    ClickUpStatus:
-      type: object
-      properties:
-        status:
-          type: string
-        orderindex:
-          type: integer
-          format: int32
-        type:
-          $ref: '#/components/schemas/ClickUpStatusType'
-        color:
-          type:
-          - string
-          - 'null'
-        withStatus:
-          type: string
-        withOrderindex:
-          type: integer
-          format: int32
-        withType:
-          $ref: '#/components/schemas/ClickUpStatusType'
-        withColor:
-          type: string
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    ImmutableSet_ClickUpSpace_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ImmutableCollection_ClickUpSpace_'
-      - $ref: '#/components/schemas/AbstractCollection_ClickUpSpace_'
-      - properties:
-          empty:
-            type: boolean
-          hashCodeFast:
-            type: boolean
   securitySchemes:
     Authorization:
       type: oauth2

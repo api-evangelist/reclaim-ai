@@ -97,6 +97,102 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    AttendeeCalendarVisibility:
+      type: string
+      enum:
+      - NONE
+      - FREE_BUSY
+      - DETAILS
+      - FULL
+      - RECLAIM
+    SuggestedTimeView:
+      required:
+      - availabilityInfo
+      - end
+      - start
+      type: object
+      properties:
+        start:
+          type: string
+          format: date-time
+        end:
+          type: string
+          format: date-time
+        availabilityInfo:
+          $ref: '#/components/schemas/SlotAvailability'
+    FreeBusy:
+      type: string
+      enum:
+      - FREE
+      - BUSY
+    ChatScopeRequest:
+      required:
+      - chatId
+      - sandboxIncluded
+      type: object
+      properties:
+        chatId:
+          type: string
+        sandboxIncluded:
+          type: boolean
+        type:
+          type: string
+    PriorityLevel:
+      type: string
+      enum:
+      - P1
+      - P2
+      - P3
+      - P4
+      - PRIORITIZE
+      - DEFAULT
+      x-deprecated:
+      - PRIORITIZE
+      - DEFAULT
+    IdealTimeSlotDetailsView:
+      type: object
+      properties:
+        title:
+          type:
+          - string
+          - 'null'
+        start:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        end:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        eventSubType:
+          allOf:
+          - $ref: '#/components/schemas/EventSubType'
+        reclaimEventType:
+          allOf:
+          - $ref: '#/components/schemas/ReclaimEventType'
+    IdealTimeAvailabilityView:
+      required:
+      - attendees
+      type: object
+      properties:
+        attendees:
+          type: array
+          items:
+            $ref: '#/components/schemas/IdealTimeAvailabilityDetailsView'
+    ScoringReason:
+      type: string
+      enum:
+      - CALENDAR_NOT_AVAILABLE
+      - CONFLICT_UNAVAILABLE
+      - CONFLICT_UNKNOWN
+      - CONFLICT_HARD
+      - CONFLICT_WARN
+      - AVAILABILITY_OUTSIDE_MEETING_HOURS
+      - AVAILABILITY_UNKNOWN
+      - AVAILABLE
+      - AVAILABLE_AUTOMATED
     EventSubType:
       type: string
       enum:
@@ -116,118 +212,6 @@ components:
       - ERRAND
       - OTHER_PERSONAL
       - UNKNOWN
-    SuggestedTimeView:
-      required:
-      - availabilityInfo
-      - end
-      - start
-      type: object
-      properties:
-        start:
-          type: string
-          format: date-time
-        end:
-          type: string
-          format: date-time
-        availabilityInfo:
-          $ref: '#/components/schemas/SlotAvailability'
-    ScheduleWindow:
-      required:
-      - end
-      - start
-      type: object
-      properties:
-        start:
-          type: string
-          format: date
-        end:
-          type: string
-          format: date
-    ReclaimEventType:
-      type: string
-      enum:
-      - USER
-      - SYNC
-      - HABIT_ASSIGNMENT
-      - SMART_HABIT
-      - ONE_ON_ONE_ASSIGNMENT
-      - SMART_MEETING
-      - TASK_ASSIGNMENT
-      - CONF_BUFFER
-      - TRAVEL_BUFFER
-      - SCHEDULING_LINK_MEETING
-      - UNKNOWN
-      - FOCUS
-    ChatScopeRequest:
-      required:
-      - chatId
-      - sandboxIncluded
-      type: object
-      properties:
-        chatId:
-          type: string
-        sandboxIncluded:
-          type: boolean
-        type:
-          type: string
-    PlannerSandboxScopeRequest:
-      required:
-      - userId
-      type: object
-      properties:
-        userId:
-          type: string
-        type:
-          type: string
-    SessionAwareIdealTimeAvailabilityRequest:
-      required:
-      - attendees
-      - scheduleWindow
-      type: object
-      properties:
-        attendees:
-          type: array
-          items:
-            type: string
-        scheduleWindow:
-          $ref: '#/components/schemas/ScheduleWindowWithTimeRequest'
-        calendarId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        eventReference:
-          type:
-          - string
-          - 'null'
-        sessionScope:
-          allOf:
-          - $ref: '#/components/schemas/InteractionSessionScopeRequest'
-    ScheduleWindowWithTimeRequest:
-      required:
-      - end
-      - start
-      type: object
-      properties:
-        start:
-          type: string
-          format: date-time
-        end:
-          type: string
-          format: date-time
-    SlotAvailability:
-      required:
-      - attendees
-      - movabilityScore
-      type: object
-      properties:
-        movabilityScore:
-          type: integer
-          format: int32
-        attendees:
-          type: array
-          items:
-            $ref: '#/components/schemas/AttendeeAvailabilityView'
     IdealTimeAvailabilityDetailsView:
       required:
       - externalCalendarId
@@ -257,22 +241,90 @@ components:
         slotDetails:
           allOf:
           - $ref: '#/components/schemas/IdealTimeSlotDetailsView'
-    ScoringReason:
+    PlannerSandboxScopeRequest:
+      required:
+      - userId
+      type: object
+      properties:
+        userId:
+          type: string
+        type:
+          type: string
+    AvailabilitySortType:
       type: string
       enum:
-      - CALENDAR_NOT_AVAILABLE
-      - CONFLICT_UNAVAILABLE
-      - CONFLICT_UNKNOWN
-      - CONFLICT_HARD
-      - CONFLICT_WARN
-      - AVAILABILITY_OUTSIDE_MEETING_HOURS
-      - AVAILABILITY_UNKNOWN
-      - AVAILABLE
-      - AVAILABLE_AUTOMATED
-    IdealTimeNextAvailabilityView:
+      - HIGHEST_SCORE
+      - EARLIEST
+      - HIGHEST_SCORE_THEN_EARLIEST
+      - IDEAL_SLOT
+    ScheduleWindow:
       required:
       - end
+      - start
+      type: object
+      properties:
+        start:
+          type: string
+          format: date
+        end:
+          type: string
+          format: date
+    SuggestedTimesView:
+      required:
+      - suggestedTimes
+      type: object
+      properties:
+        suggestedTimes:
+          type: array
+          items:
+            $ref: '#/components/schemas/SuggestedTimeView'
+    SingleInteractionScopeRequest:
+      type: object
+    SlotAvailability:
+      required:
+      - attendees
       - movabilityScore
+      type: object
+      properties:
+        movabilityScore:
+          type: integer
+          format: int32
+        attendees:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttendeeAvailabilityView'
+    InteractionSessionScopeRequest:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          PlannerSandboxScopeRequest: '#/components/schemas/PlannerSandboxScopeRequest'
+          SingleInteractionScopeRequest: '#/components/schemas/SingleInteractionScopeRequest'
+          PlannerViewScopeRequest: '#/components/schemas/PlannerViewScopeRequest'
+          ChatScopeRequest: '#/components/schemas/ChatScopeRequest'
+      oneOf:
+      - $ref: '#/components/schemas/PlannerSandboxScopeRequest'
+      - $ref: '#/components/schemas/PlannerViewScopeRequest'
+      - $ref: '#/components/schemas/SingleInteractionScopeRequest'
+      - $ref: '#/components/schemas/ChatScopeRequest'
+    ReclaimEventType:
+      type: string
+      enum:
+      - USER
+      - SYNC
+      - HABIT_ASSIGNMENT
+      - SMART_HABIT
+      - ONE_ON_ONE_ASSIGNMENT
+      - SMART_MEETING
+      - TASK_ASSIGNMENT
+      - CONF_BUFFER
+      - TRAVEL_BUFFER
+      - SCHEDULING_LINK_MEETING
+      - UNKNOWN
+      - FOCUS
+    ScheduleWindowWithTimeRequest:
+      required:
+      - end
       - start
       type: object
       properties:
@@ -282,29 +334,52 @@ components:
         end:
           type: string
           format: date-time
-        movabilityScore:
+    PlannerViewScopeRequest:
+      required:
+      - userId
+      - viewId
+      type: object
+      properties:
+        userId:
+          type: string
+        viewId:
+          type: string
+        type:
+          type: string
+    SuggestedTimesRequest:
+      required:
+      - attendees
+      - durationMinutes
+      type: object
+      properties:
+        attendees:
+          type: array
+          items:
+            type: string
+        durationMinutes:
           type: integer
           format: int32
-    AttendeeCalendarVisibility:
-      type: string
-      enum:
-      - NONE
-      - FREE_BUSY
-      - DETAILS
-      - FULL
-      - RECLAIM
-    PriorityLevel:
-      type: string
-      enum:
-      - P1
-      - P2
-      - P3
-      - P4
-      - PRIORITIZE
-      - DEFAULT
-      x-deprecated:
-      - PRIORITIZE
-      - DEFAULT
+        idealTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        limit:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        sorting:
+          allOf:
+          - $ref: '#/components/schemas/AvailabilitySortType'
+        scheduleWindow:
+          allOf:
+          - $ref: '#/components/schemas/ScheduleWindow'
+        calendarId:
+          type:
+          - integer
+          - 'null'
+          format: int64
     AttendeeAvailabilityView:
       required:
       - externalCalendarId
@@ -358,121 +433,46 @@ components:
         priority:
           allOf:
           - $ref: '#/components/schemas/PriorityLevel'
-    IdealTimeSlotDetailsView:
-      type: object
-      properties:
-        title:
-          type:
-          - string
-          - 'null'
-        start:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        end:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        eventSubType:
-          allOf:
-          - $ref: '#/components/schemas/EventSubType'
-        reclaimEventType:
-          allOf:
-          - $ref: '#/components/schemas/ReclaimEventType'
-    IdealTimeAvailabilityView:
+    SessionAwareIdealTimeAvailabilityRequest:
       required:
       - attendees
-      type: object
-      properties:
-        attendees:
-          type: array
-          items:
-            $ref: '#/components/schemas/IdealTimeAvailabilityDetailsView'
-    InteractionSessionScopeRequest:
-      type: object
-      discriminator:
-        propertyName: type
-        mapping:
-          PlannerSandboxScopeRequest: '#/components/schemas/PlannerSandboxScopeRequest'
-          SingleInteractionScopeRequest: '#/components/schemas/SingleInteractionScopeRequest'
-          PlannerViewScopeRequest: '#/components/schemas/PlannerViewScopeRequest'
-          ChatScopeRequest: '#/components/schemas/ChatScopeRequest'
-      oneOf:
-      - $ref: '#/components/schemas/PlannerSandboxScopeRequest'
-      - $ref: '#/components/schemas/PlannerViewScopeRequest'
-      - $ref: '#/components/schemas/SingleInteractionScopeRequest'
-      - $ref: '#/components/schemas/ChatScopeRequest'
-    AvailabilitySortType:
-      type: string
-      enum:
-      - HIGHEST_SCORE
-      - EARLIEST
-      - HIGHEST_SCORE_THEN_EARLIEST
-      - IDEAL_SLOT
-    PlannerViewScopeRequest:
-      required:
-      - userId
-      - viewId
-      type: object
-      properties:
-        userId:
-          type: string
-        viewId:
-          type: string
-        type:
-          type: string
-    SuggestedTimesRequest:
-      required:
-      - attendees
-      - durationMinutes
+      - scheduleWindow
       type: object
       properties:
         attendees:
           type: array
           items:
             type: string
-        durationMinutes:
-          type: integer
-          format: int32
-        idealTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        limit:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        sorting:
-          allOf:
-          - $ref: '#/components/schemas/AvailabilitySortType'
         scheduleWindow:
-          allOf:
-          - $ref: '#/components/schemas/ScheduleWindow'
+          $ref: '#/components/schemas/ScheduleWindowWithTimeRequest'
         calendarId:
           type:
           - integer
           - 'null'
           format: int64
-    SuggestedTimesView:
+        eventReference:
+          type:
+          - string
+          - 'null'
+        sessionScope:
+          allOf:
+          - $ref: '#/components/schemas/InteractionSessionScopeRequest'
+    IdealTimeNextAvailabilityView:
       required:
-      - suggestedTimes
+      - end
+      - movabilityScore
+      - start
       type: object
       properties:
-        suggestedTimes:
-          type: array
-          items:
-            $ref: '#/components/schemas/SuggestedTimeView'
-    SingleInteractionScopeRequest:
-      type: object
-    FreeBusy:
-      type: string
-      enum:
-      - FREE
-      - BUSY
+        start:
+          type: string
+          format: date-time
+        end:
+          type: string
+          format: date-time
+        movabilityScore:
+          type: integer
+          format: int32
   securitySchemes:
     Authorization:
       type: oauth2

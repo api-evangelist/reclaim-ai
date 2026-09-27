@@ -37,19 +37,19 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    AnonymousPartner:
-      required:
-      - link
-      type: object
-      properties:
-        link:
-          type: string
     RepairCustomersRequest:
       required:
       - partnerStackKey
       type: object
       properties:
         partnerStackKey:
+          type: string
+    AnonymousPartner:
+      required:
+      - link
+      type: object
+      properties:
+        link:
           type: string
   securitySchemes:
     Authorization:

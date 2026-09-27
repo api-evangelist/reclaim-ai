@@ -173,19 +173,28 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    EntityTypeAccessView:
+    EntityTypePermissions:
       required:
-      - permissions
+      - canCreate
+      - canView
       type: object
       properties:
-        permissions:
-          $ref: '#/components/schemas/EntityTypePermissionsView'
-    Frequency:
+        canView:
+          type: boolean
+        canCreate:
+          type: boolean
+    PriorityLevel:
       type: string
       enum:
-      - DAILY
-      - WEEKLY
-      - MONTHLY
+      - P1
+      - P2
+      - P3
+      - P4
+      - PRIORITIZE
+      - DEFAULT
+      x-deprecated:
+      - PRIORITIZE
+      - DEFAULT
     TimePolicy:
       required:
       - dayHours
@@ -211,15 +220,118 @@ components:
               $ref: '#/components/schemas/DayHours'
             SUNDAY:
               $ref: '#/components/schemas/DayHours'
-    TimePolicyType:
+    SmartSeriesVisibility:
       type: string
       enum:
-      - WORK
-      - PERSONAL
-      - MEETING
-      - ONE_OFF
-      - INHERITED
-      - CUSTOM
+      - DEFAULT
+      - PRIVATE
+      - PUBLIC
+    Frequency:
+      type: string
+      enum:
+      - DAILY
+      - WEEKLY
+      - MONTHLY
+    DefenseAggression:
+      type: string
+      enum:
+      - NONE
+      - LOW
+      - DEFAULT
+      - HIGH
+      - MAX
+    RecurrenceDefinition:
+      required:
+      - frequency
+      type: object
+      properties:
+        interval:
+          type: integer
+          format: int32
+        frequency:
+          $ref: '#/components/schemas/Frequency'
+        idealDays:
+          type: array
+          items:
+            $ref: '#/components/schemas/DayOfWeek'
+        idealMonthlyDay:
+          $ref: '#/components/schemas/IdealMonthlyDay'
+        daysBetweenPeriods:
+          type: integer
+          format: int32
+          readOnly: true
+    CreateSmartHabitCustomTemplateRequest:
+      required:
+      - defenseAggression
+      - durationMaxMins
+      - durationMinMins
+      - eventType
+      - idealTime
+      - priority
+      - recurrence
+      - timePolicyType
+      - title
+      type: object
+      properties:
+        title:
+          minLength: 1
+          type: string
+        priority:
+          $ref: '#/components/schemas/PriorityLevel'
+        eventType:
+          $ref: '#/components/schemas/SmartSeriesEventType'
+        color:
+          $ref: '#/components/schemas/EventColor'
+        timePolicyType:
+          $ref: '#/components/schemas/TimePolicyType'
+        oneOffPolicy:
+          $ref: '#/components/schemas/TimePolicy'
+        recurrence:
+          $ref: '#/components/schemas/RecurrenceDefinition'
+        starting:
+          type: string
+          format: date
+        ending:
+          type: string
+          format: date
+        idealTime:
+          type: string
+          format: partial-time
+        durationMinMins:
+          type: integer
+          format: int32
+        durationMaxMins:
+          type: integer
+          format: int32
+        defenseAggression:
+          $ref: '#/components/schemas/DefenseAggression'
+        defendedDescription:
+          type: string
+        visibility:
+          $ref: '#/components/schemas/SmartSeriesVisibility'
+        failurePolicy:
+          $ref: '#/components/schemas/SmartSeriesBookingFailurePolicy'
+        reservedWords:
+          type: array
+          items:
+            type: string
+        description:
+          type: string
+    EventColor:
+      type: string
+      enum:
+      - NONE
+      - LAVENDER
+      - SAGE
+      - GRAPE
+      - FLAMINGO
+      - BANANA
+      - TANGERINE
+      - PEACOCK
+      - GRAPHITE
+      - BLUEBERRY
+      - BASIL
+      - TOMATO
     IdealMonthlyDay:
       type: object
       properties:
@@ -231,6 +343,32 @@ components:
         idealWeek:
           type: integer
           format: int32
+    EntityTypeAccessView:
+      required:
+      - permissions
+      type: object
+      properties:
+        permissions:
+          $ref: '#/components/schemas/EntityTypePermissionsView'
+    DayOfWeek:
+      type: string
+      enum:
+      - MONDAY
+      - TUESDAY
+      - WEDNESDAY
+      - THURSDAY
+      - FRIDAY
+      - SATURDAY
+      - SUNDAY
+    TimePolicyType:
+      type: string
+      enum:
+      - WORK
+      - PERSONAL
+      - MEETING
+      - ONE_OFF
+      - INHERITED
+      - CUSTOM
     SmartHabitCustomTemplateView:
       required:
       - defendedDescription
@@ -308,6 +446,26 @@ components:
           type: string
         entityType:
           $ref: '#/components/schemas/EntityTypeView'
+    SmartSeriesBookingFailurePolicy:
+      type: string
+      enum:
+      - REMOVE
+      - LEAVE_LAST
+      - LEAVE_LAST_OR_RETURN_TO_ORIGINAL
+    LocalTimeInterval:
+      required:
+      - end
+      - start
+      type: object
+      properties:
+        start:
+          type: string
+          format: partial-time
+        end:
+          type: string
+          format: partial-time
+        duration:
+          type: string
     EntityType:
       type: string
       enum:
@@ -317,42 +475,23 @@ components:
       - WEBHOOKS_ASSOCIATION
       - SMART_HABIT_TEMPLATES
       - TEAM
-    PriorityLevel:
-      type: string
-      enum:
-      - P1
-      - P2
-      - P3
-      - P4
-      - PRIORITIZE
-      - DEFAULT
-      x-deprecated:
-      - PRIORITIZE
-      - DEFAULT
-    DefenseAggression:
-      type: string
-      enum:
-      - NONE
-      - LOW
-      - DEFAULT
-      - HIGH
-      - MAX
-    DayOfWeek:
-      type: string
-      enum:
-      - MONDAY
-      - TUESDAY
-      - WEDNESDAY
-      - THURSDAY
-      - FRIDAY
-      - SATURDAY
-      - SUNDAY
-    SmartSeriesBookingFailurePolicy:
-      type: string
-      enum:
-      - REMOVE
-      - LEAVE_LAST
-      - LEAVE_LAST_OR_RETURN_TO_ORIGINAL
+    EntityTypeView:
+      required:
+      - access
+      type: object
+      properties:
+        access:
+          $ref: '#/components/schemas/EntityTypeAccessView'
+    EntityTypePermissionsView:
+      required:
+      - permissions
+      - type
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/EntityType'
+        permissions:
+          $ref: '#/components/schemas/EntityTypePermissions'
     SmartSeriesEventType:
       type: string
       enum:
@@ -364,99 +503,6 @@ components:
       - ONE_ON_ONE
       x-deprecated:
       - FOCUS
-    DayHours:
-      required:
-      - intervals
-      type: object
-      properties:
-        intervals:
-          type: array
-          items:
-            $ref: '#/components/schemas/LocalTimeInterval'
-        startOfDay:
-          type:
-          - string
-          - 'null'
-          format: partial-time
-        endOfDay:
-          type:
-          - string
-          - 'null'
-          format: partial-time
-    EntityTypeView:
-      required:
-      - access
-      type: object
-      properties:
-        access:
-          $ref: '#/components/schemas/EntityTypeAccessView'
-    CreateSmartHabitCustomTemplateRequest:
-      required:
-      - defenseAggression
-      - durationMaxMins
-      - durationMinMins
-      - eventType
-      - idealTime
-      - priority
-      - recurrence
-      - timePolicyType
-      - title
-      type: object
-      properties:
-        title:
-          minLength: 1
-          type: string
-        priority:
-          $ref: '#/components/schemas/PriorityLevel'
-        eventType:
-          $ref: '#/components/schemas/SmartSeriesEventType'
-        color:
-          $ref: '#/components/schemas/EventColor'
-        timePolicyType:
-          $ref: '#/components/schemas/TimePolicyType'
-        oneOffPolicy:
-          $ref: '#/components/schemas/TimePolicy'
-        recurrence:
-          $ref: '#/components/schemas/RecurrenceDefinition'
-        starting:
-          type: string
-          format: date
-        ending:
-          type: string
-          format: date
-        idealTime:
-          type: string
-          format: partial-time
-        durationMinMins:
-          type: integer
-          format: int32
-        durationMaxMins:
-          type: integer
-          format: int32
-        defenseAggression:
-          $ref: '#/components/schemas/DefenseAggression'
-        defendedDescription:
-          type: string
-        visibility:
-          $ref: '#/components/schemas/SmartSeriesVisibility'
-        failurePolicy:
-          $ref: '#/components/schemas/SmartSeriesBookingFailurePolicy'
-        reservedWords:
-          type: array
-          items:
-            type: string
-        description:
-          type: string
-    EntityTypePermissionsView:
-      required:
-      - permissions
-      - type
-      type: object
-      properties:
-        type:
-          $ref: '#/components/schemas/EntityType'
-        permissions:
-          $ref: '#/components/schemas/EntityTypePermissions'
     PatchSmartHabitCustomTemplateRequest:
       type: object
       properties:
@@ -511,71 +557,25 @@ components:
             type: string
         description:
           type: string
-    SmartSeriesVisibility:
-      type: string
-      enum:
-      - DEFAULT
-      - PRIVATE
-      - PUBLIC
-    EntityTypePermissions:
+    DayHours:
       required:
-      - canCreate
-      - canView
+      - intervals
       type: object
       properties:
-        canView:
-          type: boolean
-        canCreate:
-          type: boolean
-    RecurrenceDefinition:
-      required:
-      - frequency
-      type: object
-      properties:
-        interval:
-          type: integer
-          format: int32
-        frequency:
-          $ref: '#/components/schemas/Frequency'
-        idealDays:
+        intervals:
           type: array
           items:
-            $ref: '#/components/schemas/DayOfWeek'
-        idealMonthlyDay:
-          $ref: '#/components/schemas/IdealMonthlyDay'
-        daysBetweenPeriods:
-          type: integer
-          format: int32
-          readOnly: true
-    LocalTimeInterval:
-      required:
-      - end
-      - start
-      type: object
-      properties:
-        start:
-          type: string
+            $ref: '#/components/schemas/LocalTimeInterval'
+        startOfDay:
+          type:
+          - string
+          - 'null'
           format: partial-time
-        end:
-          type: string
+        endOfDay:
+          type:
+          - string
+          - 'null'
           format: partial-time
-        duration:
-          type: string
-    EventColor:
-      type: string
-      enum:
-      - NONE
-      - LAVENDER
-      - SAGE
-      - GRAPE
-      - FLAMINGO
-      - BANANA
-      - TANGERINE
-      - PEACOCK
-      - GRAPHITE
-      - BLUEBERRY
-      - BASIL
-      - TOMATO
   securitySchemes:
     Authorization:
       type: oauth2

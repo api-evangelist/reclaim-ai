@@ -87,6 +87,30 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    UserMemoryView:
+      required:
+      - content
+      - createdAt
+      - expiresAt
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+        content:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        expiresAt:
+          type: string
+          format: date-time
+    SortOrder:
+      type: string
+      enum:
+      - ASCENDING
+      - DESCENDING
+      - UNSORTED
     Page_UserMemoryView_:
       required:
       - count
@@ -117,30 +141,6 @@ components:
           - integer
           - 'null'
           format: int64
-    SortOrder:
-      type: string
-      enum:
-      - ASCENDING
-      - DESCENDING
-      - UNSORTED
-    UserMemoryView:
-      required:
-      - content
-      - createdAt
-      - expiresAt
-      - id
-      type: object
-      properties:
-        id:
-          type: string
-        content:
-          type: string
-        createdAt:
-          type: string
-          format: date-time
-        expiresAt:
-          type: string
-          format: date-time
   securitySchemes:
     Authorization:
       type: oauth2

@@ -166,21 +166,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ReclaimEventType:
-      type: string
-      enum:
-      - USER
-      - SYNC
-      - HABIT_ASSIGNMENT
-      - SMART_HABIT
-      - ONE_ON_ONE_ASSIGNMENT
-      - SMART_MEETING
-      - TASK_ASSIGNMENT
-      - CONF_BUFFER
-      - TRAVEL_BUFFER
-      - SCHEDULING_LINK_MEETING
-      - UNKNOWN
-      - FOCUS
     ChangeLogEntryView:
       required:
       - changedAt
@@ -302,6 +287,21 @@ components:
       - EVENT_DELETED_VIA_CALENDAR_ASSIGNMENT_SKIPPED_FOR_DAY
     ChangeLogEntryMetadataView:
       type: object
+    ReclaimEventType:
+      type: string
+      enum:
+      - USER
+      - SYNC
+      - HABIT_ASSIGNMENT
+      - SMART_HABIT
+      - ONE_ON_ONE_ASSIGNMENT
+      - SMART_MEETING
+      - TASK_ASSIGNMENT
+      - CONF_BUFFER
+      - TRAVEL_BUFFER
+      - SCHEDULING_LINK_MEETING
+      - UNKNOWN
+      - FOCUS
   securitySchemes:
     Authorization:
       type: oauth2
