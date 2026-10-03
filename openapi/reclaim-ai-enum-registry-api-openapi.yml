@@ -31,13 +31,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    EnumsController.EnumsForFrontend:
-      required:
-      - oauthErrorCodes
-      type: object
-      properties:
-        oauthErrorCodes:
-          $ref: '#/components/schemas/OauthErrorCodes'
     OauthErrorCodes:
       type: string
       enum:
@@ -68,6 +61,13 @@ components:
       - wrong_domain
       - unknown
       - primary_calendar_not_found
+    EnumsController.EnumsForFrontend:
+      required:
+      - oauthErrorCodes
+      type: object
+      properties:
+        oauthErrorCodes:
+          $ref: '#/components/schemas/OauthErrorCodes'
   securitySchemes:
     Authorization:
       type: oauth2

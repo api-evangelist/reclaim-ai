@@ -97,36 +97,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    MeetingSummary:
-      type: object
-      properties:
-        calendarId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        eventId:
-          type:
-          - string
-          - 'null'
-        title:
-          type:
-          - string
-          - 'null'
-        startTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        endTime:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        shortDescription:
-          type:
-          - string
-          - 'null'
     UpdateRecommendedTaskStatusRequest:
       required:
       - status
@@ -134,51 +104,10 @@ components:
       properties:
         status:
           $ref: '#/components/schemas/RecommendedTaskStatus'
-    TranscriptSnippetItem:
-      required:
-      - text
-      type: object
-      properties:
-        speaker:
-          type:
-          - string
-          - 'null'
-        timestamp:
-          type:
-          - string
-          - 'null'
-        text:
-          type: string
-    RecommendedTaskStatus:
-      type: string
-      enum:
-      - PENDING
-      - PROCESSING
-      - ACCEPTED
-      - REJECTED
-      - ERROR
     RecommendedTaskSourceType:
       type: string
       enum:
       - ZOOM
-    RecommendedTaskGroup:
-      required:
-      - sourceRef
-      - sourceType
-      - tasks
-      type: object
-      properties:
-        sourceRef:
-          type: string
-        sourceType:
-          $ref: '#/components/schemas/RecommendedTaskSourceType'
-        meeting:
-          allOf:
-          - $ref: '#/components/schemas/MeetingSummary'
-        tasks:
-          type: array
-          items:
-            $ref: '#/components/schemas/RecommendedTask'
     RecommendedTask:
       required:
       - createdAt
@@ -223,6 +152,77 @@ components:
         createdAt:
           type: string
           format: date-time
+    TranscriptSnippetItem:
+      required:
+      - text
+      type: object
+      properties:
+        speaker:
+          type:
+          - string
+          - 'null'
+        timestamp:
+          type:
+          - string
+          - 'null'
+        text:
+          type: string
+    RecommendedTaskGroup:
+      required:
+      - sourceRef
+      - sourceType
+      - tasks
+      type: object
+      properties:
+        sourceRef:
+          type: string
+        sourceType:
+          $ref: '#/components/schemas/RecommendedTaskSourceType'
+        meeting:
+          allOf:
+          - $ref: '#/components/schemas/MeetingSummary'
+        tasks:
+          type: array
+          items:
+            $ref: '#/components/schemas/RecommendedTask'
+    MeetingSummary:
+      type: object
+      properties:
+        calendarId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        eventId:
+          type:
+          - string
+          - 'null'
+        title:
+          type:
+          - string
+          - 'null'
+        startTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        endTime:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        shortDescription:
+          type:
+          - string
+          - 'null'
+    RecommendedTaskStatus:
+      type: string
+      enum:
+      - PENDING
+      - PROCESSING
+      - ACCEPTED
+      - REJECTED
+      - ERROR
   securitySchemes:
     Authorization:
       type: oauth2

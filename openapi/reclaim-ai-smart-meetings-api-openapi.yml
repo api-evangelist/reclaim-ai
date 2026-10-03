@@ -768,227 +768,343 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    SmartSeriesPeriodView:
+    EventType:
+      type: string
+      enum:
+      - MEETING
+      - WORK
+      - LOGISTICS
+      - PERSONAL
+    SmartSeriesResourceView:
       required:
-      - changes
-      - done
-      - end
-      - eventKey
-      - eventStatus
-      - forceSkipped
-      - hasTimePolicyExceptions
-      - locked
-      - schedulerSkipped
-      - schedulerStatus
-      - seriesId
-      - start
-      - targetDateTime
+      - buildingId
+      - buildingName
+      - capacity
+      - category
+      - email
+      - floorName
+      - roomId
+      - roomName
       type: object
       properties:
-        eventKey:
-          $ref: '#/components/schemas/EventKey'
-        seriesId:
-          type: integer
-          format: int64
-        start:
+        email:
           type: string
-          format: date
-        end:
-          type: string
-          format: date
-        done:
-          type: boolean
-        locked:
-          type: boolean
-        forceSkipped:
-          type: boolean
-          deprecated: true
-        schedulerSkipped:
-          type: boolean
-          deprecated: true
-        schedulerStatus:
-          $ref: '#/components/schemas/SmartSeriesPeriodSchedulerStatus'
-        eventStatus:
-          $ref: '#/components/schemas/SmartSeriesPeriodEventStatus'
-        eventStart:
+        roomId:
           type:
           - string
           - 'null'
-          format: date-time
-        eventEnd:
+        capacity:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        buildingId:
           type:
           - string
           - 'null'
-          format: date-time
-        hasTimePolicyExceptions:
-          type: boolean
-        targetDateTime:
-          type: string
-          format: date-time
-        changes:
-          type: array
-          deprecated: true
-          items:
-            $ref: '#/components/schemas/ChangeLogEntryView'
-    ConferenceDetails:
-      required:
-      - solution
-      - source
-      - status
-      - url
+        buildingName:
+          type:
+          - string
+          - 'null'
+        roomName:
+          type:
+          - string
+          - 'null'
+        floorName:
+          type:
+          - string
+          - 'null'
+        category:
+          type:
+          - string
+          - 'null'
+    TimePolicyType:
+      type: string
+      enum:
+      - WORK
+      - PERSONAL
+      - MEETING
+      - ONE_OFF
+      - INHERITED
+      - CUSTOM
+    AssistDetails:
       type: object
       properties:
-        solution:
-          $ref: '#/components/schemas/ConferenceSolution'
-        url:
-          type:
-          - string
-          - 'null'
+        type:
+          $ref: '#/components/schemas/AssistType'
+        customHabit:
+          type: boolean
+        smartSeries:
+          type: boolean
+        focus:
+          type: boolean
+        habitOrTask:
+          type: boolean
+        task:
+          type: boolean
+        conferenceBuffer:
+          type: boolean
+        travelBuffer:
+          type: boolean
         status:
-          $ref: '#/components/schemas/ConferenceStatus'
-        source:
-          $ref: '#/components/schemas/ConferenceSource'
-    SmartSeriesView:
-      type: object
-      properties:
-        attendees:
-          type: array
-          items:
-            $ref: '#/components/schemas/SmartSeriesAttendeeView'
-        resources:
-          type: array
-          items:
-            $ref: '#/components/schemas/SmartSeriesResourceView'
-        id:
-          type: integer
-          format: int64
-        calendarId:
-          type: integer
-          format: int64
-        eventId:
-          type: string
-        title:
-          type: string
-        recurrence:
-          $ref: '#/components/schemas/RecurrenceDefinition'
-        starting:
-          type: string
-          format: date
-        ending:
+          $ref: '#/components/schemas/AssistStatus'
+        travelNewEventId:
           type:
           - string
           - 'null'
-          format: date
-        idealTime:
+          description: The source event id for a travel assist event.
+        conferenceEventId:
+          type:
+          - string
+          - 'null'
+          description: The source event id for a conference (decompression time) event.
+        lastControlledUpdate:
           type: string
-          format: partial-time
-        durationMinMins:
+          format: date-time
+        lastControlledHash:
           type: integer
           format: int32
-        durationMaxMins:
-          type: integer
-          format: int32
-        eventType:
-          $ref: '#/components/schemas/SmartSeriesEventType'
-        defenseAggression:
-          $ref: '#/components/schemas/DefenseAggression'
-        visibility:
-          $ref: '#/components/schemas/SmartSeriesVisibility'
-        color:
-          $ref: '#/components/schemas/EventColor'
-        description:
-          type:
-          - string
-          - 'null'
-        defendedDescription:
-          type:
-          - string
-          - 'null'
-        autoDecline:
+        defended:
           type: boolean
-        autoDeclineText:
-          type:
-          - string
-          - 'null'
-        googleMeet:
+        pinned:
           type: boolean
-        conferenceDetails:
+        lockState:
           allOf:
-          - $ref: '#/components/schemas/ConferenceDetails'
-        location:
-          type: string
-        reservedWords:
-          type: array
-          items:
-            type: string
-        dependencyType:
-          allOf:
-          - $ref: '#/components/schemas/SmartSeriesDependencyType'
-        dependencyRef:
+          - $ref: '#/components/schemas/LockState'
+        dailyHabitId:
           type:
           - integer
           - 'null'
           format: int64
-        failurePolicy:
-          $ref: '#/components/schemas/SmartSeriesBookingFailurePolicy'
-        timezone:
+        seriesLineageId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        seriesId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        taskId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        taskIndex:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        policyOverride:
+          allOf:
+          - $ref: '#/components/schemas/AssistPolicyOverride'
+        lastManualAdjustment:
+          type: string
+          format: date-time
+        recurringAssignmentType:
+          $ref: '#/components/schemas/RecurringAssignmentType'
+        eventType:
+          $ref: '#/components/schemas/ReclaimEventType'
+        manuallyStarted:
+          type: boolean
+        focusId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        assistReferenceValid:
+          type: boolean
+      description: This entity maps to the assist_events table.
+    TentativeSlot.Source:
+      type: string
+      enum:
+      - RECLAIM
+      - CALENDAR
+    GoogleCalendarEventMetadata:
+      required:
+      - guestsCanInviteOthers
+      - guestsCanModify
+      - guestsCanSeeOtherGuests
+      type: object
+      properties:
+        guestsCanModify:
+          type: boolean
+        guestsCanInviteOthers:
+          type: boolean
+        guestsCanSeeOtherGuests:
+          type: boolean
+    ThinPerson:
+      required:
+      - email
+      type: object
+      properties:
+        reclaimUser:
+          type: boolean
+        userId:
           type:
           - string
           - 'null'
-        fixedTimePolicy:
-          type: boolean
-        rescheduleUnstartedOverride:
+        email:
+          minLength: 1
+          type: string
+        name:
+          type: string
+        avatarUrl:
+          type: string
+        firstName:
           type:
-          - boolean
+          - string
           - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+    ConferenceSource:
+      type: string
+      enum:
+      - NATIVE
+      - PARSED
+    SmartSeriesRecurrenceType:
+      type: string
+      enum:
+      - SINGLE_INSTANCES
+      - RECURRING_SERIES
+    SmartSeriesDependencyType:
+      type: string
+      enum:
+      - BEFORE_ON_SAME_DAY
+      - AFTER_ON_SAME_DAY
+      - NOT_SAME_DAY
+      - ATTEMPT_AFTER
+    SmartSeriesOrganizerRequest:
+      type: object
+      properties:
         timePolicyType:
           $ref: '#/components/schemas/TimePolicyType'
-        recurrenceType:
-          $ref: '#/components/schemas/SmartSeriesRecurrenceType'
-        reminders:
+        timeSchemeId:
           type:
-          - array
+          - string
           - 'null'
-          items:
-            type: integer
-            format: int32
-        status:
-          $ref: '#/components/schemas/SmartSeriesStatus'
-        conferenceType:
-          $ref: '#/components/schemas/ConferenceType'
-        guestsCanModify:
-          type: boolean
-    AttendeeCalendarVisibility:
+        oneOffPolicy:
+          allOf:
+          - $ref: '#/components/schemas/TimePolicy'
+        priority:
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+        LOG_KEY:
+          type: string
+        PATCH_TIME_SCHEME_ID:
+          type: string
+        PATCH_ONE_OFF_POLICY:
+          type: string
+        PATCH_PRIORITY:
+          type: string
+    DefenseAggression:
       type: string
       enum:
       - NONE
-      - FREE_BUSY
-      - DETAILS
-      - FULL
-      - RECLAIM
-    ChangeLogEntryMetadataView:
+      - LOW
+      - DEFAULT
+      - HIGH
+      - MAX
+    TentativeSlot:
+      required:
+      - attendeeCount
+      - eventMetadata
+      - eventSubType
+      - eventType
+      - free
+      - hasVip
+      - id
+      - interval
+      - isDamped
+      - isForceBusy
+      - isForceFree
+      - isOrganizer
+      - isPublic
+      - isRecurring
+      - locked
+      - priorityLevel
+      - responseStatus
+      - source
+      - sourceKey
+      - status
+      - title
       type: object
-    ConferenceStatus:
+      properties:
+        id:
+          type: string
+        eventType:
+          $ref: '#/components/schemas/ReclaimEventType'
+        assignmentId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        smartSeriesLineageId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        status:
+          $ref: '#/components/schemas/EventStatus'
+        interval:
+          allOf:
+          - $ref: '#/components/schemas/Interval'
+        free:
+          type: boolean
+        locked:
+          type: boolean
+        isForceFree:
+          type: boolean
+        isForceBusy:
+          type: boolean
+        isDamped:
+          type: boolean
+        isPublic:
+          type: boolean
+        responseStatus:
+          $ref: '#/components/schemas/EventResponseStatus'
+        source:
+          $ref: '#/components/schemas/TentativeSlot.Source'
+        sourceKey:
+          type: string
+        eventMetadata:
+          allOf:
+          - $ref: '#/components/schemas/ReclaimEventMetadata'
+        title:
+          type:
+          - string
+          - 'null'
+        eventSubType:
+          $ref: '#/components/schemas/EventSubType'
+        isRecurring:
+          type: boolean
+        attendeeCount:
+          type: integer
+          format: int32
+        hasVip:
+          type: boolean
+        priorityLevel:
+          $ref: '#/components/schemas/PriorityLevel'
+        isOrganizer:
+          type: boolean
+        parentId:
+          type:
+          - string
+          - 'null'
+    SmartSeriesEventType:
       type: string
       enum:
-      - PENDING
-      - SUCCESS
-      - FAILURE
-      - UNKNOWN
-    SmartMeetingLineageView:
-      $ref: '#/components/schemas/SmartSeriesLineageView'
-    SmartSeriesPeriodSchedulerStatus:
-      type: string
-      enum:
-      - NOT_SKIPPED
-      - SKIPPED_BY_USER
-      - NO_OVERLAP_WITH_TIME_SCHEME_WINDOWS
-      - NO_FREE_TIME
-      - NO_FREE_TIME_LEFT_LAST
-      - NO_FREE_TIME_RETURN_TO_ORIGINAL
-      - PARTIAL_PERIOD_SCHEDULED
-      - PARTIAL_PERIOD_SKIPPED
-      - SKIPPED_DUE_TO_RESERVED_WORD
+      - FOCUS
+      - SOLO_WORK
+      - PERSONAL
+      - TEAM_MEETING
+      - EXTERNAL_MEETING
+      - ONE_ON_ONE
+      x-deprecated:
+      - FOCUS
     CreateSmartMeetingRequest:
       required:
       - defenseAggression
@@ -1100,42 +1216,16 @@ components:
             format: int32
         guestsCanModify:
           type: boolean
-    SmartSeriesAttendeeView:
-      required:
-      - attendee
-      - priority
-      - required
-      - responseStatus
-      - role
-      - timePolicyType
-      - visibility
-      type: object
-      properties:
-        attendee:
-          $ref: '#/components/schemas/ThinPerson'
-        required:
-          type: boolean
-        role:
-          $ref: '#/components/schemas/SmartSeriesRole'
-        timezone:
-          type:
-          - string
-          - 'null'
-        timePolicyType:
-          $ref: '#/components/schemas/TimePolicyType'
-        oneOffPolicy:
-          allOf:
-          - $ref: '#/components/schemas/TimePolicy'
-        timeSchemeId:
-          type:
-          - string
-          - 'null'
-        priority:
-          $ref: '#/components/schemas/PriorityLevel'
-        responseStatus:
-          $ref: '#/components/schemas/SmartSeriesAttendeeResponseStatus'
-        visibility:
-          $ref: '#/components/schemas/AttendeeCalendarVisibility'
+    ConferenceType:
+      type: string
+      enum:
+      - GOOGLE_MEET
+      - MICROSOFT_TEAMS
+      - ZOOM
+      - CUSTOM
+      - GENERIC_LOCATION
+      - PHYSICAL_ADDRESS
+      - PHONE_NUMBER
     PatchSmartMeetingRequest:
       type: object
       properties:
@@ -1242,244 +1332,72 @@ components:
         calendarId:
           type: integer
           format: int64
-    ReclaimEventMetadata:
-      type: object
-      properties:
-        eventReference:
-          type:
-          - string
-          - 'null'
-        version:
-          type: integer
-          format: int32
-        eventType:
-          $ref: '#/components/schemas/ReclaimEventType'
-    PriorityLevel:
-      type: string
-      enum:
-      - P1
-      - P2
-      - P3
-      - P4
-      - PRIORITIZE
-      - DEFAULT
-      x-deprecated:
-      - PRIORITIZE
-      - DEFAULT
-    TimePolicy:
-      required:
-      - dayHours
-      type: object
-      properties:
-        startOfWeek:
-          $ref: '#/components/schemas/DayOfWeek'
-        endOfWeek:
-          $ref: '#/components/schemas/DayOfWeek'
-        dayHours:
-          properties:
-            MONDAY:
-              $ref: '#/components/schemas/DayHours'
-            TUESDAY:
-              $ref: '#/components/schemas/DayHours'
-            WEDNESDAY:
-              $ref: '#/components/schemas/DayHours'
-            THURSDAY:
-              $ref: '#/components/schemas/DayHours'
-            FRIDAY:
-              $ref: '#/components/schemas/DayHours'
-            SATURDAY:
-              $ref: '#/components/schemas/DayHours'
-            SUNDAY:
-              $ref: '#/components/schemas/DayHours'
-    SmartSeriesVisibility:
+    PlatformEventType:
       type: string
       enum:
       - DEFAULT
-      - PRIVATE
-      - PUBLIC
-    AssistType:
+      - OUT_OF_OFFICE
+      - FROM_MAIL
+      - WORKING_LOCATION
+      - FOCUS_TIME
+      - BIRTHDAY
+    LockState:
       type: string
       enum:
-      - TASK
-      - CUSTOM_DAILY
-      - CATCHUP_AM
-      - CATCHUP_PM
-      - LUNCH
-      - FOCUS
-      - TRAVEL_PRE
-      - TRAVEL_POST
-      - CONBUF
-      - SMART_HABIT
-      - SMART_MEETING
-      - RECLAIM_FOCUS
-    Frequency:
-      type: string
-      enum:
-      - DAILY
-      - WEEKLY
-      - MONTHLY
-    ThinPerson:
-      required:
-      - email
-      type: object
-      properties:
-        reclaimUser:
-          type: boolean
-        userId:
-          type:
-          - string
-          - 'null'
-        email:
-          minLength: 1
-          type: string
-        name:
-          type: string
-        avatarUrl:
-          type: string
-        firstName:
-          type:
-          - string
-          - 'null'
-        lastName:
-          type:
-          - string
-          - 'null'
-    SmartSeriesType:
-      type: string
-      enum:
-      - HABIT
-      - MEETING
-    DefenseAggression:
-      type: string
-      enum:
-      - NONE
-      - LOW
-      - DEFAULT
-      - HIGH
-      - MAX
-    RecurrenceDefinition:
-      required:
-      - frequency
-      type: object
-      properties:
-        interval:
-          type: integer
-          format: int32
-        frequency:
-          $ref: '#/components/schemas/Frequency'
-        idealDays:
-          type: array
-          items:
-            $ref: '#/components/schemas/DayOfWeek'
-        idealMonthlyDay:
-          $ref: '#/components/schemas/IdealMonthlyDay'
-        daysBetweenPeriods:
-          type: integer
-          format: int32
-          readOnly: true
-    SmartSeriesPeriodEventStatus:
-      type: string
-      enum:
-      - NONE
-      - PRESENT
-      - DEFENDED
-      - LOCKED
-      - DONE
-      - UNKNOWN
-      x-deprecated:
-      - UNKNOWN
-    EventSubType:
+      - MANUALLY_LOCKED
+      - ADJUSTED
+      - UPCOMING_WINDOW
+      - MANUALLY_UNLOCKED
+      - DELETED
+      - DECLINED
+      - IN_THE_PAST
+    RecurringAssignmentType:
       type: string
       enum:
       - ONE_ON_ONE
-      - STAFF_MEETING
-      - OP_REVIEW
-      - EXTERNAL
-      - IDEATION
-      - FOCUS
-      - PRODUCTIVITY
-      - TRAVEL
-      - FLIGHT
-      - TRAIN
-      - RECLAIM
-      - VACATION
-      - HEALTH
-      - ERRAND
-      - OTHER_PERSONAL
-      - UNKNOWN
-    EventKey:
+      - DAILY_HABIT
+      - TASK
+    ConferenceDetails:
       required:
-      - calendarId
-      - eventId
-      type: object
-      properties:
-        eventId:
-          type: string
-        calendarId:
-          type: integer
-          format: int64
-    Interval:
-      type: object
-      properties:
-        start:
-          type: string
-          format: date-time
-        end:
-          type: string
-          format: date-time
-        empty:
-          type: boolean
-        unboundedStart:
-          type: boolean
-        unboundedEnd:
-          type: boolean
-    EventSourceDetails:
-      required:
-      - base64Id
-      - calendarId
-      - description
-      - etag
-      - eventId
-      - eventKey
-      - title
+      - solution
+      - source
+      - status
       - url
-      - writable
       type: object
       properties:
-        writable:
-          type: boolean
-        calendarId:
-          type: integer
-          format: int64
-        eventId:
-          type: string
-        etag:
-          type: string
-        eventKey:
-          $ref: '#/components/schemas/EventKey'
-        base64Id:
-          type: string
+        solution:
+          $ref: '#/components/schemas/ConferenceSolution'
         url:
-          type: string
-        title:
-          type: string
-        description:
-          type: string
-    EventColor:
+          type:
+          - string
+          - 'null'
+        status:
+          $ref: '#/components/schemas/ConferenceStatus'
+        source:
+          $ref: '#/components/schemas/ConferenceSource'
+    EventResponseStatus:
       type: string
       enum:
-      - NONE
-      - LAVENDER
-      - SAGE
-      - GRAPE
-      - FLAMINGO
-      - BANANA
-      - TANGERINE
-      - PEACOCK
-      - GRAPHITE
-      - BLUEBERRY
-      - BASIL
-      - TOMATO
+      - None
+      - Organizer
+      - Accepted
+      - Declined
+      - TentativelyAccepted
+      - NotResponded
+      x-enum-varnames:
+      - None
+      - Organizer
+      - Accepted
+      - Declined
+      - TentativelyAccepted
+      - NotResponded
+    SmartSeriesAttendeeResponseStatus:
+      type: string
+      enum:
+      - NEEDS_ACTION
+      - ACCEPTED
+      - TENTATIVE
+      - DECLINED
     EventAttendee:
       required:
       - email
@@ -1519,46 +1437,41 @@ components:
           type:
           - boolean
           - 'null'
-    AssistStatus:
+    SmartSeriesType:
       type: string
       enum:
-      - CONTROLLED
-      - RELEASED
-      - ARCHIVED
-    IdealMonthlyDay:
+      - HABIT
+      - MEETING
+    ResponseStatus:
+      type: string
+      enum:
+      - DECLINED
+      - NEEDS_ACTION
+      - TENTATIVE
+      - ACCEPTED
+      - UNKNOWN
+    SnoozeOption:
+      type: string
+      enum:
+      - FROM_NOW_15M
+      - FROM_NOW_30M
+      - FROM_NOW_1H
+      - FROM_NOW_2H
+      - FROM_NOW_4H
+      - TOMORROW
+      - IN_TWO_DAYS
+      - NEXT_WEEK
+    SmartSeriesAttendeeRequest:
       type: object
       properties:
-        idealDayOfMonth:
-          type: integer
-          format: int32
-        idealDayOfWeek:
-          $ref: '#/components/schemas/DayOfWeek'
-        idealWeek:
-          type: integer
-          format: int32
-    ConferenceType:
-      type: string
-      enum:
-      - GOOGLE_MEET
-      - MICROSOFT_TEAMS
-      - ZOOM
-      - CUSTOM
-      - GENERIC_LOCATION
-      - PHYSICAL_ADDRESS
-      - PHONE_NUMBER
-    DayOfWeek:
-      type: string
-      enum:
-      - MONDAY
-      - TUESDAY
-      - WEDNESDAY
-      - THURSDAY
-      - FRIDAY
-      - SATURDAY
-      - SUNDAY
-    SmartSeriesOrganizerRequest:
-      type: object
-      properties:
+        email:
+          type: string
+        LOG_KEY:
+          type: string
+        REGEX_MASK_EMAIL:
+          type: string
+        required:
+          type: boolean
         timePolicyType:
           $ref: '#/components/schemas/TimePolicyType'
         timeSchemeId:
@@ -1571,265 +1484,72 @@ components:
         priority:
           allOf:
           - $ref: '#/components/schemas/PriorityLevel'
-        LOG_KEY:
-          type: string
-        PATCH_TIME_SCHEME_ID:
-          type: string
-        PATCH_ONE_OFF_POLICY:
-          type: string
-        PATCH_PRIORITY:
-          type: string
-    TimePolicyType:
-      type: string
-      enum:
-      - WORK
-      - PERSONAL
-      - MEETING
-      - ONE_OFF
-      - INHERITED
-      - CUSTOM
-    SmartSeriesRole:
-      type: string
-      enum:
-      - ORGANIZER
-      - REQUIRED_ATTENDEE
-      - OPTIONAL_ATTENDEE
-    MergeDetails:
-      required:
-      - key
-      - sourceCalendarId
-      - sourceReclaimCalendarId
-      - type
-      type: object
-      properties:
-        key:
-          type: string
-        type:
-          $ref: '#/components/schemas/MergeDetails.EventType'
-        sourceCalendarId:
-          type:
-          - string
-          - 'null'
-        sourceReclaimCalendarId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-    SmartSeriesBookingFailurePolicy:
-      type: string
-      enum:
-      - REMOVE
-      - LEAVE_LAST
-      - LEAVE_LAST_OR_RETURN_TO_ORIGINAL
-    AssistDetails:
-      type: object
-      properties:
-        type:
-          $ref: '#/components/schemas/AssistType'
-        customHabit:
-          type: boolean
-        smartSeries:
-          type: boolean
-        focus:
-          type: boolean
-        habitOrTask:
-          type: boolean
-        task:
-          type: boolean
-        conferenceBuffer:
-          type: boolean
-        travelBuffer:
-          type: boolean
-        status:
-          $ref: '#/components/schemas/AssistStatus'
-        travelNewEventId:
-          type:
-          - string
-          - 'null'
-          description: The source event id for a travel assist event.
-        conferenceEventId:
-          type:
-          - string
-          - 'null'
-          description: The source event id for a conference (decompression time) event.
-        lastControlledUpdate:
-          type: string
-          format: date-time
-        lastControlledHash:
-          type: integer
-          format: int32
-        defended:
-          type: boolean
-        pinned:
-          type: boolean
-        lockState:
-          allOf:
-          - $ref: '#/components/schemas/LockState'
-        dailyHabitId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        seriesLineageId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        seriesId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        taskId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        taskIndex:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        policyOverride:
-          allOf:
-          - $ref: '#/components/schemas/AssistPolicyOverride'
-        lastManualAdjustment:
-          type: string
-          format: date-time
-        recurringAssignmentType:
-          $ref: '#/components/schemas/RecurringAssignmentType'
-        eventType:
-          $ref: '#/components/schemas/ReclaimEventType'
-        manuallyStarted:
-          type: boolean
-        focusId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        assistReferenceValid:
-          type: boolean
-      description: This entity maps to the assist_events table.
-    TentativeSlot.Source:
-      type: string
-      enum:
-      - RECLAIM
-      - CALENDAR
-    LocalTimeInterval:
-      required:
-      - end
-      - start
-      type: object
-      properties:
-        start:
-          type: string
-          format: partial-time
-        end:
-          type: string
-          format: partial-time
-        duration:
-          type: string
-    TentativeSlot:
-      required:
-      - attendeeCount
-      - eventMetadata
-      - eventSubType
-      - eventType
-      - free
-      - hasVip
-      - id
-      - interval
-      - isDamped
-      - isForceBusy
-      - isForceFree
-      - isOrganizer
-      - isPublic
-      - isRecurring
-      - locked
-      - priorityLevel
-      - responseStatus
-      - source
-      - sourceKey
-      - status
-      - title
-      type: object
-      properties:
-        id:
-          type: string
-        eventType:
-          $ref: '#/components/schemas/ReclaimEventType'
-        assignmentId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        smartSeriesLineageId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        status:
-          $ref: '#/components/schemas/EventStatus'
-        interval:
-          allOf:
-          - $ref: '#/components/schemas/Interval'
-        free:
-          type: boolean
-        locked:
-          type: boolean
-        isForceFree:
-          type: boolean
-        isForceBusy:
-          type: boolean
-        isDamped:
-          type: boolean
-        isPublic:
-          type: boolean
         responseStatus:
-          $ref: '#/components/schemas/EventResponseStatus'
-        source:
-          $ref: '#/components/schemas/TentativeSlot.Source'
-        sourceKey:
-          type: string
-        eventMetadata:
-          allOf:
-          - $ref: '#/components/schemas/ReclaimEventMetadata'
-        title:
-          type:
-          - string
-          - 'null'
-        eventSubType:
-          $ref: '#/components/schemas/EventSubType'
-        isRecurring:
-          type: boolean
-        attendeeCount:
-          type: integer
-          format: int32
-        hasVip:
-          type: boolean
-        priorityLevel:
-          $ref: '#/components/schemas/PriorityLevel'
-        isOrganizer:
-          type: boolean
-        parentId:
-          type:
-          - string
-          - 'null'
-    ConferenceSource:
+          $ref: '#/components/schemas/SmartSeriesAttendeeResponseStatus'
+    ReclaimEventType:
       type: string
       enum:
-      - NATIVE
-      - PARSED
-    SmartSeriesResourceRequest:
+      - USER
+      - SYNC
+      - HABIT_ASSIGNMENT
+      - SMART_HABIT
+      - ONE_ON_ONE_ASSIGNMENT
+      - SMART_MEETING
+      - TASK_ASSIGNMENT
+      - CONF_BUFFER
+      - TRAVEL_BUFFER
+      - SCHEDULING_LINK_MEETING
+      - UNKNOWN
+      - FOCUS
+    SmartMeetingLineageView:
+      $ref: '#/components/schemas/SmartSeriesLineageView'
+    EventSourceDetails:
       required:
-      - email
-      - roomId
+      - base64Id
+      - calendarId
+      - description
+      - etag
+      - eventId
+      - eventKey
+      - title
+      - url
+      - writable
       type: object
       properties:
-        roomId:
+        writable:
+          type: boolean
+        calendarId:
+          type: integer
+          format: int64
+        eventId:
           type: string
-        email:
+        etag:
           type: string
+        eventKey:
+          $ref: '#/components/schemas/EventKey'
+        base64Id:
+          type: string
+        url:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+    AssistType:
+      type: string
+      enum:
+      - TASK
+      - CUSTOM_DAILY
+      - CATCHUP_AM
+      - CATCHUP_PM
+      - LUNCH
+      - FOCUS
+      - TRAVEL_PRE
+      - TRAVEL_POST
+      - CONBUF
+      - SMART_HABIT
+      - SMART_MEETING
+      - RECLAIM_FOCUS
     AssistPolicyOverride:
       required:
       - durationMax
@@ -1857,6 +1577,136 @@ components:
           format: int32
         forceDefend:
           type: boolean
+    Colorized:
+      type: object
+      properties:
+        color:
+          $ref: '#/components/schemas/EventColor'
+    LocalTimeInterval:
+      required:
+      - end
+      - start
+      type: object
+      properties:
+        start:
+          type: string
+          format: partial-time
+        end:
+          type: string
+          format: partial-time
+        duration:
+          type: string
+    SmartSeriesPeriodEventStatus:
+      type: string
+      enum:
+      - NONE
+      - PRESENT
+      - DEFENDED
+      - LOCKED
+      - DONE
+      - UNKNOWN
+      x-deprecated:
+      - UNKNOWN
+    RecurrenceDefinition:
+      required:
+      - frequency
+      type: object
+      properties:
+        interval:
+          type: integer
+          format: int32
+        frequency:
+          $ref: '#/components/schemas/Frequency'
+        idealDays:
+          type: array
+          items:
+            $ref: '#/components/schemas/DayOfWeek'
+        idealMonthlyDay:
+          $ref: '#/components/schemas/IdealMonthlyDay'
+        daysBetweenPeriods:
+          type: integer
+          format: int32
+          readOnly: true
+    SmartSeriesPeriodSchedulerStatus:
+      type: string
+      enum:
+      - NOT_SKIPPED
+      - SKIPPED_BY_USER
+      - NO_OVERLAP_WITH_TIME_SCHEME_WINDOWS
+      - NO_FREE_TIME
+      - NO_FREE_TIME_LEFT_LAST
+      - NO_FREE_TIME_RETURN_TO_ORIGINAL
+      - PARTIAL_PERIOD_SCHEDULED
+      - PARTIAL_PERIOD_SKIPPED
+      - SKIPPED_DUE_TO_RESERVED_WORD
+    SmartSeriesPeriodView:
+      required:
+      - changes
+      - done
+      - end
+      - eventKey
+      - eventStatus
+      - forceSkipped
+      - hasTimePolicyExceptions
+      - locked
+      - schedulerSkipped
+      - schedulerStatus
+      - seriesId
+      - start
+      - targetDateTime
+      type: object
+      properties:
+        eventKey:
+          $ref: '#/components/schemas/EventKey'
+        seriesId:
+          type: integer
+          format: int64
+        start:
+          type: string
+          format: date
+        end:
+          type: string
+          format: date
+        done:
+          type: boolean
+        locked:
+          type: boolean
+        forceSkipped:
+          type: boolean
+          deprecated: true
+        schedulerSkipped:
+          type: boolean
+          deprecated: true
+        schedulerStatus:
+          $ref: '#/components/schemas/SmartSeriesPeriodSchedulerStatus'
+        eventStatus:
+          $ref: '#/components/schemas/SmartSeriesPeriodEventStatus'
+        eventStart:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        eventEnd:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        hasTimePolicyExceptions:
+          type: boolean
+        targetDateTime:
+          type: string
+          format: date-time
+        changes:
+          type: array
+          deprecated: true
+          items:
+            $ref: '#/components/schemas/ChangeLogEntryView'
+    SmartSeriesRole:
+      type: string
+      enum:
+      - ORGANIZER
+      - REQUIRED_ATTENDEE
+      - OPTIONAL_ATTENDEE
     ConferenceSolution:
       type: string
       enum:
@@ -1871,11 +1721,507 @@ components:
       - JITSI
       - OTHER
       - UNKNOWN
+    ReclaimEventMetadata:
+      type: object
+      properties:
+        eventReference:
+          type:
+          - string
+          - 'null'
+        version:
+          type: integer
+          format: int32
+        eventType:
+          $ref: '#/components/schemas/ReclaimEventType'
+    SmartSeriesBookingFailurePolicy:
+      type: string
+      enum:
+      - REMOVE
+      - LEAVE_LAST
+      - LEAVE_LAST_OR_RETURN_TO_ORIGINAL
+    Frequency:
+      type: string
+      enum:
+      - DAILY
+      - WEEKLY
+      - MONTHLY
+    AttendeeCalendarVisibility:
+      type: string
+      enum:
+      - NONE
+      - FREE_BUSY
+      - DETAILS
+      - FULL
+      - RECLAIM
+    SmartSeriesStatus:
+      type: string
+      enum:
+      - NEW
+      - ACTIVE
+      - ACTIVE_TIME_POLICY_EMPTY
+      - ACTIVE_TIME_POLICY_LOW
+      - ACTIVE_EVERYONE_DECLINED
+      - ACTIVE_EVERY_REQUIRED_DECLINED
+      - DISABLED
+      - INACTIVE_CALENDAR_NOT_VALID
+      - INACTIVE_CALENDAR_NOT_CONNECTED
+      - INACTIVE_CALENDAR_NOT_WRITABLE
+      - INACTIVE_MULTI_CONNECTED_CALENDAR
+      - INACTIVE_CALENDAR_NOT_FOUND
+      - INACTIVE_ORGANIZER_MISSING
+      - EVERYONE_DECLINED
+      - EVERY_REQUIRED_DECLINED
+      - CORRUPTED
+      - UNKNOWN
+      - NO_ACCESS
+    Interval:
+      type: object
+      properties:
+        start:
+          type: string
+          format: date-time
+        end:
+          type: string
+          format: date-time
+        empty:
+          type: boolean
+        unboundedStart:
+          type: boolean
+        unboundedEnd:
+          type: boolean
+    ChangeLogEntryView:
+      required:
+      - changedAt
+      - id
+      - reason
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        changedAt:
+          type: string
+          format: date-time
+        reclaimEventType:
+          allOf:
+          - $ref: '#/components/schemas/ReclaimEventType'
+        assignmentId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        assignmentSubId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        eventId:
+          type:
+          - string
+          - 'null'
+        organizerId:
+          type:
+          - string
+          - 'null'
+        actorId:
+          type:
+          - string
+          - 'null'
+        reason:
+          $ref: '#/components/schemas/ChangeLogReason'
+        lockChangedMetadata:
+          allOf:
+          - $ref: '#/components/schemas/ChangeLogEntryMetadataView'
+        periodSkippedMetadata:
+          allOf:
+          - $ref: '#/components/schemas/ChangeLogEntryMetadataView'
+        eventMovedMetadata:
+          allOf:
+          - $ref: '#/components/schemas/ChangeLogEntryMetadataView'
+        periodSkippedDueToReservedWordMetadata:
+          allOf:
+          - $ref: '#/components/schemas/ChangeLogEntryMetadataView'
+    SmartSeriesActionPlannedResult:
+      required:
+      - events
+      - series
+      - timeoutReached
+      - userInfoMessage
+      type: object
+      properties:
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
+        series:
+          $ref: '#/components/schemas/SmartSeriesView'
+        userInfoMessage:
+          type: string
+        timeoutReached:
+          type: boolean
+      description: 'The expected result of a planner action. Note: this isn''t the reality at the point it''s returned, but what we expect to make reality as we execute the planner action.'
+    MergeDetails:
+      required:
+      - key
+      - sourceCalendarId
+      - sourceReclaimCalendarId
+      - type
+      type: object
+      properties:
+        key:
+          type: string
+        type:
+          $ref: '#/components/schemas/MergeDetails.EventType'
+        sourceCalendarId:
+          type:
+          - string
+          - 'null'
+        sourceReclaimCalendarId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+    SmartSeriesView:
+      type: object
+      properties:
+        attendees:
+          type: array
+          items:
+            $ref: '#/components/schemas/SmartSeriesAttendeeView'
+        resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/SmartSeriesResourceView'
+        id:
+          type: integer
+          format: int64
+        calendarId:
+          type: integer
+          format: int64
+        eventId:
+          type: string
+        title:
+          type: string
+        recurrence:
+          $ref: '#/components/schemas/RecurrenceDefinition'
+        starting:
+          type: string
+          format: date
+        ending:
+          type:
+          - string
+          - 'null'
+          format: date
+        idealTime:
+          type: string
+          format: partial-time
+        durationMinMins:
+          type: integer
+          format: int32
+        durationMaxMins:
+          type: integer
+          format: int32
+        eventType:
+          $ref: '#/components/schemas/SmartSeriesEventType'
+        defenseAggression:
+          $ref: '#/components/schemas/DefenseAggression'
+        visibility:
+          $ref: '#/components/schemas/SmartSeriesVisibility'
+        color:
+          $ref: '#/components/schemas/EventColor'
+        description:
+          type:
+          - string
+          - 'null'
+        defendedDescription:
+          type:
+          - string
+          - 'null'
+        autoDecline:
+          type: boolean
+        autoDeclineText:
+          type:
+          - string
+          - 'null'
+        googleMeet:
+          type: boolean
+        conferenceDetails:
+          allOf:
+          - $ref: '#/components/schemas/ConferenceDetails'
+        location:
+          type: string
+        reservedWords:
+          type: array
+          items:
+            type: string
+        dependencyType:
+          allOf:
+          - $ref: '#/components/schemas/SmartSeriesDependencyType'
+        dependencyRef:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        failurePolicy:
+          $ref: '#/components/schemas/SmartSeriesBookingFailurePolicy'
+        timezone:
+          type:
+          - string
+          - 'null'
+        fixedTimePolicy:
+          type: boolean
+        rescheduleUnstartedOverride:
+          type:
+          - boolean
+          - 'null'
+        timePolicyType:
+          $ref: '#/components/schemas/TimePolicyType'
+        recurrenceType:
+          $ref: '#/components/schemas/SmartSeriesRecurrenceType'
+        reminders:
+          type:
+          - array
+          - 'null'
+          items:
+            type: integer
+            format: int32
+        status:
+          $ref: '#/components/schemas/SmartSeriesStatus'
+        conferenceType:
+          $ref: '#/components/schemas/ConferenceType'
+        guestsCanModify:
+          type: boolean
+    IdealMonthlyDay:
+      type: object
+      properties:
+        idealDayOfMonth:
+          type: integer
+          format: int32
+        idealDayOfWeek:
+          $ref: '#/components/schemas/DayOfWeek'
+        idealWeek:
+          type: integer
+          format: int32
+    ChangeLogReason:
+      type: string
+      enum:
+      - SMART_1_1_SKIPPED
+      - SMART_1_1_ATTENDEE_DECLINED
+      - SMART_1_1_CREATED
+      - SMART_1_1_ATTENDEE_AUTO_ACCEPTED
+      - SMART_1_1_DELETED
+      - SMART_1_1_ATTENDEE_RESCHEDULED
+      - SMART_1_1_PIN
+      - SMART_1_1_UNPIN
+      - HABIT_START_NOW
+      - HABIT_RESTART_NOW
+      - HABIT_MOVED
+      - HABIT_RESCHEDULED
+      - HABIT_ENABLED
+      - HABIT_DISABLED
+      - HABIT_DELETED
+      - HABIT_SKIPPED
+      - HABIT_STOPPED
+      - HABIT_MARKED_DONE
+      - HABIT_UNPIN
+      - HABIT_PIN
+      - HABIT_CREATED
+      - HABIT_PRIORITY_CHANGED
+      - HABIT_TIME_POLICY_CHANGED
+      - SMART_HABIT_START
+      - SMART_HABIT_STOP
+      - SMART_HABIT_RESCHEDULE
+      - SMART_HABIT_RESET_SCHEDULE
+      - SMART_HABIT_SKIP
+      - SMART_HABIT_PIN
+      - SMART_HABIT_UNPIN
+      - SMART_HABIT_MOVE
+      - SMART_HABIT_MARK_DONE
+      - SMART_HABIT_RECORD
+      - SMART_HABIT_SKIPPED_DUE_TO_RESERVED_WORD
+      - SMART_HABIT_DECLINE
+      - SMART_MEETING_RESCHEDULE
+      - SMART_MEETING_RESET_SCHEDULE
+      - SMART_MEETING_SKIP
+      - SMART_MEETING_PIN
+      - SMART_MEETING_UNPIN
+      - SMART_MEETING_MOVE
+      - SMART_MEETING_MARK_DONE
+      - SMART_MEETING_DECLINE
+      - SMART_SERIES_EVENT_REMOVED_DUE_TO_FORCE_SKIP
+      - SMART_SERIES_EVENT_REMOVED_DUE_TO_NO_TIME
+      - SMART_SERIES_EVENT_MOVED
+      - SMART_SERIES_EVENT_NO_TIME_ORIGINAL
+      - SMART_SERIES_EVENT_NO_TIME_LAST
+      - SMART_SERIES_EVENT_NO_TIME_PARTIAL_PERIOD_REMOVED
+      - SMART_SERIES_EVENT_NO_TIME_PARTIAL_PERIOD_PUNTED
+      - TASK_PIN
+      - TASK_UNPIN
+      - TASK_START_NOW
+      - EVENT_AUTO_LOCK_CHANGED
+      - SCHEDULING_LINK_CREATED
+      - SCHEDULING_LINK_DELETED
+      - SCHEDULING_LINK_BRANDING_CREATED
+      - SCHEDULING_LINK_BRANDING_UPDATED
+      - SCHEDULING_LINK_BRANDING_DELETED
+      - FOCUS_EVENT_PIN
+      - FOCUS_EVENT_UNPIN
+      - FOCUS_EVENT_RESCHEDULE
+      - EVENT_DELETED_VIA_CALENDAR_ASSIGNMENT_SKIPPED_FOR_PERIOD
+      - EVENT_DELETED_VIA_CALENDAR_ASSIGNMENT_SKIPPED_FOR_DAY
+    PriorityLevel:
+      type: string
+      enum:
+      - P1
+      - P2
+      - P3
+      - P4
+      - PRIORITIZE
+      - DEFAULT
+      x-deprecated:
+      - PRIORITIZE
+      - DEFAULT
+    SmartSeriesLineageView:
+      type: object
+      properties:
+        lineageId:
+          type: integer
+          format: int64
+        calendarId:
+          type: integer
+          format: int64
+        type:
+          $ref: '#/components/schemas/SmartSeriesType'
+        status:
+          $ref: '#/components/schemas/SmartSeriesStatus'
+        activeSeries:
+          $ref: '#/components/schemas/SmartSeriesView'
+        series:
+          type: array
+          items:
+            $ref: '#/components/schemas/SmartSeriesView'
+        periods:
+          type: array
+          items:
+            $ref: '#/components/schemas/SmartSeriesPeriodView'
+        enabled:
+          type: boolean
+        restorable:
+          type: boolean
+        recurrenceType:
+          $ref: '#/components/schemas/SmartSeriesRecurrenceType'
+    EventColor:
+      type: string
+      enum:
+      - NONE
+      - LAVENDER
+      - SAGE
+      - GRAPE
+      - FLAMINGO
+      - BANANA
+      - TANGERINE
+      - PEACOCK
+      - GRAPHITE
+      - BLUEBERRY
+      - BASIL
+      - TOMATO
+    EventSubType:
+      type: string
+      enum:
+      - ONE_ON_ONE
+      - STAFF_MEETING
+      - OP_REVIEW
+      - EXTERNAL
+      - IDEATION
+      - FOCUS
+      - PRODUCTIVITY
+      - TRAVEL
+      - FLIGHT
+      - TRAIN
+      - RECLAIM
+      - VACATION
+      - HEALTH
+      - ERRAND
+      - OTHER_PERSONAL
+      - UNKNOWN
     EventStatus:
       type: string
       enum:
       - PUBLISHED
       - CANCELLED
+    EventCategory:
+      $ref: '#/components/schemas/Colorized'
+    PrioritySource:
+      type: string
+      enum:
+      - MANUAL
+      - AI
+      - RULES
+    SmartSeriesVisibility:
+      type: string
+      enum:
+      - DEFAULT
+      - PRIVATE
+      - PUBLIC
+    SmartSeriesAttendeeView:
+      required:
+      - attendee
+      - priority
+      - required
+      - responseStatus
+      - role
+      - timePolicyType
+      - visibility
+      type: object
+      properties:
+        attendee:
+          $ref: '#/components/schemas/ThinPerson'
+        required:
+          type: boolean
+        role:
+          $ref: '#/components/schemas/SmartSeriesRole'
+        timezone:
+          type:
+          - string
+          - 'null'
+        timePolicyType:
+          $ref: '#/components/schemas/TimePolicyType'
+        oneOffPolicy:
+          allOf:
+          - $ref: '#/components/schemas/TimePolicy'
+        timeSchemeId:
+          type:
+          - string
+          - 'null'
+        priority:
+          $ref: '#/components/schemas/PriorityLevel'
+        responseStatus:
+          $ref: '#/components/schemas/SmartSeriesAttendeeResponseStatus'
+        visibility:
+          $ref: '#/components/schemas/AttendeeCalendarVisibility'
+    ChangeLogEntryMetadataView:
+      type: object
+    DayOfWeek:
+      type: string
+      enum:
+      - MONDAY
+      - TUESDAY
+      - WEDNESDAY
+      - THURSDAY
+      - FRIDAY
+      - SATURDAY
+      - SUNDAY
+    EventKey:
+      required:
+      - calendarId
+      - eventId
+      type: object
+      properties:
+        eventId:
+          type: string
+        calendarId:
+          type: integer
+          format: int64
     Event:
       required:
       - allocatedTimeChunks
@@ -2059,86 +2405,19 @@ components:
             existing logic for detecting and parsing event information, even when the event ID cannot be directly
 
             relied upon (e.g., in Microsoft calendars).'
-    SmartSeriesResourceView:
-      required:
-      - buildingId
-      - buildingName
-      - capacity
-      - category
-      - email
-      - floorName
-      - roomId
-      - roomName
-      type: object
-      properties:
-        email:
-          type: string
-        roomId:
-          type:
-          - string
-          - 'null'
-        capacity:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        buildingId:
-          type:
-          - string
-          - 'null'
-        buildingName:
-          type:
-          - string
-          - 'null'
-        roomName:
-          type:
-          - string
-          - 'null'
-        floorName:
-          type:
-          - string
-          - 'null'
-        category:
-          type:
-          - string
-          - 'null'
-    SmartSeriesLineageView:
-      type: object
-      properties:
-        lineageId:
-          type: integer
-          format: int64
-        calendarId:
-          type: integer
-          format: int64
-        type:
-          $ref: '#/components/schemas/SmartSeriesType'
-        status:
-          $ref: '#/components/schemas/SmartSeriesStatus'
-        activeSeries:
-          $ref: '#/components/schemas/SmartSeriesView'
-        series:
-          type: array
-          items:
-            $ref: '#/components/schemas/SmartSeriesView'
-        periods:
-          type: array
-          items:
-            $ref: '#/components/schemas/SmartSeriesPeriodView'
-        enabled:
-          type: boolean
-        restorable:
-          type: boolean
-        recurrenceType:
-          $ref: '#/components/schemas/SmartSeriesRecurrenceType'
-    EventCategory:
-      $ref: '#/components/schemas/Colorized'
-    PrioritySource:
+    AssistStatus:
       type: string
       enum:
-      - MANUAL
-      - AI
-      - RULES
+      - CONTROLLED
+      - RELEASED
+      - ARCHIVED
+    ConferenceStatus:
+      type: string
+      enum:
+      - PENDING
+      - SUCCESS
+      - FAILURE
+      - UNKNOWN
     MeetingType:
       type: string
       enum:
@@ -2176,235 +2455,47 @@ components:
       - REQ_BRAIN
       - OTHER_IDEATION
       - UNKNOWN
-    Colorized:
-      type: object
-      properties:
-        color:
-          $ref: '#/components/schemas/EventColor'
-    ResponseStatus:
-      type: string
-      enum:
-      - DECLINED
-      - NEEDS_ACTION
-      - TENTATIVE
-      - ACCEPTED
-      - UNKNOWN
-    ReclaimEventType:
-      type: string
-      enum:
-      - USER
-      - SYNC
-      - HABIT_ASSIGNMENT
-      - SMART_HABIT
-      - ONE_ON_ONE_ASSIGNMENT
-      - SMART_MEETING
-      - TASK_ASSIGNMENT
-      - CONF_BUFFER
-      - TRAVEL_BUFFER
-      - SCHEDULING_LINK_MEETING
-      - UNKNOWN
-      - FOCUS
-    GoogleCalendarEventMetadata:
+    TimePolicy:
       required:
-      - guestsCanInviteOthers
-      - guestsCanModify
-      - guestsCanSeeOtherGuests
+      - dayHours
       type: object
       properties:
-        guestsCanModify:
-          type: boolean
-        guestsCanInviteOthers:
-          type: boolean
-        guestsCanSeeOtherGuests:
-          type: boolean
-    SmartSeriesDependencyType:
-      type: string
-      enum:
-      - BEFORE_ON_SAME_DAY
-      - AFTER_ON_SAME_DAY
-      - NOT_SAME_DAY
-      - ATTEMPT_AFTER
-    SmartSeriesRecurrenceType:
-      type: string
-      enum:
-      - SINGLE_INSTANCES
-      - RECURRING_SERIES
-    SmartSeriesEventType:
-      type: string
-      enum:
-      - FOCUS
-      - SOLO_WORK
-      - PERSONAL
-      - TEAM_MEETING
-      - EXTERNAL_MEETING
-      - ONE_ON_ONE
-      x-deprecated:
-      - FOCUS
-    RecurringAssignmentType:
-      type: string
-      enum:
-      - ONE_ON_ONE
-      - DAILY_HABIT
-      - TASK
-    ChangeLogReason:
-      type: string
-      enum:
-      - SMART_1_1_SKIPPED
-      - SMART_1_1_ATTENDEE_DECLINED
-      - SMART_1_1_CREATED
-      - SMART_1_1_ATTENDEE_AUTO_ACCEPTED
-      - SMART_1_1_DELETED
-      - SMART_1_1_ATTENDEE_RESCHEDULED
-      - SMART_1_1_PIN
-      - SMART_1_1_UNPIN
-      - HABIT_START_NOW
-      - HABIT_RESTART_NOW
-      - HABIT_MOVED
-      - HABIT_RESCHEDULED
-      - HABIT_ENABLED
-      - HABIT_DISABLED
-      - HABIT_DELETED
-      - HABIT_SKIPPED
-      - HABIT_STOPPED
-      - HABIT_MARKED_DONE
-      - HABIT_UNPIN
-      - HABIT_PIN
-      - HABIT_CREATED
-      - HABIT_PRIORITY_CHANGED
-      - HABIT_TIME_POLICY_CHANGED
-      - SMART_HABIT_START
-      - SMART_HABIT_STOP
-      - SMART_HABIT_RESCHEDULE
-      - SMART_HABIT_RESET_SCHEDULE
-      - SMART_HABIT_SKIP
-      - SMART_HABIT_PIN
-      - SMART_HABIT_UNPIN
-      - SMART_HABIT_MOVE
-      - SMART_HABIT_MARK_DONE
-      - SMART_HABIT_RECORD
-      - SMART_HABIT_SKIPPED_DUE_TO_RESERVED_WORD
-      - SMART_HABIT_DECLINE
-      - SMART_MEETING_RESCHEDULE
-      - SMART_MEETING_RESET_SCHEDULE
-      - SMART_MEETING_SKIP
-      - SMART_MEETING_PIN
-      - SMART_MEETING_UNPIN
-      - SMART_MEETING_MOVE
-      - SMART_MEETING_MARK_DONE
-      - SMART_MEETING_DECLINE
-      - SMART_SERIES_EVENT_REMOVED_DUE_TO_FORCE_SKIP
-      - SMART_SERIES_EVENT_REMOVED_DUE_TO_NO_TIME
-      - SMART_SERIES_EVENT_MOVED
-      - SMART_SERIES_EVENT_NO_TIME_ORIGINAL
-      - SMART_SERIES_EVENT_NO_TIME_LAST
-      - SMART_SERIES_EVENT_NO_TIME_PARTIAL_PERIOD_REMOVED
-      - SMART_SERIES_EVENT_NO_TIME_PARTIAL_PERIOD_PUNTED
-      - TASK_PIN
-      - TASK_UNPIN
-      - TASK_START_NOW
-      - EVENT_AUTO_LOCK_CHANGED
-      - SCHEDULING_LINK_CREATED
-      - SCHEDULING_LINK_DELETED
-      - SCHEDULING_LINK_BRANDING_CREATED
-      - SCHEDULING_LINK_BRANDING_UPDATED
-      - SCHEDULING_LINK_BRANDING_DELETED
-      - FOCUS_EVENT_PIN
-      - FOCUS_EVENT_UNPIN
-      - FOCUS_EVENT_RESCHEDULE
-      - EVENT_DELETED_VIA_CALENDAR_ASSIGNMENT_SKIPPED_FOR_PERIOD
-      - EVENT_DELETED_VIA_CALENDAR_ASSIGNMENT_SKIPPED_FOR_DAY
-    SmartSeriesStatus:
-      type: string
-      enum:
-      - NEW
-      - ACTIVE
-      - ACTIVE_TIME_POLICY_EMPTY
-      - ACTIVE_TIME_POLICY_LOW
-      - ACTIVE_EVERYONE_DECLINED
-      - ACTIVE_EVERY_REQUIRED_DECLINED
-      - DISABLED
-      - INACTIVE_CALENDAR_NOT_VALID
-      - INACTIVE_CALENDAR_NOT_CONNECTED
-      - INACTIVE_CALENDAR_NOT_WRITABLE
-      - INACTIVE_MULTI_CONNECTED_CALENDAR
-      - INACTIVE_CALENDAR_NOT_FOUND
-      - INACTIVE_ORGANIZER_MISSING
-      - EVERYONE_DECLINED
-      - EVERY_REQUIRED_DECLINED
-      - CORRUPTED
-      - UNKNOWN
-      - NO_ACCESS
-    SmartSeriesAttendeeResponseStatus:
-      type: string
-      enum:
-      - NEEDS_ACTION
-      - ACCEPTED
-      - TENTATIVE
-      - DECLINED
-    LockState:
-      type: string
-      enum:
-      - MANUALLY_LOCKED
-      - ADJUSTED
-      - UPCOMING_WINDOW
-      - MANUALLY_UNLOCKED
-      - DELETED
-      - DECLINED
-      - IN_THE_PAST
-    EventResponseStatus:
-      type: string
-      enum:
-      - None
-      - Organizer
-      - Accepted
-      - Declined
-      - TentativelyAccepted
-      - NotResponded
-      x-enum-varnames:
-      - None
-      - Organizer
-      - Accepted
-      - Declined
-      - TentativelyAccepted
-      - NotResponded
-    EventType:
-      type: string
-      enum:
-      - MEETING
-      - WORK
-      - LOGISTICS
-      - PERSONAL
+        startOfWeek:
+          $ref: '#/components/schemas/DayOfWeek'
+        endOfWeek:
+          $ref: '#/components/schemas/DayOfWeek'
+        dayHours:
+          properties:
+            MONDAY:
+              $ref: '#/components/schemas/DayHours'
+            TUESDAY:
+              $ref: '#/components/schemas/DayHours'
+            WEDNESDAY:
+              $ref: '#/components/schemas/DayHours'
+            THURSDAY:
+              $ref: '#/components/schemas/DayHours'
+            FRIDAY:
+              $ref: '#/components/schemas/DayHours'
+            SATURDAY:
+              $ref: '#/components/schemas/DayHours'
+            SUNDAY:
+              $ref: '#/components/schemas/DayHours'
     MergeDetails.EventType:
       type: string
       enum:
       - ORGANIZER_EVENT
       - ATTENDEE_EVENT
       - SYNC_EVENT
-    SmartSeriesAttendeeRequest:
+    SmartSeriesResourceRequest:
+      required:
+      - email
+      - roomId
       type: object
       properties:
+        roomId:
+          type: string
         email:
           type: string
-        LOG_KEY:
-          type: string
-        REGEX_MASK_EMAIL:
-          type: string
-        required:
-          type: boolean
-        timePolicyType:
-          $ref: '#/components/schemas/TimePolicyType'
-        timeSchemeId:
-          type:
-          - string
-          - 'null'
-        oneOffPolicy:
-          allOf:
-          - $ref: '#/components/schemas/TimePolicy'
-        priority:
-          allOf:
-          - $ref: '#/components/schemas/PriorityLevel'
-        responseStatus:
-          $ref: '#/components/schemas/SmartSeriesAttendeeResponseStatus'
     DayHours:
       required:
       - intervals
@@ -2424,97 +2515,6 @@ components:
           - string
           - 'null'
           format: partial-time
-    ChangeLogEntryView:
-      required:
-      - changedAt
-      - id
-      - reason
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        changedAt:
-          type: string
-          format: date-time
-        reclaimEventType:
-          allOf:
-          - $ref: '#/components/schemas/ReclaimEventType'
-        assignmentId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        assignmentSubId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        eventId:
-          type:
-          - string
-          - 'null'
-        organizerId:
-          type:
-          - string
-          - 'null'
-        actorId:
-          type:
-          - string
-          - 'null'
-        reason:
-          $ref: '#/components/schemas/ChangeLogReason'
-        lockChangedMetadata:
-          allOf:
-          - $ref: '#/components/schemas/ChangeLogEntryMetadataView'
-        periodSkippedMetadata:
-          allOf:
-          - $ref: '#/components/schemas/ChangeLogEntryMetadataView'
-        eventMovedMetadata:
-          allOf:
-          - $ref: '#/components/schemas/ChangeLogEntryMetadataView'
-        periodSkippedDueToReservedWordMetadata:
-          allOf:
-          - $ref: '#/components/schemas/ChangeLogEntryMetadataView'
-    SnoozeOption:
-      type: string
-      enum:
-      - FROM_NOW_15M
-      - FROM_NOW_30M
-      - FROM_NOW_1H
-      - FROM_NOW_2H
-      - FROM_NOW_4H
-      - TOMORROW
-      - IN_TWO_DAYS
-      - NEXT_WEEK
-    PlatformEventType:
-      type: string
-      enum:
-      - DEFAULT
-      - OUT_OF_OFFICE
-      - FROM_MAIL
-      - WORKING_LOCATION
-      - FOCUS_TIME
-      - BIRTHDAY
-    SmartSeriesActionPlannedResult:
-      required:
-      - events
-      - series
-      - timeoutReached
-      - userInfoMessage
-      type: object
-      properties:
-        events:
-          type: array
-          items:
-            $ref: '#/components/schemas/Event'
-        series:
-          $ref: '#/components/schemas/SmartSeriesView'
-        userInfoMessage:
-          type: string
-        timeoutReached:
-          type: boolean
-      description: 'The expected result of a planner action. Note: this isn''t the reality at the point it''s returned, but what we expect to make reality as we execute the planner action.'
   securitySchemes:
     Authorization:
       type: oauth2

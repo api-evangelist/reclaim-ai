@@ -96,18 +96,6 @@ components:
           type:
           - string
           - 'null'
-    TimeWindowOverridesView:
-      required:
-      - defaultTimezone
-      - entries
-      type: object
-      properties:
-        entries:
-          type: array
-          items:
-            $ref: '#/components/schemas/TimeWindowOverrideView'
-        defaultTimezone:
-          type: string
     TimeWindowOverrideRequest:
       required:
       - endDate
@@ -125,6 +113,18 @@ components:
           type:
           - string
           - 'null'
+    TimeWindowOverridesView:
+      required:
+      - defaultTimezone
+      - entries
+      type: object
+      properties:
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeWindowOverrideView'
+        defaultTimezone:
+          type: string
   securitySchemes:
     Authorization:
       type: oauth2

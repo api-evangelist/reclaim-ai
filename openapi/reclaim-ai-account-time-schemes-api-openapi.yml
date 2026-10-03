@@ -83,22 +83,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    AccountTimeSchemeCreateRequest:
-      required:
-      - policy
-      - policyType
-      - title
-      type: object
-      properties:
-        policyType:
-          $ref: '#/components/schemas/TimePolicyType'
-        policy:
-          $ref: '#/components/schemas/TimePolicy'
-        title:
-          minLength: 1
-          type: string
-        description:
-          type: string
     TimePolicyType:
       type: string
       enum:
@@ -108,6 +92,42 @@ components:
       - ONE_OFF
       - INHERITED
       - CUSTOM
+    DayOfWeek:
+      type: string
+      enum:
+      - MONDAY
+      - TUESDAY
+      - WEDNESDAY
+      - THURSDAY
+      - FRIDAY
+      - SATURDAY
+      - SUNDAY
+    EntityType:
+      type: string
+      enum:
+      - ACCOUNT_INVITATION
+      - ACCOUNT_TIME_SCHEMES
+      - WEBHOOKS_CONFIG
+      - WEBHOOKS_ASSOCIATION
+      - SMART_HABIT_TEMPLATES
+      - TEAM
+    EntityTypePermissionsView:
+      required:
+      - permissions
+      - type
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/EntityType'
+        permissions:
+          $ref: '#/components/schemas/EntityTypePermissions'
+    EntityTypeView:
+      required:
+      - access
+      type: object
+      properties:
+        access:
+          $ref: '#/components/schemas/EntityTypeAccessView'
     AccountTimeSchemePatchRequest:
       type: object
       properties:
@@ -117,16 +137,31 @@ components:
           type: string
         policy:
           $ref: '#/components/schemas/TimePolicy'
-    EntityTypePermissions:
+    TimePolicy:
       required:
-      - canCreate
-      - canView
+      - dayHours
       type: object
       properties:
-        canView:
-          type: boolean
-        canCreate:
-          type: boolean
+        startOfWeek:
+          $ref: '#/components/schemas/DayOfWeek'
+        endOfWeek:
+          $ref: '#/components/schemas/DayOfWeek'
+        dayHours:
+          properties:
+            MONDAY:
+              $ref: '#/components/schemas/DayHours'
+            TUESDAY:
+              $ref: '#/components/schemas/DayHours'
+            WEDNESDAY:
+              $ref: '#/components/schemas/DayHours'
+            THURSDAY:
+              $ref: '#/components/schemas/DayHours'
+            FRIDAY:
+              $ref: '#/components/schemas/DayHours'
+            SATURDAY:
+              $ref: '#/components/schemas/DayHours'
+            SUNDAY:
+              $ref: '#/components/schemas/DayHours'
     LocalTimeInterval:
       required:
       - end
@@ -168,47 +203,39 @@ components:
           - 'null'
         entityType:
           $ref: '#/components/schemas/EntityTypeView'
-    TimePolicy:
+    EntityTypeAccessView:
       required:
-      - dayHours
+      - permissions
       type: object
       properties:
-        startOfWeek:
-          $ref: '#/components/schemas/DayOfWeek'
-        endOfWeek:
-          $ref: '#/components/schemas/DayOfWeek'
-        dayHours:
-          properties:
-            MONDAY:
-              $ref: '#/components/schemas/DayHours'
-            TUESDAY:
-              $ref: '#/components/schemas/DayHours'
-            WEDNESDAY:
-              $ref: '#/components/schemas/DayHours'
-            THURSDAY:
-              $ref: '#/components/schemas/DayHours'
-            FRIDAY:
-              $ref: '#/components/schemas/DayHours'
-            SATURDAY:
-              $ref: '#/components/schemas/DayHours'
-            SUNDAY:
-              $ref: '#/components/schemas/DayHours'
-    EntityType:
-      type: string
-      enum:
-      - ACCOUNT_INVITATION
-      - ACCOUNT_TIME_SCHEMES
-      - WEBHOOKS_CONFIG
-      - WEBHOOKS_ASSOCIATION
-      - SMART_HABIT_TEMPLATES
-      - TEAM
-    EntityTypeView:
+        permissions:
+          $ref: '#/components/schemas/EntityTypePermissionsView'
+    EntityTypePermissions:
       required:
-      - access
+      - canCreate
+      - canView
       type: object
       properties:
-        access:
-          $ref: '#/components/schemas/EntityTypeAccessView'
+        canView:
+          type: boolean
+        canCreate:
+          type: boolean
+    AccountTimeSchemeCreateRequest:
+      required:
+      - policy
+      - policyType
+      - title
+      type: object
+      properties:
+        policyType:
+          $ref: '#/components/schemas/TimePolicyType'
+        policy:
+          $ref: '#/components/schemas/TimePolicy'
+        title:
+          minLength: 1
+          type: string
+        description:
+          type: string
     DayHours:
       required:
       - intervals
@@ -228,33 +255,6 @@ components:
           - string
           - 'null'
           format: partial-time
-    EntityTypeAccessView:
-      required:
-      - permissions
-      type: object
-      properties:
-        permissions:
-          $ref: '#/components/schemas/EntityTypePermissionsView'
-    EntityTypePermissionsView:
-      required:
-      - permissions
-      - type
-      type: object
-      properties:
-        type:
-          $ref: '#/components/schemas/EntityType'
-        permissions:
-          $ref: '#/components/schemas/EntityTypePermissions'
-    DayOfWeek:
-      type: string
-      enum:
-      - MONDAY
-      - TUESDAY
-      - WEDNESDAY
-      - THURSDAY
-      - FRIDAY
-      - SATURDAY
-      - SUNDAY
   securitySchemes:
     Authorization:
       type: oauth2

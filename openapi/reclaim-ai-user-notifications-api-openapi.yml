@@ -38,6 +38,83 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    NotificationChannel:
+      type: string
+      enum:
+      - SLACK
+      - EMAIL
+    NotificationContext:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          DAILY_DIGEST: '#/components/schemas/DailyDigestContext'
+          EVENT_ABOUT_TO_START: '#/components/schemas/EventAboutToStartContext'
+          INVITED_TO_MEETING: '#/components/schemas/InvitedToMeetingContext'
+          EVENT_REMINDER: '#/components/schemas/EventReminderContext'
+          MEETING_UPDATED: '#/components/schemas/MeetingUpdatedContext'
+          MEETING_CANCELLED: '#/components/schemas/MeetingCancelledContext'
+          APP_UPDATES: '#/components/schemas/AppUpdatesContext'
+          WEEKLY_DIGEST: '#/components/schemas/WeeklyDigestContext'
+          EVENT_CONFLICT: '#/components/schemas/EventsConflictContext'
+      allOf:
+      - $ref: '#/components/schemas/LogContext'
+    NotificationType:
+      type: string
+      enum:
+      - DAILY_DIGEST
+      - WEEKLY_DIGEST
+      - EVENT_CONFLICT
+      - EVENT_ABOUT_TO_START
+      - INVITED_TO_MEETING
+      - MEETING_UPDATED
+      - MEETING_CANCELLED
+      - APP_UPDATES
+      - EVENT_REMINDERS
+    ChannelMessageId:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+    NotificationId:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+    NotificationStatus:
+      type: string
+      enum:
+      - PENDING
+      - PROCESSED
+      - EXPIRED
+      - NO_LONGER_NEEDED
+    UserIdentifier:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+    NotificationWithMessages:
+      required:
+      - messages
+      - notification
+      type: object
+      properties:
+        notification:
+          $ref: '#/components/schemas/Notification'
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChannelMessage'
+    LogContext:
+      type: object
     NotificationChannelMessageStatus:
       type: string
       enum:
@@ -48,13 +125,6 @@ components:
       - INVALIDATED
       - FAILURE_BUT_WILL_RETRY
       - FAILED
-    NotificationStatus:
-      type: string
-      enum:
-      - PENDING
-      - PROCESSED
-      - EXPIRED
-      - NO_LONGER_NEEDED
     Notification:
       required:
       - context
@@ -78,41 +148,6 @@ components:
           $ref: '#/components/schemas/NotificationContext'
         status:
           $ref: '#/components/schemas/NotificationStatus'
-    NotificationWithMessages:
-      required:
-      - messages
-      - notification
-      type: object
-      properties:
-        notification:
-          $ref: '#/components/schemas/Notification'
-        messages:
-          type: array
-          items:
-            $ref: '#/components/schemas/ChannelMessage'
-    NotificationChannel:
-      type: string
-      enum:
-      - SLACK
-      - EMAIL
-    NotificationContext:
-      type: object
-      discriminator:
-        propertyName: type
-        mapping:
-          DAILY_DIGEST: '#/components/schemas/DailyDigestContext'
-          EVENT_ABOUT_TO_START: '#/components/schemas/EventAboutToStartContext'
-          INVITED_TO_MEETING: '#/components/schemas/InvitedToMeetingContext'
-          EVENT_REMINDER: '#/components/schemas/EventReminderContext'
-          MEETING_UPDATED: '#/components/schemas/MeetingUpdatedContext'
-          MEETING_CANCELLED: '#/components/schemas/MeetingCancelledContext'
-          APP_UPDATES: '#/components/schemas/AppUpdatesContext'
-          WEEKLY_DIGEST: '#/components/schemas/WeeklyDigestContext'
-          EVENT_CONFLICT: '#/components/schemas/EventsConflictContext'
-      allOf:
-      - $ref: '#/components/schemas/LogContext'
-    LogContext:
-      type: object
     ChannelMessage:
       required:
       - channel
@@ -146,41 +181,6 @@ components:
           - string
           - 'null'
           format: date-time
-    NotificationId:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-    UserIdentifier:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          type: string
-    NotificationType:
-      type: string
-      enum:
-      - DAILY_DIGEST
-      - WEEKLY_DIGEST
-      - EVENT_CONFLICT
-      - EVENT_ABOUT_TO_START
-      - INVITED_TO_MEETING
-      - MEETING_UPDATED
-      - MEETING_CANCELLED
-      - APP_UPDATES
-      - EVENT_REMINDERS
-    ChannelMessageId:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
   securitySchemes:
     Authorization:
       type: oauth2

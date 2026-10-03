@@ -255,6 +255,12 @@ paths:
       - Authorization: []
 components:
   schemas:
+    SortOrder:
+      type: string
+      enum:
+      - ASCENDING
+      - DESCENDING
+      - UNSORTED
     WebhookRetryRequest:
       required:
       - messageIds
@@ -264,14 +270,6 @@ components:
           type: array
           items:
             type: string
-    WebhookExternalPayload:
-      type: object
-      discriminator:
-        propertyName: type
-        mapping:
-          SchedulingLink.Meeting.Created: '#/components/schemas/WebhookExternalSchedulingLinkMeetingCreated'
-          SchedulingLink.Meeting.Updated: '#/components/schemas/WebhookExternalSchedulingLinkMeetingUpdated'
-          SchedulingLink.Meeting.Cancelled: '#/components/schemas/WebhookExternalSchedulingLinkMeetingCancelled'
     WebhookConfig:
       required:
       - apiVersion
@@ -296,6 +294,47 @@ components:
         createdAt:
           type: string
           format: date-time
+    WebhookExternalPayload:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          SchedulingLink.Meeting.Created: '#/components/schemas/WebhookExternalSchedulingLinkMeetingCreated'
+          SchedulingLink.Meeting.Updated: '#/components/schemas/WebhookExternalSchedulingLinkMeetingUpdated'
+          SchedulingLink.Meeting.Cancelled: '#/components/schemas/WebhookExternalSchedulingLinkMeetingCancelled'
+    WebhookMessageStatus:
+      type: string
+      enum:
+      - PENDING
+      - FAILURE_BUT_WILL_RETRY
+      - FAILED
+      - MANUAL_RETRY
+      - COMPLETED
+    WebhookApiVersion:
+      type: string
+      enum:
+      - v2024-10-02
+      - v2025-01-15
+      - v2025-09-26
+      - v2026-04-13
+      x-enum-varnames:
+      - V2024_10_02
+      - V2025_01_15
+      - V2025_09_26
+      - V2026_04_13
+    WebhookStatus:
+      type: string
+      enum:
+      - ACTIVE
+      - SUSPENDED
+      - DISABLED
+      - DOWNGRADED
+    WebhookEventType:
+      type: string
+      enum:
+      - SCHEDULING_LINK_MEETING_CREATED
+      - SCHEDULING_LINK_MEETING_UPDATED
+      - SCHEDULING_LINK_MEETING_CANCELLED
     WebhookMessageView:
       required:
       - assigmentId
@@ -345,54 +384,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/WebhookMessageRequestHistoryView'
-    WebhookApiVersion:
-      type: string
-      enum:
-      - v2024-10-02
-      - v2025-01-15
-      - v2025-09-26
-      - v2026-04-13
-      x-enum-varnames:
-      - V2024_10_02
-      - V2025_01_15
-      - V2025_09_26
-      - V2026_04_13
-    WebhookEventType:
-      type: string
-      enum:
-      - SCHEDULING_LINK_MEETING_CREATED
-      - SCHEDULING_LINK_MEETING_UPDATED
-      - SCHEDULING_LINK_MEETING_CANCELLED
-    SortOrder:
-      type: string
-      enum:
-      - ASCENDING
-      - DESCENDING
-      - UNSORTED
-    WebhookConfigRequest:
-      required:
-      - name
-      - status
-      - url
-      type: object
-      properties:
-        name:
-          maxLength: 40
-          minLength: 3
-          type: string
-        url:
-          type: string
-        status:
-          $ref: '#/components/schemas/WebhookStatus'
-        apiVersion:
-          allOf:
-          - $ref: '#/components/schemas/WebhookApiVersion'
-        secret:
-          maxLength: 60
-          minLength: 12
-          type:
-          - string
-          - 'null'
     WebhookMessageRequestHistoryView:
       required:
       - at
@@ -408,20 +399,6 @@ components:
         at:
           type: string
           format: date-time
-    WebhookSecret:
-      required:
-      - generatedSecret
-      type: object
-      properties:
-        generatedSecret:
-          type: string
-    WebhookStatus:
-      type: string
-      enum:
-      - ACTIVE
-      - SUSPENDED
-      - DISABLED
-      - DOWNGRADED
     HttpStatus:
       type: string
       enum:
@@ -494,14 +471,37 @@ components:
       - NOT_EXTENDED
       - NETWORK_AUTHENTICATION_REQUIRED
       - CONNECTION_TIMED_OUT
-    WebhookMessageStatus:
-      type: string
-      enum:
-      - PENDING
-      - FAILURE_BUT_WILL_RETRY
-      - FAILED
-      - MANUAL_RETRY
-      - COMPLETED
+    WebhookSecret:
+      required:
+      - generatedSecret
+      type: object
+      properties:
+        generatedSecret:
+          type: string
+    WebhookConfigRequest:
+      required:
+      - name
+      - status
+      - url
+      type: object
+      properties:
+        name:
+          maxLength: 40
+          minLength: 3
+          type: string
+        url:
+          type: string
+        status:
+          $ref: '#/components/schemas/WebhookStatus'
+        apiVersion:
+          allOf:
+          - $ref: '#/components/schemas/WebhookApiVersion'
+        secret:
+          maxLength: 60
+          minLength: 12
+          type:
+          - string
+          - 'null'
   securitySchemes:
     Authorization:
       type: oauth2

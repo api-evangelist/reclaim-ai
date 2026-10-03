@@ -1320,290 +1320,19 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    RsvpResponsePeriod:
+    EventType:
       type: string
       enum:
-      - SINGLE
-      - FORWARD
-      - ALL
-    RsvpResponseBody:
-      required:
-      - responseStatus
-      - sendUpdates
-      type: object
-      properties:
-        responseStatus:
-          $ref: '#/components/schemas/EventResponseStatus'
-        sendUpdates:
-          type: boolean
-        comment:
-          type:
-          - string
-          - 'null'
-        period:
-          allOf:
-          - $ref: '#/components/schemas/RsvpResponsePeriod'
-    PriorityLevel:
+      - MEETING
+      - WORK
+      - LOGISTICS
+      - PERSONAL
+    MergeDetails.EventType:
       type: string
       enum:
-      - P1
-      - P2
-      - P3
-      - P4
-      - PRIORITIZE
-      - DEFAULT
-      x-deprecated:
-      - PRIORITIZE
-      - DEFAULT
-    AssistType:
-      type: string
-      enum:
-      - TASK
-      - CUSTOM_DAILY
-      - CATCHUP_AM
-      - CATCHUP_PM
-      - LUNCH
-      - FOCUS
-      - TRAVEL_PRE
-      - TRAVEL_POST
-      - CONBUF
-      - SMART_HABIT
-      - SMART_MEETING
-      - RECLAIM_FOCUS
-    NotificationKeyRequest:
-      type: object
-      properties:
-        notificationKey:
-          maxLength: 200
-          pattern: '[A-Za-z0-9_-]+'
-          type:
-          - string
-          - 'null'
-    ThinPerson:
-      required:
-      - email
-      type: object
-      properties:
-        reclaimUser:
-          type: boolean
-        userId:
-          type:
-          - string
-          - 'null'
-        email:
-          minLength: 1
-          type: string
-        name:
-          type: string
-        avatarUrl:
-          type: string
-        firstName:
-          type:
-          - string
-          - 'null'
-        lastName:
-          type:
-          - string
-          - 'null'
-    TaskOrHabit:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        type:
-          $ref: '#/components/schemas/AssistType'
-        created:
-          type: string
-          format: date-time
-        updated:
-          type: string
-          format: date-time
-        recurringAssignmentType:
-          $ref: '#/components/schemas/RecurringAssignmentType'
-        alwaysPrivate:
-          type: boolean
-        title:
-          type: string
-        eventSubType:
-          $ref: '#/components/schemas/EventSubType'
-        eventCategory:
-          $ref: '#/components/schemas/EventCategory'
-        eventColor:
-          $ref: '#/components/schemas/EventColor'
-        invitees:
-          type: array
-          items:
-            $ref: '#/components/schemas/ThinPerson'
-        defendedDescription:
-          type: string
-        additionalDescription:
-          type: string
-        priority:
-          $ref: '#/components/schemas/PriorityLevel'
-        location:
-          type: string
-      discriminator:
-        propertyName: type
-        mapping:
-          TASK: '#/components/schemas/Task'
-          CUSTOM_DAILY: '#/components/schemas/DailyHabit'
-      allOf:
-      - $ref: '#/components/schemas/Prioritizable'
-      - $ref: '#/components/schemas/Snoozeable'
-      - $ref: '#/components/schemas/FlexibleTimeSpan'
-      - $ref: '#/components/schemas/LogContext'
-    EventSubType:
-      type: string
-      enum:
-      - ONE_ON_ONE
-      - STAFF_MEETING
-      - OP_REVIEW
-      - EXTERNAL
-      - IDEATION
-      - FOCUS
-      - PRODUCTIVITY
-      - TRAVEL
-      - FLIGHT
-      - TRAIN
-      - RECLAIM
-      - VACATION
-      - HEALTH
-      - ERRAND
-      - OTHER_PERSONAL
-      - UNKNOWN
-    EventKey:
-      required:
-      - calendarId
-      - eventId
-      type: object
-      properties:
-        eventId:
-          type: string
-        calendarId:
-          type: integer
-          format: int64
-    EventSourceDetails:
-      required:
-      - base64Id
-      - calendarId
-      - description
-      - etag
-      - eventId
-      - eventKey
-      - title
-      - url
-      - writable
-      type: object
-      properties:
-        writable:
-          type: boolean
-        calendarId:
-          type: integer
-          format: int64
-        eventId:
-          type: string
-        etag:
-          type: string
-        eventKey:
-          $ref: '#/components/schemas/EventKey'
-        base64Id:
-          type: string
-        url:
-          type: string
-        title:
-          type: string
-        description:
-          type: string
-    EventColor:
-      type: string
-      enum:
-      - NONE
-      - LAVENDER
-      - SAGE
-      - GRAPE
-      - FLAMINGO
-      - BANANA
-      - TANGERINE
-      - PEACOCK
-      - GRAPHITE
-      - BLUEBERRY
-      - BASIL
-      - TOMATO
-    EventList:
-      required:
-      - eventKeys
-      type: object
-      properties:
-        eventKeys:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventKey'
-    PlannerActionIntermediateResult:
-      required:
-      - events
-      type: object
-      properties:
-        events:
-          type: array
-          items:
-            $ref: '#/components/schemas/Event'
-        taskOrHabit:
-          allOf:
-          - $ref: '#/components/schemas/TaskOrHabit'
-        timeoutReached:
-          type:
-          - boolean
-          - 'null'
-        userInfoMessage:
-          type:
-          - string
-          - 'null'
-    EventAttendee:
-      required:
-      - email
-      type: object
-      properties:
-        email:
-          type: string
-        self:
-          type:
-          - boolean
-          - 'null'
-        displayName:
-          type:
-          - string
-          - 'null'
-        responseStatus:
-          allOf:
-          - $ref: '#/components/schemas/ResponseStatus'
-        comment:
-          type:
-          - string
-          - 'null'
-        optional:
-          type:
-          - boolean
-          - 'null'
-        additionalGuests:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        organizer:
-          type:
-          - boolean
-          - 'null'
-        resource:
-          type:
-          - boolean
-          - 'null'
-    AssistStatus:
-      type: string
-      enum:
-      - CONTROLLED
-      - RELEASED
-      - ARCHIVED
+      - ORGANIZER_EVENT
+      - ATTENDEE_EVENT
+      - SYNC_EVENT
     AssistDetails:
       type: object
       properties:
@@ -1693,27 +1422,269 @@ components:
         assistReferenceValid:
           type: boolean
       description: This entity maps to the assist_events table.
-    MergeDetails:
+    GoogleCalendarEventMetadata:
       required:
-      - key
-      - sourceCalendarId
-      - sourceReclaimCalendarId
-      - type
+      - guestsCanInviteOthers
+      - guestsCanModify
+      - guestsCanSeeOtherGuests
       type: object
       properties:
-        key:
-          type: string
-        type:
-          $ref: '#/components/schemas/MergeDetails.EventType'
-        sourceCalendarId:
+        guestsCanModify:
+          type: boolean
+        guestsCanInviteOthers:
+          type: boolean
+        guestsCanSeeOtherGuests:
+          type: boolean
+    ThinPerson:
+      required:
+      - email
+      type: object
+      properties:
+        reclaimUser:
+          type: boolean
+        userId:
           type:
           - string
           - 'null'
-        sourceReclaimCalendarId:
+        email:
+          minLength: 1
+          type: string
+        name:
+          type: string
+        avatarUrl:
+          type: string
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+    TaskOrHabit:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        type:
+          $ref: '#/components/schemas/AssistType'
+        created:
+          type: string
+          format: date-time
+        updated:
+          type: string
+          format: date-time
+        recurringAssignmentType:
+          $ref: '#/components/schemas/RecurringAssignmentType'
+        alwaysPrivate:
+          type: boolean
+        title:
+          type: string
+        eventSubType:
+          $ref: '#/components/schemas/EventSubType'
+        eventCategory:
+          $ref: '#/components/schemas/EventCategory'
+        eventColor:
+          $ref: '#/components/schemas/EventColor'
+        invitees:
+          type: array
+          items:
+            $ref: '#/components/schemas/ThinPerson'
+        defendedDescription:
+          type: string
+        additionalDescription:
+          type: string
+        priority:
+          $ref: '#/components/schemas/PriorityLevel'
+        location:
+          type: string
+      discriminator:
+        propertyName: type
+        mapping:
+          TASK: '#/components/schemas/Task'
+          CUSTOM_DAILY: '#/components/schemas/DailyHabit'
+      allOf:
+      - $ref: '#/components/schemas/Prioritizable'
+      - $ref: '#/components/schemas/Snoozeable'
+      - $ref: '#/components/schemas/FlexibleTimeSpan'
+      - $ref: '#/components/schemas/LogContext'
+    FlexibleTimeSpan:
+      type: object
+      properties:
+        durationMin:
+          type: integer
+          format: int32
+        durationMax:
+          type: integer
+          format: int32
+    RsvpResponsePeriod:
+      type: string
+      enum:
+      - SINGLE
+      - FORWARD
+      - ALL
+    RecurringAssignmentType:
+      type: string
+      enum:
+      - ONE_ON_ONE
+      - DAILY_HABIT
+      - TASK
+    PlatformEventType:
+      type: string
+      enum:
+      - DEFAULT
+      - OUT_OF_OFFICE
+      - FROM_MAIL
+      - WORKING_LOCATION
+      - FOCUS_TIME
+      - BIRTHDAY
+    LockState:
+      type: string
+      enum:
+      - MANUALLY_LOCKED
+      - ADJUSTED
+      - UPCOMING_WINDOW
+      - MANUALLY_UNLOCKED
+      - DELETED
+      - DECLINED
+      - IN_THE_PAST
+    EventResponseStatus:
+      type: string
+      enum:
+      - None
+      - Organizer
+      - Accepted
+      - Declined
+      - TentativelyAccepted
+      - NotResponded
+      x-enum-varnames:
+      - None
+      - Organizer
+      - Accepted
+      - Declined
+      - TentativelyAccepted
+      - NotResponded
+    ResponseStatus:
+      type: string
+      enum:
+      - DECLINED
+      - NEEDS_ACTION
+      - TENTATIVE
+      - ACCEPTED
+      - UNKNOWN
+    EventAttendee:
+      required:
+      - email
+      type: object
+      properties:
+        email:
+          type: string
+        self:
+          type:
+          - boolean
+          - 'null'
+        displayName:
+          type:
+          - string
+          - 'null'
+        responseStatus:
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        comment:
+          type:
+          - string
+          - 'null'
+        optional:
+          type:
+          - boolean
+          - 'null'
+        additionalGuests:
           type:
           - integer
           - 'null'
+          format: int32
+        organizer:
+          type:
+          - boolean
+          - 'null'
+        resource:
+          type:
+          - boolean
+          - 'null'
+    SnoozeOption:
+      type: string
+      enum:
+      - FROM_NOW_15M
+      - FROM_NOW_30M
+      - FROM_NOW_1H
+      - FROM_NOW_2H
+      - FROM_NOW_4H
+      - TOMORROW
+      - IN_TWO_DAYS
+      - NEXT_WEEK
+    EventSourceDetails:
+      required:
+      - base64Id
+      - calendarId
+      - description
+      - etag
+      - eventId
+      - eventKey
+      - title
+      - url
+      - writable
+      type: object
+      properties:
+        writable:
+          type: boolean
+        calendarId:
+          type: integer
           format: int64
+        eventId:
+          type: string
+        etag:
+          type: string
+        eventKey:
+          $ref: '#/components/schemas/EventKey'
+        base64Id:
+          type: string
+        url:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+    AssistType:
+      type: string
+      enum:
+      - TASK
+      - CUSTOM_DAILY
+      - CATCHUP_AM
+      - CATCHUP_PM
+      - LUNCH
+      - FOCUS
+      - TRAVEL_PRE
+      - TRAVEL_POST
+      - CONBUF
+      - SMART_HABIT
+      - SMART_MEETING
+      - RECLAIM_FOCUS
+    ReclaimEventType:
+      type: string
+      enum:
+      - USER
+      - SYNC
+      - HABIT_ASSIGNMENT
+      - SMART_HABIT
+      - ONE_ON_ONE_ASSIGNMENT
+      - SMART_MEETING
+      - TASK_ASSIGNMENT
+      - CONF_BUFFER
+      - TRAVEL_BUFFER
+      - SCHEDULING_LINK_MEETING
+      - UNKNOWN
+      - FOCUS
     AssistPolicyOverride:
       required:
       - durationMax
@@ -1741,22 +1712,151 @@ components:
           format: int32
         forceDefend:
           type: boolean
+    Colorized:
+      type: object
+      properties:
+        color:
+          $ref: '#/components/schemas/EventColor'
+    Snoozeable:
+      type: object
+      properties:
+        snoozeUntil:
+          type:
+          - string
+          - 'null'
+          format: date-time
+    NotificationKeyRequest:
+      type: object
+      properties:
+        notificationKey:
+          maxLength: 200
+          pattern: '[A-Za-z0-9_-]+'
+          type:
+          - string
+          - 'null'
+    MergeDetails:
+      required:
+      - key
+      - sourceCalendarId
+      - sourceReclaimCalendarId
+      - type
+      type: object
+      properties:
+        key:
+          type: string
+        type:
+          $ref: '#/components/schemas/MergeDetails.EventType'
+        sourceCalendarId:
+          type:
+          - string
+          - 'null'
+        sourceReclaimCalendarId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+    Prioritizable:
+      type: object
+      properties:
+        priority:
+          $ref: '#/components/schemas/PriorityLevel'
+        priorityUntil:
+          type: string
+          format: date
+      discriminator:
+        propertyName: prioritizableType
+        mapping:
+          HABIT: '#/components/schemas/DailyHabit'
+          TASK: '#/components/schemas/Task'
+          ONE_ON_ONE: '#/components/schemas/RecurringOneOnOne'
+    PriorityLevel:
+      type: string
+      enum:
+      - P1
+      - P2
+      - P3
+      - P4
+      - PRIORITIZE
+      - DEFAULT
+      x-deprecated:
+      - PRIORITIZE
+      - DEFAULT
+    EventSubType:
+      type: string
+      enum:
+      - ONE_ON_ONE
+      - STAFF_MEETING
+      - OP_REVIEW
+      - EXTERNAL
+      - IDEATION
+      - FOCUS
+      - PRODUCTIVITY
+      - TRAVEL
+      - FLIGHT
+      - TRAIN
+      - RECLAIM
+      - VACATION
+      - HEALTH
+      - ERRAND
+      - OTHER_PERSONAL
+      - UNKNOWN
+    EventColor:
+      type: string
+      enum:
+      - NONE
+      - LAVENDER
+      - SAGE
+      - GRAPE
+      - FLAMINGO
+      - BANANA
+      - TANGERINE
+      - PEACOCK
+      - GRAPHITE
+      - BLUEBERRY
+      - BASIL
+      - TOMATO
+    EventCategory:
+      $ref: '#/components/schemas/Colorized'
     EventStatus:
       type: string
       enum:
       - PUBLISHED
       - CANCELLED
-    SnoozeOption:
+    EventList:
+      required:
+      - eventKeys
+      type: object
+      properties:
+        eventKeys:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventKey'
+    PrioritySource:
       type: string
       enum:
-      - FROM_NOW_15M
-      - FROM_NOW_30M
-      - FROM_NOW_1H
-      - FROM_NOW_2H
-      - FROM_NOW_4H
-      - TOMORROW
-      - IN_TWO_DAYS
-      - NEXT_WEEK
+      - MANUAL
+      - AI
+      - RULES
+    PlannerActionIntermediateResult:
+      required:
+      - events
+      type: object
+      properties:
+        events:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
+        taskOrHabit:
+          allOf:
+          - $ref: '#/components/schemas/TaskOrHabit'
+        timeoutReached:
+          type:
+          - boolean
+          - 'null'
+        userInfoMessage:
+          type:
+          - string
+          - 'null'
     Event:
       required:
       - allocatedTimeChunks
@@ -1940,19 +2040,23 @@ components:
             existing logic for detecting and parsing event information, even when the event ID cannot be directly
 
             relied upon (e.g., in Microsoft calendars).'
-    EventCategory:
-      $ref: '#/components/schemas/Colorized'
-    PrioritySource:
-      type: string
-      enum:
-      - MANUAL
-      - AI
-      - RULES
-    Colorized:
+    EventKey:
+      required:
+      - calendarId
+      - eventId
       type: object
       properties:
-        color:
-          $ref: '#/components/schemas/EventColor'
+        eventId:
+          type: string
+        calendarId:
+          type: integer
+          format: int64
+    AssistStatus:
+      type: string
+      enum:
+      - CONTROLLED
+      - RELEASED
+      - ARCHIVED
     MeetingType:
       type: string
       enum:
@@ -1990,129 +2094,25 @@ components:
       - REQ_BRAIN
       - OTHER_IDEATION
       - UNKNOWN
-    ResponseStatus:
-      type: string
-      enum:
-      - DECLINED
-      - NEEDS_ACTION
-      - TENTATIVE
-      - ACCEPTED
-      - UNKNOWN
-    ReclaimEventType:
-      type: string
-      enum:
-      - USER
-      - SYNC
-      - HABIT_ASSIGNMENT
-      - SMART_HABIT
-      - ONE_ON_ONE_ASSIGNMENT
-      - SMART_MEETING
-      - TASK_ASSIGNMENT
-      - CONF_BUFFER
-      - TRAVEL_BUFFER
-      - SCHEDULING_LINK_MEETING
-      - UNKNOWN
-      - FOCUS
-    GoogleCalendarEventMetadata:
+    LogContext:
+      type: object
+    RsvpResponseBody:
       required:
-      - guestsCanInviteOthers
-      - guestsCanModify
-      - guestsCanSeeOtherGuests
+      - responseStatus
+      - sendUpdates
       type: object
       properties:
-        guestsCanModify:
+        responseStatus:
+          $ref: '#/components/schemas/EventResponseStatus'
+        sendUpdates:
           type: boolean
-        guestsCanInviteOthers:
-          type: boolean
-        guestsCanSeeOtherGuests:
-          type: boolean
-    RecurringAssignmentType:
-      type: string
-      enum:
-      - ONE_ON_ONE
-      - DAILY_HABIT
-      - TASK
-    Snoozeable:
-      type: object
-      properties:
-        snoozeUntil:
+        comment:
           type:
           - string
           - 'null'
-          format: date-time
-    LockState:
-      type: string
-      enum:
-      - MANUALLY_LOCKED
-      - ADJUSTED
-      - UPCOMING_WINDOW
-      - MANUALLY_UNLOCKED
-      - DELETED
-      - DECLINED
-      - IN_THE_PAST
-    EventResponseStatus:
-      type: string
-      enum:
-      - None
-      - Organizer
-      - Accepted
-      - Declined
-      - TentativelyAccepted
-      - NotResponded
-      x-enum-varnames:
-      - None
-      - Organizer
-      - Accepted
-      - Declined
-      - TentativelyAccepted
-      - NotResponded
-    EventType:
-      type: string
-      enum:
-      - MEETING
-      - WORK
-      - LOGISTICS
-      - PERSONAL
-    MergeDetails.EventType:
-      type: string
-      enum:
-      - ORGANIZER_EVENT
-      - ATTENDEE_EVENT
-      - SYNC_EVENT
-    LogContext:
-      type: object
-    FlexibleTimeSpan:
-      type: object
-      properties:
-        durationMin:
-          type: integer
-          format: int32
-        durationMax:
-          type: integer
-          format: int32
-    PlatformEventType:
-      type: string
-      enum:
-      - DEFAULT
-      - OUT_OF_OFFICE
-      - FROM_MAIL
-      - WORKING_LOCATION
-      - FOCUS_TIME
-      - BIRTHDAY
-    Prioritizable:
-      type: object
-      properties:
-        priority:
-          $ref: '#/components/schemas/PriorityLevel'
-        priorityUntil:
-          type: string
-          format: date
-      discriminator:
-        propertyName: prioritizableType
-        mapping:
-          HABIT: '#/components/schemas/DailyHabit'
-          TASK: '#/components/schemas/Task'
-          ONE_ON_ONE: '#/components/schemas/RecurringOneOnOne'
+        period:
+          allOf:
+          - $ref: '#/components/schemas/RsvpResponsePeriod'
   securitySchemes:
     Authorization:
       type: oauth2

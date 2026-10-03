@@ -106,16 +106,13 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    StreakMessage:
-      required:
-      - emoji
-      - text
-      type: object
-      properties:
-        text:
-          type: string
-        emoji:
-          type: string
+    EventType:
+      type: string
+      enum:
+      - MEETING
+      - WORK
+      - LOGISTICS
+      - PERSONAL
     WeeklyReportAgenda:
       required:
       - firstRow
@@ -130,21 +127,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/WeeklyReportAgendaDay'
-    WeeklyReportAgendaDay:
-      required:
-      - day
-      - extraClass
-      - items
-      type: object
-      properties:
-        day:
-          type: string
-        items:
-          type: array
-          items:
-            type: string
-        extraClass:
-          type: string
     WeeklyReportUnsubscribeRequest:
       required:
       - id
@@ -155,70 +137,15 @@ components:
           type: string
         verificationKey:
           type: string
-    WeeklyReportTask:
+    WeeklyReportSocialShare:
       required:
-      - chip
-      - name
-      - timeLeft
+      - id
+      - verificationKey
       type: object
       properties:
-        name:
+        id:
           type: string
-        chip:
-          type: string
-        due:
-          type:
-          - string
-          - 'null'
-        timeLeft:
-          type: string
-    UserData:
-      required:
-      - disablePromotions
-      - domain
-      - email
-      - firstName
-      - slackEnabled
-      - slackStatusEnabled
-      - teamId
-      - trackingCode
-      type: object
-      properties:
-        email:
-          type: string
-        domain:
-          type: string
-        teamId:
-          type: integer
-          format: int64
-        disablePromotions:
-          type: boolean
-        firstName:
-          type: string
-        trackingCode:
-          type: string
-        slackEnabled:
-          type: boolean
-        slackStatusEnabled:
-          type: boolean
-    WeeklyReportCallout:
-      required:
-      - backgroundColor
-      - icon
-      - svgIcon
-      - text
-      - textColor
-      type: object
-      properties:
-        text:
-          type: string
-        textColor:
-          type: string
-        backgroundColor:
-          type: string
-        icon:
-          type: string
-        svgIcon:
+        verificationKey:
           type: string
     TimeSpentDuringWeek:
       required:
@@ -247,13 +174,89 @@ components:
           type: boolean
         infinity:
           type: boolean
-    EventType:
-      type: string
-      enum:
-      - MEETING
-      - WORK
-      - LOGISTICS
-      - PERSONAL
+    WeeklyReportAgendaDay:
+      required:
+      - day
+      - extraClass
+      - items
+      type: object
+      properties:
+        day:
+          type: string
+        items:
+          type: array
+          items:
+            type: string
+        extraClass:
+          type: string
+    StreakMessage:
+      required:
+      - emoji
+      - text
+      type: object
+      properties:
+        text:
+          type: string
+        emoji:
+          type: string
+    WeeklyReportTask:
+      required:
+      - chip
+      - name
+      - timeLeft
+      type: object
+      properties:
+        name:
+          type: string
+        chip:
+          type: string
+        due:
+          type:
+          - string
+          - 'null'
+        timeLeft:
+          type: string
+    WeeklyFocusStats:
+      required:
+      - actualFocusHours
+      - actualMeetingHours
+      - freeTimeHours
+      - meetingCompareToLastWeekPercentage
+      - meetingHoursDownComparedToLastWeek
+      - otherWorkHours
+      - targetFocusHours
+      type: object
+      properties:
+        actualFocusHours:
+          type: number
+          format: double
+        targetFocusHours:
+          type: number
+          format: double
+        actualMeetingHours:
+          type: number
+          format: double
+        meetingCompareToLastWeekPercentage:
+          type: integer
+          format: int32
+        meetingHoursDownComparedToLastWeek:
+          type: boolean
+        freeTimeHours:
+          type: number
+          format: double
+        otherWorkHours:
+          type: number
+          format: double
+        outOfOfficeHours:
+          type:
+          - number
+          - 'null'
+          format: double
+        totalWorkingHours:
+          type:
+          - number
+          - 'null'
+          format: double
     WeeklyReportTemplateData:
       required:
       - agenda
@@ -311,57 +314,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/StreakMessage'
-    WeeklyFocusStats:
-      required:
-      - actualFocusHours
-      - actualMeetingHours
-      - freeTimeHours
-      - meetingCompareToLastWeekPercentage
-      - meetingHoursDownComparedToLastWeek
-      - otherWorkHours
-      - targetFocusHours
-      type: object
-      properties:
-        actualFocusHours:
-          type: number
-          format: double
-        targetFocusHours:
-          type: number
-          format: double
-        actualMeetingHours:
-          type: number
-          format: double
-        meetingCompareToLastWeekPercentage:
-          type: integer
-          format: int32
-        meetingHoursDownComparedToLastWeek:
-          type: boolean
-        freeTimeHours:
-          type: number
-          format: double
-        otherWorkHours:
-          type: number
-          format: double
-        outOfOfficeHours:
-          type:
-          - number
-          - 'null'
-          format: double
-        totalWorkingHours:
-          type:
-          - number
-          - 'null'
-          format: double
-    WeeklyReportSocialShare:
-      required:
-      - id
-      - verificationKey
-      type: object
-      properties:
-        id:
-          type: string
-        verificationKey:
-          type: string
     WeeklyReportHeadlineStats:
       required:
       - meetings
@@ -375,6 +327,54 @@ components:
           $ref: '#/components/schemas/TimeSpentDuringWeek'
         meetings:
           $ref: '#/components/schemas/TimeSpentDuringWeek'
+    UserData:
+      required:
+      - disablePromotions
+      - domain
+      - email
+      - firstName
+      - slackEnabled
+      - slackStatusEnabled
+      - teamId
+      - trackingCode
+      type: object
+      properties:
+        email:
+          type: string
+        domain:
+          type: string
+        teamId:
+          type: integer
+          format: int64
+        disablePromotions:
+          type: boolean
+        firstName:
+          type: string
+        trackingCode:
+          type: string
+        slackEnabled:
+          type: boolean
+        slackStatusEnabled:
+          type: boolean
+    WeeklyReportCallout:
+      required:
+      - backgroundColor
+      - icon
+      - svgIcon
+      - text
+      - textColor
+      type: object
+      properties:
+        text:
+          type: string
+        textColor:
+          type: string
+        backgroundColor:
+          type: string
+        icon:
+          type: string
+        svgIcon:
+          type: string
   securitySchemes:
     Authorization:
       type: oauth2

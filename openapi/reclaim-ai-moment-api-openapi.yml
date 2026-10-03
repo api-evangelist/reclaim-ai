@@ -47,172 +47,13 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    PriorityLevel:
+    EventType:
       type: string
       enum:
-      - P1
-      - P2
-      - P3
-      - P4
-      - PRIORITIZE
-      - DEFAULT
-      x-deprecated:
-      - PRIORITIZE
-      - DEFAULT
-    AssistType:
-      type: string
-      enum:
-      - TASK
-      - CUSTOM_DAILY
-      - CATCHUP_AM
-      - CATCHUP_PM
-      - LUNCH
-      - FOCUS
-      - TRAVEL_PRE
-      - TRAVEL_POST
-      - CONBUF
-      - SMART_HABIT
-      - SMART_MEETING
-      - RECLAIM_FOCUS
-    EventSubType:
-      type: string
-      enum:
-      - ONE_ON_ONE
-      - STAFF_MEETING
-      - OP_REVIEW
-      - EXTERNAL
-      - IDEATION
-      - FOCUS
-      - PRODUCTIVITY
-      - TRAVEL
-      - FLIGHT
-      - TRAIN
-      - RECLAIM
-      - VACATION
-      - HEALTH
-      - ERRAND
-      - OTHER_PERSONAL
-      - UNKNOWN
-    EventKey:
-      required:
-      - calendarId
-      - eventId
-      type: object
-      properties:
-        eventId:
-          type: string
-        calendarId:
-          type: integer
-          format: int64
-    EventSourceDetails:
-      required:
-      - base64Id
-      - calendarId
-      - description
-      - etag
-      - eventId
-      - eventKey
-      - title
-      - url
-      - writable
-      type: object
-      properties:
-        writable:
-          type: boolean
-        calendarId:
-          type: integer
-          format: int64
-        eventId:
-          type: string
-        etag:
-          type: string
-        eventKey:
-          $ref: '#/components/schemas/EventKey'
-        base64Id:
-          type: string
-        url:
-          type: string
-        title:
-          type: string
-        description:
-          type: string
-    EventColor:
-      type: string
-      enum:
-      - NONE
-      - LAVENDER
-      - SAGE
-      - GRAPE
-      - FLAMINGO
-      - BANANA
-      - TANGERINE
-      - PEACOCK
-      - GRAPHITE
-      - BLUEBERRY
-      - BASIL
-      - TOMATO
-    Moment:
-      required:
-      - additionalEvents
-      - now
-      type: object
-      properties:
-        event:
-          allOf:
-          - $ref: '#/components/schemas/Event'
-        additionalEvents:
-          type: array
-          items:
-            $ref: '#/components/schemas/Event'
-        now:
-          type: string
-          format: date-time
-      description: 'Reflects what the current moment of time is for a user. Payload includes the "primary" active event (or none, if nothing is active) as well as any additional events that might also be in flight but are deemed by Reclaim as secondary/less important. Additionally, if the active event is a Reclaim-managed assignment (ex: task, habit, smart 1:1), it is also included in the payload. When there are multiple active events, the logic for what is considered "primary" vs "secondary" is an internal implementation, but generally speaking it should match the same logic that the Slack integration uses for determining which status to display when there are overlaps.'
-    EventAttendee:
-      required:
-      - email
-      type: object
-      properties:
-        email:
-          type: string
-        self:
-          type:
-          - boolean
-          - 'null'
-        displayName:
-          type:
-          - string
-          - 'null'
-        responseStatus:
-          allOf:
-          - $ref: '#/components/schemas/ResponseStatus'
-        comment:
-          type:
-          - string
-          - 'null'
-        optional:
-          type:
-          - boolean
-          - 'null'
-        additionalGuests:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        organizer:
-          type:
-          - boolean
-          - 'null'
-        resource:
-          type:
-          - boolean
-          - 'null'
-    AssistStatus:
-      type: string
-      enum:
-      - CONTROLLED
-      - RELEASED
-      - ARCHIVED
+      - MEETING
+      - WORK
+      - LOGISTICS
+      - PERSONAL
     AssistDetails:
       type: object
       properties:
@@ -302,27 +143,107 @@ components:
         assistReferenceValid:
           type: boolean
       description: This entity maps to the assist_events table.
-    MergeDetails:
+    GoogleCalendarEventMetadata:
       required:
-      - key
-      - sourceCalendarId
-      - sourceReclaimCalendarId
-      - type
+      - guestsCanInviteOthers
+      - guestsCanModify
+      - guestsCanSeeOtherGuests
       type: object
       properties:
-        key:
+        guestsCanModify:
+          type: boolean
+        guestsCanInviteOthers:
+          type: boolean
+        guestsCanSeeOtherGuests:
+          type: boolean
+    PlatformEventType:
+      type: string
+      enum:
+      - DEFAULT
+      - OUT_OF_OFFICE
+      - FROM_MAIL
+      - WORKING_LOCATION
+      - FOCUS_TIME
+      - BIRTHDAY
+    RecurringAssignmentType:
+      type: string
+      enum:
+      - ONE_ON_ONE
+      - DAILY_HABIT
+      - TASK
+    LockState:
+      type: string
+      enum:
+      - MANUALLY_LOCKED
+      - ADJUSTED
+      - UPCOMING_WINDOW
+      - MANUALLY_UNLOCKED
+      - DELETED
+      - DECLINED
+      - IN_THE_PAST
+    ResponseStatus:
+      type: string
+      enum:
+      - DECLINED
+      - NEEDS_ACTION
+      - TENTATIVE
+      - ACCEPTED
+      - UNKNOWN
+    EventResponseStatus:
+      type: string
+      enum:
+      - None
+      - Organizer
+      - Accepted
+      - Declined
+      - TentativelyAccepted
+      - NotResponded
+      x-enum-varnames:
+      - None
+      - Organizer
+      - Accepted
+      - Declined
+      - TentativelyAccepted
+      - NotResponded
+    EventAttendee:
+      required:
+      - email
+      type: object
+      properties:
+        email:
           type: string
-        type:
-          $ref: '#/components/schemas/MergeDetails.EventType'
-        sourceCalendarId:
+        self:
+          type:
+          - boolean
+          - 'null'
+        displayName:
           type:
           - string
           - 'null'
-        sourceReclaimCalendarId:
+        responseStatus:
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        comment:
+          type:
+          - string
+          - 'null'
+        optional:
+          type:
+          - boolean
+          - 'null'
+        additionalGuests:
           type:
           - integer
           - 'null'
-          format: int64
+          format: int32
+        organizer:
+          type:
+          - boolean
+          - 'null'
+        resource:
+          type:
+          - boolean
+          - 'null'
     AssistPolicyOverride:
       required:
       - durationMax
@@ -350,11 +271,170 @@ components:
           format: int32
         forceDefend:
           type: boolean
+    EventSourceDetails:
+      required:
+      - base64Id
+      - calendarId
+      - description
+      - etag
+      - eventId
+      - eventKey
+      - title
+      - url
+      - writable
+      type: object
+      properties:
+        writable:
+          type: boolean
+        calendarId:
+          type: integer
+          format: int64
+        eventId:
+          type: string
+        etag:
+          type: string
+        eventKey:
+          $ref: '#/components/schemas/EventKey'
+        base64Id:
+          type: string
+        url:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+    ReclaimEventType:
+      type: string
+      enum:
+      - USER
+      - SYNC
+      - HABIT_ASSIGNMENT
+      - SMART_HABIT
+      - ONE_ON_ONE_ASSIGNMENT
+      - SMART_MEETING
+      - TASK_ASSIGNMENT
+      - CONF_BUFFER
+      - TRAVEL_BUFFER
+      - SCHEDULING_LINK_MEETING
+      - UNKNOWN
+      - FOCUS
+    AssistType:
+      type: string
+      enum:
+      - TASK
+      - CUSTOM_DAILY
+      - CATCHUP_AM
+      - CATCHUP_PM
+      - LUNCH
+      - FOCUS
+      - TRAVEL_PRE
+      - TRAVEL_POST
+      - CONBUF
+      - SMART_HABIT
+      - SMART_MEETING
+      - RECLAIM_FOCUS
+    Colorized:
+      type: object
+      properties:
+        color:
+          $ref: '#/components/schemas/EventColor'
+    MergeDetails:
+      required:
+      - key
+      - sourceCalendarId
+      - sourceReclaimCalendarId
+      - type
+      type: object
+      properties:
+        key:
+          type: string
+        type:
+          $ref: '#/components/schemas/MergeDetails.EventType'
+        sourceCalendarId:
+          type:
+          - string
+          - 'null'
+        sourceReclaimCalendarId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+    PriorityLevel:
+      type: string
+      enum:
+      - P1
+      - P2
+      - P3
+      - P4
+      - PRIORITIZE
+      - DEFAULT
+      x-deprecated:
+      - PRIORITIZE
+      - DEFAULT
+    EventSubType:
+      type: string
+      enum:
+      - ONE_ON_ONE
+      - STAFF_MEETING
+      - OP_REVIEW
+      - EXTERNAL
+      - IDEATION
+      - FOCUS
+      - PRODUCTIVITY
+      - TRAVEL
+      - FLIGHT
+      - TRAIN
+      - RECLAIM
+      - VACATION
+      - HEALTH
+      - ERRAND
+      - OTHER_PERSONAL
+      - UNKNOWN
+    EventColor:
+      type: string
+      enum:
+      - NONE
+      - LAVENDER
+      - SAGE
+      - GRAPE
+      - FLAMINGO
+      - BANANA
+      - TANGERINE
+      - PEACOCK
+      - GRAPHITE
+      - BLUEBERRY
+      - BASIL
+      - TOMATO
+    EventCategory:
+      $ref: '#/components/schemas/Colorized'
     EventStatus:
       type: string
       enum:
       - PUBLISHED
       - CANCELLED
+    Moment:
+      required:
+      - additionalEvents
+      - now
+      type: object
+      properties:
+        event:
+          allOf:
+          - $ref: '#/components/schemas/Event'
+        additionalEvents:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
+        now:
+          type: string
+          format: date-time
+      description: 'Reflects what the current moment of time is for a user. Payload includes the "primary" active event (or none, if nothing is active) as well as any additional events that might also be in flight but are deemed by Reclaim as secondary/less important. Additionally, if the active event is a Reclaim-managed assignment (ex: task, habit, smart 1:1), it is also included in the payload. When there are multiple active events, the logic for what is considered "primary" vs "secondary" is an internal implementation, but generally speaking it should match the same logic that the Slack integration uses for determining which status to display when there are overlaps.'
+    PrioritySource:
+      type: string
+      enum:
+      - MANUAL
+      - AI
+      - RULES
     Event:
       required:
       - allocatedTimeChunks
@@ -538,47 +618,23 @@ components:
             existing logic for detecting and parsing event information, even when the event ID cannot be directly
 
             relied upon (e.g., in Microsoft calendars).'
-    EventCategory:
-      $ref: '#/components/schemas/Colorized'
-    PrioritySource:
-      type: string
-      enum:
-      - MANUAL
-      - AI
-      - RULES
-    ReclaimEventType:
-      type: string
-      enum:
-      - USER
-      - SYNC
-      - HABIT_ASSIGNMENT
-      - SMART_HABIT
-      - ONE_ON_ONE_ASSIGNMENT
-      - SMART_MEETING
-      - TASK_ASSIGNMENT
-      - CONF_BUFFER
-      - TRAVEL_BUFFER
-      - SCHEDULING_LINK_MEETING
-      - UNKNOWN
-      - FOCUS
-    Colorized:
-      type: object
-      properties:
-        color:
-          $ref: '#/components/schemas/EventColor'
-    GoogleCalendarEventMetadata:
+    EventKey:
       required:
-      - guestsCanInviteOthers
-      - guestsCanModify
-      - guestsCanSeeOtherGuests
+      - calendarId
+      - eventId
       type: object
       properties:
-        guestsCanModify:
-          type: boolean
-        guestsCanInviteOthers:
-          type: boolean
-        guestsCanSeeOtherGuests:
-          type: boolean
+        eventId:
+          type: string
+        calendarId:
+          type: integer
+          format: int64
+    AssistStatus:
+      type: string
+      enum:
+      - CONTROLLED
+      - RELEASED
+      - ARCHIVED
     MeetingType:
       type: string
       enum:
@@ -616,68 +672,12 @@ components:
       - REQ_BRAIN
       - OTHER_IDEATION
       - UNKNOWN
-    ResponseStatus:
-      type: string
-      enum:
-      - DECLINED
-      - NEEDS_ACTION
-      - TENTATIVE
-      - ACCEPTED
-      - UNKNOWN
-    RecurringAssignmentType:
-      type: string
-      enum:
-      - ONE_ON_ONE
-      - DAILY_HABIT
-      - TASK
-    LockState:
-      type: string
-      enum:
-      - MANUALLY_LOCKED
-      - ADJUSTED
-      - UPCOMING_WINDOW
-      - MANUALLY_UNLOCKED
-      - DELETED
-      - DECLINED
-      - IN_THE_PAST
-    EventResponseStatus:
-      type: string
-      enum:
-      - None
-      - Organizer
-      - Accepted
-      - Declined
-      - TentativelyAccepted
-      - NotResponded
-      x-enum-varnames:
-      - None
-      - Organizer
-      - Accepted
-      - Declined
-      - TentativelyAccepted
-      - NotResponded
-    EventType:
-      type: string
-      enum:
-      - MEETING
-      - WORK
-      - LOGISTICS
-      - PERSONAL
     MergeDetails.EventType:
       type: string
       enum:
       - ORGANIZER_EVENT
       - ATTENDEE_EVENT
       - SYNC_EVENT
-    PlatformEventType:
-      type: string
-      enum:
-      - DEFAULT
-      - OUT_OF_OFFICE
-      - FROM_MAIL
-      - WORKING_LOCATION
-      - FOCUS_TIME
-      - BIRTHDAY
   securitySchemes:
     Authorization:
       type: oauth2

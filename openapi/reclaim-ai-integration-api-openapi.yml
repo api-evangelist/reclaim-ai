@@ -1190,193 +1190,19 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    UserPostOnboard:
+    TodoistSettings_3:
       type: object
       properties:
-        welcomed:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        focus:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        hours:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        habits:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        firstTask:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        integration:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        smartMeetings:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        schedulingLinks:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        slackStatusSync:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        travelTime:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        zoom:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        connectCalendars:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        colors:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        reclaimFree:
-          $ref: '#/components/schemas/UserPostOnboardState'
-        guidedTours:
-          $ref: '#/components/schemas/UserPostOnboardState'
-    TemporalSettings:
-      type: object
-      properties:
-        eventTransitionsEnabled:
-          type: boolean
-    AddOnInsertableState:
-      required:
-      - html
-      - insertButtonAltText
-      - insertButtonLabel
-      type: object
-      properties:
-        html:
-          type: string
-        insertButtonLabel:
-          type: string
-        insertButtonAltText:
-          type: string
-    AsanaWidget:
-      type: object
-      properties:
-        title:
-          type: string
-        error:
-          type:
-          - string
-          - 'null'
-        fields:
-          $ref: '#/components/schemas/ImmutableList_AsanaWidgetField_'
-        subtitle:
-          type:
-          - string
-          - 'null'
-        subicon_url:
-          type:
-          - string
-          - 'null'
-          format: uri
-        num_comments:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        footer:
-          $ref: '#/components/schemas/AsanaWidgetFooter'
-        withTitle:
-          type: string
-        withError:
-          type: string
-        withFields:
-          type: array
-          items:
-            $ref: '#/components/schemas/AsanaWidgetField'
-        withSubtitle:
-          type: string
-        withSubicon_url:
-          type: string
-          format: uri
-        withNum_comments:
-          type: integer
-          format: int32
-        withFooter:
-          $ref: '#/components/schemas/AsanaWidgetFooter'
+        titleFormat:
+          $ref: '#/components/schemas/TodoistTitleFormat'
+        withTitleFormat:
+          $ref: '#/components/schemas/TodoistTitleFormat'
         equals: {}
         hashCode:
           type: integer
           format: int32
         toString:
           type: string
-    SyncFeatureSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        hasVipPrivileges:
-          type: boolean
-        daysBackwardOverride:
-          type: integer
-          format: int32
-    TaskSettings:
-      required:
-      - defaults
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        googleTasks:
-          type: boolean
-        defaults:
-          $ref: '#/components/schemas/TaskDefaults'
-        autoWorkflowSettings:
-          $ref: '#/components/schemas/TaskAutoWorkflowSettings'
-        scheduleWorkQueueOnly:
-          type: boolean
-        cooldown:
-          $ref: '#/components/schemas/TaskCooldown'
-    TodoistTitleFormat:
-      type: string
-      enum:
-      - TASK_TITLE_ONLY
-      - TASK_TITLE_THEN_PROJECT
-      - PROJECT_NAME_THEN_TASK_TITLE
-    ImmutableList_AbstractLinearTeam_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ImmutableCollection_AbstractLinearTeam_'
-      - $ref: '#/components/schemas/AbstractCollection_AbstractLinearTeam_'
-      - properties:
-          empty:
-            type: boolean
-          first:
-            $ref: '#/components/schemas/AbstractLinearTeam'
-          last:
-            $ref: '#/components/schemas/AbstractLinearTeam'
-    AsanaAttachedResource:
-      type: object
-      properties:
-        error:
-          type:
-          - string
-          - 'null'
-        resource_name:
-          type:
-          - string
-          - 'null'
-        resource_url:
-          type:
-          - string
-          - 'null'
-          format: uri
-        withError:
-          type:
-          - string
-          - 'null'
-        withResource_name:
-          type:
-          - string
-          - 'null'
-        withResource_url:
-          type:
-          - string
-          - 'null'
-          format: uri
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    RSVPSetting:
-      type: object
-      properties:
-        calendarSync:
-          $ref: '#/components/schemas/DefaultRsvpAvailability'
     UserOnboard:
       type: object
       properties:
@@ -1430,78 +1256,104 @@ components:
           type: boolean
         schedulingLinks:
           type: boolean
-    DateFieldOrder:
-      type: string
-      enum:
-      - MDY
-      - DMY
-      - YMD
-    UserProfileDepartment:
-      type: string
-      enum:
-      - PRODUCT
-      - ENGINEERING
-      - SUPPORT
-      - MARKETING
-      - SALES
-      - DESIGN
-      - HR
-      - OPERATIONS
-      - ACCOUNTING_AND_FINANCE
-      - FOUNDER
-      - EXECUTIVE_ASSISTANT
-      - IT_SECURITY
-      - OTHER
-      x-deprecated:
-      - OTHER
-    UserAdventures:
+    SlackWorkspace:
+      required:
+      - features
+      - name
       type: object
       properties:
-        adventures:
-          properties:
-            CORE_CONCEPTS:
-              $ref: '#/components/schemas/AdventureSetting'
-            CONNECT_PRIMARY_CALENDAR:
-              $ref: '#/components/schemas/AdventureSetting'
-            ADD_AGENT:
-              $ref: '#/components/schemas/AdventureSetting'
-            ADD_FOCUS_TIME:
-              $ref: '#/components/schemas/AdventureSetting'
-            ADD_BUFFERS:
-              $ref: '#/components/schemas/AdventureSetting'
-            ADD_HABIT:
-              $ref: '#/components/schemas/AdventureSetting'
-            HEAVY_MEETING_LOAD:
-              $ref: '#/components/schemas/AdventureSetting'
-            CONNECT_CALENDARS:
-              $ref: '#/components/schemas/AdventureSetting'
-            CALENDAR_SYNC:
-              $ref: '#/components/schemas/AdventureSetting'
-            SHARED_CALENDARS:
-              $ref: '#/components/schemas/AdventureSetting'
-            SCHEDULING_LINKS:
-              $ref: '#/components/schemas/AdventureSetting'
-            SCHEDULING_LINK_SETTINGS:
-              $ref: '#/components/schemas/AdventureSetting'
-            HOURS:
-              $ref: '#/components/schemas/AdventureSetting'
-            PROFILE:
-              $ref: '#/components/schemas/AdventureSetting'
-            PERMISSIONS:
-              $ref: '#/components/schemas/AdventureSetting'
-            SLACK:
-              $ref: '#/components/schemas/AdventureSetting'
-            INTEGRATIONS:
-              $ref: '#/components/schemas/AdventureSetting'
-            TASK_INTEGRATIONS:
-              $ref: '#/components/schemas/AdventureSetting'
-            CHAT:
-              $ref: '#/components/schemas/AdventureSetting'
-            LOG_WORK:
-              $ref: '#/components/schemas/AdventureSetting'
-            PREVIEW_MODE:
-              $ref: '#/components/schemas/AdventureSetting'
-    TodoistSettings_1:
+        name:
+          type: string
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/SlackFeature'
+    JiraV2IntegrationView:
+      required:
+      - id
+      - siteUrl
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        siteUrl:
+          type: string
+        displayName:
+          type:
+          - string
+          - 'null'
+    AsanaWidgetPillColor:
+      type: string
+      enum:
+      - none
+      - red
+      - orange
+      - yellow_orange
+      - yellow
+      - yellow_green
+      - green
+      - blue_green
+      - aqua
+      - blue
+      - indigo
+      - purple
+      - magenta
+      - hot_pink
+      - pink
+      - cool_gray
+      x-enum-varnames:
+      - none
+      - red
+      - orange
+      - yellow_orange
+      - yellow
+      - yellow_green
+      - green
+      - blue_green
+      - aqua
+      - blue
+      - indigo
+      - purple
+      - magenta
+      - hot_pink
+      - pink
+      - cool_gray
+    ClickUpStatus:
+      type: object
+      properties:
+        status:
+          type: string
+        orderindex:
+          type: integer
+          format: int32
+        type:
+          $ref: '#/components/schemas/ClickUpStatusType'
+        color:
+          type:
+          - string
+          - 'null'
+        withStatus:
+          type: string
+        withOrderindex:
+          type: integer
+          format: int32
+        withType:
+          $ref: '#/components/schemas/ClickUpStatusType'
+        withColor:
+          type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    DefaultRsvpAvailability:
+      type: object
+      properties:
+        treatNeedsActionRsvpAs:
+          $ref: '#/components/schemas/AvailabilityType'
+    TodoistSettings_4:
       type: object
       properties:
         titleFormat:
@@ -1514,133 +1366,70 @@ components:
           format: int32
         toString:
           type: string
-    AsanaTitleTemplate:
-      type: string
-      enum:
-      - TITLE
-      - TITLE_THEN_PROJECT_IF_ANY
-      - TITLE_THEN_PROJECT_IF_ANY_THEN_WORKSPACE
-      - PROJECT_IF_SINGLE_OR_WORKSPACE_WHEN_MULTIPLE_PROJECTS_THEN_TITLE
-      - WORKSPACE_THEN_PROJECT_IF_SINGLE_THEN_TITLE
-    AvailabilitySettings:
+    OrgMetadata:
       type: object
       properties:
-        redisCacheEnabled:
-          type: boolean
-    LinearTaskDetails:
-      type: object
-      properties:
-        taskId:
-          type: integer
-          format: int64
-        owner:
-          type: boolean
-        status:
-          $ref: '#/components/schemas/TaskStatus'
-        withTaskId:
-          type: integer
-          format: int64
-        withOwner:
-          type: boolean
-        withStatus:
-          $ref: '#/components/schemas/TaskStatus'
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    ClickUpSpaceWithEligibility:
-      required:
-      - features
-      - id
-      - isEligible
-      - name
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        isEligible:
-          type: boolean
-        features:
-          type: object
+        employeeNumber:
+          type:
+          - string
+          - 'null'
+        costCenter:
+          type:
+          - string
+          - 'null'
+        organization:
+          type:
+          - string
+          - 'null'
+        division:
+          type:
+          - string
+          - 'null'
+        department:
+          type:
+          - string
+          - 'null'
+        manager:
+          allOf:
+          - $ref: '#/components/schemas/OrgMetadata.OrgManager'
+        customValues:
+          type:
+          - object
+          - 'null'
           additionalProperties: true
-    AbstractCollection_ClickUpStatus_:
+    ImmutableList_AsanaFormFieldOption_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_AsanaFormFieldOption_'
+      - $ref: '#/components/schemas/AbstractCollection_AsanaFormFieldOption_'
+      - properties:
+          empty:
+            type: boolean
+          first:
+            $ref: '#/components/schemas/AsanaFormFieldOption'
+          last:
+            $ref: '#/components/schemas/AsanaFormFieldOption'
+    AbstractCollection_TodoistProject_:
       type: object
       properties:
         empty:
           type: boolean
-    UserProvisioningDetails:
-      required:
-      - hasTeamProvisionedMetadata
+    ImmutableSet_ClickUpSpace_:
       type: object
-      properties:
-        hasTeamProvisionedMetadata:
-          type: boolean
-    CalendarSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        calendarCleanupRunning:
-          type: string
-          format: date-time
-    TodoistSettings_2:
-      type: object
-      properties:
-        titleFormat:
-          $ref: '#/components/schemas/TodoistTitleFormat'
-        withTitleFormat:
-          $ref: '#/components/schemas/TodoistTitleFormat'
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    ReclaimEdition:
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_ClickUpSpace_'
+      - $ref: '#/components/schemas/AbstractCollection_ClickUpSpace_'
+      - properties:
+          empty:
+            type: boolean
+          hashCodeFast:
+            type: boolean
+    TodoistTitleFormat:
       type: string
       enum:
-      - NONE
-      - TRIAL
-      - ASSISTANT
-      - PRO
-      - TEAM
-      - REWARD
-      - LEGACY_PRO_TRIAL
-      - LEGACY_TEAM_TRIAL
-      - LITE
-      - STARTER
-      - BUSINESS
-      - TRIAL_BUSINESS
-      - TRIAL_BUSINESS_12W
-      - TRIAL_BUSINESS_FOR_LEGACY_PLANS
-      - ENTERPRISE
-      - TEAM_REWARD
-      - LITE_V2
-      - LITE_V3
-    ClickUpIntegrationPatch:
-      type: object
-      properties:
-        titleFormat:
-          allOf:
-          - $ref: '#/components/schemas/ClickUpTitleFormat'
-        bypassTimeTracking:
-          type:
-          - boolean
-          - 'null'
-        withTitleFormat:
-          $ref: '#/components/schemas/ClickUpTitleFormat'
-        withBypassTimeTracking:
-          type: boolean
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
+      - TASK_TITLE_ONLY
+      - TASK_TITLE_THEN_PROJECT
+      - PROJECT_NAME_THEN_TASK_TITLE
     TodoistIntegration:
       type: object
       properties:
@@ -1680,116 +1469,72 @@ components:
           format: int32
         toString:
           type: string
-    MicrosoftSettings:
+    ScheduleAssistantSettings:
       type: object
       properties:
-        smartSeriesDetectionEnabled:
+        enabled:
           type: boolean
-        useFullyExpandedSeriesMasterForInterop:
+        calendarUIEnabled:
           type: boolean
-        resolveReclaimForNonMemberUsingCalendarView:
+        scoringSettings:
+          $ref: '#/components/schemas/ScheduleAssistantScoringSettings'
+        experimentalFeaturesEnabled:
           type: boolean
-    SmartSeriesRecurrenceType:
-      type: string
-      enum:
-      - SINGLE_INSTANCES
-      - RECURRING_SERIES
-    AbstractCollection_String_:
-      type: object
-      properties:
-        empty:
+        mcpDebug:
           type: boolean
-    AsanaWidgetFieldType:
-      type: string
-      enum:
-      - datetime_with_icon
-      - pill
-      - text_with_icon
-      x-enum-varnames:
-      - datetime_with_icon
-      - pill
-      - text_with_icon
-    ImmutableList_AsanaSyncFormField_:
+        disableBackgroundAutomation:
+          type: boolean
+        orgRelationshipsEnabled:
+          type: boolean
+        enableExternalLlm:
+          type: boolean
+        selfServiceMigrationEnabled:
+          type: boolean
+        persistedToolApprovalsEnabled:
+          type: boolean
+    ImmutableCollection_TodoistProject_:
       type: object
       allOf:
-      - $ref: '#/components/schemas/ImmutableCollection_AsanaSyncFormField_'
-      - $ref: '#/components/schemas/AbstractCollection_AsanaSyncFormField_'
+      - $ref: '#/components/schemas/AbstractCollection_TodoistProject_'
       - properties:
           empty:
             type: boolean
-          first:
-            $ref: '#/components/schemas/AsanaSyncFormField'
-          last:
-            $ref: '#/components/schemas/AsanaSyncFormField'
-    SlackIntegrationDetails:
+          partialView:
+            type: boolean
+    UserPostOnboardState:
+      type: string
+      enum:
+      - NEVER_SHOWN
+      - NEVER_INTERACTED
+      - PASS
+      - CHECK
+      - CTA
+    OrgMetadata.OrgManager:
       required:
-      - integrationEnable
-      - workspaces
+      - displayName
+      - managerId
+      - ref
       type: object
       properties:
-        integrationEnable:
-          type: boolean
-        workspaces:
-          type: array
-          items:
-            $ref: '#/components/schemas/SlackWorkspace'
-    SlackWorkspace:
-      required:
-      - features
-      - name
-      type: object
-      properties:
-        name:
+        managerId:
           type: string
-        features:
-          type: array
-          items:
-            $ref: '#/components/schemas/SlackFeature'
-    AvailabilityType:
-      type: string
-      enum:
-      - BUSY
-      - FREE
-    OptionsLoadEndpointRequest:
+        displayName:
+          type: string
+        ref:
+          type: string
+    ClickUpIntegrationPatch:
       type: object
       properties:
-        response_url:
+        titleFormat:
+          allOf:
+          - $ref: '#/components/schemas/ClickUpTitleFormat'
+        bypassTimeTracking:
           type:
-          - string
+          - boolean
           - 'null'
-        payload:
-          type:
-          - string
-          - 'null'
-    AbstractCollection_AsanaSyncFormField_:
-      type: object
-      properties:
-        empty:
-          type: boolean
-    ImmutableList_AsanaProject_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ImmutableCollection_AsanaProject_'
-      - $ref: '#/components/schemas/AbstractCollection_AsanaProject_'
-      - properties:
-          empty:
-            type: boolean
-          first:
-            $ref: '#/components/schemas/AsanaProject'
-          last:
-            $ref: '#/components/schemas/AsanaProject'
-    DeprecatedClickUpIntegrationPatch:
-      type: object
-      properties:
-        selected_space_ids:
-          $ref: '#/components/schemas/ImmutableSet_String_'
-        requires_tag:
-          type: boolean
-        withSelected_space_ids:
-          type: array
-          items:
-            type: string
-        withRequires_tag:
+        withTitleFormat:
+          $ref: '#/components/schemas/ClickUpTitleFormat'
+        withBypassTimeTracking:
           type: boolean
         equals: {}
         hashCode:
@@ -1797,113 +1542,77 @@ components:
           format: int32
         toString:
           type: string
-      deprecated: true
-    ScheduleAssistantScoringSettings:
-      type: object
-      properties:
-        version:
-          $ref: '#/components/schemas/SlotScorerVersion'
-    SlackOutsideHoursSetting:
-      required:
-      - dnd
-      - policy
-      type: object
-      properties:
-        policy:
-          type: string
-        message:
-          type:
-          - string
-          - 'null'
-        dnd:
-          type: boolean
-    ImmutableCollection_AbstractLinearTeam_:
+    ImmutableList_AbstractLinearTeam_:
       type: object
       allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_AbstractLinearTeam_'
       - $ref: '#/components/schemas/AbstractCollection_AbstractLinearTeam_'
       - properties:
           empty:
             type: boolean
-          partialView:
-            type: boolean
-    UserMetadata:
-      type: object
-      properties:
-        jobTitle:
-          type: string
-        companyName:
-          type: string
-        companySize:
-          $ref: '#/components/schemas/UserMetadataCompanySize'
-        usecase:
-          $ref: '#/components/schemas/UserMetadataUsecase'
-        role:
-          allOf:
-          - $ref: '#/components/schemas/UserProfileRole'
-        goals:
-          type: array
-          items:
-            $ref: '#/components/schemas/UserProfileGoal'
-        isWorkspace:
-          type: boolean
-        department:
-          allOf:
-          - $ref: '#/components/schemas/UserProfileDepartment'
-        orgMetadata:
-          $ref: '#/components/schemas/OrgMetadata'
-    AbstractCollection_AsanaIntegrationTitleOptions_:
-      type: object
-      properties:
-        empty:
-          type: boolean
-    DropboxSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-    NotionIntegrationView:
-      required:
-      - id
-      - workspaceName
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        workspaceName:
-          type: string
-        workspaceIcon:
-          type:
-          - string
-          - 'null'
-    AutoLock:
+          first:
+            $ref: '#/components/schemas/AbstractLinearTeam'
+          last:
+            $ref: '#/components/schemas/AbstractLinearTeam'
+    SlackSettings.StatusSync:
       type: string
       enum:
       - 'OFF'
-      - SAME_DAY
-      - SAME_WEEK
-      - TOMORROW
-      - ROLLING_3_DAYS
-    UserProfileRole:
-      type: string
-      enum:
-      - EXEC
-      - MANAGER
-      - NON_MANAGER
-      - CONSULTANT
-      - STUDENT
-    ImmutableList_ClickUpStatus_:
+      - DEFAULT
+      - BUSY
+      - CUSTOM
+      - TEAM
+    AsanaWidget:
       type: object
-      allOf:
-      - $ref: '#/components/schemas/ImmutableCollection_ClickUpStatus_'
-      - $ref: '#/components/schemas/AbstractCollection_ClickUpStatus_'
-      - properties:
-          empty:
-            type: boolean
-          first:
-            $ref: '#/components/schemas/ClickUpStatus'
-          last:
-            $ref: '#/components/schemas/ClickUpStatus'
+      properties:
+        title:
+          type: string
+        error:
+          type:
+          - string
+          - 'null'
+        fields:
+          $ref: '#/components/schemas/ImmutableList_AsanaWidgetField_'
+        subtitle:
+          type:
+          - string
+          - 'null'
+        subicon_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+        num_comments:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        footer:
+          $ref: '#/components/schemas/AsanaWidgetFooter'
+        withTitle:
+          type: string
+        withError:
+          type: string
+        withFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/AsanaWidgetField'
+        withSubtitle:
+          type: string
+        withSubicon_url:
+          type: string
+          format: uri
+        withNum_comments:
+          type: integer
+          format: int32
+        withFooter:
+          $ref: '#/components/schemas/AsanaWidgetFooter'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
     JiraIntegration:
       type: object
       properties:
@@ -1937,439 +1646,26 @@ components:
           format: int32
         toString:
           type: string
-    ImmutableCollection_AsanaFormFieldOption_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/AbstractCollection_AsanaFormFieldOption_'
-      - properties:
-          empty:
-            type: boolean
-          partialView:
-            type: boolean
-    ThinCalendar:
-      required:
-      - calendarId
-      - credentialEmail
-      - credentialId
-      - id
-      - lastSynced
-      - timezone
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        timezone:
-          type: string
-        calendarId:
-          type: string
-        lastSynced:
-          type: string
-          format: date-time
-        credentialId:
-          type: integer
-          format: int64
-        credentialEmail:
-          type: string
-    DetailedEntitlements:
-      type: object
-      properties:
-        unlimitedHabitsEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
-        unlimitedSyncEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
-        unlimitedConnectedCalendarsEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
-        customSyncTransparencyEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
-        smart11CreationEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
-        customSlackSyncStatusEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
-        customConferenceBufferTitleEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
-        linearEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
-        jiraEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
-        todoistEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
-        asanaEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
-        clickupEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
-        trelloEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
-        mondayEnabled:
-          $ref: '#/components/schemas/EntitlementDetails'
     TaskAutoWorkflowType:
       type: string
       enum:
       - NOTHING
       - REOPEN
       - CLOSE
-    AsanaWidgetMetadata:
-      type: object
-      properties:
-        metadata:
-          $ref: '#/components/schemas/AsanaWidget'
-        template:
-          type: string
-        withMetadata:
-          $ref: '#/components/schemas/AsanaWidget'
-        withTemplate:
-          type: string
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    AsanaWidgetPillColor:
-      type: string
-      enum:
-      - none
-      - red
-      - orange
-      - yellow_orange
-      - yellow
-      - yellow_green
-      - green
-      - blue_green
-      - aqua
-      - blue
-      - indigo
-      - purple
-      - magenta
-      - hot_pink
-      - pink
-      - cool_gray
-      x-enum-varnames:
-      - none
-      - red
-      - orange
-      - yellow_orange
-      - yellow
-      - yellow_green
-      - green
-      - blue_green
-      - aqua
-      - blue
-      - indigo
-      - purple
-      - magenta
-      - hot_pink
-      - pink
-      - cool_gray
-    AbstractCollection_AbstractLinearTeam_:
+    AbstractCollection_TodoistLabel_:
       type: object
       properties:
         empty:
           type: boolean
-    TodoistSettings:
-      type: object
-      properties:
-        apiV1Enabled:
-          type: boolean
-    ClickUpStatus:
-      type: object
-      properties:
-        status:
-          type: string
-        orderindex:
-          type: integer
-          format: int32
-        type:
-          $ref: '#/components/schemas/ClickUpStatusType'
-        color:
-          type:
-          - string
-          - 'null'
-        withStatus:
-          type: string
-        withOrderindex:
-          type: integer
-          format: int32
-        withType:
-          $ref: '#/components/schemas/ClickUpStatusType'
-        withColor:
-          type: string
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    ImmutableSet_ClickUpSpace_:
+    ImmutableCollection_AsanaSyncFormField_:
       type: object
       allOf:
-      - $ref: '#/components/schemas/ImmutableCollection_ClickUpSpace_'
-      - $ref: '#/components/schemas/AbstractCollection_ClickUpSpace_'
-      - properties:
-          empty:
-            type: boolean
-          hashCodeFast:
-            type: boolean
-    SlackFeature:
-      required:
-      - enable
-      - featureDescription
-      - urlToAdd
-      type: object
-      properties:
-        featureDescription:
-          type: string
-        enable:
-          type: boolean
-        urlToAdd:
-          type: string
-    AssistNotificationSettings:
-      required:
-      - detectedDigest
-      - instanceChanges
-      - instanceWindowInDays
-      - needsAttentionDigest
-      type: object
-      properties:
-        instanceChanges:
-          type: boolean
-        instanceWindowInDays:
-          type: integer
-          format: int32
-        needsAttentionDigest:
-          type: boolean
-        detectedDigest:
-          type: boolean
-    AbstractCollection_AsanaProject_:
-      type: object
-      properties:
-        empty:
-          type: boolean
-    UserDateTimeFormatter:
-      type: object
-      properties:
-        locale:
-          type: string
-    TimezonePreference:
-      type: string
-      enum:
-      - USE_PRIMARY_CALENDAR_TZ
-      - USE_RECLAIM_TZ
-    ImmutableCollection_JiraProject_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/AbstractCollection_JiraProject_'
+      - $ref: '#/components/schemas/AbstractCollection_AsanaSyncFormField_'
       - properties:
           empty:
             type: boolean
           partialView:
             type: boolean
-    JiraV2IntegrationView:
-      required:
-      - id
-      - siteUrl
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        siteUrl:
-          type: string
-        displayName:
-          type:
-          - string
-          - 'null'
-    Entitlements:
-      type: object
-      properties:
-        unlimitedHabitsEnabled:
-          type: boolean
-        unlimitedConnectedCalendarsEnabled:
-          type: boolean
-        unlimitedSyncEnabled:
-          type: boolean
-        customSyncTransparencyEnabled:
-          type: boolean
-        smart11CreationEnabled:
-          type: boolean
-        customSlackSyncStatusEnabled:
-          type: boolean
-        customConferenceBufferTitleEnabled:
-          type: boolean
-        schedulingLinkSurveyEnabled:
-          type: boolean
-        maxDaysAheadForSchedulingLinks:
-          type: integer
-          format: int32
-        linearEnabled:
-          type: boolean
-        jiraEnabled:
-          type: boolean
-        todoistEnabled:
-          type: boolean
-        asanaEnabled:
-          type: boolean
-        clickupEnabled:
-          type: boolean
-        trelloEnabled:
-          type: boolean
-        mondayEnabled:
-          type: boolean
-        dropboxEnabled:
-          type: boolean
-        SSOEnabled:
-          type: boolean
-    CalendarSlackSettingsView:
-      required:
-      - calendarId
-      - setting
-      type: object
-      properties:
-        calendarId:
-          type: integer
-          format: int64
-        setting:
-          $ref: '#/components/schemas/NotificationSetting'
-    ClickUpIntegration:
-      type: object
-      properties:
-        workspace:
-          $ref: '#/components/schemas/ClickUpResource'
-        available_spaces:
-          $ref: '#/components/schemas/ImmutableSet_ClickUpSpace_'
-        selected_space_ids:
-          $ref: '#/components/schemas/ImmutableSet_String_'
-        requires_tag:
-          type: boolean
-        withWorkspace:
-          $ref: '#/components/schemas/ClickUpResource'
-        withAvailable_spaces:
-          type: array
-          items:
-            $ref: '#/components/schemas/ClickUpSpace'
-        withSelected_space_ids:
-          type: array
-          items:
-            type: string
-        withRequires_tag:
-          type: boolean
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    WeeklyReport:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        sendReport:
-          type: boolean
-    TodoistSettings_5:
-      type: object
-      properties:
-        titleFormat:
-          $ref: '#/components/schemas/TodoistTitleFormat'
-        withTitleFormat:
-          $ref: '#/components/schemas/TodoistTitleFormat'
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    SlackStatusSetting:
-      type: object
-      properties:
-        emoji:
-          type: string
-        template:
-          type: string
-        dnd:
-          type: boolean
-        enabled:
-          type: boolean
-    LinearState:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        description:
-          type:
-          - string
-          - 'null'
-        color:
-          type: string
-        type:
-          $ref: '#/components/schemas/LinearWorkflowStateType'
-        position:
-          type: number
-          format: float
-        withId:
-          type: string
-        withName:
-          type: string
-        withDescription:
-          type:
-          - string
-          - 'null'
-        withColor:
-          type: string
-        withType:
-          $ref: '#/components/schemas/LinearWorkflowStateType'
-        withPosition:
-          type: number
-          format: float
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    ObservedUser:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/LogContext'
-      - properties:
-          id:
-            type: string
-          trackingCode:
-            type: string
-          edition:
-            $ref: '#/components/schemas/ReclaimEdition'
-    AnalyticsSettings:
-      type: object
-      properties:
-        teamAnalyticsV4ViewEnabled:
-          type: boolean
-        teamAnalyticsV4FiltersEnabled:
-          type: boolean
-    TodoistSettings_4:
-      type: object
-      properties:
-        titleFormat:
-          $ref: '#/components/schemas/TodoistTitleFormat'
-        withTitleFormat:
-          $ref: '#/components/schemas/TodoistTitleFormat'
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    SlackSettingsView:
-      required:
-      - calendarSettings
-      type: object
-      properties:
-        calendarSettings:
-          minItems: 1
-          type: array
-          items:
-            $ref: '#/components/schemas/CalendarSlackSettingsView'
     UserSettings:
       required:
       - accountLocks
@@ -2504,45 +1800,348 @@ components:
           items:
             type: integer
             format: int32
-    ClickUpIntegrationDetails:
-      required:
-      - availableSpaces
-      - tags
-      - titleFormat
-      - workspace
+    SlackStatusSetting:
       type: object
       properties:
-        workspace:
-          $ref: '#/components/schemas/ClickUpResource'
-        availableSpaces:
+        emoji:
+          type: string
+        template:
+          type: string
+        dnd:
+          type: boolean
+        enabled:
+          type: boolean
+    SlackIntegrationDetails:
+      required:
+      - integrationEnable
+      - workspaces
+      type: object
+      properties:
+        integrationEnable:
+          type: boolean
+        workspaces:
           type: array
           items:
-            $ref: '#/components/schemas/ClickUpSpaceWithEligibility'
-        tags:
-          type: array
-          items:
-            type: string
-        lastSynced:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        titleFormat:
-          $ref: '#/components/schemas/ClickUpTitleFormat'
-        bypassTimeTracking:
+            $ref: '#/components/schemas/SlackWorkspace'
+    UserProfileDepartment:
+      type: string
+      enum:
+      - PRODUCT
+      - ENGINEERING
+      - SUPPORT
+      - MARKETING
+      - SALES
+      - DESIGN
+      - HR
+      - OPERATIONS
+      - ACCOUNTING_AND_FINANCE
+      - FOUNDER
+      - EXECUTIVE_ASSISTANT
+      - IT_SECURITY
+      - OTHER
+      x-deprecated:
+      - OTHER
+    SchedulingWindowWeeksOverride:
+      type: string
+      enum:
+      - ONE
+      - TWO
+      - THREE
+      - FOUR
+      - FIVE
+      - SIX
+      - SEVEN
+      - EIGHT
+      - NINE
+      - TEN
+      - ELEVEN
+      - TWELVE
+    ImmutableList_AsanaIntegrationTitleOptions_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_AsanaIntegrationTitleOptions_'
+      - $ref: '#/components/schemas/AbstractCollection_AsanaIntegrationTitleOptions_'
+      - properties:
+          empty:
+            type: boolean
+          first:
+            $ref: '#/components/schemas/AsanaIntegrationTitleOptions'
+          last:
+            $ref: '#/components/schemas/AsanaIntegrationTitleOptions'
+    SignupMethod:
+      type: string
+      enum:
+      - SCIM
+      - ADMIN_API
+      - SLACK
+      - SELF
+    ImmutableSet_JiraProject_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_JiraProject_'
+      - $ref: '#/components/schemas/AbstractCollection_JiraProject_'
+      - properties:
+          empty:
+            type: boolean
+          hashCodeFast:
+            type: boolean
+    UserMetadataCompanySize:
+      type: string
+      enum:
+      - SUB_10
+      - SUB_50
+      - SUB_100
+      - SUB_500
+      - SUB_1000
+      - THOUSAND_PLUS
+    BillingSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+    UserPostOnboard:
+      type: object
+      properties:
+        welcomed:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        focus:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        hours:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        habits:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        firstTask:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        integration:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        smartMeetings:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        schedulingLinks:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        slackStatusSync:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        travelTime:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        zoom:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        connectCalendars:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        colors:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        reclaimFree:
+          $ref: '#/components/schemas/UserPostOnboardState'
+        guidedTours:
+          $ref: '#/components/schemas/UserPostOnboardState'
+    JiraIntegrationPatch:
+      type: object
+      properties:
+        installation:
+          type: string
+        selected_project_keys:
+          $ref: '#/components/schemas/ImmutableSet_String_'
+        due_date_required:
           type:
           - boolean
           - 'null'
-    JiraProject:
+        withInstallation:
+          type: string
+        withSelected_project_keys:
+          type: array
+          items:
+            type: string
+        withDue_date_required:
+          type: boolean
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    AbstractCollection_AsanaProject_:
       type: object
       properties:
-        project_key:
+        empty:
+          type: boolean
+    AsanaSyncForm:
+      type: object
+      properties:
+        title:
           type: string
-        project_name:
+        on_submit_callback:
           type: string
-        withProject_key:
+          format: uri
+        on_change_callback:
           type: string
-        withProject_name:
+          format: uri
+        submit_button_text:
+          type: string
+        fields:
+          $ref: '#/components/schemas/ImmutableList_AsanaSyncFormField_'
+        withTitle:
+          type: string
+        withOn_submit_callback:
+          type: string
+          format: uri
+        withOn_change_callback:
+          type: string
+          format: uri
+        withSubmit_button_text:
+          type: string
+        withFields:
+          type: array
+          items:
+            $ref: '#/components/schemas/AsanaSyncFormField'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    EventColor:
+      type: string
+      enum:
+      - NONE
+      - LAVENDER
+      - SAGE
+      - GRAPE
+      - FLAMINGO
+      - BANANA
+      - TANGERINE
+      - PEACOCK
+      - GRAPHITE
+      - BLUEBERRY
+      - BASIL
+      - TOMATO
+    AsanaFormFieldType:
+      type: string
+      enum:
+      - single_line_text
+      - rich_text
+      - typeahead
+      - checkboxes
+      - radio_button
+      - date
+      - datetime
+      - static_text
+      - dropdown
+      x-enum-varnames:
+      - single_line_text
+      - rich_text
+      - typeahead
+      - checkboxes
+      - radio_button
+      - date
+      - datetime
+      - static_text
+      - dropdown
+    ImmutableCollection_String_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_String_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    CalendarEntrySettings:
+      type: object
+      properties:
+        pipelineEnabled:
+          type: boolean
+        pipelineWatchEnabled:
+          type: boolean
+        autoMigrate:
+          type: boolean
+        shouldMigrate:
+          type: boolean
+        selfServiceMigrate:
+          type: boolean
+        dailyAudit:
+          type: boolean
+        microsoftPipelineBatching:
+          type: boolean
+        scoredTopContacts:
+          type: boolean
+        googleGhCutoff:
+          type: boolean
+        usePipelineCleanCalendar:
+          type: boolean
+        dedicatedUpsertEnabled:
+          type: boolean
+    AbstractCollection_AbstractLinearTeam_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    LinearIntegration:
+      type: object
+      properties:
+        id:
+          type: string
+        requiresLabel:
+          type: boolean
+        requiresDueDate:
+          type: boolean
+        availableTeams:
+          $ref: '#/components/schemas/ImmutableList_AbstractLinearTeam_'
+        selectedTeamIds:
+          $ref: '#/components/schemas/ImmutableSet_String_'
+        withId:
+          type: string
+        withRequiresLabel:
+          type: boolean
+        withRequiresDueDate:
+          type: boolean
+        withAvailableTeams:
+          type: array
+          items:
+            $ref: '#/components/schemas/AbstractLinearTeam'
+        withSelectedTeamIds:
+          type: array
+          items:
+            type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    AsanaIntegrationPatch:
+      type: object
+      properties:
+        titleOption:
+          $ref: '#/components/schemas/AsanaTitleTemplate'
+        withTitleOption:
+          $ref: '#/components/schemas/AsanaTitleTemplate'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    AbstractLinearTeam:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        key:
+          type: string
+        issueEstimationType:
+          type:
+          - string
+          - 'null'
+        issueStatuses:
+          type: array
+          items:
+            $ref: '#/components/schemas/LinearState'
+    AsanaSyncFormSubmission:
+      type: object
+      properties:
+        data:
+          type: string
+        withData:
           type: string
         equals: {}
         hashCode:
@@ -2550,7 +2149,460 @@ components:
           format: int32
         toString:
           type: string
-        toAnalyticsValue: {}
+    TodoistIntegrationPatch:
+      type: object
+      properties:
+        requiresLabel:
+          type:
+          - boolean
+          - 'null'
+        selectedProjectIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        settings:
+          allOf:
+          - $ref: '#/components/schemas/TodoistSettings_3'
+        withRequiresLabel:
+          type: boolean
+        withSelectedProjectIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        withSettings:
+          allOf:
+          - $ref: '#/components/schemas/TodoistSettings_4'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    ClickUpIntegration:
+      type: object
+      properties:
+        workspace:
+          $ref: '#/components/schemas/ClickUpResource'
+        available_spaces:
+          $ref: '#/components/schemas/ImmutableSet_ClickUpSpace_'
+        selected_space_ids:
+          $ref: '#/components/schemas/ImmutableSet_String_'
+        requires_tag:
+          type: boolean
+        withWorkspace:
+          $ref: '#/components/schemas/ClickUpResource'
+        withAvailable_spaces:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClickUpSpace'
+        withSelected_space_ids:
+          type: array
+          items:
+            type: string
+        withRequires_tag:
+          type: boolean
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    AdventureSetting:
+      required:
+      - complete
+      type: object
+      properties:
+        complete:
+          type: boolean
+    AsanaSyncFormField:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/AsanaFormFieldType'
+        id:
+          type: string
+        name:
+          type: string
+        value:
+          type:
+          - string
+          - 'null'
+        placeholder:
+          type:
+          - string
+          - 'null'
+        width:
+          type:
+          - string
+          - 'null'
+        error:
+          type:
+          - string
+          - 'null'
+        options:
+          allOf:
+          - $ref: '#/components/schemas/ImmutableList_AsanaFormFieldOption_'
+        is_watched:
+          type: boolean
+        is_required:
+          type: boolean
+        withType:
+          $ref: '#/components/schemas/AsanaFormFieldType'
+        withId:
+          type: string
+        withName:
+          type: string
+        withValue:
+          type: string
+        withPlaceholder:
+          type: string
+        withWidth:
+          type: string
+        withError:
+          type: string
+        withOptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AsanaFormFieldOption'
+        withIs_watched:
+          type: boolean
+        withIs_required:
+          type: boolean
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    ProjectsSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+    WebhookSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        all:
+          $ref: '#/components/schemas/WebhookSettings'
+    AsanaWidgetFieldType:
+      type: string
+      enum:
+      - datetime_with_icon
+      - pill
+      - text_with_icon
+      x-enum-varnames:
+      - datetime_with_icon
+      - pill
+      - text_with_icon
+    DetailedEntitlements:
+      type: object
+      properties:
+        unlimitedHabitsEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+        unlimitedSyncEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+        unlimitedConnectedCalendarsEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+        customSyncTransparencyEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+        smart11CreationEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+        customSlackSyncStatusEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+        customConferenceBufferTitleEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+        linearEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+        jiraEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+        todoistEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+        asanaEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+        clickupEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+        trelloEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+        mondayEnabled:
+          $ref: '#/components/schemas/EntitlementDetails'
+    ExperimentalSettings:
+      type: object
+      properties:
+        treatOptionalSmartMeetingAttendeesAsFree:
+          type: boolean
+        lookAheadForSmartMeetingIdealDayOnWeeklyMeetings:
+          type: boolean
+    AppNotificationsSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        unscheduledPriority:
+          type: boolean
+        audioAlertEnabled:
+          type: boolean
+        titleTagAlertEnabled:
+          type: boolean
+    UserProfileGoal:
+      type: string
+      enum:
+      - HEADS_DOWN_TIME
+      - MEETINGS
+      - WORK_LIFE_BALANCE
+      - MULTIPLE_CALENDARS
+    ThinCalendar:
+      required:
+      - calendarId
+      - credentialEmail
+      - credentialId
+      - id
+      - lastSynced
+      - timezone
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        timezone:
+          type: string
+        calendarId:
+          type: string
+        lastSynced:
+          type: string
+          format: date-time
+        credentialId:
+          type: integer
+          format: int64
+        credentialEmail:
+          type: string
+    SmartSeriesRecurrenceType:
+      type: string
+      enum:
+      - SINGLE_INSTANCES
+      - RECURRING_SERIES
+    AsanaWidgetFooter:
+      type: object
+      properties:
+        footer_type:
+          type: string
+        created_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        last_updated_at:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        text:
+          type:
+          - string
+          - 'null'
+        withFooter_type:
+          type: string
+        withCreated_at:
+          type: string
+          format: date-time
+        withLast_updated_at:
+          type: string
+          format: date-time
+        withText:
+          type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    AbstractCollection_AsanaWidgetField_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    ImmutableList_TodoistProject_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_TodoistProject_'
+      - $ref: '#/components/schemas/AbstractCollection_TodoistProject_'
+      - properties:
+          empty:
+            type: boolean
+          first:
+            $ref: '#/components/schemas/TodoistProject'
+          last:
+            $ref: '#/components/schemas/TodoistProject'
+    TodoistIntegrationDetails:
+      type: object
+      properties:
+        id:
+          type: string
+        availableProjects:
+          $ref: '#/components/schemas/ImmutableList_TodoistProject_'
+        labels:
+          deprecated: true
+          allOf:
+          - $ref: '#/components/schemas/ImmutableSet_TodoistLabel_'
+        labelNames:
+          $ref: '#/components/schemas/ImmutableSet_String_'
+        lastSyncedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        settings:
+          $ref: '#/components/schemas/TodoistSettings_5'
+        withId:
+          type: string
+        withAvailableProjects:
+          type: array
+          items:
+            $ref: '#/components/schemas/TodoistProject'
+        withLabels:
+          type: array
+          deprecated: true
+          items:
+            $ref: '#/components/schemas/TodoistLabel'
+        withLabelNames:
+          type: array
+          items:
+            type: string
+        withLastSyncedAt:
+          type: string
+          format: date-time
+        withSettings:
+          $ref: '#/components/schemas/TodoistSettings_6'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    TemporalSettings:
+      type: object
+      properties:
+        eventTransitionsEnabled:
+          type: boolean
+    AbstractCollection_AsanaFormFieldOption_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    AsanaFormMetadata:
+      type: object
+      properties:
+        metadata:
+          $ref: '#/components/schemas/AsanaSyncForm'
+        template:
+          type: string
+        withMetadata:
+          $ref: '#/components/schemas/AsanaSyncForm'
+        withTemplate:
+          type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    AsanaIntegration:
+      type: object
+      properties:
+        workspace:
+          type: string
+        availableProjects:
+          $ref: '#/components/schemas/ImmutableList_AsanaProject_'
+        titleTemplateOptions:
+          $ref: '#/components/schemas/ImmutableList_AsanaIntegrationTitleOptions_'
+        titleOption:
+          $ref: '#/components/schemas/AsanaTitleTemplate'
+        withWorkspace:
+          type: string
+        withAvailableProjects:
+          type: array
+          items:
+            $ref: '#/components/schemas/AsanaProject'
+        withTitleTemplateOptions:
+          type: array
+          items:
+            $ref: '#/components/schemas/AsanaIntegrationTitleOptions'
+        withTitleOption:
+          $ref: '#/components/schemas/AsanaTitleTemplate'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    AsanaWorkspace:
+      type: object
+      properties:
+        gid:
+          type: string
+        resource_type:
+          $ref: '#/components/schemas/ResourceType'
+        name:
+          type: string
+        withGid:
+          type: string
+        withResource_type:
+          $ref: '#/components/schemas/ResourceType'
+        withName:
+          type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    CalendarSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        calendarCleanupRunning:
+          type: string
+          format: date-time
+    TaskAutoWorkflowSettings:
+      type: object
+      properties:
+        category:
+          $ref: '#/components/schemas/TaskAutoWorkflowType'
+        durationToWaitInDays:
+          type: integer
+          format: int32
+    ConferenceBufferType:
+      type: string
+      enum:
+      - ALL_MEETINGS
+      - CONFERENCE_MEETINGS
+    NotificationSetting:
+      type: string
+      enum:
+      - ALL_ENABLED
+      - NONE_ENABLED
+    ImmutableCollection_AsanaFormFieldOption_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_AsanaFormFieldOption_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    AnalyticsSettings:
+      type: object
+      properties:
+        teamAnalyticsV4ViewEnabled:
+          type: boolean
+        teamAnalyticsV4FiltersEnabled:
+          type: boolean
     LinearWorkflowStateType:
       type: string
       enum:
@@ -2571,6 +2623,216 @@ components:
       - canceled
       - duplicate
       - unknown
+    Entitlements:
+      type: object
+      properties:
+        unlimitedHabitsEnabled:
+          type: boolean
+        unlimitedConnectedCalendarsEnabled:
+          type: boolean
+        unlimitedSyncEnabled:
+          type: boolean
+        customSyncTransparencyEnabled:
+          type: boolean
+        smart11CreationEnabled:
+          type: boolean
+        customSlackSyncStatusEnabled:
+          type: boolean
+        customConferenceBufferTitleEnabled:
+          type: boolean
+        schedulingLinkSurveyEnabled:
+          type: boolean
+        maxDaysAheadForSchedulingLinks:
+          type: integer
+          format: int32
+        linearEnabled:
+          type: boolean
+        jiraEnabled:
+          type: boolean
+        todoistEnabled:
+          type: boolean
+        asanaEnabled:
+          type: boolean
+        clickupEnabled:
+          type: boolean
+        trelloEnabled:
+          type: boolean
+        mondayEnabled:
+          type: boolean
+        dropboxEnabled:
+          type: boolean
+        SSOEnabled:
+          type: boolean
+    TodoistProject:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        parent_id:
+          type:
+          - string
+          - 'null'
+        v2_id:
+          type:
+          - string
+          - 'null'
+        is_archived:
+          type: boolean
+        shared:
+          type: boolean
+        is_deleted:
+          type: boolean
+        withId:
+          type: string
+        withName:
+          type: string
+        withParent_id:
+          type:
+          - string
+          - 'null'
+        withV2_id:
+          type: string
+        withIs_archived:
+          type: boolean
+        withShared:
+          type: boolean
+        withIs_deleted:
+          type: boolean
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+        additionalContexts:
+          type: array
+          items:
+            $ref: '#/components/schemas/LogContext'
+        logKey:
+          type: string
+        logValue: {}
+    TaskDefaults:
+      type: object
+      properties:
+        timeChunksRequired:
+          type: integer
+          format: int32
+        commsTimeChunksRequired:
+          type: integer
+          format: int32
+        delayedStartInMinutes:
+          type: integer
+          format: int32
+        dueInDays:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        category:
+          deprecated: true
+          allOf:
+          - $ref: '#/components/schemas/EventCategory'
+        alwaysPrivate:
+          type: boolean
+        minChunkSize:
+          type: integer
+          format: int32
+        maxChunkSize:
+          type: integer
+          format: int32
+        timeSchemeId:
+          type:
+          - string
+          - 'null'
+        priority:
+          type: string
+        onDeck:
+          type: boolean
+        splitUp:
+          type: boolean
+        googleTaskIntegrationNoDueDateWhenMissing:
+          type: boolean
+    AsanaIntegrationTitleOptions:
+      type: object
+      properties:
+        value:
+          $ref: '#/components/schemas/AsanaTitleTemplate'
+        template:
+          type: string
+        example:
+          type: string
+        withValue:
+          $ref: '#/components/schemas/AsanaTitleTemplate'
+        withTemplate:
+          type: string
+        withExample:
+          type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    CalendarPermissionSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+    FocusSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        debug:
+          type: boolean
+    SlackFeature:
+      required:
+      - enable
+      - featureDescription
+      - urlToAdd
+      type: object
+      properties:
+        featureDescription:
+          type: string
+        enable:
+          type: boolean
+        urlToAdd:
+          type: string
+    LinearIntegrationPatch:
+      type: object
+      properties:
+        requiresLabel:
+          type:
+          - boolean
+          - 'null'
+        dueDateRequired:
+          type:
+          - boolean
+          - 'null'
+        selectedTeamIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        withRequiresLabel:
+          type: boolean
+        withDueDateRequired:
+          type: boolean
+        withSelectedTeamIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
     EventDisplayPreferences:
       required:
       - attribution
@@ -2602,24 +2864,827 @@ components:
           type: boolean
         prefix:
           type: boolean
-    ExperimentalSettings:
+    UserProfileRole:
+      type: string
+      enum:
+      - EXEC
+      - MANAGER
+      - NON_MANAGER
+      - CONSULTANT
+      - STUDENT
+    TimezonePreference:
+      type: string
+      enum:
+      - USE_PRIMARY_CALENDAR_TZ
+      - USE_RECLAIM_TZ
+    AvailabilityType:
+      type: string
+      enum:
+      - BUSY
+      - FREE
+    AsanaProject:
       type: object
       properties:
-        treatOptionalSmartMeetingAttendeesAsFree:
+        gid:
+          type: string
+        resource_type:
+          $ref: '#/components/schemas/ResourceType'
+        name:
+          type: string
+        workspace:
+          allOf:
+          - $ref: '#/components/schemas/AsanaWorkspace'
+        withGid:
+          type: string
+        withResource_type:
+          $ref: '#/components/schemas/ResourceType'
+        withName:
+          type: string
+        withWorkspace:
+          allOf:
+          - $ref: '#/components/schemas/AsanaWorkspace'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    AbstractCollection_AsanaSyncFormField_:
+      type: object
+      properties:
+        empty:
           type: boolean
-        lookAheadForSmartMeetingIdealDayOnWeeklyMeetings:
-          type: boolean
-    ImmutableSet_TodoistLabel_:
+    ImmutableList_AsanaWidgetField_:
       type: object
       allOf:
-      - $ref: '#/components/schemas/ImmutableCollection_TodoistLabel_'
+      - $ref: '#/components/schemas/ImmutableCollection_AsanaWidgetField_'
+      - $ref: '#/components/schemas/AbstractCollection_AsanaWidgetField_'
+      - properties:
+          empty:
+            type: boolean
+          first:
+            $ref: '#/components/schemas/AsanaWidgetField'
+          last:
+            $ref: '#/components/schemas/AsanaWidgetField'
+    AbstractCollection_String_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    UserProvisioningDetails:
+      required:
+      - hasTeamProvisionedMetadata
+      type: object
+      properties:
+        hasTeamProvisionedMetadata:
+          type: boolean
+    DayOfWeek:
+      type: string
+      enum:
+      - MONDAY
+      - TUESDAY
+      - WEDNESDAY
+      - THURSDAY
+      - FRIDAY
+      - SATURDAY
+      - SUNDAY
+    TodoistSettings_6:
+      type: object
+      properties:
+        titleFormat:
+          $ref: '#/components/schemas/TodoistTitleFormat'
+        withTitleFormat:
+          $ref: '#/components/schemas/TodoistTitleFormat'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    NotionIntegrationView:
+      required:
+      - id
+      - workspaceName
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        workspaceName:
+          type: string
+        workspaceIcon:
+          type:
+          - string
+          - 'null'
+    ImmutableList_AsanaSyncFormField_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_AsanaSyncFormField_'
+      - $ref: '#/components/schemas/AbstractCollection_AsanaSyncFormField_'
+      - properties:
+          empty:
+            type: boolean
+          first:
+            $ref: '#/components/schemas/AsanaSyncFormField'
+          last:
+            $ref: '#/components/schemas/AsanaSyncFormField'
+    ImmutableList_AsanaProject_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_AsanaProject_'
+      - $ref: '#/components/schemas/AbstractCollection_AsanaProject_'
+      - properties:
+          empty:
+            type: boolean
+          first:
+            $ref: '#/components/schemas/AsanaProject'
+          last:
+            $ref: '#/components/schemas/AsanaProject'
+    SlotScorerVersion:
+      type: string
+      enum:
+      - V1
+    ClickUpTitleFormat:
+      type: string
+      enum:
+      - TASK_TITLE_ONLY
+      - TASK_TITLE_THEN_LIST
+      - TASK_TITLE_THEN_LIST_THEN_SPACE
+      - TASK_TITLE_THEN_SPACE
+      - SPACE_NAME_THEN_TASK_TITLE
+    UserMetadata:
+      type: object
+      properties:
+        jobTitle:
+          type: string
+        companyName:
+          type: string
+        companySize:
+          $ref: '#/components/schemas/UserMetadataCompanySize'
+        usecase:
+          $ref: '#/components/schemas/UserMetadataUsecase'
+        role:
+          allOf:
+          - $ref: '#/components/schemas/UserProfileRole'
+        goals:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserProfileGoal'
+        isWorkspace:
+          type: boolean
+        department:
+          allOf:
+          - $ref: '#/components/schemas/UserProfileDepartment'
+        orgMetadata:
+          $ref: '#/components/schemas/OrgMetadata'
+    DropboxSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+    ReclaimEdition:
+      type: string
+      enum:
+      - NONE
+      - TRIAL
+      - ASSISTANT
+      - PRO
+      - TEAM
+      - REWARD
+      - LEGACY_PRO_TRIAL
+      - LEGACY_TEAM_TRIAL
+      - LITE
+      - STARTER
+      - BUSINESS
+      - TRIAL_BUSINESS
+      - TRIAL_BUSINESS_12W
+      - TRIAL_BUSINESS_FOR_LEGACY_PLANS
+      - ENTERPRISE
+      - TEAM_REWARD
+      - LITE_V2
+      - LITE_V3
+    ImmutableCollection_JiraProject_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_JiraProject_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    TaskCooldown:
+      type: string
+      enum:
+      - NONE
+      - LEGACY
+      - HALF_HOUR
+      - ONE_HOUR
+      - TWO_HOURS
+      - FOUR_HOURS
+      - ONCE_A_DAY
+    TodoistSettings_2:
+      type: object
+      properties:
+        titleFormat:
+          $ref: '#/components/schemas/TodoistTitleFormat'
+        withTitleFormat:
+          $ref: '#/components/schemas/TodoistTitleFormat'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    ImmutableList_ClickUpStatus_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_ClickUpStatus_'
+      - $ref: '#/components/schemas/AbstractCollection_ClickUpStatus_'
+      - properties:
+          empty:
+            type: boolean
+          first:
+            $ref: '#/components/schemas/ClickUpStatus'
+          last:
+            $ref: '#/components/schemas/ClickUpStatus'
+    ClickUpIntegrationDetails:
+      required:
+      - availableSpaces
+      - tags
+      - titleFormat
+      - workspace
+      type: object
+      properties:
+        workspace:
+          $ref: '#/components/schemas/ClickUpResource'
+        availableSpaces:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClickUpSpaceWithEligibility'
+        tags:
+          type: array
+          items:
+            type: string
+        lastSynced:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        titleFormat:
+          $ref: '#/components/schemas/ClickUpTitleFormat'
+        bypassTimeTracking:
+          type:
+          - boolean
+          - 'null'
+    AsanaWidgetMetadata:
+      type: object
+      properties:
+        metadata:
+          $ref: '#/components/schemas/AsanaWidget'
+        template:
+          type: string
+        withMetadata:
+          $ref: '#/components/schemas/AsanaWidget'
+        withTemplate:
+          type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    LinearState:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type:
+          - string
+          - 'null'
+        color:
+          type: string
+        type:
+          $ref: '#/components/schemas/LinearWorkflowStateType'
+        position:
+          type: number
+          format: float
+        withId:
+          type: string
+        withName:
+          type: string
+        withDescription:
+          type:
+          - string
+          - 'null'
+        withColor:
+          type: string
+        withType:
+          $ref: '#/components/schemas/LinearWorkflowStateType'
+        withPosition:
+          type: number
+          format: float
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    DateFieldOrder:
+      type: string
+      enum:
+      - MDY
+      - DMY
+      - YMD
+    RepairCustomersRequest:
+      required:
+      - partnerStackKey
+      type: object
+      properties:
+        partnerStackKey:
+          type: string
+    AsanaSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+    ImmutableCollection_ClickUpStatus_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_ClickUpStatus_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    ImmutableCollection_AsanaIntegrationTitleOptions_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_AsanaIntegrationTitleOptions_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    ImmutableCollection_ClickUpSpace_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_ClickUpSpace_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    TodoistSettings:
+      type: object
+      properties:
+        apiV1Enabled:
+          type: boolean
+    SlackOutsideHoursSetting:
+      required:
+      - dnd
+      - policy
+      type: object
+      properties:
+        policy:
+          type: string
+        message:
+          type:
+          - string
+          - 'null'
+        dnd:
+          type: boolean
+    Colorized:
+      type: object
+      properties:
+        color:
+          $ref: '#/components/schemas/EventColor'
+    TaskStatus:
+      type: string
+      enum:
+      - NEW
+      - SCHEDULED
+      - IN_PROGRESS
+      - COMPLETE
+      - CANCELLED
+      - ARCHIVED
+    JiraProject:
+      type: object
+      properties:
+        project_key:
+          type: string
+        project_name:
+          type: string
+        withProject_key:
+          type: string
+        withProject_name:
+          type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+        toAnalyticsValue: {}
+    DeprecatedClickUpIntegrationPatch:
+      type: object
+      properties:
+        selected_space_ids:
+          $ref: '#/components/schemas/ImmutableSet_String_'
+        requires_tag:
+          type: boolean
+        withSelected_space_ids:
+          type: array
+          items:
+            type: string
+        withRequires_tag:
+          type: boolean
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+      deprecated: true
+    TimezoneSettings:
+      required:
+      - timeZonePreference
+      type: object
+      properties:
+        zoneId:
+          type:
+          - string
+          - 'null'
+        timeZonePreference:
+          $ref: '#/components/schemas/TimezonePreference'
+        timezonePreference:
+          $ref: '#/components/schemas/TimezonePreference'
+    ImmutableCollection_AbstractLinearTeam_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_AbstractLinearTeam_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    AbstractCollection_JiraProject_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    ClickUpSpace:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        features:
+          type: object
+          additionalProperties: true
+        statuses:
+          $ref: '#/components/schemas/ImmutableList_ClickUpStatus_'
+        withId:
+          type: string
+        withName:
+          type: string
+        withFeatures:
+          type: object
+          additionalProperties: true
+        withStatuses:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClickUpStatus'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    ClickUpStatusType:
+      type: string
+      enum:
+      - open
+      - done
+      - closed
+      - custom
+      - unstarted
+      - active
+      x-enum-varnames:
+      - open
+      - done
+      - closed
+      - custom
+      - unstarted
+      - active
+    UserAccountLock.AccountLockType:
+      type: string
+      enum:
+      - PIPELINE_MIGRATION
+    ClickUpSpaceWithEligibility:
+      required:
+      - features
+      - id
+      - isEligible
+      - name
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        isEligible:
+          type: boolean
+        features:
+          type: object
+          additionalProperties: true
+    AddOnInsertableState:
+      required:
+      - html
+      - insertButtonAltText
+      - insertButtonLabel
+      type: object
+      properties:
+        html:
+          type: string
+        insertButtonLabel:
+          type: string
+        insertButtonAltText:
+          type: string
+    EntitlementValue_Object_:
+      required:
+      - nextEdition
+      - nextValue
+      - value
+      type: object
+      properties:
+        value: {}
+        nextValue: {}
+        nextEdition:
+          allOf:
+          - $ref: '#/components/schemas/ReclaimEdition'
+    EventCategory:
+      $ref: '#/components/schemas/Colorized'
+    UserAccountLock:
+      required:
+      - accountLockType
+      - lockMessage
+      type: object
+      properties:
+        accountLockType:
+          $ref: '#/components/schemas/UserAccountLock.AccountLockType'
+        lockMessage:
+          type: string
+    AnonymousPartner:
+      required:
+      - link
+      type: object
+      properties:
+        link:
+          type: string
+    UserDateTimeFormatter:
+      type: object
+      properties:
+        locale:
+          type: string
+    AssistSettings:
+      type: object
+      properties:
+        travel:
+          type: boolean
+        otherTravelDuration:
+          type: integer
+          format: int32
+        conferenceBuffer:
+          type: boolean
+        conferenceBufferDuration:
+          type: integer
+          format: int32
+        assignmentPaddingDuration:
+          type: integer
+          format: int32
+        conferenceBufferPrivate:
+          type: boolean
+        conferenceBufferType:
+          $ref: '#/components/schemas/ConferenceBufferType'
+        customConferenceBufferTitle:
+          type: string
+        focus:
+          type: boolean
+        allOneOnOnesBusy:
+          type: boolean
+        autoLockForMeetings:
+          $ref: '#/components/schemas/AutoLock'
+        autoLockForNonMeetings:
+          $ref: '#/components/schemas/AutoLock'
+        sendMeetingNotifications:
+          type: boolean
+        useFreeBusyEmojis:
+          type: boolean
+        useLockEmoji:
+          type: boolean
+        includeDescription:
+          type: boolean
+        includeAttribution:
+          type: boolean
+        smartSeries:
+          type: boolean
+        smartMeetingRecurrenceType:
+          $ref: '#/components/schemas/SmartSeriesRecurrenceType'
+        smartHabitRecurrenceType:
+          $ref: '#/components/schemas/SmartSeriesRecurrenceType'
+        showClassicHabits:
+          type: boolean
+        allowSmartSeriesOptIn:
+          type: boolean
+        smartSeriesMigrateComplete:
+          type: boolean
+        neverSeenClassicHabits:
+          type: boolean
+        notificationSettings:
+          $ref: '#/components/schemas/AssistNotificationSettings'
+        assistDays:
+          type: integer
+          format: int32
+        bypassed:
+          type: boolean
+        dayZero:
+          type: string
+          format: date
+        schedulerDisabled:
+          type: boolean
+        schedulerSuppressedUntil:
+          type: string
+          format: date-time
+        schedulerSuppressed:
+          type: boolean
+        rescheduleUnstarted:
+          type: boolean
+        rescheduleUnstartedOkToSchedule:
+          type: boolean
+        dampSmartMeetings:
+          type: boolean
+        scheduleSmartMeetingsAtMostDaily:
+          type: boolean
+        scheduleSmartMeetingsOnce:
+          type: boolean
+        manualAssistRunsEnabled:
+          type: boolean
+        schedulerWindowWeeks:
+          allOf:
+          - $ref: '#/components/schemas/SchedulingWindowWeeksOverride'
+        extendedSmartMeetingCooldown:
+          type: boolean
+        includeOrganizerInSmartSeries:
+          type: boolean
+          deprecated: true
+        debugScheduler:
+          type: boolean
+        smartHabitGen2ToGen3MigrationDate:
+          type: string
+          format: date-time
+        smartMeetingGen2ToGen3MigrationDate:
+          type: string
+          format: date-time
+        gen1HabitsAndMeetingsToGen3AutoMigrate:
+          type: boolean
+        smartHabitsToGen3AutoMigrate:
+          type: boolean
+        smartMeetingsToGen3AutoMigrate:
+          type: boolean
+    AutoLock:
+      type: string
+      enum:
+      - 'OFF'
+      - SAME_DAY
+      - SAME_WEEK
+      - TOMORROW
+      - ROLLING_3_DAYS
+    SmartOneOnOneSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+    AbstractCollection_ClickUpStatus_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    UserInterests:
+      type: object
+      properties:
+        tasks:
+          type: boolean
+        priorities:
+          type: boolean
+        office365:
+          type: boolean
+        calendar:
+          type: boolean
+        asana:
+          type: boolean
+        trello:
+          type: boolean
+        todoist:
+          type: boolean
+        jira:
+          type: boolean
+        linear:
+          type: boolean
+        clickup:
+          type: boolean
+        monday:
+          type: boolean
+        MSTeams:
+          type: boolean
+    LogContext:
+      type: object
+    AsanaTitleTemplate:
+      type: string
+      enum:
+      - TITLE
+      - TITLE_THEN_PROJECT_IF_ANY
+      - TITLE_THEN_PROJECT_IF_ANY_THEN_WORKSPACE
+      - PROJECT_IF_SINGLE_OR_WORKSPACE_WHEN_MULTIPLE_PROJECTS_THEN_TITLE
+      - WORKSPACE_THEN_PROJECT_IF_SINGLE_THEN_TITLE
+    IntegrationStatus:
+      type: object
+      properties:
+        ASANA:
+          type: boolean
+        ASANA_MCP:
+          type: boolean
+        CLICKUP:
+          type: boolean
+        clickUpMcp:
+          type: boolean
+        JIRA:
+          type: boolean
+        LINEAR:
+          type: boolean
+        TODOIST:
+          type: boolean
+        ZOOM:
+          type: boolean
+        ADD_ON:
+          type: boolean
+        SLACK:
+          type: boolean
+        GOOGLE_TASKS:
+          type: boolean
+        DROPBOX:
+          type: boolean
+        NOTION:
+          type: boolean
+        JIRA_V2:
+          type: boolean
+        CLICKUP_MCP:
+          type: boolean
+        slackIntegrationDetails:
+          $ref: '#/components/schemas/SlackIntegrationDetails'
+    ImmutableCollection_TodoistLabel_:
+      type: object
+      allOf:
       - $ref: '#/components/schemas/AbstractCollection_TodoistLabel_'
       - properties:
           empty:
             type: boolean
-          hashCodeFast:
+          partialView:
             type: boolean
-    SchedulingWindowWeeksOverride:
+    TaskSettings:
+      required:
+      - defaults
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        googleTasks:
+          type: boolean
+        defaults:
+          $ref: '#/components/schemas/TaskDefaults'
+        autoWorkflowSettings:
+          $ref: '#/components/schemas/TaskAutoWorkflowSettings'
+        scheduleWorkQueueOnly:
+          type: boolean
+        cooldown:
+          $ref: '#/components/schemas/TaskCooldown'
+    TodoistSettings_1:
+      type: object
+      properties:
+        titleFormat:
+          $ref: '#/components/schemas/TodoistTitleFormat'
+        withTitleFormat:
+          $ref: '#/components/schemas/TodoistTitleFormat'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    SchedulingWindowWeeks:
       type: string
       enum:
       - ONE
@@ -2634,184 +3699,188 @@ components:
       - TEN
       - ELEVEN
       - TWELVE
-    SignupMethod:
-      type: string
-      enum:
-      - SCIM
-      - ADMIN_API
-      - SLACK
-      - SELF
-    NotificationSetting:
-      type: string
-      enum:
-      - ALL_ENABLED
-      - NONE_ENABLED
-    SlackSettings:
+    LinearTaskDetails:
       type: object
       properties:
-        enabled:
+        taskId:
+          type: integer
+          format: int64
+        owner:
           type: boolean
-        newSlackExperienceEnabled:
+        status:
+          $ref: '#/components/schemas/TaskStatus'
+        withTaskId:
+          type: integer
+          format: int64
+        withOwner:
           type: boolean
-        customSlackStatusWaterMark:
-          type:
-          - string
-          - 'null'
-        previousStatusWaterMarks:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-        oooMessageTemplate:
-          type:
-          - string
-          - 'null'
-        personalSyncNotifyNew:
-          type: boolean
-        personalSyncNotifyUpdated:
-          type: boolean
-        personalSyncNotifyDeleted:
-          type: boolean
-        personalSyncNotificationsIncludingSelf:
-          type: boolean
-        habitNotifyUpcoming:
-          type: boolean
-        taskNotifyUpcoming:
-          type: boolean
-        travelNotify:
-          type: boolean
-        outsideHoursMigrated:
-          type: boolean
-        statusSync:
-          $ref: '#/components/schemas/SlackSettings.StatusSync'
-        statusEnabled:
-          type: boolean
-        privateStatus:
-          $ref: '#/components/schemas/SlackStatusSetting'
-        statuses:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/SlackStatusSetting'
-        outSideHours:
-          $ref: '#/components/schemas/SlackOutsideHoursSetting'
-        stopNotifyingDisappearingAfterByType:
-          type: object
-          additionalProperties:
-            type: string
-            format: date
-    AsanaFormFieldOption:
-      type: object
-      properties:
-        id:
-          type: string
-        label:
-          type: string
-        sub_label:
-          type:
-          - string
-          - 'null'
-        withId:
-          type: string
-        withLabel:
-          type: string
-        withSub_label:
-          type: string
+        withStatus:
+          $ref: '#/components/schemas/TaskStatus'
         equals: {}
         hashCode:
           type: integer
           format: int32
         toString:
           type: string
+    AvailabilitySettings:
+      type: object
+      properties:
+        redisCacheEnabled:
+          type: boolean
+    ColorsSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        categoriesEnabled:
+          type: boolean
+        lastModified:
+          type: string
+          format: date-time
+        priorities:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/EventColor'
+        categories:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/EventColor'
+    SlackSettingsView:
+      required:
+      - calendarSettings
+      type: object
+      properties:
+        calendarSettings:
+          minItems: 1
+          type: array
+          items:
+            $ref: '#/components/schemas/CalendarSlackSettingsView'
+    RSVPSetting:
+      type: object
+      properties:
+        calendarSync:
+          $ref: '#/components/schemas/DefaultRsvpAvailability'
+    Settings:
+      type: object
+      properties:
+        autoAddHangouts:
+          type: boolean
+        defaultEventLength:
+          type: integer
+          format: int32
+        weekStart:
+          type: integer
+          format: int32
+        format24HourTime:
+          type: boolean
+        locale:
+          type: string
+        showDeclinedEvents:
+          type: boolean
+        timezone:
+          type: string
+        dateFieldOrder:
+          $ref: '#/components/schemas/DateFieldOrder'
+    SchedulingLinkNameVisibility:
+      type: string
+      enum:
+      - NEVER
+      - USER_IS_LINK_OWNER
+      - VISIBLE_TO_TEAM_MEMBERS
+      - VISIBLE_ON_TEAM_MEMBERS_LINKS
+      - ALWAYS
+    AssistNotificationSettings:
+      required:
+      - detectedDigest
+      - instanceChanges
+      - instanceWindowInDays
+      - needsAttentionDigest
+      type: object
+      properties:
+        instanceChanges:
+          type: boolean
+        instanceWindowInDays:
+          type: integer
+          format: int32
+        needsAttentionDigest:
+          type: boolean
+        detectedDigest:
+          type: boolean
     QuestSettings:
       type: object
       properties:
         enabled:
           type: boolean
-    UserAccountLock:
-      required:
-      - accountLockType
-      - lockMessage
+    AsanaAttachedResource:
       type: object
       properties:
-        accountLockType:
-          $ref: '#/components/schemas/UserAccountLock.AccountLockType'
-        lockMessage:
+        error:
+          type:
+          - string
+          - 'null'
+        resource_name:
+          type:
+          - string
+          - 'null'
+        resource_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+        withError:
+          type:
+          - string
+          - 'null'
+        withResource_name:
+          type:
+          - string
+          - 'null'
+        withResource_url:
+          type:
+          - string
+          - 'null'
+          format: uri
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
           type: string
-    CalendarPermissionSettings:
+    TodoistSettings_5:
       type: object
       properties:
-        enabled:
-          type: boolean
-    GoogleAddOnSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-    EntitlementDetails:
-      required:
-      - minimumEdition
-      - name
-      type: object
-      properties:
-        minimumEdition:
+        titleFormat:
+          $ref: '#/components/schemas/TodoistTitleFormat'
+        withTitleFormat:
+          $ref: '#/components/schemas/TodoistTitleFormat'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
           type: string
-        name:
-          type: string
-        enabledForUser:
-          type: boolean
-    AdventureSetting:
-      required:
-      - complete
+    ImmutableSet_String_:
       type: object
-      properties:
-        complete:
-          type: boolean
-    OrgMetadata.OrgManager:
-      required:
-      - displayName
-      - managerId
-      - ref
-      type: object
-      properties:
-        managerId:
-          type: string
-        displayName:
-          type: string
-        ref:
-          type: string
-    CalendarEntrySettings:
-      type: object
-      properties:
-        pipelineEnabled:
-          type: boolean
-        pipelineWatchEnabled:
-          type: boolean
-        autoMigrate:
-          type: boolean
-        shouldMigrate:
-          type: boolean
-        selfServiceMigrate:
-          type: boolean
-        dailyAudit:
-          type: boolean
-        microsoftPipelineBatching:
-          type: boolean
-        scoredTopContacts:
-          type: boolean
-        googleGhCutoff:
-          type: boolean
-        usePipelineCleanCalendar:
-          type: boolean
-        dedicatedUpsertEnabled:
-          type: boolean
-    RepairCustomersRequest:
-      required:
-      - partnerStackKey
-      type: object
-      properties:
-        partnerStackKey:
-          type: string
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_String_'
+      - $ref: '#/components/schemas/AbstractCollection_String_'
+      - properties:
+          empty:
+            type: boolean
+          hashCodeFast:
+            type: boolean
+    UserMetadataUsecase:
+      type: string
+      enum:
+      - EDUCATION
+      - WORK
+      - NON_PROFIT
+      - TEAM
+      - SOLO_WORK
+      - PERSONAL
+      x-deprecated:
+      - EDUCATION
+      - NON_PROFIT
     AsanaWidgetField:
       type: object
       properties:
@@ -2856,117 +3925,141 @@ components:
           format: int32
         toString:
           type: string
-    ImmutableSet_String_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ImmutableCollection_String_'
-      - $ref: '#/components/schemas/AbstractCollection_String_'
-      - properties:
-          empty:
-            type: boolean
-          hashCodeFast:
-            type: boolean
-    AsanaSyncForm:
+    CalendarSlackSettingsView:
+      required:
+      - calendarId
+      - setting
       type: object
       properties:
-        title:
+        calendarId:
+          type: integer
+          format: int64
+        setting:
+          $ref: '#/components/schemas/NotificationSetting'
+    AsanaFormFieldOption:
+      type: object
+      properties:
+        id:
           type: string
-        on_submit_callback:
+        label:
           type: string
-          format: uri
-        on_change_callback:
+        sub_label:
+          type:
+          - string
+          - 'null'
+        withId:
           type: string
-          format: uri
-        submit_button_text:
+        withLabel:
           type: string
-        fields:
-          $ref: '#/components/schemas/ImmutableList_AsanaSyncFormField_'
-        withTitle:
+        withSub_label:
           type: string
-        withOn_submit_callback:
-          type: string
-          format: uri
-        withOn_change_callback:
-          type: string
-          format: uri
-        withSubmit_button_text:
-          type: string
-        withFields:
-          type: array
-          items:
-            $ref: '#/components/schemas/AsanaSyncFormField'
         equals: {}
         hashCode:
           type: integer
           format: int32
         toString:
           type: string
-    TaskStatus:
-      type: string
-      enum:
-      - NEW
-      - SCHEDULED
-      - IN_PROGRESS
-      - COMPLETE
-      - CANCELLED
-      - ARCHIVED
-    EventColor:
-      type: string
-      enum:
-      - NONE
-      - LAVENDER
-      - SAGE
-      - GRAPE
-      - FLAMINGO
-      - BANANA
-      - TANGERINE
-      - PEACOCK
-      - GRAPHITE
-      - BLUEBERRY
-      - BASIL
-      - TOMATO
-    ProjectsSettings:
+    AbstractCollection_AsanaIntegrationTitleOptions_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    MicrosoftSettings:
+      type: object
+      properties:
+        smartSeriesDetectionEnabled:
+          type: boolean
+        useFullyExpandedSeriesMasterForInterop:
+          type: boolean
+        resolveReclaimForNonMemberUsingCalendarView:
+          type: boolean
+    ImmutableCollection_AsanaProject_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_AsanaProject_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    ImmutableCollection_AsanaWidgetField_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_AsanaWidgetField_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    ClickUpResource:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        withId:
+          type: string
+        withName:
+          type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    UserAdventures:
+      type: object
+      properties:
+        adventures:
+          properties:
+            CORE_CONCEPTS:
+              $ref: '#/components/schemas/AdventureSetting'
+            CONNECT_PRIMARY_CALENDAR:
+              $ref: '#/components/schemas/AdventureSetting'
+            ADD_AGENT:
+              $ref: '#/components/schemas/AdventureSetting'
+            ADD_FOCUS_TIME:
+              $ref: '#/components/schemas/AdventureSetting'
+            ADD_BUFFERS:
+              $ref: '#/components/schemas/AdventureSetting'
+            ADD_HABIT:
+              $ref: '#/components/schemas/AdventureSetting'
+            HEAVY_MEETING_LOAD:
+              $ref: '#/components/schemas/AdventureSetting'
+            CONNECT_CALENDARS:
+              $ref: '#/components/schemas/AdventureSetting'
+            CALENDAR_SYNC:
+              $ref: '#/components/schemas/AdventureSetting'
+            SHARED_CALENDARS:
+              $ref: '#/components/schemas/AdventureSetting'
+            SCHEDULING_LINKS:
+              $ref: '#/components/schemas/AdventureSetting'
+            SCHEDULING_LINK_SETTINGS:
+              $ref: '#/components/schemas/AdventureSetting'
+            HOURS:
+              $ref: '#/components/schemas/AdventureSetting'
+            PROFILE:
+              $ref: '#/components/schemas/AdventureSetting'
+            PERMISSIONS:
+              $ref: '#/components/schemas/AdventureSetting'
+            SLACK:
+              $ref: '#/components/schemas/AdventureSetting'
+            INTEGRATIONS:
+              $ref: '#/components/schemas/AdventureSetting'
+            TASK_INTEGRATIONS:
+              $ref: '#/components/schemas/AdventureSetting'
+            CHAT:
+              $ref: '#/components/schemas/AdventureSetting'
+            LOG_WORK:
+              $ref: '#/components/schemas/AdventureSetting'
+            PREVIEW_MODE:
+              $ref: '#/components/schemas/AdventureSetting'
+    GoogleAddOnSettings:
       type: object
       properties:
         enabled:
           type: boolean
-    UserInterests:
-      type: object
-      properties:
-        tasks:
-          type: boolean
-        priorities:
-          type: boolean
-        office365:
-          type: boolean
-        calendar:
-          type: boolean
-        asana:
-          type: boolean
-        trello:
-          type: boolean
-        todoist:
-          type: boolean
-        jira:
-          type: boolean
-        linear:
-          type: boolean
-        clickup:
-          type: boolean
-        monday:
-          type: boolean
-        MSTeams:
-          type: boolean
-    TaskCooldown:
-      type: string
-      enum:
-      - NONE
-      - LEGACY
-      - HALF_HOUR
-      - ONE_HOUR
-      - TWO_HOURS
-      - FOUR_HOURS
-      - ONCE_A_DAY
     User:
       required:
       - edition
@@ -3190,120 +4283,157 @@ components:
           $ref: '#/components/schemas/UserDateTimeFormatter'
         userProvisioningDetails:
           $ref: '#/components/schemas/UserProvisioningDetails'
-    AbstractLinearTeam:
+    OptionsLoadEndpointRequest:
+      type: object
+      properties:
+        response_url:
+          type:
+          - string
+          - 'null'
+        payload:
+          type:
+          - string
+          - 'null'
+    ObservedUser:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/LogContext'
+      - properties:
+          id:
+            type: string
+          trackingCode:
+            type: string
+          edition:
+            $ref: '#/components/schemas/ReclaimEdition'
+    SyncFeatureSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        hasVipPrivileges:
+          type: boolean
+        daysBackwardOverride:
+          type: integer
+          format: int32
+    SlackSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        newSlackExperienceEnabled:
+          type: boolean
+        customSlackStatusWaterMark:
+          type:
+          - string
+          - 'null'
+        previousStatusWaterMarks:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        oooMessageTemplate:
+          type:
+          - string
+          - 'null'
+        personalSyncNotifyNew:
+          type: boolean
+        personalSyncNotifyUpdated:
+          type: boolean
+        personalSyncNotifyDeleted:
+          type: boolean
+        personalSyncNotificationsIncludingSelf:
+          type: boolean
+        habitNotifyUpcoming:
+          type: boolean
+        taskNotifyUpcoming:
+          type: boolean
+        travelNotify:
+          type: boolean
+        outsideHoursMigrated:
+          type: boolean
+        statusSync:
+          $ref: '#/components/schemas/SlackSettings.StatusSync'
+        statusEnabled:
+          type: boolean
+        privateStatus:
+          $ref: '#/components/schemas/SlackStatusSetting'
+        statuses:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/SlackStatusSetting'
+        outSideHours:
+          $ref: '#/components/schemas/SlackOutsideHoursSetting'
+        stopNotifyingDisappearingAfterByType:
+          type: object
+          additionalProperties:
+            type: string
+            format: date
+    ScheduleAssistantScoringSettings:
+      type: object
+      properties:
+        version:
+          $ref: '#/components/schemas/SlotScorerVersion'
+    AbstractCollection_ClickUpSpace_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    TodoistLabel:
       type: object
       properties:
         id:
           type: string
         name:
           type: string
-        key:
-          type: string
-        issueEstimationType:
-          type:
-          - string
-          - 'null'
-        issueStatuses:
-          type: array
-          items:
-            $ref: '#/components/schemas/LinearState'
-    ImmutableCollection_AsanaProject_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/AbstractCollection_AsanaProject_'
-      - properties:
-          empty:
-            type: boolean
-          partialView:
-            type: boolean
-    LinearIntegrationPatch:
-      type: object
-      properties:
-        requiresLabel:
-          type:
-          - boolean
-          - 'null'
-        dueDateRequired:
-          type:
-          - boolean
-          - 'null'
-        selectedTeamIds:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-        withRequiresLabel:
-          type: boolean
-        withDueDateRequired:
-          type: boolean
-        withSelectedTeamIds:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    TodoistIntegrationDetails:
-      type: object
-      properties:
-        id:
-          type: string
-        availableProjects:
-          $ref: '#/components/schemas/ImmutableList_TodoistProject_'
-        labels:
-          deprecated: true
-          allOf:
-          - $ref: '#/components/schemas/ImmutableSet_TodoistLabel_'
-        labelNames:
-          $ref: '#/components/schemas/ImmutableSet_String_'
-        lastSyncedAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        settings:
-          $ref: '#/components/schemas/TodoistSettings_5'
         withId:
           type: string
-        withAvailableProjects:
-          type: array
-          items:
-            $ref: '#/components/schemas/TodoistProject'
-        withLabels:
-          type: array
-          deprecated: true
-          items:
-            $ref: '#/components/schemas/TodoistLabel'
-        withLabelNames:
-          type: array
-          items:
-            type: string
-        withLastSyncedAt:
+        withName:
           type: string
-          format: date-time
-        withSettings:
-          $ref: '#/components/schemas/TodoistSettings_6'
         equals: {}
         hashCode:
           type: integer
           format: int32
         toString:
           type: string
-    ImmutableCollection_ClickUpSpace_:
+    WeeklyReport:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        sendReport:
+          type: boolean
+    PrioritiesSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+    ImmutableSet_TodoistLabel_:
       type: object
       allOf:
-      - $ref: '#/components/schemas/AbstractCollection_ClickUpSpace_'
+      - $ref: '#/components/schemas/ImmutableCollection_TodoistLabel_'
+      - $ref: '#/components/schemas/AbstractCollection_TodoistLabel_'
       - properties:
           empty:
             type: boolean
-          partialView:
+          hashCodeFast:
             type: boolean
+    SchedulingLinkSettings:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        note:
+          type: string
+        remindersMigrated:
+          type: boolean
+        messageTemplates:
+          type: object
+          additionalProperties:
+            type: string
+        nameVisibility:
+          allOf:
+          - $ref: '#/components/schemas/SchedulingLinkNameVisibility'
     ResourceType:
       type: string
       enum:
@@ -3330,1148 +4460,18 @@ components:
       - custom_field
       - attachment
       - team
-    IntegrationStatus:
-      type: object
-      properties:
-        ASANA:
-          type: boolean
-        ASANA_MCP:
-          type: boolean
-        CLICKUP:
-          type: boolean
-        clickUpMcp:
-          type: boolean
-        JIRA:
-          type: boolean
-        LINEAR:
-          type: boolean
-        TODOIST:
-          type: boolean
-        ZOOM:
-          type: boolean
-        ADD_ON:
-          type: boolean
-        SLACK:
-          type: boolean
-        GOOGLE_TASKS:
-          type: boolean
-        DROPBOX:
-          type: boolean
-        NOTION:
-          type: boolean
-        JIRA_V2:
-          type: boolean
-        CLICKUP_MCP:
-          type: boolean
-        slackIntegrationDetails:
-          $ref: '#/components/schemas/SlackIntegrationDetails'
-    TodoistLabel:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        withId:
-          type: string
-        withName:
-          type: string
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    AsanaFormMetadata:
-      type: object
-      properties:
-        metadata:
-          $ref: '#/components/schemas/AsanaSyncForm'
-        template:
-          type: string
-        withMetadata:
-          $ref: '#/components/schemas/AsanaSyncForm'
-        withTemplate:
-          type: string
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    JiraIntegrationPatch:
-      type: object
-      properties:
-        installation:
-          type: string
-        selected_project_keys:
-          $ref: '#/components/schemas/ImmutableSet_String_'
-        due_date_required:
-          type:
-          - boolean
-          - 'null'
-        withInstallation:
-          type: string
-        withSelected_project_keys:
-          type: array
-          items:
-            type: string
-        withDue_date_required:
-          type: boolean
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    TimezoneSettings:
+    EntitlementDetails:
       required:
-      - timeZonePreference
+      - minimumEdition
+      - name
       type: object
       properties:
-        zoneId:
-          type:
-          - string
-          - 'null'
-        timeZonePreference:
-          $ref: '#/components/schemas/TimezonePreference'
-        timezonePreference:
-          $ref: '#/components/schemas/TimezonePreference'
-    Colorized:
-      type: object
-      properties:
-        color:
-          $ref: '#/components/schemas/EventColor'
-    AsanaWidgetFooter:
-      type: object
-      properties:
-        footer_type:
-          type: string
-        created_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        last_updated_at:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        text:
-          type:
-          - string
-          - 'null'
-        withFooter_type:
-          type: string
-        withCreated_at:
-          type: string
-          format: date-time
-        withLast_updated_at:
-          type: string
-          format: date-time
-        withText:
-          type: string
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    ClickUpSpace:
-      type: object
-      properties:
-        id:
+        minimumEdition:
           type: string
         name:
           type: string
-        features:
-          type: object
-          additionalProperties: true
-        statuses:
-          $ref: '#/components/schemas/ImmutableList_ClickUpStatus_'
-        withId:
-          type: string
-        withName:
-          type: string
-        withFeatures:
-          type: object
-          additionalProperties: true
-        withStatuses:
-          type: array
-          items:
-            $ref: '#/components/schemas/ClickUpStatus'
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    DefaultRsvpAvailability:
-      type: object
-      properties:
-        treatNeedsActionRsvpAs:
-          $ref: '#/components/schemas/AvailabilityType'
-    ColorsSettings:
-      type: object
-      properties:
-        enabled:
+        enabledForUser:
           type: boolean
-        categoriesEnabled:
-          type: boolean
-        lastModified:
-          type: string
-          format: date-time
-        priorities:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/EventColor'
-        categories:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/EventColor'
-    ImmutableCollection_AsanaWidgetField_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/AbstractCollection_AsanaWidgetField_'
-      - properties:
-          empty:
-            type: boolean
-          partialView:
-            type: boolean
-    ImmutableList_TodoistProject_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ImmutableCollection_TodoistProject_'
-      - $ref: '#/components/schemas/AbstractCollection_TodoistProject_'
-      - properties:
-          empty:
-            type: boolean
-          first:
-            $ref: '#/components/schemas/TodoistProject'
-          last:
-            $ref: '#/components/schemas/TodoistProject'
-    FocusSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        debug:
-          type: boolean
-    BillingSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-    LogContext:
-      type: object
-    SchedulingLinkNameVisibility:
-      type: string
-      enum:
-      - NEVER
-      - USER_IS_LINK_OWNER
-      - VISIBLE_TO_TEAM_MEMBERS
-      - VISIBLE_ON_TEAM_MEMBERS_LINKS
-      - ALWAYS
-    UserMetadataCompanySize:
-      type: string
-      enum:
-      - SUB_10
-      - SUB_50
-      - SUB_100
-      - SUB_500
-      - SUB_1000
-      - THOUSAND_PLUS
-    AsanaProject:
-      type: object
-      properties:
-        gid:
-          type: string
-        resource_type:
-          $ref: '#/components/schemas/ResourceType'
-        name:
-          type: string
-        workspace:
-          allOf:
-          - $ref: '#/components/schemas/AsanaWorkspace'
-        withGid:
-          type: string
-        withResource_type:
-          $ref: '#/components/schemas/ResourceType'
-        withName:
-          type: string
-        withWorkspace:
-          allOf:
-          - $ref: '#/components/schemas/AsanaWorkspace'
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    SmartOneOnOneSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-    TaskDefaults:
-      type: object
-      properties:
-        timeChunksRequired:
-          type: integer
-          format: int32
-        commsTimeChunksRequired:
-          type: integer
-          format: int32
-        delayedStartInMinutes:
-          type: integer
-          format: int32
-        dueInDays:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        category:
-          deprecated: true
-          allOf:
-          - $ref: '#/components/schemas/EventCategory'
-        alwaysPrivate:
-          type: boolean
-        minChunkSize:
-          type: integer
-          format: int32
-        maxChunkSize:
-          type: integer
-          format: int32
-        timeSchemeId:
-          type:
-          - string
-          - 'null'
-        priority:
-          type: string
-        onDeck:
-          type: boolean
-        splitUp:
-          type: boolean
-        googleTaskIntegrationNoDueDateWhenMissing:
-          type: boolean
-    AssistSettings:
-      type: object
-      properties:
-        travel:
-          type: boolean
-        otherTravelDuration:
-          type: integer
-          format: int32
-        conferenceBuffer:
-          type: boolean
-        conferenceBufferDuration:
-          type: integer
-          format: int32
-        assignmentPaddingDuration:
-          type: integer
-          format: int32
-        conferenceBufferPrivate:
-          type: boolean
-        conferenceBufferType:
-          $ref: '#/components/schemas/ConferenceBufferType'
-        customConferenceBufferTitle:
-          type: string
-        focus:
-          type: boolean
-        allOneOnOnesBusy:
-          type: boolean
-        autoLockForMeetings:
-          $ref: '#/components/schemas/AutoLock'
-        autoLockForNonMeetings:
-          $ref: '#/components/schemas/AutoLock'
-        sendMeetingNotifications:
-          type: boolean
-        useFreeBusyEmojis:
-          type: boolean
-        useLockEmoji:
-          type: boolean
-        includeDescription:
-          type: boolean
-        includeAttribution:
-          type: boolean
-        smartSeries:
-          type: boolean
-        smartMeetingRecurrenceType:
-          $ref: '#/components/schemas/SmartSeriesRecurrenceType'
-        smartHabitRecurrenceType:
-          $ref: '#/components/schemas/SmartSeriesRecurrenceType'
-        showClassicHabits:
-          type: boolean
-        allowSmartSeriesOptIn:
-          type: boolean
-        smartSeriesMigrateComplete:
-          type: boolean
-        neverSeenClassicHabits:
-          type: boolean
-        notificationSettings:
-          $ref: '#/components/schemas/AssistNotificationSettings'
-        assistDays:
-          type: integer
-          format: int32
-        bypassed:
-          type: boolean
-        dayZero:
-          type: string
-          format: date
-        schedulerDisabled:
-          type: boolean
-        schedulerSuppressedUntil:
-          type: string
-          format: date-time
-        schedulerSuppressed:
-          type: boolean
-        rescheduleUnstarted:
-          type: boolean
-        rescheduleUnstartedOkToSchedule:
-          type: boolean
-        dampSmartMeetings:
-          type: boolean
-        scheduleSmartMeetingsAtMostDaily:
-          type: boolean
-        scheduleSmartMeetingsOnce:
-          type: boolean
-        manualAssistRunsEnabled:
-          type: boolean
-        schedulerWindowWeeks:
-          allOf:
-          - $ref: '#/components/schemas/SchedulingWindowWeeksOverride'
-        extendedSmartMeetingCooldown:
-          type: boolean
-        includeOrganizerInSmartSeries:
-          type: boolean
-          deprecated: true
-        debugScheduler:
-          type: boolean
-        smartHabitGen2ToGen3MigrationDate:
-          type: string
-          format: date-time
-        smartMeetingGen2ToGen3MigrationDate:
-          type: string
-          format: date-time
-        gen1HabitsAndMeetingsToGen3AutoMigrate:
-          type: boolean
-        smartHabitsToGen3AutoMigrate:
-          type: boolean
-        smartMeetingsToGen3AutoMigrate:
-          type: boolean
-    AbstractCollection_JiraProject_:
-      type: object
-      properties:
-        empty:
-          type: boolean
-    AsanaIntegrationTitleOptions:
-      type: object
-      properties:
-        value:
-          $ref: '#/components/schemas/AsanaTitleTemplate'
-        template:
-          type: string
-        example:
-          type: string
-        withValue:
-          $ref: '#/components/schemas/AsanaTitleTemplate'
-        withTemplate:
-          type: string
-        withExample:
-          type: string
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    TodoistSettings_3:
-      type: object
-      properties:
-        titleFormat:
-          $ref: '#/components/schemas/TodoistTitleFormat'
-        withTitleFormat:
-          $ref: '#/components/schemas/TodoistTitleFormat'
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    ImmutableCollection_AsanaSyncFormField_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/AbstractCollection_AsanaSyncFormField_'
-      - properties:
-          empty:
-            type: boolean
-          partialView:
-            type: boolean
-    Settings:
-      type: object
-      properties:
-        autoAddHangouts:
-          type: boolean
-        defaultEventLength:
-          type: integer
-          format: int32
-        weekStart:
-          type: integer
-          format: int32
-        format24HourTime:
-          type: boolean
-        locale:
-          type: string
-        showDeclinedEvents:
-          type: boolean
-        timezone:
-          type: string
-        dateFieldOrder:
-          $ref: '#/components/schemas/DateFieldOrder'
-    ImmutableCollection_String_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/AbstractCollection_String_'
-      - properties:
-          empty:
-            type: boolean
-          partialView:
-            type: boolean
-    ImmutableList_AsanaFormFieldOption_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ImmutableCollection_AsanaFormFieldOption_'
-      - $ref: '#/components/schemas/AbstractCollection_AsanaFormFieldOption_'
-      - properties:
-          empty:
-            type: boolean
-          first:
-            $ref: '#/components/schemas/AsanaFormFieldOption'
-          last:
-            $ref: '#/components/schemas/AsanaFormFieldOption'
-    TodoistProject:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        parent_id:
-          type:
-          - string
-          - 'null'
-        v2_id:
-          type:
-          - string
-          - 'null'
-        is_archived:
-          type: boolean
-        shared:
-          type: boolean
-        is_deleted:
-          type: boolean
-        withId:
-          type: string
-        withName:
-          type: string
-        withParent_id:
-          type:
-          - string
-          - 'null'
-        withV2_id:
-          type: string
-        withIs_archived:
-          type: boolean
-        withShared:
-          type: boolean
-        withIs_deleted:
-          type: boolean
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-        additionalContexts:
-          type: array
-          items:
-            $ref: '#/components/schemas/LogContext'
-        logKey:
-          type: string
-        logValue: {}
-    ImmutableCollection_AsanaIntegrationTitleOptions_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/AbstractCollection_AsanaIntegrationTitleOptions_'
-      - properties:
-          empty:
-            type: boolean
-          partialView:
-            type: boolean
-    OrgMetadata:
-      type: object
-      properties:
-        employeeNumber:
-          type:
-          - string
-          - 'null'
-        costCenter:
-          type:
-          - string
-          - 'null'
-        organization:
-          type:
-          - string
-          - 'null'
-        division:
-          type:
-          - string
-          - 'null'
-        department:
-          type:
-          - string
-          - 'null'
-        manager:
-          allOf:
-          - $ref: '#/components/schemas/OrgMetadata.OrgManager'
-        customValues:
-          type:
-          - object
-          - 'null'
-          additionalProperties: true
-    TodoistSettings_6:
-      type: object
-      properties:
-        titleFormat:
-          $ref: '#/components/schemas/TodoistTitleFormat'
-        withTitleFormat:
-          $ref: '#/components/schemas/TodoistTitleFormat'
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    AbstractCollection_AsanaWidgetField_:
-      type: object
-      properties:
-        empty:
-          type: boolean
-    PrioritiesSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-    ImmutableCollection_TodoistProject_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/AbstractCollection_TodoistProject_'
-      - properties:
-          empty:
-            type: boolean
-          partialView:
-            type: boolean
-    ConferenceBufferType:
-      type: string
-      enum:
-      - ALL_MEETINGS
-      - CONFERENCE_MEETINGS
-    UserAccountLock.AccountLockType:
-      type: string
-      enum:
-      - PIPELINE_MIGRATION
-    SchedulingWindowWeeks:
-      type: string
-      enum:
-      - ONE
-      - TWO
-      - THREE
-      - FOUR
-      - FIVE
-      - SIX
-      - SEVEN
-      - EIGHT
-      - NINE
-      - TEN
-      - ELEVEN
-      - TWELVE
-    SlotScorerVersion:
-      type: string
-      enum:
-      - V1
-    ScheduleAssistantSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        calendarUIEnabled:
-          type: boolean
-        scoringSettings:
-          $ref: '#/components/schemas/ScheduleAssistantScoringSettings'
-        experimentalFeaturesEnabled:
-          type: boolean
-        mcpDebug:
-          type: boolean
-        disableBackgroundAutomation:
-          type: boolean
-        orgRelationshipsEnabled:
-          type: boolean
-        enableExternalLlm:
-          type: boolean
-        selfServiceMigrationEnabled:
-          type: boolean
-        persistedToolApprovalsEnabled:
-          type: boolean
-    DayOfWeek:
-      type: string
-      enum:
-      - MONDAY
-      - TUESDAY
-      - WEDNESDAY
-      - THURSDAY
-      - FRIDAY
-      - SATURDAY
-      - SUNDAY
-    ClickUpTitleFormat:
-      type: string
-      enum:
-      - TASK_TITLE_ONLY
-      - TASK_TITLE_THEN_LIST
-      - TASK_TITLE_THEN_LIST_THEN_SPACE
-      - TASK_TITLE_THEN_SPACE
-      - SPACE_NAME_THEN_TASK_TITLE
-    WebhookSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        all:
-          $ref: '#/components/schemas/WebhookSettings'
-    LinearIntegration:
-      type: object
-      properties:
-        id:
-          type: string
-        requiresLabel:
-          type: boolean
-        requiresDueDate:
-          type: boolean
-        availableTeams:
-          $ref: '#/components/schemas/ImmutableList_AbstractLinearTeam_'
-        selectedTeamIds:
-          $ref: '#/components/schemas/ImmutableSet_String_'
-        withId:
-          type: string
-        withRequiresLabel:
-          type: boolean
-        withRequiresDueDate:
-          type: boolean
-        withAvailableTeams:
-          type: array
-          items:
-            $ref: '#/components/schemas/AbstractLinearTeam'
-        withSelectedTeamIds:
-          type: array
-          items:
-            type: string
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    ImmutableSet_JiraProject_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ImmutableCollection_JiraProject_'
-      - $ref: '#/components/schemas/AbstractCollection_JiraProject_'
-      - properties:
-          empty:
-            type: boolean
-          hashCodeFast:
-            type: boolean
-    AsanaIntegrationPatch:
-      type: object
-      properties:
-        titleOption:
-          $ref: '#/components/schemas/AsanaTitleTemplate'
-        withTitleOption:
-          $ref: '#/components/schemas/AsanaTitleTemplate'
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    AbstractCollection_TodoistLabel_:
-      type: object
-      properties:
-        empty:
-          type: boolean
-    UserPostOnboardState:
-      type: string
-      enum:
-      - NEVER_SHOWN
-      - NEVER_INTERACTED
-      - PASS
-      - CHECK
-      - CTA
-    ImmutableList_AsanaIntegrationTitleOptions_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ImmutableCollection_AsanaIntegrationTitleOptions_'
-      - $ref: '#/components/schemas/AbstractCollection_AsanaIntegrationTitleOptions_'
-      - properties:
-          empty:
-            type: boolean
-          first:
-            $ref: '#/components/schemas/AsanaIntegrationTitleOptions'
-          last:
-            $ref: '#/components/schemas/AsanaIntegrationTitleOptions'
-    AppNotificationsSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        unscheduledPriority:
-          type: boolean
-        audioAlertEnabled:
-          type: boolean
-        titleTagAlertEnabled:
-          type: boolean
-    AsanaSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-    AnonymousPartner:
-      required:
-      - link
-      type: object
-      properties:
-        link:
-          type: string
-    TaskAutoWorkflowSettings:
-      type: object
-      properties:
-        category:
-          $ref: '#/components/schemas/TaskAutoWorkflowType'
-        durationToWaitInDays:
-          type: integer
-          format: int32
-    ClickUpResource:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        withId:
-          type: string
-        withName:
-          type: string
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    TodoistIntegrationPatch:
-      type: object
-      properties:
-        requiresLabel:
-          type:
-          - boolean
-          - 'null'
-        selectedProjectIds:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-        settings:
-          allOf:
-          - $ref: '#/components/schemas/TodoistSettings_3'
-        withRequiresLabel:
-          type: boolean
-        withSelectedProjectIds:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-        withSettings:
-          allOf:
-          - $ref: '#/components/schemas/TodoistSettings_4'
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    SchedulingLinkSettings:
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        note:
-          type: string
-        remindersMigrated:
-          type: boolean
-        messageTemplates:
-          type: object
-          additionalProperties:
-            type: string
-        nameVisibility:
-          allOf:
-          - $ref: '#/components/schemas/SchedulingLinkNameVisibility'
-    AbstractCollection_TodoistProject_:
-      type: object
-      properties:
-        empty:
-          type: boolean
-    EventCategory:
-      $ref: '#/components/schemas/Colorized'
-    ImmutableList_AsanaWidgetField_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ImmutableCollection_AsanaWidgetField_'
-      - $ref: '#/components/schemas/AbstractCollection_AsanaWidgetField_'
-      - properties:
-          empty:
-            type: boolean
-          first:
-            $ref: '#/components/schemas/AsanaWidgetField'
-          last:
-            $ref: '#/components/schemas/AsanaWidgetField'
-    ImmutableCollection_ClickUpStatus_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/AbstractCollection_ClickUpStatus_'
-      - properties:
-          empty:
-            type: boolean
-          partialView:
-            type: boolean
-    AsanaIntegration:
-      type: object
-      properties:
-        workspace:
-          type: string
-        availableProjects:
-          $ref: '#/components/schemas/ImmutableList_AsanaProject_'
-        titleTemplateOptions:
-          $ref: '#/components/schemas/ImmutableList_AsanaIntegrationTitleOptions_'
-        titleOption:
-          $ref: '#/components/schemas/AsanaTitleTemplate'
-        withWorkspace:
-          type: string
-        withAvailableProjects:
-          type: array
-          items:
-            $ref: '#/components/schemas/AsanaProject'
-        withTitleTemplateOptions:
-          type: array
-          items:
-            $ref: '#/components/schemas/AsanaIntegrationTitleOptions'
-        withTitleOption:
-          $ref: '#/components/schemas/AsanaTitleTemplate'
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    SlackSettings.StatusSync:
-      type: string
-      enum:
-      - 'OFF'
-      - DEFAULT
-      - BUSY
-      - CUSTOM
-      - TEAM
-    ClickUpStatusType:
-      type: string
-      enum:
-      - open
-      - done
-      - closed
-      - custom
-      - unstarted
-      - active
-      x-enum-varnames:
-      - open
-      - done
-      - closed
-      - custom
-      - unstarted
-      - active
-    AbstractCollection_AsanaFormFieldOption_:
-      type: object
-      properties:
-        empty:
-          type: boolean
-    ImmutableCollection_TodoistLabel_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/AbstractCollection_TodoistLabel_'
-      - properties:
-          empty:
-            type: boolean
-          partialView:
-            type: boolean
-    EntitlementValue_Object_:
-      required:
-      - nextEdition
-      - nextValue
-      - value
-      type: object
-      properties:
-        value: {}
-        nextValue: {}
-        nextEdition:
-          allOf:
-          - $ref: '#/components/schemas/ReclaimEdition'
-    AsanaWorkspace:
-      type: object
-      properties:
-        gid:
-          type: string
-        resource_type:
-          $ref: '#/components/schemas/ResourceType'
-        name:
-          type: string
-        withGid:
-          type: string
-        withResource_type:
-          $ref: '#/components/schemas/ResourceType'
-        withName:
-          type: string
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    UserMetadataUsecase:
-      type: string
-      enum:
-      - EDUCATION
-      - WORK
-      - NON_PROFIT
-      - TEAM
-      - SOLO_WORK
-      - PERSONAL
-      x-deprecated:
-      - EDUCATION
-      - NON_PROFIT
-    UserProfileGoal:
-      type: string
-      enum:
-      - HEADS_DOWN_TIME
-      - MEETINGS
-      - WORK_LIFE_BALANCE
-      - MULTIPLE_CALENDARS
-    AsanaSyncFormSubmission:
-      type: object
-      properties:
-        data:
-          type: string
-        withData:
-          type: string
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    AbstractCollection_ClickUpSpace_:
-      type: object
-      properties:
-        empty:
-          type: boolean
-    AsanaSyncFormField:
-      type: object
-      properties:
-        type:
-          $ref: '#/components/schemas/AsanaFormFieldType'
-        id:
-          type: string
-        name:
-          type: string
-        value:
-          type:
-          - string
-          - 'null'
-        placeholder:
-          type:
-          - string
-          - 'null'
-        width:
-          type:
-          - string
-          - 'null'
-        error:
-          type:
-          - string
-          - 'null'
-        options:
-          allOf:
-          - $ref: '#/components/schemas/ImmutableList_AsanaFormFieldOption_'
-        is_watched:
-          type: boolean
-        is_required:
-          type: boolean
-        withType:
-          $ref: '#/components/schemas/AsanaFormFieldType'
-        withId:
-          type: string
-        withName:
-          type: string
-        withValue:
-          type: string
-        withPlaceholder:
-          type: string
-        withWidth:
-          type: string
-        withError:
-          type: string
-        withOptions:
-          type: array
-          items:
-            $ref: '#/components/schemas/AsanaFormFieldOption'
-        withIs_watched:
-          type: boolean
-        withIs_required:
-          type: boolean
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    AsanaFormFieldType:
-      type: string
-      enum:
-      - single_line_text
-      - rich_text
-      - typeahead
-      - checkboxes
-      - radio_button
-      - date
-      - datetime
-      - static_text
-      - dropdown
-      x-enum-varnames:
-      - single_line_text
-      - rich_text
-      - typeahead
-      - checkboxes
-      - radio_button
-      - date
-      - datetime
-      - static_text
-      - dropdown
   securitySchemes:
     Authorization:
       type: oauth2

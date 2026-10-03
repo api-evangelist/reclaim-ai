@@ -316,6 +316,105 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    ReminderType:
+      type: string
+      enum:
+      - UI_NOTIFICATION
+      - EMAIL
+    ConnectedAccountType:
+      type: string
+      enum:
+      - GOOGLE
+      - MICROSOFT
+    CapabilityInfo:
+      required:
+      - status
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/CapabilityStatus'
+        oauthURI:
+          type:
+          - string
+          - 'null'
+          format: uri
+    CalendarAccess:
+      type: string
+      enum:
+      - NONE
+      - SETTINGS_ONLY
+      - READ
+      - WRITE
+      - SUPER
+    IneligibilityReason:
+      type: string
+      enum:
+      - MAIN_ACCOUNT_PRIMARY
+      - SYNCED_ALREADY
+      - FREE_BUSY_ONLY
+    ConnectedCalendarCreateRequest:
+      required:
+      - externalId
+      - useType
+      type: object
+      properties:
+        externalId:
+          type: string
+        useType:
+          $ref: '#/components/schemas/CalendarUseType'
+    ImmutableCollection_CalendarView_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_CalendarView_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    ReclaimEventType:
+      type: string
+      enum:
+      - USER
+      - SYNC
+      - HABIT_ASSIGNMENT
+      - SMART_HABIT
+      - ONE_ON_ONE_ASSIGNMENT
+      - SMART_MEETING
+      - TASK_ASSIGNMENT
+      - CONF_BUFFER
+      - TRAVEL_BUFFER
+      - SCHEDULING_LINK_MEETING
+      - UNKNOWN
+      - FOCUS
+    Reminder:
+      required:
+      - minutes
+      - reminderType
+      type: object
+      properties:
+        reminderType:
+          $ref: '#/components/schemas/ReminderType'
+        minutes:
+          type: integer
+          format: int32
+    ContactsAccess:
+      required:
+      - enabled
+      - oauthURI
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        oauthURI:
+          type: string
+          format: uri
+    ConnectedCalendarUpdateRequest:
+      required:
+      - useType
+      type: object
+      properties:
+        useType:
+          $ref: '#/components/schemas/CalendarUseType'
     CalendarView:
       required:
       - colorHex
@@ -381,16 +480,6 @@ components:
           type:
           - boolean
           - 'null'
-    ImmutableSet_CalendarView_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ImmutableCollection_CalendarView_'
-      - $ref: '#/components/schemas/AbstractCollection_CalendarView_'
-      - properties:
-          empty:
-            type: boolean
-          hashCodeFast:
-            type: boolean
     CalendarUseType:
       type: string
       enum:
@@ -403,37 +492,6 @@ components:
       - VACATION
       - TRAVEL
       - TEAM_OOO_CALENDAR
-    ConnectedCalendarUpdateRequest:
-      required:
-      - useType
-      type: object
-      properties:
-        useType:
-          $ref: '#/components/schemas/CalendarUseType'
-    ConnectedAccountType:
-      type: string
-      enum:
-      - GOOGLE
-      - MICROSOFT
-    CalendarAccess:
-      type: string
-      enum:
-      - NONE
-      - SETTINGS_ONLY
-      - READ
-      - WRITE
-      - SUPER
-    CapabilityStatus:
-      type: string
-      enum:
-      - GRANTED
-      - PARTIAL
-      - NOT_GRANTED
-    ReminderType:
-      type: string
-      enum:
-      - UI_NOTIFICATION
-      - EMAIL
     DirectoryAccess:
       required:
       - enabled
@@ -445,17 +503,38 @@ components:
         oauthURI:
           type: string
           format: uri
-    Reminder:
-      required:
-      - minutes
-      - reminderType
+    ImmutableSet_CalendarView_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_CalendarView_'
+      - $ref: '#/components/schemas/AbstractCollection_CalendarView_'
+      - properties:
+          empty:
+            type: boolean
+          hashCodeFast:
+            type: boolean
+    AbstractCollection_CalendarView_:
       type: object
       properties:
-        reminderType:
-          $ref: '#/components/schemas/ReminderType'
-        minutes:
-          type: integer
-          format: int32
+        empty:
+          type: boolean
+    SharedCalendarsAccess:
+      required:
+      - enabled
+      - oauthURI
+      type: object
+      properties:
+        enabled:
+          type: boolean
+        oauthURI:
+          type: string
+          format: uri
+    CapabilityStatus:
+      type: string
+      enum:
+      - GRANTED
+      - PARTIAL
+      - NOT_GRANTED
     ConnectedAccount:
       type: object
       properties:
@@ -697,85 +776,6 @@ components:
           format: int32
         toString:
           type: string
-    IneligibilityReason:
-      type: string
-      enum:
-      - MAIN_ACCOUNT_PRIMARY
-      - SYNCED_ALREADY
-      - FREE_BUSY_ONLY
-    CapabilityInfo:
-      required:
-      - status
-      type: object
-      properties:
-        status:
-          $ref: '#/components/schemas/CapabilityStatus'
-        oauthURI:
-          type:
-          - string
-          - 'null'
-          format: uri
-    ContactsAccess:
-      required:
-      - enabled
-      - oauthURI
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        oauthURI:
-          type: string
-          format: uri
-    AbstractCollection_CalendarView_:
-      type: object
-      properties:
-        empty:
-          type: boolean
-    ReclaimEventType:
-      type: string
-      enum:
-      - USER
-      - SYNC
-      - HABIT_ASSIGNMENT
-      - SMART_HABIT
-      - ONE_ON_ONE_ASSIGNMENT
-      - SMART_MEETING
-      - TASK_ASSIGNMENT
-      - CONF_BUFFER
-      - TRAVEL_BUFFER
-      - SCHEDULING_LINK_MEETING
-      - UNKNOWN
-      - FOCUS
-    ConnectedCalendarCreateRequest:
-      required:
-      - externalId
-      - useType
-      type: object
-      properties:
-        externalId:
-          type: string
-        useType:
-          $ref: '#/components/schemas/CalendarUseType'
-    SharedCalendarsAccess:
-      required:
-      - enabled
-      - oauthURI
-      type: object
-      properties:
-        enabled:
-          type: boolean
-        oauthURI:
-          type: string
-          format: uri
-    ImmutableCollection_CalendarView_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/AbstractCollection_CalendarView_'
-      - properties:
-          empty:
-            type: boolean
-          partialView:
-            type: boolean
   securitySchemes:
     Authorization:
       type: oauth2

@@ -146,6 +146,28 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    OAuth2ClientController.UpdateClientRequest:
+      required:
+      - client_name
+      - grant_types
+      - redirect_uris
+      - scopes
+      type: object
+      properties:
+        client_name:
+          type: string
+        redirect_uris:
+          type: array
+          items:
+            type: string
+        grant_types:
+          type: array
+          items:
+            $ref: '#/components/schemas/OAuthClient.GrantType'
+        scopes:
+          type: array
+          items:
+            $ref: '#/components/schemas/OAuthClient.Scope'
     OAuth2ClientController.CreateClientRequest:
       required:
       - client_name
@@ -171,41 +193,6 @@ components:
             $ref: '#/components/schemas/OAuthClient.Scope'
         is_confidential:
           type: boolean
-    OAuthClient.GrantType:
-      type: string
-      enum:
-      - AUTHORIZATION_CODE
-      - REFRESH_TOKEN
-      - CLIENT_CREDENTIALS
-    OAuth2ClientController.UpdateClientRequest:
-      required:
-      - client_name
-      - grant_types
-      - redirect_uris
-      - scopes
-      type: object
-      properties:
-        client_name:
-          type: string
-        redirect_uris:
-          type: array
-          items:
-            type: string
-        grant_types:
-          type: array
-          items:
-            $ref: '#/components/schemas/OAuthClient.GrantType'
-        scopes:
-          type: array
-          items:
-            $ref: '#/components/schemas/OAuthClient.Scope'
-    OAuthClient.Scope:
-      type: string
-      enum:
-      - READ
-      - WRITE
-      - ADMIN
-      - MCP
     OAuthClient:
       required:
       - clientId
@@ -249,6 +236,19 @@ components:
         updatedAt:
           type: string
           format: date-time
+    OAuthClient.GrantType:
+      type: string
+      enum:
+      - AUTHORIZATION_CODE
+      - REFRESH_TOKEN
+      - CLIENT_CREDENTIALS
+    OAuthClient.Scope:
+      type: string
+      enum:
+      - READ
+      - WRITE
+      - ADMIN
+      - MCP
   securitySchemes:
     Authorization:
       type: oauth2

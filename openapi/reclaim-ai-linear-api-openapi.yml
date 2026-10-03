@@ -122,6 +122,31 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    AbstractCollection_AbstractLinearTeam_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    LinearWorkflowStateType:
+      type: string
+      enum:
+      - triage
+      - backlog
+      - started
+      - unstarted
+      - completed
+      - canceled
+      - duplicate
+      - unknown
+      x-enum-varnames:
+      - triage
+      - backlog
+      - started
+      - unstarted
+      - completed
+      - canceled
+      - duplicate
+      - unknown
     LinearIntegration:
       type: object
       properties:
@@ -172,6 +197,53 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/LinearState'
+    AbstractCollection_String_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    ImmutableCollection_AbstractLinearTeam_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_AbstractLinearTeam_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    ImmutableSet_String_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_String_'
+      - $ref: '#/components/schemas/AbstractCollection_String_'
+      - properties:
+          empty:
+            type: boolean
+          hashCodeFast:
+            type: boolean
+    LinearTaskDetails:
+      type: object
+      properties:
+        taskId:
+          type: integer
+          format: int64
+        owner:
+          type: boolean
+        status:
+          $ref: '#/components/schemas/TaskStatus'
+        withTaskId:
+          type: integer
+          format: int64
+        withOwner:
+          type: boolean
+        withStatus:
+          $ref: '#/components/schemas/TaskStatus'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
     ImmutableList_AbstractLinearTeam_:
       type: object
       allOf:
@@ -184,25 +256,6 @@ components:
             $ref: '#/components/schemas/AbstractLinearTeam'
           last:
             $ref: '#/components/schemas/AbstractLinearTeam'
-    ImmutableCollection_AbstractLinearTeam_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/AbstractCollection_AbstractLinearTeam_'
-      - properties:
-          empty:
-            type: boolean
-          partialView:
-            type: boolean
-    AbstractCollection_AbstractLinearTeam_:
-      type: object
-      properties:
-        empty:
-          type: boolean
-    AbstractCollection_String_:
-      type: object
-      properties:
-        empty:
-          type: boolean
     TaskStatus:
       type: string
       enum:
@@ -245,68 +298,6 @@ components:
           format: int32
         toString:
           type: string
-    LinearTaskDetails:
-      type: object
-      properties:
-        taskId:
-          type: integer
-          format: int64
-        owner:
-          type: boolean
-        status:
-          $ref: '#/components/schemas/TaskStatus'
-        withTaskId:
-          type: integer
-          format: int64
-        withOwner:
-          type: boolean
-        withStatus:
-          $ref: '#/components/schemas/TaskStatus'
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    ImmutableCollection_String_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/AbstractCollection_String_'
-      - properties:
-          empty:
-            type: boolean
-          partialView:
-            type: boolean
-    LinearWorkflowStateType:
-      type: string
-      enum:
-      - triage
-      - backlog
-      - started
-      - unstarted
-      - completed
-      - canceled
-      - duplicate
-      - unknown
-      x-enum-varnames:
-      - triage
-      - backlog
-      - started
-      - unstarted
-      - completed
-      - canceled
-      - duplicate
-      - unknown
-    ImmutableSet_String_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ImmutableCollection_String_'
-      - $ref: '#/components/schemas/AbstractCollection_String_'
-      - properties:
-          empty:
-            type: boolean
-          hashCodeFast:
-            type: boolean
     LinearState:
       type: object
       properties:
@@ -346,6 +337,15 @@ components:
           format: int32
         toString:
           type: string
+    ImmutableCollection_String_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_String_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
   securitySchemes:
     Authorization:
       type: oauth2

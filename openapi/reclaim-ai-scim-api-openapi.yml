@@ -288,44 +288,14 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ScimReclaimExtension:
+    ScimMeta:
       type: object
       properties:
-        location:
-          type:
-          - string
-          - 'null'
-        hireDate:
-          type:
-          - string
-          - 'null'
-        jobCategory:
-          type:
-          - string
-          - 'null'
-        orgRole:
-          type:
-          - string
-          - 'null'
-        team:
-          type:
-          - string
-          - 'null'
-      description: Encapsulates the reclaim-defined core attributes extending the SCIM user resource.
-    ScimPatch:
-      required:
-      - Operations
-      - schemas
-      type: object
-      properties:
-        schemas:
-          type: array
-          items:
-            type: string
-        Operations:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScimOperations'
+        resourceType:
+          type: string
+        created:
+          type: string
+          format: date-time
     ScimUser:
       type: object
       properties:
@@ -362,6 +332,58 @@ components:
         attributes:
           type: object
           additionalProperties: true
+    ScimName:
+      required:
+      - familyName
+      - givenName
+      type: object
+      properties:
+        givenName:
+          type: string
+        familyName:
+          type: string
+    ScimEmail:
+      type: object
+      properties:
+        type:
+          type: string
+        value:
+          type: string
+        display:
+          type: string
+        primary:
+          type: boolean
+    ScimOperations:
+      required:
+      - op
+      - path
+      - value
+      type: object
+      properties:
+        op:
+          type: string
+        path:
+          type: string
+        value:
+          description: This getter handles the type switching
+        valueAsMap:
+          type: object
+          additionalProperties: true
+          description: This getter handles the type switching
+    ScimPatch:
+      required:
+      - Operations
+      - schemas
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+        Operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScimOperations'
     ScimManager:
       type: object
       properties:
@@ -377,6 +399,30 @@ components:
           type:
           - string
           - 'null'
+    ScimReclaimExtension:
+      type: object
+      properties:
+        location:
+          type:
+          - string
+          - 'null'
+        hireDate:
+          type:
+          - string
+          - 'null'
+        jobCategory:
+          type:
+          - string
+          - 'null'
+        orgRole:
+          type:
+          - string
+          - 'null'
+        team:
+          type:
+          - string
+          - 'null'
+      description: Encapsulates the reclaim-defined core attributes extending the SCIM user resource.
     ScimEnterprise:
       type: object
       properties:
@@ -403,52 +449,6 @@ components:
         manager:
           allOf:
           - $ref: '#/components/schemas/ScimManager'
-    ScimOperations:
-      required:
-      - op
-      - path
-      - value
-      type: object
-      properties:
-        op:
-          type: string
-        path:
-          type: string
-        value:
-          description: This getter handles the type switching
-        valueAsMap:
-          type: object
-          additionalProperties: true
-          description: This getter handles the type switching
-    ScimEmail:
-      type: object
-      properties:
-        type:
-          type: string
-        value:
-          type: string
-        display:
-          type: string
-        primary:
-          type: boolean
-    ScimName:
-      required:
-      - familyName
-      - givenName
-      type: object
-      properties:
-        givenName:
-          type: string
-        familyName:
-          type: string
-    ScimMeta:
-      type: object
-      properties:
-        resourceType:
-          type: string
-        created:
-          type: string
-          format: date-time
   securitySchemes:
     Authorization:
       type: oauth2

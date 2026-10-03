@@ -137,6 +137,66 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    TimeSchemeIntegrationRuleUpdateRequest:
+      type: object
+      properties:
+        labels:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        projectIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        action:
+          allOf:
+          - $ref: '#/components/schemas/TimeSchemeIntegrationRuleAction'
+        timeSchemeId:
+          type:
+          - string
+          - 'null'
+        dueDateRequired:
+          type:
+          - boolean
+          - 'null'
+    TimeSchemeIntegrationRuleType:
+      type: string
+      enum:
+      - CASE
+      - OTHERWISE
+    TimeSchemeIntegrationRuleServiceType:
+      type: string
+      enum:
+      - TODOIST
+      - CLICK_UP
+    TimeSchemeIntegrationRuleReindexRequest:
+      required:
+      - newIndex
+      - serviceType
+      - shiftDirection
+      type: object
+      properties:
+        serviceType:
+          $ref: '#/components/schemas/TimeSchemeIntegrationRuleServiceType'
+        workspaceId:
+          type:
+          - string
+          - 'null'
+        newIndex:
+          type: integer
+          format: int32
+        shiftDirection:
+          type: integer
+          format: int32
+    TimeSchemeIntegrationRuleAction:
+      type: string
+      enum:
+      - SYNC_TO
+      - DONT_SYNC
     TimeSchemeIntegrationRule:
       required:
       - action
@@ -184,35 +244,6 @@ components:
           type:
           - string
           - 'null'
-    TimeSchemeIntegrationRuleAction:
-      type: string
-      enum:
-      - SYNC_TO
-      - DONT_SYNC
-    TimeSchemeIntegrationRuleReindexRequest:
-      required:
-      - newIndex
-      - serviceType
-      - shiftDirection
-      type: object
-      properties:
-        serviceType:
-          $ref: '#/components/schemas/TimeSchemeIntegrationRuleServiceType'
-        workspaceId:
-          type:
-          - string
-          - 'null'
-        newIndex:
-          type: integer
-          format: int32
-        shiftDirection:
-          type: integer
-          format: int32
-    TimeSchemeIntegrationRuleType:
-      type: string
-      enum:
-      - CASE
-      - OTHERWISE
     TimeSchemeIntegrationRuleCreateRequest:
       required:
       - action
@@ -243,37 +274,6 @@ components:
         ruleType:
           $ref: '#/components/schemas/TimeSchemeIntegrationRuleType'
         workspaceId:
-          type:
-          - string
-          - 'null'
-        dueDateRequired:
-          type:
-          - boolean
-          - 'null'
-    TimeSchemeIntegrationRuleServiceType:
-      type: string
-      enum:
-      - TODOIST
-      - CLICK_UP
-    TimeSchemeIntegrationRuleUpdateRequest:
-      type: object
-      properties:
-        labels:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-        projectIds:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-        action:
-          allOf:
-          - $ref: '#/components/schemas/TimeSchemeIntegrationRuleAction'
-        timeSchemeId:
           type:
           - string
           - 'null'

@@ -43,21 +43,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    GroupExpansionView:
-      required:
-      - groupId
-      - isGroup
-      - members
-      type: object
-      properties:
-        groupId:
-          type: string
-        isGroup:
-          type: boolean
-        members:
-          type: array
-          items:
-            $ref: '#/components/schemas/GroupExpansionView.GroupMemberView'
     GroupExpansionView.GroupMemberView:
       required:
       - email
@@ -84,6 +69,21 @@ components:
           - 'null'
         isTeamMember:
           type: boolean
+    GroupExpansionView:
+      required:
+      - groupId
+      - isGroup
+      - members
+      type: object
+      properties:
+        groupId:
+          type: string
+        isGroup:
+          type: boolean
+        members:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupExpansionView.GroupMemberView'
   securitySchemes:
     Authorization:
       type: oauth2

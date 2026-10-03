@@ -207,6 +207,67 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    TimeScheme:
+      required:
+      - description
+      - features
+      - id
+      - policy
+      - policyType
+      - status
+      - title
+      - userId
+      type: object
+      properties:
+        id:
+          type: string
+        userId:
+          type: string
+        status:
+          $ref: '#/components/schemas/TimeSchemeStatus'
+        policyType:
+          $ref: '#/components/schemas/TimePolicyType'
+        policy:
+          $ref: '#/components/schemas/TimePolicy'
+        taskCategory:
+          allOf:
+          - $ref: '#/components/schemas/TaskCategory'
+        taskTargetCalendar:
+          allOf:
+          - $ref: '#/components/schemas/CalendarView'
+        title:
+          type: string
+        description:
+          type: string
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReclaimEventType'
+    TimePolicyType:
+      type: string
+      enum:
+      - WORK
+      - PERSONAL
+      - MEETING
+      - ONE_OFF
+      - INHERITED
+      - CUSTOM
+    DayOfWeek:
+      type: string
+      enum:
+      - MONDAY
+      - TUESDAY
+      - WEDNESDAY
+      - THURSDAY
+      - FRIDAY
+      - SATURDAY
+      - SUNDAY
+    TaskCategory:
+      type: string
+      enum:
+      - WORK
+      - PERSONAL
+      - BOTH
     CalendarView:
       required:
       - colorHex
@@ -272,15 +333,6 @@ components:
           type:
           - boolean
           - 'null'
-    TimePolicyType:
-      type: string
-      enum:
-      - WORK
-      - PERSONAL
-      - MEETING
-      - ONE_OFF
-      - INHERITED
-      - CUSTOM
     TimeSchemeUpdateRequest:
       type: object
       properties:
@@ -312,23 +364,26 @@ components:
           - 'null'
           items:
             $ref: '#/components/schemas/ReclaimEventType'
-    Reminder:
-      required:
-      - minutes
-      - reminderType
-      type: object
-      properties:
-        reminderType:
-          $ref: '#/components/schemas/ReminderType'
-        minutes:
-          type: integer
-          format: int32
-    TaskCategory:
+    ReminderType:
       type: string
       enum:
-      - WORK
-      - PERSONAL
-      - BOTH
+      - UI_NOTIFICATION
+      - EMAIL
+    ReclaimEventType:
+      type: string
+      enum:
+      - USER
+      - SYNC
+      - HABIT_ASSIGNMENT
+      - SMART_HABIT
+      - ONE_ON_ONE_ASSIGNMENT
+      - SMART_MEETING
+      - TASK_ASSIGNMENT
+      - CONF_BUFFER
+      - TRAVEL_BUFFER
+      - SCHEDULING_LINK_MEETING
+      - UNKNOWN
+      - FOCUS
     CalendarUseType:
       type: string
       enum:
@@ -341,35 +396,6 @@ components:
       - VACATION
       - TRAVEL
       - TEAM_OOO_CALENDAR
-    TimeSchemeStatus:
-      type: string
-      enum:
-      - ACTIVE
-      - TASK_CALENDAR_NOT_VALID
-      - TASK_CALENDAR_NOT_CONNECTED
-      - TASK_CALENDAR_NOT_WRITABLE
-      - TASK_CALENDAR_NOT_FOUND
-      - TASK_CALENDAR_MULTI_CONNECTIONS
-    LocalTimeInterval:
-      required:
-      - end
-      - start
-      type: object
-      properties:
-        start:
-          type: string
-          format: partial-time
-        end:
-          type: string
-          format: partial-time
-        duration:
-          type: string
-    IneligibilityReason:
-      type: string
-      enum:
-      - MAIN_ACCOUNT_PRIMARY
-      - SYNCED_ALREADY
-      - FREE_BUSY_ONLY
     BasicTimeSchemeView:
       required:
       - features
@@ -394,6 +420,17 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ReclaimEventType'
+    Reminder:
+      required:
+      - minutes
+      - reminderType
+      type: object
+      properties:
+        reminderType:
+          $ref: '#/components/schemas/ReminderType'
+        minutes:
+          type: integer
+          format: int32
     TimeSchemeCreateRequest:
       required:
       - description
@@ -423,6 +460,20 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ReclaimEventType'
+    LocalTimeInterval:
+      required:
+      - end
+      - start
+      type: object
+      properties:
+        start:
+          type: string
+          format: partial-time
+        end:
+          type: string
+          format: partial-time
+        duration:
+          type: string
     TimePolicy:
       required:
       - dayHours
@@ -448,11 +499,21 @@ components:
               $ref: '#/components/schemas/DayHours'
             SUNDAY:
               $ref: '#/components/schemas/DayHours'
-    ReminderType:
+    TimeSchemeStatus:
       type: string
       enum:
-      - UI_NOTIFICATION
-      - EMAIL
+      - ACTIVE
+      - TASK_CALENDAR_NOT_VALID
+      - TASK_CALENDAR_NOT_CONNECTED
+      - TASK_CALENDAR_NOT_WRITABLE
+      - TASK_CALENDAR_NOT_FOUND
+      - TASK_CALENDAR_MULTI_CONNECTIONS
+    IneligibilityReason:
+      type: string
+      enum:
+      - MAIN_ACCOUNT_PRIMARY
+      - SYNCED_ALREADY
+      - FREE_BUSY_ONLY
     DayHours:
       required:
       - intervals
@@ -472,67 +533,6 @@ components:
           - string
           - 'null'
           format: partial-time
-    TimeScheme:
-      required:
-      - description
-      - features
-      - id
-      - policy
-      - policyType
-      - status
-      - title
-      - userId
-      type: object
-      properties:
-        id:
-          type: string
-        userId:
-          type: string
-        status:
-          $ref: '#/components/schemas/TimeSchemeStatus'
-        policyType:
-          $ref: '#/components/schemas/TimePolicyType'
-        policy:
-          $ref: '#/components/schemas/TimePolicy'
-        taskCategory:
-          allOf:
-          - $ref: '#/components/schemas/TaskCategory'
-        taskTargetCalendar:
-          allOf:
-          - $ref: '#/components/schemas/CalendarView'
-        title:
-          type: string
-        description:
-          type: string
-        features:
-          type: array
-          items:
-            $ref: '#/components/schemas/ReclaimEventType'
-    ReclaimEventType:
-      type: string
-      enum:
-      - USER
-      - SYNC
-      - HABIT_ASSIGNMENT
-      - SMART_HABIT
-      - ONE_ON_ONE_ASSIGNMENT
-      - SMART_MEETING
-      - TASK_ASSIGNMENT
-      - CONF_BUFFER
-      - TRAVEL_BUFFER
-      - SCHEDULING_LINK_MEETING
-      - UNKNOWN
-      - FOCUS
-    DayOfWeek:
-      type: string
-      enum:
-      - MONDAY
-      - TUESDAY
-      - WEDNESDAY
-      - THURSDAY
-      - FRIDAY
-      - SATURDAY
-      - SUNDAY
   securitySchemes:
     Authorization:
       type: oauth2
