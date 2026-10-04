@@ -52,27 +52,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    CompleteQuestRequest:
-      required:
-      - isComplete
-      - questType
-      type: object
-      properties:
-        questType:
-          $ref: '#/components/schemas/QuestType'
-        isComplete:
-          type:
-          - boolean
-          - 'null'
-    UserQuests:
-      required:
-      - completedQuests
-      type: object
-      properties:
-        completedQuests:
-          type: array
-          items:
-            $ref: '#/components/schemas/QuestType'
     QuestType:
       type: string
       enum:
@@ -125,6 +104,27 @@ components:
       - TRACK_AND_ANALYZE_PRODUCTIVITY
       - ADD_MEMBERS_TO_TEAM
       - SELECT_PLAN
+    UserQuests:
+      required:
+      - completedQuests
+      type: object
+      properties:
+        completedQuests:
+          type: array
+          items:
+            $ref: '#/components/schemas/QuestType'
+    CompleteQuestRequest:
+      required:
+      - isComplete
+      - questType
+      type: object
+      properties:
+        questType:
+          $ref: '#/components/schemas/QuestType'
+        isComplete:
+          type:
+          - boolean
+          - 'null'
   securitySchemes:
     Authorization:
       type: oauth2

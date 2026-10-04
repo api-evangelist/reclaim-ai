@@ -97,6 +97,10 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    RecommendedTaskSourceType:
+      type: string
+      enum:
+      - ZOOM
     UpdateRecommendedTaskStatusRequest:
       required:
       - status
@@ -104,10 +108,21 @@ components:
       properties:
         status:
           $ref: '#/components/schemas/RecommendedTaskStatus'
-    RecommendedTaskSourceType:
-      type: string
-      enum:
-      - ZOOM
+    TranscriptSnippetItem:
+      required:
+      - text
+      type: object
+      properties:
+        speaker:
+          type:
+          - string
+          - 'null'
+        timestamp:
+          type:
+          - string
+          - 'null'
+        text:
+          type: string
     RecommendedTask:
       required:
       - createdAt
@@ -152,21 +167,6 @@ components:
         createdAt:
           type: string
           format: date-time
-    TranscriptSnippetItem:
-      required:
-      - text
-      type: object
-      properties:
-        speaker:
-          type:
-          - string
-          - 'null'
-        timestamp:
-          type:
-          - string
-          - 'null'
-        text:
-          type: string
     RecommendedTaskGroup:
       required:
       - sourceRef

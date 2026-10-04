@@ -121,39 +121,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ApiResourceView:
-      required:
-      - httpMethods
-      - uri
-      type: object
-      properties:
-        uri:
-          type: string
-        httpMethods:
-          type: array
-          items:
-            type: string
-    DelegatedAccessToggleRequest:
-      required:
-      - enable
-      type: object
-      properties:
-        enable:
-          type: boolean
-    AuthorizedDelegatedAccessView:
-      required:
-      - authorized
-      - availableApis
-      type: object
-      properties:
-        authorized:
-          type: array
-          items:
-            $ref: '#/components/schemas/DelegatedAccessView'
-        availableApis:
-          type: array
-          items:
-            $ref: '#/components/schemas/ApiResourceView'
     DelegatedAccessView:
       required:
       - authorizedUserId
@@ -179,6 +146,39 @@ components:
         userIdToAuthorize:
           minLength: 1
           type: string
+    DelegatedAccessToggleRequest:
+      required:
+      - enable
+      type: object
+      properties:
+        enable:
+          type: boolean
+    AuthorizedDelegatedAccessView:
+      required:
+      - authorized
+      - availableApis
+      type: object
+      properties:
+        authorized:
+          type: array
+          items:
+            $ref: '#/components/schemas/DelegatedAccessView'
+        availableApis:
+          type: array
+          items:
+            $ref: '#/components/schemas/ApiResourceView'
+    ApiResourceView:
+      required:
+      - httpMethods
+      - uri
+      type: object
+      properties:
+        uri:
+          type: string
+        httpMethods:
+          type: array
+          items:
+            type: string
   securitySchemes:
     Authorization:
       type: oauth2

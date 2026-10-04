@@ -197,12 +197,13 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    TeamOOOCalendarView:
+    TeamOOOCalendarDetailedView:
       required:
       - canManage
       - createdAt
       - id
       - memberCount
+      - members
       - name
       - status
       - type
@@ -249,12 +250,10 @@ components:
           type:
           - string
           - 'null'
-    TeamOOOCalendarType:
-      type: string
-      enum:
-      - ACL
-      - MANUAL
-      - ORG_HIERARCHY
+        members:
+          type: array
+          items:
+            $ref: '#/components/schemas/TeamOOOCalendarMemberView'
     CalendarView:
       required:
       - colorHex
@@ -320,11 +319,41 @@ components:
           type:
           - boolean
           - 'null'
-    ReminderType:
+    TeamOOOCalendarMemberView:
+      required:
+      - email
+      - status
+      type: object
+      properties:
+        email:
+          type: string
+        status:
+          $ref: '#/components/schemas/TeamOOOCalendarMemberStatus'
+    TeamOOOCalendarStatus:
       type: string
       enum:
-      - UI_NOTIFICATION
-      - EMAIL
+      - NEEDS_SETUP
+      - ACTIVE
+      - ACTIVE_NO_MEMBERS
+      - INACTIVE_OWNER_DELETED
+      - INACTIVE_CALENDAR_NOT_FOUND
+      - INACTIVE_CALENDAR_NOT_CONNECTED
+      - INACTIVE_OWNER_CREDENTIALS_REVOKED
+    ReclaimEventType:
+      type: string
+      enum:
+      - USER
+      - SYNC
+      - HABIT_ASSIGNMENT
+      - SMART_HABIT
+      - ONE_ON_ONE_ASSIGNMENT
+      - SMART_MEETING
+      - TASK_ASSIGNMENT
+      - CONF_BUFFER
+      - TRAVEL_BUFFER
+      - SCHEDULING_LINK_MEETING
+      - UNKNOWN
+      - FOCUS
     TeamOOOCalendarViewUpdateRequest:
       type: object
       properties:
@@ -374,6 +403,66 @@ components:
           - string
           - 'null'
           format: date-time
+    CalendarUseType:
+      type: string
+      enum:
+      - UNKNOWN
+      - MULTI_USE
+      - WORK
+      - PERSONAL
+      - FAMILY
+      - TEAM
+      - VACATION
+      - TRAVEL
+      - TEAM_OOO_CALENDAR
+    TeamOOOCalendarMemberStatus:
+      type: string
+      enum:
+      - ACTIVE
+      - PENDING_SYNC
+      - SYNC_ERROR
+      - CREDENTIALS_REVOKED
+      - NOT_ON_RECLAIM
+      - NOT_ON_PIPELINE
+    Reminder:
+      required:
+      - minutes
+      - reminderType
+      type: object
+      properties:
+        reminderType:
+          $ref: '#/components/schemas/ReminderType'
+        minutes:
+          type: integer
+          format: int32
+    TeamOOOCalendarType:
+      type: string
+      enum:
+      - ACL
+      - MANUAL
+      - ORG_HIERARCHY
+    ReminderType:
+      type: string
+      enum:
+      - UI_NOTIFICATION
+      - EMAIL
+    TeamOOOCalendarCreateRequest:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+        ownerUserId:
+          type:
+          - string
+          - 'null'
+    IneligibilityReason:
+      type: string
+      enum:
+      - MAIN_ACCOUNT_PRIMARY
+      - SYNCED_ALREADY
+      - FREE_BUSY_ONLY
     TeamOOOCalendarLinkRequest:
       required:
       - calendarId
@@ -381,28 +470,12 @@ components:
       properties:
         calendarId:
           type: string
-    ReclaimEventType:
-      type: string
-      enum:
-      - USER
-      - SYNC
-      - HABIT_ASSIGNMENT
-      - SMART_HABIT
-      - ONE_ON_ONE_ASSIGNMENT
-      - SMART_MEETING
-      - TASK_ASSIGNMENT
-      - CONF_BUFFER
-      - TRAVEL_BUFFER
-      - SCHEDULING_LINK_MEETING
-      - UNKNOWN
-      - FOCUS
-    TeamOOOCalendarDetailedView:
+    TeamOOOCalendarView:
       required:
       - canManage
       - createdAt
       - id
       - memberCount
-      - members
       - name
       - status
       - type
@@ -449,79 +522,6 @@ components:
           type:
           - string
           - 'null'
-        members:
-          type: array
-          items:
-            $ref: '#/components/schemas/TeamOOOCalendarMemberView'
-    CalendarUseType:
-      type: string
-      enum:
-      - UNKNOWN
-      - MULTI_USE
-      - WORK
-      - PERSONAL
-      - FAMILY
-      - TEAM
-      - VACATION
-      - TRAVEL
-      - TEAM_OOO_CALENDAR
-    TeamOOOCalendarMemberView:
-      required:
-      - email
-      - status
-      type: object
-      properties:
-        email:
-          type: string
-        status:
-          $ref: '#/components/schemas/TeamOOOCalendarMemberStatus'
-    TeamOOOCalendarStatus:
-      type: string
-      enum:
-      - NEEDS_SETUP
-      - ACTIVE
-      - ACTIVE_NO_MEMBERS
-      - INACTIVE_OWNER_DELETED
-      - INACTIVE_CALENDAR_NOT_FOUND
-      - INACTIVE_CALENDAR_NOT_CONNECTED
-      - INACTIVE_OWNER_CREDENTIALS_REVOKED
-    Reminder:
-      required:
-      - minutes
-      - reminderType
-      type: object
-      properties:
-        reminderType:
-          $ref: '#/components/schemas/ReminderType'
-        minutes:
-          type: integer
-          format: int32
-    IneligibilityReason:
-      type: string
-      enum:
-      - MAIN_ACCOUNT_PRIMARY
-      - SYNCED_ALREADY
-      - FREE_BUSY_ONLY
-    TeamOOOCalendarCreateRequest:
-      required:
-      - name
-      type: object
-      properties:
-        name:
-          type: string
-        ownerUserId:
-          type:
-          - string
-          - 'null'
-    TeamOOOCalendarMemberStatus:
-      type: string
-      enum:
-      - ACTIVE
-      - PENDING_SYNC
-      - SYNC_ERROR
-      - CREDENTIALS_REVOKED
-      - NOT_ON_RECLAIM
-      - NOT_ON_PIPELINE
   securitySchemes:
     Authorization:
       type: oauth2

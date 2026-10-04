@@ -288,14 +288,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ScimMeta:
-      type: object
-      properties:
-        resourceType:
-          type: string
-        created:
-          type: string
-          format: date-time
     ScimUser:
       type: object
       properties:
@@ -353,23 +345,6 @@ components:
           type: string
         primary:
           type: boolean
-    ScimOperations:
-      required:
-      - op
-      - path
-      - value
-      type: object
-      properties:
-        op:
-          type: string
-        path:
-          type: string
-        value:
-          description: This getter handles the type switching
-        valueAsMap:
-          type: object
-          additionalProperties: true
-          description: This getter handles the type switching
     ScimPatch:
       required:
       - Operations
@@ -384,21 +359,14 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ScimOperations'
-    ScimManager:
+    ScimMeta:
       type: object
       properties:
-        displayName:
-          type:
-          - string
-          - 'null'
-        value:
-          type:
-          - string
-          - 'null'
-        ref:
-          type:
-          - string
-          - 'null'
+        resourceType:
+          type: string
+        created:
+          type: string
+          format: date-time
     ScimReclaimExtension:
       type: object
       properties:
@@ -423,6 +391,38 @@ components:
           - string
           - 'null'
       description: Encapsulates the reclaim-defined core attributes extending the SCIM user resource.
+    ScimManager:
+      type: object
+      properties:
+        displayName:
+          type:
+          - string
+          - 'null'
+        value:
+          type:
+          - string
+          - 'null'
+        ref:
+          type:
+          - string
+          - 'null'
+    ScimOperations:
+      required:
+      - op
+      - path
+      - value
+      type: object
+      properties:
+        op:
+          type: string
+        path:
+          type: string
+        value:
+          description: This getter handles the type switching
+        valueAsMap:
+          type: object
+          additionalProperties: true
+          description: This getter handles the type switching
     ScimEnterprise:
       type: object
       properties:

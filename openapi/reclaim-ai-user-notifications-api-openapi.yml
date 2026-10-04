@@ -38,11 +38,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    NotificationChannel:
-      type: string
-      enum:
-      - SLACK
-      - EMAIL
     NotificationContext:
       type: object
       discriminator:
@@ -59,95 +54,6 @@ components:
           EVENT_CONFLICT: '#/components/schemas/EventsConflictContext'
       allOf:
       - $ref: '#/components/schemas/LogContext'
-    NotificationType:
-      type: string
-      enum:
-      - DAILY_DIGEST
-      - WEEKLY_DIGEST
-      - EVENT_CONFLICT
-      - EVENT_ABOUT_TO_START
-      - INVITED_TO_MEETING
-      - MEETING_UPDATED
-      - MEETING_CANCELLED
-      - APP_UPDATES
-      - EVENT_REMINDERS
-    ChannelMessageId:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-    NotificationId:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-    NotificationStatus:
-      type: string
-      enum:
-      - PENDING
-      - PROCESSED
-      - EXPIRED
-      - NO_LONGER_NEEDED
-    UserIdentifier:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          type: string
-    NotificationWithMessages:
-      required:
-      - messages
-      - notification
-      type: object
-      properties:
-        notification:
-          $ref: '#/components/schemas/Notification'
-        messages:
-          type: array
-          items:
-            $ref: '#/components/schemas/ChannelMessage'
-    LogContext:
-      type: object
-    NotificationChannelMessageStatus:
-      type: string
-      enum:
-      - PENDING
-      - EXPIRED
-      - NO_LONGER_NEEDED
-      - SENT
-      - INVALIDATED
-      - FAILURE_BUT_WILL_RETRY
-      - FAILED
-    Notification:
-      required:
-      - context
-      - contextDateTime
-      - id
-      - status
-      - type
-      - userId
-      type: object
-      properties:
-        id:
-          $ref: '#/components/schemas/NotificationId'
-        userId:
-          $ref: '#/components/schemas/UserIdentifier'
-        contextDateTime:
-          type: string
-          format: date-time
-        type:
-          $ref: '#/components/schemas/NotificationType'
-        context:
-          $ref: '#/components/schemas/NotificationContext'
-        status:
-          $ref: '#/components/schemas/NotificationStatus'
     ChannelMessage:
       required:
       - channel
@@ -181,6 +87,100 @@ components:
           - string
           - 'null'
           format: date-time
+    NotificationChannel:
+      type: string
+      enum:
+      - SLACK
+      - EMAIL
+    Notification:
+      required:
+      - context
+      - contextDateTime
+      - id
+      - status
+      - type
+      - userId
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/NotificationId'
+        userId:
+          $ref: '#/components/schemas/UserIdentifier'
+        contextDateTime:
+          type: string
+          format: date-time
+        type:
+          $ref: '#/components/schemas/NotificationType'
+        context:
+          $ref: '#/components/schemas/NotificationContext'
+        status:
+          $ref: '#/components/schemas/NotificationStatus'
+    NotificationChannelMessageStatus:
+      type: string
+      enum:
+      - PENDING
+      - EXPIRED
+      - NO_LONGER_NEEDED
+      - SENT
+      - INVALIDATED
+      - FAILURE_BUT_WILL_RETRY
+      - FAILED
+    NotificationStatus:
+      type: string
+      enum:
+      - PENDING
+      - PROCESSED
+      - EXPIRED
+      - NO_LONGER_NEEDED
+    NotificationId:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+    NotificationType:
+      type: string
+      enum:
+      - DAILY_DIGEST
+      - WEEKLY_DIGEST
+      - EVENT_CONFLICT
+      - EVENT_ABOUT_TO_START
+      - INVITED_TO_MEETING
+      - MEETING_UPDATED
+      - MEETING_CANCELLED
+      - APP_UPDATES
+      - EVENT_REMINDERS
+    UserIdentifier:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+    LogContext:
+      type: object
+    ChannelMessageId:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+    NotificationWithMessages:
+      required:
+      - messages
+      - notification
+      type: object
+      properties:
+        notification:
+          $ref: '#/components/schemas/Notification'
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChannelMessage'
   securitySchemes:
     Authorization:
       type: oauth2

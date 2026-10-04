@@ -93,6 +93,24 @@ components:
       - ASCENDING
       - DESCENDING
       - UNSORTED
+    UserMemoryView:
+      required:
+      - content
+      - createdAt
+      - expiresAt
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+        content:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        expiresAt:
+          type: string
+          format: date-time
     Page_UserMemoryView_:
       required:
       - count
@@ -123,24 +141,6 @@ components:
           - integer
           - 'null'
           format: int64
-    UserMemoryView:
-      required:
-      - content
-      - createdAt
-      - expiresAt
-      - id
-      type: object
-      properties:
-        id:
-          type: string
-        content:
-          type: string
-        createdAt:
-          type: string
-          format: date-time
-        expiresAt:
-          type: string
-          format: date-time
   securitySchemes:
     Authorization:
       type: oauth2

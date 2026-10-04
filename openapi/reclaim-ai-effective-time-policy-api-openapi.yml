@@ -37,15 +37,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    TimePolicyType:
-      type: string
-      enum:
-      - WORK
-      - PERSONAL
-      - MEETING
-      - ONE_OFF
-      - INHERITED
-      - CUSTOM
     DayOfWeek:
       type: string
       enum:
@@ -56,32 +47,15 @@ components:
       - FRIDAY
       - SATURDAY
       - SUNDAY
-    ThinPerson:
-      required:
-      - email
-      type: object
-      properties:
-        reclaimUser:
-          type: boolean
-        userId:
-          type:
-          - string
-          - 'null'
-        email:
-          minLength: 1
-          type: string
-        name:
-          type: string
-        avatarUrl:
-          type: string
-        firstName:
-          type:
-          - string
-          - 'null'
-        lastName:
-          type:
-          - string
-          - 'null'
+    ParticipantRole:
+      type: string
+      enum:
+      - NONE
+      - ORGANIZER
+      - REQUIRED
+      - OPTIONAL
+      - ANY_OF
+      - ROUND_ROBIN
     EffectiveTimePolicyParticipant:
       required:
       - timePolicyType
@@ -119,6 +93,113 @@ components:
           type:
           - string
           - 'null'
+    EffectiveTimePolicyResource:
+      type: string
+      enum:
+      - SMART_MEETING
+      - SMART_HABIT
+      - SCHEDULING_LINK
+    ThinPerson:
+      required:
+      - email
+      type: object
+      properties:
+        reclaimUser:
+          type: boolean
+        userId:
+          type:
+          - string
+          - 'null'
+        email:
+          minLength: 1
+          type: string
+        name:
+          type: string
+        avatarUrl:
+          type: string
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+    DayHours:
+      required:
+      - intervals
+      type: object
+      properties:
+        intervals:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocalTimeInterval'
+        startOfDay:
+          type:
+          - string
+          - 'null'
+          format: partial-time
+        endOfDay:
+          type:
+          - string
+          - 'null'
+          format: partial-time
+    TimePolicyType:
+      type: string
+      enum:
+      - WORK
+      - PERSONAL
+      - MEETING
+      - ONE_OFF
+      - INHERITED
+      - CUSTOM
+    SmartSeriesRole:
+      type: string
+      enum:
+      - ORGANIZER
+      - REQUIRED_ATTENDEE
+      - OPTIONAL_ATTENDEE
+    EffectiveTimePolicyView:
+      required:
+      - participants
+      - timePolicy
+      type: object
+      properties:
+        timePolicy:
+          $ref: '#/components/schemas/TimePolicy'
+        participants:
+          type: array
+          items:
+            $ref: '#/components/schemas/EffectiveTimePolicyParticipantView'
+    LocalTimeInterval:
+      required:
+      - end
+      - start
+      type: object
+      properties:
+        start:
+          type: string
+          format: partial-time
+        end:
+          type: string
+          format: partial-time
+        duration:
+          type: string
+    EffectiveTimePolicyParticipantView:
+      required:
+      - participant
+      - timePolicy
+      - timezone
+      type: object
+      properties:
+        participant:
+          $ref: '#/components/schemas/ThinPerson'
+        timezone:
+          type:
+          - string
+          - 'null'
+        timePolicy:
+          $ref: '#/components/schemas/TimePolicy'
     EffectiveTimePolicyRequest:
       required:
       - participants
@@ -144,33 +225,6 @@ components:
           type:
           - string
           - 'null'
-    EffectiveTimePolicyParticipantView:
-      required:
-      - participant
-      - timePolicy
-      - timezone
-      type: object
-      properties:
-        participant:
-          $ref: '#/components/schemas/ThinPerson'
-        timezone:
-          type:
-          - string
-          - 'null'
-        timePolicy:
-          $ref: '#/components/schemas/TimePolicy'
-    EffectiveTimePolicyView:
-      required:
-      - participants
-      - timePolicy
-      type: object
-      properties:
-        timePolicy:
-          $ref: '#/components/schemas/TimePolicy'
-        participants:
-          type: array
-          items:
-            $ref: '#/components/schemas/EffectiveTimePolicyParticipantView'
     TimePolicy:
       required:
       - dayHours
@@ -196,60 +250,6 @@ components:
               $ref: '#/components/schemas/DayHours'
             SUNDAY:
               $ref: '#/components/schemas/DayHours'
-    LocalTimeInterval:
-      required:
-      - end
-      - start
-      type: object
-      properties:
-        start:
-          type: string
-          format: partial-time
-        end:
-          type: string
-          format: partial-time
-        duration:
-          type: string
-    ParticipantRole:
-      type: string
-      enum:
-      - NONE
-      - ORGANIZER
-      - REQUIRED
-      - OPTIONAL
-      - ANY_OF
-      - ROUND_ROBIN
-    SmartSeriesRole:
-      type: string
-      enum:
-      - ORGANIZER
-      - REQUIRED_ATTENDEE
-      - OPTIONAL_ATTENDEE
-    DayHours:
-      required:
-      - intervals
-      type: object
-      properties:
-        intervals:
-          type: array
-          items:
-            $ref: '#/components/schemas/LocalTimeInterval'
-        startOfDay:
-          type:
-          - string
-          - 'null'
-          format: partial-time
-        endOfDay:
-          type:
-          - string
-          - 'null'
-          format: partial-time
-    EffectiveTimePolicyResource:
-      type: string
-      enum:
-      - SMART_MEETING
-      - SMART_HABIT
-      - SCHEDULING_LINK
   securitySchemes:
     Authorization:
       type: oauth2

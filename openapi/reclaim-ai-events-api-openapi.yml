@@ -1040,154 +1040,16 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    EventType:
+    DayOfWeek:
       type: string
       enum:
-      - MEETING
-      - WORK
-      - LOGISTICS
-      - PERSONAL
-    ReminderType:
-      type: string
-      enum:
-      - UI_NOTIFICATION
-      - EMAIL
-    GoogleCalendarEventMetadata:
-      required:
-      - guestsCanInviteOthers
-      - guestsCanModify
-      - guestsCanSeeOtherGuests
-      type: object
-      properties:
-        guestsCanModify:
-          type: boolean
-        guestsCanInviteOthers:
-          type: boolean
-        guestsCanSeeOtherGuests:
-          type: boolean
-    GoogleEventData:
-      required:
-      - guestPermissions
-      type: object
-      properties:
-        guestPermissions:
-          $ref: '#/components/schemas/GuestPermissions'
-        focusTimeProperties:
-          allOf:
-          - $ref: '#/components/schemas/FocusTimeProperties'
-        type:
-          type: string
-    Reminders:
-      required:
-      - overrides
-      - useDefault
-      type: object
-      properties:
-        useDefault:
-          type: boolean
-        overrides:
-          type: array
-          items:
-            $ref: '#/components/schemas/Reminder'
-    VersionData:
-      type: object
-      properties:
-        syncStatus:
-          allOf:
-          - $ref: '#/components/schemas/SyncStatus'
-        ceVersion:
-          type:
-          - integer
-          - 'null'
-          format: int32
-    AllowedEditTypeReason:
-      type: string
-      enum:
-      - SINGLE_INSTANCE
-      - RECURRENCE_INSTANCE
-      - FIRST_INSTANCE
-      - PENDING_RECURRENCE_CHANGE
-      - FOCUS_CANNOT_BE_MODIFIED
-      - SYNTHETIC_EDITABLE_AFTER_APPLY
-      - SERIES_ROOT
-      - RECURRING_ATTENDEE
-    EventAttendee:
-      required:
-      - email
-      type: object
-      properties:
-        email:
-          type: string
-        self:
-          type:
-          - boolean
-          - 'null'
-        displayName:
-          type:
-          - string
-          - 'null'
-        responseStatus:
-          allOf:
-          - $ref: '#/components/schemas/ResponseStatus'
-        comment:
-          type:
-          - string
-          - 'null'
-        optional:
-          type:
-          - boolean
-          - 'null'
-        additionalGuests:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        organizer:
-          type:
-          - boolean
-          - 'null'
-        resource:
-          type:
-          - boolean
-          - 'null'
-    EventResourceParticipant:
-      required:
-      - email
-      type: object
-      properties:
-        displayName:
-          type:
-          - string
-          - 'null'
-        email:
-          type: string
-        capacity:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        buildingId:
-          type:
-          - string
-          - 'null'
-        buildingName:
-          type:
-          - string
-          - 'null'
-        buildingDescription:
-          type:
-          - string
-          - 'null'
-        floorName:
-          type:
-          - string
-          - 'null'
-        category:
-          type:
-          - string
-          - 'null'
-        type:
-          type: string
+      - MONDAY
+      - TUESDAY
+      - WEDNESDAY
+      - THURSDAY
+      - FRIDAY
+      - SATURDAY
+      - SUNDAY
     ReclaimEventType:
       type: string
       enum:
@@ -1203,103 +1065,117 @@ components:
       - SCHEDULING_LINK_MEETING
       - UNKNOWN
       - FOCUS
-    EventAttendeeParticipant:
+    Reminder:
       required:
-      - email
+      - minutes
+      - reminderType
       type: object
       properties:
-        email:
-          type: string
-        self:
-          type:
-          - boolean
-          - 'null'
-        displayName:
-          type:
-          - string
-          - 'null'
-        responseStatus:
-          allOf:
-          - $ref: '#/components/schemas/ResponseStatus'
-        comment:
-          type:
-          - string
-          - 'null'
-        optional:
-          type:
-          - boolean
-          - 'null'
-        additionalGuests:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        organizer:
-          type:
-          - boolean
-          - 'null'
-        type:
-          type: string
-    TaskId:
-      required:
-      - id
-      type: object
-      properties:
-        id:
+        reminderType:
+          $ref: '#/components/schemas/ReminderType'
+        minutes:
           type: integer
-          format: int64
+          format: int32
+    ZoomConferenceData:
+      required:
+      - conferenceUrl
+      type: object
+      properties:
+        conferenceUrl:
+          type: string
+        entryPoints:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/ConferenceEntryPoint'
         type:
           type: string
-    ShieldsUpEventData:
-      required:
-      - policyId
+    EventEditType:
+      type: string
+      enum:
+      - THIS
+      - ALL
+      - THIS_AND_FOLLOWING
+    AutoDeclineMode:
+      type: string
+      enum:
+      - DECLINE_NONE
+      - DECLINE_ALL_CONFLICTING_INVITATIONS
+      - DECLINE_ONLY_NEW_CONFLICTING_INVITATIONS
+      x-type: String
+    EventResponseStatus:
+      type: string
+      enum:
+      - None
+      - Organizer
+      - Accepted
+      - Declined
+      - TentativelyAccepted
+      - NotResponded
+      x-enum-varnames:
+      - None
+      - Organizer
+      - Accepted
+      - Declined
+      - TentativelyAccepted
+      - NotResponded
+    ReminderType:
+      type: string
+      enum:
+      - UI_NOTIFICATION
+      - EMAIL
+    SeriesManagementType:
+      type: string
+      enum:
+      - SMART_MEETING
+      - HABIT
+      - MANUAL
+    AssistType:
+      type: string
+      enum:
+      - TASK
+      - CUSTOM_DAILY
+      - CATCHUP_AM
+      - CATCHUP_PM
+      - LUNCH
+      - FOCUS
+      - TRAVEL_PRE
+      - TRAVEL_POST
+      - CONBUF
+      - SMART_HABIT
+      - SMART_MEETING
+      - RECLAIM_FOCUS
+    RecurrenceContinuityData:
       type: object
       properties:
-        policyId:
-          type: string
-          format: uuid
-    ManagedEventData:
-      type: object
-      properties:
-        originalDurationMinutes:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        linkedSuccessorExternalId:
+        lastPendingSync:
           type:
           - string
           - 'null'
-    Month:
+          format: date-time
+        successorExternalId:
+          type:
+          - string
+          - 'null'
+    AllowedEditTypesView:
+      required:
+      - reason
+      - types
+      type: object
+      properties:
+        types:
+          type: array
+          items:
+            $ref: '#/components/schemas/EventEditType'
+        reason:
+          $ref: '#/components/schemas/AllowedEditTypeReason'
+    Visibility:
       type: string
       enum:
-      - JANUARY
-      - FEBRUARY
-      - MARCH
-      - APRIL
-      - MAY
-      - JUNE
-      - JULY
-      - AUGUST
-      - SEPTEMBER
-      - OCTOBER
-      - NOVEMBER
-      - DECEMBER
-    EventColor:
-      type: string
-      enum:
-      - NONE
-      - LAVENDER
-      - SAGE
-      - GRAPE
-      - FLAMINGO
-      - BANANA
-      - TANGERINE
-      - PEACOCK
-      - GRAPHITE
-      - BLUEBERRY
-      - BASIL
-      - TOMATO
+      - DEFAULT
+      - PUBLIC
+      - PRIVATE
     Event:
       required:
       - allocatedTimeChunks
@@ -1483,298 +1359,39 @@ components:
             existing logic for detecting and parsing event information, even when the event ID cannot be directly
 
             relied upon (e.g., in Microsoft calendars).'
-    AssistStatus:
-      type: string
-      enum:
-      - CONTROLLED
-      - RELEASED
-      - ARCHIVED
-    ReclaimRecurrence:
+    Reminders:
       required:
-      - frequency
+      - overrides
+      - useDefault
       type: object
       properties:
-        interval:
-          type: integer
-          description: 'Repeat interval: 1 means every, 2 means every other, 3 means every 3rd. Defaults to 1.'
-          format: int32
-        frequency:
-          description: 'How often the event recurs: DAILY, WEEKLY, MONTHLY, or YEARLY'
-          allOf:
-          - $ref: '#/components/schemas/RecurrenceFrequency'
-        days:
-          type: array
-          description: Days of the week for WEEKLY frequency (e.g. MONDAY, WEDNESDAY, FRIDAY)
-          items:
-            $ref: '#/components/schemas/DayOfWeek'
-        monthlyDay:
-          description: Day of the month for MONTHLY frequency
-          allOf:
-          - $ref: '#/components/schemas/MonthlyDay'
-        yearlyDay:
-          description: Day of the year for YEARLY frequency
-          allOf:
-          - $ref: '#/components/schemas/YearlyDay'
-        until:
-          type: string
-          description: When the recurrence ends (yyyy-MM-ddTHH:mm:ssZ format, e.g. 2026-06-30T23:59:59Z). Mutually exclusive with count. Omit for no end date.
-          format: date-time
-        count:
-          type: integer
-          description: Total number of occurrences. Mutually exclusive with until. Omit for no end date.
-          format: int32
-        valid:
+        useDefault:
           type: boolean
-      description: 'Recurrence pattern for a recurring event.
-
-        - frequency is always required
-
-        - For WEEKLY: days is required (which days of the week)
-
-        - For MONTHLY: monthlyDay is required (which day of the month)
-
-        - For YEARLY: yearlyDay is required (which day of the year)
-
-        - interval defaults to 1 (every occurrence)
-
-        - Optionally set count or until to limit occurrences'
-    BufferEventType:
-      type: string
-      enum:
-      - BEFORE
-      - AFTER
-      - BEFORE_AND_AFTER
-    CalendarSyncSourceData:
-      required:
-      - description
-      - title
-      - url
-      type: object
-      properties:
-        url:
-          type: string
-        title:
-          type: string
-        description:
-          type: string
-    SmartSeriesId:
-      required:
-      - lineageId
-      - seriesId
-      type: object
-      properties:
-        seriesId:
-          type: integer
-          format: int64
-        lineageId:
-          type: integer
-          format: int64
-        type:
-          type: string
-    MergeableEvent:
-      required:
-      - calendarId
-      - eventId
-      - referenceType
-      - shouldMerge
-      type: object
-      properties:
-        calendarId:
-          type: integer
-          format: int64
-        eventId:
-          type: string
-        referenceType:
-          $ref: '#/components/schemas/MergeableEventView.MergeType'
-        shouldMerge:
-          type: boolean
-    Page_RecurringSeriesView_:
-      required:
-      - count
-      - first
-      - hasNextPage
-      - items
-      - last
-      - order
-      type: object
-      properties:
-        first:
-          type: string
-        last:
-          type: string
-        order:
-          $ref: '#/components/schemas/SortOrder'
-        count:
-          type: integer
-          format: int32
-        hasNextPage:
-          type: boolean
-        items:
+        overrides:
           type: array
           items:
-            $ref: '#/components/schemas/RecurringSeriesView'
-        totalCount:
-          type:
-          - integer
-          - 'null'
-          format: int64
-    PhoneEntryPoint:
+            $ref: '#/components/schemas/Reminder'
+    EventAssociationDetailsView:
       required:
-      - uri
+      - canLock
+      - canUnlock
+      - locked
+      - policyAssociations
       type: object
       properties:
-        uri:
-          type: string
-        label:
-          type:
-          - string
-          - 'null'
-        regionCode:
-          type:
-          - string
-          - 'null'
-        passcode:
-          type:
-          - string
-          - 'null'
-        pin:
-          type:
-          - string
-          - 'null'
-        type:
-          type: string
-    EventEditType:
-      type: string
-      enum:
-      - THIS
-      - ALL
-      - THIS_AND_FOLLOWING
-    PlatformEventType:
-      type: string
-      enum:
-      - DEFAULT
-      - OUT_OF_OFFICE
-      - FROM_MAIL
-      - WORKING_LOCATION
-      - FOCUS_TIME
-      - BIRTHDAY
-    GuestPermissions:
-      required:
-      - guestsCanInviteOthers
-      - guestsCanModify
-      - guestsCanSeeOtherGuests
-      type: object
-      properties:
-        guestsCanModify:
+        locked:
           type: boolean
-        guestsCanInviteOthers:
+        canLock:
           type: boolean
-        guestsCanSeeOtherGuests:
+        canUnlock:
           type: boolean
-    SyncStatus:
-      type: string
-      enum:
-      - PENDING
-      - SYNCED
-      - RETRYING
-      - FATAL_UNKNOWN
-    ResponseStatus:
-      type: string
-      enum:
-      - DECLINED
-      - NEEDS_ACTION
-      - TENTATIVE
-      - ACCEPTED
-      - UNKNOWN
-    EventResponseStatus:
-      type: string
-      enum:
-      - None
-      - Organizer
-      - Accepted
-      - Declined
-      - TentativelyAccepted
-      - NotResponded
-      x-enum-varnames:
-      - None
-      - Organizer
-      - Accepted
-      - Declined
-      - TentativelyAccepted
-      - NotResponded
-    AllDayDateRange:
-      required:
-      - end
-      - start
-      type: object
-      properties:
-        start:
-          type: string
-          format: date
-        end:
-          type: string
-          format: date
-        type:
-          type: string
-    AssistPolicyOverride:
-      required:
-      - durationMax
-      - durationMin
-      - forceDefend
-      - idealTime
-      - windowEnd
-      - windowStart
-      type: object
-      properties:
-        windowStart:
-          type: string
-          format: partial-time
-        idealTime:
-          type: string
-          format: partial-time
-        windowEnd:
-          type: string
-          format: partial-time
-        durationMin:
-          type: integer
-          format: int32
-        durationMax:
-          type: integer
-          format: int32
-        forceDefend:
-          type: boolean
-    EventSourceDetails:
-      required:
-      - base64Id
-      - calendarId
-      - description
-      - etag
-      - eventId
-      - eventKey
-      - title
-      - url
-      - writable
-      type: object
-      properties:
-        writable:
-          type: boolean
-        calendarId:
-          type: integer
-          format: int64
-        eventId:
-          type: string
-        etag:
-          type: string
-        eventKey:
-          $ref: '#/components/schemas/EventKey'
-        base64Id:
-          type: string
-        url:
-          type: string
-        title:
-          type: string
-        description:
-          type: string
+        policyAssociations:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolicyAssociation'
+        readOnlyReason:
+          allOf:
+          - $ref: '#/components/schemas/EventReadOnlyReason'
     CalendarEventV2:
       required:
       - attendeesAndResources
@@ -1891,6 +1508,155 @@ components:
           type: boolean
         titleTruncated:
           type: boolean
+    PrioritySource:
+      type: string
+      enum:
+      - MANUAL
+      - AI
+      - RULES
+    RecurringSeriesView.RecurrenceMetadataView:
+      required:
+      - managementType
+      type: object
+      properties:
+        lastInstance:
+          allOf:
+          - $ref: '#/components/schemas/RecurrenceInstanceSummaryView'
+        nextInstance:
+          allOf:
+          - $ref: '#/components/schemas/RecurrenceInstanceSummaryView'
+        managementType:
+          $ref: '#/components/schemas/SeriesManagementType'
+    TaskId:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        type:
+          type: string
+    RecurrenceEditType:
+      type: string
+      enum:
+      - ALL
+      - THIS_AND_FOLLOWING
+    SchedulePolicyType:
+      type: string
+      enum:
+      - AttendeeAvailabilityWarningPolicy
+      - BasicEventWarningPolicy
+      - BufferEventPolicy
+      - EventConflictPolicy
+      - FocusTimePolicy
+      - HabitPolicy
+      - LacksRsvpPolicy
+      - LacksVideoConferencePolicy
+      - ManagedEventSchedulingPolicy
+      - ShieldsUpPolicy
+      - SmartMeetingPolicy
+      - UNKNOWN
+      x-enum-varnames:
+      - AttendeeAvailabilityWarningPolicy
+      - BasicEventWarningPolicy
+      - BufferEventPolicy
+      - EventConflictPolicy
+      - FocusTimePolicy
+      - HabitPolicy
+      - LacksRsvpPolicy
+      - LacksVideoConferencePolicy
+      - ManagedEventSchedulingPolicy
+      - ShieldsUpPolicy
+      - SmartMeetingPolicy
+      - UNKNOWN
+    TaskEventData:
+      required:
+      - gtdTaskId
+      type: object
+      properties:
+        gtdTaskId:
+          type: string
+    EventParticipant:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          EventResourceParticipant: '#/components/schemas/EventResourceParticipant'
+          EventAttendeeParticipant: '#/components/schemas/EventAttendeeParticipant'
+      oneOf:
+      - $ref: '#/components/schemas/EventAttendeeParticipant'
+      - $ref: '#/components/schemas/EventResourceParticipant'
+    GoogleCalendarEventMetadata:
+      required:
+      - guestsCanInviteOthers
+      - guestsCanModify
+      - guestsCanSeeOtherGuests
+      type: object
+      properties:
+        guestsCanModify:
+          type: boolean
+        guestsCanInviteOthers:
+          type: boolean
+        guestsCanSeeOtherGuests:
+          type: boolean
+    FocusTimeEventData:
+      required:
+      - policyId
+      type: object
+      properties:
+        policyId:
+          type: string
+          format: uuid
+    ReclaimRecurrence:
+      required:
+      - frequency
+      type: object
+      properties:
+        interval:
+          type: integer
+          description: 'Repeat interval: 1 means every, 2 means every other, 3 means every 3rd. Defaults to 1.'
+          format: int32
+        frequency:
+          description: 'How often the event recurs: DAILY, WEEKLY, MONTHLY, or YEARLY'
+          allOf:
+          - $ref: '#/components/schemas/RecurrenceFrequency'
+        days:
+          type: array
+          description: Days of the week for WEEKLY frequency (e.g. MONDAY, WEDNESDAY, FRIDAY)
+          items:
+            $ref: '#/components/schemas/DayOfWeek'
+        monthlyDay:
+          description: Day of the month for MONTHLY frequency
+          allOf:
+          - $ref: '#/components/schemas/MonthlyDay'
+        yearlyDay:
+          description: Day of the year for YEARLY frequency
+          allOf:
+          - $ref: '#/components/schemas/YearlyDay'
+        until:
+          type: string
+          description: When the recurrence ends (yyyy-MM-ddTHH:mm:ssZ format, e.g. 2026-06-30T23:59:59Z). Mutually exclusive with count. Omit for no end date.
+          format: date-time
+        count:
+          type: integer
+          description: Total number of occurrences. Mutually exclusive with until. Omit for no end date.
+          format: int32
+        valid:
+          type: boolean
+      description: 'Recurrence pattern for a recurring event.
+
+        - frequency is always required
+
+        - For WEEKLY: days is required (which days of the week)
+
+        - For MONTHLY: monthlyDay is required (which day of the month)
+
+        - For YEARLY: yearlyDay is required (which day of the year)
+
+        - interval defaults to 1 (every occurrence)
+
+        - Optionally set count or until to limit occurrences'
     PendingConferenceData:
       required:
       - conferenceRequestType
@@ -1900,79 +1666,162 @@ components:
           $ref: '#/components/schemas/ConferenceRequestType'
         type:
           type: string
-    ReclaimEventData:
+    DailyHabitId:
       required:
-      - associations
-      - reclaimEventType
+      - id
       type: object
       properties:
-        reclaimEventType:
-          $ref: '#/components/schemas/ReclaimEventType'
-        reclaimResourceId:
-          allOf:
-          - $ref: '#/components/schemas/ReclaimResourceId'
-        eventCategory:
-          allOf:
-          - $ref: '#/components/schemas/EventCategory'
-        priority:
-          allOf:
-          - $ref: '#/components/schemas/PriorityLevel'
-        reclaimSchedulerData:
-          allOf:
-          - $ref: '#/components/schemas/ReclaimSchedulerData'
-        mergeableEvent:
-          allOf:
-          - $ref: '#/components/schemas/MergeableEvent'
-        calendarSyncSourceData:
-          allOf:
-          - $ref: '#/components/schemas/CalendarSyncSourceData'
-        assistantData:
-          allOf:
-          - $ref: '#/components/schemas/AssistantData'
-        associations:
-          $ref: '#/components/schemas/EventAssociationDetailsView'
-    PolicyAssociation:
-      required:
-      - association
-      - policyId
-      - policyType
-      type: object
-      properties:
-        policyId:
-          type: string
-          format: uuid
-        association:
-          $ref: '#/components/schemas/EventPolicyAssociation'
-        policyType:
-          $ref: '#/components/schemas/SchedulePolicyType'
-    MoreEntryPoint:
-      required:
-      - uri
-      type: object
-      properties:
-        uri:
-          type: string
-        label:
-          type:
-          - string
-          - 'null'
-        pin:
-          type:
-          - string
-          - 'null'
+        id:
+          type: integer
+          format: int64
         type:
           type: string
-    SeriesManagementType:
+    MergeDetails.EventType:
       type: string
       enum:
-      - SMART_MEETING
-      - HABIT
-      - MANUAL
-    RecurrenceEditType:
+      - ORGANIZER_EVENT
+      - ATTENDEE_EVENT
+      - SYNC_EVENT
+    CalendarSyncSourceData:
+      required:
+      - description
+      - title
+      - url
+      type: object
+      properties:
+        url:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+    TravelBufferId:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+    FixedDateTimeRange:
+      required:
+      - end
+      - start
+      type: object
+      properties:
+        start:
+          type: string
+          format: date-time
+        end:
+          type: string
+          format: date-time
+        type:
+          type: string
+    EventReadOnlyReason:
+      type: string
+      enum:
+      - SYNTHETIC_EDITABLE_AFTER_APPLY
+      - FOCUS_CANNOT_BE_MODIFIED
+    ConferenceEntryPoint:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          MoreEntryPoint: '#/components/schemas/MoreEntryPoint'
+          SipEntryPoint: '#/components/schemas/SipEntryPoint'
+          VideoEntryPoint: '#/components/schemas/VideoEntryPoint'
+          PhoneEntryPoint: '#/components/schemas/PhoneEntryPoint'
+      oneOf:
+      - $ref: '#/components/schemas/VideoEntryPoint'
+      - $ref: '#/components/schemas/PhoneEntryPoint'
+      - $ref: '#/components/schemas/SipEntryPoint'
+      - $ref: '#/components/schemas/MoreEntryPoint'
+    FocusTimeChatStatus:
+      type: string
+      enum:
+      - AVAILABLE
+      - DO_NOT_DISTURB
+      x-type: String
+    EventPolicyAssociation:
+      type: string
+      enum:
+      - GLOBAL
+      - MATCHES
+      - CREATOR
+      - TARGET
+      - NONE
+      - PROPOSED
+    ConferenceData:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          MeetConferenceData: '#/components/schemas/MeetConferenceData'
+          TeamsConferenceData: '#/components/schemas/TeamsConferenceData'
+          ZoomConferenceData: '#/components/schemas/ZoomConferenceData'
+          PendingConferenceData: '#/components/schemas/PendingConferenceData'
+      oneOf:
+      - $ref: '#/components/schemas/MeetConferenceData'
+      - $ref: '#/components/schemas/TeamsConferenceData'
+      - $ref: '#/components/schemas/ZoomConferenceData'
+      - $ref: '#/components/schemas/PendingConferenceData'
+    EventKey:
+      required:
+      - calendarId
+      - eventId
+      type: object
+      properties:
+        eventId:
+          type: string
+        calendarId:
+          type: integer
+          format: int64
+    ReclaimResourceId:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          TaskId: '#/components/schemas/TaskId'
+          SchedulingLinkMeetingId: '#/components/schemas/SchedulingLinkMeetingId'
+          TravelBufferId: '#/components/schemas/TravelBufferId'
+          DailyHabitId: '#/components/schemas/DailyHabitId'
+          SmartSeriesId: '#/components/schemas/SmartSeriesId'
+          FocusId: '#/components/schemas/FocusId'
+          ConferenceBufferId: '#/components/schemas/ConferenceBufferId'
+          SchedulingLinkId: '#/components/schemas/SchedulingLinkId'
+      oneOf:
+      - $ref: '#/components/schemas/DailyHabitId'
+      - $ref: '#/components/schemas/FocusId'
+      - $ref: '#/components/schemas/SchedulingLinkId'
+      - $ref: '#/components/schemas/SchedulingLinkMeetingId'
+      - $ref: '#/components/schemas/SmartSeriesId'
+      - $ref: '#/components/schemas/TaskId'
+      - $ref: '#/components/schemas/ConferenceBufferId'
+      - $ref: '#/components/schemas/TravelBufferId'
+    RecurringEventUpdatePeriod:
       type: string
       enum:
       - ALL
-      - THIS_AND_FOLLOWING
+      - SINGLE
+    MonthlyDay:
+      type: object
+      properties:
+        dayOfMonth:
+          type: integer
+          description: A specific day of the month (1-31, or -1 for last day)
+          format: int32
+        dayOfWeek:
+          description: Day of the week for relative monthly days (e.g. TUESDAY). Use with week.
+          allOf:
+          - $ref: '#/components/schemas/DayOfWeek'
+        week:
+          type: integer
+          description: Which week of the month (1-4, or -1 for last). Use with dayOfWeek.
+          format: int32
+      description: 'Day of the month. Use EITHER dayOfMonth for a fixed day, OR dayOfWeek + week for a relative day.
+
+        Examples: dayOfMonth=15 for "the 15th", or dayOfWeek=TUESDAY + week=3 for "3rd Tuesday".'
     SipEntryPoint:
       required:
       - uri
@@ -1990,6 +1839,139 @@ components:
           - 'null'
         type:
           type: string
+    OutlookEventData:
+      type: object
+    ConferenceRequestType:
+      type: string
+      enum:
+      - MeetConferenceRequest
+      - TeamsConferenceRequest
+      - ZoomConferenceRequest
+      x-enum-varnames:
+      - MeetConferenceRequest
+      - TeamsConferenceRequest
+      - ZoomConferenceRequest
+    EventColor:
+      type: string
+      enum:
+      - NONE
+      - LAVENDER
+      - SAGE
+      - GRAPE
+      - FLAMINGO
+      - BANANA
+      - TANGERINE
+      - PEACOCK
+      - GRAPHITE
+      - BLUEBERRY
+      - BASIL
+      - TOMATO
+    VideoEntryPoint:
+      required:
+      - uri
+      type: object
+      properties:
+        uri:
+          type: string
+        label:
+          type:
+          - string
+          - 'null'
+        meetingCode:
+          type:
+          - string
+          - 'null'
+        passcode:
+          type:
+          - string
+          - 'null'
+        type:
+          type: string
+    EventAttendeeParticipant:
+      required:
+      - email
+      type: object
+      properties:
+        email:
+          type: string
+        self:
+          type:
+          - boolean
+          - 'null'
+        displayName:
+          type:
+          - string
+          - 'null'
+        responseStatus:
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        comment:
+          type:
+          - string
+          - 'null'
+        optional:
+          type:
+          - boolean
+          - 'null'
+        additionalGuests:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        organizer:
+          type:
+          - boolean
+          - 'null'
+        type:
+          type: string
+    EventAttendee:
+      required:
+      - email
+      type: object
+      properties:
+        email:
+          type: string
+        self:
+          type:
+          - boolean
+          - 'null'
+        displayName:
+          type:
+          - string
+          - 'null'
+        responseStatus:
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        comment:
+          type:
+          - string
+          - 'null'
+        optional:
+          type:
+          - boolean
+          - 'null'
+        additionalGuests:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        organizer:
+          type:
+          - boolean
+          - 'null'
+        resource:
+          type:
+          - boolean
+          - 'null'
+    PlatformEventType:
+      type: string
+      enum:
+      - DEFAULT
+      - OUT_OF_OFFICE
+      - FROM_MAIL
+      - WORKING_LOCATION
+      - FOCUS_TIME
+      - BIRTHDAY
     EventWithData:
       required:
       - rawData
@@ -2034,361 +2016,193 @@ components:
           manuallyStarted:
             type: boolean
           rawData: {}
-    EventParticipant:
-      type: object
-      discriminator:
-        propertyName: type
-        mapping:
-          EventResourceParticipant: '#/components/schemas/EventResourceParticipant'
-          EventAttendeeParticipant: '#/components/schemas/EventAttendeeParticipant'
-      oneOf:
-      - $ref: '#/components/schemas/EventAttendeeParticipant'
-      - $ref: '#/components/schemas/EventResourceParticipant'
-    FocusId:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        type:
-          type: string
-    AutoDeclineMode:
-      type: string
-      enum:
-      - DECLINE_NONE
-      - DECLINE_ALL_CONFLICTING_INVITATIONS
-      - DECLINE_ONLY_NEW_CONFLICTING_INVITATIONS
-      x-type: String
-    EventKey:
-      required:
-      - calendarId
-      - eventId
-      type: object
-      properties:
-        eventId:
-          type: string
-        calendarId:
-          type: integer
-          format: int64
-    DayOfWeek:
-      type: string
-      enum:
-      - MONDAY
-      - TUESDAY
-      - WEDNESDAY
-      - THURSDAY
-      - FRIDAY
-      - SATURDAY
-      - SUNDAY
-    MeetingType:
-      type: string
-      enum:
-      - DIRECT_11
-      - PEER_11
-      - SKIP_11
-      - XFUNC_11
-      - OTHER_11
-      - TEAM
-      - XFUNC_TEAM
-      - EXEC
-      - SKIP_TEAM
-      - ALL_HANDS
-      - ONBOARDING_TRAINING
-      - COMPANY_EVENT
-      - BOARD_MEETING
-      - OTHER_STAFF
-      - DEAL_REVIEW
-      - EXECUTION_REVIEW
-      - DEMO
-      - PLANNING_MEETING
-      - RETRO
-      - EMERGENCY
-      - PEOPLE_REVIEW
-      - OTHER_OP
-      - ROADMAP
-      - CUST_MEETING
-      - CUST_RESEARCH
-      - CUST_URGENT
-      - RECRUIT_SCREEN
-      - OTHER_EXTERNAL
-      - DESIGN_BRAIN
-      - TECH_REVIEW
-      - KICKOFF
-      - REQ_BRAIN
-      - OTHER_IDEATION
-      - UNKNOWN
-    ConferenceEntryPoint:
-      type: object
-      discriminator:
-        propertyName: type
-        mapping:
-          MoreEntryPoint: '#/components/schemas/MoreEntryPoint'
-          SipEntryPoint: '#/components/schemas/SipEntryPoint'
-          VideoEntryPoint: '#/components/schemas/VideoEntryPoint'
-          PhoneEntryPoint: '#/components/schemas/PhoneEntryPoint'
-      oneOf:
-      - $ref: '#/components/schemas/VideoEntryPoint'
-      - $ref: '#/components/schemas/PhoneEntryPoint'
-      - $ref: '#/components/schemas/SipEntryPoint'
-      - $ref: '#/components/schemas/MoreEntryPoint'
-    YearlyDay:
-      type: object
-      properties:
-        month:
-          description: The month (e.g. JANUARY, MARCH, NOVEMBER)
-          allOf:
-          - $ref: '#/components/schemas/Month'
-        monthlyDay:
-          description: Which day within the month
-          allOf:
-          - $ref: '#/components/schemas/MonthlyDay'
-      description: Day of the year for YEARLY recurrences.
-    RecurringAssignmentType:
-      type: string
-      enum:
-      - ONE_ON_ONE
-      - DAILY_HABIT
-      - TASK
-    EventAssociationDetailsView:
-      required:
-      - canLock
-      - canUnlock
-      - locked
-      - policyAssociations
-      type: object
-      properties:
-        locked:
-          type: boolean
-        canLock:
-          type: boolean
-        canUnlock:
-          type: boolean
-        policyAssociations:
-          type: array
-          items:
-            $ref: '#/components/schemas/PolicyAssociation'
-        readOnlyReason:
-          allOf:
-          - $ref: '#/components/schemas/EventReadOnlyReason'
-    VideoEntryPoint:
-      required:
-      - uri
-      type: object
-      properties:
-        uri:
-          type: string
-        label:
-          type:
-          - string
-          - 'null'
-        meetingCode:
-          type:
-          - string
-          - 'null'
-        passcode:
-          type:
-          - string
-          - 'null'
-        type:
-          type: string
-    ConferenceRequestType:
-      type: string
-      enum:
-      - MeetConferenceRequest
-      - TeamsConferenceRequest
-      - ZoomConferenceRequest
-      x-enum-varnames:
-      - MeetConferenceRequest
-      - TeamsConferenceRequest
-      - ZoomConferenceRequest
-    SchedulingLinkId:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-    AssistType:
-      type: string
-      enum:
-      - TASK
-      - CUSTOM_DAILY
-      - CATCHUP_AM
-      - CATCHUP_PM
-      - LUNCH
-      - FOCUS
-      - TRAVEL_PRE
-      - TRAVEL_POST
-      - CONBUF
-      - SMART_HABIT
-      - SMART_MEETING
-      - RECLAIM_FOCUS
-    Colorized:
-      type: object
-      properties:
-        color:
-          $ref: '#/components/schemas/EventColor'
-    EventReadOnlyReason:
-      type: string
-      enum:
-      - SYNTHETIC_EDITABLE_AFTER_APPLY
-      - FOCUS_CANNOT_BE_MODIFIED
-    TaskEventData:
-      required:
-      - gtdTaskId
-      type: object
-      properties:
-        gtdTaskId:
-          type: string
-    FocusTimeChatStatus:
-      type: string
-      enum:
-      - AVAILABLE
-      - DO_NOT_DISTURB
-      x-type: String
-    RecurringEventUpdatePeriod:
-      type: string
-      enum:
-      - ALL
-      - SINGLE
-    ReclaimSchedulerData:
-      required:
-      - assistType
-      - manuallyStarted
-      - pinned
-      type: object
-      properties:
-        assistType:
-          $ref: '#/components/schemas/AssistType'
-        pinned:
-          type: boolean
-        manuallyStarted:
-          type: boolean
-    TeamsConferenceData:
+    MeetConferenceData:
       required:
       - conferenceUrl
+      - entryPoints
       type: object
       properties:
         conferenceUrl:
           type: string
         entryPoints:
-          type:
-          - array
-          - 'null'
+          type: array
           items:
             $ref: '#/components/schemas/ConferenceEntryPoint'
         type:
           type: string
-    PriorityLevel:
-      type: string
-      enum:
-      - P1
-      - P2
-      - P3
-      - P4
-      - PRIORITIZE
-      - DEFAULT
-      x-deprecated:
-      - PRIORITIZE
-      - DEFAULT
-    RecurrenceFrequency:
-      type: string
-      enum:
-      - DAILY
-      - WEEKLY
-      - MONTHLY
-      - YEARLY
-    EventSubType:
-      type: string
-      enum:
-      - ONE_ON_ONE
-      - STAFF_MEETING
-      - OP_REVIEW
-      - EXTERNAL
-      - IDEATION
-      - FOCUS
-      - PRODUCTIVITY
-      - TRAVEL
-      - FLIGHT
-      - TRAIN
-      - RECLAIM
-      - VACATION
-      - HEALTH
-      - ERRAND
-      - OTHER_PERSONAL
-      - UNKNOWN
-    EventCategory:
-      $ref: '#/components/schemas/Colorized'
-    ReclaimResourceId:
-      type: object
-      discriminator:
-        propertyName: type
-        mapping:
-          TaskId: '#/components/schemas/TaskId'
-          SchedulingLinkMeetingId: '#/components/schemas/SchedulingLinkMeetingId'
-          TravelBufferId: '#/components/schemas/TravelBufferId'
-          DailyHabitId: '#/components/schemas/DailyHabitId'
-          SmartSeriesId: '#/components/schemas/SmartSeriesId'
-          FocusId: '#/components/schemas/FocusId'
-          ConferenceBufferId: '#/components/schemas/ConferenceBufferId'
-          SchedulingLinkId: '#/components/schemas/SchedulingLinkId'
-      oneOf:
-      - $ref: '#/components/schemas/DailyHabitId'
-      - $ref: '#/components/schemas/FocusId'
-      - $ref: '#/components/schemas/SchedulingLinkId'
-      - $ref: '#/components/schemas/SchedulingLinkMeetingId'
-      - $ref: '#/components/schemas/SmartSeriesId'
-      - $ref: '#/components/schemas/TaskId'
-      - $ref: '#/components/schemas/ConferenceBufferId'
-      - $ref: '#/components/schemas/TravelBufferId'
-    ConferenceData:
-      type: object
-      discriminator:
-        propertyName: type
-        mapping:
-          MeetConferenceData: '#/components/schemas/MeetConferenceData'
-          TeamsConferenceData: '#/components/schemas/TeamsConferenceData'
-          ZoomConferenceData: '#/components/schemas/ZoomConferenceData'
-          PendingConferenceData: '#/components/schemas/PendingConferenceData'
-      oneOf:
-      - $ref: '#/components/schemas/MeetConferenceData'
-      - $ref: '#/components/schemas/TeamsConferenceData'
-      - $ref: '#/components/schemas/ZoomConferenceData'
-      - $ref: '#/components/schemas/PendingConferenceData'
-    EntryStatus:
-      type: string
-      enum:
-      - CONFIRMED
-      - TENTATIVE
-      - CANCELLED
-    MergeDetails.EventType:
-      type: string
-      enum:
-      - ORGANIZER_EVENT
-      - ATTENDEE_EVENT
-      - SYNC_EVENT
-    RecurrenceContinuityData:
+    GoogleEventData:
+      required:
+      - guestPermissions
       type: object
       properties:
-        lastPendingSync:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        successorExternalId:
-          type:
-          - string
-          - 'null'
-    SortOrder:
+        guestPermissions:
+          $ref: '#/components/schemas/GuestPermissions'
+        focusTimeProperties:
+          allOf:
+          - $ref: '#/components/schemas/FocusTimeProperties'
+        type:
+          type: string
+    EventType:
       type: string
       enum:
-      - ASCENDING
-      - DESCENDING
-      - UNSORTED
+      - MEETING
+      - WORK
+      - LOGISTICS
+      - PERSONAL
+    ShieldsUpEventData:
+      required:
+      - policyId
+      type: object
+      properties:
+        policyId:
+          type: string
+          format: uuid
+    ResponseStatus:
+      type: string
+      enum:
+      - DECLINED
+      - NEEDS_ACTION
+      - TENTATIVE
+      - ACCEPTED
+      - UNKNOWN
+    FreeBusy:
+      type: string
+      enum:
+      - FREE
+      - BUSY
+    Colorized:
+      type: object
+      properties:
+        color:
+          $ref: '#/components/schemas/EventColor'
+    AllDayDateRange:
+      required:
+      - end
+      - start
+      type: object
+      properties:
+        start:
+          type: string
+          format: date
+        end:
+          type: string
+          format: date
+        type:
+          type: string
+    MergeDetails:
+      required:
+      - key
+      - sourceCalendarId
+      - sourceReclaimCalendarId
+      - type
+      type: object
+      properties:
+        key:
+          type: string
+        type:
+          $ref: '#/components/schemas/MergeDetails.EventType'
+        sourceCalendarId:
+          type:
+          - string
+          - 'null'
+        sourceReclaimCalendarId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+    BufferEventData:
+      required:
+      - bufferEventType
+      - bufferTarget
+      - policyId
+      type: object
+      properties:
+        bufferTarget:
+          $ref: '#/components/schemas/EventKey'
+        policyId:
+          type: string
+          format: uuid
+        bufferEventType:
+          $ref: '#/components/schemas/BufferEventType'
+        bufferEventDateRange:
+          allOf:
+          - $ref: '#/components/schemas/EventDateRange'
+    EventCategory:
+      $ref: '#/components/schemas/Colorized'
+    Month:
+      type: string
+      enum:
+      - JANUARY
+      - FEBRUARY
+      - MARCH
+      - APRIL
+      - MAY
+      - JUNE
+      - JULY
+      - AUGUST
+      - SEPTEMBER
+      - OCTOBER
+      - NOVEMBER
+      - DECEMBER
+    ManagedEventData:
+      type: object
+      properties:
+        originalDurationMinutes:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        linkedSuccessorExternalId:
+          type:
+          - string
+          - 'null'
+    VersionData:
+      type: object
+      properties:
+        syncStatus:
+          allOf:
+          - $ref: '#/components/schemas/SyncStatus'
+        ceVersion:
+          type:
+          - integer
+          - 'null'
+          format: int32
+    SchedulingLinkMeetingId:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+    AllowedEditTypeReason:
+      type: string
+      enum:
+      - SINGLE_INSTANCE
+      - RECURRENCE_INSTANCE
+      - FIRST_INSTANCE
+      - PENDING_RECURRENCE_CHANGE
+      - FOCUS_CANNOT_BE_MODIFIED
+      - SYNTHETIC_EDITABLE_AFTER_APPLY
+      - SERIES_ROOT
+      - RECURRING_ATTENDEE
+    RecurringSeriesView:
+      required:
+      - event
+      - recurrence
+      type: object
+      properties:
+        event:
+          $ref: '#/components/schemas/CalendarEventV2'
+        recurrence:
+          $ref: '#/components/schemas/RecurringSeriesView.RecurrenceMetadataView'
+    BufferEventType:
+      type: string
+      enum:
+      - BEFORE
+      - AFTER
+      - BEFORE_AND_AFTER
     AssistDetails:
       type: object
       properties:
@@ -2478,6 +2292,134 @@ components:
         assistReferenceValid:
           type: boolean
       description: This entity maps to the assist_events table.
+    AssistPolicyOverride:
+      required:
+      - durationMax
+      - durationMin
+      - forceDefend
+      - idealTime
+      - windowEnd
+      - windowStart
+      type: object
+      properties:
+        windowStart:
+          type: string
+          format: partial-time
+        idealTime:
+          type: string
+          format: partial-time
+        windowEnd:
+          type: string
+          format: partial-time
+        durationMin:
+          type: integer
+          format: int32
+        durationMax:
+          type: integer
+          format: int32
+        forceDefend:
+          type: boolean
+    MeetingType:
+      type: string
+      enum:
+      - DIRECT_11
+      - PEER_11
+      - SKIP_11
+      - XFUNC_11
+      - OTHER_11
+      - TEAM
+      - XFUNC_TEAM
+      - EXEC
+      - SKIP_TEAM
+      - ALL_HANDS
+      - ONBOARDING_TRAINING
+      - COMPANY_EVENT
+      - BOARD_MEETING
+      - OTHER_STAFF
+      - DEAL_REVIEW
+      - EXECUTION_REVIEW
+      - DEMO
+      - PLANNING_MEETING
+      - RETRO
+      - EMERGENCY
+      - PEOPLE_REVIEW
+      - OTHER_OP
+      - ROADMAP
+      - CUST_MEETING
+      - CUST_RESEARCH
+      - CUST_URGENT
+      - RECRUIT_SCREEN
+      - OTHER_EXTERNAL
+      - DESIGN_BRAIN
+      - TECH_REVIEW
+      - KICKOFF
+      - REQ_BRAIN
+      - OTHER_IDEATION
+      - UNKNOWN
+    RecurrenceFrequency:
+      type: string
+      enum:
+      - DAILY
+      - WEEKLY
+      - MONTHLY
+      - YEARLY
+    PriorityLevel:
+      type: string
+      enum:
+      - P1
+      - P2
+      - P3
+      - P4
+      - PRIORITIZE
+      - DEFAULT
+      x-deprecated:
+      - PRIORITIZE
+      - DEFAULT
+    Page_RecurringSeriesView_:
+      required:
+      - count
+      - first
+      - hasNextPage
+      - items
+      - last
+      - order
+      type: object
+      properties:
+        first:
+          type: string
+        last:
+          type: string
+        order:
+          $ref: '#/components/schemas/SortOrder'
+        count:
+          type: integer
+          format: int32
+        hasNextPage:
+          type: boolean
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/RecurringSeriesView'
+        totalCount:
+          type:
+          - integer
+          - 'null'
+          format: int64
+    ConferenceBufferId:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+    SortOrder:
+      type: string
+      enum:
+      - ASCENDING
+      - DESCENDING
+      - UNSORTED
     AssistantData:
       type: object
       properties:
@@ -2499,46 +2441,12 @@ components:
         taskEventData:
           allOf:
           - $ref: '#/components/schemas/TaskEventData'
-    OutlookEventData:
-      type: object
-    MergeableEventView.MergeType:
+    EntryStatus:
       type: string
       enum:
-      - ORGANIZER_EVENT
-      - ATTENDEE_EVENT
-      - SYNC_EVENT
-    FocusTimeEventData:
-      required:
-      - policyId
-      type: object
-      properties:
-        policyId:
-          type: string
-          format: uuid
-    MeetConferenceData:
-      required:
-      - conferenceUrl
-      - entryPoints
-      type: object
-      properties:
-        conferenceUrl:
-          type: string
-        entryPoints:
-          type: array
-          items:
-            $ref: '#/components/schemas/ConferenceEntryPoint'
-        type:
-          type: string
-    LockState:
-      type: string
-      enum:
-      - MANUALLY_LOCKED
-      - ADJUSTED
-      - UPCOMING_WINDOW
-      - MANUALLY_UNLOCKED
-      - DELETED
-      - DECLINED
-      - IN_THE_PAST
+      - CONFIRMED
+      - TENTATIVE
+      - CANCELLED
     PlatformEventData:
       type: object
       discriminator:
@@ -2549,7 +2457,206 @@ components:
       oneOf:
       - $ref: '#/components/schemas/GoogleEventData'
       - $ref: '#/components/schemas/OutlookEventData'
-    DailyHabitId:
+    RecurringAssignmentType:
+      type: string
+      enum:
+      - ONE_ON_ONE
+      - DAILY_HABIT
+      - TASK
+    GuestPermissions:
+      required:
+      - guestsCanInviteOthers
+      - guestsCanModify
+      - guestsCanSeeOtherGuests
+      type: object
+      properties:
+        guestsCanModify:
+          type: boolean
+        guestsCanInviteOthers:
+          type: boolean
+        guestsCanSeeOtherGuests:
+          type: boolean
+    PolicyAssociation:
+      required:
+      - association
+      - policyId
+      - policyType
+      type: object
+      properties:
+        policyId:
+          type: string
+          format: uuid
+        association:
+          $ref: '#/components/schemas/EventPolicyAssociation'
+        policyType:
+          $ref: '#/components/schemas/SchedulePolicyType'
+    ReclaimSchedulerData:
+      required:
+      - assistType
+      - manuallyStarted
+      - pinned
+      type: object
+      properties:
+        assistType:
+          $ref: '#/components/schemas/AssistType'
+        pinned:
+          type: boolean
+        manuallyStarted:
+          type: boolean
+    EventSubType:
+      type: string
+      enum:
+      - ONE_ON_ONE
+      - STAFF_MEETING
+      - OP_REVIEW
+      - EXTERNAL
+      - IDEATION
+      - FOCUS
+      - PRODUCTIVITY
+      - TRAVEL
+      - FLIGHT
+      - TRAIN
+      - RECLAIM
+      - VACATION
+      - HEALTH
+      - ERRAND
+      - OTHER_PERSONAL
+      - UNKNOWN
+    EventSourceDetails:
+      required:
+      - base64Id
+      - calendarId
+      - description
+      - etag
+      - eventId
+      - eventKey
+      - title
+      - url
+      - writable
+      type: object
+      properties:
+        writable:
+          type: boolean
+        calendarId:
+          type: integer
+          format: int64
+        eventId:
+          type: string
+        etag:
+          type: string
+        eventKey:
+          $ref: '#/components/schemas/EventKey'
+        base64Id:
+          type: string
+        url:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+    MergeableEvent:
+      required:
+      - calendarId
+      - eventId
+      - referenceType
+      - shouldMerge
+      type: object
+      properties:
+        calendarId:
+          type: integer
+          format: int64
+        eventId:
+          type: string
+        referenceType:
+          $ref: '#/components/schemas/MergeableEventView.MergeType'
+        shouldMerge:
+          type: boolean
+    MoreEntryPoint:
+      required:
+      - uri
+      type: object
+      properties:
+        uri:
+          type: string
+        label:
+          type:
+          - string
+          - 'null'
+        pin:
+          type:
+          - string
+          - 'null'
+        type:
+          type: string
+    PhoneEntryPoint:
+      required:
+      - uri
+      type: object
+      properties:
+        uri:
+          type: string
+        label:
+          type:
+          - string
+          - 'null'
+        regionCode:
+          type:
+          - string
+          - 'null'
+        passcode:
+          type:
+          - string
+          - 'null'
+        pin:
+          type:
+          - string
+          - 'null'
+        type:
+          type: string
+    YearlyDay:
+      type: object
+      properties:
+        month:
+          description: The month (e.g. JANUARY, MARCH, NOVEMBER)
+          allOf:
+          - $ref: '#/components/schemas/Month'
+        monthlyDay:
+          description: Which day within the month
+          allOf:
+          - $ref: '#/components/schemas/MonthlyDay'
+      description: Day of the year for YEARLY recurrences.
+    ReclaimEventData:
+      required:
+      - associations
+      - reclaimEventType
+      type: object
+      properties:
+        reclaimEventType:
+          $ref: '#/components/schemas/ReclaimEventType'
+        reclaimResourceId:
+          allOf:
+          - $ref: '#/components/schemas/ReclaimResourceId'
+        eventCategory:
+          allOf:
+          - $ref: '#/components/schemas/EventCategory'
+        priority:
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+        reclaimSchedulerData:
+          allOf:
+          - $ref: '#/components/schemas/ReclaimSchedulerData'
+        mergeableEvent:
+          allOf:
+          - $ref: '#/components/schemas/MergeableEvent'
+        calendarSyncSourceData:
+          allOf:
+          - $ref: '#/components/schemas/CalendarSyncSourceData'
+        assistantData:
+          allOf:
+          - $ref: '#/components/schemas/AssistantData'
+        associations:
+          $ref: '#/components/schemas/EventAssociationDetailsView'
+    FocusId:
       required:
       - id
       type: object
@@ -2559,6 +2666,34 @@ components:
           format: int64
         type:
           type: string
+    TeamsConferenceData:
+      required:
+      - conferenceUrl
+      type: object
+      properties:
+        conferenceUrl:
+          type: string
+        entryPoints:
+          type:
+          - array
+          - 'null'
+          items:
+            $ref: '#/components/schemas/ConferenceEntryPoint'
+        type:
+          type: string
+    FocusTimeProperties:
+      type: object
+      properties:
+        autoDeclineMode:
+          allOf:
+          - $ref: '#/components/schemas/AutoDeclineMode'
+        declineMessage:
+          type:
+          - string
+          - 'null'
+        chatStatus:
+          allOf:
+          - $ref: '#/components/schemas/FocusTimeChatStatus'
     EventDateRange:
       type: object
       discriminator:
@@ -2569,142 +2704,106 @@ components:
       oneOf:
       - $ref: '#/components/schemas/FixedDateTimeRange'
       - $ref: '#/components/schemas/AllDayDateRange'
-    RecurringSeriesView.RecurrenceMetadataView:
-      required:
-      - managementType
-      type: object
-      properties:
-        lastInstance:
-          allOf:
-          - $ref: '#/components/schemas/RecurrenceInstanceSummaryView'
-        nextInstance:
-          allOf:
-          - $ref: '#/components/schemas/RecurrenceInstanceSummaryView'
-        managementType:
-          $ref: '#/components/schemas/SeriesManagementType'
-    EventPolicyAssociation:
+    MergeableEventView.MergeType:
       type: string
       enum:
-      - GLOBAL
-      - MATCHES
-      - CREATOR
-      - TARGET
-      - NONE
-      - PROPOSED
-    ConferenceBufferId:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-    Reminder:
-      required:
-      - minutes
-      - reminderType
-      type: object
-      properties:
-        reminderType:
-          $ref: '#/components/schemas/ReminderType'
-        minutes:
-          type: integer
-          format: int32
-    TravelBufferId:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-    AllowedEditTypesView:
-      required:
-      - reason
-      - types
-      type: object
-      properties:
-        types:
-          type: array
-          items:
-            $ref: '#/components/schemas/EventEditType'
-        reason:
-          $ref: '#/components/schemas/AllowedEditTypeReason'
-    RecurringSeriesView:
-      required:
-      - event
-      - recurrence
-      type: object
-      properties:
-        event:
-          $ref: '#/components/schemas/CalendarEventV2'
-        recurrence:
-          $ref: '#/components/schemas/RecurringSeriesView.RecurrenceMetadataView'
-    SchedulePolicyType:
+      - ORGANIZER_EVENT
+      - ATTENDEE_EVENT
+      - SYNC_EVENT
+    AssistStatus:
       type: string
       enum:
-      - AttendeeAvailabilityWarningPolicy
-      - BasicEventWarningPolicy
-      - BufferEventPolicy
-      - EventConflictPolicy
-      - FocusTimePolicy
-      - HabitPolicy
-      - LacksRsvpPolicy
-      - LacksVideoConferencePolicy
-      - ManagedEventSchedulingPolicy
-      - ShieldsUpPolicy
-      - SmartMeetingPolicy
-      - UNKNOWN
-      x-enum-varnames:
-      - AttendeeAvailabilityWarningPolicy
-      - BasicEventWarningPolicy
-      - BufferEventPolicy
-      - EventConflictPolicy
-      - FocusTimePolicy
-      - HabitPolicy
-      - LacksRsvpPolicy
-      - LacksVideoConferencePolicy
-      - ManagedEventSchedulingPolicy
-      - ShieldsUpPolicy
-      - SmartMeetingPolicy
-      - UNKNOWN
-    FixedDateTimeRange:
+      - CONTROLLED
+      - RELEASED
+      - ARCHIVED
+    EventResourceParticipant:
       required:
-      - end
-      - start
+      - email
       type: object
       properties:
-        start:
-          type: string
-          format: date-time
-        end:
-          type: string
-          format: date-time
-        type:
-          type: string
-    MergeDetails:
-      required:
-      - key
-      - sourceCalendarId
-      - sourceReclaimCalendarId
-      - type
-      type: object
-      properties:
-        key:
-          type: string
-        type:
-          $ref: '#/components/schemas/MergeDetails.EventType'
-        sourceCalendarId:
+        displayName:
           type:
           - string
           - 'null'
-        sourceReclaimCalendarId:
+        email:
+          type: string
+        capacity:
           type:
           - integer
           - 'null'
+          format: int32
+        buildingId:
+          type:
+          - string
+          - 'null'
+        buildingName:
+          type:
+          - string
+          - 'null'
+        buildingDescription:
+          type:
+          - string
+          - 'null'
+        floorName:
+          type:
+          - string
+          - 'null'
+        category:
+          type:
+          - string
+          - 'null'
+        type:
+          type: string
+    SmartSeriesId:
+      required:
+      - lineageId
+      - seriesId
+      type: object
+      properties:
+        seriesId:
+          type: integer
           format: int64
+        lineageId:
+          type: integer
+          format: int64
+        type:
+          type: string
+    EventStatus:
+      type: string
+      enum:
+      - PUBLISHED
+      - CANCELLED
+    SchedulingLinkId:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+    SyncStatus:
+      type: string
+      enum:
+      - PENDING
+      - SYNCED
+      - RETRYING
+      - FATAL_UNKNOWN
+    LockState:
+      type: string
+      enum:
+      - MANUALLY_LOCKED
+      - ADJUSTED
+      - UPCOMING_WINDOW
+      - MANUALLY_UNLOCKED
+      - DELETED
+      - DECLINED
+      - IN_THE_PAST
+    DateMode:
+      type: string
+      enum:
+      - FIXED_TIMESTAMP
+      - ALL_DAY
     RecurrenceInstanceSummaryView:
       required:
       - end
@@ -2723,105 +2822,6 @@ components:
           format: date-time
         isEstimate:
           type: boolean
-    DateMode:
-      type: string
-      enum:
-      - FIXED_TIMESTAMP
-      - ALL_DAY
-    MonthlyDay:
-      type: object
-      properties:
-        dayOfMonth:
-          type: integer
-          description: A specific day of the month (1-31, or -1 for last day)
-          format: int32
-        dayOfWeek:
-          description: Day of the week for relative monthly days (e.g. TUESDAY). Use with week.
-          allOf:
-          - $ref: '#/components/schemas/DayOfWeek'
-        week:
-          type: integer
-          description: Which week of the month (1-4, or -1 for last). Use with dayOfWeek.
-          format: int32
-      description: 'Day of the month. Use EITHER dayOfMonth for a fixed day, OR dayOfWeek + week for a relative day.
-
-        Examples: dayOfMonth=15 for "the 15th", or dayOfWeek=TUESDAY + week=3 for "3rd Tuesday".'
-    EventStatus:
-      type: string
-      enum:
-      - PUBLISHED
-      - CANCELLED
-    PrioritySource:
-      type: string
-      enum:
-      - MANUAL
-      - AI
-      - RULES
-    FreeBusy:
-      type: string
-      enum:
-      - FREE
-      - BUSY
-    Visibility:
-      type: string
-      enum:
-      - DEFAULT
-      - PUBLIC
-      - PRIVATE
-    ZoomConferenceData:
-      required:
-      - conferenceUrl
-      type: object
-      properties:
-        conferenceUrl:
-          type: string
-        entryPoints:
-          type:
-          - array
-          - 'null'
-          items:
-            $ref: '#/components/schemas/ConferenceEntryPoint'
-        type:
-          type: string
-    SchedulingLinkMeetingId:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          type: string
-        type:
-          type: string
-    BufferEventData:
-      required:
-      - bufferEventType
-      - bufferTarget
-      - policyId
-      type: object
-      properties:
-        bufferTarget:
-          $ref: '#/components/schemas/EventKey'
-        policyId:
-          type: string
-          format: uuid
-        bufferEventType:
-          $ref: '#/components/schemas/BufferEventType'
-        bufferEventDateRange:
-          allOf:
-          - $ref: '#/components/schemas/EventDateRange'
-    FocusTimeProperties:
-      type: object
-      properties:
-        autoDeclineMode:
-          allOf:
-          - $ref: '#/components/schemas/AutoDeclineMode'
-        declineMessage:
-          type:
-          - string
-          - 'null'
-        chatStatus:
-          allOf:
-          - $ref: '#/components/schemas/FocusTimeChatStatus'
   securitySchemes:
     Authorization:
       type: oauth2
