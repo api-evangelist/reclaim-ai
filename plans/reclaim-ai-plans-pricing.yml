@@ -87,3 +87,82 @@ rate_limit_statements:
 - 1 week scheduling range (exc. Scheduling Links)
 - Up to 10 seats
 - Up to 100 seats
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - seat
+  units:
+  - seat
+  plans:
+  - name: Lite
+    access: other
+    model: unstated
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - none
+  - name: Starter (annual)
+    access: other
+    model: seat
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - month
+  - name: Business (annual)
+    access: other
+    model: seat
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - month
+  - name: Enterprise (annual)
+    access: other
+    model: seat
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - month
+  - name: Starter (monthly)
+    access: other
+    model: seat
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - month
+  - name: Business (monthly)
+    access: other
+    model: seat
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - month
+  - name: Enterprise (monthly)
+    access: other
+    model: unstated
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - none
+  - name: Analytics-only seats add-on
+    access: other
+    model: unstated
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - none
+  - name: Enterprise pilot add-on
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
