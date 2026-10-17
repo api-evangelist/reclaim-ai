@@ -220,92 +220,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    PriorityLevel:
-      type: string
-      enum:
-      - P1
-      - P2
-      - P3
-      - P4
-      - PRIORITIZE
-      - DEFAULT
-      x-deprecated:
-      - PRIORITIZE
-      - DEFAULT
-    CreateReclaimTaskRequest:
-      required:
-      - title
-      type: object
-      properties:
-        title:
-          type: string
-        dueDate:
-          type:
-          - string
-          - 'null'
-          format: date
-        startDate:
-          type:
-          - string
-          - 'null'
-          format: date
-        estimateMinutes:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        priority:
-          allOf:
-          - $ref: '#/components/schemas/PriorityLevel'
-    ReclaimTaskRelativeDue:
-      type: string
-      enum:
-      - TODAY
-      - THIS_WEEK
-      - THIS_MONTH
-    GtdTaskLink:
-      required:
-      - url
-      type: object
-      properties:
-        url:
-          type: string
-    Page_ReclaimTaskView_:
-      required:
-      - count
-      - first
-      - hasNextPage
-      - items
-      - last
-      - order
-      type: object
-      properties:
-        first:
-          type: string
-        last:
-          type: string
-        order:
-          $ref: '#/components/schemas/SortOrder'
-        count:
-          type: integer
-          format: int32
-        hasNextPage:
-          type: boolean
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/ReclaimTask'
-        totalCount:
-          type:
-          - integer
-          - 'null'
-          format: int64
-    SortOrder:
-      type: string
-      enum:
-      - ASCENDING
-      - DESCENDING
-      - UNSORTED
     ReclaimTask:
       required:
       - completed
@@ -354,6 +268,19 @@ components:
           additionalProperties: true
         type:
           type: string
+    GtdTaskLink:
+      required:
+      - url
+      type: object
+      properties:
+        url:
+          type: string
+    ReclaimTaskRelativeDue:
+      type: string
+      enum:
+      - TODAY
+      - THIS_WEEK
+      - THIS_MONTH
     UpdateReclaimTaskRequest:
       type: object
       properties:
@@ -383,12 +310,85 @@ components:
         priority:
           allOf:
           - $ref: '#/components/schemas/PriorityLevel'
+    Page_ReclaimTaskView_:
+      required:
+      - count
+      - first
+      - hasNextPage
+      - items
+      - last
+      - order
+      type: object
+      properties:
+        first:
+          type: string
+        last:
+          type: string
+        order:
+          $ref: '#/components/schemas/SortOrder'
+        count:
+          type: integer
+          format: int32
+        hasNextPage:
+          type: boolean
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReclaimTask'
+        totalCount:
+          type:
+          - integer
+          - 'null'
+          format: int64
+    PriorityLevel:
+      type: string
+      enum:
+      - P1
+      - P2
+      - P3
+      - P4
+      - PRIORITIZE
+      - DEFAULT
+      x-deprecated:
+      - PRIORITIZE
+      - DEFAULT
     ReclaimTaskSortField:
       type: string
       enum:
       - DUE_DATE
       - NAME
       - PRIORITY
+    CreateReclaimTaskRequest:
+      required:
+      - title
+      type: object
+      properties:
+        title:
+          type: string
+        dueDate:
+          type:
+          - string
+          - 'null'
+          format: date
+        startDate:
+          type:
+          - string
+          - 'null'
+          format: date
+        estimateMinutes:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        priority:
+          allOf:
+          - $ref: '#/components/schemas/PriorityLevel'
+    SortOrder:
+      type: string
+      enum:
+      - ASCENDING
+      - DESCENDING
+      - UNSORTED
   securitySchemes:
     Authorization:
       type: oauth2

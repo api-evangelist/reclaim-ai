@@ -87,12 +87,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    SortOrder:
-      type: string
-      enum:
-      - ASCENDING
-      - DESCENDING
-      - UNSORTED
     UserMemoryView:
       required:
       - content
@@ -141,6 +135,12 @@ components:
           - integer
           - 'null'
           format: int64
+    SortOrder:
+      type: string
+      enum:
+      - ASCENDING
+      - DESCENDING
+      - UNSORTED
   securitySchemes:
     Authorization:
       type: oauth2

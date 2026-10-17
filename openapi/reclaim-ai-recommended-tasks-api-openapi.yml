@@ -97,17 +97,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    RecommendedTaskSourceType:
-      type: string
-      enum:
-      - ZOOM
-    UpdateRecommendedTaskStatusRequest:
-      required:
-      - status
-      type: object
-      properties:
-        status:
-          $ref: '#/components/schemas/RecommendedTaskStatus'
     TranscriptSnippetItem:
       required:
       - text
@@ -223,6 +212,17 @@ components:
       - ACCEPTED
       - REJECTED
       - ERROR
+    UpdateRecommendedTaskStatusRequest:
+      required:
+      - status
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/RecommendedTaskStatus'
+    RecommendedTaskSourceType:
+      type: string
+      enum:
+      - ZOOM
   securitySchemes:
     Authorization:
       type: oauth2

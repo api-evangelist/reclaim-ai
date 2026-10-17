@@ -168,187 +168,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    FocusTimeBalloonFillType:
-      type: string
-      enum:
-      - BALLOON_FILL_NORMAL
-      - BALLOON_FILL_MAXIMIZE_DURATIONS
-    FocusTimeSchedulingTypeV2:
-      type: string
-      enum:
-      - BALLOON_FILL
-      - CIRCUIT_BREAKER
-    ReclaimEventType:
-      type: string
-      enum:
-      - USER
-      - SYNC
-      - HABIT_ASSIGNMENT
-      - SMART_HABIT
-      - ONE_ON_ONE_ASSIGNMENT
-      - SMART_MEETING
-      - TASK_ASSIGNMENT
-      - CONF_BUFFER
-      - TRAVEL_BUFFER
-      - SCHEDULING_LINK_MEETING
-      - UNKNOWN
-      - FOCUS
-    EventResponseStatus:
-      type: string
-      enum:
-      - None
-      - Organizer
-      - Accepted
-      - Declined
-      - TentativelyAccepted
-      - NotResponded
-      x-enum-varnames:
-      - None
-      - Organizer
-      - Accepted
-      - Declined
-      - TentativelyAccepted
-      - NotResponded
-    FocusTimeSettingsView:
-      required:
-      - schedulingType
-      - schedulingTypeV2
-      type: object
-      properties:
-        schedulingType:
-          $ref: '#/components/schemas/FocusTimeSchedulingType'
-        schedulingTypeV2:
-          $ref: '#/components/schemas/FocusTimeSchedulingTypeV2'
-        balloonFill:
-          allOf:
-          - $ref: '#/components/schemas/BalloonFillView'
-        circuitBreaker:
-          allOf:
-          - $ref: '#/components/schemas/CircuitBreakerView'
-    AssistType:
-      type: string
-      enum:
-      - TASK
-      - CUSTOM_DAILY
-      - CATCHUP_AM
-      - CATCHUP_PM
-      - LUNCH
-      - FOCUS
-      - TRAVEL_PRE
-      - TRAVEL_POST
-      - CONBUF
-      - SMART_HABIT
-      - SMART_MEETING
-      - RECLAIM_FOCUS
-    AssistDetails:
-      type: object
-      properties:
-        type:
-          $ref: '#/components/schemas/AssistType'
-        customHabit:
-          type: boolean
-        smartSeries:
-          type: boolean
-        focus:
-          type: boolean
-        habitOrTask:
-          type: boolean
-        task:
-          type: boolean
-        conferenceBuffer:
-          type: boolean
-        travelBuffer:
-          type: boolean
-        status:
-          $ref: '#/components/schemas/AssistStatus'
-        travelNewEventId:
-          type:
-          - string
-          - 'null'
-          description: The source event id for a travel assist event.
-        conferenceEventId:
-          type:
-          - string
-          - 'null'
-          description: The source event id for a conference (decompression time) event.
-        lastControlledUpdate:
-          type: string
-          format: date-time
-        lastControlledHash:
-          type: integer
-          format: int32
-        defended:
-          type: boolean
-        pinned:
-          type: boolean
-        lockState:
-          allOf:
-          - $ref: '#/components/schemas/LockState'
-        dailyHabitId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        seriesLineageId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        seriesId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        taskId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        taskIndex:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        policyOverride:
-          allOf:
-          - $ref: '#/components/schemas/AssistPolicyOverride'
-        lastManualAdjustment:
-          type: string
-          format: date-time
-        recurringAssignmentType:
-          $ref: '#/components/schemas/RecurringAssignmentType'
-        eventType:
-          $ref: '#/components/schemas/ReclaimEventType'
-        manuallyStarted:
-          type: boolean
-        focusId:
-          type:
-          - integer
-          - 'null'
-          format: int64
-        assistReferenceValid:
-          type: boolean
-      description: This entity maps to the assist_events table.
-    EventKey:
-      required:
-      - calendarId
-      - eventId
-      type: object
-      properties:
-        eventId:
-          type: string
-        calendarId:
-          type: integer
-          format: int64
-    FocusTimeSchedulingType:
-      type: string
-      deprecated: true
-      enum:
-      - BALLOON_FILL
-      - BALLOON_FILL_MAXIMIZE_DURATIONS
-      - CIRCUIT_BREAKER_WEEK_LEVEL
-      - CIRCUIT_BREAKER_DAY_LEVEL
-      - CIRCUIT_BREAKER_WEEK_AND_DAY_LEVEL
     SnoozeOption:
       type: string
       enum:
@@ -360,6 +179,78 @@ components:
       - TOMORROW
       - IN_TWO_DAYS
       - NEXT_WEEK
+    AssistStatus:
+      type: string
+      enum:
+      - CONTROLLED
+      - RELEASED
+      - ARCHIVED
+    Colorized:
+      type: object
+      properties:
+        color:
+          $ref: '#/components/schemas/EventColor'
+    PlatformEventType:
+      type: string
+      enum:
+      - DEFAULT
+      - OUT_OF_OFFICE
+      - FROM_MAIL
+      - WORKING_LOCATION
+      - FOCUS_TIME
+      - BIRTHDAY
+    EventAttendee:
+      required:
+      - email
+      type: object
+      properties:
+        email:
+          type: string
+        self:
+          type:
+          - boolean
+          - 'null'
+        displayName:
+          type:
+          - string
+          - 'null'
+        responseStatus:
+          allOf:
+          - $ref: '#/components/schemas/ResponseStatus'
+        comment:
+          type:
+          - string
+          - 'null'
+        optional:
+          type:
+          - boolean
+          - 'null'
+        additionalGuests:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        organizer:
+          type:
+          - boolean
+          - 'null'
+        resource:
+          type:
+          - boolean
+          - 'null'
+    GoogleCalendarEventMetadata:
+      required:
+      - guestsCanInviteOthers
+      - guestsCanModify
+      - guestsCanSeeOtherGuests
+      type: object
+      properties:
+        guestsCanModify:
+          type: boolean
+        guestsCanInviteOthers:
+          type: boolean
+        guestsCanSeeOtherGuests:
+          type: boolean
     FocusType:
       type: string
       enum:
@@ -391,6 +282,171 @@ components:
           format: int32
         forceDefend:
           type: boolean
+    EventStatus:
+      type: string
+      enum:
+      - PUBLISHED
+      - CANCELLED
+    ResponseStatus:
+      type: string
+      enum:
+      - DECLINED
+      - NEEDS_ACTION
+      - TENTATIVE
+      - ACCEPTED
+      - UNKNOWN
+    FocusTimeBalloonFillType:
+      type: string
+      enum:
+      - BALLOON_FILL_NORMAL
+      - BALLOON_FILL_MAXIMIZE_DURATIONS
+    MeetingType:
+      type: string
+      enum:
+      - DIRECT_11
+      - PEER_11
+      - SKIP_11
+      - XFUNC_11
+      - OTHER_11
+      - TEAM
+      - XFUNC_TEAM
+      - EXEC
+      - SKIP_TEAM
+      - ALL_HANDS
+      - ONBOARDING_TRAINING
+      - COMPANY_EVENT
+      - BOARD_MEETING
+      - OTHER_STAFF
+      - DEAL_REVIEW
+      - EXECUTION_REVIEW
+      - DEMO
+      - PLANNING_MEETING
+      - RETRO
+      - EMERGENCY
+      - PEOPLE_REVIEW
+      - OTHER_OP
+      - ROADMAP
+      - CUST_MEETING
+      - CUST_RESEARCH
+      - CUST_URGENT
+      - RECRUIT_SCREEN
+      - OTHER_EXTERNAL
+      - DESIGN_BRAIN
+      - TECH_REVIEW
+      - KICKOFF
+      - REQ_BRAIN
+      - OTHER_IDEATION
+      - UNKNOWN
+    FocusTimeSchedulingTypeV2:
+      type: string
+      enum:
+      - BALLOON_FILL
+      - CIRCUIT_BREAKER
+    EventType:
+      type: string
+      enum:
+      - MEETING
+      - WORK
+      - LOGISTICS
+      - PERSONAL
+    CircuitBreakerView:
+      required:
+      - availableChunksInDayThreshold
+      - availableChunksInWeekThreshold
+      - type
+      type: object
+      properties:
+        availableChunksInWeekThreshold:
+          type: integer
+          format: int32
+        availableChunksInDayThreshold:
+          type: integer
+          format: int32
+        type:
+          $ref: '#/components/schemas/FocusTimeCircuitBreakerType'
+        minDurationChunks:
+          type:
+          - integer
+          - 'null'
+          format: int32
+    UserFocusSettingsStatus:
+      type: string
+      enum:
+      - ACTIVE
+      - DISABLED
+      - CALENDAR_NOT_FOUND
+      - CALENDAR_NOT_VALID
+      - CALENDAR_NOT_CONNECTED
+      - CALENDAR_NOT_WRITABLE
+      - INACTIVE_MULTI_CONNECTED_CALENDAR
+    MergeDetails.EventType:
+      type: string
+      enum:
+      - ORGANIZER_EVENT
+      - ATTENDEE_EVENT
+      - SYNC_EVENT
+    LockState:
+      type: string
+      enum:
+      - MANUALLY_LOCKED
+      - ADJUSTED
+      - UPCOMING_WINDOW
+      - MANUALLY_UNLOCKED
+      - DELETED
+      - DECLINED
+      - IN_THE_PAST
+    FocusTimeSettingsView:
+      required:
+      - schedulingType
+      - schedulingTypeV2
+      type: object
+      properties:
+        schedulingType:
+          $ref: '#/components/schemas/FocusTimeSchedulingType'
+        schedulingTypeV2:
+          $ref: '#/components/schemas/FocusTimeSchedulingTypeV2'
+        balloonFill:
+          allOf:
+          - $ref: '#/components/schemas/BalloonFillView'
+        circuitBreaker:
+          allOf:
+          - $ref: '#/components/schemas/CircuitBreakerView'
+    FocusTimeSchedulingType:
+      type: string
+      deprecated: true
+      enum:
+      - BALLOON_FILL
+      - BALLOON_FILL_MAXIMIZE_DURATIONS
+      - CIRCUIT_BREAKER_WEEK_LEVEL
+      - CIRCUIT_BREAKER_DAY_LEVEL
+      - CIRCUIT_BREAKER_WEEK_AND_DAY_LEVEL
+    MergeDetails:
+      required:
+      - key
+      - sourceCalendarId
+      - sourceReclaimCalendarId
+      - type
+      type: object
+      properties:
+        key:
+          type: string
+        type:
+          $ref: '#/components/schemas/MergeDetails.EventType'
+        sourceCalendarId:
+          type:
+          - string
+          - 'null'
+        sourceReclaimCalendarId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+    FocusTimeCircuitBreakerType:
+      type: string
+      enum:
+      - WEEK
+      - DAY
+      - WEEK_AND_DAY
     Event:
       required:
       - allocatedTimeChunks
@@ -574,58 +630,12 @@ components:
             existing logic for detecting and parsing event information, even when the event ID cannot be directly
 
             relied upon (e.g., in Microsoft calendars).'
-    MeetingType:
+    PrioritySource:
       type: string
       enum:
-      - DIRECT_11
-      - PEER_11
-      - SKIP_11
-      - XFUNC_11
-      - OTHER_11
-      - TEAM
-      - XFUNC_TEAM
-      - EXEC
-      - SKIP_TEAM
-      - ALL_HANDS
-      - ONBOARDING_TRAINING
-      - COMPANY_EVENT
-      - BOARD_MEETING
-      - OTHER_STAFF
-      - DEAL_REVIEW
-      - EXECUTION_REVIEW
-      - DEMO
-      - PLANNING_MEETING
-      - RETRO
-      - EMERGENCY
-      - PEOPLE_REVIEW
-      - OTHER_OP
-      - ROADMAP
-      - CUST_MEETING
-      - CUST_RESEARCH
-      - CUST_URGENT
-      - RECRUIT_SCREEN
-      - OTHER_EXTERNAL
-      - DESIGN_BRAIN
-      - TECH_REVIEW
-      - KICKOFF
-      - REQ_BRAIN
-      - OTHER_IDEATION
-      - UNKNOWN
-    EventColor:
-      type: string
-      enum:
-      - NONE
-      - LAVENDER
-      - SAGE
-      - GRAPE
-      - FLAMINGO
-      - BANANA
-      - TANGERINE
-      - PEACOCK
-      - GRAPHITE
-      - BLUEBERRY
-      - BASIL
-      - TOMATO
+      - MANUAL
+      - AI
+      - RULES
     FocusPlannerActionResult:
       required:
       - events
@@ -641,92 +651,63 @@ components:
           $ref: '#/components/schemas/UserFocusSettingsView'
         userInfoMessage:
           type: string
-    EventAttendee:
-      required:
-      - email
-      type: object
-      properties:
-        email:
-          type: string
-        self:
-          type:
-          - boolean
-          - 'null'
-        displayName:
-          type:
-          - string
-          - 'null'
-        responseStatus:
-          allOf:
-          - $ref: '#/components/schemas/ResponseStatus'
-        comment:
-          type:
-          - string
-          - 'null'
-        optional:
-          type:
-          - boolean
-          - 'null'
-        additionalGuests:
-          type:
-          - integer
-          - 'null'
-          format: int32
-        organizer:
-          type:
-          - boolean
-          - 'null'
-        resource:
-          type:
-          - boolean
-          - 'null'
-    PrioritySource:
+    AssistType:
       type: string
       enum:
-      - MANUAL
-      - AI
-      - RULES
-    PlatformEventType:
+      - TASK
+      - CUSTOM_DAILY
+      - CATCHUP_AM
+      - CATCHUP_PM
+      - LUNCH
+      - FOCUS
+      - TRAVEL_PRE
+      - TRAVEL_POST
+      - CONBUF
+      - SMART_HABIT
+      - SMART_MEETING
+      - RECLAIM_FOCUS
+    FocusVisibility:
       type: string
       enum:
       - DEFAULT
-      - OUT_OF_OFFICE
-      - FROM_MAIL
-      - WORKING_LOCATION
-      - FOCUS_TIME
-      - BIRTHDAY
-    PriorityLevel:
+      - PRIVATE
+      - PUBLIC
+    EventCategory:
+      $ref: '#/components/schemas/Colorized'
+    EventColor:
       type: string
       enum:
-      - P1
-      - P2
-      - P3
-      - P4
-      - PRIORITIZE
-      - DEFAULT
-      x-deprecated:
-      - PRIORITIZE
-      - DEFAULT
-    CircuitBreakerView:
-      required:
-      - availableChunksInDayThreshold
-      - availableChunksInWeekThreshold
-      - type
-      type: object
-      properties:
-        availableChunksInWeekThreshold:
-          type: integer
-          format: int32
-        availableChunksInDayThreshold:
-          type: integer
-          format: int32
-        type:
-          $ref: '#/components/schemas/FocusTimeCircuitBreakerType'
-        minDurationChunks:
-          type:
-          - integer
-          - 'null'
-          format: int32
+      - NONE
+      - LAVENDER
+      - SAGE
+      - GRAPE
+      - FLAMINGO
+      - BANANA
+      - TANGERINE
+      - PEACOCK
+      - GRAPHITE
+      - BLUEBERRY
+      - BASIL
+      - TOMATO
+    EventSubType:
+      type: string
+      enum:
+      - ONE_ON_ONE
+      - STAFF_MEETING
+      - OP_REVIEW
+      - EXTERNAL
+      - IDEATION
+      - FOCUS
+      - PRODUCTIVITY
+      - TRAVEL
+      - FLIGHT
+      - TRAIN
+      - RECLAIM
+      - VACATION
+      - HEALTH
+      - ERRAND
+      - OTHER_PERSONAL
+      - UNKNOWN
     UserFocusSettingsView:
       required:
       - autoDecline
@@ -771,19 +752,32 @@ components:
           format: int64
         visibility:
           $ref: '#/components/schemas/FocusVisibility'
-    AssistStatus:
+    EventKey:
+      required:
+      - calendarId
+      - eventId
+      type: object
+      properties:
+        eventId:
+          type: string
+        calendarId:
+          type: integer
+          format: int64
+    ReclaimEventType:
       type: string
       enum:
-      - CONTROLLED
-      - RELEASED
-      - ARCHIVED
-    EventType:
-      type: string
-      enum:
-      - MEETING
-      - WORK
-      - LOGISTICS
-      - PERSONAL
+      - USER
+      - SYNC
+      - HABIT_ASSIGNMENT
+      - SMART_HABIT
+      - ONE_ON_ONE_ASSIGNMENT
+      - SMART_MEETING
+      - TASK_ASSIGNMENT
+      - CONF_BUFFER
+      - TRAVEL_BUFFER
+      - SCHEDULING_LINK_MEETING
+      - UNKNOWN
+      - FOCUS
     BalloonFillView:
       required:
       - targetChunksPerWeek
@@ -815,121 +809,123 @@ components:
           format: int32
         type:
           $ref: '#/components/schemas/FocusTimeBalloonFillType'
-    GoogleCalendarEventMetadata:
-      required:
-      - guestsCanInviteOthers
-      - guestsCanModify
-      - guestsCanSeeOtherGuests
-      type: object
-      properties:
-        guestsCanModify:
-          type: boolean
-        guestsCanInviteOthers:
-          type: boolean
-        guestsCanSeeOtherGuests:
-          type: boolean
-    ResponseStatus:
+    PriorityLevel:
       type: string
       enum:
-      - DECLINED
-      - NEEDS_ACTION
-      - TENTATIVE
-      - ACCEPTED
-      - UNKNOWN
-    UserFocusSettingsStatus:
-      type: string
-      enum:
-      - ACTIVE
-      - DISABLED
-      - CALENDAR_NOT_FOUND
-      - CALENDAR_NOT_VALID
-      - CALENDAR_NOT_CONNECTED
-      - CALENDAR_NOT_WRITABLE
-      - INACTIVE_MULTI_CONNECTED_CALENDAR
-    Colorized:
-      type: object
-      properties:
-        color:
-          $ref: '#/components/schemas/EventColor'
-    RecurringAssignmentType:
-      type: string
-      enum:
-      - ONE_ON_ONE
-      - DAILY_HABIT
-      - TASK
-    FocusVisibility:
-      type: string
-      enum:
+      - P1
+      - P2
+      - P3
+      - P4
+      - PRIORITIZE
       - DEFAULT
-      - PRIVATE
-      - PUBLIC
-    EventStatus:
+      x-deprecated:
+      - PRIORITIZE
+      - DEFAULT
+    EventResponseStatus:
       type: string
       enum:
-      - PUBLISHED
-      - CANCELLED
-    MergeDetails:
-      required:
-      - key
-      - sourceCalendarId
-      - sourceReclaimCalendarId
-      - type
+      - None
+      - Organizer
+      - Accepted
+      - Declined
+      - TentativelyAccepted
+      - NotResponded
+      x-enum-varnames:
+      - None
+      - Organizer
+      - Accepted
+      - Declined
+      - TentativelyAccepted
+      - NotResponded
+    AssistDetails:
       type: object
       properties:
-        key:
-          type: string
         type:
-          $ref: '#/components/schemas/MergeDetails.EventType'
-        sourceCalendarId:
+          $ref: '#/components/schemas/AssistType'
+        customHabit:
+          type: boolean
+        smartSeries:
+          type: boolean
+        focus:
+          type: boolean
+        habitOrTask:
+          type: boolean
+        task:
+          type: boolean
+        conferenceBuffer:
+          type: boolean
+        travelBuffer:
+          type: boolean
+        status:
+          $ref: '#/components/schemas/AssistStatus'
+        travelNewEventId:
           type:
           - string
           - 'null'
-        sourceReclaimCalendarId:
+          description: The source event id for a travel assist event.
+        conferenceEventId:
+          type:
+          - string
+          - 'null'
+          description: The source event id for a conference (decompression time) event.
+        lastControlledUpdate:
+          type: string
+          format: date-time
+        lastControlledHash:
+          type: integer
+          format: int32
+        defended:
+          type: boolean
+        pinned:
+          type: boolean
+        lockState:
+          allOf:
+          - $ref: '#/components/schemas/LockState'
+        dailyHabitId:
           type:
           - integer
           - 'null'
           format: int64
-    MergeDetails.EventType:
-      type: string
-      enum:
-      - ORGANIZER_EVENT
-      - ATTENDEE_EVENT
-      - SYNC_EVENT
-    LockState:
-      type: string
-      enum:
-      - MANUALLY_LOCKED
-      - ADJUSTED
-      - UPCOMING_WINDOW
-      - MANUALLY_UNLOCKED
-      - DELETED
-      - DECLINED
-      - IN_THE_PAST
-    EventSubType:
-      type: string
-      enum:
-      - ONE_ON_ONE
-      - STAFF_MEETING
-      - OP_REVIEW
-      - EXTERNAL
-      - IDEATION
-      - FOCUS
-      - PRODUCTIVITY
-      - TRAVEL
-      - FLIGHT
-      - TRAIN
-      - RECLAIM
-      - VACATION
-      - HEALTH
-      - ERRAND
-      - OTHER_PERSONAL
-      - UNKNOWN
-    FocusTimeCircuitBreakerType:
-      type: string
-      enum:
-      - WEEK
-      - DAY
-      - WEEK_AND_DAY
+        seriesLineageId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        seriesId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        taskId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        taskIndex:
+          type:
+          - integer
+          - 'null'
+          format: int32
+        policyOverride:
+          allOf:
+          - $ref: '#/components/schemas/AssistPolicyOverride'
+        lastManualAdjustment:
+          type: string
+          format: date-time
+        recurringAssignmentType:
+          $ref: '#/components/schemas/RecurringAssignmentType'
+        eventType:
+          $ref: '#/components/schemas/ReclaimEventType'
+        manuallyStarted:
+          type: boolean
+        focusId:
+          type:
+          - integer
+          - 'null'
+          format: int64
+        assistReferenceValid:
+          type: boolean
+      description: This entity maps to the assist_events table.
     EventSourceDetails:
       required:
       - base64Id
@@ -962,8 +958,12 @@ components:
           type: string
         description:
           type: string
-    EventCategory:
-      $ref: '#/components/schemas/Colorized'
+    RecurringAssignmentType:
+      type: string
+      enum:
+      - ONE_ON_ONE
+      - DAILY_HABIT
+      - TASK
   securitySchemes:
     Authorization:
       type: oauth2

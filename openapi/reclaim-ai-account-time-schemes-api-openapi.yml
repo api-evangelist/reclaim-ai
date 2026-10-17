@@ -83,6 +83,30 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    LocalTimeInterval:
+      required:
+      - end
+      - start
+      type: object
+      properties:
+        start:
+          type: string
+          format: partial-time
+        end:
+          type: string
+          format: partial-time
+        duration:
+          type: string
+    EntityTypePermissions:
+      required:
+      - canCreate
+      - canView
+      type: object
+      properties:
+        canView:
+          type: boolean
+        canCreate:
+          type: boolean
     DayOfWeek:
       type: string
       enum:
@@ -100,109 +124,6 @@ components:
       properties:
         access:
           $ref: '#/components/schemas/EntityTypeAccessView'
-    DayHours:
-      required:
-      - intervals
-      type: object
-      properties:
-        intervals:
-          type: array
-          items:
-            $ref: '#/components/schemas/LocalTimeInterval'
-        startOfDay:
-          type:
-          - string
-          - 'null'
-          format: partial-time
-        endOfDay:
-          type:
-          - string
-          - 'null'
-          format: partial-time
-    AccountTimeSchemePatchRequest:
-      type: object
-      properties:
-        title:
-          type: string
-        description:
-          type: string
-        policy:
-          $ref: '#/components/schemas/TimePolicy'
-    TimePolicyType:
-      type: string
-      enum:
-      - WORK
-      - PERSONAL
-      - MEETING
-      - ONE_OFF
-      - INHERITED
-      - CUSTOM
-    EntityTypePermissions:
-      required:
-      - canCreate
-      - canView
-      type: object
-      properties:
-        canView:
-          type: boolean
-        canCreate:
-          type: boolean
-    LocalTimeInterval:
-      required:
-      - end
-      - start
-      type: object
-      properties:
-        start:
-          type: string
-          format: partial-time
-        end:
-          type: string
-          format: partial-time
-        duration:
-          type: string
-    EntityType:
-      type: string
-      enum:
-      - ACCOUNT_INVITATION
-      - ACCOUNT_TIME_SCHEMES
-      - WEBHOOKS_CONFIG
-      - WEBHOOKS_ASSOCIATION
-      - SMART_HABIT_TEMPLATES
-      - TEAM
-    EntityTypePermissionsView:
-      required:
-      - permissions
-      - type
-      type: object
-      properties:
-        type:
-          $ref: '#/components/schemas/EntityType'
-        permissions:
-          $ref: '#/components/schemas/EntityTypePermissions'
-    AccountTimeSchemeCreateRequest:
-      required:
-      - policy
-      - policyType
-      - title
-      type: object
-      properties:
-        policyType:
-          $ref: '#/components/schemas/TimePolicyType'
-        policy:
-          $ref: '#/components/schemas/TimePolicy'
-        title:
-          minLength: 1
-          type: string
-        description:
-          type: string
-    EntityTypeAccessView:
-      required:
-      - permissions
-      type: object
-      properties:
-        permissions:
-          $ref: '#/components/schemas/EntityTypePermissionsView'
     AccountTimeSchemeView:
       required:
       - accountId
@@ -230,6 +151,57 @@ components:
           - 'null'
         entityType:
           $ref: '#/components/schemas/EntityTypeView'
+    EntityTypeAccessView:
+      required:
+      - permissions
+      type: object
+      properties:
+        permissions:
+          $ref: '#/components/schemas/EntityTypePermissionsView'
+    AccountTimeSchemeCreateRequest:
+      required:
+      - policy
+      - policyType
+      - title
+      type: object
+      properties:
+        policyType:
+          $ref: '#/components/schemas/TimePolicyType'
+        policy:
+          $ref: '#/components/schemas/TimePolicy'
+        title:
+          minLength: 1
+          type: string
+        description:
+          type: string
+    AccountTimeSchemePatchRequest:
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        policy:
+          $ref: '#/components/schemas/TimePolicy'
+    TimePolicyType:
+      type: string
+      enum:
+      - WORK
+      - PERSONAL
+      - MEETING
+      - ONE_OFF
+      - INHERITED
+      - CUSTOM
+    EntityTypePermissionsView:
+      required:
+      - permissions
+      - type
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/EntityType'
+        permissions:
+          $ref: '#/components/schemas/EntityTypePermissions'
     TimePolicy:
       required:
       - dayHours
@@ -255,6 +227,34 @@ components:
               $ref: '#/components/schemas/DayHours'
             SUNDAY:
               $ref: '#/components/schemas/DayHours'
+    EntityType:
+      type: string
+      enum:
+      - ACCOUNT_INVITATION
+      - ACCOUNT_TIME_SCHEMES
+      - WEBHOOKS_CONFIG
+      - WEBHOOKS_ASSOCIATION
+      - SMART_HABIT_TEMPLATES
+      - TEAM
+    DayHours:
+      required:
+      - intervals
+      type: object
+      properties:
+        intervals:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocalTimeInterval'
+        startOfDay:
+          type:
+          - string
+          - 'null'
+          format: partial-time
+        endOfDay:
+          type:
+          - string
+          - 'null'
+          format: partial-time
   securitySchemes:
     Authorization:
       type: oauth2

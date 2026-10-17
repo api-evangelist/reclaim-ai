@@ -52,8 +52,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    EnumMap_NotificationChannel.Boolean_:
-      $ref: '#/components/schemas/AbstractMap_NotificationChannel.Boolean_'
     NotificationSettingsRequest:
       required:
       - settings
@@ -84,6 +82,8 @@ components:
           - integer
           - 'null'
           format: int32
+    EnumMap_NotificationChannel.Boolean_:
+      $ref: '#/components/schemas/AbstractMap_NotificationChannel.Boolean_'
     NotificationSettingsView:
       required:
       - allowSlackNotificationsWithinDays

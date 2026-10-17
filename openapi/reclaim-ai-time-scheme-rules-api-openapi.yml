@@ -137,103 +137,16 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    TimeSchemeIntegrationRuleServiceType:
-      type: string
-      enum:
-      - TODOIST
-      - CLICK_UP
     TimeSchemeIntegrationRuleType:
       type: string
       enum:
       - CASE
       - OTHERWISE
-    TimeSchemeIntegrationRuleReindexRequest:
-      required:
-      - newIndex
-      - serviceType
-      - shiftDirection
-      type: object
-      properties:
-        serviceType:
-          $ref: '#/components/schemas/TimeSchemeIntegrationRuleServiceType'
-        workspaceId:
-          type:
-          - string
-          - 'null'
-        newIndex:
-          type: integer
-          format: int32
-        shiftDirection:
-          type: integer
-          format: int32
-    TimeSchemeIntegrationRuleCreateRequest:
-      required:
-      - action
-      - ruleType
-      - serviceType
-      type: object
-      properties:
-        labels:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-        projectIds:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-        action:
-          $ref: '#/components/schemas/TimeSchemeIntegrationRuleAction'
-        serviceType:
-          $ref: '#/components/schemas/TimeSchemeIntegrationRuleServiceType'
-        timeSchemeId:
-          type:
-          - string
-          - 'null'
-        ruleType:
-          $ref: '#/components/schemas/TimeSchemeIntegrationRuleType'
-        workspaceId:
-          type:
-          - string
-          - 'null'
-        dueDateRequired:
-          type:
-          - boolean
-          - 'null'
-    TimeSchemeIntegrationRuleUpdateRequest:
-      type: object
-      properties:
-        labels:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-        projectIds:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-        action:
-          allOf:
-          - $ref: '#/components/schemas/TimeSchemeIntegrationRuleAction'
-        timeSchemeId:
-          type:
-          - string
-          - 'null'
-        dueDateRequired:
-          type:
-          - boolean
-          - 'null'
-    TimeSchemeIntegrationRuleAction:
+    TimeSchemeIntegrationRuleServiceType:
       type: string
       enum:
-      - SYNC_TO
-      - DONT_SYNC
+      - TODOIST
+      - CLICK_UP
     TimeSchemeIntegrationRule:
       required:
       - action
@@ -281,6 +194,93 @@ components:
           type:
           - string
           - 'null'
+    TimeSchemeIntegrationRuleUpdateRequest:
+      type: object
+      properties:
+        labels:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        projectIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        action:
+          allOf:
+          - $ref: '#/components/schemas/TimeSchemeIntegrationRuleAction'
+        timeSchemeId:
+          type:
+          - string
+          - 'null'
+        dueDateRequired:
+          type:
+          - boolean
+          - 'null'
+    TimeSchemeIntegrationRuleCreateRequest:
+      required:
+      - action
+      - ruleType
+      - serviceType
+      type: object
+      properties:
+        labels:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        projectIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        action:
+          $ref: '#/components/schemas/TimeSchemeIntegrationRuleAction'
+        serviceType:
+          $ref: '#/components/schemas/TimeSchemeIntegrationRuleServiceType'
+        timeSchemeId:
+          type:
+          - string
+          - 'null'
+        ruleType:
+          $ref: '#/components/schemas/TimeSchemeIntegrationRuleType'
+        workspaceId:
+          type:
+          - string
+          - 'null'
+        dueDateRequired:
+          type:
+          - boolean
+          - 'null'
+    TimeSchemeIntegrationRuleAction:
+      type: string
+      enum:
+      - SYNC_TO
+      - DONT_SYNC
+    TimeSchemeIntegrationRuleReindexRequest:
+      required:
+      - newIndex
+      - serviceType
+      - shiftDirection
+      type: object
+      properties:
+        serviceType:
+          $ref: '#/components/schemas/TimeSchemeIntegrationRuleServiceType'
+        workspaceId:
+          type:
+          - string
+          - 'null'
+        newIndex:
+          type: integer
+          format: int32
+        shiftDirection:
+          type: integer
+          format: int32
   securitySchemes:
     Authorization:
       type: oauth2

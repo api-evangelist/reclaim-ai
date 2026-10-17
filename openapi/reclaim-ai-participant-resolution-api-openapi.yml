@@ -85,6 +85,20 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    LocalTimeInterval:
+      required:
+      - end
+      - start
+      type: object
+      properties:
+        start:
+          type: string
+          format: partial-time
+        end:
+          type: string
+          format: partial-time
+        duration:
+          type: string
     DayOfWeek:
       type: string
       enum:
@@ -95,30 +109,14 @@ components:
       - FRIDAY
       - SATURDAY
       - SUNDAY
-    BasicTimeSchemeView:
-      required:
-      - features
-      - id
-      - policy
-      - policyType
-      - title
-      - userId
-      type: object
-      properties:
-        id:
-          type: string
-        userId:
-          type: string
-        policyType:
-          $ref: '#/components/schemas/TimePolicyType'
-        policy:
-          $ref: '#/components/schemas/TimePolicy'
-        title:
-          type: string
-        features:
-          type: array
-          items:
-            $ref: '#/components/schemas/ReclaimEventType'
+    AttendeeCalendarVisibility:
+      type: string
+      enum:
+      - NONE
+      - FREE_BUSY
+      - DETAILS
+      - FULL
+      - RECLAIM
     ReclaimEventType:
       type: string
       enum:
@@ -134,59 +132,6 @@ components:
       - SCHEDULING_LINK_MEETING
       - UNKNOWN
       - FOCUS
-    ThinPerson:
-      required:
-      - email
-      type: object
-      properties:
-        reclaimUser:
-          type: boolean
-        userId:
-          type:
-          - string
-          - 'null'
-        email:
-          minLength: 1
-          type: string
-        name:
-          type: string
-        avatarUrl:
-          type: string
-        firstName:
-          type:
-          - string
-          - 'null'
-        lastName:
-          type:
-          - string
-          - 'null'
-    AttendeeCalendarVisibility:
-      type: string
-      enum:
-      - NONE
-      - FREE_BUSY
-      - DETAILS
-      - FULL
-      - RECLAIM
-    DayHours:
-      required:
-      - intervals
-      type: object
-      properties:
-        intervals:
-          type: array
-          items:
-            $ref: '#/components/schemas/LocalTimeInterval'
-        startOfDay:
-          type:
-          - string
-          - 'null'
-          format: partial-time
-        endOfDay:
-          type:
-          - string
-          - 'null'
-          format: partial-time
     TimePolicyType:
       type: string
       enum:
@@ -196,20 +141,6 @@ components:
       - ONE_OFF
       - INHERITED
       - CUSTOM
-    LocalTimeInterval:
-      required:
-      - end
-      - start
-      type: object
-      properties:
-        start:
-          type: string
-          format: partial-time
-        end:
-          type: string
-          format: partial-time
-        duration:
-          type: string
     AttendeeResolutionView:
       required:
       - matchedEmails
@@ -260,6 +191,75 @@ components:
               $ref: '#/components/schemas/DayHours'
             SUNDAY:
               $ref: '#/components/schemas/DayHours'
+    BasicTimeSchemeView:
+      required:
+      - features
+      - id
+      - policy
+      - policyType
+      - title
+      - userId
+      type: object
+      properties:
+        id:
+          type: string
+        userId:
+          type: string
+        policyType:
+          $ref: '#/components/schemas/TimePolicyType'
+        policy:
+          $ref: '#/components/schemas/TimePolicy'
+        title:
+          type: string
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReclaimEventType'
+    ThinPerson:
+      required:
+      - email
+      type: object
+      properties:
+        reclaimUser:
+          type: boolean
+        userId:
+          type:
+          - string
+          - 'null'
+        email:
+          minLength: 1
+          type: string
+        name:
+          type: string
+        avatarUrl:
+          type: string
+        firstName:
+          type:
+          - string
+          - 'null'
+        lastName:
+          type:
+          - string
+          - 'null'
+    DayHours:
+      required:
+      - intervals
+      type: object
+      properties:
+        intervals:
+          type: array
+          items:
+            $ref: '#/components/schemas/LocalTimeInterval'
+        startOfDay:
+          type:
+          - string
+          - 'null'
+          format: partial-time
+        endOfDay:
+          type:
+          - string
+          - 'null'
+          format: partial-time
   securitySchemes:
     Authorization:
       type: oauth2

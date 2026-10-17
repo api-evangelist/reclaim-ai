@@ -122,136 +122,7 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    ImmutableList_AbstractLinearTeam_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ImmutableCollection_AbstractLinearTeam_'
-      - $ref: '#/components/schemas/AbstractCollection_AbstractLinearTeam_'
-      - properties:
-          empty:
-            type: boolean
-          first:
-            $ref: '#/components/schemas/AbstractLinearTeam'
-          last:
-            $ref: '#/components/schemas/AbstractLinearTeam'
-    LinearIntegrationPatch:
-      type: object
-      properties:
-        requiresLabel:
-          type:
-          - boolean
-          - 'null'
-        dueDateRequired:
-          type:
-          - boolean
-          - 'null'
-        selectedTeamIds:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-        withRequiresLabel:
-          type: boolean
-        withDueDateRequired:
-          type: boolean
-        withSelectedTeamIds:
-          type:
-          - array
-          - 'null'
-          items:
-            type: string
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    ImmutableSet_String_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ImmutableCollection_String_'
-      - $ref: '#/components/schemas/AbstractCollection_String_'
-      - properties:
-          empty:
-            type: boolean
-          hashCodeFast:
-            type: boolean
-    ImmutableCollection_AbstractLinearTeam_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/AbstractCollection_AbstractLinearTeam_'
-      - properties:
-          empty:
-            type: boolean
-          partialView:
-            type: boolean
-    ImmutableCollection_String_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/AbstractCollection_String_'
-      - properties:
-          empty:
-            type: boolean
-          partialView:
-            type: boolean
-    LinearTaskDetails:
-      type: object
-      properties:
-        taskId:
-          type: integer
-          format: int64
-        owner:
-          type: boolean
-        status:
-          $ref: '#/components/schemas/TaskStatus'
-        withTaskId:
-          type: integer
-          format: int64
-        withOwner:
-          type: boolean
-        withStatus:
-          $ref: '#/components/schemas/TaskStatus'
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    LinearIntegration:
-      type: object
-      properties:
-        id:
-          type: string
-        requiresLabel:
-          type: boolean
-        requiresDueDate:
-          type: boolean
-        availableTeams:
-          $ref: '#/components/schemas/ImmutableList_AbstractLinearTeam_'
-        selectedTeamIds:
-          $ref: '#/components/schemas/ImmutableSet_String_'
-        withId:
-          type: string
-        withRequiresLabel:
-          type: boolean
-        withRequiresDueDate:
-          type: boolean
-        withAvailableTeams:
-          type: array
-          items:
-            $ref: '#/components/schemas/AbstractLinearTeam'
-        withSelectedTeamIds:
-          type: array
-          items:
-            type: string
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
-    AbstractCollection_String_:
+    AbstractCollection_AbstractLinearTeam_:
       type: object
       properties:
         empty:
@@ -293,6 +164,119 @@ components:
       - canceled
       - duplicate
       - unknown
+    LinearIntegrationPatch:
+      type: object
+      properties:
+        requiresLabel:
+          type:
+          - boolean
+          - 'null'
+        dueDateRequired:
+          type:
+          - boolean
+          - 'null'
+        selectedTeamIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        withRequiresLabel:
+          type: boolean
+        withDueDateRequired:
+          type: boolean
+        withSelectedTeamIds:
+          type:
+          - array
+          - 'null'
+          items:
+            type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    AbstractCollection_String_:
+      type: object
+      properties:
+        empty:
+          type: boolean
+    LinearTaskDetails:
+      type: object
+      properties:
+        taskId:
+          type: integer
+          format: int64
+        owner:
+          type: boolean
+        status:
+          $ref: '#/components/schemas/TaskStatus'
+        withTaskId:
+          type: integer
+          format: int64
+        withOwner:
+          type: boolean
+        withStatus:
+          $ref: '#/components/schemas/TaskStatus'
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    ImmutableCollection_String_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_String_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
+    ImmutableSet_String_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_String_'
+      - $ref: '#/components/schemas/AbstractCollection_String_'
+      - properties:
+          empty:
+            type: boolean
+          hashCodeFast:
+            type: boolean
+    LinearIntegration:
+      type: object
+      properties:
+        id:
+          type: string
+        requiresLabel:
+          type: boolean
+        requiresDueDate:
+          type: boolean
+        availableTeams:
+          $ref: '#/components/schemas/ImmutableList_AbstractLinearTeam_'
+        selectedTeamIds:
+          $ref: '#/components/schemas/ImmutableSet_String_'
+        withId:
+          type: string
+        withRequiresLabel:
+          type: boolean
+        withRequiresDueDate:
+          type: boolean
+        withAvailableTeams:
+          type: array
+          items:
+            $ref: '#/components/schemas/AbstractLinearTeam'
+        withSelectedTeamIds:
+          type: array
+          items:
+            type: string
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
     TaskStatus:
       type: string
       enum:
@@ -302,6 +286,18 @@ components:
       - COMPLETE
       - CANCELLED
       - ARCHIVED
+    ImmutableList_AbstractLinearTeam_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_AbstractLinearTeam_'
+      - $ref: '#/components/schemas/AbstractCollection_AbstractLinearTeam_'
+      - properties:
+          empty:
+            type: boolean
+          first:
+            $ref: '#/components/schemas/AbstractLinearTeam'
+          last:
+            $ref: '#/components/schemas/AbstractLinearTeam'
     LinearState:
       type: object
       properties:
@@ -341,11 +337,15 @@ components:
           format: int32
         toString:
           type: string
-    AbstractCollection_AbstractLinearTeam_:
+    ImmutableCollection_AbstractLinearTeam_:
       type: object
-      properties:
-        empty:
-          type: boolean
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_AbstractLinearTeam_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
   securitySchemes:
     Authorization:
       type: oauth2

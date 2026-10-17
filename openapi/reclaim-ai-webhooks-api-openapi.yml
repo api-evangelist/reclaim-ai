@@ -255,29 +255,70 @@ paths:
       - Authorization: []
 components:
   schemas:
-    WebhookStatus:
-      type: string
-      enum:
-      - ACTIVE
-      - SUSPENDED
-      - DISABLED
-      - DOWNGRADED
-    WebhookExternalPayload:
+    WebhookMessageView:
+      required:
+      - assigmentId
+      - assigmentSubId
+      - eventTs
+      - eventType
+      - id
+      - nextRetryAfter
+      - payload
+      - retries
+      - retriesCount
+      - status
       type: object
-      discriminator:
-        propertyName: type
-        mapping:
-          SchedulingLink.Meeting.Created: '#/components/schemas/WebhookExternalSchedulingLinkMeetingCreated'
-          SchedulingLink.Meeting.Updated: '#/components/schemas/WebhookExternalSchedulingLinkMeetingUpdated'
-          SchedulingLink.Meeting.Cancelled: '#/components/schemas/WebhookExternalSchedulingLinkMeetingCancelled'
-    WebhookMessageStatus:
+      properties:
+        id:
+          type: string
+        assigmentId:
+          type: string
+        assigmentSubId:
+          type: string
+        eventType:
+          $ref: '#/components/schemas/WebhookEventType'
+        payload:
+          $ref: '#/components/schemas/WebhookExternalPayload'
+        status:
+          $ref: '#/components/schemas/WebhookMessageStatus'
+        retriesCount:
+          type: integer
+          format: int32
+        eventTs:
+          type: string
+          format: date-time
+        lastAttemptAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        nextRetryAfter:
+          type: string
+          format: date-time
+        succeedAt:
+          type:
+          - string
+          - 'null'
+          format: date-time
+        retries:
+          type: array
+          items:
+            $ref: '#/components/schemas/WebhookMessageRequestHistoryView'
+    WebhookRetryRequest:
+      required:
+      - messageIds
+      type: object
+      properties:
+        messageIds:
+          type: array
+          items:
+            type: string
+    WebhookEventType:
       type: string
       enum:
-      - PENDING
-      - FAILURE_BUT_WILL_RETRY
-      - FAILED
-      - MANUAL_RETRY
-      - COMPLETED
+      - SCHEDULING_LINK_MEETING_CREATED
+      - SCHEDULING_LINK_MEETING_UPDATED
+      - SCHEDULING_LINK_MEETING_CANCELLED
     WebhookMessageRequestHistoryView:
       required:
       - at
@@ -293,6 +334,89 @@ components:
         at:
           type: string
           format: date-time
+    WebhookConfigRequest:
+      required:
+      - name
+      - status
+      - url
+      type: object
+      properties:
+        name:
+          maxLength: 40
+          minLength: 3
+          type: string
+        url:
+          type: string
+        status:
+          $ref: '#/components/schemas/WebhookStatus'
+        apiVersion:
+          allOf:
+          - $ref: '#/components/schemas/WebhookApiVersion'
+        secret:
+          maxLength: 60
+          minLength: 12
+          type:
+          - string
+          - 'null'
+    WebhookApiVersion:
+      type: string
+      enum:
+      - v2024-10-02
+      - v2025-01-15
+      - v2025-09-26
+      - v2026-04-13
+      x-enum-varnames:
+      - V2024_10_02
+      - V2025_01_15
+      - V2025_09_26
+      - V2026_04_13
+    WebhookExternalPayload:
+      type: object
+      discriminator:
+        propertyName: type
+        mapping:
+          SchedulingLink.Meeting.Created: '#/components/schemas/WebhookExternalSchedulingLinkMeetingCreated'
+          SchedulingLink.Meeting.Updated: '#/components/schemas/WebhookExternalSchedulingLinkMeetingUpdated'
+          SchedulingLink.Meeting.Cancelled: '#/components/schemas/WebhookExternalSchedulingLinkMeetingCancelled'
+    WebhookConfig:
+      required:
+      - apiVersion
+      - createdAt
+      - id
+      - name
+      - status
+      - url
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        url:
+          type: string
+        status:
+          $ref: '#/components/schemas/WebhookStatus'
+        apiVersion:
+          $ref: '#/components/schemas/WebhookApiVersion'
+        createdAt:
+          type: string
+          format: date-time
+    WebhookMessageStatus:
+      type: string
+      enum:
+      - PENDING
+      - FAILURE_BUT_WILL_RETRY
+      - FAILED
+      - MANUAL_RETRY
+      - COMPLETED
+    WebhookStatus:
+      type: string
+      enum:
+      - ACTIVE
+      - SUSPENDED
+      - DISABLED
+      - DOWNGRADED
     HttpStatus:
       type: string
       enum:
@@ -365,136 +489,6 @@ components:
       - NOT_EXTENDED
       - NETWORK_AUTHENTICATION_REQUIRED
       - CONNECTION_TIMED_OUT
-    WebhookConfigRequest:
-      required:
-      - name
-      - status
-      - url
-      type: object
-      properties:
-        name:
-          maxLength: 40
-          minLength: 3
-          type: string
-        url:
-          type: string
-        status:
-          $ref: '#/components/schemas/WebhookStatus'
-        apiVersion:
-          allOf:
-          - $ref: '#/components/schemas/WebhookApiVersion'
-        secret:
-          maxLength: 60
-          minLength: 12
-          type:
-          - string
-          - 'null'
-    WebhookRetryRequest:
-      required:
-      - messageIds
-      type: object
-      properties:
-        messageIds:
-          type: array
-          items:
-            type: string
-    WebhookEventType:
-      type: string
-      enum:
-      - SCHEDULING_LINK_MEETING_CREATED
-      - SCHEDULING_LINK_MEETING_UPDATED
-      - SCHEDULING_LINK_MEETING_CANCELLED
-    SortOrder:
-      type: string
-      enum:
-      - ASCENDING
-      - DESCENDING
-      - UNSORTED
-    WebhookConfig:
-      required:
-      - apiVersion
-      - createdAt
-      - id
-      - name
-      - status
-      - url
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        name:
-          type: string
-        url:
-          type: string
-        status:
-          $ref: '#/components/schemas/WebhookStatus'
-        apiVersion:
-          $ref: '#/components/schemas/WebhookApiVersion'
-        createdAt:
-          type: string
-          format: date-time
-    WebhookApiVersion:
-      type: string
-      enum:
-      - v2024-10-02
-      - v2025-01-15
-      - v2025-09-26
-      - v2026-04-13
-      x-enum-varnames:
-      - V2024_10_02
-      - V2025_01_15
-      - V2025_09_26
-      - V2026_04_13
-    WebhookMessageView:
-      required:
-      - assigmentId
-      - assigmentSubId
-      - eventTs
-      - eventType
-      - id
-      - nextRetryAfter
-      - payload
-      - retries
-      - retriesCount
-      - status
-      type: object
-      properties:
-        id:
-          type: string
-        assigmentId:
-          type: string
-        assigmentSubId:
-          type: string
-        eventType:
-          $ref: '#/components/schemas/WebhookEventType'
-        payload:
-          $ref: '#/components/schemas/WebhookExternalPayload'
-        status:
-          $ref: '#/components/schemas/WebhookMessageStatus'
-        retriesCount:
-          type: integer
-          format: int32
-        eventTs:
-          type: string
-          format: date-time
-        lastAttemptAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        nextRetryAfter:
-          type: string
-          format: date-time
-        succeedAt:
-          type:
-          - string
-          - 'null'
-          format: date-time
-        retries:
-          type: array
-          items:
-            $ref: '#/components/schemas/WebhookMessageRequestHistoryView'
     WebhookSecret:
       required:
       - generatedSecret
@@ -502,6 +496,12 @@ components:
       properties:
         generatedSecret:
           type: string
+    SortOrder:
+      type: string
+      enum:
+      - ASCENDING
+      - DESCENDING
+      - UNSORTED
   securitySchemes:
     Authorization:
       type: oauth2

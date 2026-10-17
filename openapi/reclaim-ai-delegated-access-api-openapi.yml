@@ -121,31 +121,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    DelegatedAccessView:
-      required:
-      - authorizedUserId
-      - enable
-      - grantorUserId
-      - id
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        grantorUserId:
-          type: string
-        authorizedUserId:
-          type: string
-        enable:
-          type: boolean
-    CreateDelegateAccessRequest:
-      required:
-      - userIdToAuthorize
-      type: object
-      properties:
-        userIdToAuthorize:
-          minLength: 1
-          type: string
     DelegatedAccessToggleRequest:
       required:
       - enable
@@ -179,6 +154,31 @@ components:
           type: array
           items:
             type: string
+    CreateDelegateAccessRequest:
+      required:
+      - userIdToAuthorize
+      type: object
+      properties:
+        userIdToAuthorize:
+          minLength: 1
+          type: string
+    DelegatedAccessView:
+      required:
+      - authorizedUserId
+      - enable
+      - grantorUserId
+      - id
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        grantorUserId:
+          type: string
+        authorizedUserId:
+          type: string
+        enable:
+          type: boolean
   securitySchemes:
     Authorization:
       type: oauth2

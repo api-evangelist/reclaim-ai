@@ -109,15 +109,50 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    AbstractCollection_JiraProject_:
+    JiraIntegrationPatch:
+      type: object
+      properties:
+        installation:
+          type: string
+        selected_project_keys:
+          $ref: '#/components/schemas/ImmutableSet_String_'
+        due_date_required:
+          type:
+          - boolean
+          - 'null'
+        withInstallation:
+          type: string
+        withSelected_project_keys:
+          type: array
+          items:
+            type: string
+        withDue_date_required:
+          type: boolean
+        equals: {}
+        hashCode:
+          type: integer
+          format: int32
+        toString:
+          type: string
+    ImmutableSet_JiraProject_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ImmutableCollection_JiraProject_'
+      - $ref: '#/components/schemas/AbstractCollection_JiraProject_'
+      - properties:
+          empty:
+            type: boolean
+          hashCodeFast:
+            type: boolean
+    AbstractCollection_String_:
       type: object
       properties:
         empty:
           type: boolean
-    ImmutableCollection_JiraProject_:
+    ImmutableCollection_String_:
       type: object
       allOf:
-      - $ref: '#/components/schemas/AbstractCollection_JiraProject_'
+      - $ref: '#/components/schemas/AbstractCollection_String_'
       - properties:
           empty:
             type: boolean
@@ -133,26 +168,7 @@ components:
             type: boolean
           hashCodeFast:
             type: boolean
-    ImmutableCollection_String_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/AbstractCollection_String_'
-      - properties:
-          empty:
-            type: boolean
-          partialView:
-            type: boolean
-    ImmutableSet_JiraProject_:
-      type: object
-      allOf:
-      - $ref: '#/components/schemas/ImmutableCollection_JiraProject_'
-      - $ref: '#/components/schemas/AbstractCollection_JiraProject_'
-      - properties:
-          empty:
-            type: boolean
-          hashCodeFast:
-            type: boolean
-    AbstractCollection_String_:
+    AbstractCollection_JiraProject_:
       type: object
       properties:
         empty:
@@ -190,6 +206,15 @@ components:
           format: int32
         toString:
           type: string
+    ImmutableCollection_JiraProject_:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractCollection_JiraProject_'
+      - properties:
+          empty:
+            type: boolean
+          partialView:
+            type: boolean
     JiraProject:
       type: object
       properties:
@@ -208,31 +233,6 @@ components:
         toString:
           type: string
         toAnalyticsValue: {}
-    JiraIntegrationPatch:
-      type: object
-      properties:
-        installation:
-          type: string
-        selected_project_keys:
-          $ref: '#/components/schemas/ImmutableSet_String_'
-        due_date_required:
-          type:
-          - boolean
-          - 'null'
-        withInstallation:
-          type: string
-        withSelected_project_keys:
-          type: array
-          items:
-            type: string
-        withDue_date_required:
-          type: boolean
-        equals: {}
-        hashCode:
-          type: integer
-          format: int32
-        toString:
-          type: string
   securitySchemes:
     Authorization:
       type: oauth2

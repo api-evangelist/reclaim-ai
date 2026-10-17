@@ -38,6 +38,16 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    NotificationChannelMessageStatus:
+      type: string
+      enum:
+      - PENDING
+      - EXPIRED
+      - NO_LONGER_NEEDED
+      - SENT
+      - INVALIDATED
+      - FAILURE_BUT_WILL_RETRY
+      - FAILED
     NotificationContext:
       type: object
       discriminator:
@@ -54,6 +64,46 @@ components:
           EVENT_CONFLICT: '#/components/schemas/EventsConflictContext'
       allOf:
       - $ref: '#/components/schemas/LogContext'
+    UserIdentifier:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+    NotificationWithMessages:
+      required:
+      - messages
+      - notification
+      type: object
+      properties:
+        notification:
+          $ref: '#/components/schemas/Notification'
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/ChannelMessage'
+    LogContext:
+      type: object
+    NotificationType:
+      type: string
+      enum:
+      - DAILY_DIGEST
+      - WEEKLY_DIGEST
+      - EVENT_CONFLICT
+      - EVENT_ABOUT_TO_START
+      - INVITED_TO_MEETING
+      - MEETING_UPDATED
+      - MEETING_CANCELLED
+      - APP_UPDATES
+      - EVENT_REMINDERS
+    NotificationStatus:
+      type: string
+      enum:
+      - PENDING
+      - PROCESSED
+      - EXPIRED
+      - NO_LONGER_NEEDED
     ChannelMessage:
       required:
       - channel
@@ -87,11 +137,14 @@ components:
           - string
           - 'null'
           format: date-time
-    NotificationChannel:
-      type: string
-      enum:
-      - SLACK
-      - EMAIL
+    ChannelMessageId:
+      required:
+      - id
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
     Notification:
       required:
       - context
@@ -115,23 +168,6 @@ components:
           $ref: '#/components/schemas/NotificationContext'
         status:
           $ref: '#/components/schemas/NotificationStatus'
-    NotificationChannelMessageStatus:
-      type: string
-      enum:
-      - PENDING
-      - EXPIRED
-      - NO_LONGER_NEEDED
-      - SENT
-      - INVALIDATED
-      - FAILURE_BUT_WILL_RETRY
-      - FAILED
-    NotificationStatus:
-      type: string
-      enum:
-      - PENDING
-      - PROCESSED
-      - EXPIRED
-      - NO_LONGER_NEEDED
     NotificationId:
       required:
       - id
@@ -140,47 +176,11 @@ components:
         id:
           type: string
           format: uuid
-    NotificationType:
+    NotificationChannel:
       type: string
       enum:
-      - DAILY_DIGEST
-      - WEEKLY_DIGEST
-      - EVENT_CONFLICT
-      - EVENT_ABOUT_TO_START
-      - INVITED_TO_MEETING
-      - MEETING_UPDATED
-      - MEETING_CANCELLED
-      - APP_UPDATES
-      - EVENT_REMINDERS
-    UserIdentifier:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          type: string
-    LogContext:
-      type: object
-    ChannelMessageId:
-      required:
-      - id
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-    NotificationWithMessages:
-      required:
-      - messages
-      - notification
-      type: object
-      properties:
-        notification:
-          $ref: '#/components/schemas/Notification'
-        messages:
-          type: array
-          items:
-            $ref: '#/components/schemas/ChannelMessage'
+      - SLACK
+      - EMAIL
   securitySchemes:
     Authorization:
       type: oauth2

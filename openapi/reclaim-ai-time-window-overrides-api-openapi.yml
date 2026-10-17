@@ -76,26 +76,6 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    TimeWindowOverrideView:
-      required:
-      - endDate
-      - id
-      - startDate
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        startDate:
-          type: string
-          format: date
-        endDate:
-          type: string
-          format: date
-        timezone:
-          type:
-          - string
-          - 'null'
     TimeWindowOverrideRequest:
       required:
       - endDate
@@ -125,6 +105,26 @@ components:
             $ref: '#/components/schemas/TimeWindowOverrideView'
         defaultTimezone:
           type: string
+    TimeWindowOverrideView:
+      required:
+      - endDate
+      - id
+      - startDate
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        startDate:
+          type: string
+          format: date
+        endDate:
+          type: string
+          format: date
+        timezone:
+          type:
+          - string
+          - 'null'
   securitySchemes:
     Authorization:
       type: oauth2
